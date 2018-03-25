@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Account Re-Link Detail</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Account Re-Link Details</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account Re-Link --></label>
+        <name>Account_ReLink__c</name>
+        <relationshipLabel><!-- Account Re-Link Details --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Detail Message --></label>
+        <name>Detail_Message__c</name>
+    </fields>
+    <fields>
+        <label><!-- Detail Status --></label>
+        <name>Detail_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Object ID --></label>
+        <name>Object_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Object Link --></label>
+        <name>Object_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Object Type --></label>
+        <name>Object_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Owner Link --></label>
+        <name>Owner_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Owner Name --></label>
+        <name>Owner_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Owner Status --></label>
+        <name>Owner_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Owner --></label>
+        <name>Owner__c</name>
+    </fields>
+    <fields>
+        <label><!-- Replacement Owner --></label>
+        <name>Replacement_Owner__c</name>
+        <relationshipLabel><!-- Account Re-Link Details --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Account Re-Link Detail Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,294 @@
+<apex:page controller="CB_AccountDashboard" tabStyle="Account">
+    
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.7.2.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.8.20.custom.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.jQueryDataTables_v194, 'media/js/jquery.dataTables.js')}" />
+    
+    <script type="text/javascript">
+        // check to see if no conflict mode is already set. if not, set it
+        var j$; if(!j$) { j$ = jQuery.noConflict(); }
+        
+        // Datatables Date sorting plugin 
+        jQuery.fn.dataTableExt.oSort['us_date-asc'] = function(a,b) {
+            var x = new Date(a), y = new Date(b);
+            return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+        };
+        
+        jQuery.fn.dataTableExt.oSort['us_date-desc'] = function(a,b) {
+            var x = new Date(a), y = new Date(b);
+            return ((x < y) ? 1 : ((x > y) ? -1 : 0));
+        };
+        // end Datatables Date sorting plugin 
+        
+        // initialize the datatable for sorting 
+        j$(document).ready(function(){ 
+            j$("table.datatable").dataTable({
+                "bJQueryUI": true,
+                "bPaginate": false, 
+                "bFilter": false, 
+                "bInfo": false, 
+                "bSort": true,
+                "aaSorting": [[ 3, "desc" ]],
+                "aoColumns": [
+                    { "sType": "html" },    // Activity Owner 
+                    { "sType": "string" },  // On Account Team? 
+                    { "sType": "string" },  // Account Team Role 
+                    { "sType": "us_date" }, // Date 
+                    { "sType": "html" },    // Contact 
+                    { "sType": "html" },    // Subject 
+                    { "sType": "string" },  // Type 
+                    { "sType": "string" },  // Comments 
+                    { "sType": "html" },    // Next Activity 
+                    { "sType": "us_date" }  // Next Activity Date 
+                ]
+            }); 
+        });
+    </script>
+    
+    <apex:stylesheet value="{!URLFOR($Resource.jQuery, 'css/cupertino/jquery-ui-1.8.20.custom.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.FontAwesome, '3.2.1/css/font-awesome.css')}"/>
+    
+    <style type="text/css">
+        .red { color: red; }
+        .green { color: green; }
+        .dark { color: #333; }
+        .grey-important { color: grey !important; }
+        .faded { color: #EEE; }
+        .bold { font-weight: bold; }
+        .center { text-align: center; }
+        .hidden { display: none; }
+        .btn { color: #333; }
+        .btn:hover { color: #333; }
+        i { cursor: default; }
+        
+        /* make icon container position relative */
+        table.datatable thead th div.DataTables_sort_wrapper {
+            position: relative;
+            padding-right: 20px;
+        }
+        
+        /* force column icons right */
+        table.datatable thead th div.DataTables_sort_wrapper span {
+            position: absolute;
+            top: 50%;
+            margin-top: -8px;
+            right: 0;
+        }
+        
+        /* correct Salesforce Default Table theme */
+        body .pbBody table.list tr.last > th, 
+        body .pbBody table.list tr.last > td, 
+        .bPageBlock.bEditBlock .bRelatedList tr.dataRow.last > td, 
+        .bPageBlock.bEditBlock .bRelatedList tr.dataRow.last > th { 
+            border-bottom-width: 1px; 
+        }
+    </style>
+    
+    <apex:variable var="LinkTrueClass" value="bold" />
+    <apex:variable var="LinkFalseClass" value="grey-important" />
+    <apex:variable var="IconTrueClass" value="icon-ok-circle icon-large red" />
+    <apex:variable var="IconFalseClass" value="icon-circle-blank icon-large faded" />
+    <apex:variable var="PendingDowngradesHelpText" 
+        value="This field refers to both Case and Launch downgrades. The link to the right only refers to Launch. If you do not see your downgrade, go to All Open Cases." />
+    
+    <apex:sectionHeader title="Account Dashboard" subtitle="{!Account.Name}" />
+    <apex:form >
+        <apex:pageblock mode="maindetail">
+            <apex:pageblockbuttons >
+                <apex:commandbutton value="Dealer Group Profile" onclick="window.open('/apex/CB_DealerGroupProfile?oid={!Account.Id}&otype=Account')"></apex:commandbutton>
+                <apex:commandbutton value="All Account Cases" onclick="window.open('/500?rlid=RelatedCaseList&id={!Account.Id}')"></apex:commandbutton>
+            </apex:pageblockbuttons>
+            <apex:pageblocksection title="Account Dashboard Detail">
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel value="Account Name" />
+                    <apex:outputlink target="_blank" value="/{!Account.Id}">{!Account.Name}</apex:outputlink>
+                </apex:pageblocksectionitem>
+                <apex:outputfield value="{!Account.VIP__c}"></apex:outputfield>
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel value="Dealer Group Name" />
+                    <apex:outputlink target="_blank" value="/{!IF(NOT(ISBLANK(Account.Corporation__c)),Account.Corporation__c,IF(NOT(ISBLANK(Account.Group__c)),Account.Group__c,NULL))}">
+                        {!IF(NOT(ISBLANK(Account.Corporation__c)),Account.Corporation__r.Name,IF(NOT(ISBLANK(Account.Group__c)),Account.Group__r.Name,NULL))}
+                    </apex:outputlink>
+                </apex:pageblocksectionitem>
+                <apex:outputfield value="{!Account.LDP__c}"></apex:outputfield>
+                <apex:outputfield value="{!Account.Account_Number__c}"></apex:outputfield>
+                <apex:outputfield value="{!Account.ES_High_Profile__c}"></apex:outputfield>
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel value="{!IF(Account.Do_Not_Sell__c,'Do Not Sell','')}" />
+                    <img src="/servlet/servlet.ImageServer?id=01540000000oJuT&oid={!$Organization.Id}" 
+                        alt="DO NOT SELL!" style="display:{!IF(Account.Do_Not_Sell__c,'block','none')};" />
+                </apex:pageblocksectionitem>
+                <!-- <apex:outputfield value="{!Account.Do_Not_Sell__c}"></apex:outputfield> -->
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel value="Critical Note" />
+                    <apex:outputpanel >
+                        <apex:image value="{!$Resource.siren}" height="20" width="18" alt="ALERT!" 
+                            rendered="{!!ISBLANK(Account.Critical_Note__c)}" style="display:block; padding-bottom:4px;" />
+                        <apex:outputfield value="{!Account.Critical_Note__c}" />
+                    </apex:outputpanel>
+                </apex:pageblocksectionitem>
+            </apex:pageblocksection>
+            <apex:pageblocksection title="Alerts">
+                
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel >WIP Orders</apex:outputlabel>
+                    <i class="{!IF(WIPOrders>0,IconTrueClass,IconFalseClass)}"></i>
+                </apex:pageblocksectionitem>
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel ></apex:outputlabel>
+                    <a target="_blank" class="{!IF(WIPOrders>0,LinkTrueClass,LinkFalseClass)}"
+                        href="/{!Settings.WIP_Report_Id__c}?pv={!LEFT(Account.Id,15)}">WIP</a>
+                </apex:pageblocksectionitem>
+                
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel >Pending Cancellations</apex:outputlabel>
+                    <i class="{!IF(PendingCancellationCases>0,IconTrueClass,IconFalseClass)}"></i>
+                </apex:pageblocksectionitem>
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel ></apex:outputlabel>
+                    <a target="_blank" class="{!IF(PendingCancellationCases>0,LinkTrueClass,LinkFalseClass)}"
+                        href="/{!Settings.Pending_Cancellations_Report_Id__c}?pv={!LEFT(Account.Id,15)}">Pending Cancellations</a>
+                </apex:pageblocksectionitem>
+                
+                <apex:pageblocksectionitem helpText="{!PendingDowngradesHelpText}">
+                    <apex:outputlabel >Pending Downgrades</apex:outputlabel>
+                    <i class="{!IF(PendingDowngradeCases>0,IconTrueClass,IconFalseClass)}"></i>
+                </apex:pageblocksectionitem>
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel ></apex:outputlabel>
+                    <a target="_blank" class="{!IF(PendingDowngradeCases>0,LinkTrueClass,LinkFalseClass)}"
+                        href="/{!Settings.Pending_Downgrades_Report_Id__c}?pv={!Account.Name}">Pending Downgrades</a>
+                </apex:pageblocksectionitem>
+                
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel >Open Buy/Sells</apex:outputlabel>
+                    <i class="{!IF(OpenBuySellCases>0,IconTrueClass,IconFalseClass)}"></i>
+                </apex:pageblocksectionitem>
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel ></apex:outputlabel>
+                    <a target="_blank" class="{!IF(OpenBuySellCases>0,LinkTrueClass,LinkFalseClass)}"
+                        href="/{!Settings.Buy_Sells_Report_Id__c}?pv={!LEFT(Account.Id,15)}">Buy/Sells</a>
+                </apex:pageblocksectionitem>
+                
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel >Open Opportunities</apex:outputlabel>
+                    <i class="{!IF(OpenOpportunities>0,IconTrueClass,IconFalseClass)}"></i>
+                </apex:pageblocksectionitem>
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel ></apex:outputlabel>
+                    <a target="_blank" class="{!IF(OpenOpportunities>0,LinkTrueClass,LinkFalseClass)}"
+                        href="/{!Settings.Opportunities_Report_Id__c}?pv={!LEFT(Account.Id,15)}">Opportunities</a>
+                </apex:pageblocksectionitem>
+                
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel >Open Technical Support Cases</apex:outputlabel>
+                    <i class="{!IF(OpenTechSupportCases>0,IconTrueClass,IconFalseClass)}"></i>
+                </apex:pageblocksectionitem>
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel ></apex:outputlabel>
+                    <a target="_blank" class="{!IF(OpenTechSupportCases>0,LinkTrueClass,LinkFalseClass)}"
+                        href="/{!Settings.Technical_Support_Cases_Report_Id__c}?pv={!LEFT(Account.Id,15)}">Technical Support Cases</a>
+                </apex:pageblocksectionitem>
+                
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel >Open Content Cases</apex:outputlabel>
+                    <i class="{!IF(OpenContentCases>0,IconTrueClass,IconFalseClass)}"></i>
+                </apex:pageblocksectionitem>
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel ></apex:outputlabel>
+                    <a target="_blank" class="{!IF(OpenContentCases>0,LinkTrueClass,LinkFalseClass)}"
+                        href="/{!Settings.Content_Cases_Report_Id__c}?pv={!LEFT(Account.Id,15)}">Content Cases</a>
+                </apex:pageblocksectionitem>
+                
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel >Open Onboarding Cases</apex:outputlabel>
+                    <i class="{!IF(OpenOnboardingCases>0,IconTrueClass,IconFalseClass)}"></i>
+                </apex:pageblocksectionitem>
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel ></apex:outputlabel>
+                    <a target="_blank" class="{!IF(OpenOnboardingCases>0,LinkTrueClass,LinkFalseClass)}"
+                        href="/{!Settings.Onboarding_Cases_Report_Id__c}?pv={!LEFT(Account.Id,15)}">Onboarding Cases</a>
+                </apex:pageblocksectionitem>
+                
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel >Open IFS-Data Ops Cases</apex:outputlabel>
+                    <i class="{!IF(OpenIFSDataOpsCases>0,IconTrueClass,IconFalseClass)}"></i>
+                </apex:pageblocksectionitem>
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel ></apex:outputlabel>
+                    <a target="_blank" class="{!IF(OpenIFSDataOpsCases>0,LinkTrueClass,LinkFalseClass)}"
+                        href="/{!Settings.IFS_Data_Ops_Cases_Report_Id__c}?pv={!LEFT(Account.Id,15)}">IFS-Data Ops Cases</a>
+                </apex:pageblocksectionitem>
+                
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel >All Open Cases</apex:outputlabel>
+                    <i class="{!IF(OpenCases>0,IconTrueClass,IconFalseClass)}"></i>
+                </apex:pageblocksectionitem>
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel ></apex:outputlabel>
+                    <a target="_blank" class="{!IF(OpenCases>0,LinkTrueClass,LinkFalseClass)}"
+                        href="/{!Settings.All_Open_Cases_Report_Id__c}?pv={!LEFT(Account.Id,15)}">All Open Cases</a>
+                </apex:pageblocksectionitem>
+                
+            </apex:pageblocksection>
+        </apex:pageblock>
+        <!-- 
+        <apex:pageblock title="Product Mix" >
+            <apex:pageblocktable value="{!ProductMix}" var="pm" style="width:100%;">
+                <apex:column value="{!pm.WebID__c}" />
+                <apex:column value="{!pm.Type__c}" />
+            </apex:pageblocktable>
+        </apex:pageblock>
+        -->
+        <apex:pageblock title="Last Call/Visit by Account Team Role" >
+            <apex:pageblocktable value="{!CustomActivities}" var="c" style="width:100%;" styleClass="datatable display">
+                
+                <apex:column headervalue="Activity Owner">
+                    <apex:outputlink target="_blank" value="/{!c.OwnerId}">{!c.OwnerName}</apex:outputlink>
+                </apex:column>
+                
+                <apex:column headervalue="On Account Team?">
+                    <i class="{!IF(c.OwnerIsOnAccountTeam,'icon-ok center','icon-remove center')}"></i>
+                </apex:column>
+                
+                <apex:column value="{!c.OwnerTeamRole}" headervalue="Activity Owner Role" />
+                
+                <apex:column headervalue="Date">
+                    <apex:outputtext value="{0,date,MM'/'dd'/'yyyy}">
+                        <apex:param value="{!c.ActivityDate}" /> 
+                    </apex:outputtext>
+                </apex:column>
+                
+                <apex:column headervalue="Contact" >
+                    <apex:outputlink target="_blank" value="/{!c.ContactId}">{!c.ContactName}</apex:outputlink>
+                </apex:column>
+                
+                <apex:column headervalue="Subject">
+                    <apex:outputlink target="_blank" value="/{!c.ActivityId}">{!c.Subject}</apex:outputlink>
+                </apex:column>
+                
+                <apex:column value="{!c.ActivityType}" headervalue="Type" />
+                
+                <apex:column headervalue="Comments" >
+                    <apex:outputtext value="{!TRIM(LEFT(c.Description, 80)) & IF(LEN(c.Description) > 80, '...', '')}" />
+                </apex:column>
+                
+                <apex:column headervalue="Next Activity" >
+                    <apex:outputlink target="_blank" value="/{!c.NextActivityId}">{!c.NextActivitySubject}</apex:outputlink>
+                </apex:column>
+                
+                <apex:column headervalue="Next Activity Date">
+                    <apex:outputtext value="{0,date,MM'/'dd'/'yyyy}" >
+                        <apex:param value="{!c.NextActivityDate}" />
+                    </apex:outputtext>
+                </apex:column>
+                
+                <!-- <apex:column value="{!c.ActivityRecordTypeName}" headervalue="Record Type" /> -->
+                
+            </apex:pageblocktable>
+            <apex:pageblockbuttons >
+                <a class="btn" style="padding:0.3em; margin:0.3em; text-decoration:none;" target="_blank" href="/a0m?rlid=00N40000001mDRN&id={!Account.Id}">Account Team</a>
+            </apex:pageblockbuttons>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,15 @@
+<apex:page standardController="Laser_Artwork_Order__c" extensions="DS_LaserUpdateLockedRecord_Extension">
+    <apex:form id="form"> 
+        <apex:pageblock mode="edit" title="LAO Record Update" id="TheBlock">
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!UpdateAndSave}" value="Save"/>
+                <apex:commandButton action="{!Cancel}" value="Cancel"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Edit Section" columns="2">
+                <apex:repeat value="{!$ObjectType.Laser_Artwork_Order__c.FieldSets.Unlock_and_Update}" var="sf" id="repeat">
+                    <apex:Inputfield value="{!LaoRecord[sf]}" id="SourceRecordInput"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

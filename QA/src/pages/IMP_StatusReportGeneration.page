@@ -1,0 +1,50 @@
+<!--
+/*------------------------------------------------------------
+Author: Michael Lasala
+Company: Cloud Sherpas
+Description: Initiate Project Status Report generation
+History
+09/30/14    Michael Lasala      Created
+10/29/14    Samuel Oberes       Removed Selected Market drop down box
+12/02/14    Samuel Oberes       Implemented generic sobject usage in subProjectWrapperList
+------------------------------------------------------------*/
+-->
+<apex:page controller="IMP_StatusReportGeneration_Controller" id="pageId" showHeader="false" sidebar="false">
+
+    <apex:form id="formId">
+
+        <apex:pageBlock id="pageBlockId">
+	
+    		<apex:pageMessages id="messageId"/>
+			
+			<!-- List of SubProject records -->
+            <apex:pageBlockTable value="{!subProjectWrapperList}" var="s" rendered="{!subProjectWrapperList != null}">
+
+            	<!-- checkbox -->
+                <apex:column headerValue="">
+                    <apex:inputCheckbox value="{!s.isSelected}"/>
+                </apex:column>
+				
+				<!-- SubProject Name -->
+                <apex:column value="{!s.thisSObject['SubProject_Name__c']}"/>
+
+            </apex:pageBlockTable>
+
+            <br/>
+
+            <apex:pageBlockButtons location="bottom">
+				
+				<!-- Download Project Status Report based on selected values -->
+                <apex:commandButton value="Generate" action="{!generateReport}" reRender="messageId"/>
+                <!-- <apex:commandButton id="ButtonPDF" reRender="none" value="Generate PDF" onclick="window.open('https://composer.congamerge.com?sessionId={!$API.Session_ID}&serverUrl={!$API.Partner_Server_URL_290}&id={!SubProject__c.ProjectId__c}&QueryId=[ProjectMilestones]a4Ve00000008tww?pv1={!SubProject__c.Id}&TemplateId=a2ge0000000FIbm&DS7=13','_blank','toolbar=yes, scrollbars=yes, resizable=yes, top=50, left=300, width=700, height=525' );" /> -->
+                
+                <!-- Close popup -->
+                <apex:commandButton value="Cancel" onclick="window.close();"/>
+
+            </apex:pageBlockButtons>
+
+    	</apex:pageBlock>
+
+	</apex:form>
+
+</apex:page>

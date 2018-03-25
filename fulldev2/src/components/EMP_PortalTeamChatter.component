@@ -1,0 +1,18 @@
+<apex:component >
+    
+    <apex:attribute name="ChatterFeedEntityId" type="String" required="true"
+                    description="This is the ID of the chatter group that will be displayed." />
+    
+    <style>
+        .feeditemActionMenu { display: none; }
+        .publisherFeedItemTypeChoice { display: none; }
+        .feedcommentactions .commentActionMenu .zen-select { margin-right: 8px; visibility: hidden; }
+        .zen .publisherTypeOverflow .zen-options { visibility: hidden; }
+    </style>
+    
+    <div style="height:500px;overflow:auto;">
+        <hr align="left" />
+        <chatter:feed entityId="{!ChatterFeedEntityId}" showPublisher="true" />
+    </div>
+    
+</apex:component>

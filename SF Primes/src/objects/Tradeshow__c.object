@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>ADP_Tradeshow_Compact_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>ADP_Tradeshow_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>Target_Market__c</fields>
+        <fields>Campaign__c</fields>
+        <fields>Lead_Opp_Owner_Source__c</fields>
+        <fields>Lead_Record_Type__c</fields>
+        <fields>Opportunity_Record_Type__c</fields>
+        <fields>Lead_Opp_Creation_Status__c</fields>
+        <fields>Opportunity_Close_Date__c</fields>
+        <fields>Party_Tickets_Only__c</fields>
+        <fields>Lead_Source_Value__c</fields>
+        <label>ADP Tradeshow Compact Layout</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Tradeshow attributes</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Campaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Set if want to link Lead or Opportunity for this show need to be linked to a Campaign for reporting purposes</inlineHelpText>
+        <label>Campaign</label>
+        <referenceTo>Campaign</referenceTo>
+        <relationshipLabel>Tradeshows</relationshipLabel>
+        <relationshipName>Tradeshows</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Guarantee_Uniqueness__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>false</externalId>
+        <inlineHelpText>Field to put a unique constraint on....Trigger will try to write new name into this field and if not unique, it should error out and prevent the save.</inlineHelpText>
+        <label>Guarantee Uniqueness</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Lead_Opp_Creation_Status__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Status the Lead or Opportunity should be opened with</inlineHelpText>
+        <label>Lead-Opp Creation Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Not Yet Contacted By Rep</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rep Attempted Contact</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Frst Appointment Set</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>0. Undiscovered</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1. Discover the Hurt</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2. Qualify the Hurt</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3. Amplify the Hurt</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4. Propose a Solution</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5. Buy In</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6. Solution Details</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>7. Tailor the Solution</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>8. Confirm Commitment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9. Formal Contracting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Plan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Recognize</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Search</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Evaluate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Select</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Commit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Lead_Opp_Owner_Source__c</fullName>
+        <externalId>false</externalId>
+        <label>Lead-Opp Owner Source</label>
+        <picklist>
+            <picklistValues>
+                <fullName>KEY_REP__C</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DESIGNATED_DSM__C</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DESIGNATED_DSM_NAT_ENT__C</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TECHNOLOGY_SOLUTIONS_MANAGER__C</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DEALIX_SOLUTIONS_REP__C</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Lead_Record_Type__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Set if want to create Leads from this Tradeshow (survey).</inlineHelpText>
+        <label>Lead Record Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>NADA FY14</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rep Created</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inside Sales Created</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NADA FY15</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Lead_Source_Value__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>DS (Lead/Opp) Trade Show - NADA
+Digital (Opp only) NADA</inlineHelpText>
+        <label>Lead Source Value</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Trade Show - NADA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NADA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Close_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Days from Opportunity creation to set Close Date.</inlineHelpText>
+        <label>Opportunity Close Date</label>
+        <picklist>
+            <picklistValues>
+                <fullName>30</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>60</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>90</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>120</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Lead_Source_Field__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>DS = LeadSource, Digital = Internal_Lead_Source__c</inlineHelpText>
+        <label>Opportunity Lead Source Field</label>
+        <picklist>
+            <picklistValues>
+                <fullName>LeadSource</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Internal_Lead_Source__c</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Record_Type__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Set if you want to create Opportunities from this Tradeshow (survey)</inlineHelpText>
+        <label>Opportunity Record Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Pipeline</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 - Baseline Multi-channel Opportunity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3 - Network Solutions Opportunity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5 - Inside Sales Opportunity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Party_Tickets_Only__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Party Tickets - No Matching required</inlineHelpText>
+        <label>Party Tickets Only</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Target_Market__c</fullName>
+        <externalId>false</externalId>
+        <label>Target Market</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Auto</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Truck</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cobalt</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealix</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PFW</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Telephony</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NIADA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Powersports</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Type_Of_Marketing_Interaction__c</fullName>
+        <externalId>false</externalId>
+        <label>Type Of Marketing Interaction</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Tradeshow</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Target_Market__c</columns>
+        <columns>Campaign__c</columns>
+        <columns>Lead_Opp_Owner_Source__c</columns>
+        <columns>Lead_Record_Type__c</columns>
+        <columns>Opportunity_Record_Type__c</columns>
+        <columns>Party_Tickets_Only__c</columns>
+        <columns>Lead_Opp_Creation_Status__c</columns>
+        <columns>Lead_Source_Value__c</columns>
+        <columns>Opportunity_Close_Date__c</columns>
+        <columns>Opportunity_Lead_Source_Field__c</columns>
+        <columns>Type_Of_Marketing_Interaction__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>FY15</fullName>
+        <columns>NAME</columns>
+        <columns>Target_Market__c</columns>
+        <columns>Campaign__c</columns>
+        <columns>Lead_Opp_Owner_Source__c</columns>
+        <columns>Lead_Record_Type__c</columns>
+        <columns>Opportunity_Record_Type__c</columns>
+        <columns>Party_Tickets_Only__c</columns>
+        <columns>Lead_Opp_Creation_Status__c</columns>
+        <columns>Lead_Source_Value__c</columns>
+        <columns>Opportunity_Close_Date__c</columns>
+        <columns>Opportunity_Lead_Source_Field__c</columns>
+        <columns>Type_Of_Marketing_Interaction__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>NAME</field>
+            <operation>contains</operation>
+            <value>FY15</value>
+        </filters>
+        <label>FY15</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <label>Tradeshow Show Code</label>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Tradeshows</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Campaign__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Lead_Opp_Owner_Source__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Lead_Record_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Opportunity_Record_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Party_Tickets_Only__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Target_Market__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Lead_Opp_Creation_Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Opportunity_Close_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>LAST_UPDATE</customTabListAdditionalFields>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <lookupDialogsAdditionalFields>Campaign__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Lead_Opp_Owner_Source__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Lead_Record_Type__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Opportunity_Record_Type__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Party_Tickets_Only__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Target_Market__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>LAST_UPDATE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CREATEDBY_USER</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CREATED_DATE</lookupDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Campaign__c</searchFilterFields>
+        <searchFilterFields>Lead_Opp_Owner_Source__c</searchFilterFields>
+        <searchFilterFields>Lead_Record_Type__c</searchFilterFields>
+        <searchFilterFields>Opportunity_Record_Type__c</searchFilterFields>
+        <searchFilterFields>Target_Market__c</searchFilterFields>
+        <searchFilterFields>Party_Tickets_Only__c</searchFilterFields>
+        <searchFilterFields>Lead_Opp_Creation_Status__c</searchFilterFields>
+        <searchFilterFields>Opportunity_Close_Date__c</searchFilterFields>
+        <searchFilterFields>CREATEDBY_USER</searchFilterFields>
+        <searchResultsAdditionalFields>Campaign__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Lead_Opp_Owner_Source__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Lead_Record_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Opportunity_Record_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Party_Tickets_Only__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Target_Market__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LAST_UPDATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CREATED_DATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CREATEDBY_USER</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>DS_Tradeshow_CloseDate_Reqd_For_Ops</fullName>
+        <active>true</active>
+        <description>If Opportunity_Record_Type is set, require Opportunity Close Date value.</description>
+        <errorConditionFormula>NOT(ISBLANK(TEXT(Opportunity_Record_Type__c))) &amp;&amp;
+ISBLANK(TEXT(Opportunity_Close_Date__c))</errorConditionFormula>
+        <errorDisplayField>Opportunity_Close_Date__c</errorDisplayField>
+        <errorMessage>If Opportunity Record Type is set, Opportunity Close Date must be set.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DS_Tradeshow_Lead_Opp_Not_Both_Set</fullName>
+        <active>true</active>
+        <description>Ensure Lead Record Type and Opportunity Record Type are not set for a single record.</description>
+        <errorConditionFormula>NOT(ISBLANK(TEXT(Lead_Record_Type__c))) &amp;&amp; 
+NOT(ISBLANK(TEXT(Opportunity_Record_Type__c)))</errorConditionFormula>
+        <errorDisplayField>Opportunity_Record_Type__c</errorDisplayField>
+        <errorMessage>Both Lead Record Type and Opportunity Record Type cannot be set for a single record.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DS_Tradeshow_Lead_Opp_Set_If_RecType_Set</fullName>
+        <active>true</active>
+        <description>Ensure Lead-Opp Owner Source is defined if either Lead Rec Type or Opp Rec Type are set OR ensure Lead Rec Type or Opp Rec Type are set if Lead-Opp Owner Source is set.</description>
+        <errorConditionFormula>((NOT(ISBLANK(TEXT(Lead_Record_Type__c))) || 
+NOT(ISBLANK(TEXT(Opportunity_Record_Type__c))) 
+) &amp;&amp; 
+ISBLANK(TEXT(Lead_Opp_Owner_Source__c)) 
+) 
+|| 
+(ISBLANK(TEXT(Lead_Record_Type__c)) &amp;&amp; 
+ISBLANK(TEXT(Opportunity_Record_Type__c)) &amp;&amp; 
+NOT(ISBLANK(TEXT(Lead_Opp_Owner_Source__c))) 
+)</errorConditionFormula>
+        <errorDisplayField>Lead_Opp_Owner_Source__c</errorDisplayField>
+        <errorMessage>Lead-Opp Owner Source needs to be defined if either Lead Record Type or Opportunity Record Type are set OR set Lead Record Type or Opportunity Record Type are set if Lead-Opp Owner Source is set.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DS_Tradeshow_NewLead_Lead_Src_Needed</fullName>
+        <active>true</active>
+        <description>If Lead Record Type is set, ensure Lead Source Value is set.</description>
+        <errorConditionFormula>NOT(ISBLANK(TEXT( Lead_Record_Type__c ))) &amp;&amp; 
+(ISBLANK(TEXT( Lead_Source_Value__c )))</errorConditionFormula>
+        <errorDisplayField>Lead_Source_Value__c</errorDisplayField>
+        <errorMessage>Lead Source Value must be set if setting Lead Record Type is set.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DS_Tradeshow_OppLead_Status_Reqd</fullName>
+        <active>true</active>
+        <description>If Opportunity Record Type or Lead Record Type is set, require Opp-Lead Status to have a value.</description>
+        <errorConditionFormula>(NOT(ISBLANK(TEXT(Opportunity_Record_Type__c))) ||
+ NOT(ISBLANK(TEXT(Lead_Record_Type__c))) 
+) &amp;&amp; 
+ISBLANK(TEXT(Lead_Opp_Creation_Status__c))</errorConditionFormula>
+        <errorDisplayField>Lead_Opp_Creation_Status__c</errorDisplayField>
+        <errorMessage>If Opportunity or Lead Record Type is set, Opp-Lead Status must be set.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DS_Tradeshow_Opp_Lead_Src_Set_Ld_Src</fullName>
+        <active>true</active>
+        <description>If Opportunity Lead Source Field is set, ensure Lead Source Value is set.</description>
+        <errorConditionFormula>NOT(ISBLANK(TEXT( Opportunity_Lead_Source_Field__c ))) &amp;&amp; 
+(ISBLANK(TEXT( Lead_Source_Value__c )))</errorConditionFormula>
+        <errorDisplayField>Lead_Source_Value__c</errorDisplayField>
+        <errorMessage>Lead Source Value must be set if setting Opportunity Lead Source Field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DS_Tradeshow_Party_Tix_No_Other_Fields</fullName>
+        <active>true</active>
+        <description>If Party Tickets checked, then ensure Lead-Opp Owner Source, Lead Rec Type, and Opp Rec Type are not set.</description>
+        <errorConditionFormula>(NOT(ISBLANK(TEXT(Lead_Record_Type__c))) || 
+NOT(ISBLANK(TEXT(Opportunity_Record_Type__c))) || 
+NOT(ISBLANK(TEXT(Lead_Opp_Owner_Source__c))) 
+) &amp;&amp; Party_Tickets_Only__c = True</errorConditionFormula>
+        <errorMessage>If Party Tickets Only is checked, then Lead Record Type, Opportunity Record Type, and Lead-Opp Owner Source should not be set.</errorMessage>
+    </validationRules>
+</CustomObject>

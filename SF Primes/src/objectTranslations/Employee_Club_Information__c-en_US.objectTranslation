@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Employee Club Information</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Employee Club Information</value>
+    </caseValues>
+    <fields>
+        <label><!-- Presidents Club Plan $ --></label>
+        <name>Assigned_Plan_QC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Board of Directors --></label>
+        <name>Board_of_Directors__c</name>
+    </fields>
+    <fields>
+        <label><!-- Book Of Business Presidnt Club Target(%) --></label>
+        <name>Book_Of_Business_President_Club_Target__c</name>
+    </fields>
+    <fields>
+        <label><!-- Book Of Business Presidents Club($) --></label>
+        <name>Book_Of_Business_Presidents_Club__c</name>
+    </fields>
+    <fields>
+        <label><!-- Book Of Business Target(%) --></label>
+        <name>Book_Of_Business_Target__c</name>
+    </fields>
+    <fields>
+        <label><!-- Book Of Business($) --></label>
+        <name>Book_Of_Business__c</name>
+    </fields>
+    <fields>
+        <label><!-- Eagle Award --></label>
+        <name>Eagle_Award__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employee Name --></label>
+        <name>Employee_Name__c</name>
+        <relationshipLabel><!-- Employee Club Information --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Fiscal Year --></label>
+        <name>Fiscal_Year__c</name>
+        <picklistValues>
+            <masterLabel>1990</masterLabel>
+            <translation><!-- 1990 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1991</masterLabel>
+            <translation><!-- 1991 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1992</masterLabel>
+            <translation><!-- 1992 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1993</masterLabel>
+            <translation><!-- 1993 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1994</masterLabel>
+            <translation><!-- 1994 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1995</masterLabel>
+            <translation><!-- 1995 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1996</masterLabel>
+            <translation><!-- 1996 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1997</masterLabel>
+            <translation><!-- 1997 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1998</masterLabel>
+            <translation><!-- 1998 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1999</masterLabel>
+            <translation><!-- 1999 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2000</masterLabel>
+            <translation><!-- 2000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2001</masterLabel>
+            <translation><!-- 2001 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2002</masterLabel>
+            <translation><!-- 2002 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2003</masterLabel>
+            <translation><!-- 2003 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2004</masterLabel>
+            <translation><!-- 2004 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2005</masterLabel>
+            <translation><!-- 2005 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2006</masterLabel>
+            <translation><!-- 2006 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2007</masterLabel>
+            <translation><!-- 2007 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2008</masterLabel>
+            <translation><!-- 2008 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2009</masterLabel>
+            <translation><!-- 2009 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2010</masterLabel>
+            <translation><!-- 2010 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2011</masterLabel>
+            <translation><!-- 2011 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2012</masterLabel>
+            <translation><!-- 2012 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2013</masterLabel>
+            <translation><!-- 2013 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2014</masterLabel>
+            <translation><!-- 2014 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2015</masterLabel>
+            <translation><!-- 2015 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2016</masterLabel>
+            <translation><!-- 2016 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Hall of Fame --></label>
+        <name>Hall_of_Fame__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pace Setters --></label>
+        <name>Pace_Setters__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter Award Reason if you checked Pewter Award checkbox. --></help>
+        <label><!-- Pewter Award Type --></label>
+        <name>Pewter_Award_Reason__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pewter Award --></label>
+        <name>Pewter_Award__c</name>
+    </fields>
+    <fields>
+        <label><!-- QC Tier Assigned --></label>
+        <name>QC_Tier_Assigned__c</name>
+        <picklistValues>
+            <masterLabel>1</masterLabel>
+            <translation><!-- 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3</masterLabel>
+            <translation><!-- 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4</masterLabel>
+            <translation><!-- 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5</masterLabel>
+            <translation><!-- 5 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Qualified for Club --></label>
+        <name>Qualified_for_Club__c</name>
+    </fields>
+    <fields>
+        <label><!-- SPX ClubInfo CreateDate --></label>
+        <name>SPX_ClubInfo_CreateDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- SPX ClubInfo ID --></label>
+        <name>SPX_ClubInfo_ID__c</name>
+    </fields>
+    <layouts>
+        <layout>Employee Club Information Layout</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You must specify the award type if &quot;Pewter Award&quot; is checked. --></errorMessage>
+        <name>Pewter_Award_Type_Required</name>
+    </validationRules>
+</CustomObjectTranslation>

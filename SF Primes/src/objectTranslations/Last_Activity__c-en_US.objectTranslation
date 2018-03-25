@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Last Activity</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Last Activities</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Last Activities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Activity By --></label>
+        <name>Activity_By__c</name>
+        <relationshipLabel><!-- Last Activities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Activity Last Modified Date --></label>
+        <name>Activity_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Activity Id --></label>
+        <name>Activity_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Activity Link --></label>
+        <name>Activity_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Activity Subject --></label>
+        <name>Activity_Subject__c</name>
+    </fields>
+    <fields>
+        <label><!-- Campaign --></label>
+        <name>Campaign__c</name>
+        <relationshipLabel><!-- Last Activities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Channel Name --></label>
+        <name>Channel_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead --></label>
+        <name>Lead__c</name>
+        <relationshipLabel><!-- Last Activities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Last Activities --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- This field is only for reference; it contains the Salesforce IDs of the related objects. --></help>
+        <label><!-- Related IDs --></label>
+        <name>Related_IDs__c</name>
+    </fields>
+    <fields>
+        <label><!-- Related To --></label>
+        <name>Related_To__c</name>
+        <relationshipLabel><!-- Last Activities (Related To) --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Last Activity Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Details --></label>
+            <section>Details</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

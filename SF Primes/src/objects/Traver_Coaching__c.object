@@ -1,0 +1,2871 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>ADP_Traver_Onsite_Visit</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>ADP_Traver_Onsite_Visit</fullName>
+        <fields>Name</fields>
+        <fields>Traver_Project__c</fields>
+        <fields>Completed_By__c</fields>
+        <fields>Number_of_Days_Traver__c</fields>
+        <fields>Visit_Start_Date__c</fields>
+        <label>ADP Traver Onsite Visit</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>false</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>false</enableSharing>
+    <enableStreamingApi>false</enableStreamingApi>
+    <fields>
+        <fullName>Action_Plan_1__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Action Plan #1 (What are the steps necessary to make that happen)?</inlineHelpText>
+        <label>Action Plan 1</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Action_Plan_2__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Action Plan #2 (What are the steps necessary to make that happen)?</inlineHelpText>
+        <label>Action Plan 2</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Action_Plan_3__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Action Plan #3 (What are the steps necessary to make that happen)?</inlineHelpText>
+        <label>Action Plan 3</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Appointments_Set__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>How many appointments did the dealership set during your visit?</inlineHelpText>
+        <label>Appointments Set</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BDI_Updated__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Are they updating Business Development Intelligence (Tool)?.</inlineHelpText>
+        <label>BDI Updated</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>BD__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Add any comments about BD Boot Camp here.</inlineHelpText>
+        <label>BD Boot Camp Comments</label>
+        <length>600</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>BOU_Utilization__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Is the store effectively applying the skills and utilizing the tools from BOU?</inlineHelpText>
+        <label>BOU Utilization</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Boot_Camp__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Are they scheduled or have they already attended boot camp?</inlineHelpText>
+        <label>Boot Camp</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Completed_By__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Completed By</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Traver_Onsite_Visits</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Confirmation_Created__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Check only if Confirmation is created</inlineHelpText>
+        <label>Confirmation Created</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Contact_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Contact Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Days_Per_Month_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>Traver_Project__r.Days_Per_Month_Number__c</formula>
+        <label>Days Per Month Number</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Declined_Service_Calls__c</fullName>
+        <externalId>false</externalId>
+        <label>Declined Service Calls</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have, Using and Getting Results</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Defection__c</fullName>
+        <externalId>false</externalId>
+        <label>Defection</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have, Using and Getting Results</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Delivery_Location__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Delivery Location</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>B4B Coaching</relationshipLabel>
+        <relationshipName>B4B_Coaching</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Equity_Mining__c</fullName>
+        <externalId>false</externalId>
+        <label>Equity Mining</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have, Using and Getting Results</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Expense_Submitted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Expense Submitted</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Goal_1__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Goal #1 (Goal or accomplishment to be done prior to next visit)?</inlineHelpText>
+        <label>Goal 1</label>
+        <length>1500</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Goal_2__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Goal #2 (Goal or accomplishment to be done prior to next visit)?</inlineHelpText>
+        <label>Goal 2</label>
+        <length>1500</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Goal_3__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Goal #3 (Goal or accomplishment to be done prior to next visit)?</inlineHelpText>
+        <label>Goal 3</label>
+        <length>1000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Incoming_Sales_Calls__c</fullName>
+        <externalId>false</externalId>
+        <label>Incoming Sales Calls</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have, Using and Getting Results</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Incoming_Service_Calls__c</fullName>
+        <externalId>false</externalId>
+        <label>Incoming Service Calls</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have, Using and Getting Results</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Internet__c</fullName>
+        <externalId>false</externalId>
+        <label>Internet</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have, Using and Getting Results</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Key_Observations_1__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Infrastructure - Key Observations</inlineHelpText>
+        <label>Key Observations</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Measurement_1__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>How are we going to measure this Goal (Tools, reports, etc)? TAKE A PICTURE OF THE
+TOOL/REPORT THAT IS GOING TO BE USED</inlineHelpText>
+        <label>Measurement 1</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Measurement_2__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>How are we going to measure this Goal (Tools, reports, etc)? TAKE A PICTURE OF THE
+TOOL/REPORT THAT IS GOING TO BE USED</inlineHelpText>
+        <label>Measurement 2</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>New_Mgr__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>How many new managers since last visit? (If Any)</inlineHelpText>
+        <label>New Mgr&apos;s</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Next_Coaching_Call__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Coaching Call</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Next_Visit_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Visit Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Next_Visit_Strategy__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Visit Strategy</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>No_Show_Appointments__c</fullName>
+        <externalId>false</externalId>
+        <label>No Show Appointments</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have, Using and Getting Results</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Notes</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_Days_PSG__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Days - PSG</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Days_Traver__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of Days</inlineHelpText>
+        <label>Number of Days - Traver</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Onsite_Days_Purchased__c</fullName>
+        <externalId>false</externalId>
+        <formula>Traver_Project__r.Total_Days_Contracted_Traver__c</formula>
+        <label>Onsite Days Purchased</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Owner_Base__c</fullName>
+        <externalId>false</externalId>
+        <label>Owner Base</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have, Using and Getting Results</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>PartyID__c</fullName>
+        <externalId>false</externalId>
+        <label>PartyID</label>
+        <length>12</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Primary_Client_Contacts__c</fullName>
+        <externalId>false</externalId>
+        <label>Primary Client Contacts</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Client_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Primary Client Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Primary_Client_Phone__c</fullName>
+        <externalId>false</externalId>
+        <label>Primary Client Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Progress_Since_Last_Session__c</fullName>
+        <externalId>false</externalId>
+        <label>Progress Since Last Session</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Project_Account__c</fullName>
+        <externalId>false</externalId>
+        <formula>Traver_Project__r.Account__r.Name</formula>
+        <label>Project Account</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Recalls__c</fullName>
+        <externalId>false</externalId>
+        <label>Recalls</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have, Using and Getting Results</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Recommended_Service__c</fullName>
+        <externalId>false</externalId>
+        <label>Recommended Service</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have, Using and Getting Results</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Review_BDI_Progress__c</fullName>
+        <externalId>false</externalId>
+        <label>Review BDI Progress</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Review_Recent_Visit__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Premium Packages Only</inlineHelpText>
+        <label>Review Recent In-store Visit</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Staff_with_Most_Appointments__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Staff with most Appointments – (Name, phone, email)</inlineHelpText>
+        <label>Staff with Most Appointments</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Status_Update_Calls__c</fullName>
+        <externalId>false</externalId>
+        <label>Status Update Calls</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have, Using and Getting Results</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Scheduled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Agenda Set</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tentative</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>TRV_Cancelled_By__c</fullName>
+        <externalId>false</externalId>
+        <label>Cancelled By</label>
+        <picklist>
+            <controllingField>Status__c</controllingField>
+            <picklistValues>
+                <fullName>Client</fullName>
+                <color>#0B6FCE</color>
+                <controllingFieldValues>Cancelled</controllingFieldValues>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Internal</fullName>
+                <color>#78C953</color>
+                <controllingFieldValues>Cancelled</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>TRV_Cancelled_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Cancelled Reason</label>
+        <picklist>
+            <controllingField>Status__c</controllingField>
+            <picklistValues>
+                <fullName>Client Request</fullName>
+                <controllingFieldValues>Cancelled</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CDK Request</fullName>
+                <controllingFieldValues>Cancelled</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>TRV_Completed_By__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Completed By</label>
+        <referenceTo>TRV_Resource__c</referenceTo>
+        <relationshipLabel>B4B Coaching (Completed By)</relationshipLabel>
+        <relationshipName>TRV_Completed_By_B4BCoaching</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>TRV_FRM_Account_Name_onProjectAccount__c</fullName>
+        <externalId>false</externalId>
+        <formula>Traver_Project__r.Account__r.Name</formula>
+        <label>Account Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TRV_FRM_City_onAccount__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK( Delivery_Location__c ) ,  Traver_Project__r.Account__r.BillingCity ,  Delivery_Location__r.BillingCity)</formula>
+        <label>City</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TRV_FRM_ContactEmail_onConsultingProject__c</fullName>
+        <externalId>false</externalId>
+        <formula>Traver_Project__r.Contact__r.Email</formula>
+        <label>Contact Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TRV_FRM_Contact_Id_onConsultingProject__c</fullName>
+        <externalId>false</externalId>
+        <formula>Traver_Project__r.Contact__r.Id</formula>
+        <label>Contact Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TRV_FRM_Contact_Name_onProjectContact__c</fullName>
+        <externalId>false</externalId>
+        <formula>Traver_Project__r.Contact__r.Full_Name__c</formula>
+        <label>Contact Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TRV_FRM_Contact_Phone_onProjectContact__c</fullName>
+        <externalId>false</externalId>
+        <formula>Traver_Project__r.Contact__r.Phone</formula>
+        <label>Contact Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TRV_FRM_Contact_onConsultingProject__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&apos;/&apos;+ Traver_Project__r.Contact__c ,  Traver_Project__r.Contact__r.Full_Name__c )</formula>
+        <label>Contact</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TRV_FRM_End_Date_Of_B4B__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE( RecordType.DeveloperName , &apos;PSC_Visit&apos;,  Visit_Start_Date__c +  IF(Number_of_Days_PSG__c &gt; 1, Number_of_Days_PSG__c - 1, 0), &apos;Process_Coach_Visit&apos;, Visit_Start_Date__c + IF(Number_of_Days_Traver__c &gt; 1, Number_of_Days_Traver__c - 1,0) , &apos;Non_Billable&apos;, Visit_Start_Date__c + IF(TRV_Number_Of_Days_NonBillable__c &gt; 1, TRV_Number_Of_Days_NonBillable__c - 1, 0), Visit_Start_Date__c )</formula>
+        <label>End Date Of B4B</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>TRV_FRM_Is_Onsite_Days_onRecordType__c</fullName>
+        <externalId>false</externalId>
+        <formula>RecordType.DeveloperName != &apos;Non_Billable&apos; ||  X5_Star_Guarantee__c != true</formula>
+        <label>Is Onsite Days</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TRV_FRM_Resource_Name_onResource__c</fullName>
+        <externalId>false</externalId>
+        <formula>TRV_Completed_By__r.TRV_Resource__r.FirstName + &apos; &apos; +  TRV_Completed_By__r.TRV_Resource__r.LastName</formula>
+        <label>Resource Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TRV_FRM_Resource_User_Id_onResource__c</fullName>
+        <externalId>false</externalId>
+        <formula>TRV_Completed_By__r.TRV_Resource__c</formula>
+        <label>Resource User Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TRV_FRM_State_onAccount__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK( Delivery_Location__c ) ,   Traver_Project__r.Account__r.BillingState ,  Delivery_Location__r.BillingState)</formula>
+        <label>State</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TRV_Multi_Country_Paperwork__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Multi-Country Paperwork</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TRV_NonBillable_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Non-Billable Reason</label>
+        <picklist>
+            <controllingField>Status__c</controllingField>
+            <picklistValues>
+                <fullName>PTO - Vacation</fullName>
+                <controllingFieldValues>Cancelled</controllingFieldValues>
+                <controllingFieldValues>Completed</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PTO - Sick</fullName>
+                <controllingFieldValues>Cancelled</controllingFieldValues>
+                <controllingFieldValues>Completed</controllingFieldValues>
+                <controllingFieldValues>Tentative</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PTO - Holiday</fullName>
+                <controllingFieldValues>Cancelled</controllingFieldValues>
+                <controllingFieldValues>Completed</controllingFieldValues>
+                <controllingFieldValues>Tentative</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Training - Classroom/Virtual</fullName>
+                <controllingFieldValues>Cancelled</controllingFieldValues>
+                <controllingFieldValues>Completed</controllingFieldValues>
+                <controllingFieldValues>Tentative</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Training - Field/Shadowing</fullName>
+                <controllingFieldValues>Cancelled</controllingFieldValues>
+                <controllingFieldValues>Completed</controllingFieldValues>
+                <controllingFieldValues>Tentative</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Weekday Travel</fullName>
+                <controllingFieldValues>Cancelled</controllingFieldValues>
+                <controllingFieldValues>Completed</controllingFieldValues>
+                <controllingFieldValues>Tentative</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Weekend Travel</fullName>
+                <controllingFieldValues>Cancelled</controllingFieldValues>
+                <controllingFieldValues>Completed</controllingFieldValues>
+                <controllingFieldValues>Tentative</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>TRV_Number_Of_Days_NonBillable__c</fullName>
+        <externalId>false</externalId>
+        <label>Number Of Days - NonBillable</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TRV_Push_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Push Reason</label>
+        <length>500</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>TRV_Pushed_By__c</fullName>
+        <description>Dependent picklist on status</description>
+        <externalId>false</externalId>
+        <label>Pushed By</label>
+        <picklist>
+            <controllingField>Status__c</controllingField>
+            <picklistValues>
+                <fullName>By Client</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>By CDK</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>TRV_Pushes__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label># Pushes</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TRV_Resource_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Resource Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>T_E_Billed_to_Client_PSG__c</fullName>
+        <externalId>false</externalId>
+        <formula>Traver_Project__r.T_E_Billed_to_Client_PSG__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>T&amp;E Billed to Client - PSG</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>T_E_Billed_to_Client_Traver__c</fullName>
+        <externalId>false</externalId>
+        <formula>Traver_Project__r.T_E_Billed_to_Client_Traver__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>T&amp;E Billed to Client - Traver</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Total_Billable_Expenses__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Billable Expenses</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Traver_Project__c</fullName>
+        <externalId>false</externalId>
+        <label>Consulting Project</label>
+        <referenceTo>Traver_Project__c</referenceTo>
+        <relationshipLabel>B4B Coaching</relationshipLabel>
+        <relationshipName>Traver_Onsite_Visits</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Unsold_Follow_Up__c</fullName>
+        <externalId>false</externalId>
+        <label>Unsold Follow Up</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Have, Using and Getting Results</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Upload_3__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>How are we going to measure this Goal (Tools, reports, etc)? TAKE A PICTURE OF THE
+TOOL/REPORT THAT IS GOING TO BE USED</inlineHelpText>
+        <label>Upload 3</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>15</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Visit_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Visit Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>X1_1_Appt_Ratio__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Did the dealership exceed a 1:1 Appointment Ratio the day(s) of your visit? Submit a
+picture of the Appointment Board to document their Appointment Ratio.</inlineHelpText>
+        <label>1:1 Appt Ratio</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>X5_Star_Guarantee__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>5 Star Guarantee</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>B4B Coaching</label>
+    <nameField>
+        <displayFormat>B4B-{00000}</displayFormat>
+        <label>B4B Coaching ID</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>B4B Coaching</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>EPC_Coaching_Log</fullName>
+        <active>true</active>
+        <description>EPC Coaching Log</description>
+        <label>EPC Coaching Log</label>
+        <picklistValues>
+            <picklist>Declined_Service_Calls__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Defection__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Equity_Mining__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Incoming_Sales_Calls__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Incoming_Service_Calls__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Internet__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Mgr__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>No_Show_Appointments__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Owner_Base__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Recalls__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Recommended_Service__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_Update_Calls__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Agenda Set</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scheduled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tentative</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Unsold_Follow_Up__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Forfeiture</fullName>
+        <active>true</active>
+        <description>This is for managers to capture when a client loses days on their contract.</description>
+        <label>Forfeiture</label>
+        <picklistValues>
+            <picklist>Declined_Service_Calls__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Defection__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Equity_Mining__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Incoming_Sales_Calls__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Incoming_Service_Calls__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Internet__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Mgr__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>No_Show_Appointments__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Owner_Base__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Recalls__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Recommended_Service__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_Update_Calls__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Agenda Set</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scheduled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tentative</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>TRV_Cancelled_By__c</picklist>
+            <values>
+                <fullName>Client</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>TRV_Cancelled_Reason__c</picklist>
+            <values>
+                <fullName>CDK Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Client Request</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>TRV_NonBillable_Reason__c</picklist>
+            <values>
+                <fullName>PTO - Holiday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PTO - Sick</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PTO - Vacation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Training - Classroom%2FVirtual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Training - Field%2FShadowing</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>TRV_Pushed_By__c</picklist>
+            <values>
+                <fullName>By CDK</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>By Client</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Unsold_Follow_Up__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Non_Billable</fullName>
+        <active>true</active>
+        <description>Track non-billable hours</description>
+        <label>Non-Billable</label>
+        <picklistValues>
+            <picklist>Declined_Service_Calls__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Defection__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Equity_Mining__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Incoming_Sales_Calls__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Incoming_Service_Calls__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Internet__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Mgr__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>No_Show_Appointments__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Owner_Base__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Recalls__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Recommended_Service__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_Update_Calls__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Agenda Set</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scheduled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tentative</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>TRV_Cancelled_By__c</picklist>
+            <values>
+                <fullName>Client</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>TRV_Cancelled_Reason__c</picklist>
+            <values>
+                <fullName>CDK Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Client Request</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>TRV_NonBillable_Reason__c</picklist>
+            <values>
+                <fullName>PTO - Holiday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PTO - Sick</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PTO - Vacation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Training - Classroom%2FVirtual</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Training - Field%2FShadowing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weekday Travel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weekend Travel</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>TRV_Pushed_By__c</picklist>
+            <values>
+                <fullName>By CDK</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>By Client</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Unsold_Follow_Up__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>PSC_Visit</fullName>
+        <active>true</active>
+        <description>PSC Visit</description>
+        <label>PSC Visit</label>
+        <picklistValues>
+            <picklist>Declined_Service_Calls__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Defection__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Equity_Mining__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Incoming_Sales_Calls__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Incoming_Service_Calls__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Internet__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Mgr__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>No_Show_Appointments__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Owner_Base__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Recalls__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Recommended_Service__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_Update_Calls__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Agenda Set</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scheduled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tentative</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Unsold_Follow_Up__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Process_Coach_Visit</fullName>
+        <active>true</active>
+        <description>Process Coach Visit</description>
+        <label>Process Coach Visit</label>
+        <picklistValues>
+            <picklist>Declined_Service_Calls__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Defection__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Equity_Mining__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Incoming_Sales_Calls__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Incoming_Service_Calls__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Internet__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Mgr__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>No_Show_Appointments__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Owner_Base__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Recalls__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Recommended_Service__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_Update_Calls__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Agenda Set</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scheduled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tentative</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Unsold_Follow_Up__c</picklist>
+            <values>
+                <fullName>Have It</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have and Using</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Have%2C Using and Getting Results</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <lookupDialogsAdditionalFields>Project_Account__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Traver_Project__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Visit_Start_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Number_of_Days_Traver__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Days_Per_Month_Number__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Notes__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Project_Account__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Completed_By__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Visit_Start_Date__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Number_of_Days_Traver__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Traver_Project__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>Project_Account__c</searchFilterFields>
+        <searchFilterFields>Traver_Project__c</searchFilterFields>
+        <searchFilterFields>Number_of_Days_Traver__c</searchFilterFields>
+        <searchFilterFields>Visit_Start_Date__c</searchFilterFields>
+        <searchFilterFields>Completed_By__c</searchFilterFields>
+        <searchFilterFields>CREATEDBY_USER</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>DS_PSC_Req_PrimaryClientContact</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(RecordType.Name=&quot;PSC Visit&quot;,ISPICKVAL(Status__c, &quot;Completed&quot;), ISBLANK(Primary_Client_Contacts__c))</errorConditionFormula>
+        <errorDisplayField>Primary_Client_Contacts__c</errorDisplayField>
+        <errorMessage>Please enter value for Primary Client Contacts</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>TRV_PushReason_Pushed_By_Required_Status</fullName>
+        <active>true</active>
+        <description>User should provide values for &apos;Push Reason&apos; and &apos;Pushed By&apos; when related &apos;Status&apos; field is updated as &apos;Pushed&apos;.</description>
+        <errorConditionFormula>AND(ISPICKVAL( Status__c  , &apos;Pushed&apos;),  OR(TRV_Push_Reason__c == &apos;&apos;,  ISPICKVAL( TRV_Pushed_By__c , &apos;&apos;)))</errorConditionFormula>
+        <errorMessage>Please enter the Push Reason and Pushed By.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>TRV_TerminationDateGreaterThanB4BEndDate</fullName>
+        <active>true</active>
+        <description>Visit Start Date plus No of days(End Date of B4B) visit cannot be same or greater than the User Termination Date.</description>
+        <errorConditionFormula>(  ISNEW() || ISCHANGED( TRV_Completed_By__c )  ||  ISCHANGED( TRV_FRM_End_Date_Of_B4B__c ))  &amp;&amp;  TRV_FRM_End_Date_Of_B4B__c &gt;= TRV_Completed_By__r.TRV_Termination_Date__c</errorConditionFormula>
+        <errorDisplayField>Visit_Start_Date__c</errorDisplayField>
+        <errorMessage>Visit Start Date plus No of days visit cannot be same or greater than the User Termination Date.</errorMessage>
+    </validationRules>
+</CustomObject>

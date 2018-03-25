@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Trigger Toggle</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Trigger Toggle</value>
+    </caseValues>
+    <fields>
+        <help><!-- The name of a class, method, or code block. --></help>
+        <label><!-- Code Reference --></label>
+        <name>Code_Reference__c</name>
+    </fields>
+    <fields>
+        <help><!-- When this box is checked, the Trigger is turned on. When unchecked, the Trigger is turned off. --></help>
+        <label><!-- On? --></label>
+        <name>On__c</name>
+    </fields>
+    <fields>
+        <label><!-- RecordType Name --></label>
+        <name>RecordType_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- For reference only, this is the name of the sObject the Trigger is on. --></help>
+        <label><!-- sObject --></label>
+        <name>sObject__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

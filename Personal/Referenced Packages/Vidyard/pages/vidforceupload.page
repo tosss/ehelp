@@ -1,0 +1,6 @@
+<apex:page standardController="Contact">
+   <apex:detail subject="{!Contact.Id}" relatedList="false" />
+   <apex:pageBlock title="Hello {!Contact.Name}!">
+       <p>This page is no longer used, or supported</p>
+   </apex:pageBlock>
+</apex:page>

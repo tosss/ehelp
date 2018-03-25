@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>LMA Pipeline</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>LMA Pipelines</value>
+    </caseValues>
+    <fields>
+        <label><!-- Annual Total --></label>
+        <name>Annual_Total__c</name>
+    </fields>
+    <fields>
+        <help><!-- Last date April value was updated --></help>
+        <label><!-- Apr Last Update --></label>
+        <name>Apr_Last_Update__c</name>
+    </fields>
+    <fields>
+        <help><!-- April Value Updated This week? --></help>
+        <label><!-- Apr Upd --></label>
+        <name>Apr_Upd__c</name>
+    </fields>
+    <fields>
+        <help><!-- At least one monthly bucket should have a value greater than $0. --></help>
+        <label><!-- Apr --></label>
+        <name>Apr__c</name>
+    </fields>
+    <fields>
+        <help><!-- Last date August value was updated --></help>
+        <label><!-- Aug Last Update --></label>
+        <name>Aug_Last_Update__c</name>
+    </fields>
+    <fields>
+        <help><!-- August Value Updated This week? --></help>
+        <label><!-- Aug Upd --></label>
+        <name>Aug_Upd__c</name>
+    </fields>
+    <fields>
+        <help><!-- At least one monthly bucket should have a value greater than $0. --></help>
+        <label><!-- Aug --></label>
+        <name>Aug__c</name>
+    </fields>
+    <fields>
+        <label><!-- Brand --></label>
+        <lookupFilter>
+            <errorMessage><!-- Brand selected is inactive, please select another Brand.  (LMA Pipeline) --></errorMessage>
+        </lookupFilter>
+        <name>Brand__c</name>
+        <relationshipLabel><!-- LMA Pipelines --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Confidence --></label>
+        <name>Confidence__c</name>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Med</masterLabel>
+            <translation><!-- Med --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Signed</masterLabel>
+            <translation><!-- Signed --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Last date December value was updated --></help>
+        <label><!-- Dec Last Update --></label>
+        <name>Dec_Last_Update__c</name>
+    </fields>
+    <fields>
+        <help><!-- December Value Updated This week? --></help>
+        <label><!-- Dec Upd --></label>
+        <name>Dec_Upd__c</name>
+    </fields>
+    <fields>
+        <help><!-- At least one monthly bucket should have a value greater than $0. --></help>
+        <label><!-- Dec --></label>
+        <name>Dec__c</name>
+    </fields>
+    <fields>
+        <help><!-- Last date Feburary value was updated --></help>
+        <label><!-- Feb Last Update --></label>
+        <name>Feb_Last_Update__c</name>
+    </fields>
+    <fields>
+        <help><!-- Feburary Value Updated This week? --></help>
+        <label><!-- Feb Upd --></label>
+        <name>Feb_Upd__c</name>
+    </fields>
+    <fields>
+        <help><!-- At least one monthly bucket should have a value greater than $0. --></help>
+        <label><!-- Feb --></label>
+        <name>Feb__c</name>
+    </fields>
+    <fields>
+        <label><!-- Year --></label>
+        <name>Fiscal_Year__c</name>
+        <picklistValues>
+            <masterLabel>2016</masterLabel>
+            <translation><!-- 2016 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2017</masterLabel>
+            <translation><!-- 2017 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2018</masterLabel>
+            <translation><!-- 2018 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Last date Jan value was updated. --></help>
+        <label><!-- Jan Last Update --></label>
+        <name>Jan_Last_Update__c</name>
+    </fields>
+    <fields>
+        <help><!-- January value updated this week? --></help>
+        <label><!-- Jan Upd --></label>
+        <name>Jan_Upd__c</name>
+    </fields>
+    <fields>
+        <help><!-- At least one monthly bucket should have a value greater than $0. --></help>
+        <label><!-- Jan --></label>
+        <name>Jan__c</name>
+    </fields>
+    <fields>
+        <help><!-- Last date July value was updated --></help>
+        <label><!-- Jul Last Update --></label>
+        <name>Jul_Last_Update__c</name>
+    </fields>
+    <fields>
+        <help><!-- July Value Updated This week? --></help>
+        <label><!-- Jul Upd --></label>
+        <name>Jul_Upd__c</name>
+    </fields>
+    <fields>
+        <help><!-- At least one monthly bucket should have a value greater than $0. --></help>
+        <label><!-- Jul --></label>
+        <name>Jul__c</name>
+    </fields>
+    <fields>
+        <help><!-- Last date June value was updated --></help>
+        <label><!-- Jun Last Update --></label>
+        <name>Jun_Last_Update__c</name>
+    </fields>
+    <fields>
+        <help><!-- Jun Value Updated This week? --></help>
+        <label><!-- Jun Upd --></label>
+        <name>Jun_Upd__c</name>
+    </fields>
+    <fields>
+        <help><!-- At least one monthly bucket should have a value greater than $0. --></help>
+        <label><!-- Jun --></label>
+        <name>Jun__c</name>
+    </fields>
+    <fields>
+        <help><!-- Site Type must equal &quot;Local Marketing&quot;. --></help>
+        <label><!-- LMA Account --></label>
+        <name>LMA_Account__c</name>
+        <relationshipLabel><!-- LMA Pipelines --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Last date March value was updated --></help>
+        <label><!-- Mar Last Update --></label>
+        <name>Mar_Last_Update__c</name>
+    </fields>
+    <fields>
+        <help><!-- March Value Updated This week? --></help>
+        <label><!-- Mar Upd --></label>
+        <name>Mar_Upd__c</name>
+    </fields>
+    <fields>
+        <help><!-- At least one monthly bucket should have a value greater than $0. --></help>
+        <label><!-- Mar --></label>
+        <name>Mar__c</name>
+    </fields>
+    <fields>
+        <help><!-- Last date May value was updated --></help>
+        <label><!-- May Last Update --></label>
+        <name>May_Last_Update__c</name>
+    </fields>
+    <fields>
+        <help><!-- May Value Updated This week? --></help>
+        <label><!-- May Upd --></label>
+        <name>May_Upd__c</name>
+    </fields>
+    <fields>
+        <help><!-- At least one monthly bucket should have a value greater than $0. --></help>
+        <label><!-- May --></label>
+        <name>May__c</name>
+    </fields>
+    <fields>
+        <help><!-- Month values updated in the last 7 days. --></help>
+        <label><!-- Month(s) Updated in Last 7 Days --></label>
+        <name>Month_s_Updated_in_Last_7_Days__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notes --></label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <help><!-- Last date November value was updated --></help>
+        <label><!-- Nov Last Update --></label>
+        <name>Nov_Last_Update__c</name>
+    </fields>
+    <fields>
+        <help><!-- November Value Updated This week? --></help>
+        <label><!-- Nov Upd --></label>
+        <name>Nov_Upd__c</name>
+    </fields>
+    <fields>
+        <help><!-- At least one monthly bucket should have a value greater than $0. --></help>
+        <label><!-- Nov --></label>
+        <name>Nov__c</name>
+    </fields>
+    <fields>
+        <help><!-- Last date October value was updated --></help>
+        <label><!-- Oct Last Update --></label>
+        <name>Oct_Last_Update__c</name>
+    </fields>
+    <fields>
+        <help><!-- October Value Updated This week? --></help>
+        <label><!-- Oct Upd --></label>
+        <name>Oct_Upd__c</name>
+    </fields>
+    <fields>
+        <help><!-- At least one monthly bucket should have a value greater than $0. --></help>
+        <label><!-- Oct --></label>
+        <name>Oct__c</name>
+    </fields>
+    <fields>
+        <label><!-- Region-funded --></label>
+        <name>Region_funded__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- SR # --></label>
+        <name>SR__c</name>
+    </fields>
+    <fields>
+        <help><!-- Last date September value was updated --></help>
+        <label><!-- Sep Last Update --></label>
+        <name>Sep_Last_Update__c</name>
+    </fields>
+    <fields>
+        <help><!-- September Value Updated This week? --></help>
+        <label><!-- Sep Upd --></label>
+        <name>Sep_Upd__c</name>
+    </fields>
+    <fields>
+        <help><!-- At least one monthly bucket should have a value greater than $0. --></help>
+        <label><!-- Sep --></label>
+        <name>Sep__c</name>
+    </fields>
+    <layouts>
+        <layout>LMA_Pipeline Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+        <sections>
+            <label><!-- Pipeline Buckets --></label>
+            <section>Pipeline Buckets</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- At least one month must have a budget greater than $0! (LMA Pipeline) --></errorMessage>
+        <name>ES_One_Bucket_Not_Null</name>
+    </validationRules>
+</CustomObjectTranslation>

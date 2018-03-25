@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>MapAnything Territory Rollup</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>MapAnything Territory Rollups</value>
+    </caseValues>
+    <fields>
+        <label><!-- Aggregate Field Type --></label>
+        <name>AggregateFieldType__c</name>
+        <picklistValues>
+            <masterLabel>Currency</masterLabel>
+            <translation><!-- Currency --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Date</masterLabel>
+            <translation><!-- Date --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Datetime</masterLabel>
+            <translation><!-- Datetime --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Number</masterLabel>
+            <translation><!-- Number --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>String</masterLabel>
+            <translation><!-- String --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Aggregate Field --></label>
+        <name>AggregateField__c</name>
+    </fields>
+    <fields>
+        <label><!-- Aggregate Type --></label>
+        <name>AggregateType__c</name>
+        <picklistValues>
+            <masterLabel>Average</masterLabel>
+            <translation><!-- Average --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Count</masterLabel>
+            <translation><!-- Count --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Max</masterLabel>
+            <translation><!-- Max --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Min</masterLabel>
+            <translation><!-- Min --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sum</masterLabel>
+            <translation><!-- Sum --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Color Rules --></label>
+        <name>ColorRules__c</name>
+    </fields>
+    <fields>
+        <label><!-- Field --></label>
+        <name>Field__c</name>
+    </fields>
+    <fields>
+        <label><!-- Filter Logic --></label>
+        <name>FilterLogic__c</name>
+    </fields>
+    <fields>
+        <label><!-- Folder --></label>
+        <name>Folder__c</name>
+        <relationshipLabel><!-- Rollups --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Grandparent Field --></label>
+        <name>GrandparentField__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Run Date --></label>
+        <name>LastRunDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Object --></label>
+        <name>Object__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parent Field --></label>
+        <name>ParentField__c</name>
+    </fields>
+    <fields>
+        <label><!-- Query --></label>
+        <name>Query__c</name>
+    </fields>
+    <fields>
+        <label><!-- Territory Field --></label>
+        <name>TerritoryField__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

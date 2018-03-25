@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>ADP_OppQuote_Compact_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>ADP_OppQuote_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>Account__c</fields>
+        <fields>Opportunity__c</fields>
+        <fields>Deal_Description__c</fields>
+        <label>ADP OppQuote Compact Layout</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Link to SQT deals for a given opportunity</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fieldSets>
+        <fullName>Opportunity_Quotes_Commons</fullName>
+        <description>Query using field set</description>
+        <displayedFields>
+            <field>Id</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Deal_ID__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Opportunity__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Opportunity Quotes Commons</label>
+    </fieldSets>
+    <fields>
+        <fullName>Account__c</fullName>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Opportunity Quotes</relationshipLabel>
+        <relationshipName>Opportunity_Quotes</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Binder__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( LEN(Filename__c) &gt; 0 , HYPERLINK( Filename__c , &quot;Open Binder&quot;, &quot;_blank&quot;), &quot;&quot;)</formula>
+        <label>Binder</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Client_Data_Exchange_Products__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Client Data Exchange Products</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Core_CMF_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Core CMF Number</label>
+        <length>8</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Credit_Check__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Credit Check</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DCS__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>DCS</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Dash_Only__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Dash Only</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Deal_Approver__c</fullName>
+        <externalId>false</externalId>
+        <label>Deal Approver</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Deal_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Deal Description</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Deal_Edit__c</fullName>
+        <externalId>false</externalId>
+        <formula>hyperlink(&quot;http://&quot; &amp; $Setup.CustomSettings__c.SQTServer__c &amp; &quot;Home.aspx?DealID=&quot; &amp; Deal_ID__c &amp; &quot;&amp;UID=&quot; &amp; $User.Id, Deal_Description__c, &quot;_blank&quot;)</formula>
+        <label>Deal Edit</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Deal_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Deal ID</label>
+        <length>15</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Deal_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Deal Type</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Docs_Pushed_from_SQT__c</fullName>
+        <externalId>false</externalId>
+        <label>Docs Pushed from SQT</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Filename__c</fullName>
+        <externalId>false</externalId>
+        <label>Filename</label>
+        <length>125</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Finalized_Deal__c</fullName>
+        <externalId>false</externalId>
+        <label>Finalized Deal</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>French_Wording__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>French Wording</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPNS_CMF_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>IPNS CMF Number</label>
+        <length>8</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IPNS_Only__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>IPNS Only</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPNS_Site_Address__c</fullName>
+        <externalId>false</externalId>
+        <label>IPNS Site Address</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IPNS_Site_City__c</fullName>
+        <externalId>false</externalId>
+        <label>IPNS Site City</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IPNS_Site_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>IPNS Site Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IPNS_Site_State__c</fullName>
+        <externalId>false</externalId>
+        <label>IPNS Site State</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IPNS_Site_Zip__c</fullName>
+        <externalId>false</externalId>
+        <label>IPNS Site Zip</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Intravision_Only__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Intravision Only</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Lease_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Lease Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lease</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Loan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Main_Site_Address__c</fullName>
+        <externalId>false</externalId>
+        <label>Main Site Address</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Main_Site_City__c</fullName>
+        <externalId>false</externalId>
+        <label>Main Site City</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Main_Site_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Main Site Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Main_Site_State__c</fullName>
+        <externalId>false</externalId>
+        <label>Main Site State</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Main_Site_Zip__c</fullName>
+        <externalId>false</externalId>
+        <label>Main Site Zip</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Migration_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Migration ID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>NIADA_Region_Location__c</fullName>
+        <externalId>false</externalId>
+        <label>NIADA Region Location</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Network_Telephony__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Network/Telephony</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Non_Refundable_Deposit_IPNS__c</fullName>
+        <externalId>false</externalId>
+        <label>Non-Refundable Deposit IPNS</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Non_Refundable_Deposit__c</fullName>
+        <externalId>false</externalId>
+        <label>Non-Refundable Deposit Core</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Opp_Quotes_CreateDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Opp Quotes CreateDate</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Opp_Quotes_LastUpdated__c</fullName>
+        <externalId>false</externalId>
+        <label>Opp Quotes LastUpdated</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Opportunity Quotes</relationshipLabel>
+        <relationshipName>Opportunity_Quotes</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Released_To_Sales__c</fullName>
+        <externalId>false</externalId>
+        <label>Released To Sales</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>SQT_Created_by__c</fullName>
+        <externalId>false</externalId>
+        <label>SQT Created by</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SQT_Deal_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>SQT Deal ID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SQT_Deal_Version_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>SQT Deal Version Number</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SQT_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>SQT Status</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Monthlies__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Total Monthlies</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_One_Times__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Total One- Times</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>X3PA__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>3PA</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Opportunity Quotes</label>
+    <nameField>
+        <label>Deal ID</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Opportunity Quotes</pluralLabel>
+    <searchLayouts>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <excludedStandardButtons>New</excludedStandardButtons>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <searchResultsAdditionalFields>Deal_Description__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Account__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Opportunity__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>SQT_Deal_ID__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CREATED_DATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LAST_UPDATE</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <webLinks>
+        <fullName>Create_Deal</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Create Deal</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&apos;//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js&apos;)}
+{!REQUIRESCRIPT(&apos;//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js&apos;)}
+{!REQUIRESCRIPT(&apos;/soap/ajax/30.0/connection.js&apos;)}
+
+var AccId = &quot;{!Opportunity.AccountId}&quot;; 
+var acc = sforce.connection.query(&quot;SELECT id, region__c &quot; + &quot;FROM account WHERE id =&quot; + &quot;&apos;&quot; + AccId + &quot;&apos;&quot;); 
+var records = acc.getArray(&apos;records&apos;);
+var accRecord = records[0];
+
+
+var oppId = &quot;{!Opportunity.Id}&quot;;
+var opp = sforce.connection.query(&quot;SELECT id, Opportunity__c, Finalized_Deal__c &quot; + &quot;FROM Opportunity_Quotes__c WHERE Opportunity__c =&quot; + &quot;&apos;&quot; + oppId + &quot;&apos;&quot;);
+var oppRecords = opp.getArray(&apos;records&apos;);
+var opportunityRecord =  oppRecords[0]; 
+
+if(opportunityRecord &amp;&amp; opportunityRecord.Finalized_Deal__c) 
+{ 
+alert(&quot;A new Deal cannot be created if the Deal State is already Finalized.&quot;); 
+} 
+else if(accRecord &amp;&amp; accRecord.Region__c == &quot;Division&quot;) 
+{ 
+alert(&quot;A new Deal cannot be created for Account Region Division.&quot;); 
+} 
+else 
+{ 
+window.open(&apos;http://{!$Setup.CustomSettings__c.SQTServer__c}home.aspx?OppID={!Opportunity.Id}&amp;UID={!$User.Id}&apos;, &apos;sqtnew&apos;, &apos;top=150,left=250,height=400,width=400,status=yes,toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes&apos;); 
+}</url>
+    </webLinks>
+</CustomObject>

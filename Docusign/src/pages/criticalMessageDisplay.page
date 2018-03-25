@@ -1,0 +1,3 @@
+<apex:page standardController="Case" label="Critical Note" name="Critical Note" title="Critical Note">
+	{!Case.Account.Critical_Note__c}
+</apex:page>

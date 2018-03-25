@@ -1,0 +1,265 @@
+<aura:component controller="ProductLookup_Controller" implements="force:appHostable" >
+    <ltng:require scripts="/resource/jQuery/js/jquery-1.10.2.min.js" />
+    <ltng:require scripts="/resource/ALL_LightningUtility"/>
+    <ltng:require styles="/resource/slds100/assets/styles/salesforce-lightning-design-system.css"/>
+    
+    <aura:attribute name="countries" default="['USA','Canada']" type="String[]" />
+    <aura:attribute type="String" name="hardware" default="{!$Browser.formFactor}" />
+    <aura:attribute type="String" name="selectedCountry" default="" />
+    <aura:attribute type="SObject[]" name="productsList" default="[]"/>
+    <aura:attribute type="Integer" name="catalogNo" default=""/>
+    <aura:attribute type="Boolean" name="noRecords" default="false"/>
+    <aura:attribute type="String" name="displayMsg" default=""/>
+    <aura:attribute type="Boolean" name="showCatalogDetail" default="false"/>
+    
+    <aura:attribute type="SObject[]" name="recordDetails" default=""/>
+    <aura:attribute type="Boolean" name="showLoadingIcon" default="false"/>
+   
+    <div id="mainPage">
+        <div id="homeComponent" style="{!!v.showCatalogDetail ? 'display:block':'display:none'}">
+            <div class="slds-page-header" role="banner">
+                <div class="slds-media">
+                    <div class="slds-media__figure">
+                        <img class="slds-icon slds-icon--medium slds-icon-standard-product" src="/resource/slds100/assets/icons/standard/product_60.png" />
+                    </div>
+                    <div class="slds-media__body">
+                        <p class="slds-page-header__title slds-truncate slds-align-middle" title="Product Lookup">Product Lookup</p>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="slds-grid slds-container--center slds-grid--pull-padded" style="{!v.hardware == 'DESKTOP' ? 'max-width:100%;margin-bottom:1%;margin-top:1%;':'max-width:100%;margin-bottom:1%;display:block;margin-top:1%;'}">
+                <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--6-of-6 slds-large-size--6-of-12" style="{!v.hardware != 'DESKTOP' ? 'min-width:100%;':''}">
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label">Catalog No.</label>
+                        <ui:inputText class="slds-input" aura:id="catalogNo" value="{!v.catalogNo}" />
+                    </div>
+                </div>
+                <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--6-of-6 slds-large-size--6-of-12" style="{!v.hardware != 'DESKTOP' ? 'min-width:100%;':''}">
+                    
+                    <c:ALL_MultiPicklist selectedOption="{!v.selectedCountry}" options="{!v.countries}"  showDefault="all" label="Country"/>
+                </div>
+                
+                
+            </div>
+            
+            <div class="slds-grid slds-container--center slds-grid--pull-padded" style="{!v.hardware == 'DESKTOP' ? 'max-width:100%;margin-bottom:1%;margin-top:1%;':'max-width:100%;margin-bottom:1%;display:block;margin-top:1%;'}">
+                <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--6-of-6 slds-large-size--5-of-12" style="{!v.hardware != 'DESKTOP' ? 'min-width:100%;':''}">
+                    
+                </div>
+                
+                <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--6-of-6 slds-large-size--1-of-12" style="{!v.hardware != 'DESKTOP' ? 'min-width:100%;margin-top:0.5rem;':''}">
+                    
+                    <button class="slds-button slds-button--neutral slds-not-selected" onclick="{!c.searchProducts}"  style="width:100%">Search</button>
+                </div>
+                <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--6-of-6 slds-large-size--1-of-12" style="{!v.hardware != 'DESKTOP' ? 'min-width:100%;margin-top:0.5rem;':''}">
+                    
+                    <button class="slds-button slds-button--neutral slds-not-selected" onclick="{!c.resetFields}"  style="width:100%">Reset</button>
+                </div>
+                <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--6-of-6 slds-large-size--5-of-12" style="{!v.hardware != 'DESKTOP' ? 'min-width:100%;':''}">
+                    
+                    
+                </div>
+                
+                
+            </div>
+            
+            <div style="{!v.showLoadingIcon ? 'display:none':'display:block'}">
+                <div class="slds-grid slds-container--center slds-container--large" style="{!v.productsList.length == 0 ? 'display:none':'display:block;margin-top: 0.5%;max-width:100%;'}">
+                    <div class="slds-col--padded">
+                        <div class="slds-card ">
+                            <div class="slds-card__header slds-grid">
+                                <div class="slds-media slds-media--center slds-has-flexi-truncate">
+                                    <div class="slds-media__figure">
+                                        <div class="slds-media__figure">
+                                            <img class="slds-icon slds-icon--medium slds-icon-standard-product" src="/resource/slds100/assets/icons/standard/product_60.png" />
+                                        </div>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <h2 class="slds-text-heading--small slds-truncate">Products</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="slds-card__body">
+                                <table class="slds-table slds-scrollable--x slds-table--fixed-layout slds-table--bordered slds-max-medium-table--stacked-horizontal">
+                                    <thead>
+                                        <tr class="slds-text-heading--label">
+                                            <th class="slds-is-sortable slds-is-resizable" scope="col" onclick="{!c.sortColumn}" id="catalog">
+                                                
+                                                <div class="slds-truncate">
+                                                    Catalog
+                                                    <button class="slds-button slds-button--icon-bare">
+                                                        <img src="/resource/slds100/assets/icons/utility/arrowdown_60.png" class="slds-button__icon slds-button__icon--small sortImage upImage" /> 
+                                                        <img src="/resource/slds100/assets/icons/utility/arrowup_60.png" class="slds-button__icon slds-button__icon--small sortImage downImage"  style="display:none;"/>
+                                                        <span class="slds-assistive-text">Sort</span>
+                                                    </button>
+                                                </div>
+                                            </th>
+                                            <th class="slds-is-sortable slds-is-resizable" scope="col" onclick="{!c.sortColumn}" id="description">
+                                                
+                                                <div class="slds-truncate">
+                                                    Description
+                                                    <button class="slds-button slds-button--icon-bare">
+                                                        <img src="/resource/slds100/assets/icons/utility/arrowdown_60.png" class="slds-button__icon slds-button__icon--small sortImage upImage" /> 
+                                                        <img src="/resource/slds100/assets/icons/utility/arrowup_60.png" class="slds-button__icon slds-button__icon--small sortImage downImage"  style="display:none;"/>
+                                                        <span class="slds-assistive-text">Sort</span>
+                                                    </button>
+                                                </div>
+                                            </th>
+                                            <th class="slds-is-sortable slds-is-resizable" scope="col" onclick="{!c.sortColumn}" id="priceListName">
+                                                
+                                                <div class="slds-truncate">
+                                                    Price List Name
+                                                    <button class="slds-button slds-button--icon-bare">
+                                                        <img src="/resource/slds100/assets/icons/utility/arrowdown_60.png" class="slds-button__icon slds-button__icon--small sortImage upImage" /> 
+                                                        <img src="/resource/slds100/assets/icons/utility/arrowup_60.png" class="slds-button__icon slds-button__icon--small sortImage downImage"  style="display:none;"/>
+                                                        <span class="slds-assistive-text">Sort</span>
+                                                    </button>
+                                                </div>
+                                            </th>
+                                            <th class="slds-is-sortable slds-is-resizable" scope="col" onclick="{!c.sortColumn}" id="productCategory">
+                                                
+                                                <div class="slds-truncate">
+                                                    Product Category
+                                                    <button class="slds-button slds-button--icon-bare">
+                                                        <img src="/resource/slds100/assets/icons/utility/arrowdown_60.png" class="slds-button__icon slds-button__icon--small sortImage upImage" /> 
+                                                        <img src="/resource/slds100/assets/icons/utility/arrowup_60.png" class="slds-button__icon slds-button__icon--small sortImage downImage"  style="display:none;"/>
+                                                        <span class="slds-assistive-text">Sort</span>
+                                                    </button>
+                                                </div>
+                                            </th>
+                                            <th class="slds-is-sortable slds-is-resizable" scope="col" onclick="{!c.sortColumn}" id="targetPurchase">
+                                                
+                                                <div class="slds-truncate">
+                                                    Target % Purchase
+                                                    <button class="slds-button slds-button--icon-bare">
+                                                        <img src="/resource/slds100/assets/icons/utility/arrowdown_60.png" class="slds-button__icon slds-button__icon--small sortImage upImage" /> 
+                                                        <img src="/resource/slds100/assets/icons/utility/arrowup_60.png" class="slds-button__icon slds-button__icon--small sortImage downImage"  style="display:none;"/>
+                                                        <span class="slds-assistive-text">Sort</span>
+                                                    </button>
+                                                </div>
+                                            </th>
+                                            <th class="slds-is-sortable slds-is-resizable" scope="col" onclick="{!c.sortColumn}" id="targetMaintenance">
+                                                
+                                                <div class="slds-truncate">
+                                                    Target % Maintenance
+                                                    <button class="slds-button slds-button--icon-bare">
+                                                        <img src="/resource/slds100/assets/icons/utility/arrowdown_60.png" class="slds-button__icon slds-button__icon--small sortImage upImage" /> 
+                                                        <img src="/resource/slds100/assets/icons/utility/arrowup_60.png" class="slds-button__icon slds-button__icon--small sortImage downImage"  style="display:none;"/>
+                                                        <span class="slds-assistive-text">Sort</span>
+                                                    </button>
+                                                </div>
+                                            </th>
+                                            <th class="slds-is-sortable slds-is-resizable" scope="col" onclick="{!c.sortColumn}" id="lastUpdateDate">
+                                                
+                                                <div class="slds-truncate">
+                                                    Last Update Date
+                                                    <button class="slds-button slds-button--icon-bare">
+                                                        <img src="/resource/slds100/assets/icons/utility/arrowdown_60.png" class="slds-button__icon slds-button__icon--small sortImage upImage" /> 
+                                                        <img src="/resource/slds100/assets/icons/utility/arrowup_60.png" class="slds-button__icon slds-button__icon--small sortImage downImage"  style="display:none;"/>
+                                                        <span class="slds-assistive-text">Sort</span>
+                                                    </button>
+                                                </div>
+                                            </th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <aura:iteration items="{!v.productsList}" var="product">
+                                            <tr class="slds-hint-parent">
+                                                <td class="slds-truncate slds-cell-wrap " title="{!product.Catalog__c}"  data-label="Name">
+                                                    <a id="{!product.Id}" onclick="{!c.getDetails}">{!product.Catalog__c}</a>    
+                                                </td>
+                                                <td class="slds-truncate slds-cell-wrap " title="{!product.Description__c}"   data-label="Description">{!product.Description__c}</td>
+                                                <td class="slds-truncate slds-cell-wrap " title="{!product.List_Price__c}" data-label="Price List">{!product.List_Price__c}</td>
+                                                <td class="slds-truncate " data-label="Product Category" title="{!product.Section_Description__c}">{!product.Section_Description__c}</td>
+                                                <td class="slds-truncate slds-cell-wrap " title="{!product.Auto__c}"   data-label="Target % Purchase">{!product.Auto__c}</td>
+                                                <td class="slds-truncate slds-cell-wrap " title="{!product.Description__c}" data-label="Target % Maintenance">{!product.Description__c}</td>
+                                                <td class="slds-truncate " data-label="Last Update Date" title="{!product.Catalog_Description__c}">{!product.Catalog_Description__c}</td>
+                                                
+                                            </tr>
+                                        </aura:iteration>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="slds-card__footer">
+                                <b class="slds-text-body--small slds-page-header__info" style="color:black">{!v.productsList.length}&nbsp;{!v.productsList.length == 1 ? 'Record': 'Records'}&nbsp;found</b>
+                                <span class="slds-assistive-text"></span>
+                                
+                            </div>
+                            
+                            
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                
+                <div class="slds-grid slds-container--center slds-container--large" style="{!v.noRecords  ? 'display:block':'display:none;margin-top: 0.5%;max-width:100%;'}">
+                    <div class="slds-col--padded">
+                        <div class="slds-card ">
+                            <div class="slds-card__header slds-grid">
+                                <div class="slds-media slds-media--center slds-has-flexi-truncate">
+                                    <div class="slds-media__figure">
+                                        <div class="slds-media__figure">
+                                            <img class="slds-icon slds-icon--medium slds-icon-standard-product" src="/resource/slds100/assets/icons/standard/product_60.png" />
+                                        </div>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <h2 class="slds-text-heading--small slds-truncate">Products</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="slds-card__body">
+                                <table class="slds-table slds-scrollable--x slds-table--fixed-layout slds-table--bordered slds-max-medium-table--stacked-horizontal">
+                                    <thead>
+                                        <tr>
+                                            <th class="slds-text-heading--label" scope="col">
+                                                <h2 class="slds-text-heading--small">{!v.displayMsg}</h2>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                                
+                            </div>
+                            
+                            <div class="slds-card__footer">
+                                <b class="slds-text-body--small slds-page-header__info" style="color:black">{!v.productsList.length}&nbsp;{!v.productsList.length == 1 ? 'Record': 'Records'}&nbsp;found</b>
+                                <span class="slds-assistive-text"></span>
+                                
+                            </div>
+                            
+                            
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>  
+        </div>
+        
+        
+        
+        <div style="{!v.showLoadingIcon ? 'display:none':'display:block'}">
+            
+            <div id="subComponent" style="{!v.showCatalogDetail ? 'display:block':'display:none'}">
+                
+                <div style="padding:10px">
+                    <button class="slds-button slds-button--neutral" onclick="{!c.navigateBack}">Back</button>
+                </div> 
+                <c:CatalogDetail aura:id="detailView" recDetail="{!v.recordDetails[0]}"/>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="slds-spinner_container" id="loadingIcon" style="{!v.showLoadingIcon ? 'display:block':'display:none'}">
+        <div class="slds-spinner--brand slds-spinner slds-spinner--small" aria-hidden="false" role="alert">
+            <div class="slds-spinner__dot-a"></div>
+            <div class="slds-spinner__dot-b"></div>
+        </div>
+    </div>
+</aura:component>

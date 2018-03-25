@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>MapAnything Analytic</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>MapAnything Analytics</value>
+    </caseValues>
+    <fields>
+        <label><!-- Date/Time --></label>
+        <name>DateTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Favorite Location --></label>
+        <name>FavoriteLocation__c</name>
+        <relationshipLabel><!-- MapAnything Analytics --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Layer --></label>
+        <name>Layer__c</name>
+    </fields>
+    <fields>
+        <label><!-- MA Layer --></label>
+        <name>MALayer__c</name>
+        <relationshipLabel><!-- MapAnything Analytics --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Saved Query --></label>
+        <name>SavedQuery__c</name>
+        <relationshipLabel><!-- MapAnything Analytics --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Sub Type --></label>
+        <name>SubType__c</name>
+        <picklistValues>
+            <masterLabel>Data Layer</masterLabel>
+            <translation><!-- Data Layer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Favorite Location</masterLabel>
+            <translation><!-- Favorite Location --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marker Layer</masterLabel>
+            <translation><!-- Marker Layer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shape Layer</masterLabel>
+            <translation><!-- Shape Layer --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Territory --></label>
+        <name>Territory__c</name>
+        <relationshipLabel><!-- MapAnything Analytics --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Plot Layer</masterLabel>
+            <translation><!-- Plot Layer --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>User__c</name>
+        <relationshipLabel><!-- MapAnything Analytics --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>MapAnything Analytic Layout</layout>
+        <sections>
+            <label><!-- Advanced --></label>
+            <section>Advanced</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

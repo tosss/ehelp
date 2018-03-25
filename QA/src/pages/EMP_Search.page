@@ -1,0 +1,150 @@
+<apex:page controller="EMP_Search_Controller" showHeader="false" sidebar="false" standardStylesheets="false" docType="html-5.0" >
+    <script type="text/javascript"> 
+    jQuery(document).ready(function(){
+        jQuery("marquee").hover(function(){
+            this.stop();
+        }, function() {
+            this.start();
+        });
+        
+        jQuery('.container').linkify({
+            target: "_blank"
+        });
+        
+        var str = getQueryParam('str');
+        jQuery("#searchTxt2").val(str);
+        //alert(str);
+        
+        var grp = getQueryParam('grp');
+        jQuery('{!$Component.myGrpID}').value=grp;
+        //jQuery("#myGrpID").val(grp);
+        
+    });
+    
+    function getQueryParam(name) {
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+        if (results==null){
+            return null;
+        }
+        else{
+            return results[1] || 0;
+        }
+    }
+    
+    function searchPageEnterKeyPressed(evt)
+    {
+        // look for window.event in case event isn't passed in
+        evt = evt || window.event;
+        if (evt.keyCode == 13)
+        {
+            CallSearchChatter();
+            return false;
+        }
+        return true;
+    }
+    </script>
+    
+    <div id="container" class="form-inline container">
+        <apex:form >
+            <apex:actionFunction name="CallSearchChatter" action="{!searchChatter}" />
+            <div class="row">
+              <div class="col-md-12">
+                <h2>
+                    Search Conversations
+                </h2>
+                
+                <p style="font-size: 10pt; color:#666;">
+                    Enter text below and click search to view matching groups, posts, and comments.
+                </p>
+                </div>
+            </div>
+            
+            <div class="row">
+               <div class="col-md-12">
+                <div class="input-group">
+                    <apex:selectList value="{!grp}" id="myGrpID" styleClass="form-control" size="1">
+                        <apex:selectOption itemValue="" itemLabel="All Groups"></apex:selectOption>
+                        <apex:selectOptions value="{!chatterGroupOptions}" />
+                    </apex:selectList>
+                </div>
+                
+                <div class="input-group col-md-4">
+                    <apex:inputText id="searchTxt2" styleClass="form-control" html-placeholder="Enter text and click search"
+                                    onkeypress="return searchPageEnterKeyPressed(event);"
+                                    value="{!searchTerm}" ></apex:inputText>
+                </div>  
+                
+                <div class="input-group">
+                    <div class="input-group-btn">                
+                        <apex:commandButton action="{!searchChatter}" styleClass="btn btn-success" value="Search">
+                        </apex:commandButton>
+                    </div>
+                </div>
+            </div>
+           </div> 
+        </apex:form>
+        <br/>
+        
+        <apex:repeat value="{!groupKeys}" var="groupKey">
+            <apex:repeat id="repeatBlock" value="{!allFeedItemWrappers[groupKey]}" var="feeds" >
+                <div class="">
+                    <div class="media-body">
+                        <div class="media" >
+                            <div class="media-left">
+                                <apex:outputLink value="{!$Site.Prefix}/_ui/core/userprofile/UserProfilePage?u={!feeds.feedItemObj.CreatedByID}">
+                                    <apex:image id="theImage" value="{!feeds.UserPhoto}" width="60" height="60"/>
+                                </apex:outputLink>
+                            </div>
+                            
+                            <div class="media-body">
+                                <apex:outputLink value="/Employees/{!feeds.feedItemObj.parentId}"> <i class="fa fa-users fa-3" style="color: orange;"></i> {!groupKey} </apex:outputLink> 
+                                <span style="color:#83c600; font-weight:bold;"> &ndash; </span>
+                                <apex:outputLink value="{!$Site.Prefix}/_ui/core/userprofile/UserProfilePage?u={!feeds.feedItemObj.CreatedByID}" styleclass="media-heading">
+                                    <i class="fa fa-user" style="color: orange;"></i>
+                                    {!feeds.feedItemObj.CreatedBy.firstName}&nbsp;{!feeds.feedItemObj.CreatedBy.lastName}
+                                </apex:outputLink>
+                                <a href="/Employees/{!feeds.feedItemObj.id}" class="btn btn-default btn-xs" >
+                                    <i class="fa fa-chevron-circle-right fa-6" style="color:#83c600;"></i> </a>
+                                <br/> 
+                                <span class="chatter-date" ><apex:outputField value=" {!feeds.feedItemObj.CreatedDate}" /></span>
+                                <br/>
+                                <apex:outputText escape="false" value="{!feeds.feedItemObj.Body}" />
+                                <!--Feed Comments -->
+                                <div id="{!feeds.feedItemObj.Id}-comment-container" style="{!IF(feeds.FeedComments.size > 0,'display:block','display:none')}" >
+                                    <div class="media pad-left well margin-right" style="margin-top:10px; margin-right:10px;">
+                                        <div class="media-body">
+                                            <div class="{!feeds.feedItemObj.Id}-comments" id="commentsDiv">
+                                                <apex:repeat value="{!feeds.FeedComments}" var="comment">
+                                                    <div class="pad-bottom">
+                                                        <div class="media-left">
+                                                            <apex:outputLink value="{!$Site.Prefix}/_ui/core/userprofile/UserProfilePage?u={!comment.FeedCommentItem.CreatedByID}" >
+                                                                <apex:image id="theImag" value="{!comment.UserPhoto}" width="60" height="60"/>
+                                                            </apex:outputLink>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <apex:outputLink value="{!$Site.Prefix}/_ui/core/userprofile/UserProfilePage?u={!comment.FeedCommentItem.CreatedByID}" 
+                                                                             styleclass="media-heading">
+                                                                {!comment.FeedCommentItem.CreatedBy.firstName}&nbsp;{!comment.FeedCommentItem.CreatedBy.lastName}
+                                                            </apex:outputLink>
+                                                            &nbsp; <br/>
+                                                            <span class="chatter-date" ><apex:outputField value=" {!comment.FeedCommentItem.CreatedDate}" /></span>
+                                                            <br/>
+                                                            <apex:outputText value="{!comment.FeedCommentItem.CommentBody}"  id="MyCommentID" />
+                                                        </div>
+                                                    </div>
+                                                </apex:repeat>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="featurette-divider" style="margin-top:auto;" />
+            </apex:repeat>
+        </apex:repeat>
+        
+    </div>
+    
+</apex:page>

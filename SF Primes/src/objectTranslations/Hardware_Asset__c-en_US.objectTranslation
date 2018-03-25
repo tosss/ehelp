@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Hardware Asset</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Hardware Assets</value>
+    </caseValues>
+    <fields>
+        <label><!-- Hardware Asset Name must be Unique --></label>
+        <name>Hardware_Asset_Name_must_be_Unique__c</name>
+    </fields>
+    <fields>
+        <label><!-- SPX Product CreateDate --></label>
+        <name>SPX_Product_CreateDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- SPX Product ID --></label>
+        <name>SPX_Product_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>AC Adapter</masterLabel>
+            <translation><!-- AC Adapter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Adobe</masterLabel>
+            <translation><!-- Adobe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Battery</masterLabel>
+            <translation><!-- Battery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CD-ROM</masterLabel>
+            <translation><!-- CD-ROM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Floppy Drive</masterLabel>
+            <translation><!-- Floppy Drive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monitor</masterLabel>
+            <translation><!-- Monitor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Notebook Accessories</masterLabel>
+            <translation><!-- Notebook Accessories --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Notebook PC</masterLabel>
+            <translation><!-- Notebook PC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pocket PC</masterLabel>
+            <translation><!-- Pocket PC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Projector</masterLabel>
+            <translation><!-- Projector --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scanner</masterLabel>
+            <translation><!-- Scanner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Signature Pad</masterLabel>
+            <translation><!-- Signature Pad --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USB Drive</masterLabel>
+            <translation><!-- USB Drive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Video Codec</masterLabel>
+            <translation><!-- Video Codec --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wireless Card</masterLabel>
+            <translation><!-- Wireless Card --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>webcam</masterLabel>
+            <translation><!-- webcam --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Hardware Asset Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

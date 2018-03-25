@@ -1,0 +1,329 @@
+<apex:page sidebar="" standardStylesheets="false">
+    <html ng-app="level2">
+        <head>
+            <apex:includeScript value="/soap/ajax/33.0/connection.js"/>
+            <apex:includeScript value="/soap/ajax/33.0/apex.js"/>
+			<apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}" />
+            <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.10.4.custom.min.js')}" />
+            <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.js"/>
+            
+            <apex:stylesheet value="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+            <apex:includeScript value="{!URLFOR($Resource.level2DataTablePage_JS)}" />
+            <style>
+            .focussed
+                {
+                background-color: #58A6E8;
+                color: white;
+                }
+                
+                .required
+                {
+                border-left:solid red 4px;
+                }
+                hyperlink:hover
+                {
+                	text-decoration: underline;
+                }            
+            </style>
+            <script>
+            var j$= jQuery.noConflict();
+            
+            //DOM Manipulations in jQuery
+            
+            j$(document).ready(function(){
+                
+                //Change to Edit Mode from View Mode 
+                j$('body').on('dblclick','.dataHolder',function(){
+                    j$(this).find('.viewMode').each(function()
+                    {
+                        if(j$(this).attr('updateable')=='true')
+                        {
+                            j$(this).hide();
+                            j$(this).siblings('.editMode').show();
+                            j$(this).siblings('.editMode').find('#inputValue').focus();
+                        }
+                    });
+                });
+                
+                //Easy Scroll for page
+                j$('body').on('click','#scrollTop',function(){
+                	window.scrollTo(0,0);
+                });
+                
+                j$('body').on('click','#scrollBottom',function(){
+                	window.scrollTo(0,j$(window).height()*1000);
+                });
+                
+                //focus back on required field for invalid input
+                j$('body').on('blur','.required',function(){
+                    if(j$(this).val()==null || j$(this).val()==undefined || j$(this).val().trim()=='')
+                    {
+                    	j$(this).focus();
+                    }
+                });
+                
+                //Change from Edit Mode to View Mode
+                j$('body').on('blur','#inputValue',function(){
+                    var tagName = j$(this).parent().parent().prop('tagName');
+                    if(tagName == 'LOOK-UP')
+                    {
+                        var value = j$(this).val();
+                        var Id='';
+                        j$(this).siblings('.lookupMode').find('li').each(function(){
+                            if(j$(this).html() == value)
+                            {
+                                Id = j$(this).attr('value');
+                            }
+                        });
+                        j$(this).closest('td').find('#outputValue').each(function(){
+                            j$(this).html(value);
+                            j$(this).attr('href','/'+Id);
+                        });
+                    }
+                   if(!j$(this).hasClass('ng-dirty'))
+                   {
+                       j$(this).val('');
+                       console.log(j$(this).val());
+                   }
+                });
+                
+                //Autocomplete functionality
+                j$('body').on('click','.lookupMode',function(){
+                	j$(this).prev().focus();
+                });
+                
+                j$('body').on('blur','.editMode',function(){
+                    var isRequired = j$(this).find('#inputValue').attr('class');
+                    isRequired = isRequired.indexOf('required');
+                    isRequired = (isRequired  >= 0);
+                    var isEmpty = j$(this).find('#inputValue').val();
+                    isEmpty = ( isEmpty==undefined || isEmpty==null || isEmpty.trim()=='' );
+                    if(!isRequired || !(isRequired && isEmpty))
+                    {
+                        if(j$('.focussed').html()==undefined)
+                        {
+                            j$(this).hide();
+                            j$(this).siblings('.viewMode').show();
+                            j$(this).siblings('.viewMode').find('output-field').css('color','orange');
+                        }
+                    }
+                });
+                
+                //Collapse Child
+                j$('body').on('click','.collapseIcon',function(){
+                    var plus_minus =  j$(this).html();
+                    if(plus_minus.indexOf('+')>0)
+                    {
+                        j$(this).closest('table').find('.childBody').hide();
+                        j$(this).html('[-]&nbsp;&nbsp;');
+                    }
+                    else
+                    {
+                        j$(this).closest('table').find('.childBody').show();
+                        j$(this).html('[+]&nbsp;&nbsp;');
+                    }
+                });
+                
+                //Validate input fields
+                j$('body').on('click','.createRecordButton',function(){
+                    var valid = true;
+                    var type= j$(this).attr('type');
+                    j$(this).closest('table').find('.required').each(function()
+           			{
+                        if( j$(this).is(':visible') && (j$(this).val()==null || j$(this).val()==undefined || j$(this).val().trim()==''))
+                        {
+                            valid = false;
+                            j$(this).focus();
+                        }
+                    });
+                });
+                
+            });
+            
+            //to get Object Name from url
+            
+            function getObjectName()
+            {
+                objectName = location.href;
+                var startIndex = objectName.indexOf('?objectName=')+12;
+                objectName = objectName.substring(startIndex,objectName.length);
+                return objectName;
+            }
+            
+            //Module
+            
+            angular.module("level2",["DataTableApp"]);
+            
+            </script>
+        </head>
+        <body >
+            <div style="z-index:2;width:100%">
+                <div style="width:89%;float:left;">
+                    
+                </div>
+            <div id="scrollBottom" style="float:right;width:4.3%;background-color:#DDA0DD;">
+                Bottom
+            </div>
+            </div>
+            
+            <div id="DetailsController" ng-controller="DetailsController">
+                
+               <div ng-show="!!sobjectDetail">
+                   
+                 <div id="Toolbar" ng-show="showToolbar" ng-blur="showToolbar=!showToolbar;" class="panel panel-warning" style ="float:left;background-color: white;position: fixed;margin-left:1.5%;width: 40%;z-index: 3;">
+                    <div class="panel-heading" ng-click="showToolbar=!showToolbar;showParentFields=false;showChildFields=false;">
+                        <h1 class="panel-title">
+                            Tool Bar
+                        </h1>
+                    </div>
+                    <div class="panel-body">
+                        <table>
+                            <tr>
+                                <td >Records Per Page  &nbsp;&nbsp;&nbsp;</td>
+                                <td><input ng-model="recordsPerPage" ng-blur="paginateTable();"/></td>
+                            </tr>
+                            <tr>
+                                <td><div height="1%"><p/></div></td>
+                            </tr>
+                            <tr>
+                                <td >Parent Query Condition  &nbsp;&nbsp;&nbsp;</td>
+                                <td><textarea ng-model="queryCondition" ng-blur="getParentChildRecords(false);"/></td>
+                            </tr>
+                            <tr>
+                                <td><div height="1%"><p/></div></td>
+                            </tr>
+                            <tr>
+                                <td > Child Query Condition  &nbsp;&nbsp;&nbsp;</td>
+                                <td><textarea ng-model="childQueryCondition" ng-blur="getParentChildRecords(false);"/></td>
+                            </tr>
+                            <tr>
+                                <td><div height="1%"><p/></div></td>
+                            </tr>
+                            <tr>
+                                <td >Limit Parent Records &nbsp;&nbsp;&nbsp;</td>
+                                <td><input ng-model="limitParentRecords" ng-blur="getParentChildRecords(false);"/></td>
+                            </tr>
+                            <tr>
+                                <td><div height="1%"><p/></div></td>
+                            </tr>
+                            <tr>
+                                <td >Limit Child Records &nbsp;&nbsp;&nbsp;</td>
+                                <td><input ng-model="limitChildRecords" ng-blur="getParentChildRecords(false);"/></td>
+                            </tr>
+                            <tr>
+                                <td><div height="1%"><p/></div></td>
+                            </tr>
+                            <tr ng-show="showTable">
+                                <td >Collapse Child Table &nbsp;&nbsp;&nbsp;</td>
+                                <td><input ng-model="collapseChild" type="checkbox"/></td>
+                            </tr>
+                            <tr>
+                                <td><div height="1%"><p/></div></td>
+                            </tr>
+                            <tr ng-show="updateRecords">
+                                <td >Updating Records &nbsp;&nbsp;&nbsp;</td>
+                                <td><button ng-click="updateRecordsMethod();">Update</button></td>
+                                <td ng-show="updateRecords"> <button ng-click="cancelUpdate();">Cancel</button></td>
+                            </tr>
+                            <tr>
+                                <td><div height="1%"><p/></div></td>
+                            </tr>
+                            <tr ng-show="showTable && !updateRecords && !deleteRecords">
+                                <td >Mass Update Records &nbsp;&nbsp;&nbsp;</td>
+                                <td ng-show="!massUpdateRecords" ><input ng-model="massUpdateRecords" type="checkbox"  ng-click="deleteRecords=false;updateRecords=false;"/></td>
+                                <td ng-show="massUpdateRecords && !showSelectedFieldsButton"><input  type="radio" ng-model="massUpdateParentChildSelection" value="Parent"/>&nbsp;Parent &nbsp;&nbsp;<input type="radio"  ng-model="massUpdateParentChildSelection" value="Child" />&nbsp;Child</td>
+                                <td ng-show="showSelectedFieldsButton"> <button ng-click="showParentFieldsForMassUpdate=(massUpdateParentChildSelection=='Parent');showChildFieldsForMassUpdate=(massUpdateParentChildSelection=='Child');showTable=false;showToolbar = false;">Select Fields</button></td>
+                                <td ng-show="massUpdateRecords"> <button ng-click="cancel();">Cancel</button></td>
+                            </tr>
+                            <tr>
+                                <td><div height="1%"><p/></div></td>
+                            </tr>
+                             <tr ng-show="showTable && !updateRecords && !massUpdateRecords">
+                                <td >Delete Records &nbsp;&nbsp;&nbsp;</td>
+                                <td ng-show="!deleteRecords"><input ng-model="deleteRecords" type="checkbox" ng-click="updateRecords=false;massUpdateRecords=false;"/></td>
+                                 <td ng-show="deleteRecords && showDeleteButton()"><button class="btn btn-danger" ng-click="deleteSelectedRecords();">
+                                     Delete
+                                     </button></td>
+                                 <td ng-show="deleteRecords"> <button ng-click="cancel();">Cancel</button></td>
+                            </tr>
+                            <tr>
+                                <td><div height="1%"><p/></div></td>
+                            </tr>
+                            <tr>
+                                <td ng-show="showDisplayButton"><hr/>
+                                    <button class="btn btn-success"  ng-click="getParentChildRecords(true);showToolbar = false;displayTableButton();" >
+                                        Display Table
+                                    </button>
+                                </td>
+                            </tr>
+                            </table>
+                    </div>
+                     </div>
+                     <div style="word-wrap: break-word;float:left;background-color: #faebcc;position: fixed;width:1%;z-index: 3;" ng-show="!showToolbar" ng-click="showToolbar=!showToolbar;showLogs=false;showErrors=false;showParentFields=false;showChildFields=false">
+                         <b>TOOLS</b> 
+                     </div>
+                </div>
+                <div id="Logs" ng-show="showTable" >    
+                    <logs ng-show="showLogs" class="panel panel-info" style ="float:left;margin-left:1.5%;background-color: white;position: fixed;width: 60%;z-index: 3;"></logs><div ng-show="!showLogs" style="word-wrap: break-word;margin-top:8%;float:left;background-color: #D9E9F7;position: fixed;width:1%;z-index: 10;"  ng-click="showLogs=!showLogs;showErrors=false;showToolbar=false;showParentFields=false;showChildFields=false">
+                    <b>LOGS</b> 
+                    </div>
+                </div>
+                <div id="Errors" ng-show="showTable" >    
+                    <errors ng-show="showErrors" class="panel panel-danger" style ="float:left;margin-left:1.5%;background-color: white;position: fixed;width: 70%;z-index: 3;"></errors><div ng-show="!showErrors" style="word-wrap: break-word;float:left;margin-top:14%;background-color: #F4A5A5;position: fixed;width:1%;z-index: 10;"  ng-click="showErrors=!showErrors;showLogs=false;showToolbar=false;showParentFields=false;showChildFields=false">
+                    <b>ERRORS</b> 
+                    </div>
+                </div>
+                    <div id="ParentToolbar" ng-show="showTable">
+                        <parent-tool-bar ng-show="showParentFields" class="panel panel-primary" style ="float:left;margin-left:1.5%;background-color: white;position: fixed;width: 40%;z-index: 3;"></parent-tool-bar>
+                        <div ng-show="!showParentFields" style="word-wrap: break-word;margin-top:23%;float:left;color:white;background-color: #428bca;position: fixed;width:1%;z-index: 3;" ng-click="showParentFields=!showParentFields;showLogs=false;showErrors=false;showChildFields=false;showToolbar=false;">
+                            <b>PARENT</b> 
+                        </div>
+                    </div>
+                <div id="ChildToolbar" ng-show="showTable && !collapseChild">
+                        <child-tool-bar ng-show="showChildFields" class="panel panel-success" style ="float:left;margin-left:1.5%;background-color: white;position: fixed;width: 40%;z-index: 3;"></child-tool-bar>
+                        <div ng-show="!showChildFields" style="word-wrap: break-word;margin-top:33%;color:white;float:left;background-color: #15A14C;position: fixed;width:1%;z-index: 3;" ng-click="showChildFields=!showChildFields;showLogs=false;showErrors=false;showParentFields=false;showToolbar=false;">
+                            <b>CH  I LD</b> 
+                        </div>
+                    </div>
+                <div ng-show="!showTable || showParentFieldsForMassUpdate || showChildFieldsForMassUpdate">
+                <fields-tree class="panel panel-primary" style="float:left;width:30%;margin-left:1.5%;" ng-show="(!showTable || showParentFieldsForMassUpdate) && !showChildFieldsForMassUpdate && !fieldsSelectedForMassUpdate"/>
+                <div style="float:left;width:2%;"><p/></div>
+                <relation-tree style="width:30%;float:left;" ng-show="!showTable && !showParentFieldsForMassUpdate && !showChildFieldsForMassUpdate" class="panel panel-success"/> 
+                <div style="float:left;width:2%;"><p/></div>
+                <child-fields-tree style="width:30%;float:left;" ng-show="(!!selectedChildRelationName) && (!showTable || showChildFieldsForMassUpdate) && !showParentFieldsForMassUpdate && !fieldsSelectedForMassUpdate" class="panel panel-danger"/>
+                <div style="float:left;width:2%;"><p/></div>
+              
+                
+                </div>
+                <div ng-show="createNewParent || fieldsSelectedForMassUpdate && (massUpdateParentChildSelection=='Parent')">
+                    <new-parent-object class="panel panel-primary" style="width:50%;"></new-parent-object>
+                </div>
+                <div ng-show="createNewChild || fieldsSelectedForMassUpdate && (massUpdateParentChildSelection=='Child')">
+                    <new-child-object class="panel panel-success" style="width:50%;"></new-child-object>
+                </div>
+                
+                <div ng-show="showTable && !createNewParent && !createNewChild" style="margin-left:1.5%;height:100%;" >
+                    <parent-child-table ng-show="!collapseChild" ></parent-child-table><parent-table ng-show="collapseChild"></parent-table><hr/>
+                    <div >
+                        <div style="float:left;min-width:30%;"><a ng-show="pageNumber!=1" href="" ng-click="changePageNumber(-1);" style="text-decoration:none;width:30%;">&lt;--Previous</a><p>&nbsp;</p></div>
+                        <div style="float:left;min-width:40%;"><center>Page Number: <input ng-model="pageNumber" ng-blur="paginateTable();" style="width:6%;" /> / {{totalPages}}</center></div>
+                        <div style="float:right;min-width:4%;"><a ng-show="pageNumber!=totalPages" href="" ng-click="changePageNumber(1);" style="text-decoration:none;width:30%;">Next--&gt;</a><p>&nbsp;</p></div>
+                    </div>
+                    
+                </div>
+                
+                <div ng-show="!sobjectDetail">
+                    <h1> Sorry No Permissions to Access this Object </h1>
+                </div>
+            </div >
+              <div style="z-index:2;position:absolute;bottom:3px;width:100%">
+                <div style="width:89%;float:left;">
+                    
+                </div>
+            <div id="scrollTop" style="float:right;width:3%;margin-right:30px;background-color:#DDA0DD;">
+                Top
+            </div>
+            </div>  
+        </body>
+    </html>
+</apex:page>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HomePageComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <body>&amp;lt;html&amp;gt;&lt;br&gt;    &amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;&lt;span style=&quot;color: rgb(0, 112, 0); font-family: droid sans mono,monospace; font-size: 14px; white-space: nowrap;&quot;&gt;https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js&lt;/span&gt;&amp;quot;&amp;gt;&lt;br&gt;    var j$ = jQuery.noConflict();&lt;br&gt;    j$(document).ready(function(){alert(&amp;#39;abc&amp;#39;);j$([&amp;quot;name=&amp;#39; new &amp;#39;&amp;quot;][&amp;quot;type=button&amp;quot;]).hide()});&lt;br&gt;    &amp;lt;/script&amp;gt;&lt;br&gt;&amp;lt;/&lt;span style=&quot;&quot;&gt;html&lt;/span&gt;&amp;gt;</body>
+    <pageComponentType>htmlArea</pageComponentType>
+    <width>narrow</width>
+</HomePageComponent>

@@ -1,0 +1,120 @@
+<!--
+/*------------------------------------------------------------
+Author: Vishal Bandari
+Description: Forms Order Section For Home Page
+
+History
+5 August 2015    Vishal Bandari          RQ-05120:Created
+2015-12-28       vishal.bandari@cdk.com  made changes to have vertical scroll bar for "My Items"
+------------------------------------------------------------*/
+-->
+<apex:page controller="LAO_Details_HomePage_Controller" sidebar="false" showHeader="false" action="{!getDetails}">
+    <style>
+    td
+        {
+        height:35px;
+        }
+    </style>
+    <apex:form >
+        
+        <apex:pageBlock title="Forms Order"  id="pageBlock" tabStyle="Account">
+            
+            <!--Hidden Input Used by Javascript to show Buttons and Table-->
+            <apex:inputHidden value="{!showTableForProfile}" id="showTable" />
+            <apex:inputHidden value="{!showButtons}" id="showButton" />
+            <!--Hidden Input End-->
+            
+            <div>
+                <!--View Mode--->
+                <div style="{!If((!showTableForProfile),'display:none;' ,'float:left;')}">
+                    <b>View: </b>
+                    <apex:selectList size="1" multiselect="false" value="{!self}" >
+                        <apex:selectOption itemLabel="My Items" itemValue="self"></apex:selectOption>
+                        <apex:selectOption itemLabel="All Items" itemValue="all"></apex:selectOption>
+                        <apex:actionSupport action="{!viewChanged}" event="onchange" reRender="pageBlock" status="actionStatus" oncomplete="hideButtons();" />
+                    </apex:selectList>
+                </div>
+                 <!--View Mode End--->
+                
+                <!--Search Records by Name -->
+                <div style="{!If((!showTableForProfile),'display:none;','float:right;margin-right:60%;')}">
+                    <b>Search </b>
+                    <apex:inputText value="{!searchText}" title="Search By Form Order Name" >
+                        <apex:actionSupport action="{!viewChanged}" event="onchange" reRender="pageBlock" status="actionStatus" oncomplete="hideButtons();" />
+                    </apex:inputText>
+                </div>
+                <!--Search Records by Name Ends-->
+                
+            </div>
+            
+            <!--Loader Icon for Callbacks -->
+            <apex:actionStatus id="actionStatus" >
+                <apex:facet name="start">
+                    <div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb;height: 100%;opacity:0.65;width:100%;"> 
+                        <div class="waitingHolder" style="top: 50%; width: 50%;">
+                            <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+                            <span class="waitingDescription">Loading...</span>
+                        </div>
+                    </div>
+                </apex:facet>
+            </apex:actionStatus>
+            <!--Loader Icon for Callbacks Ends-->
+            <br/><br/>
+            
+            <!--  2016-12-28: vishal.bandari@cdk.com wrapped table in div and added style to see vertical scroll bar   -->
+            <div style="overflow-y:scroll;max-height:250px;">
+                <!--Table-->
+                <apex:pageBlockTable value="{!LAODetails_List}" var="LAODetail" id="table" rendered="{!If(AND(LAODetails_List!=null,showTableForProfile),true,false)}">
+                    <apex:column headerValue="Name" rendered="{!profileFieldAssignment['name']}">
+                        <a href="/{!LAODetail.LAO_Record.Id}">{!LAODetail.LAO_Record.Name}</a>
+                    </apex:column>
+                    <apex:column headerValue="Subproject (Link)" rendered="{!profileFieldAssignment['subproject__c']}">
+                        <apex:outputField value="{!LAODetail.sperObj.SubProject__c}"/>
+                    </apex:column>
+                    <apex:repeat value="{!profileFieldAssignment}" var="key">
+                        <apex:column value="{!LAODetail.LAO_Record[key]}" rendered="{!AND(key!='subproject__c',key!='name',profileFieldAssignment[key], NOT(AND(key=='ownerid',self=='self')))}" />
+                    </apex:repeat>
+                </apex:pageBlockTable>
+                <!--Table Ends--> 
+            </div>
+            
+            
+            <!--Pagination Buttons-->
+            <apex:pageBlockButtons location="bottom" style="{!If(AND(LAODetails_List!=null,showTableForProfile),'','display:none;')}" rendered="{!If(AND(LAODetails_List!=null,showTableForProfile),true,false)}" > 
+                <apex:commandButton action="{!previous}" style="margin-right:48%;" value="<< Previous" rendered="{!If(pageNumber==1,false,true)}" reRender="pageBlock" status="actionStatus" oncomplete="hideButtons();" />
+                <apex:commandButton action="{!next}" style="float:right" value="Next >>" rendered="{!If(OR(LAODetails_List==null,extraRecords > 0),false,true)}" reRender="pageBlock" status="actionStatus" oncomplete="hideButtons();"  />
+            </apex:pageBlockButtons>
+            <!--Pagination Buttons Ends-->
+            
+            <!--Message for No Records-->
+            <div style='{!If(AND(LAODetails_List!=null,showTableForProfile),"display:none;" ,"border:1px solid #e0e3e5; height:20px;align:centre; ")}' >
+                <div style="border:3px solid #f8f8f8;">
+                    <b>No records to display</b>
+                </div>
+            </div>
+            <!--Message for No Records Ends-->
+            
+            <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}" />
+            <script type="text/javascript">
+            jQuery(document).ready(function(){
+                jQuery('a').attr('target','_blank');
+                jQuery('.pbButtonb').prev().remove();
+                jQuery('.pbButtonb').next().remove();
+                hideButtons();
+            });
+            
+            function hideButtons()
+            {
+                if(jQuery('[id$="showTable"]').val() == 'false'){
+                    jQuery('.pbBottomButtons').remove();
+                    jQuery('br').remove();
+                }
+                if(jQuery('[id$="showButton"]').val() == 'false'){
+                    jQuery('.pbBottomButtons').remove();
+                }
+            }
+            </script>   
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

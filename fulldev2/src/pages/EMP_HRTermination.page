@@ -1,0 +1,27 @@
+<apex:page showHeader="true" sidebar="false" >    
+    <apex:stylesheet value="{!URLFOR($Resource.EMP_Portal_Content_css)}"/>
+    <!--<apex:stylesheet value="{!URLFOR($Resource.EMP_ITSupportCommunity_css)}"/> -->
+    <div id="wrapper-body">        
+        <div id="container" align="center" style="min-height:700px;">            
+            <div id="content" >
+                <div class="span_combine_2col col fix_chatter" >
+                    <apex:pageBlock title="Human Resource Center Chatter" >  
+                        <apex:outputPanel style="overflow:auto; "> 
+                            <div class="content_answer" >
+                                <c:EMP_HRInvoluntaryChattercomp />  
+                            </div>
+                        </apex:outputPanel>
+                    </apex:pageBlock> 
+                </div>
+                <div class="col span_3_of_3_MultiRow assoc-portal" >   
+                    <div class="span_3_of_3_MultiRow_Content">
+                        <ul>
+                                <li><apex:outputlink value="/apex/EMP_HRInvoluntaryTermination" >Involuntary Termination Form</apex:outputlink></li>
+                                <li><apex:outputLink value="http://adpdsportal.ds.ad.adp.com/DSHRResourceCenter/default.aspx" target="_Blank">HR Resource Center (Sharepoint)</apex:outputLink></li>
+                        </ul>
+                        </div>
+                </div> 
+            </div>            
+        </div>
+    </div>
+</apex:page>

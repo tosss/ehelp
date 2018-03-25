@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <email>ds.laserwf.listeam@cdk.com</email>
+    <name>LAO_LIS_Team</name>
+    <queueSobject>
+        <sobjectType>Laser_Artwork_Order__c</sobjectType>
+    </queueSobject>
+</Queue>

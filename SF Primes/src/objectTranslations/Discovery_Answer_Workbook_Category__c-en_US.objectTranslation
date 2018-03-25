@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Discovery Answer Workbook Category</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Discovery Answer Workbook Categories</value>
+    </caseValues>
+    <fields>
+        <label><!-- Answer Completed --></label>
+        <name>Answer_Completed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Answer --></label>
+        <name>Answer__c</name>
+        <relationshipLabel><!-- Discovery Answer Workbook Categories --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Discovery Workbook Category --></label>
+        <name>Discovery_Workbook_Category__c</name>
+        <relationshipLabel><!-- Discovery Answer Workbook Categories --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Migration_ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <layouts>
+        <layout>Discovery Answer Workbook Category Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

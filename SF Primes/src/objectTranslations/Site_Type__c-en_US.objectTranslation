@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Site Type</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Site Types</value>
+    </caseValues>
+    <fields>
+        <label><!-- Active? --></label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <label><!-- Corporation Flag --></label>
+        <name>Corporation_Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- Display Code --></label>
+        <name>Display_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- District Flag --></label>
+        <name>District_Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group Flag --></label>
+        <name>Group_Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- Migration_ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Non Sales Type --></label>
+        <name>Non_Sales_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- OOB Duplicates Flag --></label>
+        <name>OOB_Duplicates_Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- SLX DealerSiteType CreateDate --></label>
+        <name>SLX_DealerSiteType_CreateDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- SLX DealerSite Type ID --></label>
+        <name>SLX_DealerSite_Type_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Segment Code --></label>
+        <name>Segment_Code__c</name>
+        <picklistValues>
+            <masterLabel>AUTG</masterLabel>
+            <translation><!-- AUTG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NAAT</masterLabel>
+            <translation><!-- NAAT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PFW</masterLabel>
+            <translation><!-- PFW --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Site Type Flag --></label>
+        <name>Site_Type_Flag__c</name>
+        <picklistValues>
+            <masterLabel>D</masterLabel>
+            <translation><!-- D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N</masterLabel>
+            <translation><!-- N --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Site Type Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

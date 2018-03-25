@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>IMP_ListViewDataSetting</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>IMP_ListViewDataSetting</value>
+    </caseValues>
+    <fields>
+        <label><!-- Default SObject --></label>
+        <name>DefaultSObject__c</name>
+    </fields>
+    <fields>
+        <help><!-- The objects that will be displayed. One API name per line. --></help>
+        <label><!-- SObject API Names --></label>
+        <name>SObjectAPINames__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

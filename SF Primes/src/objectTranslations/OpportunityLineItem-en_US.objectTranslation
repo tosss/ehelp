@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>QC</value>
+        </caseValues>
+        <name>sales_price_opportunitylineitem</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Total QC</value>
+        </caseValues>
+        <name>total_price_opportunitylineitem</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <layouts>
+        <layout>QC and Stick Count Products</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

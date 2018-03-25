@@ -1,0 +1,484 @@
+<!--2016-04-01- anirudh.singh@cdk.com- Created this lightning component for Request RQ-06734 Convert Activity_Opportunity Page to Lightning.-->
+<aura:component implements="force:appHostable" controller="ActOppCtrl">
+    <ltng:require styles="/resource/slds100/assets/styles/salesforce-lightning-design-system.css"/>
+    <ltng:require styles="/resource/FontAwesome/4.3.0/css/font-awesome.min.css"/>
+    <ltng:require scripts="/resource/jQuery/js/jquery-1.10.2.min.js"/>
+    
+    <aura:attribute name="leadId" type="Id" default="00Q4000001420NVEAY"/>
+    <aura:attribute name="accountId" type="Id" default="0014000000Jw8wl"/>
+    <aura:attribute name="contactId" type="Id" default="0031b000004Syqt"/>
+    <aura:attribute name="recWrapper" type="ActOppCtrl.RecordsWrapper"/>
+    <!--<aura:attribute name="recDupWrapper" type="ActOppCtrl.RecordsWrapper"/>-->
+    <aura:attribute name="hardware" type="String" default="{!$Browser.formFactor}"/>
+    <aura:attribute name="errorMessageValue" type="String"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.initialize}"/>
+    <!--Spinner-->
+    <div>
+        <div aura:id="spinnerActivityOpportunity" class="slds-spinner_container slds-hide">
+            <div class="slds-spinner--brand slds-spinner slds-spinner--large">
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div>
+        <div class="slds-page-header" role="banner">
+            <div class="slds-media">
+                <div class="slds-media__figure">
+                    <img class="logoStyle" src="/resource/slds100/assets/icons/standard/call_60.png"/>
+                </div>
+                <div class="slds-media__body">
+                    <p class="slds-page-header__title slds-align-middle" title="Log a Call"><b>Log a Call</b></p>
+                    <p class="slds-text-body--small slds-page-header__info" title="Task, Follow-up, and Campaign Member Status">Task, Follow-up, and Campaign Member Status</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <ui:message aura:id="errorMessage" title="Error" severity="error" class="slds-hide">
+    </ui:message>
+    
+    <div>
+        <div class="pageButtonStyle">
+            <center>
+                <button class="slds-button slds-button--brand slds-not-selected" type="button" onclick="{!c.saveChanges}">Save</button>
+                <button class="slds-button slds-button--brand slds-not-selected" type="button" onclick="{!c.cancelChanges}">Cancel</button>
+            </center>
+        </div>
+    </div>
+    
+    <!--Completed Activity Information-->
+    <div>
+        <div class="{!v.recWrapper.showCompletedActivitySection==true? '':'slds-hide'}">
+            <div class="slds-card">
+                <div class="slds-card__header slds-grid">
+                    <div class="slds-media slds-media--center slds-has-flexi-truncate">
+                        <div class="slds-media__body">
+                            <div class="slds-truncate">
+                                <span class="slds-form-element__static">
+                                    <b><ui:outputText value="Completed Activity Information"/></b>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slds-grid slds-wrap slds-grid--pull-padded slds-col--bump-right slds-col--bump-left customMatchGridFields">
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Assigned To<abbr class="slds-required" title="required">*</abbr></div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="customMatchColPadding">
+                            <c:ALL_LookUp objectAPIName="User" aura:id="taskAssignedTo" selectedId="{!v.recWrapper.newTask.OwnerId}" label=""/>
+                        </div>
+                    </div>
+                    
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Task Record Type</div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="customMatchColPadding">
+                            <span class="slds-form-element__static">
+                                <ui:outputText value="{!v.recWrapper.taskRecordTypeName}"/>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slds-grid slds-wrap slds-grid--pull-padded slds-col--bump-right slds-col--bump-left customMatchGridFields">
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Subject<abbr class="slds-required" title="required">*</abbr></div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="customMatchColPadding">
+                            <div class="slds-select_container" aura:id="taskSubjectOptionsMapDiv">
+                                <ui:inputSelect class="dynamic slds-select" aura:id="taskSubjectOptionsMap" value="{!v.recWrapper.newTask.Subject}" required="true"/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Name<abbr class="slds-required" title="required">*</abbr></div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="customMatchColPadding">
+                            <c:ALL_LookUp objectAPIName="Lead" aura:id="taskWhoId" selectedId="{!v.recWrapper.newTask.WhoId}" label=""/>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slds-grid slds-wrap slds-grid--pull-padded slds-col--bump-right slds-col--bump-left customMatchGridFields">
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Due Date</div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="customMatchColPadding">
+                            <!--<c:DateTimePicker label="" value="{!v.recWrapper.newTask.ActivityDate}"  />-->
+                            <c:DateTimePicker label="" value="{!v.recWrapper.newTask.ActivityDate}" datetime="false"/>
+                           <!-- <ui:inputDateTime label="" class="form-control" value="{!v.recWrapper.newTask.ActivityDate}" displayDatePicker="true" />-->
+                        </div>
+                    </div>
+                    
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Email</div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="customMatchColPadding">
+                            <span class="slds-form-element__static">
+                                <ui:outputEmail value="{!v.recWrapper.contactRecord.Email}"/>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slds-grid slds-wrap slds-grid--pull-padded slds-col--bump-right slds-col--bump-left customMatchGridFields">
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Type</div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="customMatchColPadding">
+                            <div class="{!v.recWrapper.renderForCobalt == true ? '' : 'slds-hide'}">
+                                <div class="slds-select_container">
+                                    <ui:inputSelect class="dynamic slds-select" aura:id="taskTypeMap" value="{!v.recWrapper.newTask.Type}"/>
+                                </div>
+                            </div>
+                            <div class="{!v.recWrapper.renderForDS == true ? '' : 'slds-hide'}">
+                                <ui:inputText class="slds-input" value="{!v.recWrapper.newTask.Activity_Type__c}" placeholder="Please enter a Task Type..."/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Contact Phone</div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="customMatchColPadding">
+                            <span class="slds-form-element__static">
+                                <ui:outputPhone value="{!v.recWrapper.contactRecord.Phone}"/>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slds-grid slds-wrap slds-grid--pull-padded slds-col--bump-right slds-col--bump-left customMatchGridFields">
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Comments</div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="customMatchColPadding">
+                            <ui:inputTextArea class="slds-textarea" value="{!v.recWrapper.newTask.Description}" rows="2"/>
+                        </div>
+                    </div>
+                    
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Status</div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="customMatchColPadding">
+                            <span class="slds-form-element__static">
+                                <ui:outputText value="{!v.recWrapper.newTask.Status}"/>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slds-grid slds-grid--align-center customMatchGridButton">
+                    <button class="{!'slds-button slds-button--brand slds-not-selected'+' '+(v.recWrapper.showEventSection==true? '':'slds-hide')}" type="button" onclick="{!c.showHideEventSection}">Follow-up Not Needed</button>
+                    <button class="{!'slds-button slds-button--brand slds-not-selected'+' '+(v.recWrapper.showEventSection==false? '':'slds-hide')}" type="button" onclick="{!c.showHideEventSection}">Follow-up Needed</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--Create Follow-up Activity-->
+    <div>
+        <div class="{!v.recWrapper.showEventSection==true? '':'slds-hide'}">
+            <div class="slds-card">
+                <div class="slds-card__header slds-grid">
+                    <div class="slds-media slds-media--center slds-has-flexi-truncate">
+                        <div class="slds-media__body">
+                            <div class="slds-truncate">
+                                <span class="slds-form-element__static">
+                                    <b><ui:outputText value="Create Follow-up Activity"/></b>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slds-grid slds-wrap slds-grid--pull-padded slds-col--bump-right slds-col--bump-left customMatchGridFields">
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Assigned To<abbr class="slds-required" title="required">*</abbr></div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="customMatchColPadding">
+                            <c:ALL_LookUp objectAPIName="User" aura:id="eventAssignedTo" selectedId="{!v.recWrapper.newEvent.OwnerId}" label=""/>
+                        </div>
+                    </div>
+                    
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Event Record Type</div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="customMatchColPadding">
+                            <span class="slds-form-element__static">
+                                <ui:outputText value="{!v.recWrapper.eventRecordTypeName}"/>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slds-grid slds-wrap slds-grid--pull-padded slds-col--bump-right slds-col--bump-left customMatchGridFields">
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Subject<abbr class="slds-required" title="required">*</abbr></div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="customMatchColPadding">
+                            <div class="slds-select_container" aura:id="eventSubjectOptionsMapDiv">
+                                <ui:inputSelect class="dynamic slds-select" aura:id="eventSubjectOptionsMap" value="{!v.recWrapper.newEvent.Subject}"/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Name</div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="customMatchColPadding">
+                            <c:ALL_LookUp objectAPIName="Lead" selectedId="{!v.recWrapper.newEvent.WhoId}" label=""/>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slds-grid slds-wrap slds-grid--pull-padded slds-col--bump-right slds-col--bump-left customMatchGridFields">
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Start Date/Time</div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="customMatchColPadding">
+                           <!--<ui:inputDateTime label="" class="form-control" value="{!v.recWrapper.newEvent.Start_Date__c}" displayDatePicker="true" />-->
+                           <!--<ui:inputDateTime label="" class="form-control" value="{!v.recWrapper.newEvent.Start_Date__c}" displayDatePicker="true" />
+                            <c:DateTimePicker label="" value="{!v.recWrapper.newEvent.StartDateTime}" />-->
+                            <c:DateTimePicker label="" value="{!v.recWrapper.newEvent.Start_Date__c}"/>
+                        </div>
+                    </div>
+                    
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Private</div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="customMatchColPadding">
+                            <span class="slds-form-element__static">
+                                <label class="slds-checkbox">
+                                    <ui:inputCheckbox value="{v.recWrapper.newEvent.IsPrivate}"/>
+                                    <span class="slds-checkbox--faux"></span>
+                                </label>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slds-grid slds-wrap slds-grid--pull-padded slds-col--bump-right slds-col--bump-left customMatchGridFields">
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="slds-text-heading--label customMatchColPadding customMatchHeading">End Date/Time</div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="customMatchColPadding">
+                            <c:DateTimePicker label="" value="{!v.recWrapper.newEvent.EndDateTime}" />
+                            <!--<ui:inputDateTime label="" class="form-control" value="{!v.recWrapper.newEvent.EndDateTime}" displayDatePicker="true" />
+                            <c:DateTimePicker label="" value="{!v.recWrapper.newEvent.End_Date__c}"/>-->
+                        </div>
+                    </div>
+                    
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Type</div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="customMatchColPadding">
+                            <div class="slds-select_container">
+                                <ui:inputSelect class="dynamic slds-select" aura:id="eventTypeMap" value="{!v.recWrapper.newEvent.Type}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slds-grid slds-wrap slds-grid--pull-padded slds-col--bump-right slds-col--bump-left customMatchGridFields">
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Reminder</div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="customMatchColPadding">
+                            <span class="slds-form-element__static">
+                                <label class="slds-checkbox">
+                                    <ui:inputCheckbox value="{v.recWrapper.newEvent.IsReminderSet}"/>
+                                    <span class="slds-checkbox--faux"></span>
+                                    <div class="slds-select_container">
+                                        <ui:inputSelect class="dynamic slds-select" aura:id="reminderTimesMap" 
+                                                        value="{!v.recWrapper.newEvent.ReminderDateTime}"/>
+                                    </div>
+                                </label>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="slds-text-heading--label customMatchColPadding customMatchHeading">All-Day Event</div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="customMatchColPadding">
+                            <span class="slds-form-element__static">
+                                <label class="slds-checkbox">
+                                    <ui:inputCheckbox value="{v.recWrapper.newEvent.IsAllDayEvent}"/>
+                                    <span class="slds-checkbox--faux"></span>
+                                </label>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slds-grid slds-wrap slds-grid--pull-padded slds-col--bump-right slds-col--bump-left customMatchGridFields">
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Show Time As</div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="customMatchColPadding">
+                            <div class="slds-select_container">
+                                <ui:inputSelect class="dynamic slds-select" aura:id="eventShowAsMap" value="{!v.recWrapper.newEvent.ShowAs}"/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Location</div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="customMatchColPadding">
+                            <ui:inputText class="slds-input" value="{!v.recWrapper.newEvent.Location}" placeholder="Please enter a Location..."/>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slds-grid slds-wrap slds-grid--pull-padded slds-col--bump-right slds-col--bump-left customMatchGridFields">
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Email</div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="customMatchColPadding">
+                            <span class="slds-form-element__static">
+                                <ui:outputEmail value="{!v.recWrapper.contactRecord.Email}"/>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Description</div>
+                    </div>
+                    <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                        <div class="customMatchColPadding">
+                            <ui:inputTextArea class="slds-textarea" value="{!v.recWrapper.newEvent.Description}" rows="2"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--Campaign - Account Status-->
+    <div>
+        <div class="slds-card">
+            <div class="slds-card__header slds-grid">
+                <div class="slds-media slds-media--center slds-has-flexi-truncate">
+                    <div class="slds-media__body">
+                        <div class="slds-truncate">
+                            <span class="slds-form-element__static">
+                                <b><ui:outputText value="Campaign - Account Status"/></b>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slds-grid slds-wrap slds-grid--pull-padded slds-col--bump-right slds-col--bump-left customMatchGridFields">
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                    <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Account Name</div>
+                </div>
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                    <div class="customMatchColPadding">
+                        <span class="slds-form-element__static">
+                            <ui:outputURL class="{!v.hardware != 'DESKTOP' ? 'slds-hide' : ''}" label="{!v.recWrapper.accountRecord.Name}" value="{!'/' + v.recWrapper.accountRecord.Id}"/>
+                            <a id="{!v.recWrapper.accountRecord.Id}" onclick="{!c.openRecordDetail}" class="{!v.hardware == 'DESKTOP' ? 'slds-hide' : ''}">{!v.recWrapper.accountRecord.Name}</a>
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                    <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Location City</div>
+                </div>
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                    <div class="customMatchColPadding">
+                        <span class="slds-form-element__static">
+                            <ui:outputText value="{!v.recWrapper.accountRecord.BillingCity}"/>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slds-grid slds-wrap slds-grid--pull-padded slds-col--bump-right slds-col--bump-left customMatchGridFields">
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                    <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Location State/Province</div>
+                </div>
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                    <div class="customMatchColPadding">
+                        <span class="slds-form-element__static">
+                            <ui:outputText value="{!v.recWrapper.accountRecord.BillingState}"/>
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                    <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Contact Phone</div>
+                </div>
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                    <div class="customMatchColPadding">
+                        <span class="slds-form-element__static">
+                            <ui:outputPhone value="{!v.recWrapper.contactRecord.Phone}"/>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slds-grid slds-wrap slds-grid--pull-padded slds-col--bump-right slds-col--bump-left customMatchGridFields">
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                    <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Account Phone</div>
+                </div>
+                <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                    <div class="customMatchColPadding">
+                        <span class="slds-form-element__static">
+                            <ui:outputPhone value="{!v.recWrapper.accountRecord.Phone}"/>
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="{!'slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4'+' '+(v.hardware== 'DESKTOP' ? '' : 'slds-hide')}">
+                    <div class="slds-text-heading--label customMatchColPadding customMatchHeading"></div>
+                </div>
+                <div class="{!'slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4'+' '+(v.hardware== 'DESKTOP' ? '' : 'slds-hide')}">
+                    <div class="customMatchColPadding">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div>
+        <div class="pageButtonStyle">
+            <center>
+                <button class="slds-button slds-button--brand slds-not-selected" type="button" onclick="{!c.saveChanges}">Save</button>
+                <button class="slds-button slds-button--brand slds-not-selected" type="button" onclick="{!c.cancelChanges}">Cancel</button>
+            </center>
+        </div>
+    </div>
+</aura:component>

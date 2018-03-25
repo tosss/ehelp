@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>None</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>External USIM Users</name>
+    <opportunityAccessLevel>None</opportunityAccessLevel>
+    <parentRole>External_Agency_Users_Non_CDK</parentRole>
+</Role>

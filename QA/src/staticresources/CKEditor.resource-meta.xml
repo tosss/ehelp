@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StaticResource xmlns="http://soap.sforce.com/2006/04/metadata">
+    <cacheControl>Public</cacheControl>
+    <contentType>application/zip</contentType>
+    <description>CKEditor is a ready-for-use HTML text editor designed to simplify web content creation. (v4.5.1) Requires jQuery; implemented through Visualforce.</description>
+</StaticResource>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Account Dashboard Activity Team Roles</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Account Dashboard Activity Team Roles</value>
+    </caseValues>
+    <fields>
+        <help><!-- The Record Type of the Task or Event --></help>
+        <label><!-- Activity Record Type --></label>
+        <name>Activity_Record_Type__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Title of the person &quot;Assigned To&quot; the Task or Event --></help>
+        <label><!-- User Title --></label>
+        <name>User_Title__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

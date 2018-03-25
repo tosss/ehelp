@@ -1,0 +1,57 @@
+<!--2016-03-28- anirudh.singh@cdk.com- Commented this page as it is not being used anywhere. Confirmed with Vishal as he worked on this page earlier.-->
+<apex:page ></apex:page>
+<!--<apex:page standardController="Laser_Artwork_Order__c" showHeader="false" sidebar="false" Extensions="Subproject_On_Laser_Extension" action="{!getRecordDetails}" id="subproject">
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}" />
+    <style>
+        .hide
+        {
+        display:none;
+        }
+        .show
+        {
+        border:1px solid #e0e3e5; 
+        height:20px;
+        align:centre; 
+        }
+        .innerBlock
+        {
+        border:3px solid #f8f8f8;
+        text-align:center;
+        }
+    </style>  
+    <apex:form >
+        <apex:pageBlock id="block" mode="maindetail">
+            <div class='{!If(sperObj==null,"show" ,"hide")}' >
+                <div class="innerBlock">
+                    <b>No Related Subproject Found</b>
+                </div>
+            </div> 
+            <apex:pageBlockSection columns="2">
+                <apex:pageBlockSectionItem rendered="{!If(sperObj!=null,true,false)}" >
+                    <apex:outputLabel value="SubProject (Link)" />
+                    <a  href="/{!sperObj.SubProject__c}" target="_blank">{!sperObj.SubProject__r.Name}</a>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{!If(sperObj!=null,true,false)}" >
+                    <apex:outputLabel value="Confidential" />
+                    <apex:outputField value="{!sperObj.SubProject__r.Confidential__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{!If(sperObj!=null,true,false)}" >
+                    <apex:outputLabel value="Impact Project Numbers" />
+                    <apex:outputField value="{!sperObj.SubProject__r.Impact_Project_Numbers__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{!If(sperObj!=null,true,false)}" >
+                    <apex:outputLabel value="Go Live Date" />
+                    <apex:outputField value="{!sperObj.SubProject__r.Go_Live_Date__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{!If(sperObj!=null,true,false)}" >
+                    <apex:outputLabel value="Project Manager" />
+                    <apex:outputField value="{!sperObj.SubProject__r.Project_Manager__c}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{!If(sperObj!=null,true,false)}" >
+                    <apex:outputLabel value="Roll Call Date" />
+                    <apex:outputField value="{!sperObj.SubProject__r.Contract_Roll_Called__c}"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection> 
+        </apex:pageBlock>   
+    </apex:form>
+</apex:page>-->

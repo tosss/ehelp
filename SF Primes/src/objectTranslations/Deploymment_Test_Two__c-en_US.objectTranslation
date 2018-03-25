@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Deploymment Test Two</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Deploymment Test Two</value>
+    </caseValues>
+    <fields>
+        <label><!-- Date Test 01 --></label>
+        <name>Date_Test_01__c</name>
+    </fields>
+    <fields>
+        <label><!-- Test Text Field 01 --></label>
+        <name>Test_Text_Field_01__c</name>
+    </fields>
+    <fields>
+        <label><!-- Test Text Field 02 --></label>
+        <name>Test_Text_Field_02__c</name>
+    </fields>
+    <fields>
+        <label><!-- Test Text Field 03 --></label>
+        <name>Test_Text_Field_03__c</name>
+    </fields>
+    <fields>
+        <label><!-- Test Text Field 04 --></label>
+        <name>Test_Text_Field_04__c</name>
+    </fields>
+    <fields>
+        <label><!-- Test Text Field 05 --></label>
+        <name>Test_Text_Field_05__c</name>
+    </fields>
+    <fields>
+        <label><!-- Test Text Field 06 --></label>
+        <name>Test_Text_Field_06__c</name>
+    </fields>
+    <fields>
+        <label><!-- Test Text Field 07 --></label>
+        <name>Test_Text_Field_07__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

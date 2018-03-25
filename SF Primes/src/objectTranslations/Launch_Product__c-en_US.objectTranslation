@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Launch Product</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Launch Products</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Launch Products --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Ad Type --></label>
+        <name>Ad_Type__c</name>
+        <picklistValues>
+            <masterLabel>National</masterLabel>
+            <translation><!-- National --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regional</masterLabel>
+            <translation><!-- Regional --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Brand --></label>
+        <name>Brand__c</name>
+        <picklistValues>
+            <masterLabel>BMW</masterLabel>
+            <translation><!-- BMW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Buick/GMC</masterLabel>
+            <translation><!-- Buick/GMC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cadillac</masterLabel>
+            <translation><!-- Cadillac --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chevrolet</masterLabel>
+            <translation><!-- Chevrolet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Holden</masterLabel>
+            <translation><!-- Holden --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hyundai</masterLabel>
+            <translation><!-- Hyundai --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kia</masterLabel>
+            <translation><!-- Kia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lexus</masterLabel>
+            <translation><!-- Lexus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MINI</masterLabel>
+            <translation><!-- MINI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toyota</masterLabel>
+            <translation><!-- Toyota --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Volkswagen</masterLabel>
+            <translation><!-- Volkswagen --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- CCO Adjusted --></label>
+        <name>CCO_Adjusted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conquest Targets --></label>
+        <name>Conquest_Targets__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract End Date --></label>
+        <name>Contract_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Start Date --></label>
+        <name>Contract_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Default Offer --></label>
+        <name>Default_Offer__c</name>
+        <picklistValues>
+            <masterLabel>APR Finance Credit Advertising w/o Trigger Term</masterLabel>
+            <translation><!-- APR Finance Credit Advertising w/o Trigger Term --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>APR Finance Offers w/ Trigger Terms</masterLabel>
+            <translation><!-- APR Finance Offers w/ Trigger Terms --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cash Back</masterLabel>
+            <translation><!-- Cash Back --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Conquest Cash</masterLabel>
+            <translation><!-- Conquest Cash --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Conquest Lease</masterLabel>
+            <translation><!-- Conquest Lease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Current Chevy Owners w/ Trade-In Eligible Vehicle</masterLabel>
+            <translation><!-- Current Chevy Owners w/ Trade-In Eligible Vehicle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regular Lease</masterLabel>
+            <translation><!-- Regular Lease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sign and Drive Lease</masterLabel>
+            <translation><!-- Sign and Drive Lease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Starting at MSRP</masterLabel>
+            <translation><!-- Starting at MSRP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Total Value (Supplier Pricing)</masterLabel>
+            <translation><!-- Total Value (Supplier Pricing) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Total Value (w/o Trade In)</masterLabel>
+            <translation><!-- Total Value (w/o Trade In) --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Disclaimer --></label>
+        <name>Disclaimer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Display Ad Reference ID --></label>
+        <name>Display_Ad_RefID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Display Ad URL --></label>
+        <name>Display_Ad_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Display Ads Entered/Scheduled --></label>
+        <name>Display_Ads_Entered_Scheduled__c</name>
+    </fields>
+    <fields>
+        <label><!-- Facebook --></label>
+        <name>Facebook__c</name>
+    </fields>
+    <fields>
+        <label><!-- In Banner Video Ad Ref Order ID --></label>
+        <name>In_Banner_Video_Ad_Ref_Order_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- In Banner Video Ad URL --></label>
+        <name>In_Banner_Video_Ad_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Incentive Type --></label>
+        <name>Incentive_Type__c</name>
+        <picklistValues>
+            <masterLabel>National</masterLabel>
+            <translation><!-- National --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regional</masterLabel>
+            <translation><!-- Regional --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- LMA Analyst 2 --></label>
+        <name>LMA_Analyst2__c</name>
+        <relationshipLabel><!-- Launch Products (LMA Analyst 2) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- LMA Analyst --></label>
+        <name>LMA_Analyst__c</name>
+        <relationshipLabel><!-- Launch Products (LMA Analyst) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Setup Complete --></label>
+        <name>LMA_Setup_Complete__c</name>
+    </fields>
+    <fields>
+        <label><!-- LMA Strategist --></label>
+        <name>LMA_Strategist__c</name>
+        <relationshipLabel><!-- Launch Products (LMA Strategist) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Landing Page URL --></label>
+        <name>Landing_Page_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Launch ID --></label>
+        <name>LaunchID__c</name>
+        <relationshipLabel><!-- Launch Products --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Media Budget Entered --></label>
+        <name>Media_Budget_Entered__c</name>
+    </fields>
+    <fields>
+        <label><!-- Media Planned --></label>
+        <name>Media_Planned__c</name>
+    </fields>
+    <fields>
+        <label><!-- Media Submitted --></label>
+        <name>Media_Submitted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Migration_ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mock Up Approved by Client --></label>
+        <name>Mock_Up_Approved_by_Client__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mock Up Approved by Legal --></label>
+        <name>Mock_Up_Approved_by_Legal__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter YYYY --></help>
+        <label><!-- Model Year --></label>
+        <name>Model_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Model --></label>
+        <name>Model__c</name>
+        <picklistValues>
+            <masterLabel>ATS</masterLabel>
+            <translation><!-- ATS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ATS Couple</masterLabel>
+            <translation><!-- ATS Couple --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ATS Sedan</masterLabel>
+            <translation><!-- ATS Sedan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Acadia</masterLabel>
+            <translation><!-- Acadia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Acadia Denali</masterLabel>
+            <translation><!-- Acadia Denali --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Avalanche</masterLabel>
+            <translation><!-- Avalanche --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CTS Coupe</masterLabel>
+            <translation><!-- CTS Coupe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CTS Sedan</masterLabel>
+            <translation><!-- CTS Sedan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CTS-V Coupe</masterLabel>
+            <translation><!-- CTS-V Coupe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CTS-V Sedan</masterLabel>
+            <translation><!-- CTS-V Sedan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Camaro</masterLabel>
+            <translation><!-- Camaro --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Canyon</masterLabel>
+            <translation><!-- Canyon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Canyon Denali</masterLabel>
+            <translation><!-- Canyon Denali --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Colorado</masterLabel>
+            <translation><!-- Colorado --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corvette</masterLabel>
+            <translation><!-- Corvette --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cruze</masterLabel>
+            <translation><!-- Cruze --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ELR</masterLabel>
+            <translation><!-- ELR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enclave</masterLabel>
+            <translation><!-- Enclave --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Encore</masterLabel>
+            <translation><!-- Encore --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Equinox</masterLabel>
+            <translation><!-- Equinox --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Escalade</masterLabel>
+            <translation><!-- Escalade --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Impala</masterLabel>
+            <translation><!-- Impala --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lacrosse</masterLabel>
+            <translation><!-- Lacrosse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Malibu</masterLabel>
+            <translation><!-- Malibu --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regal</masterLabel>
+            <translation><!-- Regal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SRX</masterLabel>
+            <translation><!-- SRX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SS</masterLabel>
+            <translation><!-- SS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sierra 1500</masterLabel>
+            <translation><!-- Sierra 1500 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sierra 1500 Denali</masterLabel>
+            <translation><!-- Sierra 1500 Denali --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sierra 2500 Denali HD</masterLabel>
+            <translation><!-- Sierra 2500 Denali HD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sierra 2500HD</masterLabel>
+            <translation><!-- Sierra 2500HD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sierra 3500 Denali HD</masterLabel>
+            <translation><!-- Sierra 3500 Denali HD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sierra 3500HD</masterLabel>
+            <translation><!-- Sierra 3500HD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silverado</masterLabel>
+            <translation><!-- Silverado --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sonic</masterLabel>
+            <translation><!-- Sonic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spark</masterLabel>
+            <translation><!-- Spark --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suburban</masterLabel>
+            <translation><!-- Suburban --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tahoe</masterLabel>
+            <translation><!-- Tahoe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Terrain</masterLabel>
+            <translation><!-- Terrain --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Terrain Denali</masterLabel>
+            <translation><!-- Terrain Denali --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Traverse</masterLabel>
+            <translation><!-- Traverse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trax</masterLabel>
+            <translation><!-- Trax --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Verano</masterLabel>
+            <translation><!-- Verano --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Volt</masterLabel>
+            <translation><!-- Volt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yukon</masterLabel>
+            <translation><!-- Yukon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yukon XL</masterLabel>
+            <translation><!-- Yukon XL --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Monthly Budget --></label>
+        <name>Monthly_Budget__c</name>
+    </fields>
+    <fields>
+        <label><!-- Offer Editor Code --></label>
+        <name>Offer_Editor_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Offer Editor Model --></label>
+        <name>Offer_Editor_Model__c</name>
+    </fields>
+    <fields>
+        <label><!-- Offer Editor Trim --></label>
+        <name>Offer_Editor_Trim__c</name>
+    </fields>
+    <fields>
+        <label><!-- Offer Editor Type --></label>
+        <name>Offer_Editor_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Offer Editor URL --></label>
+        <name>Offer_Editor_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Offer Editor Year --></label>
+        <name>Offer_Editor_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Offer --></label>
+        <name>Offer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Package Created in DAP UI --></label>
+        <name>Package_Created_in_DAP_UI__c</name>
+    </fields>
+    <fields>
+        <label><!-- Page Title --></label>
+        <name>Page_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pre-Roll Setup --></label>
+        <name>Pre_Roll_Setup__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preferred Regional Offers --></label>
+        <name>Preferred_Regional_Offers__c</name>
+        <picklistValues>
+            <masterLabel>APR Finance Credit Advertising w/o Trigger Term</masterLabel>
+            <translation><!-- APR Finance Credit Advertising w/o Trigger Term --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>APR Finance Offers w/ Trigger Terms</masterLabel>
+            <translation><!-- APR Finance Offers w/ Trigger Terms --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cash Back</masterLabel>
+            <translation><!-- Cash Back --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Conquest Cash</masterLabel>
+            <translation><!-- Conquest Cash --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Conquest Lease</masterLabel>
+            <translation><!-- Conquest Lease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Current Chevy Owners w/ Trade-In Eligible Vehicle</masterLabel>
+            <translation><!-- Current Chevy Owners w/ Trade-In Eligible Vehicle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regular Lease</masterLabel>
+            <translation><!-- Regular Lease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sign and Drive Lease</masterLabel>
+            <translation><!-- Sign and Drive Lease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Starting at MSRP</masterLabel>
+            <translation><!-- Starting at MSRP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Total Value (Supplier Pricing)</masterLabel>
+            <translation><!-- Total Value (Supplier Pricing) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Total Value (w/o Trade In)</masterLabel>
+            <translation><!-- Total Value (w/o Trade In) --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Promo Code --></label>
+        <name>Promo_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ready for UI Setup --></label>
+        <name>Ready_for_UI_Setup__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retargeting Ads Entered/Target Selected --></label>
+        <name>Retargeting_Ads_Entered_Target_Selected__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scrolling Inventory Ad Ref Order ID --></label>
+        <name>Scrolling_Inventory_Ad_Ref_Order_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scrolling Inventory Ad URL --></label>
+        <name>Scrolling_Inventory_Ad_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Search Ads Entered/Scheduled --></label>
+        <name>Search_Ads_Entered_Scheduled__c</name>
+    </fields>
+    <fields>
+        <label><!-- Strategy Budget Entered --></label>
+        <name>Strategy_Budget_Entered__c</name>
+    </fields>
+    <fields>
+        <label><!-- Strategy --></label>
+        <name>Strategy__c</name>
+        <picklistValues>
+            <masterLabel>Conquest</masterLabel>
+            <translation><!-- Conquest --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retention</masterLabel>
+            <translation><!-- Retention --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Total Budget --></label>
+        <name>Total_Budget__c</name>
+    </fields>
+    <fields>
+        <label><!-- Trim --></label>
+        <name>Trim__c</name>
+    </fields>
+    <fields>
+        <label><!-- Twitter --></label>
+        <name>Twitter__c</name>
+    </fields>
+    <fields>
+        <label><!-- URLs Entered --></label>
+        <name>URLs_Entered__c</name>
+    </fields>
+    <fields>
+        <label><!-- WebID --></label>
+        <name>WebID__c</name>
+        <relationshipLabel><!-- Launch Products --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Launch Product Layout</layout>
+        <sections>
+            <label><!-- Build Requirements --></label>
+            <section>Build Requirements</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Launch Product Detail --></label>
+            <section>Launch Product Detail</section>
+        </sections>
+        <sections>
+            <label><!-- Product Detail --></label>
+            <section>Product Detail</section>
+        </sections>
+        <sections>
+            <label><!-- UI Implementation --></label>
+            <section>UI Implementation</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- LMA Launch Product --></label>
+        <name>LMA_Launch_Product</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- New_Launch_Product --></label>
+        <name>New_Launch_Product</name>
+    </webLinks>
+</CustomObjectTranslation>

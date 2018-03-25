@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Hubspot Config Info</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Hubspot Config Info</value>
+    </caseValues>
+    <fields>
+        <help><!-- This record is actively being used by CastIron to pull data from Hubspot --></help>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <label><!-- HS Last Timeoffset --></label>
+        <name>HS_last_timeoffset__c</name>
+    </fields>
+    <fields>
+        <label><!-- HS Last Vidoffset --></label>
+        <name>HS_last_vidoffset__c</name>
+    </fields>
+    <fields>
+        <help><!-- Email Name is Required for a Campaign and should be exactly same as in Marketing Hubspot --></help>
+        <label><!-- Hubspot Campaign Email Name --></label>
+        <name>Hubspot_Campaign_Email_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- &apos;forms-based&apos; is not a campaign event but identifies form was filled out --></help>
+        <label><!-- Hubspot Campaign Event Status --></label>
+        <name>Hubspot_Campaign_Event_Status__c</name>
+        <picklistValues>
+            <masterLabel>Clicked</masterLabel>
+            <translation><!-- Clicked --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delivered</masterLabel>
+            <translation><!-- Delivered --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forms-based</masterLabel>
+            <translation><!-- Forms-based --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Hubspot Campaign or Hubspot Contact List can be populated for a Hubspot Record --></help>
+        <label><!-- Hubspot Campaign Name --></label>
+        <name>Hubspot_Campaign_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Hubspot Contact List or Hubspot Campaign can be populated for a Hubspot Record --></help>
+        <label><!-- Hubspot Contact List Name --></label>
+        <name>Hubspot_Contact_List_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hubspot Instance Name --></label>
+        <name>Hubspot_Instance_Name__c</name>
+        <picklistValues>
+            <masterLabel>ADP_DEALER_SERVICES</masterLabel>
+            <translation><!-- ADP_DEALER_SERVICES --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>COBALT</masterLabel>
+            <translation><!-- COBALT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DEALIX</masterLabel>
+            <translation><!-- DEALIX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LIGHTSPEED</masterLabel>
+            <translation><!-- LIGHTSPEED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PFW</masterLabel>
+            <translation><!-- PFW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PI</masterLabel>
+            <translation><!-- PI --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Description to appear in the &quot;Details&quot; field of the Marketing Interaction object. For Campaign you can add Campaign and Email Name in this Field --></help>
+        <label><!-- Interaction Description --></label>
+        <name>Interaction_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type of Interaction --></label>
+        <name>Type_of_Interaction__c</name>
+        <picklistValues>
+            <masterLabel>Hubspot Campaign Email Delivered</masterLabel>
+            <translation><!-- Hubspot Campaign Email Delivered --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hubspot Campaign Email Link Clicked</masterLabel>
+            <translation><!-- Hubspot Campaign Email Link Clicked --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hubspot Form Filled Out</masterLabel>
+            <translation><!-- Hubspot Form Filled Out --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Viewed on Website</masterLabel>
+            <translation><!-- Product Viewed on Website --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Last Run Datetime --></label>
+        <name>last_run_datetime__c</name>
+    </fields>
+    <layouts>
+        <layout>Hubspot Config Info Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You can not have Campaign Email Name or Event Status for null Campaign Name --></errorMessage>
+        <name>DS_Mkt_CampaignEmailNameEventStatus_Null</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Hubspot Campaign Email Name and Event Status are Required for Hubspot Campaign --></errorMessage>
+        <name>DS_Mkt_CampaignEmailNameEventStatus_Req</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You need to populate Hubspot Contact List Name or Hubspot Campaign Name for a Hubspot Record --></errorMessage>
+        <name>DS_Mkt_ContactList_Campaign_Not_Null</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You can only have Hubspot Contact List Name or Hubspot Campaign Name filled in for a Hubspot Record --></errorMessage>
+        <name>DS_Mkt_ContactList_Campaign_Verification</name>
+    </validationRules>
+</CustomObjectTranslation>

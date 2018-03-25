@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Employee Hardware Assets</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Employee Hardware Assets</value>
+    </caseValues>
+    <fields>
+        <label><!-- Asset End Date --></label>
+        <name>Asset_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Asset Number --></label>
+        <name>Asset_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Asset Start Date --></label>
+        <name>Asset_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employee Name --></label>
+        <name>Employee_Name__c</name>
+        <relationshipLabel><!-- Employee Hardware Assets --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Hardware Asset --></label>
+        <name>Hardware_Asset__c</name>
+        <relationshipLabel><!-- Employee Hardware Assets --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- SPX Asset Assign Date --></label>
+        <name>SPX_ADPHardware_CreateDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- SPX ADPHardware ID --></label>
+        <name>SPX_ADPHardware_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Serial Number (Link) --></label>
+        <name>Serial_Number_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Serial Number Notes --></label>
+        <name>Serial_Number_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Serial Number --></label>
+        <name>Serial_Number__c</name>
+    </fields>
+    <layouts>
+        <layout>Employee Hardware Assets Layout</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

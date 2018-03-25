@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StaticResource xmlns="http://soap.sforce.com/2006/04/metadata">
+    <cacheControl>Public</cacheControl>
+    <contentType>application/x-zip-compressed</contentType>
+    <description>jQuery http://jQuery.com &amp; jQuery UI http://jQueryUI.com
+jQuery is a fast and concise JavaScript Library that simplifies HTML document traversing, event handling, animating, and Ajax interactions for rapid web development.</description>
+</StaticResource>

@@ -1,0 +1,99 @@
+<!--
+/*------------------------------------------------------------
+Author: Alexander Daria
+Company: Cloud Sherpas
+Description: Editing of checklist items, adding url to the question
+History
+09/03/14    Alexander Daria     Created
+10/14/14    Rey Austral         Put internal and inline css to an external css
+------------------------------------------------------------*/
+-->
+<apex:page standardController="Project__c" extensions="IMP_CheckList_Controller">
+    <apex:stylesheet value="{!URLFOR($Resource.IMP_Project_css)}"/>
+     <h2 id="topPage"> </h2>
+    <apex:sectionHeader title="{!currProject.Name}"/>
+    Last Modified By: {!lastModifiedBy} <br />
+    Last Modified Date: <apex:outputText value=" {!lastModifiedDate}"></apex:outputText> 
+    <apex:outputPanel id="blkLink">   
+       <br/><br/>
+            <apex:outputLink value="/apex/IMP_siteworkbook?id={!currProject.Id}" target="_parent" styleClass="backLink" rendered="{!IF(isEditMode,FALSE,TRUE)}"> Back to Dashboard <br/>   
+            </apex:outputLink> 
+       <br/>
+        
+    </apex:outputPanel>
+    <apex:form >      
+       
+        <apex:pageBlock >
+            <apex:pageBlockButtons location="Top">             
+                    <apex:commandButton action="{!editRecords}" value="Edit" rendered="{!IF(isEditMode,FALSE,TRUE)}"/>
+                    <apex:commandButton action="{!saveRecords}" value="Save" rendered="{!isEditMode}"/>&nbsp;&nbsp;&nbsp;
+                    <apex:commandButton action="{!Close}" value="Save and Close" rendered="{!isEditMode}"/>&nbsp;&nbsp;&nbsp;
+                    <apex:commandButton action="{!Cancel}" value="Cancel" rendered="{!isEditMode}"/>               
+            </apex:pageBlockButtons>
+               <div class="divMain" align="center">
+            <!--LINKS Section-->
+            <!--start-->
+           <!-- <apex:repeat value="{!categorydetails}" var="x" >
+                <div class=" divMargin" align="center">
+                    <a  href="#{!x.categoryobj.id}" > {!x.categoryobj.name}</a>
+                </div>
+            </apex:repeat> -->
+                   
+                  
+                    
+                   <table class="tblLink">
+                       <apex:repeat value="{!catLinks}" var="x" >
+                           <tr>
+                               <apex:repeat value="{!x.categories}" var="y" >
+                                   <td class="tblLink_td"><a  href="#{!y.id}" > {!y.name}</a></td>
+                               </apex:repeat>
+                           </tr>
+                       </apex:repeat>
+                   </table>
+            <!--end-->  
+        </div>
+        </apex:pageBlock>
+     
+        <apex:outputPanel id="pnlChecklist">
+            <!--Repeater Start--> 
+            <!-- Populate the repeater with checklist answer by category--> 
+            <!-- make the h2 id equivalent to the category id so when the user click the link in the link section it will go to that table--> 
+            
+        <apex:repeat value="{!categorydetails}" var="chk">          
+           
+                <h2 id="{!chk.categoryobj.id}"> </h2>   
+              
+                        <apex:outputLabel value="{!chk.categoryobj.name}" styleClass="checklist_category"/> 
+                  
+                        <a href="#topPage" class="checklist_top"> Go to Top </a>
+               
+                <apex:pageblock > 
+                    <apex:pageblocktable styleClass="checklist_table" value="{!chk.qa}"  var="dtl">
+                        <apex:column styleClass="checklist_header_counter" value="{!dtl.counter}"  headerValue="#"  >
+                        </apex:column>
+                        <apex:column styleClass="checklist_header_description" value="{!dtl.answer.Item__r.Item__c}" headerValue="Document Description" >
+                        </apex:column>    
+                        <apex:column styleClass="checklist_header_document" headerValue="Document Provided?" >
+                             <apex:outputField value="{!dtl.answer.Response__c}" rendered="{!IF(isEditMode,FALSE,TRUE)}"/>
+                            <apex:inputField value="{!dtl.answer.Response__c}" rendered="{!isEditMode}"/>
+                        </apex:column>
+                        <apex:column styleClass="checklist_header_url" headerValue="URL">
+                            <apex:outputField value="{!dtl.answer.URL_Location__c}" rendered="{!IF(isEditMode,FALSE,TRUE)}"/>
+                            <apex:inputField value="{!dtl.answer.URL_Location__C }" styleClass="textboxWidth" rendered="{!isEditMode}"/>
+                        </apex:column>
+                    </apex:pageBlockTable>
+                </apex:pageblock>
+                
+            </apex:repeat>
+            <!--Repeater end--> 
+        </apex:outputPanel>
+        <apex:outputPanel id="pnlControl2">
+            <div align="center"> 
+                <apex:commandButton action="{!editRecords}" value="Edit" rendered="{!IF(isEditMode,FALSE,TRUE)}"/>
+                <apex:commandButton action="{!saveRecords}" value="Save" rendered="{!isEditMode}"/>&nbsp;&nbsp;&nbsp;
+                <apex:commandButton action="{!Close}" value="Save and Close" rendered="{!isEditMode}"/>&nbsp;&nbsp;&nbsp;
+                <apex:commandButton action="{!Cancel}" value="Cancel" rendered="{!isEditMode}"/>
+            </div>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

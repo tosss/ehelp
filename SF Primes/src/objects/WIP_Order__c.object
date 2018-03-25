@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Display WIP Orders from Oracle</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>WIP Orders</relationshipLabel>
+        <relationshipName>WIP_Orders</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Activation_OM_Contract_Admin__c</fullName>
+        <description>Name of Activation Order Manager or Contract Admin</description>
+        <externalId>false</externalId>
+        <label>Activation OM/Contract Admin</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Aged_Days__c</fullName>
+        <description>Number of days from booked date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of days from booked date</inlineHelpText>
+        <label>Aged Days</label>
+        <precision>13</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bill_To_Account_Name__c</fullName>
+        <description>Bill To Account Name</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Bill To Account Name</inlineHelpText>
+        <label>Bill To Account Name</label>
+        <length>60</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bill_To_Account_Number__c</fullName>
+        <description>Bill To Account Number</description>
+        <externalId>false</externalId>
+        <label>Bill To Account Number</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bill_To_Location__c</fullName>
+        <description>Order Billing Address</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Order Billing Address</inlineHelpText>
+        <label>Bill To Location</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Billing_Override_Date__c</fullName>
+        <description>Effective Billing date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Effective Billing date</inlineHelpText>
+        <label>Billing Override Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Booked_Date__c</fullName>
+        <description>Date when order was booked</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date when order was booked</inlineHelpText>
+        <label>Booked Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Booking_OM__c</fullName>
+        <description>Name of Booking Order Manager</description>
+        <externalId>false</externalId>
+        <label>Booking OM</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Build_QA__c</fullName>
+        <description>Name of Builder QA</description>
+        <externalId>false</externalId>
+        <label>Build QA</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Builder__c</fullName>
+        <description>Name of Builder</description>
+        <externalId>false</externalId>
+        <label>Builder</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cancellation_Date__c</fullName>
+        <description>The scheduled date for the order to process and take down the website or product</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The scheduled date for the order to process and take down the website or product</inlineHelpText>
+        <label>Cancellation Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Cobalt_Consolidation_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Cobalt_Consolidation_ID</label>
+        <length>18</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Enrollment_OM__c</fullName>
+        <description>Name of Enrollment Order Manager</description>
+        <externalId>false</externalId>
+        <label>Enrollment OM</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hold_Reason_Code__c</fullName>
+        <description>Hold Reason Code</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Hold Reason Code</inlineHelpText>
+        <label>Hold Reason Code</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Migration_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Migration_ID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>On_Hold__c</fullName>
+        <description>Indicates if order is on hold: YES OR NO</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates if order is on hold: YES OR NO</inlineHelpText>
+        <label>On Hold</label>
+        <length>5</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Order_Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Order Category</label>
+        <length>30</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Order_Detail_Notes__c</fullName>
+        <description>Contains product codes, line quantity and line amount</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Contains product codes, line quantity and line amount</inlineHelpText>
+        <label>Order Detail Notes</label>
+        <length>32000</length>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>15</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Order_Number__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Order Number generated from Oracle</description>
+        <externalId>true</externalId>
+        <label>Order Number</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Order_Priority__c</fullName>
+        <description>Order Priority</description>
+        <externalId>false</externalId>
+        <label>Order Priority</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Order_Status__c</fullName>
+        <description>Status of Order</description>
+        <externalId>false</externalId>
+        <label>Order Status</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Order_Submitter__c</fullName>
+        <description>Name of Order Submitter</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of Order Submitter</inlineHelpText>
+        <label>Order Submitter</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Order_Type__c</fullName>
+        <description>Order Type</description>
+        <externalId>false</externalId>
+        <label>Order Type</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Parent_item_Description__c</fullName>
+        <description>Description of all Parent line items except for setup fees</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Description of all Parent line items except for setup fees</inlineHelpText>
+        <label>Parent item Description</label>
+        <length>32000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Recurring_Fee__c</fullName>
+        <description>Amount of recurring fee</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the net amount of the new order and the return order.  For the new recurring amount please see the line detail.</inlineHelpText>
+        <label>Recurring Fee</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Setup_Fee__c</fullName>
+        <description>Total Amount of setup fees on order</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total Amount of setup fees on order</inlineHelpText>
+        <label>Setup Fee</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Order_Fee__c</fullName>
+        <description>Sum of setup fee and recurring fee</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Sum of setup fee and recurring fee</inlineHelpText>
+        <label>Total Order Fee</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WebID__c</fullName>
+        <description>WEBID Field</description>
+        <externalId>false</externalId>
+        <inlineHelpText>WebID is not from Install Base, it is from order</inlineHelpText>
+        <label>WebID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>WIP Order</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Order_Type__c</columns>
+        <columns>Parent_item_Description__c</columns>
+        <columns>Order_Status__c</columns>
+        <columns>Booked_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Order#</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>WIP Orders</pluralLabel>
+    <searchLayouts>
+        <searchResultsAdditionalFields>Booked_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>WebID__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Order_Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Order_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Activation_OM_Contract_Admin__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>On_Hold__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Parent_item_Description__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Order_Category__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Read</sharingModel>
+</CustomObject>

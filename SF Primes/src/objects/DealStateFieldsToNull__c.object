@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>Holds API names of Deal State fields, that are to nullified when Envelope Status is Voided</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Field_API_Name__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>false</externalId>
+        <label>Field API Name</label>
+        <length>50</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Field_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Field Type</label>
+        <length>30</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>DealStateFieldsToNull</label>
+    <visibility>Protected</visibility>
+</CustomObject>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Systems</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Systems</value>
+    </caseValues>
+    <fields>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <label><!-- Default System Software --></label>
+        <name>Default_System_Software__c</name>
+    </fields>
+    <fields>
+        <label><!-- Migration_ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- SLXSystem ID --></label>
+        <name>SLXSystem_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- SLXVendor ID --></label>
+        <name>SLXVendor_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- SLX Sys CreateDate --></label>
+        <name>SLX_Sys_CreateDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- SLX Vendor CreateDate --></label>
+        <name>SLX_Vendor_CreateDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Segment Code --></label>
+        <name>Segment_Code__c</name>
+        <picklistValues>
+            <masterLabel>AUTG</masterLabel>
+            <translation><!-- AUTG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NAAT</masterLabel>
+            <translation><!-- NAAT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PFW</masterLabel>
+            <translation><!-- PFW --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>CRM</masterLabel>
+            <translation><!-- CRM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DMS</masterLabel>
+            <translation><!-- DMS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leasing</masterLabel>
+            <translation><!-- Leasing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phone</masterLabel>
+            <translation><!-- Phone --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Vendor Code --></label>
+        <name>Vendor_Code__c</name>
+    </fields>
+    <layouts>
+        <layout>Vendor System Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Vendor System Layout - Visible</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- SLX DMS ID Field is required (and it should be unique to Vendors table) --></errorMessage>
+        <name>DMS_field_required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- SLX Vendor ID Field is required (and it should be unique to Vendors table) --></errorMessage>
+        <name>SLX_VendorID_field_required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- SLX System ID must be populated and unique for SalesLogix for DMS and Phone type systems. --></errorMessage>
+        <name>System_ID_field_required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Type field is required --></errorMessage>
+        <name>Type_field_required</name>
+    </validationRules>
+</CustomObjectTranslation>

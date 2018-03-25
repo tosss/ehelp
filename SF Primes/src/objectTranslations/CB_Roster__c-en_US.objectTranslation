@@ -1,0 +1,1339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Roster</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Rosters</value>
+    </caseValues>
+    <fields>
+        <label><!-- Advocate Manager Email --></label>
+        <name>Advocate_Manager_Email__c</name>
+    </fields>
+    <fields>
+        <help><!-- Use this field if the user does not have a Salesforce user account yet. --></help>
+        <label><!-- Advocate Manager Text --></label>
+        <name>Advocate_Manager_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Advocate Manager --></label>
+        <name>Advocate_Manager__c</name>
+    </fields>
+    <fields>
+        <help><!-- Use this field to list an Advocate&apos;s name if they do not have a Salesforce user account yet. --></help>
+        <label><!-- Advocate Text --></label>
+        <name>Advocate_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Advocate --></label>
+        <name>Advocate__c</name>
+        <relationshipLabel><!-- Rosters --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Attrition Reason --></label>
+        <name>Attrition_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Interviewing</masterLabel>
+            <translation><!-- Interviewing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Performance</masterLabel>
+            <translation><!-- Performance --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- BPI --></label>
+        <name>BPI__c</name>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Complete</masterLabel>
+            <translation><!-- Not Complete --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Business Case Study AA III --></label>
+        <name>Business_Case_Study_AA_III__c</name>
+    </fields>
+    <fields>
+        <label><!-- Business Case Study AA II (1) --></label>
+        <name>Business_Case_Study_AA_II_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Business Case Study AA II (2) --></label>
+        <name>Business_Case_Study_AA_II_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Business Case Study AA II (3) --></label>
+        <name>Business_Case_Study_AA_II_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Business Case Study AA IV --></label>
+        <name>Business_Case_Study_AA_IV__c</name>
+    </fields>
+    <fields>
+        <label><!-- Call Listening to other AA III --></label>
+        <name>Call_Listen_to_other_AA_IIII__c</name>
+        <picklistValues>
+            <masterLabel>1</masterLabel>
+            <translation><!-- 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3</masterLabel>
+            <translation><!-- 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4</masterLabel>
+            <translation><!-- 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Started</masterLabel>
+            <translation><!-- Not Started --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Call Listening AA III (1) --></label>
+        <name>Call_Listening_AA_III_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Call Listening AA III (2) --></label>
+        <name>Call_Listening_AA_III_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Call Listening AA III (3) --></label>
+        <name>Call_Listening_AA_III_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Call Listening AA III (4) --></label>
+        <name>Call_Listening_AA_III_4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Call Listening AA III (5) --></label>
+        <name>Call_Listening_AA_III_5__c</name>
+    </fields>
+    <fields>
+        <label><!-- Call Listening AA II (1) --></label>
+        <name>Call_Listening_AA_II_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Call Listening AA II (2) --></label>
+        <name>Call_Listening_AA_II_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Call Listening AA II (3) --></label>
+        <name>Call_Listening_AA_II_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Call Listening AA II (4) --></label>
+        <name>Call_Listening_AA_II_4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Call Listening AA II (5) --></label>
+        <name>Call_Listening_AA_II_5__c</name>
+    </fields>
+    <fields>
+        <label><!-- Call Listening to other AA II --></label>
+        <name>Call_Listening_to_other_AA_II__c</name>
+        <picklistValues>
+            <masterLabel>1</masterLabel>
+            <translation><!-- 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3</masterLabel>
+            <translation><!-- 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4</masterLabel>
+            <translation><!-- 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Started</masterLabel>
+            <translation><!-- Not Started --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Came From --></label>
+        <name>Came_From__c</name>
+        <picklistValues>
+            <masterLabel>College</masterLabel>
+            <translation><!-- College --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>External</masterLabel>
+            <translation><!-- External --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal</masterLabel>
+            <translation><!-- Internal --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Capacity Override --></label>
+        <name>Capacity_Override__c</name>
+    </fields>
+    <fields>
+        <help><!-- &quot;Low:  Associate is struggling and would work better with a lower load
+Normal:  Associate is ok at normal load
+High:  Associate is quick and can handle a slightly higher load
+No New Accounts:  Associate cannot receive new accounts at this time&quot; --></help>
+        <label><!-- Capacity Type --></label>
+        <name>Capacity_Type__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No New Accounts</masterLabel>
+            <translation><!-- No New Accounts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Normal</masterLabel>
+            <translation><!-- Normal --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- City --></label>
+        <name>City__c</name>
+        <picklistValues>
+            <masterLabel>Detroit</masterLabel>
+            <translation><!-- Detroit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Seattle</masterLabel>
+            <translation><!-- Seattle --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Continued Education --></label>
+        <name>Continued_Education__c</name>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Complete</masterLabel>
+            <translation><!-- Not Complete --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- DA, SEO, DSM Immersion Training --></label>
+        <name>DA_SEO_DSM_Immersion_Training__c</name>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Complete</masterLabel>
+            <translation><!-- Not Complete --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Days in Office --></label>
+        <name>Days_in_Office__c</name>
+        <picklistValues>
+            <masterLabel>Friday</masterLabel>
+            <translation><!-- Friday --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monday</masterLabel>
+            <translation><!-- Monday --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saturday</masterLabel>
+            <translation><!-- Saturday --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sunday</masterLabel>
+            <translation><!-- Sunday --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Thursday</masterLabel>
+            <translation><!-- Thursday --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tuesday</masterLabel>
+            <translation><!-- Tuesday --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wednesday</masterLabel>
+            <translation><!-- Wednesday --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Desk # or Location --></label>
+        <name>Desk_or_Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employee Id --></label>
+        <name>Employee_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Exceeding Expectations for 2 Quarters --></label>
+        <name>Exceeding_Expectations_for_2_Quarters__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please explain the reason for no new accounts status and/or the capacity override limit. --></help>
+        <label><!-- Explain --></label>
+        <name>Explain__c</name>
+    </fields>
+    <fields>
+        <label><!-- Extension --></label>
+        <name>Extension__c</name>
+    </fields>
+    <fields>
+        <label><!-- Google Ad Words Certification AA IV --></label>
+        <name>Google_Ad_Words_Cert_AA_IV__c</name>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Complete</masterLabel>
+            <translation><!-- Not Complete --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Google Ad Words Certification AA III --></label>
+        <name>Google_Ad_Words_Certification_AA_III__c</name>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Complete</masterLabel>
+            <translation><!-- Not Complete --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Harrison Assesment --></label>
+        <name>Harrison_Assesment__c</name>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Complete</masterLabel>
+            <translation><!-- Not Complete --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- IT Requested --></label>
+        <name>IT_Requested__c</name>
+    </fields>
+    <fields>
+        <label><!-- Interviewing Team --></label>
+        <name>Interviewing_Team__c</name>
+    </fields>
+    <fields>
+        <label><!-- Knowledge Sharing --></label>
+        <name>Knowledge_Sharing__c</name>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Complete</masterLabel>
+            <translation><!-- Not Complete --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Language --></label>
+        <name>Language__c</name>
+        <picklistValues>
+            <masterLabel>English</masterLabel>
+            <translation><!-- English --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>French</masterLabel>
+            <translation><!-- French --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spanish</masterLabel>
+            <translation><!-- Spanish --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Enter the last day for the individual who is being replaced with this Requisition. --></help>
+        <label><!-- Last Day of Replaced Req --></label>
+        <name>Last_Day_of_Replaced_Req__c</name>
+    </fields>
+    <fields>
+        <label><!-- Leadership Training --></label>
+        <name>Leadership_Training__c</name>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Complete</masterLabel>
+            <translation><!-- Not Complete --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Leave Date --></label>
+        <name>Leave_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Leave Reason --></label>
+        <name>Leave_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Internal Move</masterLabel>
+            <translation><!-- Internal Move --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Left CDK</masterLabel>
+            <translation><!-- Left CDK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Termination</masterLabel>
+            <translation><!-- Termination --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- ManagerIsMe --></label>
+        <name>ManagerIsMe__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mentoring AA III --></label>
+        <name>Mentoring_AA_III__c</name>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Complete</masterLabel>
+            <translation><!-- Not Complete --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Mentoring AA II --></label>
+        <name>Mentoring_AA_II__c</name>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Complete</masterLabel>
+            <translation><!-- Not Complete --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Migration_ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- OEM 1 --></label>
+        <name>OEM_1__c</name>
+        <picklistValues>
+            <masterLabel>Dealer Group</masterLabel>
+            <translation><!-- Dealer Group --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM</masterLabel>
+            <translation><!-- GM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM Canada - English</masterLabel>
+            <translation><!-- GM Canada - English --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM Canada - French</masterLabel>
+            <translation><!-- GM Canada - French --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Holden</masterLabel>
+            <translation><!-- Holden --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Holden NZ</masterLabel>
+            <translation><!-- Holden NZ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hyundai</masterLabel>
+            <translation><!-- Hyundai --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MINI</masterLabel>
+            <translation><!-- MINI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non</masterLabel>
+            <translation><!-- Non --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VW</masterLabel>
+            <translation><!-- VW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VW Care</masterLabel>
+            <translation><!-- VW Care --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- OEM 2 --></label>
+        <name>OEM_2__c</name>
+        <picklistValues>
+            <masterLabel>BMW</masterLabel>
+            <translation><!-- BMW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ford</masterLabel>
+            <translation><!-- Ford --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM</masterLabel>
+            <translation><!-- GM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM Canada - English</masterLabel>
+            <translation><!-- GM Canada - English --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM Canada - French</masterLabel>
+            <translation><!-- GM Canada - French --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Holden</masterLabel>
+            <translation><!-- Holden --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Holden NZ</masterLabel>
+            <translation><!-- Holden NZ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Honda</masterLabel>
+            <translation><!-- Honda --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hyundai</masterLabel>
+            <translation><!-- Hyundai --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Infiniti</masterLabel>
+            <translation><!-- Infiniti --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jaguar</masterLabel>
+            <translation><!-- Jaguar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kia</masterLabel>
+            <translation><!-- Kia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lexus</masterLabel>
+            <translation><!-- Lexus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MINI</masterLabel>
+            <translation><!-- MINI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mazda</masterLabel>
+            <translation><!-- Mazda --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mitsubishi</masterLabel>
+            <translation><!-- Mitsubishi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nissan</masterLabel>
+            <translation><!-- Nissan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non Endorsed</masterLabel>
+            <translation><!-- Non Endorsed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non Endorsed Canada - English</masterLabel>
+            <translation><!-- Non Endorsed Canada - English --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non Endorsed Canada - French</masterLabel>
+            <translation><!-- Non Endorsed Canada - French --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scion</masterLabel>
+            <translation><!-- Scion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toyota</masterLabel>
+            <translation><!-- Toyota --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VW</masterLabel>
+            <translation><!-- VW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Volvo</masterLabel>
+            <translation><!-- Volvo --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- OEM 3 --></label>
+        <name>OEM_3__c</name>
+        <picklistValues>
+            <masterLabel>BMW</masterLabel>
+            <translation><!-- BMW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ford</masterLabel>
+            <translation><!-- Ford --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM</masterLabel>
+            <translation><!-- GM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM Canada - English</masterLabel>
+            <translation><!-- GM Canada - English --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM Canada - French</masterLabel>
+            <translation><!-- GM Canada - French --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Holden</masterLabel>
+            <translation><!-- Holden --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Holden NZ</masterLabel>
+            <translation><!-- Holden NZ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Honda</masterLabel>
+            <translation><!-- Honda --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hyundai</masterLabel>
+            <translation><!-- Hyundai --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Infiniti</masterLabel>
+            <translation><!-- Infiniti --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jaguar</masterLabel>
+            <translation><!-- Jaguar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kia</masterLabel>
+            <translation><!-- Kia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lexus</masterLabel>
+            <translation><!-- Lexus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MINI</masterLabel>
+            <translation><!-- MINI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mazda</masterLabel>
+            <translation><!-- Mazda --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mitsubishi</masterLabel>
+            <translation><!-- Mitsubishi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nissan</masterLabel>
+            <translation><!-- Nissan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non Endorsed</masterLabel>
+            <translation><!-- Non Endorsed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non Endorsed Canada - English</masterLabel>
+            <translation><!-- Non Endorsed Canada - English --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non Endorsed Canada - French</masterLabel>
+            <translation><!-- Non Endorsed Canada - French --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scion</masterLabel>
+            <translation><!-- Scion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toyota</masterLabel>
+            <translation><!-- Toyota --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VW</masterLabel>
+            <translation><!-- VW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Volvo</masterLabel>
+            <translation><!-- Volvo --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- OEM 4 --></label>
+        <name>OEM_4__c</name>
+        <picklistValues>
+            <masterLabel>BMW</masterLabel>
+            <translation><!-- BMW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ford</masterLabel>
+            <translation><!-- Ford --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM</masterLabel>
+            <translation><!-- GM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM Canada - English</masterLabel>
+            <translation><!-- GM Canada - English --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM Canada - French</masterLabel>
+            <translation><!-- GM Canada - French --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Holden</masterLabel>
+            <translation><!-- Holden --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Holden NZ</masterLabel>
+            <translation><!-- Holden NZ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Honda</masterLabel>
+            <translation><!-- Honda --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hyundai</masterLabel>
+            <translation><!-- Hyundai --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Infiniti</masterLabel>
+            <translation><!-- Infiniti --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jaguar</masterLabel>
+            <translation><!-- Jaguar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kia</masterLabel>
+            <translation><!-- Kia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lexus</masterLabel>
+            <translation><!-- Lexus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MINI</masterLabel>
+            <translation><!-- MINI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mazda</masterLabel>
+            <translation><!-- Mazda --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mitsubishi</masterLabel>
+            <translation><!-- Mitsubishi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nissan</masterLabel>
+            <translation><!-- Nissan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non Endorsed</masterLabel>
+            <translation><!-- Non Endorsed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non Endorsed Canada - English</masterLabel>
+            <translation><!-- Non Endorsed Canada - English --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non Endorsed Canada - French</masterLabel>
+            <translation><!-- Non Endorsed Canada - French --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scion</masterLabel>
+            <translation><!-- Scion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toyota</masterLabel>
+            <translation><!-- Toyota --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VW</masterLabel>
+            <translation><!-- VW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Volvo</masterLabel>
+            <translation><!-- Volvo --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- OEM 5 --></label>
+        <name>OEM_5__c</name>
+        <picklistValues>
+            <masterLabel>BMW</masterLabel>
+            <translation><!-- BMW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ford</masterLabel>
+            <translation><!-- Ford --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM</masterLabel>
+            <translation><!-- GM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM Canada - English</masterLabel>
+            <translation><!-- GM Canada - English --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM Canada - French</masterLabel>
+            <translation><!-- GM Canada - French --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Holden</masterLabel>
+            <translation><!-- Holden --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Holden NZ</masterLabel>
+            <translation><!-- Holden NZ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Honda</masterLabel>
+            <translation><!-- Honda --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hyundai</masterLabel>
+            <translation><!-- Hyundai --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Infiniti</masterLabel>
+            <translation><!-- Infiniti --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jaguar</masterLabel>
+            <translation><!-- Jaguar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kia</masterLabel>
+            <translation><!-- Kia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lexus</masterLabel>
+            <translation><!-- Lexus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MINI</masterLabel>
+            <translation><!-- MINI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mazda</masterLabel>
+            <translation><!-- Mazda --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mitsubishi</masterLabel>
+            <translation><!-- Mitsubishi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nissan</masterLabel>
+            <translation><!-- Nissan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non Endorsed</masterLabel>
+            <translation><!-- Non Endorsed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non Endorsed Canada - English</masterLabel>
+            <translation><!-- Non Endorsed Canada - English --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non Endorsed Canada - French</masterLabel>
+            <translation><!-- Non Endorsed Canada - French --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scion</masterLabel>
+            <translation><!-- Scion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toyota</masterLabel>
+            <translation><!-- Toyota --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VW</masterLabel>
+            <translation><!-- VW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Volvo</masterLabel>
+            <translation><!-- Volvo --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- OEM 6 --></label>
+        <name>OEM_6__c</name>
+        <picklistValues>
+            <masterLabel>BMW</masterLabel>
+            <translation><!-- BMW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ford</masterLabel>
+            <translation><!-- Ford --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM</masterLabel>
+            <translation><!-- GM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM Canada - English</masterLabel>
+            <translation><!-- GM Canada - English --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM Canada - French</masterLabel>
+            <translation><!-- GM Canada - French --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Holden</masterLabel>
+            <translation><!-- Holden --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Holden NZ</masterLabel>
+            <translation><!-- Holden NZ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Honda</masterLabel>
+            <translation><!-- Honda --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hyundai</masterLabel>
+            <translation><!-- Hyundai --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Infiniti</masterLabel>
+            <translation><!-- Infiniti --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jaguar</masterLabel>
+            <translation><!-- Jaguar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kia</masterLabel>
+            <translation><!-- Kia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lexus</masterLabel>
+            <translation><!-- Lexus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MINI</masterLabel>
+            <translation><!-- MINI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mazda</masterLabel>
+            <translation><!-- Mazda --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mitsubishi</masterLabel>
+            <translation><!-- Mitsubishi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nissan</masterLabel>
+            <translation><!-- Nissan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non Endorsed</masterLabel>
+            <translation><!-- Non Endorsed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non Endorsed Canada - English</masterLabel>
+            <translation><!-- Non Endorsed Canada - English --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non Endorsed Canada - French</masterLabel>
+            <translation><!-- Non Endorsed Canada - French --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scion</masterLabel>
+            <translation><!-- Scion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toyota</masterLabel>
+            <translation><!-- Toyota --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VW</masterLabel>
+            <translation><!-- VW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Volvo</masterLabel>
+            <translation><!-- Volvo --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Position --></label>
+        <name>Position__c</name>
+        <picklistValues>
+            <masterLabel>AA I</masterLabel>
+            <translation><!-- AA I --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AA II</masterLabel>
+            <translation><!-- AA II --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AA III</masterLabel>
+            <translation><!-- AA III --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AA IV</masterLabel>
+            <translation><!-- AA IV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Advocate</masterLabel>
+            <translation><!-- Advocate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CAM</masterLabel>
+            <translation><!-- CAM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lead</masterLabel>
+            <translation><!-- Lead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manager</masterLabel>
+            <translation><!-- Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The date the Advocate can start taking new accounts. --></help>
+        <label><!-- Ramp Start Date --></label>
+        <name>Ramp_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Region --></label>
+        <name>Region__c</name>
+        <picklistValues>
+            <masterLabel>GM - Central N</masterLabel>
+            <translation><!-- GM - Central N --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM - Central S</masterLabel>
+            <translation><!-- GM - Central S --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM - Northeast</masterLabel>
+            <translation><!-- GM - Northeast --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM - Southeast</masterLabel>
+            <translation><!-- GM - Southeast --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM - West</masterLabel>
+            <translation><!-- GM - West --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HMA - Central</masterLabel>
+            <translation><!-- HMA - Central --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HMA - Eastern</masterLabel>
+            <translation><!-- HMA - Eastern --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HMA - Southern</masterLabel>
+            <translation><!-- HMA - Southern --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HMA - West</masterLabel>
+            <translation><!-- HMA - West --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VW - Midwest</masterLabel>
+            <translation><!-- VW - Midwest --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VW - Northeast</masterLabel>
+            <translation><!-- VW - Northeast --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VW - Pacific</masterLabel>
+            <translation><!-- VW - Pacific --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VW - S Central</masterLabel>
+            <translation><!-- VW - S Central --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VW - Southeast</masterLabel>
+            <translation><!-- VW - Southeast --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The date the requisition was approved and interviews can start --></help>
+        <label><!-- Requisition Approval Date --></label>
+        <name>Requisition_Approval_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Requisition #/Name --></label>
+        <name>Requisition_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date the requisition was requested. --></help>
+        <label><!-- Requisition Request Date --></label>
+        <name>Requisition_Request_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please provide a Reason if you selected &apos;Other&apos; as the status. --></help>
+        <label><!-- Requisition Status Reason --></label>
+        <name>Requisition_Status_Reason__c</name>
+    </fields>
+    <fields>
+        <help><!-- If you choose &apos;Other&apos;, you must provide the reason. --></help>
+        <label><!-- Requisition Status --></label>
+        <name>Requisition_Status__c</name>
+        <picklistValues>
+            <masterLabel>Background</masterLabel>
+            <translation><!-- Background --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cleared</masterLabel>
+            <translation><!-- Cleared --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interviewing</masterLabel>
+            <translation><!-- Interviewing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Offer Sent</masterLabel>
+            <translation><!-- Offer Sent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Hold</masterLabel>
+            <translation><!-- On Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending Approval</masterLabel>
+            <translation><!-- Pending Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pipeline</masterLabel>
+            <translation><!-- Pipeline --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- SME AA III --></label>
+        <name>SME_AA_III__c</name>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Complete</masterLabel>
+            <translation><!-- Not Complete --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- SME AA IV --></label>
+        <name>SME_AA_IV__c</name>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Complete</masterLabel>
+            <translation><!-- Not Complete --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please enter the typical shift stat time for this Advocate. Time zone will be assumed based on associate city (ie. Seattle = PST). --></help>
+        <label><!-- Start Time --></label>
+        <name>Shift_Time__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date the Advocate started working in their current role. --></help>
+        <label><!-- Start Date --></label>
+        <name>Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status/Role --></label>
+        <name>Status_Role__c</name>
+        <picklistValues>
+            <masterLabel>Attrition</masterLabel>
+            <translation><!-- Attrition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer Group</masterLabel>
+            <translation><!-- Dealer Group --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FMLA-In</masterLabel>
+            <translation><!-- FMLA-In --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FMLA-Out</masterLabel>
+            <translation><!-- FMLA-Out --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IPP</masterLabel>
+            <translation><!-- IPP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Hire</masterLabel>
+            <translation><!-- New Hire --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open Req: Advocate</masterLabel>
+            <translation><!-- Open Req: Advocate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open Req: Lead, Manager, etc</masterLabel>
+            <translation><!-- Open Req: Lead, Manager, etc --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Possible Attrition</masterLabel>
+            <translation><!-- Possible Attrition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standard</masterLabel>
+            <translation><!-- Standard --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Work Location --></label>
+        <name>Work_Location__c</name>
+        <picklistValues>
+            <masterLabel>Desk Share</masterLabel>
+            <translation><!-- Desk Share --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Home Shore</masterLabel>
+            <translation><!-- Home Shore --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Office</masterLabel>
+            <translation><!-- Office --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Roster Layout</layout>
+        <sections>
+            <label><!-- AA II Certification --></label>
+            <section>AA II Certification</section>
+        </sections>
+        <sections>
+            <label><!-- AA III --></label>
+            <section>AA III</section>
+        </sections>
+        <sections>
+            <label><!-- AA IV --></label>
+            <section>AA IV</section>
+        </sections>
+        <sections>
+            <label><!-- AA IV Lead --></label>
+            <section>AA IV Lead</section>
+        </sections>
+        <sections>
+            <label><!-- Advocate Information --></label>
+            <section>Advocate Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- OEM Focus Areas --></label>
+            <section>OEM Focus Areas</section>
+        </sections>
+        <sections>
+            <label><!-- Requisition Information --></label>
+            <section>Requisition Information</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please provide the Attrition Reason. --></errorMessage>
+        <name>CB_AttritionReason_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please provide Desk # or Location when the Start Time is filled out. --></errorMessage>
+        <name>CB_DeskNo_Location_Requiredw_StartzTime</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please Explain why there is a Capacity Type outside of Normal or the Capacity Override was used. --></errorMessage>
+        <name>CB_Explain_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If the Status/Role is Attrition, you must provide the Leave Date. --></errorMessage>
+        <name>CB_LeaveDateRequired</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please provide the reason why the employee left. --></errorMessage>
+        <name>CB_LeaveReasonRequired</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If the Status/Role is FMLA-In, a Ramp Start Date must be provided. --></errorMessage>
+        <name>CB_RampStartDate_RequiredWhenFMLA</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please provide the Ramp Start Date. --></errorMessage>
+        <name>CB_RampStartDate_Requiredw_StartDate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If you choose a Requisition Status of &quot;Pending Approval,&quot; you must provide why in the Requisition Status Reason field. --></errorMessage>
+        <name>CB_RequesitionStatus_Open_MustHaveReason</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If the Status/Role is New Hire, provide the Start Date and Ramp Start Date. --></errorMessage>
+        <name>CB_StatusRole_NewHire_DatesNeeded</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill in the Days in Office when the Work Location is &quot;Desk Share&quot;. --></errorMessage>
+        <name>CB_WorkLocation_MustHaveDaysinOffice</name>
+    </validationRules>
+</CustomObjectTranslation>

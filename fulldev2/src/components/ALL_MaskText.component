@@ -1,0 +1,42 @@
+<apex:component >
+    
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.10.4.custom.min.js')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.jQuery, 'css/redmond/jquery-ui-1.10.4.custom.css')}" />
+    
+    <apex:attribute name="TextValue" description="This is the value to be masked." type="String" required="true"/>
+    <apex:attribute name="NumCharToMask" description="This is the number of characters to be masked." type="integer" required="false"/>
+    <apex:attribute name="HelpText" description="This is the help text." type="String" required="false"/>
+        
+    <script type="text/javascript">
+    var j$; if(!j$) { j$ = jQuery.noConflict(); }
+    function DisplayHidden()
+    {         
+        var astsk = j$("#astsk");
+        astsk.after("{!TextValue}");
+        astsk.remove();
+        j$("#astsk_link").remove();        
+    }
+    </script>
+    
+    <span id="astsk"></span><a href="javascript:" id="astsk_link" onclick="DisplayHidden();">{!HelpText}</a>
+    
+    <script type="text/javascript">
+    var text = "{!TextValue}";
+    var TextValueArray = text.split('');
+    var AsteriskArray = new Array();
+    
+    for(var i=0; i<"{!NumCharToMask}"; i++)
+    {
+        AsteriskArray.push("*");
+    } 
+    
+    Array.prototype.splice.apply(TextValueArray, [0, AsteriskArray.length].concat(AsteriskArray));
+    
+    var HiddedWord = TextValueArray.join("");    
+    
+    j$("#astsk").html(HiddedWord);
+    j$("#astsk_link").css('text-decoration', 'underline');    
+    </script>
+    
+</apex:component>

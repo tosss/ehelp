@@ -1,0 +1,29 @@
+<!--
+created by: Josephine Del Mundo (cloudsherpas), 2014-06-13
+updated by: Matt Keefe, 2014-07-08
+-->
+
+<apex:component >
+
+    <div style="float:right; width:145px; margin-left:20px;margin-bottom:0px;">
+        <table>
+            <tr>
+                <td>
+                    <apex:image styleclass="biopic" value="{!URLFOR($Resource.EMP_Images, 'EMP_Spin_Steve_Anenen.jpg')}" alt="Steve Anenen"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>
+                        <apex:outputText value="{!$Label.EMP_Spin_PortalLandingPage_SteveAnenenUpdates_subHeader}" escape="false"/>
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <p>
+        <apex:outputText value="{!$Label.EMP_Spin_PortalLandingPage_AboutDealer_Sub_Header}" escape="false"/>
+    </p>
+
+</apex:component>

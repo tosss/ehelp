@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomPageWebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <availability>online</availability>
+    <description>Link for the homepage shows Advocate account plans along with the related MM records and action due date.</description>
+    <displayType>link</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>My Account Plans w Strategies/Actions</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/00O400000042oAK</url>
+</CustomPageWebLink>

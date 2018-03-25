@@ -1,0 +1,17 @@
+<apex:page standardStylesheets="false">
+    <script src="../../soap/ajax/34.0/connection.js" type="text/javascript"></script>
+    <apex:includeScript value="/lightning/lightning.out.js" />
+    
+    <div id="lightning" />
+
+    <script>
+        $Lightning.use("c:SLS_ActivityOpportunityApp", function()
+        {
+            $Lightning.createComponent("c:SLS_ActivityOpportunity",
+                                       {label : ""},
+                                       "lightning",
+                                       function(cmp) {
+                                       });
+        });
+    </script>
+</apex:page>

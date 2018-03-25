@@ -1,0 +1,57 @@
+.THIS .slds-button.sending {
+  background-image: url('/resource/LightningDesignSystem/images/spinners/slds_spinner_inverse.gif');
+  background-repeat: no-repeat;
+  background-size: 35px 35px;
+  background-position: 23px 0;
+}
+.THIS .slds-notify {
+  width: 100%;
+  min-width: 0;
+  margin: 1em 0;
+}
+.THIS .slds-text-heading--small {
+  font-size: 14px;
+  font-weight: 500;
+}
+.THIS .slds-button {
+  font-size: small;
+  cursor: pointer;
+}
+.THIS .hidden {
+  display: none;
+}
+.THIS .slds-col.slds-theme--error {
+  padding: 0.5em;
+}
+.THIS .slds-col.slds-text-body--regular.slds-wrap {
+  padding: 0.5em 1.0em 1.5em 1.0em;
+}
+.THIS .slds-grid.slds-grid--vertical.message {
+  -webkit-box-shadow: -1px 1px 5px 1px #dedbde, 1px 0px 5px 1px #dedbde;
+  -moz-box-shadow: -1px 1px 5px 1px #dedbde, 1px 0px 5px 1px #dedbde;
+  box-shadow: -1px 1px 5px 1px #dedbde, 1px 0px 5px 1px #dedbde;
+  padding-bottom: 0.8em;
+  border-radius: 0.25em;
+}
+.THIS .slds-grid.slds-grid--vertical div:first-child {
+  border-top-left-radius: 0.25em;
+  border-top-right-radius: 0.25em;
+}
+.THIS .slds-grid.slds-grid--vertical div:last-child {
+  border-bottom-left-radius: 0.25em;
+  border-bottom-right-radius: 0.25em;
+}
+.THIS .slds-col.slds-text-body--small {
+  padding-top: 0.3em;
+}
+.THIS .slds-button.slds-max-small-button--stretch.slds-button--brand {
+  margin-left: 0;
+}
+.THIS .matches-message .record-type {
+  margin-top: 0.2em;
+  text-transform: capitalize;
+}
+.THIS ul {
+  margin: 0;
+  padding: 0;
+}

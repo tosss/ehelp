@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Batch Jobs Audit Log</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Batch Jobs Audit Logs</value>
+    </caseValues>
+    <fields>
+        <label><!-- Clonning Date --></label>
+        <name>Clonning_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cobalt_Consolidation_ID --></label>
+        <name>Cobalt_Consolidation_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job End Date --></label>
+        <name>Job_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job Executed User --></label>
+        <name>Job_Executed_User__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job Failure Reason --></label>
+        <name>Job_Failure_Reason__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job ID --></label>
+        <name>Job_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job Input Parameters --></label>
+        <name>Job_Input_Parameters__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job Start Date --></label>
+        <name>Job_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job Status Email Send To --></label>
+        <name>Job_Status_Email_Send_To__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job Status --></label>
+        <name>Job_Status__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Failure</masterLabel>
+            <translation><!-- Failure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Started</masterLabel>
+            <translation><!-- Started --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success</masterLabel>
+            <translation><!-- Success --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Job Summary --></label>
+        <name>Job_Summary__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Number Of Records processed --></label>
+        <name>Total_Number_Of_Records_processed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Number of Failure Records --></label>
+        <name>Total_Number_of_Failure_Records__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Number of Success Records --></label>
+        <name>Total_Number_of_Success_Records__c</name>
+    </fields>
+    <layouts>
+        <layout>Batch Jobs Audit Log Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Details on Job --></label>
+            <section>Details on Job</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>This is a &apos;bypass&apos; setting, granting access for an object (i.e. during its AFTER trigger context) to perform DML on a target object on behalf of the user.  The bypass acts as an override of any DML restrictions applied by the target object in its own BEFORE trigger context.  Each entry represents a specific target object ID as the Name, and, the field values are populated to provide characteristics of the DML that can be verified by the targeted object prior to allowing ‘bypass’, and subsequent execution of the DML action.</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Action_Driven_By__c</fullName>
+        <externalId>false</externalId>
+        <label>Action Driven By</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Action_In_Progress__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This is a &apos;bypass&apos; field. This field will grant ANY user the ability to drive SPS-to-SPERE updates for the CMF if this field resolves to &apos;true&apos;, which the SPS &apos;after trigger&apos; primes by updating it to &apos;true&apos;). If this field possesses a &apos;false&apos; value, it clearly means that the SPERE update didn&apos;t originate from an updated SPS, and therefore, our logic prevents the non-sysadmin user. After the logic tests, this field would be updated back to &apos;false&apos;.</description>
+        <externalId>false</externalId>
+        <label>Action In Progress</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Action__c</fullName>
+        <externalId>false</externalId>
+        <label>Action</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>IMP_ProcessingSupport</label>
+    <visibility>Public</visibility>
+</CustomObject>

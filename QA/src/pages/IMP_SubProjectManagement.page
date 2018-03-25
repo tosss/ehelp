@@ -1,0 +1,61 @@
+<!--
+/*------------------------------------------------------------
+Author: Michael Lasala
+Company: Cloud Sherpas
+Description: Sub-Project Management Shell for details and milestones
+History
+09/03/14    Michael Lasala      Created
+09/11/14    Michael Lasala      Added standardController and extension
+09/16/14    Michael Lasala      Added default tab variable for tabPanel
+09/23/14    Michael Lasala      Changed include to iframe of Milestones page
+09/23/14    Kimiko Roberto      Added Chatter Feed
+10/06/14    Sam Oberes          Moved Chatter Feed to top of page
+05/29/15    Fay Salwen          Added a third tab for CDF Line Management
+06/17/15    Vishal Bandari      RQ-04873: Added style to fix the related list issue
+07/28/15    Vishal Bandari      RQ-04849: Added Discover Tab
+08/07/15    Venkata Shrivol     Added jQuery conflict to the page
+08/17/15    Venkata Shrivol		Added newContact Component
+12/09/15    Venkata Shrivol     Completely removed the older tab structure and this is a new page
+04/22/16    Venkata Shrivol     Added title to the page: RQ-06919
+------------------------------------------------------------*/
+-->
+<apex:page standardController="SubProject__c" showHeader="true" sidebar="true" tabStyle="SubProject__c" title="{!SubProject__c.SubProject_Name__c} Details">
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.7.2.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.8.20.custom.min.js')}" />
+    <apex:includeScript value="{!$Resource.IMP_ForSubProjectConfidentialUse_JS}"/>
+    
+    <apex:stylesheet value="{!URLFOR($Resource.jQuery, 'css/redmond/jquery-ui-1.8.20.custom.css')}" />
+    <apex:stylesheet value="{!$Resource.IMP_ForSubProjectConfidentialUse_CSS}"/>
+    
+    <script type="text/javascript" language="javascript">
+        if(jQuery) 
+        {
+            jQuery.noConflict();
+        }
+        
+        jQuery(document).ready
+            (
+                function()
+                {
+                    addConfidentialStyle({!SubProject__c.Confidential__c});
+                }
+            );
+    </script>
+    
+    <apex:form >
+        <apex:actionFunction name="callSecHeader" reRender="SubProjectSectionHeaderPanel" oncomplete="addConfidentialStyle({!SubProject__c.Confidential__c});"/>
+        <apex:outputPanel id="SubProjectSectionHeaderPanel">
+            <apex:sectionHeader title="SubProject" subtitle="{!SubProject__c.Name} - {!SubProject__c.SubProject_Name__c}{!IF(SubProject__c.Confidential__c, ': CONFIDENTIAL', '')}" 
+                                id="SubProjectSectionHeader"/>
+        </apex:outputPanel>
+    </apex:form>
+    
+    <!-- Chatter feed-->
+    <chatter:feedWithFollowers entityId="{!SubProject__c.Id}" showHeader="true"/><br/>
+    
+    <apex:pageMessages ></apex:pageMessages>
+    <apex:detail subject="{!SubProject__c.Id}" relatedList="true" inlineEdit="true" title="false" oncomplete="callSecHeader();"/>
+    
+    <!--For adding a new contact from Client Contact relatedList-->
+    <c:IMP_AddNewContact > </c:IMP_AddNewContact>
+</apex:page>

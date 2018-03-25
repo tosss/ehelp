@@ -1,0 +1,40 @@
+/*2016-04-01- anirudh.singh@cdk.com- Created this style sheet for Activity Opportunity Component.*/
+.THIS .logoStyle
+{
+    background: #EAB05D !important;
+    border-radius: 4px !important;
+}
+.THIS .pageButtonStyle
+{
+    padding: 0.25rem !important;
+    background: none !important;
+}
+.THIS .customMatchGridFields
+{
+    background-color: white !important;
+    border-top: 0.1rem solid #d8dde6 !important;
+}
+.THIS .customMatchColPadding
+{
+    padding: 0.2rem 0.75rem 0.2rem 0.75rem !important;
+}
+.THIS .customMatchHeading
+{
+    padding-top: 1rem !important;
+}
+.THIS .customMatchGridButton
+{
+    background-color: white !important;
+    padding: 0rem 0rem 0.25rem 0rem !important;
+}
+.THIS .dateStyle
+{
+    background-color: white !important;
+    color: #16325c !important;
+    border: 1px solid #d8dde6;
+    border-radius: 0.25rem;
+    width: 100%;
+    transition: border 0.1s linear, background-color 0.1s linear;
+    resize: vertical;
+    padding: 0.5rem 0.75rem;
+}

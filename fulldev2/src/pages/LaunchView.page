@@ -1,0 +1,41 @@
+<apex:page >
+    
+    <apex:includeScript value="{!URLFOR($Resource.IMP_jqueryTab, '/jquery-ui-1.11.3.custom/external/jquery/jquery.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.IMP_jqueryTab, '/jquery-ui-1.11.3.custom/jquery-ui.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.IMP_jqueryTab, '/jquery-ui-1.11.3.custom/jquery-ui.css')}"/>
+    <script>
+    var j$ = jQuery.noConflict();
+    /* j$(document).ready(function(){
+    	j$("#tabs").tabs();
+    });*/
+    var count = 0;
+    function displayTabs()
+    {	
+        count++;
+        if(count == 4)
+        {
+            j$("#tabs").tabs().css('visibility','visible');
+        }
+    }
+    </script>
+    <div id="tabs" style="visibility: hidden">
+        <ul>
+            <li><a href="#tabs-1">Accounts</a></li>
+            <li><a href="#tabs-2">Contacts</a></li>
+            <li><a href="#tabs-3">Projects</a></li>
+            <li><a href="#tabs-4">SubProjects</a></li>
+        </ul>
+        <div id="tabs-1">
+            <apex:enhancedList type="Account" height="800" oncomplete="displayTabs();"/>
+        </div>
+        <div id="tabs-2">
+            <apex:enhancedList type="Contact" height="800" oncomplete="displayTabs();"/>
+        </div>
+        <div id="tabs-3">
+            <apex:enhancedList type="Project__c" height="800" oncomplete="displayTabs();"/>
+        </div>
+        <div id="tabs-4">
+            <apex:enhancedList type="SubProject__c" height="800" oncomplete="displayTabs();"/>
+        </div>
+    </div>
+</apex:page>

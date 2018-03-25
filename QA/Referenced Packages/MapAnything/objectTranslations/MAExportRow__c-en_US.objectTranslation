@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>MapAnything Export Row</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>MapAnything Export Rows</value>
+    </caseValues>
+    <fields>
+        <label><!-- Address --></label>
+        <name>Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- City --></label>
+        <name>City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- Latitude --></label>
+        <name>Latitude__c</name>
+    </fields>
+    <fields>
+        <label><!-- Longitude --></label>
+        <name>Longitude__c</name>
+    </fields>
+    <fields>
+        <label><!-- MapAnything Export --></label>
+        <name>MAExport__c</name>
+        <relationshipLabel><!-- MapAnything Export Rows --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Object Type --></label>
+        <name>ObjectType__c</name>
+    </fields>
+    <fields>
+        <label><!-- RecordId --></label>
+        <name>RecordId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Saved Query Name --></label>
+        <name>SavedQueryName__c</name>
+    </fields>
+    <fields>
+        <label><!-- State --></label>
+        <name>State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Street --></label>
+        <name>Street__c</name>
+    </fields>
+    <fields>
+        <label><!-- Map Tooltip One --></label>
+        <name>Tooltip1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Map Tooltip Two --></label>
+        <name>Tooltip2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Map Tooltip Three --></label>
+        <name>Tooltip3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Map Tooltip Four --></label>
+        <name>Tooltip4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Map Tooltip Five --></label>
+        <name>Tooltip5__c</name>
+    </fields>
+    <fields>
+        <label><!-- Map Tooltip Six --></label>
+        <name>Tooltip6__c</name>
+    </fields>
+    <fields>
+        <label><!-- Map Tooltip Seven --></label>
+        <name>Tooltip7__c</name>
+    </fields>
+    <fields>
+        <label><!-- Map Tooltip Eight --></label>
+        <name>Tooltip8__c</name>
+    </fields>
+    <fields>
+        <label><!-- Zip Code --></label>
+        <name>Zip__c</name>
+    </fields>
+    <layouts>
+        <layout>MapAnything Export Row Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

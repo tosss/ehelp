@@ -1,0 +1,219 @@
+<apex:page id="page1"  standardController="Opportunity" extensions="DS_NetworkQuoteUpload_Extension"> <!-- DS_NetworkQuoteUpload -->
+    
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.10.4.custom.min.js')}" />
+    
+    <apex:stylesheet value="{!URLFOR($Resource.jQuery, 'css/redmond/jquery-ui-1.10.4.custom.css')}" />
+    <apex:includeScript value="{!URLFOR($Resource.DS_NetworkQuoteUpload_JS)}" />
+    
+    <style>
+        .grey-container {
+        background-color: #DEDEDE;
+        border-radius: 3px;
+        padding: 2px;
+        margin-bottom: 4px;
+        width: 75%;
+        }
+        
+        .grey-container:last-child {
+        margin-bottom: 0px;
+        }
+        
+        .pad-label {
+        padding: 4px;
+        }
+    </style>
+    
+    <script type="text/javascript">
+    var __AttachmentsList = "{!FileUploadVariableList}"; 
+    var __ProcessingBarLoadingIcon = "{!URLFOR($Resource.blue_bar_loading_icon)}";
+    var __sObjectId = "{!sobjId}"; // 2014-11-11 MK - used to pass in the apex variable to JS
+    
+    // 2014-11-11 MK - variables and functions moved to DS_NetworkQuoteUpload_JS 
+    //               - no variables should be included in VF, unless pulling in variables to JS from Apex/VF
+    //               - no functions should be included inline if there is an associated JS file
+    </script>
+    
+    <apex:sectionHeader title="Network Quote File Upload" subtitle="{!Opportunity.Name}" />
+    
+    <!-- Multiupload file. Works only in CHROME,FIREFOX,OPERA -->
+    <apex:pageBlock rendered="{!NOT(isIE)}" title="Network Quote File Upload" id="block2" mode="edit">
+        <apex:pageBlockSection columns="1">
+            
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="No Quotes Required"/>
+                <input type="checkbox"  id="NoQuotesRequired" />
+            </apex:pageBlockSectionItem>
+            
+          <!--  <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Project Highway Routing"/>
+                <!-- 2015-05-14 MK - this should be a inputfield bound to the project highway routing on Deal State --> 
+          <!--      <select id="projectHighwayRouting">
+                    <option value="None">None</option>
+                    <option value="PSE Lane">PSE Lane</option>
+                    <option value="SCS Lane">SCS Lane</option>
+                </select>
+            </apex:pageBlockSectionItem>  -->
+            
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Hole in Firewall use Cat # 34122-98"/>
+                <input type="checkbox"  id="holeInFirewallUseCat" />
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="Hole in Firewall No Charge"/>
+                <input type="checkbox"  id="holeInFirewallNoCharge" />
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="ASP Buy-Out Cat # 34174-36"/>
+                <input type="checkbox"  id="aspBuyOutCat" />
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="ASP Buy-Out Price"/>
+                <input type="text" id="aspBuyOutPrice" size="20"/>
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="File"/>
+                <input type="file" multiple="true" id="upload" /> 
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="File Descriptions" />
+                <apex:outputPanel layout="block" id="fileDescriptionContainer" >
+                </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel for="notesTextArea" value="Deal Change Notes"/>
+                <textarea style="width:75%;" rows="10" id="notesTextArea"></textarea>
+            </apex:pageBlockSectionItem>
+            
+        </apex:pageBlockSection>
+        
+        <apex:pageBlockButtons styleClass="pbButtonb" location="bottom">
+            <button class="btn" onclick="saveFilesAndNotes();">Upload Files</button>
+            <button class="btn" onclick="cancel();">Cancel</button>
+        </apex:pageBlockButtons>
+        
+        <apex:pageBlockButtons location="top">
+            <button class="btn" onclick="window.location.href='/apex/DS_DealStateAttachmentsView?id={!Opportunity.Id}';">View Network Quote Attachments</button>
+        </apex:pageBlockButtons>
+        
+    </apex:pageBlock>
+    
+    <!--Single upload file for IE -->
+    <apex:form id="AttForm">
+        <apex:pageMessages />
+        <apex:actionFunction action="{!UploadAndSave}" id="UploadAndSave" name="UploadAndSave" />
+        
+        <apex:pageBlock rendered="{!isIE}" title="Network Quote File Upload" id="block1">
+            
+            
+            
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="No Quotes Required"/>
+                    <apex:inputCheckbox value="{!noQuotesRequired}"/>
+                </apex:pageBlockSectionItem>
+                
+                <!--<apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Project Highway Routing"/>
+                    <apex:selectList style="projectHighwayRouting" id="projectHighwayRouting" value="{!projectHighwayRouting}" multiselect="false" size="1">
+                        <apex:selectOption itemValue="None" itemLabel="None"/>
+                        <apex:selectOption itemValue="PSE Lane" itemLabel="PSE Lane"/>
+                        <apex:selectOption itemValue="SCS Lane" itemLabel="SCS Lane"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem> -->
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Hole in Firewall use Cat # 34122-98"/>
+                    <apex:inputCheckbox value="{!holeInFirewallUseCat}"/>
+                    
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Hole in Firewall No Charge"/>
+                    <apex:inputCheckbox value="{!holeInFirewallNoCharge}"/>
+                    
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="ASP Buy-Out Cat # 34174-36"/>
+                    <apex:inputCheckbox value="{!aspBuyOutCat}"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="ASP Buy-Out Price"/>
+                    <apex:inputText value="{!aspBuyOutPrice}" id="aspBuyOutPriceIE"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection columns="3">
+                <apex:pageBlockSectionItem >
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel for="intext" style="font-weight:bold;" value="Brief File Description"/>                    
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            
+            <apex:repeat id="repeat1" value="{!FileUploadVariableList}" var="NewAtt">
+                
+                <apex:pageBlockSection columns="3">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="File {!NewAtt.FileNumber}"/>
+                        <apex:inputFile value="{!NewAtt.Attach.Body}"   filename="{!NewAtt.Attach.Name}" id="file1"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem >                     
+                        <apex:inputText id="intext1" value="{!NewAtt.Attach.Description}"/>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                
+            </apex:repeat>
+            
+            <div id="wrapper" style="display:none;">
+                <apex:repeat id="repeat2" value="{!FileUploadVariableList2}" var="NewAtt" >
+                    <apex:pageBlockSection columns="3">
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="File {!NewAtt.FileNumber}"/>                        
+                            <apex:inputFile value="{!NewAtt.Attach.Body}" filename="{!NewAtt.Attach.Name}" id="file2"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >          
+                            <apex:inputText id="intext2" value="{!NewAtt.Attach.Description}"/>
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                </apex:repeat>
+            </div>
+            
+            <apex:pageBlockSection columns="2">                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel />                        
+                    <apex:commandButton id="button1" value="Add More Files" onclick="return AddMoreFiles();"/>                    
+                </apex:pageBlockSectionItem>               
+                <apex:pageBlockSectionItem >                    
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection columns="3">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel for="DealChangeNotes" value="Deal Change Notes"/>
+                    <apex:inputTextarea style="width:75%;" rows="10" id="DealChangeNotes" value="{!OverAllNotes}"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockButtons location="bottom">
+                <!-- reRender dummy to avoid refreshing entire visualforce page-->
+                <apex:actionRegion >
+                    <apex:commandButton reRender="dummy" value="Upload and Save" onclick="blockme(event)"/>
+                </apex:actionRegion>
+                <apex:commandButton value="Cancel" action="{!Cancel}"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton styleClass="btn" action="/apex/DS_DealStateAttachmentsView?id={!Opportunity.Id}"  value="View Network Quote Attachments"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

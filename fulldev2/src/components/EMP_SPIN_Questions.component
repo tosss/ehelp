@@ -1,0 +1,12 @@
+<!--
+created by: Josephine Del Mundo (cloudsherpas), 2014-06-13
+updated by: Matt Keefe, 2014-07-08
+-->
+
+<apex:component >
+    <div class="footer shaded-block">
+        <p>
+            <apex:outputText value="{!$Label.EMP_Spin_PortalLandingPage_Questions_Sub_Header}" escape="false"/>
+        </p>
+    </div>
+</apex:component>

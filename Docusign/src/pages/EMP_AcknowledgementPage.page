@@ -1,0 +1,66 @@
+<apex:page controller="EMP_PolicyAcknowledgementPageController" standardstylesheets="false"> 
+    <apex:stylesheet value="{!URLFOR($Resource.Bootstrap, 'css/bootstrap.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.Bootstrap, 'js/bootstrap.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}" />
+    <script type="text/javascript">
+    j$ = jQuery.noConflict();
+    
+    function ShowAcknowledgeLink(ElementToHide, ClassToShow) {
+        j$(ElementToHide).hide();
+        j$("."+ClassToShow).removeClass("acknowledgement_disabled");
+    }
+    
+    j$(document).ready(function(){});
+    </script>
+    
+    <apex:form id="theForm">
+        
+        <apex:pageMessages ></apex:pageMessages>
+        
+        <a name="PolicyAcknowledgement" ></a>
+        <h3>Policy Acknowledgement</h3>
+        <apex:pageBlock id="PolicyAcknowledgementPageBlock">
+            <apex:pageBlockTable value="{!policyNonAcknowList}" var="test" width="100%" styleclass="table table-striped table-bordered table-condensed" rendered="{!IF((policyNonAcknowList.size>0),true,false)}"> 
+                <apex:column headervalue="Policy" width="30%">
+                    <apex:outputtext > {!test.Name}</apex:outputtext>
+                </apex:column>            
+                <apex:column headerValue="Publish Date" width="30%">
+                    <apex:outputField value="{!test.Policy_Addition_Date__c}">
+                    </apex:outputField>
+                </apex:column>
+                <apex:column headerValue="Acknowledgement" width="20%">
+                    <a id="NonAcklinks" href="/Employees/apex/ContentPreview?contentId={!test.Content_Version_ID__c}" target="_blank" onclick="ShowAcknowledgeLink(this, '{!test.Content_Version_ID__c}');" >{!test.Name}</a>
+                    <div id="Acklinks">
+                        <apex:commandlink styleClass="acknowledgement_disabled {!test.Content_Version_ID__c}"  oncomplete="jasvascript:location.reload(true);"
+                                          value="Acknowledge" id="acknowledgeLink"
+                                          action="{!acknowledge}" >
+                            <apex:param value="{!test.Id}" name="policyID " assignTo="{!policyID}"/>
+                        </apex:commandlink>
+                    </div>
+                </apex:column>
+            </apex:pageBlockTable>
+            
+            <apex:pageBlockTable id="AcknowledgedTable" value="{!policyAcknowList}" var="test" width="100%" styleclass="table table-striped table-bordered table-condensed" rendered="{!showtable}"> 
+                <apex:column headervalue="Policy" width="30%">
+                    <apex:outputLink target="_blank" onclick="enableAcknowledgeLink(this);" value="/apex/ContentPreview?contentId={!test.Content_Version_ID__c}">
+                        {!test.Name}
+                    </apex:outputLink>
+                </apex:column>            
+                
+                <apex:column headerValue="Publish Date" width="30%">
+                    <apex:outputField value="{!test.Policy_Addition_Date__c}">
+                    </apex:outputField>
+                </apex:column>
+                
+                <apex:column headerValue="Acknowledgement" width="40%">
+                    <center>
+                        <div>
+                            <apex:outputField value="{!test.Date_of_Acknowledgement__c}" rendered="{!test.Acknowledgement_Status__c}" />
+                        </div>
+                    </center>
+                </apex:column>
+            </apex:pageBlockTable>
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

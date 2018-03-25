@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+endpointApiVersion=35.0
+endpointEnvironment=Sandbox
+endpointServer=test.salesforce.com
+namespacePrefix=
+packageName=unpackaged
+username=vishal.bandari@cdk.com.sfprimes

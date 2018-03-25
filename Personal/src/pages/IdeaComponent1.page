@@ -1,0 +1,6 @@
+<apex:page >
+    <div width="30%" height="30%">
+        <apex:include pageName="IdeaDetail1"/>
+    </div>
+    
+</apex:page>

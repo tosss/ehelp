@@ -1,0 +1,20 @@
+<apex:page >
+    
+    <!--
+    Author:        Vishal Bandari
+    Description:   'Work My Leads' Main Page
+    Created on:    05 March 2016
+    -->
+    
+    <apex:includeLightning />
+    <apex:includeScript value="/lightning/lightning.out.js" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10"></meta> 
+    <div id="lightning" />
+    <script>
+        $Lightning.use("c:SLS_CampaignLeadListApp", function() {
+            $Lightning.createComponent("c:SLS_CampaignLeadList",{},"lightning",
+          function(cmp) {  
+          });
+        });
+    </script>
+</apex:page>

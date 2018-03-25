@@ -1,0 +1,2316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Forms Order</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Forms Order</value>
+    </caseValues>
+    <fields>
+        <label><!-- ACT Create Date --></label>
+        <name>ACT_Create_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- ACT_ID --></label>
+        <name>ACT_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- ACT Modified Date --></label>
+        <name>ACT_Modified_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- AM Forms Pulled Back --></label>
+        <name>AM_Forms_Pulled_Back__c</name>
+    </fields>
+    <fields>
+        <label><!-- ANM Forms Mapped --></label>
+        <name>ANM_Forms_Mapped__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date A/P Check Order Confirmation # is entered or A/P Check Order is declined. --></help>
+        <label><!-- A/P Check Order Actual End Date --></label>
+        <name>A_P_Check_Order_Actual_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- A/P Check Order Actual Start Date --></label>
+        <name>A_P_Check_Order_Actual_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- A/P Check Order Confirmation # --></label>
+        <name>A_P_Check_Order_Confirmation__c</name>
+    </fields>
+    <fields>
+        <label><!-- A/P Check Order Declined --></label>
+        <name>A_P_Check_Order_Declined__c</name>
+    </fields>
+    <fields>
+        <label><!-- A/P Check Order Placed --></label>
+        <name>A_P_Check_Order_Placed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Add/Change Pilot Feedback --></label>
+        <name>Add_Change_Pilot_Feedback__c</name>
+    </fields>
+    <fields>
+        <label><!-- Add/Change Pilot --></label>
+        <name>Add_Change_Pilot__c</name>
+        <picklistValues>
+            <masterLabel>LAS/LFD</masterLabel>
+            <translation><!-- LAS/LFD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Mockups</masterLabel>
+            <translation><!-- No Mockups --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Address --></label>
+        <name>Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- All forms Loaded to Client’s System --></label>
+        <name>All_forms_Loaded_to_Client_s_System__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approval Status Update Time --></label>
+        <name>Approval_Status_Update_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approval Status --></label>
+        <name>Approval_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approved by Client --></label>
+        <name>Approved_by_Client__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approver --></label>
+        <name>Approver__c</name>
+    </fields>
+    <fields>
+        <label><!-- Artwork CDF Line Installed --></label>
+        <name>Artwork_CDF_Line_Installed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Artwork Due Date --></label>
+        <name>Artwork_Due_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Artwork Received --></label>
+        <name>Artwork_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Artwork Started --></label>
+        <name>Artwork_Started__c</name>
+    </fields>
+    <fields>
+        <help><!-- Vision Case # required to view the Open Vision Case link --></help>
+        <label><!-- Artwork/Install Vision Case Link --></label>
+        <name>Artwork_Vision_Case_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Artwork/Install Vision Case # --></label>
+        <name>Artwork_Vision_Case__c</name>
+    </fields>
+    <fields>
+        <label><!-- Artwork to LFD Team --></label>
+        <name>Artwork_to_LFD_Team__c</name>
+    </fields>
+    <fields>
+        <label><!-- Assigned Forms Builder --></label>
+        <lookupFilter>
+            <errorMessage><!-- Value does not exist or does not match filter criteria.(Assigned Forms Builder) --></errorMessage>
+        </lookupFilter>
+        <name>Assigned_Forms_Builder__c</name>
+        <relationshipLabel><!-- Forms Order (Assigned Forms Builder) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Assigned IFA --></label>
+        <name>Assigned_IFA__c</name>
+        <relationshipLabel><!-- Forms Order (Assigned IFA) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Assigned LFA Fax Number --></label>
+        <name>Assigned_LFA_Fax_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Assigned LFA --></label>
+        <name>Assigned_LFA__c</name>
+        <relationshipLabel><!-- Forms Order (Assigned LFA) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- At LI Team --></label>
+        <name>At_LI_Team__c</name>
+    </fields>
+    <fields>
+        <label><!-- Audit Date --></label>
+        <name>Audit_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Audit Feedback --></label>
+        <name>Audit_Feedback__c</name>
+    </fields>
+    <fields>
+        <label><!-- Audit Status --></label>
+        <name>Audit_Status__c</name>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Applicable</masterLabel>
+            <translation><!-- Not Applicable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Auditor Name --></label>
+        <name>Auditor_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- BSC --></label>
+        <name>BSC__c</name>
+        <relationshipLabel><!-- Forms Order (BSC) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Binder Sent --></label>
+        <name>Binder_Sent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Burn Completed --></label>
+        <name>Burn_Completed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Business Alignment Workshop Date --></label>
+        <name>Business_Alignment_Workshop_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- By Pass Forms Validation Rules --></label>
+        <name>By_Pass_Forms_Validation_Rules__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Updated --></label>
+        <name>Case_Updated__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cat 1 Mapped (Library) - Completed --></label>
+        <name>Cat_1_Mapped_Library_Completed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cat 1 Mapped (Library) - Needed --></label>
+        <name>Cat_1_Mapped_Library_Needed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cat 1 Unmapped - Completed --></label>
+        <name>Cat_1_Unmapped_Completed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cat 1 Unmapped - Needed --></label>
+        <name>Cat_1_Unmapped_Needed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cat 2 Mapped (Library) - Completed --></label>
+        <name>Cat_2_Mapped_Library_Completed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cat 2 Mapped (Library) - Needed --></label>
+        <name>Cat_2_Mapped_Library_Needed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cat 2 Unmapped - Completed --></label>
+        <name>Cat_2_Unmapped_Completed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cat 2 Unmapped - Needed --></label>
+        <name>Cat_2_Unmapped_Needed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cat 3 Mapped (Library) - Completed --></label>
+        <name>Cat_3_Mapped_Library_Completed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cat 3 Mapped (Library) - Needed --></label>
+        <name>Cat_3_Mapped_Library_Needed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cat 3 Unmapped - Completed --></label>
+        <name>Cat_3_Unmapped_Completed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cat 3 Unmapped - Needed --></label>
+        <name>Cat_3_Unmapped_Needed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Change Notes --></label>
+        <name>Change_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- City_Hidden --></label>
+        <name>City_Hidden__c</name>
+    </fields>
+    <fields>
+        <label><!-- City State Zip --></label>
+        <name>City_State_Zip__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client Manager --></label>
+        <name>Client_Manager__c</name>
+        <relationshipLabel><!-- Forms Order (Client Manager) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Complete Burn by --></label>
+        <name>Complete_Burn_by__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional A/R Statement --></label>
+        <name>Conditional_A_R_Statement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Confidential --></label>
+        <name>Confidential__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact_City_Hidden --></label>
+        <name>Contact_City_Hidden__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact_City_State_Zip_Hidden --></label>
+        <name>Contact_City_State_Zip_Hidden__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact_Email_Hidden --></label>
+        <name>Contact_Email_Hidden__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact_Fax_Hidden --></label>
+        <name>Contact_Fax_Hidden__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact_Phone_Hidden --></label>
+        <name>Contact_Phone_Hidden__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact_State_Hidden --></label>
+        <name>Contact_State_Hidden__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact_Street_HIDDEN --></label>
+        <name>Contact_Street_HIDDEN__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact_ZIP_Hidden --></label>
+        <name>Contact_ZIP_Hidden__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Forms Order --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Contract/PO# --></label>
+        <name>Contract_PO__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cycle Time --></label>
+        <name>Cycle_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data Approved by Client (ELF Only) --></label>
+        <name>Data_Approved_by_Client_ELF_Only__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data Mapping --></label>
+        <name>Data_Mapping__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data Proofs to Client (ELF Only) --></label>
+        <name>Data_Proofs_to_Client_ELF_Only__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data Warehouse --></label>
+        <name>Data_Warehouse__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Forms Shipped --></label>
+        <name>Date_Forms_Shipped__c</name>
+    </fields>
+    <fields>
+        <label><!-- Entitlements Complete --></label>
+        <name>Entitlements_Complete__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estimated Install Date --></label>
+        <name>Estimated_Install_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estimated Transition Date --></label>
+        <name>Estimated_Transition_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Extended Support Time --></label>
+        <name>Extended_Support_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- FA Completed --></label>
+        <name>FA_Completed__c</name>
+    </fields>
+    <fields>
+        <label><!-- FA Signed --></label>
+        <name>FA_Signed__c</name>
+    </fields>
+    <fields>
+        <label><!-- FCC_Email_Hidden --></label>
+        <name>FCC_Email_Hidden__c</name>
+    </fields>
+    <fields>
+        <label><!-- FCC Name Actual - Hidden --></label>
+        <name>FCC_Name_Hidden__c</name>
+    </fields>
+    <fields>
+        <label><!-- FCC Name --></label>
+        <lookupFilter>
+            <errorMessage><!-- Value does not exist or does not match filter criteria.(FCC Name) --></errorMessage>
+        </lookupFilter>
+        <name>FCC_Name__c</name>
+        <relationshipLabel><!-- Forms Order (FCC Name) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- FCC Notes --></label>
+        <name>FCC_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- FCC_Phone_Hidden --></label>
+        <name>FCC_Phone_Hidden__c</name>
+    </fields>
+    <fields>
+        <label><!-- FCC_Title_Hidden --></label>
+        <name>FCC_Title_Hidden__c</name>
+    </fields>
+    <fields>
+        <label><!-- FE Date --></label>
+        <name>FE_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Impact Forms --></label>
+        <name>FRM_Impact_Forms_Heading__c</name>
+    </fields>
+    <fields>
+        <label><!-- Laser Forms --></label>
+        <name>FRM_Laser_Forms_Heading__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fax --></label>
+        <name>Fax__c</name>
+    </fields>
+    <fields>
+        <label><!-- Field Manager --></label>
+        <name>Field_Manager__c</name>
+        <relationshipLabel><!-- Forms Order (Field Manager) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- FA Completed (FI/DC Only) --></label>
+        <name>Final_FA_Completed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Final Notice Letter Sent --></label>
+        <name>Final_Notice_Letter_Sent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Form Adjustment --></label>
+        <name>Form_Adjustment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Form Builder Status --></label>
+        <name>Form_Builder_Status__c</name>
+        <picklistValues>
+            <masterLabel>External Testing (Unhook)</masterLabel>
+            <translation><!-- External Testing (Unhook) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal Testing</masterLabel>
+            <translation><!-- Internal Testing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loaded</masterLabel>
+            <translation><!-- Loaded --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Form Charge Total --></label>
+        <name>Form_Charge_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Forms Builder Notes --></label>
+        <name>Forms_Builder_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Forms Collected --></label>
+        <name>Forms_Collected__c</name>
+    </fields>
+    <fields>
+        <label><!-- Forms Copied to G: --></label>
+        <name>Forms_Copied_to_G__c</name>
+    </fields>
+    <fields>
+        <label><!-- Forms Installed --></label>
+        <name>Forms_Installed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Forms Loaded --></label>
+        <name>Forms_Loaded__c</name>
+    </fields>
+    <fields>
+        <label><!-- Forms Posted --></label>
+        <name>Forms_Posted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Forms Posted to KL --></label>
+        <name>Forms_Posted_to_KL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Forms Test Printed --></label>
+        <name>Forms_Test_Printed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Forms to LIS Team --></label>
+        <name>Forms_to_LIS_Team__c</name>
+    </fields>
+    <fields>
+        <help><!-- Vision Updates - Change Case Contact (email included) --></help>
+        <label><!-- Friday(Change Case Contact email) --></label>
+        <name>Friday_Change_Case_Contact_email__c</name>
+    </fields>
+    <fields>
+        <help><!-- Library Updates - Ensure Logon is in Library --></help>
+        <label><!-- Friday(Ensure Logon is in Library) --></label>
+        <name>Friday_Ensure_Logon_is_in_Library__c</name>
+    </fields>
+    <fields>
+        <help><!-- Vision Updates - Remove Internal Case Checkmark --></help>
+        <label><!-- Friday(Remove Internal Case Checkmark) --></label>
+        <name>Friday_Remove_Internal_Case_Checkmark__c</name>
+    </fields>
+    <fields>
+        <help><!-- Vision Updates - Set CBE to transition date (5 weeks from Monday of install) --></help>
+        <label><!-- Friday(Set CBE to transition date) --></label>
+        <name>Friday_Set_CBE_to_transition_date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Library Updates - Update the Forms Count in the Dealership’s Account --></help>
+        <label><!-- Friday(Update the Forms Count) --></label>
+        <name>Friday_Update_the_Forms_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- Generics --></label>
+        <name>Generics__c</name>
+    </fields>
+    <fields>
+        <label><!-- Go Live Date --></label>
+        <name>Go_Live_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Impact F&amp;I Forms Received --></label>
+        <name>Impact_F_I_Forms_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Impact Project Number(s) --></label>
+        <name>Impact_Project_Numbers__c</name>
+    </fields>
+    <fields>
+        <label><!-- Initial Client Contact --></label>
+        <name>Initial_Client_Contact__c</name>
+    </fields>
+    <fields>
+        <help><!-- Expectations are that all adjustments are turned around ASAP.  As a Team Goal, we will always try getting adjustments back Same Day for the BSC onsite.  The latest an adjustment should take is 24 hours from the time of arrival. --></help>
+        <label><!-- Install Week(Adj. Expectations) --></label>
+        <name>Install_Week_Adj_Expectations__c</name>
+    </fields>
+    <fields>
+        <help><!-- All adjustments need to be documented in the case.  This includes all attachments and all notes of what was completed. --></help>
+        <label><!-- Install Week(All Adj. Documented) --></label>
+        <name>Install_Week_All_Adj_Documented__c</name>
+    </fields>
+    <fields>
+        <label><!-- Instructional Forms Copied --></label>
+        <name>Instructional_Forms_Copied__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Approved --></label>
+        <name>Is_Approved__c</name>
+    </fields>
+    <fields>
+        <label><!-- Key Rep --></label>
+        <name>Key_Rep__c</name>
+        <relationshipLabel><!-- Forms Order (Key Rep) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- KnowledgeLake Link --></label>
+        <name>KnowledgeLake_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- LAO Number --></label>
+        <name>LAO_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Artwork Value $ --></label>
+        <name>LAO_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- (LAS) Correction Needed --></label>
+        <name>LAS_Correction_Needed__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- LAS Email --></label>
+        <name>LAS_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- LAS Fax --></label>
+        <name>LAS_Fax__c</name>
+    </fields>
+    <fields>
+        <label><!-- (LAS) LIS Info Updated --></label>
+        <name>LAS_LIS_Info_Updated__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- LAS Name --></label>
+        <lookupFilter>
+            <errorMessage><!-- Value does not exist or does not match filter criteria.(LAS Name) --></errorMessage>
+        </lookupFilter>
+        <name>LAS_Name__c</name>
+        <relationshipLabel><!-- Forms Order (LAS Name) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- LAS Phone --></label>
+        <name>LAS_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- (LAS) Q/S Sent in KL --></label>
+        <name>LAS_Q_S_Sent_in_KL__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- LAS Title --></label>
+        <name>LAS_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- (LAS) Total Order Complete --></label>
+        <name>LAS_Total_Order_Complete__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- LFA Status --></label>
+        <name>LFA_Status__c</name>
+        <picklistValues>
+            <masterLabel>Client Support</masterLabel>
+            <translation><!-- Client Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Installed</masterLabel>
+            <translation><!-- Installed --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- LFB Name --></label>
+        <name>LFB_Name__c</name>
+        <relationshipLabel><!-- Forms Order (LFB Name) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- LFD Name --></label>
+        <lookupFilter>
+            <errorMessage><!-- Value does not exist or does not match filter criteria.(LFD Name) --></errorMessage>
+        </lookupFilter>
+        <name>LFD_Name__c</name>
+        <relationshipLabel><!-- Forms Order (LFD Name) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- LIB Name --></label>
+        <name>LIB_Name__c</name>
+        <relationshipLabel><!-- Forms Order (LIB Name) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- LIS Info Received --></label>
+        <name>LIS_Info_Received__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- LIS Name --></label>
+        <lookupFilter>
+            <errorMessage><!-- Value does not exist or does not match filter criteria.(LIS Name) --></errorMessage>
+        </lookupFilter>
+        <name>LIS_Name__c</name>
+        <relationshipLabel><!-- Forms Order (LIS Name) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- LSR Name --></label>
+        <name>LSR_Name__c</name>
+        <relationshipLabel><!-- Forms Order (LSR Name) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Laser F&amp;I Forms Received --></label>
+        <name>Laser_F_I_Forms_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- LIN# --></label>
+        <name>Laser_Install__c</name>
+        <relationshipLabel><!-- Forms Order --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Last Approval Status --></label>
+        <name>Last_Approval_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Follow-up Date --></label>
+        <name>Last_Followup_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Librarian Update --></label>
+        <name>Last_Librarian_Update__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Modified By Email --></label>
+        <name>Last_Modified_By_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Librarian Notes --></label>
+        <name>Librarian_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Librarian Status --></label>
+        <name>Librarian_Status__c</name>
+        <picklistValues>
+            <masterLabel>Form Posted</masterLabel>
+            <translation><!-- Form Posted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Process</masterLabel>
+            <translation><!-- In Process --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Library Updated --></label>
+        <name>Library_Updated__c</name>
+    </fields>
+    <fields>
+        <label><!-- Logo Design Requested --></label>
+        <name>Logo_Design_Requested__c</name>
+    </fields>
+    <fields>
+        <label><!-- Logo Received --></label>
+        <name>Logo_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Logon Prefix --></label>
+        <name>Logon_Prefix__c</name>
+    </fields>
+    <fields>
+        <label><!-- Logon --></label>
+        <name>Logon__c</name>
+    </fields>
+    <fields>
+        <label><!-- Low FA Score Approval --></label>
+        <name>Low_FA_Score_Approval__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Main CMF --></label>
+        <name>Main_CMF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mapped (Library) - Completed --></label>
+        <name>Mapped_Library_Completed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mapped (Library) - Needed --></label>
+        <name>Mapped_Library_Needed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Media Ship Date --></label>
+        <name>Media_Ship_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Migration ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Move Miles --></label>
+        <name>Move_Miles__c</name>
+    </fields>
+    <fields>
+        <label><!-- New Artwork Needed --></label>
+        <name>New_Artwork_Needed__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Number of Follow-up Calls --></label>
+        <name>Number_Follow_up_Calls__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Priority --></label>
+        <name>Order_Priority__c</name>
+        <picklistValues>
+            <masterLabel>Rush</masterLabel>
+            <translation><!-- Rush --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Same Day Rush</masterLabel>
+            <translation><!-- Same Day Rush --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standard</masterLabel>
+            <translation><!-- Standard --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Order Processing Notes --></label>
+        <name>Order_Processing_Notes_FI__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Processing Notes --></label>
+        <name>Order_Processing_Notes_Laser_Imaging__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Status --></label>
+        <name>Order_Status__c</name>
+        <picklistValues>
+            <masterLabel>ANS</masterLabel>
+            <translation><!-- ANS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AWIP</masterLabel>
+            <translation><!-- AWIP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Approved-FA</masterLabel>
+            <translation><!-- Approved-FA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Artwork to LFD Team</masterLabel>
+            <translation><!-- Artwork to LFD Team --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>At LI Team</masterLabel>
+            <translation><!-- At LI Team --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Awaiting Approval</masterLabel>
+            <translation><!-- Awaiting Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Awaiting Approval - ELF Data</masterLabel>
+            <translation><!-- Awaiting Approval - ELF Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Awaiting Approval-FA</masterLabel>
+            <translation><!-- Awaiting Approval-FA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Burned</masterLabel>
+            <translation><!-- Burned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Client Support</masterLabel>
+            <translation><!-- Client Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Mapping</masterLabel>
+            <translation><!-- Data Mapping --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forms Analysis</masterLabel>
+            <translation><!-- Forms Analysis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forms Collected</masterLabel>
+            <translation><!-- Forms Collected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forms Posted</masterLabel>
+            <translation><!-- Forms Posted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forms to LIS Team</masterLabel>
+            <translation><!-- Forms to LIS Team --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hold-CDK</masterLabel>
+            <translation><!-- Hold-CDK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hold-Customer</masterLabel>
+            <translation><!-- Hold-Customer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Install Pending</masterLabel>
+            <translation><!-- Install Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Installed</masterLabel>
+            <translation><!-- Installed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loaded/Testing</masterLabel>
+            <translation><!-- Loaded/Testing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Proofs to LAS</masterLabel>
+            <translation><!-- Proofs to LAS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Q/S Approved</masterLabel>
+            <translation><!-- Q/S Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Q/S Submitted</masterLabel>
+            <translation><!-- Q/S Submitted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent to Data Mapping/Other</masterLabel>
+            <translation><!-- Sent to Data Mapping/Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sold</masterLabel>
+            <translation><!-- Sold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sold-Pre FA</masterLabel>
+            <translation><!-- Sold-Pre FA --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Order Type --></label>
+        <name>Order_Type__c</name>
+        <picklistValues>
+            <masterLabel>Add/Change - CTW</masterLabel>
+            <translation><!-- Add/Change - CTW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Add/Change - DASH</masterLabel>
+            <translation><!-- Add/Change - DASH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Add/Change - ELF</masterLabel>
+            <translation><!-- Add/Change - ELF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Add/Change - Elite</masterLabel>
+            <translation><!-- Add/Change - Elite --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Add/Change - FI/DC</masterLabel>
+            <translation><!-- Add/Change - FI/DC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Add/Change - Fast Track</masterLabel>
+            <translation><!-- Add/Change - Fast Track --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Add/Change - Other</masterLabel>
+            <translation><!-- Add/Change - Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Add/Change - WDS</masterLabel>
+            <translation><!-- Add/Change - WDS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Add/Change - eShowroom/Showroom</masterLabel>
+            <translation><!-- Add/Change - eShowroom/Showroom --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Buy/Sell - DASH</masterLabel>
+            <translation><!-- Buy/Sell - DASH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Buy/Sell - ELF</masterLabel>
+            <translation><!-- Buy/Sell - ELF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Buy/Sell - Elite</masterLabel>
+            <translation><!-- Buy/Sell - Elite --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Buy/Sell - FI/DC</masterLabel>
+            <translation><!-- Buy/Sell - FI/DC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Buy/Sell - Impact/Laser</masterLabel>
+            <translation><!-- Buy/Sell - Impact/Laser --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Buy/Sell - Other</masterLabel>
+            <translation><!-- Buy/Sell - Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Buy/Sell - eShowroom/Showroom</masterLabel>
+            <translation><!-- Buy/Sell - eShowroom/Showroom --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Install - CTW</masterLabel>
+            <translation><!-- New Install - CTW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Install - DASH</masterLabel>
+            <translation><!-- New Install - DASH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Install - ELF</masterLabel>
+            <translation><!-- New Install - ELF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Install - Elite</masterLabel>
+            <translation><!-- New Install - Elite --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Install - FI/DC</masterLabel>
+            <translation><!-- New Install - FI/DC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Install - Impact</masterLabel>
+            <translation><!-- New Install - Impact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Install - Other</masterLabel>
+            <translation><!-- New Install - Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Install - eShowroom/Showroom</masterLabel>
+            <translation><!-- New Install - eShowroom/Showroom --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Install Concurrent</masterLabel>
+            <translation><!-- New Install Concurrent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>One-Eighty</masterLabel>
+            <translation><!-- One-Eighty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PFW/CRM/Custom Pencil</masterLabel>
+            <translation><!-- PFW/CRM/Custom Pencil --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Upgrade to DC - FI/DC</masterLabel>
+            <translation><!-- Upgrade to DC - FI/DC --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Owner_Email --></label>
+        <name>Owner_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- PSA Forms Received --></label>
+        <name>PSA_Forms_Received__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date Payroll Check Order Confirmation # is entered or Payroll Check Order is declined. --></help>
+        <label><!-- Payroll Check Order Actual End Date --></label>
+        <name>Payroll_Check_Order_Actual_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payroll Check Order Actual Start Date --></label>
+        <name>Payroll_Check_Order_Actual_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payroll Check Order Confirmation # --></label>
+        <name>Payroll_Check_Order_Confirmation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payroll Check Order Declined --></label>
+        <name>Payroll_Check_Order_Declined__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payroll Check Order Placed --></label>
+        <name>Payroll_Check_Order_Placed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone --></label>
+        <name>Phone__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date Plain Paper Order Confirmation # is entered or Plain Paper Order is declined. --></help>
+        <label><!-- Plain Paper Order Actual End Date --></label>
+        <name>Plain_Paper_Actual_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plain Paper Order Actual Start Date --></label>
+        <name>Plain_Paper_Order_Actual_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plain Paper Order Confirmation # --></label>
+        <name>Plain_Paper_Order_Confirmation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plain Paper Order Declined --></label>
+        <name>Plain_Paper_Order_Declined__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plain Paper Order Placed --></label>
+        <name>Plain_Paper_Order_Placed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pod # --></label>
+        <name>Pod__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pre-FA Completed (FI/DC Only) --></label>
+        <name>Pre_FA_Completed__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date Premium Paper Order Confirmation # is entered or Premium Paper Order is declined. --></help>
+        <label><!-- Premium Paper Order Actual End Date --></label>
+        <name>Premium_Paper_Order_Actual_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Premium Paper Order Actual Start Date --></label>
+        <name>Premium_Paper_Order_Actual_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Premium Paper Order Confirmation # --></label>
+        <name>Premium_Paper_Order_Confirmation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Premium Paper Order Declined --></label>
+        <name>Premium_Paper_Order_Declined__c</name>
+    </fields>
+    <fields>
+        <label><!-- Premium Paper Order Placed --></label>
+        <name>Premium_Paper_Order_Placed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prev SO# --></label>
+        <name>Prev_SO__c</name>
+    </fields>
+    <fields>
+        <help><!-- required Project # --></help>
+        <label><!-- Project [Impact] Link --></label>
+        <name>Project_Impact_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Manager --></label>
+        <name>Project_Manager__c</name>
+        <relationshipLabel><!-- Forms Order (Project Manager) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Project Type --></label>
+        <name>Project_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project # [Impact] --></label>
+        <name>Project__c</name>
+    </fields>
+    <fields>
+        <label><!-- Proofs Required --></label>
+        <name>Proofs_Required__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Proofs to Client --></label>
+        <name>Proofs_to_Client__c</name>
+    </fields>
+    <fields>
+        <label><!-- Proofs to LAS --></label>
+        <name>Proofs_to_LAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- QRT Order --></label>
+        <name>QRT_Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question? --></label>
+        <name>Question_FC_Approval__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question? --></label>
+        <name>Question_for_Approval__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote Sheet Approved --></label>
+        <name>Quote_Sheet_Approved__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote Sheet Submitted --></label>
+        <name>Quote_Sheet_Submitted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote Type --></label>
+        <name>Quote_Type__c</name>
+        <picklistValues>
+            <masterLabel>Contracted</masterLabel>
+            <translation><!-- Contracted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EQA</masterLabel>
+            <translation><!-- EQA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Framework</masterLabel>
+            <translation><!-- Framework --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Online</masterLabel>
+            <translation><!-- Online --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PQC</masterLabel>
+            <translation><!-- PQC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Signed Quote</masterLabel>
+            <translation><!-- Signed Quote --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- RRP Name --></label>
+        <name>RRP_Name__c</name>
+        <relationshipLabel><!-- Forms Order (RRP Name) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Reason for Change --></label>
+        <name>Reason_for_Change__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reason for Extended Support Time --></label>
+        <name>Reason_for_Extended_Support_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Request ID (RMS) Link --></label>
+        <name>Request_ID_RMS_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Request ID (RMS) --></label>
+        <name>Request_ID_RMS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Revision # --></label>
+        <name>Revision__c</name>
+        <picklistValues>
+            <masterLabel>1</masterLabel>
+            <translation><!-- 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10+</masterLabel>
+            <translation><!-- 10+ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3</masterLabel>
+            <translation><!-- 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4</masterLabel>
+            <translation><!-- 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5</masterLabel>
+            <translation><!-- 5 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6</masterLabel>
+            <translation><!-- 6 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>7</masterLabel>
+            <translation><!-- 7 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8</masterLabel>
+            <translation><!-- 8 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>9</masterLabel>
+            <translation><!-- 9 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Roll Call Date --></label>
+        <name>Roll_Call_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- SEQ #’s Ordered --></label>
+        <name>SEQ_s_Ordered__c</name>
+    </fields>
+    <fields>
+        <label><!-- SOA Approved --></label>
+        <name>SOA_Approved__c</name>
+    </fields>
+    <fields>
+        <label><!-- SOA Ship Confirmed --></label>
+        <name>SOA_Ship_Confirmed__c</name>
+    </fields>
+    <fields>
+        <label><!-- (SOX) Approval Indicated --></label>
+        <name>SOX_Approval_Indicated__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- (SOX) Approved by Authority --></label>
+        <name>SOX_Approved_by_Authority__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- (SOX) Dealer Name in e-mail --></label>
+        <name>SOX_Dealer_Name_in_e_mail__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- (SOX) Image In Quote --></label>
+        <name>SOX_Image_In_Quote__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- (SOX) Q/S $ Match Oracle --></label>
+        <name>SOX_Q_S_Match_Oracle__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- (SOX) Q/S Rcvd in KL --></label>
+        <name>SOX_Q_S_Rcvd_in_KL__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- SSTT --></label>
+        <name>SSTT__c</name>
+    </fields>
+    <fields>
+        <label><!-- Segment Name --></label>
+        <name>Segment_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sent To DASH --></label>
+        <name>Sent_To_Data_Mapping_Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Edge Client --></label>
+        <name>Service_Edge_Client__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ship CMF - Business Unit Code --></label>
+        <name>Ship_CMF_Business_Unit_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ship CMF - Business Unit --></label>
+        <name>Ship_CMF_Business_Unit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ship CMF Info --></label>
+        <name>Ship_CMF_Info__c</name>
+        <relationshipLabel><!-- Forms Order --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Ship CMF - Region Code Name --></label>
+        <name>Ship_CMF_Region_Code_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ship CMF - Region Code --></label>
+        <name>Ship_CMF_Region_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ship-To CMF --></label>
+        <name>Ship_To_CMF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Specific Install Date --></label>
+        <name>Specific_Install_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- State_Hidden --></label>
+        <name>State_Hidden__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Forms Collected</masterLabel>
+            <translation><!-- Forms Collected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forms Received</masterLabel>
+            <translation><!-- Forms Received --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hold-CDK</masterLabel>
+            <translation><!-- Hold-CDK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Need Additional Forms</masterLabel>
+            <translation><!-- Need Additional Forms --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Hold</masterLabel>
+            <translation><!-- On Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent to FB and/or Complete</masterLabel>
+            <translation><!-- Sent to FB and/or Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Started</masterLabel>
+            <translation><!-- Started --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Stock Order-Total $ --></label>
+        <name>Stock_Order_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Stock Order # --></label>
+        <name>Stock_Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Street-Hidden --></label>
+        <name>Street_Hidden__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>SubProject_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- SubProject Status --></label>
+        <name>SubProject_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- SubProject --></label>
+        <name>SubProject__c</name>
+    </fields>
+    <fields>
+        <label><!-- Test Deals --></label>
+        <name>Test_Deals__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date Premium Paper Order Confirmation # is entered or Premium Paper Order is declined. --></help>
+        <label><!-- Toner Order Actual End Date --></label>
+        <name>Toner_Order_Actual_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Toner Order Actual Start Date --></label>
+        <name>Toner_Order_Actual_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Toner Order Confirmation # --></label>
+        <name>Toner_Order_Confirmation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Toner Order Declined --></label>
+        <name>Toner_Order_Declined__c</name>
+    </fields>
+    <fields>
+        <label><!-- Toner Order Placed --></label>
+        <name>Toner_Order_Placed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Number of Forms --></label>
+        <name>Total_Number_of_Forms__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total --></label>
+        <name>Total_Price__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total --></label>
+        <name>Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tracking Link (inbound) --></label>
+        <name>Tracking_Link_inbound__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tracking Link (outbound) --></label>
+        <name>Tracking_Link_outbound__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tracking Number (inbound) --></label>
+        <name>Tracking_Number_inbound__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tracking Number (outbound) --></label>
+        <name>Tracking_Number_outbound__c</name>
+    </fields>
+    <fields>
+        <label><!-- Transition Date --></label>
+        <name>Transition_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unmapped - Completed --></label>
+        <name>Unmapped_Completed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unmapped - Needed --></label>
+        <name>Unmapped_Needed__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Changed Status --></label>
+        <name>User_Changed_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- VIC --></label>
+        <name>VIC__c</name>
+        <relationshipLabel><!-- Forms Order (VIC) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Vision Doc Received --></label>
+        <name>Vision_Doc_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Void Date --></label>
+        <name>Void_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Void Notes --></label>
+        <name>Void_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Void Stock Order # --></label>
+        <name>Void_Stock_Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Welcome Kit Sent --></label>
+        <name>Welcome_Kit_Sent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Welcome Kit Type --></label>
+        <name>Welcome_Kit_Type__c</name>
+        <picklistValues>
+            <masterLabel>Add-On FI/DC</masterLabel>
+            <translation><!-- Add-On FI/DC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CTW</masterLabel>
+            <translation><!-- CTW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Concurrent FI</masterLabel>
+            <translation><!-- Concurrent FI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Heavy Equipment</masterLabel>
+            <translation><!-- Heavy Equipment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Impact FI</masterLabel>
+            <translation><!-- Impact FI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OneEighty</masterLabel>
+            <translation><!-- OneEighty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>P/S/A</masterLabel>
+            <translation><!-- P/S/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 30 Day notification complete --></label>
+        <name>X30_Day_notification_complete__c</name>
+    </fields>
+    <fields>
+        <label><!-- 60 Day notification complete --></label>
+        <name>X60_Day_notification_complete__c</name>
+    </fields>
+    <fields>
+        <label><!-- 90 Day notification complete --></label>
+        <name>X90_Day_notification_complete__c</name>
+    </fields>
+    <fields>
+        <label><!-- ZIP-Hidden --></label>
+        <name>ZIP_Hidden__c</name>
+    </fields>
+    <fields>
+        <label><!-- ePayments Client --></label>
+        <name>ePayments_Client__c</name>
+    </fields>
+    <fields>
+        <label><!-- eSignature Client --></label>
+        <name>eSignature_Client__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of F&amp;I forms collected --></label>
+        <name>of_F_I_forms_collected__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of PSA forms collected --></label>
+        <name>of_PSA_forms_collected__c</name>
+    </fields>
+    <layouts>
+        <layout>F&amp;I FCC Layout</layout>
+        <sections>
+            <label><!-- Associate Information --></label>
+            <section>Associate Information</section>
+        </sections>
+        <sections>
+            <label><!-- Change Notes --></label>
+            <section>Change Notes</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Information --></label>
+            <section>Customer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Forms Builder --></label>
+            <section>Forms Builder</section>
+        </sections>
+        <sections>
+            <label><!-- Forms Collection --></label>
+            <section>Forms Collection</section>
+        </sections>
+        <sections>
+            <label><!-- LFA --></label>
+            <section>LFA</section>
+        </sections>
+        <sections>
+            <label><!-- Librarian --></label>
+            <section>Librarian</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Order Information --></label>
+            <section>Order Information</section>
+        </sections>
+        <sections>
+            <label><!-- Order Processing Information --></label>
+            <section>Order Processing Information</section>
+        </sections>
+        <sections>
+            <label><!-- SubProject Info --></label>
+            <section>SubProject Info</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>F&amp;I Layout</layout>
+        <sections>
+            <label><!-- Associate Information --></label>
+            <section>Associate Information</section>
+        </sections>
+        <sections>
+            <label><!-- Change Notes --></label>
+            <section>Change Notes</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Information --></label>
+            <section>Customer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Forms Builder --></label>
+            <section>Forms Builder</section>
+        </sections>
+        <sections>
+            <label><!-- Forms Collection --></label>
+            <section>Forms Collection</section>
+        </sections>
+        <sections>
+            <label><!-- LFA --></label>
+            <section>LFA</section>
+        </sections>
+        <sections>
+            <label><!-- Librarian --></label>
+            <section>Librarian</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Order Information --></label>
+            <section>Order Information</section>
+        </sections>
+        <sections>
+            <label><!-- Order Processing Information --></label>
+            <section>Order Processing Information</section>
+        </sections>
+        <sections>
+            <label><!-- SubProject Info --></label>
+            <section>SubProject Info</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>F&amp;I Management Layout</layout>
+        <sections>
+            <label><!-- Associate Information --></label>
+            <section>Associate Information</section>
+        </sections>
+        <sections>
+            <label><!-- Change Notes --></label>
+            <section>Change Notes</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Information --></label>
+            <section>Customer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Forms Builder --></label>
+            <section>Forms Builder</section>
+        </sections>
+        <sections>
+            <label><!-- Forms Collection --></label>
+            <section>Forms Collection</section>
+        </sections>
+        <sections>
+            <label><!-- LFA --></label>
+            <section>LFA</section>
+        </sections>
+        <sections>
+            <label><!-- Librarian --></label>
+            <section>Librarian</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Order Information --></label>
+            <section>Order Information</section>
+        </sections>
+        <sections>
+            <label><!-- Order Processing Information --></label>
+            <section>Order Processing Information</section>
+        </sections>
+        <sections>
+            <label><!-- SubProject Info --></label>
+            <section>SubProject Info</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Laser Imaging FCC Layout</layout>
+        <sections>
+            <label><!-- Associate Information --></label>
+            <section>Associate Information</section>
+        </sections>
+        <sections>
+            <label><!-- Change Notes --></label>
+            <section>Change Notes</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Information --></label>
+            <section>Customer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Forms Collection --></label>
+            <section>Forms Collection</section>
+        </sections>
+        <sections>
+            <label><!-- LAO Quality Audit --></label>
+            <section>LAO Quality Audit</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+        <sections>
+            <label><!-- Order Information --></label>
+            <section>Order Information</section>
+        </sections>
+        <sections>
+            <label><!-- Order Processing Information --></label>
+            <section>Order Processing Information</section>
+        </sections>
+        <sections>
+            <label><!-- Orders Placed --></label>
+            <section>Orders Placed</section>
+        </sections>
+        <sections>
+            <label><!-- SubProject Info --></label>
+            <section>SubProject Info</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Laser Imaging Layout</layout>
+        <sections>
+            <label><!-- Associate Information --></label>
+            <section>Associate Information</section>
+        </sections>
+        <sections>
+            <label><!-- Change Notes --></label>
+            <section>Change Notes</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Information --></label>
+            <section>Customer Information</section>
+        </sections>
+        <sections>
+            <label><!-- Forms Collection --></label>
+            <section>Forms Collection</section>
+        </sections>
+        <sections>
+            <label><!-- LAO Quality Audit --></label>
+            <section>LAO Quality Audit</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+        <sections>
+            <label><!-- Order Information --></label>
+            <section>Order Information</section>
+        </sections>
+        <sections>
+            <label><!-- Order Processing Information --></label>
+            <section>Order Processing Information</section>
+        </sections>
+        <sections>
+            <label><!-- Orders Placed --></label>
+            <section>Orders Placed</section>
+        </sections>
+        <sections>
+            <label><!-- SubProject Info --></label>
+            <section>SubProject Info</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- F&amp;I --></label>
+        <name>F_I</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Laser Imaging --></label>
+        <name>Laser_Imaging</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Assigned Form Builder needed for status &apos;Data Mapping&apos; and &apos;Sold&apos; --></errorMessage>
+        <name>DS_FO_AssignedFormsBuilder</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please select Contact Name --></errorMessage>
+        <name>DS_FO_Contact</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter Contract/PO# --></errorMessage>
+        <name>DS_FO_ContractPO_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Incorrect Date or Form Posted is null ===&gt; If Order Staus = &apos;Data Mapping&apos; Then Data Mapping &gt;= Form Posted --></errorMessage>
+        <name>DS_FO_DataMapping</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter FCC Name --></errorMessage>
+        <name>DS_FO_FCCName</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Forms To LIS Team Order Status is invalid for Buy/Sell and New Install Order Types --></errorMessage>
+        <name>DS_FO_FormstoLISTeam</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Incorrect Date or Form to LIS Team is null ===&gt; If Order Staus = &apos;At LI Team&apos; Forms to LIS  Team&gt;= Burn Completed --></errorMessage>
+        <name>DS_FO_FormstoLISTeamDate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter Order Status --></errorMessage>
+        <name>DS_FO_OrderStatus_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter Quote Type --></errorMessage>
+        <name>DS_FO_QuoteType_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter Welcome Kit Type --></errorMessage>
+        <name>DS_FO_WelcomeKitType</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Incorrect Date or Proofs to Client is null ===&gt; Approved by Client &gt;=Proofs to Client --></errorMessage>
+        <name>DS_LAO_ApprovedByClient</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Incorrect Date or Artwork To LFD Team is null ===&gt; Artwork Due Date &gt;= Artwork to LFD Team --></errorMessage>
+        <name>DS_LAO_ArtworkDueDate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Incorrect Date ===&gt; If Order Staus = &apos;Forms Analysis&apos; Then Artwork Received &gt;= CurrentDate - 180 --></errorMessage>
+        <name>DS_LAO_ArtworkReceived</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter Artwork to LFD Team --></errorMessage>
+        <name>DS_LAO_ArtworkToLFDTeam_AddChange</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Incorrect Date ===&gt; Artwork to LFD Team &gt;= CreateDate for Buy/Sell --></errorMessage>
+        <name>DS_LAO_ArtworkToLFDTeam_BuySell</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Incorrect Date or &apos;Binder Sent&apos; is null ===&gt; Artwork to LFD Team &gt;= &apos;Binder Sent&apos; for New Install or DS Upgrade --></errorMessage>
+        <name>DS_LAO_ArtworkToLFDTeam_NewInstall</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Incorrect Date ===&gt; &apos;Binder Sent&apos; &gt;= CreateDate --></errorMessage>
+        <name>DS_LAO_BinderSent</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Incorrect Date or &apos;Artwork to LFD Team&apos; is null ===&gt; Burn Completd &gt;= &apos;Artwork to LFD Team&apos; --></errorMessage>
+        <name>DS_LAO_BurnCompleted_AddChange_FastTrack</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Incorrect Date or &apos;Approved by Client&apos; is null ===&gt; Burn Completd &gt;= Approved by Client --></errorMessage>
+        <name>DS_LAO_BurnCompleted_Alli_BySell_Shroom</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Incorrect Date or &apos;Approved by Client&apos; is null ===&gt; Burn Completd &gt;= Approved by Client --></errorMessage>
+        <name>DS_LAO_BurnCompleted_Elite_ELF</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Incorrect Date or &apos;Data Proofs to Client (ELF Only)&apos; is null ===&gt; Data Approved by Client (ELF Only) &gt;= Data Proofs to Client (ELF Only) --></errorMessage>
+        <name>DS_LAO_DataApprovedByClient_ELFOnly</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Incorrect Date or Burn Completed is null ===&gt; Data Proofs to Client (ELF Only) &gt;= Burn Completed --></errorMessage>
+        <name>DS_LAO_DataProofsToClient_ELFOnly</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Incorrect Date ===&gt; Estimated Install Date &gt;= CreateDate --></errorMessage>
+        <name>DS_LAO_EstimatedInstallDate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Incorrect Date or Roll Call Date is null ===&gt; FE Date &gt;= CurrentDate --></errorMessage>
+        <name>DS_LAO_FEDate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Incorrect Date or Pre-FA Completed is null ===&gt; If Order Staus = &apos;Awaiting Approval-FA&apos; Then Final FA Completed &gt;= Pre-FA Completed --></errorMessage>
+        <name>DS_LAO_FinalFACompleted</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Incorrect Date or Data Approved by Client (ELF Only) is null ===&gt; Forms Installed &gt;= Data Approved by Client (ELF Only) for Add/Change - ELF, New Install - ELF, Buy/Sell - ELF --></errorMessage>
+        <name>DS_LAO_FormsInstalled_ELF</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Incorrect Date or Burn Completed ===&gt; Forms Installed &gt;= Burn Completed for Add/Change - Elite, New Install - Elite, Buy/Sell - Elite --></errorMessage>
+        <name>DS_LAO_FormsInstalled_Elite</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- LAS Name needed for status &apos;Q/S Submitted&apos; and &apos;Sold&apos; --></errorMessage>
+        <name>DS_LAO_LASName</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- LFD Name needed for status &apos;AWIP&apos; --></errorMessage>
+        <name>DS_LAO_LFDName</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- LIS Name needed for status &apos;AT LI Team&apos; --></errorMessage>
+        <name>DS_LAO_LISName</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- LIS Info Received cannot be NULL for &quot;Add/Change - Elite&quot;, &quot;Add/Change - ELF&quot;, &quot;Add/Change - eShowroom/Showroom&quot;, &quot;Add/Change - Fast Track&quot; &amp; &quot;Add/Change - Other&quot; order types. --></errorMessage>
+        <name>DS_LAO_LIS_Info_Received</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Yes/No the only valid options for &quot;Add/Change - Fast Track&quot; at all order status levels. --></errorMessage>
+        <name>DS_LAO_LIS_Info_Received_FastTrack</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Yes/No the only valid options for all Add/Change order types at the Installed order status. --></errorMessage>
+        <name>DS_LAO_LIS_Info_Received_Installed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Incorrect Date ===&gt; If Order Staus = &apos;Sold-PreFA&apos; ThenPre-FA Completed &gt;= CurrentDate - 180 --></errorMessage>
+        <name>DS_LAO_PreFACompleted</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Incorrect Value ===&gt; &apos;Project # [Impact]&apos; &gt;= 30000 or &quot;TBD&quot; --></errorMessage>
+        <name>DS_LAO_ProjectNumber</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Incorrect Date or &apos;Artwork to LFD Team&apos; is null ===&gt; Proofs to LAS &gt;= Artwork to LFD Team --></errorMessage>
+        <name>DS_LAO_ProofToLAS</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Incorrect Date or Proofs to LAS field is null ===&gt; If Order Staus = &apos;Awaiting Approval&apos; Then Proofs to Client &gt;= Proofs to LAS --></errorMessage>
+        <name>DS_LAO_ProofsToClient</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Proofs_Required cannot be null for &apos;Add/Change - Alliance&apos;, &apos;Add/Change - ELF&apos;, &apos;Add/Change - Elite&apos;, &apos;Add/Change - eShowroom/Showroom&apos;, &apos;Add/Change - Other&apos; --></errorMessage>
+        <name>DS_LAO_Proofs_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Incorrect Date or Quote Sheet Submitted is null ===&gt; Quote Sheet Approved &gt;= Quote Sheet Submitted --></errorMessage>
+        <name>DS_LAO_QuoteSheetApproved</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Incorrect Date ===&gt; Quote Sheet Submitted &gt;= CurrentDate --></errorMessage>
+        <name>DS_LAO_QuoteSheetSubmitted</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Incorrect value or Quote Sheet Submitted or Quote_Sheet_Approved__c is null or has incorrect date ===&gt; Revision # &gt;= 1 --></errorMessage>
+        <name>DS_LAO_RevisionNumber</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Incorrect Date ===&gt; Roll Call Date must be within the last 180 days of Create Date. --></errorMessage>
+        <name>DS_LAO_RollCallDate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Incorrect Date or Burn Completed is null ===&gt; If Order Staus = &apos;Sent to Data Mapping/Other&apos; Then Sent to Data Mapping/Other &gt;= Burn Completed --></errorMessage>
+        <name>DS_LAO_SentToDataMappingOther</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Cannot have both Declined and (Order Placed or Confirmation #) filled in. --></errorMessage>
+        <name>DS_LAS_APCheckConfDeclined_NotBothSet</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Order Placed field must be filled in order to save Confirmation Number --></errorMessage>
+        <name>DS_LAS_APCheckOrderPlaceRqrdForConfNum</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Cannot have both Declined and (Order Placed or Confirmation #) filled in. --></errorMessage>
+        <name>DS_LAS_PayrolCheckConfDecline_NotBothSet</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Order Placed field must be filled in order to save Confirmation Number --></errorMessage>
+        <name>DS_LAS_PayrolChkOrderPlaceRqrdForConfNum</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Cannot have both Declined and (Order Placed or Confirmation #) filled in. --></errorMessage>
+        <name>DS_LAS_PlainPaperConfDeclined_NotBothSet</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Order Placed field must be filled in order to save Confirmation Number --></errorMessage>
+        <name>DS_LAS_PlainPaprOrderPlaceRqrdForConfNum</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Order Placed field must be filled in order to save Confirmation Number --></errorMessage>
+        <name>DS_LAS_PremPaprOrderPlaceRqrdForConfNum</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Cannot have both Declined and (Order Placed or Confirmation #) filled in. --></errorMessage>
+        <name>DS_LAS_PremiumPaprConfDecline_NotBothSet</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Cannot have both Declined and (Order Placed or Confirmation #) filled in. --></errorMessage>
+        <name>DS_LAS_TonerConfDeclined_NotBothSet</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Order Placed field must be filled in order to save Confirmation Number --></errorMessage>
+        <name>DS_LAS_TonerOrderPlaceRqrdForConfNum</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- ADP_Micr_Spec_Sheet --></label>
+        <name>ADP_Micr_Spec_Sheet</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Artwork_Approval_Letter --></label>
+        <name>Artwork_Approval_Letter</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Artwork_Approval_Letter_FRENCH --></label>
+        <name>Artwork_Approval_Letter_FRENCH</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Artwork_Tracking_Sheet --></label>
+        <name>Artwork_Tracking_Sheet</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- BO_Account_Checklist_Canada --></label>
+        <name>BO_Account_Checklist_Canada</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- BO_Accounting_Checklist --></label>
+        <name>BO_Accounting_Checklist</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- BO_Accounting_Checklist_French --></label>
+        <name>BO_Accounting_Checklist_French</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Binder_Cover_Letter --></label>
+        <name>Binder_Cover_Letter</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Call_Sheet --></label>
+        <name>Call_Sheet</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- F_I_Laser_Checklist --></label>
+        <name>F_I_Laser_Checklist</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- F_I_Sales_Checklist --></label>
+        <name>F_I_Sales_Checklist</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- F_I_Sales_Checklist_French --></label>
+        <name>F_I_Sales_Checklist_French</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- F_I_Sales_One_Eighty_Checklist --></label>
+        <name>F_I_Sales_One_Eighty_Checklist</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- F_I_Sales_One_Eighty_Checklist_FRENCH_JD --></label>
+        <name>F_I_Sales_One_Eighty_Checklist_FRENCH_JD</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Final_Notice_Letter --></label>
+        <name>Final_Notice_Letter</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Final_Notice_Letter_FRENCH --></label>
+        <name>Final_Notice_Letter_FRENCH</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Forms_Collection_Intro_Letter_180 --></label>
+        <name>Forms_Collection_Intro_Letter_180</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Forms_Collection_Intro_Letter_HE --></label>
+        <name>Forms_Collection_Intro_Letter_HE</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Forms_Collection_Intro_Letter_UN --></label>
+        <name>Forms_Collection_Intro_Letter_UN</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Forms_Initial_Email --></label>
+        <name>Forms_Initial_Email</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Forms_Initial_Email_HE --></label>
+        <name>Forms_Initial_Email_HE</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Heavy_Equipment_Checklist_Canada --></label>
+        <name>Heavy_Equipment_Checklist_Canada</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Heavy_Equipment_Checklist_US --></label>
+        <name>Heavy_Equipment_Checklist_US</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Introduction_Letter --></label>
+        <name>Introduction_Letter</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- KnowledgeLake --></label>
+        <name>KnowledgeLake</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LAO_Laser_AW_Quote_Sheet --></label>
+        <name>LAO_Laser_AW_Quote_Sheet</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LAO_Laser_AW_Quote_Sheet_Email --></label>
+        <name>LAO_Laser_AW_Quote_Sheet_Email</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LAO_Laser_AW_Quote_Sheet_FRENCH --></label>
+        <name>LAO_Laser_AW_Quote_Sheet_FRENCH</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LAO_MICR_Printer_Supplies_Order_Form --></label>
+        <name>LAO_MICR_Printer_Supplies_Order_Form</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LAO_Mockup_Cover_Sheet --></label>
+        <name>LAO_Mockup_Cover_Sheet</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LAO_Name_Change_Letter --></label>
+        <name>LAO_Name_Change_Letter</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LAO_Paper_Toner_Order_Form_New_Install --></label>
+        <name>LAO_Paper_Toner_Order_Form_New_Install</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LAO_PayrollPlus_MICRForm_DOX_Form --></label>
+        <name>LAO_PayrollPlus_MICRForm_DOX_Form</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LOF --></label>
+        <name>LOF</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Merge --></label>
+        <name>Merge</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Parts_Checklist --></label>
+        <name>Parts_Checklist</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Parts_Checklist_Canada --></label>
+        <name>Parts_Checklist_Canada</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Parts_Checklist_French --></label>
+        <name>Parts_Checklist_French</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Resubmit_Laser_Artwork_Order --></label>
+        <name>Resubmit_Laser_Artwork_Order</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Rush_Request_Sheet --></label>
+        <name>Rush_Request_Sheet</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Service_Checklist --></label>
+        <name>Service_Checklist</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Service_Checklist_Canada --></label>
+        <name>Service_Checklist_Canada</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Service_Checklist_French --></label>
+        <name>Service_Checklist_French</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Transition_Letter_Impact_Form --></label>
+        <name>Transition_Letter_Impact_Form</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Transition_Letter_LaserFI --></label>
+        <name>Transition_Letter_LaserFI</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Unlock_and_Edit --></label>
+        <name>Unlock_and_Edit</name>
+    </webLinks>
+</CustomObjectTranslation>

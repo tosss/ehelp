@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>Contains regular expression patterns for easy maintenance</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Pattern__c</fullName>
+        <description>Java escaped and regex escaped patterns</description>
+        <externalId>false</externalId>
+        <label>Pattern</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ReplacementString__c</fullName>
+        <description>Use the value of this field as a replacement for every pattern match</description>
+        <externalId>false</externalId>
+        <label>ReplacementString</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>IMP_RegularExpressions</label>
+    <visibility>Public</visibility>
+</CustomObject>

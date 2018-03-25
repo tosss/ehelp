@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>MapAnything Territory Base Object</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>MapAnything Territory Base Objects</value>
+    </caseValues>
+    <fields>
+        <label><!-- Manually Assigned Field --></label>
+        <name>ManuallyAssignedField__c</name>
+    </fields>
+    <fields>
+        <label><!-- Object --></label>
+        <name>Object__c</name>
+    </fields>
+    <fields>
+        <label><!-- Territory Field --></label>
+        <name>TerritoryField__c</name>
+    </fields>
+    <layouts>
+        <layout>MapAnything Territory Base Object Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

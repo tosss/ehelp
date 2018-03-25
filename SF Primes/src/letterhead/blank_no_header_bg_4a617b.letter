@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Letterhead xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <backgroundColor>#4a617b</backgroundColor>
+    <bodyColor>#4a617b</bodyColor>
+    <bottomLine>
+        <color>#4a617b</color>
+        <height>0</height>
+    </bottomLine>
+    <footer>
+        <backgroundColor>#4a617b</backgroundColor>
+        <height>0</height>
+        <horizontalAlignment>Left</horizontalAlignment>
+        <verticalAlignment>Top</verticalAlignment>
+    </footer>
+    <header>
+        <backgroundColor>#4a617b</backgroundColor>
+        <height>0</height>
+        <horizontalAlignment>Left</horizontalAlignment>
+        <verticalAlignment>Top</verticalAlignment>
+    </header>
+    <middleLine>
+        <color>#4a617b</color>
+        <height>0</height>
+    </middleLine>
+    <name>blank no header bg: 4a617b</name>
+    <topLine>
+        <color>#4a617b</color>
+        <height>0</height>
+    </topLine>
+</Letterhead>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomPageWebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <availability>online</availability>
+    <displayType>link</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Hide New Button</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&apos;/resource/&apos; &amp; LEFT(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TEXT(NOW()),&apos;:&apos;,&apos;&apos;),&apos;-&apos;,&apos;&apos;),&apos; &apos;,&apos;&apos;),14) &amp; &apos;000/HideNewButton_JS&apos;)}</url>
+</CustomPageWebLink>

@@ -1,0 +1,12 @@
+<!---------------------------------------------------------------- 
+// RQ-05791    - SubProject Home Page changes.
+// Description - This Page renders the Discovery View of SubProject
+// 2015-12-09  - venkata.shrivol@cdk.com  - Created
+-------------------------------------------------------------------->
+
+<apex:page standardController="SubProject__c" showHeader="true" sidebar="true" tabStyle="SubProject__c">
+	<c:IMP_SubProjectSectionHeader autoName="{!SubProject__c.Name}" subProjectName="{!SubProject__c.SubProject_Name__c}" subProjectId="{!SubProject__c.Id}" confidentialCheck="{!SubProject__c.Confidential__c}" chatterFeedCheck="true">
+    </c:IMP_SubProjectSectionHeader>    
+    <apex:include pageName="IMP_SubProjectButtons"/>
+    <apex:include pageName="IMP_SiteWorkbook"/>
+</apex:page>

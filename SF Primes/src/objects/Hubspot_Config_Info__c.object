@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>ADP_Hubspot_Config_Compact_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>ADP_Hubspot_Config_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>Type_of_Interaction__c</fields>
+        <fields>Interaction_Description__c</fields>
+        <fields>Hubspot_Contact_List_Name__c</fields>
+        <fields>Hubspot_Instance_Name__c</fields>
+        <fields>Active__c</fields>
+        <label>ADP Hubspot Config Compact Layout</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Object to track configuration on Hubspot information pulled form Hubspot to SalesForce.com</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>true</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>This record is actively being used by CastIron to pull data from Hubspot</inlineHelpText>
+        <label>Active</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>HS_last_timeoffset__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>HS Last Timeoffset</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HS_last_vidoffset__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>HS Last Vidoffset</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hubspot_Campaign_Email_Name__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Email Name is Required for a Campaign and should be exactly same as in Marketing Hubspot</inlineHelpText>
+        <label>Hubspot Campaign Email Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hubspot_Campaign_Event_Status__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>&apos;forms-based&apos; is not a campaign event but identifies form was filled out</inlineHelpText>
+        <label>Hubspot Campaign Event Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Delivered</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Clicked</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Forms-based</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Hubspot_Campaign_Name__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Hubspot Campaign or Hubspot Contact List can be populated for a Hubspot Record</inlineHelpText>
+        <label>Hubspot Campaign Name</label>
+        <length>150</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hubspot_Contact_List_Name__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Hubspot Contact List or Hubspot Campaign can be populated for a Hubspot Record</inlineHelpText>
+        <label>Hubspot Contact List Name</label>
+        <length>150</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hubspot_Instance_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Hubspot Instance Name</label>
+        <picklist>
+            <picklistValues>
+                <fullName>ADP_DEALER_SERVICES</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>COBALT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DEALIX</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LIGHTSPEED</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PFW</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Interaction_Description__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Description to appear in the &quot;Details&quot; field of the Marketing Interaction object. For Campaign you can add Campaign and Email Name in this Field</inlineHelpText>
+        <label>Interaction Description</label>
+        <length>255</length>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type_of_Interaction__c</fullName>
+        <externalId>false</externalId>
+        <label>Type of Interaction</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Hubspot Campaign Email Delivered</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hubspot Campaign Email Link Clicked</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hubspot Form Filled Out</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Viewed on Website</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>last_run_datetime__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Run Datetime</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Hubspot Config Info</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Hubspot_Contact_List_Name__c</columns>
+        <columns>Hubspot_Campaign_Name__c</columns>
+        <columns>Hubspot_Campaign_Email_Name__c</columns>
+        <columns>Hubspot_Campaign_Event_Status__c</columns>
+        <columns>Hubspot_Instance_Name__c</columns>
+        <columns>Interaction_Description__c</columns>
+        <columns>Type_of_Interaction__c</columns>
+        <columns>Active__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>HCI-{00000}</displayFormat>
+        <label>Hubspot Config Info ID</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Hubspot Config Info</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Hubspot_Contact_List_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Hubspot_Campaign_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Hubspot_Campaign_Email_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Hubspot_Campaign_Event_Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Hubspot_Instance_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Interaction_Description__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Type_of_Interaction__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Active__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CREATEDBY_USER</customTabListAdditionalFields>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <lookupDialogsAdditionalFields>Hubspot_Contact_List_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Hubspot_Campaign_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Hubspot_Campaign_Email_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Hubspot_Campaign_Event_Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Hubspot_Instance_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Type_of_Interaction__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Interaction_Description__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Active__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CREATEDBY_USER</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Hubspot_Instance_Name__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Hubspot_Contact_List_Name__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Hubspot_Campaign_Name__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Hubspot_Campaign_Email_Name__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Hubspot_Instance_Name__c</searchFilterFields>
+        <searchFilterFields>Type_of_Interaction__c</searchFilterFields>
+        <searchFilterFields>Interaction_Description__c</searchFilterFields>
+        <searchFilterFields>Active__c</searchFilterFields>
+        <searchResultsAdditionalFields>Hubspot_Contact_List_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Hubspot_Campaign_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Hubspot_Campaign_Email_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Hubspot_Campaign_Event_Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Hubspot_Instance_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Type_of_Interaction__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Interaction_Description__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Active__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CREATEDBY_USER</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>DS_Mkt_CampaignEmailNameEventStatus_Null</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+ISBLANK(Hubspot_Campaign_Name__c), 
+OR(NOT(ISBLANK(TEXT(Hubspot_Campaign_Event_Status__c))),NOT(ISBLANK(Hubspot_Campaign_Email_Name__c))))</errorConditionFormula>
+        <errorDisplayField>Hubspot_Campaign_Email_Name__c</errorDisplayField>
+        <errorMessage>You can not have Campaign Email Name or Event Status for null Campaign Name</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DS_Mkt_CampaignEmailNameEventStatus_Req</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+NOT(ISBLANK(Hubspot_Campaign_Name__c)), 
+OR(ISBLANK(TEXT(Hubspot_Campaign_Event_Status__c)),
+ISBLANK(Hubspot_Campaign_Email_Name__c))
+)</errorConditionFormula>
+        <errorDisplayField>Hubspot_Campaign_Email_Name__c</errorDisplayField>
+        <errorMessage>Hubspot Campaign Email Name and Event Status are Required for Hubspot Campaign</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DS_Mkt_ContactList_Campaign_Not_Null</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISBLANK(Hubspot_Contact_List_Name__c),ISBLANK(Hubspot_Campaign_Name__c))</errorConditionFormula>
+        <errorDisplayField>Hubspot_Contact_List_Name__c</errorDisplayField>
+        <errorMessage>You need to populate Hubspot Contact List Name or Hubspot Campaign Name for a Hubspot Record</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DS_Mkt_ContactList_Campaign_Verification</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT(ISBLANK(Hubspot_Contact_List_Name__c)),NOT(ISBLANK(Hubspot_Campaign_Name__c)))</errorConditionFormula>
+        <errorDisplayField>Hubspot_Contact_List_Name__c</errorDisplayField>
+        <errorMessage>You can only have Hubspot Contact List Name or Hubspot Campaign Name filled in for a Hubspot Record</errorMessage>
+    </validationRules>
+</CustomObject>

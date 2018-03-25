@@ -1,0 +1,76 @@
+<apex:page StandardController="Lead" extensions="vidyard.vidyard_Email" standardStylesheets="true" docType="html-5.0">
+    <!-- Bootstrap -->
+    <apex:stylesheet value="{!URLFOR($Resource.vidyard__bootstrap, 'dist/css/bootstrap.min.css')}"/>
+ 
+    <!-- jQuery -->
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" />
+    <apex:includeScript value="{!URLFOR($Resource.vidyard__bootstrap, 'dist/js/bootstrap.min.js')}" />
+    <script>
+        var j$ = jQuery.noConflict();
+        j$(document).ready(function(){
+            if(typeof sforce == 'undefined'){
+                j$("[id$=video_list]").hide();
+                j$("#video_title").hide();
+            }
+            Sfdc.canvas.parent.subscribe({
+                name: 'child.event',
+                onData: function(payload){
+                    var email = j$('#theContact').val();
+                    var link = '';
+                    if(typeof payload.code !== "undefined"){
+                        link="http://embed.vidyard.com/share/"+payload.model.uuid+"?vyemail="+email+"&vyac="+payload.code+"&vyplayer="+payload.model.uuid;
+                    }else{
+                        link="http://embed.vidyard.com/share/"+payload.model.uuid+"?vyemail="+email;
+                    }
+                    var videoHtml = "<div style='border-top:2px dashed black; height:15px;'></div><div style='text-align: center;'><a href='"+link+"'><img src='"+payload.model.thumbnail+"' alt='"+payload.model.name+": Click to Watch' width='480px'/><p><span style='font-weight:bold; color: #414242'>"+payload.model.name+": Click to Watch</span></p></a></div>";
+                    if(typeof sforce == 'undefined'){
+                        CKEDITOR.instances[j$('#msg').data('name')].insertHtml(videoHtml);
+                    }else{
+                        j$("[id$=video_list]").val(j$("[id$=video_list]").val() + payload.model.name + '\n');
+                        j$("input[id$=msg_video]").val(j$("input[id$=msg_video]").val() + videoHtml);
+                        alert('The '+payload.model.name+' video was added!');
+                    }
+                }
+            });
+        });
+    </script>
+    <div class="bs">
+        <div class="container-fluid">
+            <div class="row clearfix" style="margin-bottom: 10px;">
+                <div class="col-xs-12 col-md-12">
+                    <h2>Send Vidyard Video to Lead</h2>
+                </div>
+                <div class="col-xs-12 col-md-12">
+                    <apex:pageMessages ></apex:pageMessages>
+                </div>
+            </div>
+            <div class="row clearfix">
+                <div class="col-xs-12 col-md-6 column" style="margin-bottom: 20px;">
+                    <apex:form >
+                        <apex:outputPanel >
+                            <p>Message being sent to: {!Lead.email}</p>
+                            <input type="hidden" id="theContact" name="email" value="{!Lead.email}"></input>
+                            <apex:outputLabel value="Subject: " for="subject"></apex:outputLabel>
+                            <apex:inputText id="subject" value="{!msgSubject}" size="45" styleClass="form-control"></apex:inputText><br />
+                            <apex:outputLabel value="Message: " for="theMessage"></apex:outputLabel>
+                            <apex:inputTextarea richtext="true" id="theMessage" value="{!msgBody}" cols="64" rows="20" styleClass="form-control"></apex:inputTextarea>
+                            <br />
+                            <div id="msg" data-name="{!$Component.theMessage}"></div>
+                            <p id="video_title">Video List</p>
+                            <apex:inputTextarea id="video_list" styleClass="form-control" cols="64" rows="10" disabled="true"></apex:inputTextarea>
+                            <apex:inputHidden id="msg_video" value="{!msgVideo}"></apex:inputHidden>
+                            <apex:commandButton action="{!sendEmail}" title="Send Email" value="Send Email" styleClass="btn btn-success"></apex:commandButton>
+                            &nbsp;
+                            <apex:commandButton action="{!cancel}" title="Cancel" value="Cancel" styleClass="btn btn-danger"></apex:commandButton>
+                        </apex:outputPanel>
+                    </apex:form>
+                </div>
+                <div class="col-md-6 column">
+                    <h2>Choose a Video</h2>
+                    <div id="canvas"></div>
+                    <apex:canvasApp applicationName="Vidyard_prod" namespacePrefix="vidyard" containerId="canvas" width="100%"></apex:canvasApp>
+                </div>
+            </div>
+        </div>
+    </div>
+</apex:page>

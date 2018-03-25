@@ -1,0 +1,24 @@
+<apex:page standardController="Launch__c" tabStyle="Opportunity" id="Page" sidebar="false" >
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.10.4.custom.min.js')}" />
+    <script>
+    var j$ = jQuery.noConflict();
+    j$(document).ready(function(){
+        j$("a").each(function(){
+            j$(this).prop("target", "_blank");
+        });
+        j$("input.btn").each(function(){
+            var url=j$(this).attr('onclick').split("'")[1];
+            j$(this).attr("onclick","window.open('"+url+"');" );
+        })
+    });
+    </script>   
+    <apex:pageBlock rendered="{!IF((Launch__c.Opportunity__c!=null),false,true)}" title="Notes and Attachments">
+    <apex:pageBlockSection >
+        <apex:pageBlockSectionItem > No Opportunity found on {!Launch__c.Name} </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    <apex:outputPanel id="OutputPanel" layout="block" style="overflow-y:auto; height:200px;"  rendered="{!IF((Launch__c.Opportunity__c!=null),true,false)}">
+    	<apex:relatedList subject="{!Launch__c.Opportunity__c}" list="CombinedAttachments" title="" />        
+    </apex:outputPanel>
+</apex:page>

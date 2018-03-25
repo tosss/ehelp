@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>MapAnything Territory Collection</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>MapAnything Territory Collections</value>
+    </caseValues>
+    <fields>
+        <label><!-- Base Object --></label>
+        <name>BaseObject__c</name>
+        <relationshipLabel><!-- Collections --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Last Run Date --></label>
+        <name>LastRunDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Query --></label>
+        <name>Query__c</name>
+    </fields>
+    <fields>
+        <label><!-- Territory --></label>
+        <name>Territory__c</name>
+        <relationshipLabel><!-- Collections --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

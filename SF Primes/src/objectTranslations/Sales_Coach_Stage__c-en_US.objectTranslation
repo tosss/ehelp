@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Sales Coach Stage</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Sales Coach Stages</value>
+    </caseValues>
+    <fields>
+        <label><!-- Active? --></label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <label><!-- Stage Description --></label>
+        <name>Buyer_Stage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Stage Color --></label>
+        <name>Stage_Color__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

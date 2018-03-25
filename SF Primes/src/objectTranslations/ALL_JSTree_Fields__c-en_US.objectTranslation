@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>ALL JSTree Fields</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>ALL JSTree Fields</value>
+    </caseValues>
+    <fields>
+        <label><!-- Condition Field --></label>
+        <name>Condition_Field__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description Field Name --></label>
+        <name>Description_Field_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Field Order Set --></label>
+        <name>Field_Order_Set__c</name>
+    </fields>
+    <fields>
+        <label><!-- Key --></label>
+        <name>Key__c</name>
+    </fields>
+    <fields>
+        <label><!-- Object Name --></label>
+        <name>Object_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parent Field Name --></label>
+        <name>Parent_Field_Name__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

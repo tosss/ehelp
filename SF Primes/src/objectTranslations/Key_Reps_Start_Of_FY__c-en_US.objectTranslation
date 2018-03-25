@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Key Reps Start Of FY</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Key Reps Start Of FY</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account Name --></label>
+        <name>Account_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Key Reps Start Of FY --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- DSM-Nat-Ent --></label>
+        <name>DSM_Nat_Ent__c</name>
+        <relationshipLabel><!-- Key Reps Start Of FY (DSM-Nat-Ent) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- DSM --></label>
+        <name>DSM__c</name>
+        <relationshipLabel><!-- Key Reps Start Of FY (DSM) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- FY --></label>
+        <name>FY__c</name>
+    </fields>
+    <fields>
+        <label><!-- Key Rep --></label>
+        <name>Key_Rep__c</name>
+        <relationshipLabel><!-- Key Reps Start Of FY (Key Rep) --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Key Reps Start Of FY Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Clone Profile Access</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Clone Profile Access</value>
+    </caseValues>
+    <fields>
+        <label><!-- Case Account Plan --></label>
+        <name>Case_Account_Plan__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+    </fields>
+    <fields>
+        <label><!-- Competitive Products at Dealership --></label>
+        <name>Competitive_Products_at_Dealership__c</name>
+    </fields>
+    <fields>
+        <label><!-- Profile Id --></label>
+        <name>Profile_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Profile Name --></label>
+        <name>Profile_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recap Product --></label>
+        <name>Recap_Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recap --></label>
+        <name>Recap__c</name>
+    </fields>
+    <fields>
+        <label><!-- Task (Account Plan) --></label>
+        <name>Task_Account_Plan__c</name>
+    </fields>
+    <fields>
+        <label><!-- Task (Account) --></label>
+        <name>Task_Account__c</name>
+    </fields>
+    <fields>
+        <label><!-- Task (WebID) --></label>
+        <name>Task_WebID__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

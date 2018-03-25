@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Campaign Mgmt VF Page Assignment</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Campaign Mgmt VF Page Assignment</value>
+    </caseValues>
+    <fields>
+        <label><!-- Campaign VF Layout --></label>
+        <name>Campaign_VF_Layout__c</name>
+    </fields>
+    <fields>
+        <label><!-- Display Follow-up Needed? --></label>
+        <name>Display_Follow_up_Needed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Filter by Account Team --></label>
+        <name>Filter_by_Account_Team__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead Gen Checkbox --></label>
+        <name>Lead_Gen_Checkbox__c</name>
+    </fields>
+    <fields>
+        <label><!-- Profile Name --></label>
+        <name>Profile_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Show Log-a-Call? --></label>
+        <name>Show_Log_a_Call__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

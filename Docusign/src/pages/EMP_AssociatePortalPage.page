@@ -1,0 +1,359 @@
+<apex:page applyBodyTag="false" standardStylesheets="false" showHeader="false" sidebar="false" docType="html-5.0" controller="EMP_AssociatePortalPage_Controller">
+    
+    <head>
+        <!-- The following 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="CDK Global" content="" />
+        <meta name="description" content="" />
+        
+        
+        <title>CDK Global Associate Community</title>
+        
+        <!-- Bootstrap core CSS -->
+        <apex:stylesheet value="{!URLFOR($Resource.Bootstrap, 'css/bootstrap.min.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FontAwesome, '4.3.0/css/font-awesome.min.css')}"/>
+        <apex:stylesheet value="{!$Resource.EMP_AssociatePortalPage_CSS}" />
+        
+        <!-- Bootstrap core JavaScript -->
+        <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.Bootstrap, 'js/bootstrap.min.js')}"/>
+        
+    </head>
+    <script type="text/javascript">
+    jQuery(document).ready(function(){
+        jQuery("marquee").hover(function(){
+            this.stop();
+        }, function() {
+            this.start();
+        });
+    });
+    </script>
+    <body>  
+        <div class="wrapper container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <a href='/Employees/apex/EMP_AssociatePortalPage'>
+                            <apex:image style="max-width:100px; float:left;" value="{!URLFOR($Resource.EMP_PortalImages, 'CDK_Logo_TM_RGB_300dpi_155x125.png')}" ></apex:image>
+                        </a>
+                    </div>
+                    <div class="col-md-8 header-right branded-links">
+                        <apex:form >
+                            <i class="fa fa-user"></i>
+                            <a href="{!$Site.Prefix}/_ui/core/userprofile/UserProfilePage?u={!$User.Id}" target="">Welcome {!$User.FirstName} {!$User.LastName}</a>! 
+                            <br/>
+                            
+                            <i class="fa fa-sign-out"></i>
+                            Not {!$User.FirstName}? <a href="{!$Site.Prefix}/secur/logout.jsp" target="_top">Logout</a>
+                            <br/>
+                            
+                            <i class="fa fa-weixin"></i> <span>Need Help? </span><a href="{!$Site.Prefix}/apex/EMP_AssociatePortalPage?page=ITSupportCommunity" >Contact Support</a><br/>
+                            <i class="fa fa-flag"></i> <span>Portal Home: </span>
+                            
+                            <select  onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                                <apex:repeat value="{!dropdownlist}" id="values" var="pcklist">
+                                    <option value="{!$Site.Prefix}/apex/{!pcklist.Page_Name__c}">{!pcklist.Name}</option>
+                                </apex:repeat>
+                            </select>
+                            <!--<apex:selectList value="{!dropdownlist}" size="1" id="values">
+<apex:selectOptions value="{!dropdownNames}"/>
+<apex:actionSupport event="onchange" action="{!redirect}" />    
+</apex:selectList>-->
+                        </apex:form>
+                    </div> 
+                </div> 
+            </div>
+            
+            <div class="navbar-wrapper">
+                <div class="container" style="padding:0px;">
+                    <!-- NAVBAR ================================================== -->                     
+                    <apex:form >
+                        <nav class="navbar navbar-static-top margin-bottom">
+                            <div class="">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <apex:commandlink action="{!refpage}">
+                                        <a class="navbar-brand" href="{!homePageName}"><i class="fa fa-home"></i>&nbsp;Associate Community</a>                                                   
+                                    </apex:commandlink>
+                                </div>
+                                <div id="navbar" class="navbar-collapse collapse">
+                                    <ul class="nav navbar-nav">
+                                        <apex:repeat value="{!listWrapMenu}" var="men" id="theRepeat">
+                                            <li class="dropdown">
+                                                <a href="{!$Site.Prefix}/apex/{!men.HomePagename}?page={!men.pagename}" class="dropdown-toggle" data-toggle="{!if(men.listMenuItem.size>0,'dropdown','')}" >{!men.mainMenu}
+                                                    <span class="{!if(men.listMenuItem.size>0,'caret','')}"></span></a>
+                                                <ul class="{!if(men.listMenuItem.size>0,'dropdown-menu','')}" role="menu">
+                                                    <apex:repeat value="{!men.listMenuItem}" var="meni" id="theRepeat2">
+                                                        <!--<li><a href="{!meni.pageNames}">{!meni.menuItem}</a></li>-->
+                                                        <li>
+                                                            <a href="{!$Site.Prefix}/apex/{!homePageUrl}?page={!meni.urlPagename}">{!meni.menuItem}</a>
+                                                        </li>
+                                                    </apex:repeat> 
+                                                </ul>
+                                            </li>
+                                        </apex:repeat>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </apex:form>  
+                    <!-- Carousel ================================================== -->
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <div class="carousel-inner" role="listbox">
+                            <apex:variable value="{!1}" var="rowNum"/>
+                            <apex:repeat value="{!lstAtt}" var="at">
+                                <div class="{!if(rowNum==1,'item active','item')}">
+                                    <apex:image styleclass="third-slide" value="{!$Site.Prefix}/servlet/servlet.FileDownload?file={!at.id}" ></apex:image>
+                                    <div class="carousel-caption" style="width:100%; left:3%; text-align:left; padding-bottom:0px;">
+                                        {!at.Description}
+                                    </div>
+                                </div>
+                                <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+                            </apex:repeat>
+                            
+                        </div>
+                        <apex:outputpanel rendered="{!showArrows}"> 
+                            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </apex:outputpanel>
+                    </div><!-- /.carousel -->
+                </div>
+            </div>
+            
+            <!-- Marketing messaging and featurettes ================================================== -->
+            <!-- Wrap the rest of the page in another container to center all the content. -->
+            <apex:outputpanel rendered="{!ScrollingBlock}">
+                <marquee direction="left" width="100%" onmouseover="this.stop();" onmouseout="this.start();" 
+                         class="ScrollingMsg">
+                    {!ScrollingMessage}
+                </marquee>
+            </apex:outputpanel>
+            
+            <div class="container marketing"> 
+                <!-- Three columns of text below the carousel -->
+                <div class="row">
+                    <div class="col-md-12 pad-top">
+                        <apex:messages styleClass="red-text page-messages"></apex:messages>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="{!ComponentOne.Class_Tag__c} {!if(Componentone.Component_Type__c == 'Content', 'remove-style', '')} pad-bottom page-component branded-links">
+                        <apex:include pageName="{!ComponentOne.VFPageName__c}" rendered="{!if(Componentone.Component_Type__c == 'Visualforce Page', true, false)}" />
+                        <div class="pad-horizontal">
+                            <apex:outputtext value="{!ComponentOne.Main_Content__c}" escape="false" rendered="{!if(Componentone.Component_Type__c == 'Content', true, false)}"/>
+                        </div> 
+                        <c:EMP_Chatter ChatterGroupId="{!ComponentOne.Chatter_Group__c}" rendered="{!if(Componentone.Component_Type__c == 'Chatter', true, false)}"/> 
+                        <c:EMP_PortalVideoComponent Content="{!ComponentOne.Main_Content__c}" VideoId="{!ComponentOne.Video_ID__c}" rendered="{!if(ComponentOne.Component_Type__c == 'Video', true, false)}"/>
+                    </div>
+                    <div class="{!ComponentTwo.Class_Tag__c} {!if(Componentone.Component_Type__c == 'Content', 'remove-style', '')} pad-bottom page-component branded-links">
+                        <apex:include pageName="{!ComponentTwo.VFPageName__c}" rendered="{!if(Componenttwo == null,false,true)}" />
+                        <div class="pad-horizontal">
+                            <apex:outputtext value="{!ComponentTwo.Main_Content__c}" escape="false" rendered="{!if(ComponentTwo.Component_Type__c == 'Content', true, false)}"/> 
+                        </div>
+                        <c:EMP_Chatter ChatterGroupId="{!ComponentTwo.Chatter_Group__c}" rendered="{!if(ComponentTwo.Component_Type__c == 'Chatter', true, false)}"/> 
+                        <c:EMP_PortalVideoComponent Content="{!ComponentTwo.Main_Content__c}" VideoId="{!ComponentTwo.Video_ID__c}" rendered="{!if(ComponentTwo.Component_Type__c == 'Video', true, false)}"/>
+                        
+                    </div>
+                    <div class="{!ComponentThree.Class_Tag__c} {!if(Componentone.Component_Type__c == 'Content', 'remove-style', '')} pad-bottom page-component branded-links">
+                        <apex:include pageName="{!ComponentThree.VFPageName__c}" rendered="{!if(ComponentThree.Component_Type__c == 'Visualforce Page', true, false)}" />
+                        <div class="pad-horizontal">
+                            <apex:outputtext value="{!ComponentThree.Main_Content__c}" escape="false" rendered="{!if(ComponentThree.Component_Type__c == 'Content', true, false)}"/> 
+                        </div>
+                        <c:EMP_Chatter ChatterGroupId="{!ComponentThree.Chatter_Group__c}" rendered="{!if(ComponentThree.Component_Type__c == 'Chatter', true, false)}"/> 
+                        <c:EMP_PortalVideoComponent Content="{!ComponentThree.Main_Content__c}" VideoId="{!ComponentThree.Video_ID__c}" rendered="{!if(ComponentThree.Component_Type__c == 'Video', true, false)}"/>
+                        
+                    </div>
+                    <div class="{!ComponentFour.Class_Tag__c} {!if(Componentone.Component_Type__c == 'Content', 'remove-style', '')} pad-bottom page-component branded-links">
+                        <apex:include pageName="{!ComponentFour.VFPageName__c}" rendered="{!if(ComponentFour.Component_Type__c == 'Visualforce Page', true, false)}" />
+                        <div class="pad-horizontal">
+                            <apex:outputtext value="{!ComponentFour.Main_Content__c}" escape="false" rendered="{!if(ComponentFour.Component_Type__c == 'Content', true, false)}"/> 
+                        </div>
+                        <c:EMP_Chatter ChatterGroupId="{!ComponentFour.Chatter_Group__c}" rendered="{!if(ComponentFour.Component_Type__c == 'Chatter', true, false)}"/> 
+                        <c:EMP_PortalVideoComponent Content="{!ComponentFour.Main_Content__c}" VideoId="{!ComponentFour.Video_ID__c}" rendered="{!if(ComponentFour.Component_Type__c == 'Video', true, false)}"/>
+                        
+                    </div> 
+                    <div class="{!ComponentFive.Class_Tag__c} {!if(Componentone.Component_Type__c == 'Content', 'remove-style', '')} pad-bottom page-component branded-links">
+                        <apex:include pageName="{!ComponentFive.VFPageName__c}" rendered="{!if(ComponentFive.Component_Type__c == 'Visualforce Page', true, false)}" />
+                        <div class="pad-horizontal">
+                            <apex:outputtext value="{!ComponentFive.Main_Content__c}" escape="false" rendered="{!if(ComponentFive.Component_Type__c == 'Content', true, false)}"/> 
+                        </div>
+                        <c:EMP_Chatter ChatterGroupId="{!ComponentFive.Chatter_Group__c}" rendered="{!if(ComponentFive.Component_Type__c == 'Chatter', true, false)}"/> 
+                        <c:EMP_PortalVideoComponent Content="{!ComponentFive.Main_Content__c}" VideoId="{!ComponentFive.Video_ID__c}" rendered="{!if(ComponentFive.Component_Type__c == 'Video', true, false)}"/>
+                        
+                    </div>
+                    <div class="{!ComponentSix.Class_Tag__c} {!if(Componentone.Component_Type__c == 'Content', 'remove-style', '')} pad-bottom page-component branded-links">
+                        <apex:include pageName="{!ComponentSix.VFPageName__c}" rendered="{!if(ComponentSix.Component_Type__c == 'Visualforce Page', true, false)}" />
+                        <div class="pad-horizontal">
+                            <apex:outputtext value="{!ComponentSix.Main_Content__c}" escape="false" rendered="{!if(ComponentSix.Component_Type__c == 'Content', true, false)}"/> 
+                        </div>
+                        <c:EMP_Chatter ChatterGroupId="{!ComponentSix.Chatter_Group__c}" rendered="{!if(ComponentSix.Component_Type__c == 'Chatter', true, false)}"/> 
+                        <c:EMP_PortalVideoComponent Content="{!ComponentSix.Main_Content__c}" VideoId="{!ComponentSix.Video_ID__c}" rendered="{!if(ComponentSix.Component_Type__c == 'Video', true, false)}"/>
+                        
+                    </div>
+                    <div class="{!ComponentSeven.Class_Tag__c} {!if(Componentone.Component_Type__c == 'Content', 'remove-style', '')} pad-bottom page-component branded-links">
+                        <apex:include pageName="{!ComponentSeven.VFPageName__c}" rendered="{!if(ComponentSeven.Component_Type__c == 'Visualforce Page', true, false)}" />
+                        <div class="pad-horizontal">
+                            <apex:outputtext value="{!ComponentSeven.Main_Content__c}" escape="false" rendered="{!if(ComponentSeven.Component_Type__c == 'Content', true, false)}"/> 
+                        </div>
+                        <c:EMP_Chatter ChatterGroupId="{!ComponentSeven.Chatter_Group__c}" rendered="{!if(ComponentSeven.Component_Type__c == 'Chatter', true, false)}"/> 
+                        <c:EMP_PortalVideoComponent Content="{!ComponentSeven.Main_Content__c}" VideoId="{!ComponentSeven.Video_ID__c}" rendered="{!if(ComponentSeven.Component_Type__c == 'Video', true, false)}"/>
+                        
+                    </div>
+                    <div class="{!ComponentEight.Class_Tag__c} {!if(Componentone.Component_Type__c == 'Content', 'remove-style', '')} pad-bottom page-component branded-links">
+                        <apex:include pageName="{!ComponentEight.VFPageName__c}" rendered="{!if(ComponentEight.Component_Type__c == 'Visualforce Page', true, false)}" />
+                        <!-- <apex:include pageName="{!ComponentEight.VFPageName__c}" rendered="{!if(ComponentEight.Component_Type__c == 'Video', true, false)}" /> -->
+                        
+                        <div class="pad-horizontal">
+                            <apex:outputtext value="{!ComponentEight.Main_Content__c}" escape="false" rendered="{!if(ComponentEight.Component_Type__c == 'Content', true, false)}"/> 
+                        </div>
+                        <c:EMP_Chatter ChatterGroupId="{!ComponentEight.Chatter_Group__c}" rendered="{!if(ComponentEight.Component_Type__c == 'Chatter', true, false)}"/> 
+                        <c:EMP_PortalVideoComponent Content="{!ComponentEight.Main_Content__c}" VideoId="{!ComponentEight.Video_ID__c}" rendered="{!if(ComponentEight.Component_Type__c == 'Video', true, false)}"/>
+                    </div>                
+                    <div class="{!ComponentNine.Class_Tag__c}">
+                        <apex:include pageName="{!ComponentNine.VFPageName__c}" rendered="{!if(Componentnine.Component_Type__c == 'Visualforce Page', true, false)}" />
+                        <div class="pad-horizontal">
+                            <apex:outputtext value="{!ComponentNine.Main_Content__c}" escape="false" rendered="{!if(ComponentNine.Component_Type__c == 'Content', true, false)}"/> 
+                        </div>
+                        <c:EMP_Chatter ChatterGroupId="{!ComponentNine.Chatter_Group__c}" rendered="{!if(Componentnine.Component_Type__c == 'Chatter', true, false)}"/> 
+                        <c:EMP_PortalVideoComponent Content="{!ComponentNine.Main_Content__c}" VideoId="{!ComponentNine.Video_ID__c}" rendered="{!if(ComponentNine.Component_Type__c == 'Video', true, false)}"/>
+                    </div> 
+                    <div class="{!ComponentTen.Class_Tag__c}">
+                        <apex:include pageName="{!ComponentTen.VFPageName__c}" rendered="{!if(ComponentTen.Component_Type__c == 'Visualforce Page', true, false)}" />
+                        <div class="pad-horizontal">
+                            <apex:outputtext value="{!ComponentTen.Main_Content__c}" escape="false" rendered="{!if(ComponentTen.Component_Type__c == 'Content', true, false)}"/> 
+                        </div>
+                        <c:EMP_Chatter ChatterGroupId="{!ComponentTen.Chatter_Group__c}" rendered="{!if(ComponentTen.Component_Type__c == 'Chatter', true, false)}"/> 
+                        <c:EMP_PortalVideoComponent Content="{!ComponentTen.Main_Content__c}" VideoId="{!ComponentTen.Video_ID__c}" rendered="{!if(ComponentTen.Component_Type__c == 'Video', true, false)}"/>
+                    </div>                
+                    <div class="{!ComponentEleven.Class_Tag__c}">
+                        <apex:include pageName="{!ComponentEleven.VFPageName__c}" rendered="{!if(ComponentEleven.Component_Type__c == 'Visualforce Page', true, false)}" />
+                        <div class="pad-horizontal">
+                            <apex:outputtext value="{!ComponentEleven.Main_Content__c}" escape="false" rendered="{!if(ComponentEleven.Component_Type__c == 'Content', true, false)}"/> 
+                        </div>
+                        <c:EMP_Chatter ChatterGroupId="{!ComponentEleven.Chatter_Group__c}" rendered="{!if(ComponentEleven.Component_Type__c == 'Chatter', true, false)}"/> 
+                        <c:EMP_PortalVideoComponent Content="{!ComponentEleven.Main_Content__c}" VideoId="{!ComponentEleven.Video_ID__c}" rendered="{!if(ComponentEleven.Component_Type__c == 'Video', true, false)}"/>
+                    </div> 
+                    <div class="{!ComponentTwelve.Class_Tag__c}">
+                        <apex:include pageName="{!ComponentTwelve.VFPageName__c}" rendered="{!if(ComponentTwelve.Component_Type__c == 'Visualforce Page', true, false)}" />
+                        <div class="pad-horizontal">
+                            <apex:outputtext value="{!ComponentTwelve.Main_Content__c}" escape="false" rendered="{!if(ComponentTwelve.Component_Type__c == 'Content', true, false)}"/> 
+                        </div>
+                        <c:EMP_Chatter ChatterGroupId="{!ComponentTwelve.Chatter_Group__c}" rendered="{!if(ComponentTwelve.Component_Type__c == 'Chatter', true, false)}"/> 
+                        <c:EMP_PortalVideoComponent Content="{!ComponentTwelve.Main_Content__c}" VideoId="{!ComponentTwelve.Video_ID__c}" rendered="{!if(ComponentTwelve.Component_Type__c == 'Video', true, false)}"/>
+                    </div> 
+                    <div class="{!ComponentThirteen.Class_Tag__c}">
+                        <apex:include pageName="{!ComponentThirteen.VFPageName__c}" rendered="{!if(ComponentThirteen.Component_Type__c == 'Visualforce Page', true, false)}" />
+                        <div class="pad-horizontal">
+                            <apex:outputtext value="{!ComponentThirteen.Main_Content__c}" escape="false" rendered="{!if(ComponentThirteen.Component_Type__c == 'Content', true, false)}"/> 
+                        </div>
+                        <c:EMP_Chatter ChatterGroupId="{!ComponentThirteen.Chatter_Group__c}" rendered="{!if(ComponentThirteen.Component_Type__c == 'Chatter', true, false)}"/> 
+                        <c:EMP_PortalVideoComponent Content="{!ComponentThirteen.Main_Content__c}" VideoId="{!ComponentThirteen.Video_ID__c}" rendered="{!if(ComponentThirteen.Component_Type__c == 'Video', true, false)}"/>
+                    </div> 
+                    <div class="{!ComponentFourteen.Class_Tag__c}">
+                        <apex:include pageName="{!ComponentFourteen.VFPageName__c}" rendered="{!if(ComponentFourteen.Component_Type__c == 'Visualforce Page', true, false)}" />
+                        <div class="pad-horizontal">
+                            <apex:outputtext value="{!ComponentFourteen.Main_Content__c}" escape="false" rendered="{!if(ComponentFourteen.Component_Type__c == 'Content', true, false)}"/> 
+                        </div>
+                        <c:EMP_Chatter ChatterGroupId="{!ComponentFourteen.Chatter_Group__c}" rendered="{!if(ComponentFourteen.Component_Type__c == 'Chatter', true, false)}"/> 
+                        <c:EMP_PortalVideoComponent Content="{!ComponentFourteen.Main_Content__c}" VideoId="{!ComponentFourteen.Video_ID__c}" rendered="{!if(ComponentFourteen.Component_Type__c == 'Video', true, false)}"/>
+                    </div> 
+                    <div class="{!ComponentFifteen.Class_Tag__c}">
+                        <apex:include pageName="{!ComponentFifteen.VFPageName__c}" rendered="{!if(ComponentFifteen.Component_Type__c == 'Visualforce Page', true, false)}" />
+                        <div class="pad-horizontal">
+                            <apex:outputtext value="{!ComponentFifteen.Main_Content__c}" escape="false" rendered="{!if(ComponentFifteen.Component_Type__c == 'Content', true, false)}"/> 
+                        </div>
+                        <c:EMP_Chatter ChatterGroupId="{!ComponentFifteen.Chatter_Group__c}" rendered="{!if(ComponentFifteen.Component_Type__c == 'Chatter', true, false)}"/> 
+                        <c:EMP_PortalVideoComponent Content="{!ComponentFifteen.Main_Content__c}" VideoId="{!ComponentFifteen.Video_ID__c}" rendered="{!if(ComponentFifteen.Component_Type__c == 'Video', true, false)}"/>
+                    </div> 
+                    <div class="{!ComponentSixteen.Class_Tag__c}">
+                        <apex:include pageName="{!ComponentSixteen.VFPageName__c}" rendered="{!if(ComponentSixteen.Component_Type__c == 'Visualforce Page', true, false)}" />
+                        <div class="pad-horizontal">
+                            <apex:outputtext value="{!ComponentSixteen.Main_Content__c}" escape="false" rendered="{!if(ComponentSixteen.Component_Type__c == 'Content', true, false)}"/> 
+                        </div>
+                        <c:EMP_Chatter ChatterGroupId="{!ComponentSixteen.Chatter_Group__c}" rendered="{!if(ComponentSixteen.Component_Type__c == 'Chatter', true, false)}"/> 
+                        <c:EMP_PortalVideoComponent Content="{!ComponentSixteen.Main_Content__c}" VideoId="{!ComponentSixteen.Video_ID__c}" rendered="{!if(ComponentSixteen.Component_Type__c == 'Video', true, false)}"/>
+                    </div> 
+                    <div class="{!ComponentSeventeen.Class_Tag__c}">
+                        <apex:include pageName="{!ComponentSeventeen.VFPageName__c}" rendered="{!if(ComponentSeventeen.Component_Type__c == 'Visualforce Page', true, false)}" />
+                        <div class="pad-horizontal">
+                            <apex:outputtext value="{!ComponentSeventeen.Main_Content__c}" escape="false" rendered="{!if(ComponentSeventeen.Component_Type__c == 'Content', true, false)}"/> 
+                        </div>
+                        <c:EMP_Chatter ChatterGroupId="{!ComponentSeventeen.Chatter_Group__c}" rendered="{!if(ComponentSeventeen.Component_Type__c == 'Chatter', true, false)}"/> 
+                        <c:EMP_PortalVideoComponent Content="{!ComponentSeventeen.Main_Content__c}" VideoId="{!ComponentSeventeen.Video_ID__c}" rendered="{!if(ComponentSeventeen.Component_Type__c == 'Video', true, false)}"/>
+                    </div> 
+                    <div class="{!ComponentEightteen.Class_Tag__c}">
+                        <apex:include pageName="{!ComponentEightteen.VFPageName__c}" rendered="{!if(ComponentEightteen.Component_Type__c == 'Visualforce Page', true, false)}" />
+                        <div class="pad-horizontal">
+                            <apex:outputtext value="{!ComponentEightteen.Main_Content__c}" escape="false" rendered="{!if(ComponentEightteen.Component_Type__c == 'Content', true, false)}"/> 
+                        </div>
+                        <c:EMP_Chatter ChatterGroupId="{!ComponentEightteen.Chatter_Group__c}" rendered="{!if(ComponentEightteen.Component_Type__c == 'Chatter', true, false)}"/> 
+                        <c:EMP_PortalVideoComponent Content="{!ComponentEightteen.Main_Content__c}" VideoId="{!ComponentEightteen.Video_ID__c}" rendered="{!if(ComponentEightteen.Component_Type__c == 'Video', true, false)}"/>
+                    </div> 
+                    <div class="{!ComponentNineteen.Class_Tag__c}">
+                        <apex:include pageName="{!ComponentNineteen.VFPageName__c}" rendered="{!if(ComponentNineteen.Component_Type__c == 'Visualforce Page', true, false)}" />
+                        <div class="pad-horizontal">
+                            <apex:outputtext value="{!ComponentNineteen.Main_Content__c}" escape="false" rendered="{!if(ComponentNineteen.Component_Type__c == 'Content', true, false)}"/> 
+                        </div>
+                        <c:EMP_Chatter ChatterGroupId="{!ComponentNineteen.Chatter_Group__c}" rendered="{!if(ComponentNineteen.Component_Type__c == 'Chatter', true, false)}"/> 
+                        <c:EMP_PortalVideoComponent Content="{!ComponentNineteen.Main_Content__c}" VideoId="{!ComponentNineteen.Video_ID__c}" rendered="{!if(ComponentNineteen.Component_Type__c == 'Video', true, false)}"/>
+                    </div>
+                    <div class="{!ComponentTwenty.Class_Tag__c}">
+                        <apex:include pageName="{!ComponentTwenty.VFPageName__c}" rendered="{!if(ComponentTwenty.Component_Type__c == 'Visualforce Page', true, false)}" />
+                        <div class="pad-horizontal">
+                            <apex:outputtext value="{!ComponentTwenty.Main_Content__c}" escape="false" rendered="{!if(ComponentTwenty.Component_Type__c == 'Content', true, false)}"/> 
+                        </div>
+                        <c:EMP_Chatter ChatterGroupId="{!ComponentTwenty.Chatter_Group__c}" rendered="{!if(ComponentTwenty.Component_Type__c == 'Chatter', true, false)}"/> 
+                        <c:EMP_PortalVideoComponent Content="{!ComponentTwenty.Main_Content__c}" VideoId="{!ComponentTwenty.Video_ID__c}" rendered="{!if(ComponentTwenty.Component_Type__c == 'Video', true, false)}"/>
+                    </div> 
+                    
+                </div><!-- /.container -->
+            </div>
+            
+            <div class="container footer">
+                <footer>
+                    <p class="pull-right"><a href="#">Back to top</a></p>
+                    <p>&copy; 2015 CDK Global &middot; </p>
+                </footer>
+            </div> 
+        </div>
+        <!-- /.wrapper .container -->
+        
+        <script>
+        (function(i,s,o,g,r,a,m){
+            i['GoogleAnalyticsObject']=r;
+            i[r]=i[r]||function(){ 
+                (i[r].q=i[r].q||[]).push(arguments)
+            },
+                i[r].l=1*new Date();
+            a=s.createElement(o), 
+                m=s.getElementsByTagName(o)[0];
+            a.async=1;
+            a.src=g;
+            m.parentNode.insertBefore(a,m) 
+        })
+        (window,document,'script','//www.google-analytics.com/analytics.js','ga'); 
+        ga('create', 'UA-58410620-1', 'auto'); 
+        ga('send', 'pageview'); 
+        
+        /* remove content styles */
+        jQuery(".remove-style span, .remove-style div").children().removeAttr("style");
+        
+        </script> 
+        
+    </body>
+    
+</apex:page>

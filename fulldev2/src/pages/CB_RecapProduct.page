@@ -1,0 +1,6 @@
+<apex:page standardcontroller="Recap_Product__c">
+    <apex:outputpanel ><div class="bPageTitle"><div class="ptBreadcrumb">&nbsp;&laquo;&nbsp;<a href="/{!Recap_Product__c.Recap__c}">Back to Recap: {!Recap_Product__c.Recap__r.Name}</a></div></div><br/></apex:outputpanel>
+    <apex:detail subject="{!Recap_Product__c.Recap__c}" relatedList="false" inlineEdit="true" />
+    <div class="ProductName" style="border: 2px solid #DDD; background-color: #DDD; padding: 2px 10px; font-weight: bold; font-size: 1.2em; " >{!Recap_Product__c.RecordType.Name}</div><br/>
+    <apex:detail subject="{!Recap_Product__c}" inlineEdit="true" />
+</apex:page>

@@ -1,0 +1,3 @@
+<apex:page standardController="Case" extensions="SA_TABOVER.TabHomeController" recordSetVar="cases" action="{!initCasePage}">
+	<apex:pageMessages />
+</apex:page>

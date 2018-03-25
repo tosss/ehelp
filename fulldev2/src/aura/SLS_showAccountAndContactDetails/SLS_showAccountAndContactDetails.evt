@@ -1,0 +1,11 @@
+<aura:event type="COMPONENT" description="to show account Details" >
+    <!--
+	Author:        Vishal Bandari
+	Description:   Event to show Lead Detail  Tab with Account and Contact Details in 'Work My Leads' Page
+	Created on:    05 March 2016
+ 	-->
+    <aura:attribute type="String" name="AccountId"/>
+    <aura:attribute type="String" name="ContactId"/>
+    <aura:attribute type="String" name="LeadId"/>
+    <aura:attribute type="String" name="leadName" />
+</aura:event>

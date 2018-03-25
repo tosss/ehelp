@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>IMP_DataTableObjectSetting</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>IMP_DataTableObjectSetting</value>
+    </caseValues>
+    <fields>
+        <label><!-- DataTable Column Fieldset Name --></label>
+        <name>DataTableColumnFieldsetName__c</name>
+    </fields>
+    <fields>
+        <help><!-- This fieldset will be used by the data table component to build the filter criteria section and the actual filtering of the records. NOTE: only editable fields are allowed to be added on this fieldset. --></help>
+        <label><!-- DataTable Filter Fieldset Name --></label>
+        <name>DataTableFilterFieldsetName__c</name>
+    </fields>
+    <fields>
+        <label><!-- DataTable Sorting And Direction --></label>
+        <name>DataTableSortingAndDirection__c</name>
+    </fields>
+    <fields>
+        <label><!-- DataTable Where Clause --></label>
+        <name>DataTableWhereClause__c</name>
+    </fields>
+    <fields>
+        <help><!-- Label Name of the object that will be label the data table. --></help>
+        <label><!-- SObject Label Name --></label>
+        <name>SObjectLabelName__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

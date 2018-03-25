@@ -1,0 +1,946 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Used by Service Ops Project Management Team</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Business_Owner__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Business Owner</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Services_Projects</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>EM_Notes__c</fullName>
+        <description>This field will contain the technical overview of project provided by the Engagement Manager.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field will contain the technical overview of project provided by the Engagement Manager.</inlineHelpText>
+        <label>EM Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>EM_Status_Update__c</fullName>
+        <description>This field contains the EM Status for the service project.</description>
+        <externalId>false</externalId>
+        <label>EM Status Update</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Launch_Manager__c</fullName>
+        <description>The project&apos;s Launch Manager.</description>
+        <externalId>false</externalId>
+        <label>Launch Manager</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Launch_Type__c</fullName>
+        <description>The type of project launch.</description>
+        <externalId>false</externalId>
+        <label>Launch Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Awareness Only</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CXEM Priority List</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Full Launch</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Internal Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Internal Services Lite</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Launch Lite</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Level_of_Effort__c</fullName>
+        <description>This field is used by management to assign a value to each project in order to determine capacity/workload.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field is used by management to assign a value to each project in order to determine capacity/workload.</inlineHelpText>
+        <label>Level of Effort</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Links_Resources__c</fullName>
+        <externalId>false</externalId>
+        <label>Links &amp; Resources</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Milestones__c</fullName>
+        <externalId>false</externalId>
+        <label>Milestones</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Overall_Services_Impact__c</fullName>
+        <description>This field contains the overall service impact</description>
+        <externalId>false</externalId>
+        <label>Overall Services Impact</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>High</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Overall_Status__c</fullName>
+        <description>Open, Closed, or Cancelled (based on Project Stage)</description>
+        <externalId>false</externalId>
+        <formula>IF( ISPICKVAL(Project_Stage__c, &apos;Cancelled&apos;), &apos;Cancelled&apos;,
+IF( ISPICKVAL(Project_Stage__c, &apos;Closed&apos;), &apos;Closed&apos;, &apos;Open&apos;))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Open, Closed, or Cancelled (based on Project Stage)</inlineHelpText>
+        <label>Overall Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PM_Notes__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Bullet Points with Dates</inlineHelpText>
+        <label>PM Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>PM_Sync_Complete__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This box should be checked once the EM has transitioned this project to the PM.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This box should be checked once the EM has transitioned this project to the PM.</inlineHelpText>
+        <label>PM Sync Complete</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Program__c</fullName>
+        <description>This field contains the Program associated with the Service Project.</description>
+        <externalId>false</externalId>
+        <label>Program</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Ad Products</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Core</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BMW</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GM Canada</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GM Mexico</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hyundai</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Holden</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Kia</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lexus</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MINI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Non Endorsed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VW</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Internal Focused</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IT/Corp Initiative</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Toyota</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Infiniti</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mazda</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nissan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Project_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Project Description</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Project_Stage__c</fullName>
+        <externalId>false</externalId>
+        <label>Project Stage</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Pre-Launch</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Launched</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Post Launch Support</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Project_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Project Start Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Project_Status__c</fullName>
+        <description>Green: Project is on track for completion by GA Date. 
+Yellow: Project target GA date is at risk of slipping.
+Red: Project is blocked and team cannot make further progress.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Green: Project is on track for completion by GA Date. 
+Yellow: Project target GA date is at risk of slipping.
+Red: Project is blocked and team cannot make further progress.</inlineHelpText>
+        <label>Project Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Green</fullName>
+                <color>#33CC00</color>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yellow</fullName>
+                <color>#FFFF66</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Red</fullName>
+                <color>#FF0000</color>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Project_Updates__c</fullName>
+        <externalId>false</externalId>
+        <label>Project Updates</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Service_Engagement_Manager__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The project&apos;s Engagement Manager.</description>
+        <externalId>false</externalId>
+        <label>Service Engagement Manager</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>User.Profile.Name</field>
+                <operation>notContain</operation>
+                <value>Community</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Projects</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Service_Projects__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Service Projects</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Services Projects</relationshipLabel>
+        <relationshipName>Services_Projects</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Services_Priority__c</fullName>
+        <externalId>false</externalId>
+        <label>Services Priority</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Services_Project_ID__c</fullName>
+        <displayFormat>SP-{0000}</displayFormat>
+        <externalId>false</externalId>
+        <label>Services Project ID</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>Steps_to_Green__c</fullName>
+        <description>This field contains the steps to move the service project from red to green.</description>
+        <externalId>false</externalId>
+        <label>Steps to Green</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Target_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Target End Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Target_Launch_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Target Launch Date</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Teams_Impacted__c</fullName>
+        <externalId>false</externalId>
+        <label>Teams Impacted</label>
+        <picklist>
+            <picklistValues>
+                <fullName>AA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DAA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IFS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>L&amp;D</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marketing Strategist</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RepMan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SEO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Ops</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <label>Services Project</label>
+    <listViews>
+        <fullName>All_Open_Projects</fullName>
+        <columns>NAME</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Project_Status__c</columns>
+        <columns>Project_Start_Date__c</columns>
+        <columns>Target_Launch_Date__c</columns>
+        <columns>Teams_Impacted__c</columns>
+        <columns>Service_Engagement_Manager__c</columns>
+        <columns>Launch_Manager__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Overall_Status__c</field>
+            <operation>equals</operation>
+            <value>Open</value>
+        </filters>
+        <filters>
+            <field>Service_Engagement_Manager__c</field>
+            <operation>equals</operation>
+            <value>David Lindahl</value>
+        </filters>
+        <label>David&apos;s Projects</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>My_Projects</fullName>
+        <columns>NAME</columns>
+        <columns>Project_Status__c</columns>
+        <columns>Service_Engagement_Manager__c</columns>
+        <columns>Launch_Manager__c</columns>
+        <columns>Target_Launch_Date__c</columns>
+        <columns>PM_Sync_Complete__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>Overall_Status__c</field>
+            <operation>equals</operation>
+            <value>Open</value>
+        </filters>
+        <label>My Projects</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Resource_Assignments</fullName>
+        <columns>NAME</columns>
+        <columns>Service_Engagement_Manager__c</columns>
+        <columns>Project_Stage__c</columns>
+        <columns>Project_Start_Date__c</columns>
+        <columns>Target_Launch_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Overall_Status__c</field>
+            <operation>equals</operation>
+            <value>Open</value>
+        </filters>
+        <label>Resource Assignments</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <label>Project Name</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Services Projects</pluralLabel>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Project_Profile</fullName>
+        <active>true</active>
+        <label>Project Profile</label>
+        <picklistValues>
+            <picklist>Launch_Type__c</picklist>
+            <values>
+                <fullName>Awareness Only</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CXEM Priority List</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Full Launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal Services Lite</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Launch Lite</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Overall_Services_Impact__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Program__c</picklist>
+            <values>
+                <fullName>Ad Products</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BMW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Core</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GM Canada</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GM Mexico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Holden</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hyundai</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IT%2FCorp Initiative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Infiniti</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal Focused</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lexus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MINI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mazda</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nissan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non Endorsed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Toyota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VW</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Project_Stage__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Launched</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Post Launch Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Launch</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Project_Status__c</picklist>
+            <values>
+                <fullName>Green</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yellow</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Teams_Impacted__c</picklist>
+            <values>
+                <fullName>AA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DAA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IFS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>L%26D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing Strategist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RepMan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SEO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Ops</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>Project_Stage__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Project_Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Project_Start_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Target_Launch_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OWNER.FIRST_NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OWNER.LAST_NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Service_Engagement_Manager__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Project_Stage__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Project_Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Project_Start_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Target_Launch_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>OWNER.FIRST_NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>OWNER.LAST_NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Service_Engagement_Manager__c</lookupDialogsAdditionalFields>
+        <searchFilterFields>Service_Engagement_Manager__c</searchFilterFields>
+        <searchFilterFields>OWNER.FIRST_NAME</searchFilterFields>
+        <searchFilterFields>OWNER.LAST_NAME</searchFilterFields>
+        <searchFilterFields>Project_Stage__c</searchFilterFields>
+        <searchFilterFields>Project_Status__c</searchFilterFields>
+        <searchResultsAdditionalFields>Project_Stage__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Project_Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Project_Start_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Target_Launch_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>OWNER.FIRST_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>OWNER.LAST_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Service_Engagement_Manager__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <webLinks>
+        <fullName>Issues_Export</fullName>
+        <availability>online</availability>
+        <description>Links to a report - PM - Project Issues Button</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Issues/Risks Export</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00O400000044avB?&amp;pv0={!Service_Ops_Projects__c.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Questions_Action_Items_Export</fullName>
+        <availability>online</availability>
+        <description>Link to report of questions and action items related to the services project.</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Questions/Action Items Export</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00O400000044avC?&amp;pv0={!Service_Ops_Projects__c.Id}</url>
+    </webLinks>
+</CustomObject>

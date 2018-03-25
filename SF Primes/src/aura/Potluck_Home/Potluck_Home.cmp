@@ -1,0 +1,10 @@
+<aura:component >
+    <aura:attribute type="String" name="hardware" default="{!$Browser.formFactor}" />
+    <div class="slds-grid slds-container--center slds-container--large" style="margin-top: 0.5%;max-width:100%;">
+        <div class="slds-col--padded">
+            
+            <div style="background-image:url(/resource/PotluckHome);background-size:cover;height:600px;width:100%;"></div>
+            
+        </div>
+    </div>
+</aura:component>

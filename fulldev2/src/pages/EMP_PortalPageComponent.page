@@ -1,0 +1,67 @@
+<apex:page standardController="Page_Component__c" title="Portal Page Component: {!IF(ISBLANK(Page_Component__c.Name),'New Portal Page Component',Page_Component__c.Name)}" >
+    
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.CKEditor,'ckeditor/ckeditor.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.CKEditor,'ckeditor/adapters/jquery.js')}"/>
+    
+    <apex:sectionHeader title="Portal Page Component Edit" subtitle="{!IF(ISBLANK(Page_Component__c.Name),'New Portal Page Component',Page_Component__c.Name)}" />
+    
+    <apex:pageMessages />
+    
+    <apex:form id="ComponentEditorForm">
+        <apex:pageBlock title="Portal Page Component Edit" mode="edit" >
+            
+            <div class="component-fields">
+                <apex:pageBlockSection columns="1" title="Information"  >
+                    <apex:inputfield id="Name" value="{!Page_Component__c.Name}" required="true" />
+                    <apex:inputfield id="PortalPage" value="{!Page_Component__c.Portal_Page__c}"/>
+                    <apex:inputfield id="ComponentType" value="{!Page_Component__c.Component_Type__c}"/>
+                    <apex:inputfield id="ComponentOrder" value="{!Page_Component__c.Component_Order__c}" required="true" />
+                    <apex:inputfield id="VFPageName" value="{!Page_Component__c.VFPageName__c}" required="true" />
+                    <apex:inputfield id="ChatterGroup" value="{!Page_Component__c.Chatter_Group__c}"/>
+                    <apex:inputfield id="ClassTag" value="{!Page_Component__c.Class_Tag__c}"/>
+                    <apex:inputfield id="VideoTag" value="{!Page_Component__c.Video_ID__c}"/>
+                    <apex:inputTextarea id="MainEditor" value="{!Page_Component__c.Main_Content__c}"></apex:inputTextarea>
+                </apex:pageBlockSection>
+            </div>
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!save}" />
+                <apex:commandButton value="Cancel" action="{!cancel}" immediate="true" />
+            </apex:pageBlockButtons>
+            
+        </apex:pageBlock>
+    </apex:form>
+    
+    <script type="text/javascript">
+    var j$ = jQuery.noConflict();
+    
+    var CustomFullToolbar = [
+        { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
+        { name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
+        { name: 'forms', groups: [ 'forms' ] },
+        { name: 'links', groups: [ 'links' ] },
+        { name: 'insert', groups: [ 'insert' ] },
+        { name: 'document', groups: [ 'doctools', 'document', 'mode' ] },
+        { name: 'tools', groups: [ 'tools' ] },
+        '/',
+        { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+        { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
+        '/',
+        { name: 'styles', groups: [ 'styles' ] },
+        { name: 'colors', groups: [ 'colors' ] },
+        { name: 'others', groups: [ 'others' ] },
+        { name: 'about', groups: [ 'about' ] }
+    ];
+    
+    var CustomFullToolbarRemoveButtons = 
+        'Flash,Save,Templates,NewPage,Preview,Print,Replace,Scayt,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField';
+    
+    j$("[id$='MainEditor']").ckeditor({
+        allowedContent: true,
+        toolbarGroups: CustomFullToolbar,
+        removeButtons: CustomFullToolbarRemoveButtons
+    });
+    </script>
+    
+</apex:page>

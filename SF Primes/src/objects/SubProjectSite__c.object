@@ -1,0 +1,998 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Junction object to allow associating multiple Sites (Accounts) with a SubProject.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fieldSets>
+        <fullName>SubProject_Site_Common</fullName>
+        <description>Query using field set</description>
+        <displayedFields>
+            <field>Account__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Project__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>City__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>IsDeleted</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SubProject__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SubProject_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>State_Province__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Phone__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CreatedById</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CreatedDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastModifiedById</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastModifiedDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Id</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Dealer_Group__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CMF_Name__r.Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Ship_CMF__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Street_Address__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>New_Server_URL_CDK_CRM__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>SubProject Site Common</label>
+    </fieldSets>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>SubProject Sites</relationshipLabel>
+        <relationshipName>SubProjectSites</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Business_Unit__c</fullName>
+        <externalId>false</externalId>
+        <formula>CMF_Name__r.Ship_CMF_Business_Unit__c</formula>
+        <label>Business Unit</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CMF_Name__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>CMF Name</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>CMF_Info__c.Status__c</field>
+                <operation>equals</operation>
+                <value>A</value>
+            </filterItems>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>CMF_Info__c</referenceTo>
+        <relationshipLabel>SubProjectSites</relationshipLabel>
+        <relationshipName>SubProjectSites</relationshipName>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CMF_Numbers__c</fullName>
+        <externalId>false</externalId>
+        <label>CMF Number(s)</label>
+        <length>2000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>CTI_Desktop__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>CTI Desktop</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>City__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.BillingCity</formula>
+        <label>City</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DTA__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>DTA</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Dealer_Group_Do_Not_Use__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This is old dealer group field on subprojectSite for which data is populated from subProjectSite trigger. We changed that to a formula field now. This field is just used to preserve old data now.</description>
+        <externalId>false</externalId>
+        <label>Dealer Group Do Not Use</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>SubProjectSites (Dealer Group)</relationshipLabel>
+        <relationshipName>SubProjectSites_DealerGroup_del</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Dealer_Group__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/&quot;+ 
+IF 
+( 
+ISBLANK( Account__r.Corporation__c ), 
+IF 
+( 
+ISBLANK( Account__r.Group__c ), 
+Account__c, 
+Account__r.Group__c 
+), 
+Account__r.Corporation__c 
+), 
+IF 
+( 
+ISBLANK( Account__r.Corporation__c ), 
+IF 
+( 
+ISBLANK( Account__r.Group__c ), 
+Account__r.Name, 
+Account__r.Group__r.Name 
+), 
+Account__r.Corporation__r.Name 
+) 
+
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Dealer Group</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FES_Details__c</fullName>
+        <externalId>false</externalId>
+        <label>FES Details</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Fax__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.Fax</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Fax</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IP_Telephony__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>IP Telephony</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Logon_Access__c</fullName>
+        <externalId>false</externalId>
+        <label>Logon Access</label>
+        <picklist>
+            <picklistValues>
+                <fullName>90-day free default</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unlimited Access Purchased</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not needed for this project type</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unknown at this time</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Migration_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Migration_ID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>New_CMF__c</fullName>
+        <externalId>false</externalId>
+        <label>New CMF#</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>New_C__c</fullName>
+        <externalId>false</externalId>
+        <label>New C#</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>New_Dealer_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>New Dealer Code</label>
+        <length>120</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>New_GL_CO__c</fullName>
+        <externalId>false</externalId>
+        <label>New GL CO#</label>
+        <length>225</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>New_Hosting__c</fullName>
+        <externalId>false</externalId>
+        <label>New Hosting</label>
+        <picklist>
+            <picklistValues>
+                <fullName>ASP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Onsite</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>N/A</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>New_IP_Address__c</fullName>
+        <externalId>false</externalId>
+        <label>New IP Address</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>New_Location__c</fullName>
+        <externalId>false</externalId>
+        <label>New Location</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Elk Grove</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ann Arbor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DC1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DC2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ORD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LAS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>N/A</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>New_Logons__c</fullName>
+        <externalId>false</externalId>
+        <label>New Logons</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>New_Manufacturer__c</fullName>
+        <externalId>false</externalId>
+        <label>New Manufacturer</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>New_Platform__c</fullName>
+        <externalId>false</externalId>
+        <label>New Platform</label>
+        <picklist>
+            <picklistValues>
+                <fullName>CDK CRM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CDK Drive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CDK DriveXL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CDK Vehicle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PFW</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>w.e.b.Suite 1000</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>w.e.b.Suite 200*</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>New_Server_URL_CDK_CRM__c</fullName>
+        <externalId>false</externalId>
+        <label>New Server URL (CDK CRM)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>New_Server_URL_CDK_Vehicle__c</fullName>
+        <externalId>false</externalId>
+        <label>New Server URL (CDK Vehicle)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_DL_Scanners__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of DL Scanners</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OEM_Integration__c</fullName>
+        <externalId>false</externalId>
+        <label>OEM Integration</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Old_CMF__c</fullName>
+        <externalId>false</externalId>
+        <label>Old CMF#</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Old_C__c</fullName>
+        <externalId>false</externalId>
+        <label>Old C#</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Old_Dealer_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Old Dealer Code</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Old_GL_CO__c</fullName>
+        <externalId>false</externalId>
+        <label>Old GL CO#</label>
+        <length>225</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Old_Hosting__c</fullName>
+        <externalId>false</externalId>
+        <label>Old Hosting</label>
+        <picklist>
+            <picklistValues>
+                <fullName>ASP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Onsite</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>N/A</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Old_IP_Address__c</fullName>
+        <externalId>false</externalId>
+        <label>Old IP Address</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Old_Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Old Location</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Old_Logons__c</fullName>
+        <externalId>false</externalId>
+        <label>Old Logons</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Old_Manufacturer__c</fullName>
+        <externalId>false</externalId>
+        <label>Old Manufacturer</label>
+        <length>120</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Old_Platform__c</fullName>
+        <externalId>false</externalId>
+        <label>Old Platform</label>
+        <picklist>
+            <picklistValues>
+                <fullName>CDK CRM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CDK Drive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CDK DriveXL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CDK Vehicle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PFW</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>w.e.b.Suite 1000</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>w.e.b.Suite 200*</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>PD__c</fullName>
+        <description>Premier Dealer flag value from the associated account on a particular subProject Site record</description>
+        <externalId>false</externalId>
+        <formula>Account__r.Premier_Dealer__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Premier Dealer flag value from the associated account</inlineHelpText>
+        <label>PD</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Phone__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.Phone</formula>
+        <label>Phone</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Project</label>
+        <referenceTo>Project__c</referenceTo>
+        <relationshipLabel>Sites</relationshipLabel>
+        <relationshipName>SubProjectSites</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RMS_Request_Ids__c</fullName>
+        <externalId>false</externalId>
+        <label>RMS Request Ids</label>
+        <length>2000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Ship_CMF__c</fullName>
+        <externalId>false</externalId>
+        <formula>CMF_Name__r.Ship_CMF__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Ship CMF #</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Special_Instructions__c</fullName>
+        <externalId>false</externalId>
+        <label>Special Instructions</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>State_Province__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.BillingState</formula>
+        <label>State/Province</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Street_Address__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.BillingStreet</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Street Address</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SubProject_Confidential__c</fullName>
+        <externalId>false</externalId>
+        <formula>SubProject__r.Confidential__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>SubProject Confidential</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SubProject_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>SubProject__r.SubProject_Name__c</formula>
+        <label>SubProject Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SubProject_Name_from_RMS__c</fullName>
+        <externalId>false</externalId>
+        <label>SubProject Name from RMS</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SubProject_Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(SubProject__r.SubProject_Status__c)</formula>
+        <label>SubProject Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SubProject__c</fullName>
+        <externalId>false</externalId>
+        <label>SubProject</label>
+        <referenceTo>SubProject__c</referenceTo>
+        <relationshipLabel>Sites</relationshipLabel>
+        <relationshipName>SubProjectSites</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>SubProject_for_Filters__c</fullName>
+        <externalId>false</externalId>
+        <label>SubProject for Filters</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Time_Zone__c</fullName>
+        <externalId>false</externalId>
+        <label>Time Zone</label>
+        <picklist>
+            <picklistValues>
+                <fullName>ACST - Australian Central Std Time</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AEST - Australian Eastern Std Time</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AKST - Alaska Std Time</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ATL - Atlantic Std Time</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AWST - Australian Western Std Time</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ChST - Guam Std Time</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CST - Central Standard Time</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EST - Eastern Std Time</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HAST - Hawaii Std Time</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MST - Mountain Standard Time</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NST - Nfld Std Time</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PST - Pacific Standard Time</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Website__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.Website</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Website</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Zip__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.BillingPostalCode</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Zip</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>SubProjectSite</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>SubProject__c</columns>
+        <columns>NAME</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Ship_CMF__c</columns>
+        <columns>CMF_Name__c</columns>
+        <columns>Account__c</columns>
+        <columns>Dealer_Group_Do_Not_Use__c</columns>
+        <columns>Business_Unit__c</columns>
+        <columns>Time_Zone__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>SPS-{000000000}</displayFormat>
+        <label>SubProjectSite ID</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>SubProjectSites</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Account__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Business_Unit__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Ship_CMF__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>SubProject__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>SubProject_Name__c</lookupDialogsAdditionalFields>
+        <lookupFilterFields>NAME</lookupFilterFields>
+        <lookupFilterFields>Account__c</lookupFilterFields>
+        <lookupFilterFields>CMF_Name__c</lookupFilterFields>
+        <searchResultsAdditionalFields>SubProject_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Account__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Business_Unit__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Ship_CMF__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>New_CMF_Number_Is_Numeric</fullName>
+        <active>true</active>
+        <description>New CMF # can have only numeric values</description>
+        <errorConditionFormula>NOT(ISNUMBER(New_CMF__c)) &amp;&amp; NOT(ISBLANK(New_CMF__c)) &amp;&amp; NOT(BEGINS($User.Username,$Setup.GlobalSettings__c.Admin_Integration_Username__c))</errorConditionFormula>
+        <errorDisplayField>New_CMF__c</errorDisplayField>
+        <errorMessage>New CMF# field should contain only numeric values.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Old_CMF_Number_Is_Numeric</fullName>
+        <active>true</active>
+        <description>Old CMF # can have only numeric values</description>
+        <errorConditionFormula>NOT(ISNUMBER(Old_CMF__c)) &amp;&amp; NOT(ISBLANK(Old_CMF__c)) &amp;&amp; NOT(BEGINS($User.Username,$Setup.GlobalSettings__c.Admin_Integration_Username__c))</errorConditionFormula>
+        <errorDisplayField>Old_CMF__c</errorDisplayField>
+        <errorMessage>Old CMF# field should contain only numeric values.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Add_CMF_to_Existing_Site</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Add CMF to Existing Site</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>window.open(&apos;/apex/IMP_AddCMFtoSubProjectSite?Id={!SubProject__c.Id}&apos;, &apos;CMF&apos;,&apos;location=1,status=1,scrollbars=1,resizable=1, width=810,height=300&apos;);</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Remove_CMF_from_Existing_Site</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Remove CMF from Existing Site</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>window.open(&apos;/apex/IMP_RemoveCMFtoSubProjectSite?Id={!SubProject__c.Id}&apos;, &apos;CMF&apos;,&apos;location=1,status=1,scrollbars=1,resizable=1, width=825,height=300&apos;);</url>
+    </webLinks>
+</CustomObject>

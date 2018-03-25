@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Forms_OwnerFieldSetting</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Forms_OwnerFieldSetting</value>
+    </caseValues>
+    <fields>
+        <label><!-- Assigned Forms Builder --></label>
+        <name>Assigned_Forms_Builder__c</name>
+    </fields>
+    <fields>
+        <label><!-- Identifier --></label>
+        <name>Identifier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Owner to LAS --></label>
+        <name>Owner_to_LAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Owner to LFD --></label>
+        <name>Owner_to_LFD__c</name>
+    </fields>
+    <fields>
+        <label><!-- Owner to LIS --></label>
+        <name>Owner_to_LIS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Record Type --></label>
+        <name>Record_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rejected FCC --></label>
+        <name>Rejected_FCC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rejected LAS --></label>
+        <name>Rejected_LAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rejected LFD --></label>
+        <name>Rejected_LFD__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

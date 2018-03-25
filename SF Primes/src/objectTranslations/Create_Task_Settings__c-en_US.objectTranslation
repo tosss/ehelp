@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Create Task Settings</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Create Task Settings</value>
+    </caseValues>
+    <fields>
+        <label><!-- Assigned to --></label>
+        <name>Assigned_to__c</name>
+    </fields>
+    <fields>
+        <label><!-- Assignee sObject --></label>
+        <name>Assignee_sObject__c</name>
+    </fields>
+    <fields>
+        <label><!-- BusinessDays --></label>
+        <name>BusinessDays__c</name>
+    </fields>
+    <fields>
+        <label><!-- Close Completed Tasks --></label>
+        <name>Close_Completed_Tasks__c</name>
+    </fields>
+    <fields>
+        <label><!-- Identifier --></label>
+        <name>Identifier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Weeks --></label>
+        <name>Number_of_Weeks__c</name>
+    </fields>
+    <fields>
+        <label><!-- Record Type --></label>
+        <name>Record_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reference Date --></label>
+        <name>Reference_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Task Subject/Type --></label>
+        <name>Task_Subject_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Week Day --></label>
+        <name>Week_Day__c</name>
+    </fields>
+    <fields>
+        <label><!-- Who --></label>
+        <name>Who__c</name>
+    </fields>
+    <fields>
+        <label><!-- sObject --></label>
+        <name>sObject__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

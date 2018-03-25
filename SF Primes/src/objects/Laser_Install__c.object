@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Installed Laser Information</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>ACT_Create_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>ACT Create Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ACT_Modified_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>ACT Modified Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Artwork_Vision_Case_Link__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF (NOT ( ISBLANK( Artwork_Vision_Case__c )), hyperlink(&quot;http://dstdevwebint1he.ds.ad.adp.com/AutoToolsX/Vision/VisionPrintPage.aspx?IdNumber=&quot; &amp; Artwork_Vision_Case__c &amp; &quot;&amp;PrintActivityLogFlag=false&amp;OutputType=html&amp;LoginName=&quot; &amp; IF(ISBLANK($User.FirstName), $User.LastName, $User.FirstName &amp; &quot; &quot; &amp; $User.LastName ), &quot;Open Vision Case&quot;), &quot; &quot;)</formula>
+        <label>Artwork Vision Case Link</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Artwork_Vision_Case__c</fullName>
+        <externalId>false</externalId>
+        <formula>Laser_Artwork_Order__r.Artwork_Vision_Case__c</formula>
+        <label>Artwork Vision Case #</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CMF_Info__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>CMF Info</label>
+        <referenceTo>CMF_Info__c</referenceTo>
+        <relationshipLabel>Laser Installs</relationshipLabel>
+        <relationshipName>R00N40000001m7zbEAA</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CMF__c</fullName>
+        <externalId>false</externalId>
+        <formula>CMF_Info__r.Ship_CMF__c</formula>
+        <label>CMF #</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contract__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract #</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dealer_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Dealer Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Laser Installs</relationshipLabel>
+        <relationshipName>R00N40000001lfjOEAQ</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>EFD_Lasers__c</fullName>
+        <externalId>false</externalId>
+        <label># EFD Lasers</label>
+        <precision>3</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EFD_Last_Downloaded_By__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>LIS users only</description>
+        <externalId>false</externalId>
+        <inlineHelpText>You can only search for LIS users.</inlineHelpText>
+        <label>EFD Last Downloaded By</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 OR 2 OR 3</booleanFilter>
+            <errorMessage>You can only search for LIS users.</errorMessage>
+            <filterItems>
+                <field>User.Profile.Name</field>
+                <operation>equals</operation>
+                <value>ADPDS - Laser - LIS</value>
+            </filterItems>
+            <filterItems>
+                <field>User.Profile.Name</field>
+                <operation>contains</operation>
+                <value>Laser - RRP</value>
+            </filterItems>
+            <filterItems>
+                <field>$User.Username</field>
+                <operation>notContain</operation>
+                <value>integration_user@adp.com</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Laser_Installs</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>EFD_Last_Downloaded__c</fullName>
+        <externalId>false</externalId>
+        <label>EFD Last Downloaded</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>EFD_Revision__c</fullName>
+        <externalId>false</externalId>
+        <label>EFD Revision</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EFD_Site_Created_By__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>LIS users only</description>
+        <externalId>false</externalId>
+        <inlineHelpText>You can only search for LIS users.</inlineHelpText>
+        <label>EFD Site Created By</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>You can only search for LIS users.</errorMessage>
+            <filterItems>
+                <field>User.Profile.Name</field>
+                <operation>equals</operation>
+                <value>ADPDS - Laser - LIS</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Laser_Installs_LIS</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>EFD_Site_Created__c</fullName>
+        <externalId>false</externalId>
+        <label>EFD Site Created</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ELF_Install_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>ELF Install Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ELF_Site_Created__c</fullName>
+        <externalId>false</externalId>
+        <label>ELF Site Created</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Install_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Install Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Add-On</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Box Migration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Buy/Sell</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Upgrade</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unhook</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Install_Vision_Case_Free_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Install Vision Case Free Type</label>
+        <length>12</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Install_Vision_Case__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF (NOT ( ISBLANK( Install_Vision_Case_Free_Type__c )), hyperlink(&quot;http://dstdevwebint1he.ds.ad.adp.com/AutoToolsX/Vision/VisionPrintPage.aspx?IdNumber=&quot; &amp; Install_Vision_Case_Free_Type__c &amp; &quot;&amp;PrintActivityLogFlag=false&amp;OutputType=html&amp;LoginName=&quot; &amp; IF(ISBLANK($User.FirstName), $User.LastName, $User.FirstName &amp; &quot; &quot; &amp; $User.LastName ), &quot;Open Vision Case&quot;), &quot; &quot;)</formula>
+        <label>Install Vision Case</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LIN_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>LIN Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Installed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Laser_Artwork_Order__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Laser Artwork Order</label>
+        <referenceTo>Laser_Artwork_Order__c</referenceTo>
+        <relationshipLabel>Laser Installs</relationshipLabel>
+        <relationshipName>Laser_Installs</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Migration_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Migration ID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Notes</label>
+        <length>400</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Total_Lasers__c</fullName>
+        <externalId>false</externalId>
+        <formula>EFD_Lasers__c  +  non_EFD_Lasers__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label># Total Lasers</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>non_EFD_Lasers__c</fullName>
+        <externalId>false</externalId>
+        <label># Non-EFD Lasers</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Laser Install</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>CMF__c</columns>
+        <columns>CMF_Info__c</columns>
+        <columns>Dealer_Contact__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>LIN - {00000}</displayFormat>
+        <label>Laser Install</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Laser Installs</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Dealer_Contact__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Total_Lasers__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Dealer_Contact__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Total_Lasers__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Dealer_Contact__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Total_Lasers__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Dealer_Contact__c</searchFilterFields>
+        <searchFilterFields>Total_Lasers__c</searchFilterFields>
+        <searchResultsAdditionalFields>Dealer_Contact__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Total_Lasers__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

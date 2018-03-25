@@ -1,0 +1,61 @@
+<apex:page showHeader="false" sidebar="false" standardstylesheets="false" controller="EMP_MyInformationController">
+    <apex:stylesheet value="{!URLFOR($Resource.Bootstrap, 'css/bootstrap.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.Bootstrap, 'js/bootstrap.min.js')}"/>
+    <apex:stylesheet value="{!$Resource.EMP_AssociatePortalPage_CSS}" />
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}" />
+    
+    
+    <script type="text/javascript">
+    var headertext = [],
+        headers = document.querySelectorAll("#HR_MyInfo th"),
+        tablerows = document.querySelectorAll("#HR_MyInfo th"),
+        tablebody = document.querySelector("#HR_MyInfo tbody");
+    
+    for(var i = 0; i < headers.length; i++) {
+        var current = headers[i];
+        headertext.push(current.textContent.replace(/\r?\n|\r/,""));
+    } 
+    for (var i = 0, row; row = tablebody.rows[i]; i++) {
+        for (var j = 0, col; col = row.cells[j]; j++) {
+            col.setAttribute("data-th", headertext[j]);
+        } 
+    }
+    
+    </script>
+    <h2>My Information</h2>
+    <apex:outputPanel rendered="{!myInfoContact.size != 0}">
+        <table id="HR_MyInfo" style="width:100%;">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Vendor ID</th>
+                    <th>Email</th>
+                    <th>HR Title</th>
+                    <th>HR Manager</th>
+                    <th>HR Location</th>
+                    <th>HR Business Unit</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <apex:repeat value="{!myInfoContact}" var="myContactInfo">
+                    <tr>
+                        <td>{!myContactInfo.FirstName}</td>
+                        <td>{!myContactInfo.Lastname}</td>
+                        <td>  
+                            <c:ALL_MaskText NumCharToMask="5" TextValue="{!myContactInfo.Vendor_ID__c}" HelpText="Click to Reveal"></c:ALL_MaskText>
+                        </td>
+                        <td>{!myContactInfo.Email}</td>
+                        <td>{!myContactInfo.HR_Title__c}</td>
+                        <td>{!myContactInfo.HR_Manager__r.Name}</td>
+                        <td>{!myContactInfo.HR_Location__c}</td>
+                        <td>{!myContactInfo.HR_Business_Unit__c}</td>
+                    </tr>
+                    
+                </apex:repeat>
+                
+            </tbody>    
+        </table>
+    </apex:outputPanel>
+</apex:page>

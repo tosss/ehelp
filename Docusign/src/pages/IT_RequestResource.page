@@ -1,0 +1,188 @@
+<apex:page controller="IT_RequestResource_Controller" tabStyle="Request_Resource__c" sidebar="false" >
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css"/>
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.10.4.custom.min.js')}" />
+    <style>
+        .displayNone { 
+        display:none; 
+        }
+        .displayBlock {
+        display:block;
+        }
+        .ui-autocomplete-loading { 
+        background: white url(/img/loading32.gif) right center no-repeat;
+        background-size:15px 15px; 
+        }
+        .placeHolder {
+        font-style: italic;
+        }
+        .ui-autocomplete{
+        overflow-x : scroll;
+        overflow-y : scroll;
+        height : 200px;
+        width : 140px;
+        white-space: nowrap;
+        }
+        .warning {
+        color:red;
+        font-weight:bold;
+        }
+        .resource-input {
+        width: 50%;
+        font-size: 14pt;
+        }
+    </style>            
+    <apex:form >      
+        <apex:actionFunction name="callDisplay" action="{!displayRequestResources}"/>
+        
+        <apex:sectionHeader title="Add Request Resources" subtitle="{!IF(req.Name != null, req.Name, 'Request')}" />
+        
+        <apex:pageBlock >
+            <apex:pageMessages id="messages"/>            
+            <apex:pageBlockSection collapsible="false" title="Request" id="requestInfo">                 
+                <apex:inputField id="request" label="Request" value="{!reqRes.Request__c}" required="true">
+                    <apex:actionSupport event="onchange" action="{!requestPopulated}" reRender="requestInfo,messages,table" /> 
+                </apex:inputField>                
+                <apex:outputField label="Request Name" value="{!req.Name}"  />
+                <apex:outputField label="Created By" value="{!req.createdbyid}"/>
+                <apex:outputField label="Status" value="{!req.Status__c}"/>                    
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection columns="1" collapsible="false" id="resource" title="Resource Type and Name">                                                                                 
+                <apex:inputField label="Type" id="type"  value="{!reqRes.Resource_Type__c}" />
+                <apex:pageBlockSectionItem helpText="To find a resource, begin typing...">
+                    <apex:outputtext >Resource</apex:outputtext>
+                    <apex:inputText id="term" styleClass="resource-input" value="{!reqRes.name}" />
+                </apex:pageBlockSectionItem> 
+            </apex:pageBlockSection> 
+            
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Submit" onclick="submitDetails();" reRender="table,noelement" />
+                <apex:commandButton value="Cancel" onclick="window.open('/','_self');" reRender="noelement" />
+            </apex:pageBlockButtons> 
+            
+        </apex:pageBlock>
+        
+        <apex:pageBlock >
+            <apex:pageBlockSection collapsible="false" id="table" title="Resources" columns="1">
+                <apex:outputPanel style="text-align:center;" rendered="{!reqRes.Request__c == null}">
+                    <div class="warning">Please select a request. </div>
+                </apex:outputPanel>
+                <apex:outputText rendered="{!(resourcesPresent.size==0 && reqRes.Request__c != null)}" value="No resources to display"></apex:outputText>
+                <apex:pageBlockTable width="100%" rendered="{!resourcesPresent.size>0}" align="center" border="true" value="{!resourcesPresent}" var="obj">                
+                    <apex:column headerValue="Request Resource">
+                        <apex:outputLink target="_blank" value="/{!obj['Id']}">{!obj.Name}</apex:outputLink>
+                    </apex:column>
+                    <apex:column value="{!obj.Resource_Type__c}" title="Type" />
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+    </apex:form>
+    
+    <script type="text/javascript">
+    var j$ = jQuery.noConflict();
+    var queryterm=''; 
+    var searchterm='';
+    var resourceList = new Array();
+            
+    j$("[Id$=term]").keyup(function()
+    {
+        if(j$("[id$=type]").val() === '')
+        {
+            if(resourceList != null)
+            {resourceList.length = 0;}
+            alert('Please select the type of resource.');
+            j$("[Id$=term]").val('');
+        }
+     }); 
+    
+    function submitDetails(resourceName, resourceType)
+    {
+        var request = j$("[id$=request]").val();
+        var requestId = j$("[id$=request_lkid]").val();
+        var type = (resourceType && resourceType != null && resourceType != "") ? resourceType : j$("[id$=type]").val();
+        var searchTerm = (resourceName && resourceName != null && resourceName != "") ? resourceName : j$("[id$=term]").val();
+        
+        if( request === '' || type === '' || searchTerm === '')
+        {
+            alert('Please ensure that all details are filled in.');
+        }
+        else
+        {
+            var found = false;
+            for(var i=0;i<resourceList.length;i++)
+            {
+                if(searchTerm === resourceList[i])
+                {
+                    found = true;
+                }            
+            }
+            if(!found)
+            {
+                alert("Please give a valid resource name.");               
+            }
+            else
+            {
+                IT_RequestResource_Controller.saveRecord(requestId, type, searchTerm, function(result, event)
+                {
+                    if(result == 'Duplicate Found')
+                    {
+                        alert("The seleced resource has already been added.");
+                        j$("[id$=type]").val('');
+                        j$("[id$=term]").val('');
+                    }
+                    else if(result!=null)
+                    {
+                        j$("[id$=type]").val('');
+                        j$("[id$=term]").val('');
+                        callDisplay();                                             
+                    }
+                    else
+                    {
+                        alert('Please ensure that all details are filled.');                                           
+                    }
+                });
+            }
+        }        
+    }
+    
+    j$("[Id$=type]").change(function()
+    {  
+        j$("[Id$=term]").val('');
+        if(resourceList != null)
+        {
+            resourceList.length = 0;
+        }
+        queryterm = j$("[Id$=type]").val();    
+        searchterm = j$("[Id$=term]").val();
+        if(queryterm === 'StandardSObject' || queryterm === 'CustomSObject')
+        {
+            IT_RequestResource_Controller.searchObjects(queryterm,searchterm,function(result, event)
+            {
+                j$.each(result, function(i, item)
+                {
+                    resourceList.push(item);                           
+                });                
+            });
+        }
+        else
+        {
+            IT_RequestResource_Controller.searchResource(queryterm, searchterm, function(result, event)
+            {
+                j$.each(result, function(i, item)
+                {
+                    resourceList.push(item.Name); 
+                });                
+            }); 
+        }
+    });
+    
+    j$('[id$=term]').autocomplete(
+        {
+            source: resourceList, 
+            select: function( event, ui ) { console.log(); submitDetails(ui.item.value) }
+        }
+    );     
+    </script>
+</apex:page>

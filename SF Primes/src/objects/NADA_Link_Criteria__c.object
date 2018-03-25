@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Active</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Contact_Field__c</fullName>
+        <externalId>false</externalId>
+        <label>Contact Field</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Group__c</fullName>
+        <externalId>false</externalId>
+        <label>Group</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Modifier__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>A regular expression modifier that will be applied to the NADA Swipe field contents before it is queried. A blank value in this field will not modify either field before comparison.</inlineHelpText>
+        <label>Regex Modifier</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Replacement__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>A regular expression replacement that is applied to the NADA Swipe field contents before it is queried. This field requires the Modifier field to be set. If the Modifier field is not set, this field is ignored.</inlineHelpText>
+        <label>Regex Replacement</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Swipe_Field__c</fullName>
+        <externalId>false</externalId>
+        <label>Swipe Field</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>NADA Link Criteria</label>
+    <visibility>Public</visibility>
+</CustomObject>

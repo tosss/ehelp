@@ -1,0 +1,14 @@
+<!---------------------------------------------------------------- 
+// RQ-05791    - SubProject Home Page changes.
+// Description - This Page renders the CDF lines canvas app View of SubProject
+// 2015-12-09  - venkata.shrivol@cdk.com  - Created
+-------------------------------------------------------------------->
+
+<apex:page standardController="SubProject__c" extensions="IMP_CDFLinesCanvasAppView_Extension" showHeader="true" sidebar="true" tabStyle="SubProject__c">
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.7.2.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.8.20.custom.min.js')}" />
+    <c:IMP_SubProjectSectionHeader autoName="{!SubProject__c.Name}" subProjectName="{!SubProject__c.SubProject_Name__c}" subProjectId="{!SubProject__c.Id}" confidentialCheck="{!SubProject__c.Confidential__c}" chatterFeedCheck="true">
+    </c:IMP_SubProjectSectionHeader>
+    <apex:include pageName="IMP_SubProjectButtons"/>
+    <apex:CanvasApp width="100%" maxWidth="100%" scrolling="yes" developerName="IMP_IMPACT_Subproject_CDFLine" parameters="{!parameterString}" /> 
+</apex:page>

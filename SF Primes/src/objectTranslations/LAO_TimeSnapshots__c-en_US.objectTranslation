@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>LAO TimeSnapshots</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>LAO TimeSnapshots</value>
+    </caseValues>
+    <fields>
+        <label><!-- Change Made By --></label>
+        <name>Change_Made_By__c</name>
+        <relationshipLabel><!-- LAO TimeSnapshots --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Cycle/End Time --></label>
+        <name>Cycle_End_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cycle Start Time --></label>
+        <name>Cycle_Start_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cycle Time Label --></label>
+        <name>Cycle_Time_Label__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cycle Time --></label>
+        <name>Cycle_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date/Time of Change --></label>
+        <name>DateTime_of_Change__c</name>
+    </fields>
+    <fields>
+        <label><!-- Field Changed --></label>
+        <name>Field_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- LAO --></label>
+        <name>LAO__c</name>
+        <relationshipLabel><!-- LAO TimeSnapshots --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Migration ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reason for Change --></label>
+        <name>Reason_for_Change__c</name>
+    </fields>
+    <fields>
+        <label><!-- Revision # --></label>
+        <name>Revision__c</name>
+    </fields>
+    <layouts>
+        <layout>LAO TimeSnapshots Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

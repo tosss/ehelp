@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Services Project Question/Action Item</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Services Projects Questions/Action Items</value>
+    </caseValues>
+    <fields>
+        <label><!-- Answers --></label>
+        <name>Answers__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Due Date --></label>
+        <name>Due_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Due --></label>
+        <name>Due__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please note: this field has a character limit of 255 --></help>
+        <label><!-- Next Steps --></label>
+        <name>Next_Steps__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notes --></label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Owner Name --></label>
+        <name>Owner_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Requested By --></label>
+        <name>Requested_By__c</name>
+        <relationshipLabel><!-- Services Projects Questions/Action Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Service Ops Project --></label>
+        <name>Service_Ops_Projects__c</name>
+        <relationshipLabel><!-- Services Projects Questions/Action Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Hold</masterLabel>
+            <translation><!-- On Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Action Item</masterLabel>
+            <translation><!-- Action Item --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Question</masterLabel>
+            <translation><!-- Question --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Services Project Action Items Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- blank --></label>
+            <section>blank</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

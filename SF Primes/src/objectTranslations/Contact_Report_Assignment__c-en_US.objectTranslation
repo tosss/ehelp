@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Contact Report Assignment</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Contact Report Assignments</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Contact Report Assignments --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Cobalt_Consolidation_ID --></label>
+        <name>Cobalt_Consolidation_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Account --></label>
+        <name>Contact_Account__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <lookupFilter>
+            <errorMessage><!-- Value does not exist or does not match filter criteria.  Note:  Only contacts at the account will be visible on the list. --></errorMessage>
+        </lookupFilter>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Contact Report Assignments --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- If a contact is no longer active on the account and/or no longer needs to receive reports, please input the date the contact report assignment should be inactivated. --></help>
+        <label><!-- End Date --></label>
+        <name>End_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check this box if this contact should appear in the “To:” line of the report email template.  Only one contact can be placed in the “To:” line. --></help>
+        <label><!-- Primary --></label>
+        <name>Primary__c</name>
+    </fields>
+    <fields>
+        <label><!-- Report List --></label>
+        <name>Report_List__c</name>
+        <picklistValues>
+            <masterLabel>CMR</masterLabel>
+            <translation><!-- CMR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DAPR</masterLabel>
+            <translation><!-- DAPR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email Marketing ROI Report</masterLabel>
+            <translation><!-- Email Marketing ROI Report --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Role Account --></label>
+        <name>Role_Account__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- WebID --></label>
+        <lookupFilter>
+            <errorMessage><!-- Value does not exist or does not match filter criteria. Note: Only WebIDs for the account will be listed here. --></errorMessage>
+        </lookupFilter>
+        <name>WebID__c</name>
+        <relationshipLabel><!-- Contact Report Assignments --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Contact Role Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- New_Cobalt_Role --></label>
+        <name>New_Cobalt_Role</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Cobalt_Role_WebID --></label>
+        <name>New_Cobalt_Role_WebID</name>
+    </webLinks>
+</CustomObjectTranslation>

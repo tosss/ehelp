@@ -1,0 +1,86 @@
+<apex:page controller="ItemsToApprove_Controller" id="page">
+    
+    <apex:includeScript value="{!URLFOR($Resource.ItemsToApprove_JS)}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}" />
+    
+    <apex:form id="form">
+        
+        <apex:pageBlock id="ItemsToApprove" title="Items To Approve" helpTitle="Items to Approve Help" helpUrl="https://help.salesforce.com/htviewhelpdoc?id=approvals_my_pending.htm&siteLang=en_US">
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Manage All" id="ManageAll" title="Manage All" onclick="newTab('/04i');" rerender="dummy"/>
+            </apex:pageBlockButtons>
+            
+            <apex:facet name="footer"> 
+                <span></span>
+            </apex:facet>
+           
+            
+            <apex:outputLabel value="View:" style="font-weight: bold;"/>&nbsp;&nbsp;
+                <apex:selectList size="1" multiselect="false" id="selectList" value="{!selectedOption}">
+                    <apex:selectOption itemValue="my" itemLabel="My Items to Approve" ></apex:selectOption>
+                    <apex:selectOption itemValue="all" itemLabel="All Items to Approve" ></apex:selectOption>
+                    <apex:actionSupport event="onchange" reRender="panel" action="{!rerenderTable}" status="actionStatus"/>
+                </apex:selectList>  
+            
+            <br/>
+            <apex:variable var="rownumber" value="{!1}"/>
+            <apex:actionStatus id="actionStatus" >
+            <apex:facet name="start">
+                <div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb;
+                       height: 100%;opacity:0.65;width:100%;"> 
+                    <div class="waitingHolder" style="top: 50%; width: 50%;">
+                        <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+                        <span class="waitingDescription">Loading...</span>
+                    </div>
+                </div>
+            </apex:facet>
+            </apex:actionStatus>
+            <br/>
+            
+            <apex:outputPanel id="panel">
+                <apex:pageBlockTable id="table" value="{!ItemsToApproveList}" var="Item" columns="6" rendered="{!renderTable}">
+                    
+                    <apex:column style="color:#00000F;" headerValue="Action" width="165px" id="firstColumn" >
+                        <apex:outputPanel rendered="{!If(Item.ReassignApproveurl==null,false,true)}">
+                        	<apex:commandLink rerender="dummy" onmouseover="underline(this);" onclick="newTab('/{!Item.ReassignApproveUrl}/e?et=REASSIGN&retURL=%2Fhome%2Fhome.jsp');" onmouseout="removeUnderline(this);" value="Reassign" id="Reassign" title="Reaasign - Record {!rownumber} - {!Item.RelatedTo}"  style="color:#015ba7;text-decoration:none;" />
+                        	&nbsp;|&nbsp; 
+                        	<apex:commandLink rerender="dummy" onmouseover="underline(this);" onmouseout="removeUnderline(this);" title="Approve / Reject - Record {!rownumber} - {!Item.RelatedTo}" onclick="newTab('/p/process/ProcessInstanceWorkitemWizardStageManager?id={!Item.ReassignApproveurl}');" value="Approve / Reject" style="color:#015ba7;text-decoration:none;"  />
+                        </apex:outputPanel>
+                        <apex:commandLink rendered="{!If(Item.ReassignApproveurl==null,true,false)}" rerender="dummy" onmouseover="underline(this);" onmouseout="removeUnderline(this);" value="No Actions" style="color:#015ba7;text-decoration:none;" />
+                    </apex:column>
+                    
+                    <apex:column headerValue="Related To" >
+                        <apex:commandLink onclick="newTab('/{!Item.RelatedToId}');" value="{!Item.RelatedTo}" rerender="dummy"/>
+                    </apex:column>
+                    
+                    <apex:column headerValue="Type" value="{!Item.Type}"/>
+                    
+                    <apex:column headerValue="Assigned To" >
+                        <apex:commandLink onclick="newTab('/{!Item.AssignedToId}',{!If(Item.ReassignApproveurl==null,true,false)});" rerender="dummy" value="{!Item.AssignedTo}" />
+                    </apex:column>/>
+                    
+                    <apex:column headerValue="Most Recent Approver" >
+                        
+                        <apex:commandLink rerender="dummy" onclick="newTab('/{!Item.MostRecentApproverId}');" value="{!Item.MostRecentApprover}" />
+                    </apex:column> 
+                    
+                    <apex:column headerValue="Date Submitted" value="{!Item.DateSubmitted}"/>
+                    
+                    <apex:variable var="rownumber" value="{!rownumber+1}"/>
+                    
+                </apex:pageBlockTable>
+                
+                <div style='{!If(renderTable,"display:none;" ,"border:1px solid #e0e3e5; height:20px;align:centre; ")}' >
+                    <div style="border:3px solid #f8f8f8;">
+                        {!showMessage}
+                    </div>
+                </div> 
+                
+            </apex:outputPanel>
+            
+        </apex:pageBlock>
+        
+    </apex:form>
+    
+</apex:page>

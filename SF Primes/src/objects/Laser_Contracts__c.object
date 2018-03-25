@@ -1,0 +1,2155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Used by Laser group to log contracts for clients</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Artwork_Change_Fee_Per_Form__c</fullName>
+        <description>Artwork Change Fee Per Form</description>
+        <externalId>false</externalId>
+        <label>Artwork Change Fee Per Form</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Artwork_Change_Fee_Per_Site__c</fullName>
+        <description>Artwork Change Fee Per Site</description>
+        <externalId>false</externalId>
+        <label>Artwork Change Fee Per Site</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Artwork_New_Add_Fee_Per_Form__c</fullName>
+        <description>Artwork New/Add Fee Per Form</description>
+        <externalId>false</externalId>
+        <label>Artwork New/Add Fee Per Form</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Artwork_New_Add_Fee_Per_Site__c</fullName>
+        <description>Artwork New/Add Fee Per Site</description>
+        <externalId>false</externalId>
+        <label>Artwork New/Add Fee Per Site</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Billable_Paper_Amount__c</fullName>
+        <description>Billable Paper Amount</description>
+        <externalId>false</externalId>
+        <label>Billable Paper Amount</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Billable_Toner_Amount__c</fullName>
+        <description>Billable Toner Amount</description>
+        <externalId>false</externalId>
+        <label>Billable Toner Amount</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Billing_Setup_Case_Link__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF (NOT ( ISBLANK( Billing_Setup_Case__c )), hyperlink(&quot;http://dstdevwebint1he.ds.ad.adp.com/AutoToolsX/Vision/VisionPrintPage.aspx?IdNumber=&quot; &amp; Billing_Setup_Case__c &amp; &quot;&amp;PrintActivityLogFlag=false&amp;OutputType=html&amp;LoginName=&quot; &amp; IF(ISBLANK($User.FirstName), $User.LastName, $User.FirstName &amp; &quot; &quot; &amp; $User.LastName ), &quot;Open Billing Case&quot;), &quot; &quot;)</formula>
+        <label>Billing Setup Case Link</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Billing_Setup_Case__c</fullName>
+        <externalId>false</externalId>
+        <label>Billing Setup Case #</label>
+        <length>12</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Case Number</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Change_Fee_Per_Form__c</fullName>
+        <externalId>false</externalId>
+        <label>Change Fee Per Form</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Change_Fee_Per_Site__c</fullName>
+        <externalId>false</externalId>
+        <label>Change Fee Per Site</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <length>400</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Contract_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Number</label>
+        <length>8</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Current_Rate_Billable_Paper_Amount__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Current Rate (Billable Paper Amount)</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Current_Rate_Billable_Toner_Amount__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Current Rate (Billable Toner Amount)</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Current_Rate_Paper__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Current Rate (Paper)</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Current_Rate_Toner__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Current Rate (Toner)</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Do_Not_Adjust__c</fullName>
+        <description>Do Not Adjust</description>
+        <externalId>false</externalId>
+        <label>Do Not Adjust</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Issue</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Management Directed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NSA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Draft_Received_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Draft Received Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Financial_Statement_Per_Logon__c</fullName>
+        <description>Financial Statement Per Logon</description>
+        <externalId>false</externalId>
+        <label>Financial Statement Per Logon</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Financial_Statement_Per_Manuf__c</fullName>
+        <description>Financial Statement Per Manuf</description>
+        <externalId>false</externalId>
+        <label>Financial Statement Per Manuf</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Financial_Statement_Per_Site__c</fullName>
+        <description>Financial Statement Per Site</description>
+        <externalId>false</externalId>
+        <label>Financial Statement Per Site</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Fiscal_Year__c</fullName>
+        <externalId>false</externalId>
+        <label>Fiscal Year</label>
+        <picklist>
+            <picklistValues>
+                <fullName>FY’08 (0.0532/0.0665)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FY’09 (0.0562/0.0701)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FY’10 (0.0594/0.0740)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FY’11 (0.0628/0.0782)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FY’12 (0.0653/0.0813)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FY’13 (0.0653/0.0813)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FY’14 (0.0653/0.0813)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FY’15 (0.0689/0.0813)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Flat_Printer_Rate__c</fullName>
+        <externalId>false</externalId>
+        <label>Flat Printer Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Flat_Sheet_Rate__c</fullName>
+        <externalId>false</externalId>
+        <label>Flat Sheet Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Flat_Site_Rate__c</fullName>
+        <externalId>false</externalId>
+        <label>Flat Site Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Freight_Suppression__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Freight Suppression</description>
+        <externalId>false</externalId>
+        <label>Freight Suppression</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Frequency_in_Months__c</fullName>
+        <description>Frequency in Months</description>
+        <externalId>false</externalId>
+        <label>Frequency in Months</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Laser_Billing_Info__c</fullName>
+        <externalId>false</externalId>
+        <label>Laser Billing Info</label>
+        <referenceTo>Laser_Billing_Info__c</referenceTo>
+        <relationshipLabel>Laser Contracts</relationshipLabel>
+        <relationshipName>R00N40000001lfnEEAQ</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Laser_Contract__c</fullName>
+        <externalId>false</externalId>
+        <formula>TRIM(Name)</formula>
+        <label>Laser Contract #</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Migration_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Migration ID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>New_Add_Fee_Per_Form__c</fullName>
+        <externalId>false</externalId>
+        <label>New/Add Fee Per Form</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>New_Add_Fee_Per_Site__c</fullName>
+        <externalId>false</externalId>
+        <label>New/Add Fee Per Site</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Notified_LAS_Team__c</fullName>
+        <externalId>false</externalId>
+        <label>Notified LAS Team</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Overage_Rate_Amount__c</fullName>
+        <description>Overage Rate Amount</description>
+        <externalId>false</externalId>
+        <label>Overage Rate Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Paper_Allotment_Amount__c</fullName>
+        <description>Paper Allotment Amount</description>
+        <externalId>false</externalId>
+        <label>Paper Allotment Amount</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Paper_Allotment_Level__c</fullName>
+        <description>Paper Allotment Level</description>
+        <externalId>false</externalId>
+        <label>Paper Allotment Level</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Per Group</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Per Laser</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Per Site</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Paper_Allotment_Type__c</fullName>
+        <description>Paper Allotment Type</description>
+        <externalId>false</externalId>
+        <label>Paper Allotment Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Cases</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sheets</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Paper_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Paper Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Per_Logon__c</fullName>
+        <externalId>false</externalId>
+        <label>Per Logon</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Per_Manufacturer__c</fullName>
+        <externalId>false</externalId>
+        <label>Per Manufacturer</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Per_Site__c</fullName>
+        <externalId>false</externalId>
+        <label>Per Site</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Ship_To_CMF_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Laser_Billing_Info__r.Ship_To_CMF_Name__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Ship-To CMF Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Ship_To_CMF__c</fullName>
+        <description>Ship-To CMF</description>
+        <externalId>false</externalId>
+        <formula>Laser_Billing_Info__r.Ship_To_CMF_Name__r.Ship_CMF__c</formula>
+        <label>Ship-To CMF</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Special_Instructions__c</fullName>
+        <description>Special Instructions</description>
+        <externalId>false</externalId>
+        <label>Special Instructions</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Terms_Months__c</fullName>
+        <externalId>false</externalId>
+        <label>Terms - Months</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Toner_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Toner Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <label>Laser Contracts</label>
+    <nameField>
+        <displayFormat>LCO-{00000}</displayFormat>
+        <label>Laser Contract</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Laser Contracts</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>FY_Flat_Sheet_Rate</fullName>
+        <active>true</active>
+        <description>Use for clients with a FY flat sheet rate catalog number contracted and there is not a NSA for another rate and/or billing model.</description>
+        <label>FY Flat Sheet Rate</label>
+        <picklistValues>
+            <picklist>Do_Not_Adjust__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management Directed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NSA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fiscal_Year__c</picklist>
+            <values>
+                <fullName>FY%E2%80%9908 %280%2E0532%2F0%2E0665%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9909 %280%2E0562%2F0%2E0701%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9910 %280%2E0594%2F0%2E0740%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9911 %280%2E0628%2F0%2E0782%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9912 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9913 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9914 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9915 %280%2E0689%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Level__c</picklist>
+            <values>
+                <fullName>Per Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Laser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Site</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Type__c</picklist>
+            <values>
+                <fullName>Cases</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sheets</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>IDMS</fullName>
+        <active>true</active>
+        <description>Use for IDMS clients.</description>
+        <label>IDMS</label>
+        <picklistValues>
+            <picklist>Do_Not_Adjust__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management Directed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NSA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fiscal_Year__c</picklist>
+            <values>
+                <fullName>FY%E2%80%9908 %280%2E0532%2F0%2E0665%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9909 %280%2E0562%2F0%2E0701%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9910 %280%2E0594%2F0%2E0740%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9911 %280%2E0628%2F0%2E0782%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9912 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9913 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9914 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9915 %280%2E0689%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Level__c</picklist>
+            <values>
+                <fullName>Per Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Laser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Site</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Type__c</picklist>
+            <values>
+                <fullName>Cases</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sheets</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Laser_Two</fullName>
+        <active>true</active>
+        <description>Use for Laser Two clients that have no exceptions or a NSA drafted.</description>
+        <label>Laser Two</label>
+        <picklistValues>
+            <picklist>Do_Not_Adjust__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management Directed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NSA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fiscal_Year__c</picklist>
+            <values>
+                <fullName>FY%E2%80%9908 %280%2E0532%2F0%2E0665%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9909 %280%2E0562%2F0%2E0701%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9910 %280%2E0594%2F0%2E0740%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9911 %280%2E0628%2F0%2E0782%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9912 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9913 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9914 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9915 %280%2E0689%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Level__c</picklist>
+            <values>
+                <fullName>Per Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Laser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Site</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Type__c</picklist>
+            <values>
+                <fullName>Cases</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sheets</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>NSAArtwork</fullName>
+        <active>true</active>
+        <description>Use for clients that have an artwork only related NSA.</description>
+        <label>NSA - Artwork</label>
+        <picklistValues>
+            <picklist>Do_Not_Adjust__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management Directed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NSA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fiscal_Year__c</picklist>
+            <values>
+                <fullName>FY%E2%80%9908 %280%2E0532%2F0%2E0665%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9909 %280%2E0562%2F0%2E0701%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9910 %280%2E0594%2F0%2E0740%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9911 %280%2E0628%2F0%2E0782%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9912 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9913 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9914 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9915 %280%2E0689%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Level__c</picklist>
+            <values>
+                <fullName>Per Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Laser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Site</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Type__c</picklist>
+            <values>
+                <fullName>Cases</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sheets</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>NSABillablePaperToner</fullName>
+        <active>true</active>
+        <description>Use for clients that have a billable paper and/or toner NSA and are not under IDMS, Flat Printer, Flat Site, Framework, or Promo.</description>
+        <label>NSA - Billable Paper &amp; Toner</label>
+        <picklistValues>
+            <picklist>Do_Not_Adjust__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management Directed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NSA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fiscal_Year__c</picklist>
+            <values>
+                <fullName>FY%E2%80%9908 %280%2E0532%2F0%2E0665%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9909 %280%2E0562%2F0%2E0701%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9910 %280%2E0594%2F0%2E0740%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9911 %280%2E0628%2F0%2E0782%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9912 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9913 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9914 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9915 %280%2E0689%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Level__c</picklist>
+            <values>
+                <fullName>Per Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Laser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Site</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Type__c</picklist>
+            <values>
+                <fullName>Cases</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sheets</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>NSAFinancialStatement</fullName>
+        <active>true</active>
+        <description>Use for clients that have a financial statement only related NSA.</description>
+        <label>NSA - Financial Statement</label>
+        <picklistValues>
+            <picklist>Do_Not_Adjust__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management Directed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NSA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fiscal_Year__c</picklist>
+            <values>
+                <fullName>FY%E2%80%9908 %280%2E0532%2F0%2E0665%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9909 %280%2E0562%2F0%2E0701%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9910 %280%2E0594%2F0%2E0740%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9911 %280%2E0628%2F0%2E0782%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9912 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9913 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9914 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9915 %280%2E0689%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Level__c</picklist>
+            <values>
+                <fullName>Per Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Laser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Site</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Type__c</picklist>
+            <values>
+                <fullName>Cases</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sheets</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>NSAFlatPrinterRate</fullName>
+        <active>true</active>
+        <description>Use for clients with a Flat Printer Rate NSA and there is not a Framework NSA in existence.</description>
+        <label>NSA - Flat Printer Rate</label>
+        <picklistValues>
+            <picklist>Do_Not_Adjust__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management Directed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NSA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fiscal_Year__c</picklist>
+            <values>
+                <fullName>FY%E2%80%9908 %280%2E0532%2F0%2E0665%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9909 %280%2E0562%2F0%2E0701%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9910 %280%2E0594%2F0%2E0740%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9911 %280%2E0628%2F0%2E0782%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9912 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9913 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9914 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9915 %280%2E0689%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Level__c</picklist>
+            <values>
+                <fullName>Per Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Laser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Site</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Type__c</picklist>
+            <values>
+                <fullName>Cases</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sheets</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>NSAFlatSheetRate</fullName>
+        <active>true</active>
+        <description>Use for clients with a Flat Sheet Rate NSA and there is not a Framework NSA in existence.</description>
+        <label>NSA - Flat Sheet Rate</label>
+        <picklistValues>
+            <picklist>Do_Not_Adjust__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management Directed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NSA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fiscal_Year__c</picklist>
+            <values>
+                <fullName>FY%E2%80%9908 %280%2E0532%2F0%2E0665%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9909 %280%2E0562%2F0%2E0701%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9910 %280%2E0594%2F0%2E0740%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9911 %280%2E0628%2F0%2E0782%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9912 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9913 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9914 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9915 %280%2E0689%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Level__c</picklist>
+            <values>
+                <fullName>Per Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Laser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Site</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Type__c</picklist>
+            <values>
+                <fullName>Cases</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sheets</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>NSAFlatSiteRate</fullName>
+        <active>true</active>
+        <description>Use for clients with a Flat Site Rate NSA and there is not a Framework NSA in existence.</description>
+        <label>NSA - Flat Site Rate</label>
+        <picklistValues>
+            <picklist>Do_Not_Adjust__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management Directed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NSA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fiscal_Year__c</picklist>
+            <values>
+                <fullName>FY%E2%80%9908 %280%2E0532%2F0%2E0665%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9909 %280%2E0562%2F0%2E0701%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9910 %280%2E0594%2F0%2E0740%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9911 %280%2E0628%2F0%2E0782%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9912 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9913 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9914 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9915 %280%2E0689%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Level__c</picklist>
+            <values>
+                <fullName>Per Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Laser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Site</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Type__c</picklist>
+            <values>
+                <fullName>Cases</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sheets</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>NSAFramework</fullName>
+        <active>true</active>
+        <description>Use for clients with a Framework NSA.</description>
+        <label>NSA - Framework</label>
+        <picklistValues>
+            <picklist>Do_Not_Adjust__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management Directed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NSA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fiscal_Year__c</picklist>
+            <values>
+                <fullName>FY%E2%80%9908 %280%2E0532%2F0%2E0665%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9909 %280%2E0562%2F0%2E0701%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9910 %280%2E0594%2F0%2E0740%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9911 %280%2E0628%2F0%2E0782%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9912 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9913 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9914 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9915 %280%2E0689%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Level__c</picklist>
+            <values>
+                <fullName>Per Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Laser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Site</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Type__c</picklist>
+            <values>
+                <fullName>Cases</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sheets</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>NSALaserOneOverage</fullName>
+        <active>true</active>
+        <description>Use for all Laser One clients.</description>
+        <label>NSA - Laser One Overage</label>
+        <picklistValues>
+            <picklist>Do_Not_Adjust__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management Directed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NSA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fiscal_Year__c</picklist>
+            <values>
+                <fullName>FY%E2%80%9908 %280%2E0532%2F0%2E0665%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9909 %280%2E0562%2F0%2E0701%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9910 %280%2E0594%2F0%2E0740%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9911 %280%2E0628%2F0%2E0782%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9912 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9913 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9914 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9915 %280%2E0689%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Level__c</picklist>
+            <values>
+                <fullName>Per Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Laser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Site</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Type__c</picklist>
+            <values>
+                <fullName>Cases</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sheets</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>NSALaserTwo</fullName>
+        <active>true</active>
+        <description>Use for Laser Two clients that have either a NSA, not adjustable, or paper restrictions.</description>
+        <label>NSA - Laser Two</label>
+        <picklistValues>
+            <picklist>Do_Not_Adjust__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management Directed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NSA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fiscal_Year__c</picklist>
+            <values>
+                <fullName>FY%E2%80%9908 %280%2E0532%2F0%2E0665%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9909 %280%2E0562%2F0%2E0701%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9910 %280%2E0594%2F0%2E0740%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9911 %280%2E0628%2F0%2E0782%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9912 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9913 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9914 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9915 %280%2E0689%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Level__c</picklist>
+            <values>
+                <fullName>Per Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Laser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Site</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Type__c</picklist>
+            <values>
+                <fullName>Cases</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sheets</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Promo</fullName>
+        <active>true</active>
+        <description>Use for clients that are on a Promo billing model with no exceptions and are not under IDMS, Flat Printer, Flat Site, or Framework.</description>
+        <label>Promo</label>
+        <picklistValues>
+            <picklist>Do_Not_Adjust__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management Directed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NSA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fiscal_Year__c</picklist>
+            <values>
+                <fullName>FY%E2%80%9908 %280%2E0532%2F0%2E0665%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9909 %280%2E0562%2F0%2E0701%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9910 %280%2E0594%2F0%2E0740%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9911 %280%2E0628%2F0%2E0782%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9912 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9913 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9914 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9915 %280%2E0689%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Level__c</picklist>
+            <values>
+                <fullName>Per Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Laser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Site</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Type__c</picklist>
+            <values>
+                <fullName>Cases</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sheets</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Purchase_2</fullName>
+        <active>true</active>
+        <description>Use for clients who have contracts that specifically indicate Purchase 2 which doesn’t need an NSA for billable paper and toner. Includes 5 free toners per laser per year and all paper and checks are purchased from either ADP or another source.</description>
+        <label>Purchase 2</label>
+        <picklistValues>
+            <picklist>Do_Not_Adjust__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management Directed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NSA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fiscal_Year__c</picklist>
+            <values>
+                <fullName>FY%E2%80%9908 %280%2E0532%2F0%2E0665%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9909 %280%2E0562%2F0%2E0701%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9910 %280%2E0594%2F0%2E0740%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9911 %280%2E0628%2F0%2E0782%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9912 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9913 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9914 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9915 %280%2E0689%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Level__c</picklist>
+            <values>
+                <fullName>Per Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Laser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Site</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Type__c</picklist>
+            <values>
+                <fullName>Cases</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sheets</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Purchased_Laser_with_FSR</fullName>
+        <active>true</active>
+        <description>Use for clients who have purchased lasers but no NSA for billable paper and toner.</description>
+        <label>Purchased Laser with FSR</label>
+        <picklistValues>
+            <picklist>Do_Not_Adjust__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management Directed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NSA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fiscal_Year__c</picklist>
+            <values>
+                <fullName>FY%E2%80%9908 %280%2E0532%2F0%2E0665%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9909 %280%2E0562%2F0%2E0701%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9910 %280%2E0594%2F0%2E0740%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9911 %280%2E0628%2F0%2E0782%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9912 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9913 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9914 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9915 %280%2E0689%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Level__c</picklist>
+            <values>
+                <fullName>Per Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Laser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Site</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Type__c</picklist>
+            <values>
+                <fullName>Cases</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sheets</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Purchased_Lasers_with_BPT_NSA</fullName>
+        <active>true</active>
+        <description>Use for clients who have purchased lasers and an NSA for billable paper and toner no clicks.</description>
+        <label>Purchased Lasers with BPT NSA</label>
+        <picklistValues>
+            <picklist>Do_Not_Adjust__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management Directed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NSA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fiscal_Year__c</picklist>
+            <values>
+                <fullName>FY%E2%80%9908 %280%2E0532%2F0%2E0665%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9909 %280%2E0562%2F0%2E0701%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9910 %280%2E0594%2F0%2E0740%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9911 %280%2E0628%2F0%2E0782%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9912 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9913 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9914 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9915 %280%2E0689%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Level__c</picklist>
+            <values>
+                <fullName>Per Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Laser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Site</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Type__c</picklist>
+            <values>
+                <fullName>Cases</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sheets</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Traditional</fullName>
+        <active>true</active>
+        <description>Use for client that are on the Traditional billing model.</description>
+        <label>Traditional</label>
+        <picklistValues>
+            <picklist>Do_Not_Adjust__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management Directed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NSA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fiscal_Year__c</picklist>
+            <values>
+                <fullName>FY%E2%80%9908 %280%2E0532%2F0%2E0665%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9909 %280%2E0562%2F0%2E0701%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9910 %280%2E0594%2F0%2E0740%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9911 %280%2E0628%2F0%2E0782%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9912 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9913 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9914 %280%2E0653%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FY%E2%80%9915 %280%2E0689%2F0%2E0813%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Level__c</picklist>
+            <values>
+                <fullName>Per Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Laser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per Site</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Paper_Allotment_Type__c</picklist>
+            <values>
+                <fullName>Cases</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sheets</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>Laser_Billing_Info__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Contract_Number__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Start_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Terms_Months__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Laser_Billing_Info__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Contract_Number__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Start_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Terms_Months__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Laser_Billing_Info__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Contract_Number__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Start_Date__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Terms_Months__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Laser_Billing_Info__c</searchFilterFields>
+        <searchFilterFields>Contract_Number__c</searchFilterFields>
+        <searchFilterFields>Start_Date__c</searchFilterFields>
+        <searchFilterFields>Terms_Months__c</searchFilterFields>
+        <searchResultsAdditionalFields>Laser_Billing_Info__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Contract_Number__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Start_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Terms_Months__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

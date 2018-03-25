@@ -1,0 +1,124 @@
+<apex:page controller="getFieldObject">
+    
+    <html>
+        <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.7.2.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.8.20.custom.min.js')}" />
+        <script src="/soap/ajax/33.0/connection.js" type="text/javascript"></script>
+        <script src="/soap/ajax/33.0/apex.js" type="text/javascript"></script>
+        <script type="text/javascript">  
+        
+        var fieldsValuesMap;
+        var fieldsfetched;
+        var sobjectMap;
+        fieldsValuesMap = new Array();
+        fieldsfetched = new Array();
+        var j$ = jQuery.noConflict();
+        j$(document).ready(function(){
+            getFieldObject.getSobjectField('Account',function(result,event){
+                if(event.status)
+                {
+                    sobjectMap = result;
+                    j$('input').each(function(){
+                        if(j$(this).attr('class')=='AngularJS')
+                        {
+                            var fieldtype =getType(j$(this).attr('type').toLowerCase());
+                            if(fieldtype.indexOf('reference@')==0)
+                            {
+                                fieldtype = fieldtype.replace('reference@','');
+                                if(!fieldsfetched[fieldtype])
+                                {
+                                    getSobjectList(fieldtype,'');
+                                    fieldsfetched[fieldtype] = true;
+                                }
+                            }
+                            else if(fieldtype == 'DATETIME')
+                            {
+                                j$(this).prop('type','datetime-local');
+                            }
+                            j$(this).addClass(fieldtype);
+                            if(fieldsfetched[fieldtype])
+                            {
+                                j$(this).after(setOptions(fieldtype,''));
+                            }
+                        } 
+                    });
+                }
+            });
+            j$('input[type="TEXTAREA"]').each(function(){
+                j$(this).after("<textarea />");
+                j$(this).remove();
+            });
+        });
+        
+        j$(document).on('click','.AngularJS',function(){
+            j$(this).next('.options').show();
+        });
+
+        j$(document).on('keydown','.AngularJS',function(){
+            var classValue = j$(this).attr('class');
+            classValue = classValue.replace('AngularJS ','');
+            j$(this).next('div').remove();
+            j$(this).after(setOptions(classValue,j$(this).val()));
+            j$(this).next('.options').show();
+        });
+        j$('body').on('click','.option',function(){
+            j$(this).parents('.options').prev('input').val(j$(this).html());
+            j$(this).prev('input').val(j$(this).attr('id'));
+            j$('.options').hide();
+        });
+        
+        function getType(field)
+        {
+            var type;
+            var endIndex,startIndex;
+            if(sobjectMap.indexOf(field)>0)
+            {
+                startIndex = sobjectMap.indexOf(field);
+                startIndex = sobjectMap.indexOf(' : ',startIndex);
+                endIndex = sobjectMap.indexOf(' ',startIndex+3);
+            }
+            type = sobjectMap.substring(startIndex+3,endIndex);
+            return type;
+        }
+        function getSobjectList(sobject, criteria)
+        {
+            sforce.connection.sessionId = '{!$Api.Session_ID}';
+            var results = sforce.connection.query('select id, name from '+sobject+' limit 30000');
+            var records = results.get('records');
+            fieldsValuesMap[sobject] = records;
+            setOptions(sobject,criteria);
+        }
+        function setOptions(sobject,criteria)
+        {
+            records = fieldsValuesMap[sobject];
+            var selectedOptions = new Array();
+            if(criteria!='')
+            {
+                for(var i=0;i<records.length;i++)
+                {
+                    if(records[i]['Name'].indexOf(criteria)>=0)
+                    {
+                        selectedOptions.push(records[i]);
+                    }
+                }
+            }
+            else
+            {
+                selectedOptions = fieldsValuesMap[sobject];
+            }
+            var options = '<div  class="options" style="display:none;"><input type="hidden" class="Id" value=""/>';
+            for(var i=0;i<5 && i<selectedOptions.length;i++)
+            {
+                options = options+'<a class="option"  style="text-decoration:none;" id='+ selectedOptions[i]['Id']+'>'+selectedOptions[i]['Name']+'</a><br/>';
+            }
+            options = options+'</div>';
+            return options;
+        }
+        </script>
+        <input type="{!$ObjectType['Account'].fields['ParentId'].Name}" class='AngularJS'/><br/>
+        <input type="{!$ObjectType['Account'].fields['CreatedById'].Name}" class='AngularJS'/><br/>
+        <input type="{!$ObjectType['Account'].fields['CreatedDate'].Name}" class='AngularJS'/>
+        <input type="TEXTAREA"/>
+        <input type="button"/>
+    </html>
+</apex:page>

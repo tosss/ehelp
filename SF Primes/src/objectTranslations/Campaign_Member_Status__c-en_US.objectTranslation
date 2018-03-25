@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Campaign Member Status</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Campaign Member Status</value>
+    </caseValues>
+    <fields>
+        <label><!-- Campaign --></label>
+        <name>Campaign__c</name>
+        <relationshipLabel><!-- Campaign Member Status --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Cobalt Consolidation ID --></label>
+        <name>Cobalt_Consolidation_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Default Status? --></label>
+        <name>Default_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Indicates Response --></label>
+        <name>Indicates_Response__c</name>
+    </fields>
+    <fields>
+        <label><!-- Migration ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>ADP_SalesTmMbr_Compact_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>ADP_SalesTmMbr_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>Opportunity__c</fields>
+        <fields>Opportunity_Access__c</fields>
+        <fields>Team_Role__c</fields>
+        <fields>User__c</fields>
+        <label>ADP SalesTmMbr Compact Layout</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Custom sales team member linked to Opportunity team member via trigger</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Formula_User_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>User__r.FirstName &amp; User__r.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Formula User Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Migration_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Migration ID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Access__c</fullName>
+        <externalId>false</externalId>
+        <label>Opportunity Access</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Read Only</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Read/Write</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipName>R00N40000001lw8PEAQ</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>SForce_Sales_Team_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>SForce Sales Team Id</label>
+        <length>18</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Team_Role__c</fullName>
+        <externalId>false</externalId>
+        <label>Team Role</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Forecasting - Baseline Rep</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Forecasting - CDP ISR Rep</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Forecasting - Dealix Rep</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Forecasting - Digital Solutions Rep</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Forecasting - Enterprise Rep</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Forecasting - Inside Sales Laser Rep</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Forecasting - Inside Sales Rep</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Forecasting - National Sales Rep</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Forecasting - NIADA Rep</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Forecasting - Retail Solutions Rep</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Forecasting - Saturn Rep</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Forecasting - Telephony Rep</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Non-Forecasting Rep</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>R00N40000001lw8AEAQ</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Sales Team Member</label>
+    <nameField>
+        <displayFormat>ID {00000}</displayFormat>
+        <label>Sales Team ID</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Sales Team Members</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

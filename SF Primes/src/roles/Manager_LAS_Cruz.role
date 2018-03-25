@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>None</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>Manager - LAS - Cruz</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Manager - LAS - Cruz</name>
+    <opportunityAccessLevel>Read</opportunityAccessLevel>
+    <parentRole>VPLaser</parentRole>
+</Role>

@@ -1,0 +1,79 @@
+<!--
+created by: Josephine Del Mundo (cloudsherpas), 2014-06-13
+updated by: Matt Keefe, 2014-07-08
+-->
+
+<apex:component controller="EMP_SPIN_QuickLinksComponentCC" access="Global">
+    <div class="col span_1_of_3">
+        <ul>
+            <apex:outputText rendered="{!IF(cLinks.size >0,true,false)}">
+                <lh>{!$Label.EMP_SPin_PortalLandingPage_QuickLinks_Letters_Sub_Header}</lh>
+                <br/>
+                <apex:repeat value="{!cLinks}" var="libContent" rendered="{!IF(OR(ISNULL(cLinks),cLinks == 0),false,true)}"> 
+                    <apex:outputLink target="_blank" onclick="" value="/apex/ContentPreview?contentId={!libContent.Id}">&#62;&nbsp;{!libContent.Title}</apex:outputLink>
+                    &nbsp;
+                    <apex:outputText value="{!libContent.Update_Comment__c}" style="color:red;font: 12px/1.5 Helvetica, sans-serif;font-weight:bold;"/>
+                    <br/>
+                </apex:repeat>
+                <br/>
+            </apex:outputText>       
+        </ul>
+        <ul>
+            <apex:outputText rendered="{!IF(scriptLinks.size >0,true,false)}">
+                <lh>{!$Label.EMP_Spin_PortalLandingPage_QuickLinks_Scripts_Sub_Header}</lh>
+                <br/>
+                <apex:repeat value="{!scriptLinks}" var="libContent_2"> 
+                    <apex:outputLink target="_blank" onclick="" value="/apex/ContentPreview?contentId={!libContent_2.Id}">&#62;&nbsp;{!libContent_2.Title}</apex:outputLink>
+                    &nbsp;
+                    <apex:outputText value="{!libContent_2.Update_Comment__c}" style="color:#cc092f;;font: 12px/1.5 Helvetica, sans-serif;font-weight:bold;"/>
+                    <br/>
+                </apex:repeat>
+                <br/>
+            </apex:outputText>
+        </ul>
+    </div>
+    <div class="col span_2_of_3">
+        <ul>
+            <apex:outputText rendered="{!IF(fAQLinks.size >0,true,false)}">
+                <lh>{!$Label.EMP_SPin_PortalLandingPage_QuickLinks_FAQs_Sub_Header}</lh>
+                <br/>
+                <apex:repeat value="{!fAQLinks }" var="libContent_1"> 
+                    <apex:outputLink target="_blank" onclick="" value="/apex/ContentPreview?contentId={!libContent_1.Id}">&#62;&nbsp;{!libContent_1.Title}</apex:outputLink>
+                    &nbsp;
+                    <apex:outputText value="{!libContent_1.Update_Comment__c}" style="color:#cc092f;;font: 12px/1.5 Helvetica, sans-serif;font-weight:bold;"/>
+                    <br/>
+                </apex:repeat>
+                <br/>
+            </apex:outputText>
+        </ul>
+        
+    </div>
+    <div class="col last-col span_3_of_3">
+        <ul>
+            <apex:outputText rendered="{!IF(videoLinks.size >0,true,false)}">
+                <lh>{!$Label.EMP_Spin_PortalLandingPage_QuickLinks_Videos_Sub_Header}</lh>
+                <br/>
+                <apex:repeat value="{!videoLinks}" var="libContent_3"> 
+                    <apex:outputLink target="_blank" onclick="" value="{!libContent_3.Video_File_Location__c}">&#62;&nbsp;{!libContent_3.Title}</apex:outputLink>
+                    &nbsp;
+                    <apex:outputText value="{!libContent_3.Update_Comment__c}" style="color:#cc092f;font: 12px/1.5 Helvetica, sans-serif;font-weight:bold;"/>
+                    <br/>
+                </apex:repeat>
+            </apex:outputText>
+        </ul>
+        <br/>
+        <ul>
+            <apex:outputText rendered="{!IF(miscLinks.size >0,true,false)}">
+                <lh>{!$Label.EMP_SPin_PortalLandingPage_QuickLinks_Miscellaneous_Sub_Header}</lh>
+                <br/>
+                <apex:repeat value="{!miscLinks}" var="libContent_4"> 
+                    <apex:outputLink target="_blank" onclick="" value="/apex/ContentPreview?contentId={!libContent_4.Id}">&#62;&nbsp;{!libContent_4.Title}</apex:outputLink>
+                    &nbsp;  
+                    <apex:outputText value="{!libContent_4.Update_Comment__c}" style="color:#cc092f;font: 12px/1.5 Helvetica, sans-serif;font-weight:bold;"/>
+                    <br/>
+                </apex:repeat>
+            </apex:outputText>
+            <apex:outputText value="{!$Label.EMP_SPin_PortalLandingPage_QuickLinks_DealerServicesPortal_Sub_Header}" escape="false" style="color:#5c73ac;font-weight:700;"/>
+        </ul>
+    </div>
+</apex:component>

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Product NewQ</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Product NewQ</value>
+    </caseValues>
+    <fields>
+        <label><!-- Actual NewQ --></label>
+        <name>Actual_QC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cobalt_Consolidation_ID --></label>
+        <name>Cobalt_Consolidation_ID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select the current vendor used by the Dealer. If Other, please fill in manually. --></help>
+        <label><!-- Current Website Vendor --></label>
+        <name>Current_Website_Vendor__c</name>
+        <picklistValues>
+            <masterLabel>Dealer E Process</masterLabel>
+            <translation><!-- Dealer E Process --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer On</masterLabel>
+            <translation><!-- Dealer On --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer.com</masterLabel>
+            <translation><!-- Dealer.com --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dominion</masterLabel>
+            <translation><!-- Dominion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Naked Lime</masterLabel>
+            <translation><!-- Naked Lime --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VinSolutions</masterLabel>
+            <translation><!-- VinSolutions --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Product NewQ --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- If Other is selected in the Current Website Vendor field please fill in this field. --></help>
+        <label><!-- Other Vendor --></label>
+        <name>Other_Vendor__c</name>
+    </fields>
+    <fields>
+        <help><!-- If Product QC Level - Make is set to Other please fill in the Other field. --></help>
+        <label><!-- Other --></label>
+        <name>Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Family --></label>
+        <name>Product_Family__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product NewQ Level - Make --></label>
+        <name>Product_QC_Level_Make__c</name>
+        <picklistValues>
+            <masterLabel>Acura</masterLabel>
+            <translation><!-- Acura --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BMW</masterLabel>
+            <translation><!-- BMW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Buick</masterLabel>
+            <translation><!-- Buick --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cadillac</masterLabel>
+            <translation><!-- Cadillac --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chevrolet</masterLabel>
+            <translation><!-- Chevrolet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chrysler</masterLabel>
+            <translation><!-- Chrysler --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ford</masterLabel>
+            <translation><!-- Ford --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GMC</masterLabel>
+            <translation><!-- GMC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Honda</masterLabel>
+            <translation><!-- Honda --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hyundai</masterLabel>
+            <translation><!-- Hyundai --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Infiniti</masterLabel>
+            <translation><!-- Infiniti --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kia</masterLabel>
+            <translation><!-- Kia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lexus</masterLabel>
+            <translation><!-- Lexus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MINI</masterLabel>
+            <translation><!-- MINI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mazda</masterLabel>
+            <translation><!-- Mazda --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mitsubishi</masterLabel>
+            <translation><!-- Mitsubishi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nissan</masterLabel>
+            <translation><!-- Nissan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Portal</masterLabel>
+            <translation><!-- Portal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scion</masterLabel>
+            <translation><!-- Scion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toyota</masterLabel>
+            <translation><!-- Toyota --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Volkswagen</masterLabel>
+            <translation><!-- Volkswagen --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product__c</name>
+        <relationshipLabel><!-- Product NewQ --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- NewQ Type Text --></label>
+        <name>Quota_Credit_Type_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quota Credit Type --></label>
+        <name>Quota_Credit_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Suggested QC --></label>
+        <name>Suggested_QC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Units --></label>
+        <name>Units__c</name>
+    </fields>
+    <layouts>
+        <layout>Product QC Layout</layout>
+        <sections>
+            <label><!-- Current Website Vendor --></label>
+            <section>Current Website Vendor</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- If &quot;Other&quot; is selected in the Current Website Vendor field then fill in what their current website vendor is. --></errorMessage>
+        <name>CB_SLS_Other_Vendor_Cannot_Be_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Product is Website then fill in the Current Website Vendor field. --></errorMessage>
+        <name>CB_SLS_Product_Field_is_Website_Current</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Product QC Level - Make is set to Other please fill in the Other field. --></errorMessage>
+        <name>CB_Sls_Product_QC_Level_Other</name>
+    </validationRules>
+</CustomObjectTranslation>

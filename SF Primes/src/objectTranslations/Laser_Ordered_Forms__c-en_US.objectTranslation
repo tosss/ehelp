@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Laser Ordered Forms</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Laser Ordered Forms</value>
+    </caseValues>
+    <fields>
+        <label><!-- Catalog Number --></label>
+        <name>Catalog_Number__c</name>
+        <relationshipLabel><!-- Laser Ordered Forms --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Conditional A/R Statement --></label>
+        <name>Conditional_A_R_Statement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Form Name --></label>
+        <name>Form_Name2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Form Name --></label>
+        <name>Form_Name__c</name>
+        <picklistValues>
+            <masterLabel>A/R Statement</masterLabel>
+            <translation><!-- A/R Statement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accounts Payable Check</masterLabel>
+            <translation><!-- Accounts Payable Check --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Backer</masterLabel>
+            <translation><!-- Backer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cash Receipt</masterLabel>
+            <translation><!-- Cash Receipt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>F&amp;I</masterLabel>
+            <translation><!-- F&amp;I --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FMLR</masterLabel>
+            <translation><!-- FMLR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FMLR - Rental Contract</masterLabel>
+            <translation><!-- FMLR - Rental Contract --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ODC/AP Check</masterLabel>
+            <translation><!-- ODC/AP Check --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Demand Check</masterLabel>
+            <translation><!-- On Demand Check --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parts Invoice</masterLabel>
+            <translation><!-- Parts Invoice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payroll Check</masterLabel>
+            <translation><!-- Payroll Check --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pick Ticket</masterLabel>
+            <translation><!-- Pick Ticket --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purchase Order</masterLabel>
+            <translation><!-- Purchase Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SSDD/FSDD</masterLabel>
+            <translation><!-- SSDD/FSDD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Invoice</masterLabel>
+            <translation><!-- Service Invoice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Special Order Request</masterLabel>
+            <translation><!-- Special Order Request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trigger Form</masterLabel>
+            <translation><!-- Trigger Form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workorder</masterLabel>
+            <translation><!-- Workorder --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eShowroom</masterLabel>
+            <translation><!-- eShowroom --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Form Type --></label>
+        <name>Form_Type2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Form Types --></label>
+        <name>Form_Types__c</name>
+        <picklistValues>
+            <masterLabel>Bar Code</masterLabel>
+            <translation><!-- Bar Code --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DCAP 1-up</masterLabel>
+            <translation><!-- DCAP 1-up --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DCAP 2-up</masterLabel>
+            <translation><!-- DCAP 2-up --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DCAP Type 1</masterLabel>
+            <translation><!-- DCAP Type 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DCAP Type 2</masterLabel>
+            <translation><!-- DCAP Type 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ELF</masterLabel>
+            <translation><!-- ELF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ELF 1-up</masterLabel>
+            <translation><!-- ELF 1-up --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ELF 2-up</masterLabel>
+            <translation><!-- ELF 2-up --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ELF Type 1</masterLabel>
+            <translation><!-- ELF Type 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ELF Type 2</masterLabel>
+            <translation><!-- ELF Type 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Form Type - 1-up</masterLabel>
+            <translation><!-- Form Type - 1-up --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Form Type - 2-up</masterLabel>
+            <translation><!-- Form Type - 2-up --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Form Type - Type 1</masterLabel>
+            <translation><!-- Form Type - Type 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Form Type - Type 2</masterLabel>
+            <translation><!-- Form Type - Type 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Form Type - Type 3</masterLabel>
+            <translation><!-- Form Type - Type 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Work Order (Type 1)</masterLabel>
+            <translation><!-- Service Work Order (Type 1) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standard</masterLabel>
+            <translation><!-- Standard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Truck</masterLabel>
+            <translation><!-- Truck --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Laser Artwork Order --></label>
+        <name>Laser_Artwork_Order__c</name>
+        <relationshipLabel><!-- Laser Ordered Forms --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- ePayments Client --></label>
+        <name>Laser_Ordered_Forms__c</name>
+    </fields>
+    <fields>
+        <label><!-- Migration ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- OverRide_Field --></label>
+        <name>OverRide_Field__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quantity --></label>
+        <name>Quantity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Edge Client --></label>
+        <name>Service_Edge_Client__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total$ --></label>
+        <name>Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Form Charge --></label>
+        <name>Unit_Price_Override2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unit Price (Override) --></label>
+        <name>Unit_Price_Override__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unit Price Total Hidden --></label>
+        <name>Unit_Price_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unit Price --></label>
+        <name>Unit_Price__c</name>
+    </fields>
+    <fields>
+        <label><!-- Update Conditional A/R Statement --></label>
+        <name>Update_Conditional_A_R_Statement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Update Service Edge --></label>
+        <name>Update_Service_Edge__c</name>
+    </fields>
+    <fields>
+        <label><!-- Update ePayments --></label>
+        <name>Update_ePayments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Update eSignature --></label>
+        <name>Update_eSignature__c</name>
+    </fields>
+    <fields>
+        <label><!-- eSignature Client --></label>
+        <name>eSignature__c</name>
+    </fields>
+    <layouts>
+        <layout>Laser Ordered Form Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

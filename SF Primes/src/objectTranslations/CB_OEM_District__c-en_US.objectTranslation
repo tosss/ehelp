@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>OEM District</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>OEM Districts</value>
+    </caseValues>
+    <fields>
+        <label><!-- District Manager --></label>
+        <lookupFilter>
+            <errorMessage><!-- Please select a contact from the listed Region Account. --></errorMessage>
+        </lookupFilter>
+        <name>CB_District_Manager__c</name>
+        <relationshipLabel><!-- OEM District --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- GM Division --></label>
+        <name>CB_FRM_GM_Division__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the OEM&apos;s District code or name as dictated by the OEM. --></help>
+        <label><!-- OEM District Name --></label>
+        <name>CB_OEM_District_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Region Account --></label>
+        <name>CB_Region_Account__c</name>
+        <relationshipLabel><!-- OEM Districts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- District Notes --></label>
+        <name>CB_SVC_District_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Zone Manager --></label>
+        <lookupFilter>
+            <errorMessage><!-- Please select a contact from the listed Region Account. --></errorMessage>
+        </lookupFilter>
+        <name>CB_Zone_Manager__c</name>
+        <relationshipLabel><!-- OEM District (Zone Manager) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>OEM District Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

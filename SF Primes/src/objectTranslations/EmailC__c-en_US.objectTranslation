@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Email Collection</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Email Collections</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Email Collections --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Cobalt_Consolidation_ID --></label>
+        <name>Cobalt_Consolidation_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Marketing Id --></label>
+        <name>Email_Marketing_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- # Uploaded --></label>
+        <name>Emails_Uploaded__c</name>
+    </fields>
+    <fields>
+        <label><!-- Upload Date --></label>
+        <name>Expected_Upload_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Match Rate % --></label>
+        <name>MatchRate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Note --></label>
+        <name>Note__c</name>
+    </fields>
+    <fields>
+        <label><!-- # Records Sent --></label>
+        <name>Records_Sent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sent to eAppend --></label>
+        <name>Sent_to_eAppend__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tier --></label>
+        <name>Tier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Trial Start Date --></label>
+        <name>Trial_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- eAppend Vendor --></label>
+        <name>eAppend_Vendor__c</name>
+        <picklistValues>
+            <masterLabel>eAppend1</masterLabel>
+            <translation><!-- eAppend1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eAppend2</masterLabel>
+            <translation><!-- eAppend2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eAppend3</masterLabel>
+            <translation><!-- eAppend3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eAppend4</masterLabel>
+            <translation><!-- eAppend4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eAppend5</masterLabel>
+            <translation><!-- eAppend5 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eAppend6</masterLabel>
+            <translation><!-- eAppend6 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eAppend7</masterLabel>
+            <translation><!-- eAppend7 --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Email Collection Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Details --></label>
+            <section>Details</section>
+        </sections>
+    </layouts>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

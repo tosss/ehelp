@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Marketing Alignment Plan</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Marketing Alignment Plans</value>
+    </caseValues>
+    <fields>
+        <help><!-- How accessible is the dealership? Easy to get to, easy in-out, easy to find, handicap access --></help>
+        <label><!-- Accessibility --></label>
+        <name>Accessibility__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Name --></label>
+        <name>Account_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- List anything that differentiates then as a dealer. Examples: special sales process, highest customer satisfaction rating, oil change specials, free tires for life, discounts, etc. --></help>
+        <label><!-- Advantages --></label>
+        <name>Advantages__c</name>
+    </fields>
+    <fields>
+        <help><!-- What benefits does the dealer offer their customers after the sale? (Examples: Service discounts, free oil changes, loaner cars, tires for life, loyalty discount, dealership used car warranty, rewards program, roadside assistance, etc) --></help>
+        <label><!-- After Sale Benefits --></label>
+        <name>After_Sale_Benefits__c</name>
+    </fields>
+    <fields>
+        <label><!-- Best and Least Selling Models --></label>
+        <name>Best_and_Least_Selling_Models__c</name>
+    </fields>
+    <fields>
+        <help><!-- Example: Stadium GM Superstore. Use when the name is actually a bit different. --></help>
+        <label><!-- Branded Name of Dealership --></label>
+        <name>Branded_Name_of_Dealership__c</name>
+    </fields>
+    <fields>
+        <help><!-- What is the dealer&apos;s Customer Satisfaction Index Survey scores (CSI scores)? What feedback do they generally receive from their customers? --></help>
+        <label><!-- CSI/Customer Satisfaction --></label>
+        <name>CSI_Customer_Satisfaction__c</name>
+    </fields>
+    <fields>
+        <help><!-- Is there anything else that sets you apart? --></help>
+        <label><!-- Certified Used Inventory Additional Info --></label>
+        <name>Certified_Used_Inventory_Additional_Info__c</name>
+    </fields>
+    <fields>
+        <help><!-- Is your Certified Used Car quantity higher, lower, or same as your competition? --></help>
+        <label><!-- Certified Used Inventory Quantity Detail --></label>
+        <name>Certified_Used_Inventory_Quantity_Detail__c</name>
+    </fields>
+    <fields>
+        <help><!-- Do you have a variety of makes/models? How do you compare to your competition? --></help>
+        <label><!-- Certified Used Inventory Selection Dtls --></label>
+        <name>Certified_Used_Inventory_Selection_Det__c</name>
+    </fields>
+    <fields>
+        <help><!-- Units sold per month and target units. --></help>
+        <label><!-- # Certified Vehicle Sales and Target --></label>
+        <name>Certified_Vehicle_Sales_and_Target__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cities --></label>
+        <name>Cities__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cobalt_Consolidation_ID --></label>
+        <name>Cobalt_Consolidation_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Counties --></label>
+        <name>Counties__c</name>
+    </fields>
+    <fields>
+        <help><!-- Which of the four types of customers best identifies the dealer&apos;s IDEAL customer? In other words, the customer they feel represents the best profit opportunity based on their dealership&apos;s strengths? --></help>
+        <label><!-- Customer Type --></label>
+        <name>Customer_Type__c</name>
+        <picklistValues>
+            <masterLabel>Discount</masterLabel>
+            <translation><!-- Discount --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Impulse</masterLabel>
+            <translation><!-- Impulse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loyalty</masterLabel>
+            <translation><!-- Loyalty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Needs Based</masterLabel>
+            <translation><!-- Needs Based --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Do you offer additional dealership specific incentives?  Dollar off coupons (i.e. $750 Off), guaranteed x amount for trade, gifts with purchase, etc. --></help>
+        <label><!-- Dealer Specific Incentives --></label>
+        <name>Dealer_Specific_Incentives__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ideal Dealer Profile for this customer to be valuable: High volume dealership with larger inventory selection,		
+aggressive pricing strategy and unique incentives. --></help>
+        <label><!-- Discount --></label>
+        <name>Discount__c</name>
+    </fields>
+    <fields>
+        <help><!-- What financing options are available for your customers?  Bad credit, credit union relationship, special/secondary financing, local banks, national banks, etc.  Choose all that apply. --></help>
+        <label><!-- Financing Options --></label>
+        <name>Financing_Options__c</name>
+        <picklistValues>
+            <masterLabel>Bad Credit</masterLabel>
+            <translation><!-- Bad Credit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Union</masterLabel>
+            <translation><!-- Credit Union --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Local Banks</masterLabel>
+            <translation><!-- Local Banks --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>National Banks</masterLabel>
+            <translation><!-- National Banks --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Special/Secondary</masterLabel>
+            <translation><!-- Special/Secondary --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- What fixed operations does the dealership offer? Ask the dealer to tell you a little about each area and how they stand apart from their competition. --></help>
+        <label><!-- Fixed Operations Details --></label>
+        <name>Fixed_Operations_Details__c</name>
+    </fields>
+    <fields>
+        <help><!-- Sales; Service; Express Lube; Body Shop --></help>
+        <label><!-- Hours --></label>
+        <name>Hours__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ideal Dealer Profile for this customer to be valuable: Offers unique incentives and has excellent inventory choices with
+a strong sales force and a great highly visible location with convenient access. --></help>
+        <label><!-- Impulse --></label>
+        <name>Impulse__c</name>
+    </fields>
+    <fields>
+        <help><!-- City/Country setting, Landmarks, Street corner. --></help>
+        <label><!-- Location --></label>
+        <name>Location__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ideal Dealer Profile for this customer to be valuable: Dealership with professional staff, excellent CSI rating and community reputation and involvement. Customer friendly sales process and emphasis on after sale support and services. --></help>
+        <label><!-- Loyalty --></label>
+        <name>Loyalty__c</name>
+    </fields>
+    <fields>
+        <help><!-- Do you participate in all manufacture incentive programs?  Manufacturer rebates, low finance rates, combination of both? --></help>
+        <label><!-- Manufacturer Incentive Programs --></label>
+        <name>Manufacturer_Incentive_Programs__c</name>
+    </fields>
+    <fields>
+        <label><!-- Models to Promote the Least --></label>
+        <name>Models_to_Promote_the_Least__c</name>
+    </fields>
+    <fields>
+        <label><!-- Models to Promote the Most --></label>
+        <name>Models_to_Promote_the_Most__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ideal Dealer Profile for this customer to be valuable: Many flexible finance choices both in sales and service, offer unique incentives to create urgency for the customer that doesn&apos;t care &quot;who&quot; they buy from and have the selection of inventory. --></help>
+        <label><!-- Needs Based --></label>
+        <name>Needs_Based__c</name>
+    </fields>
+    <fields>
+        <help><!-- Is your New Car quantity higher, lower, or same as your competition? --></help>
+        <label><!-- New Inventory Sales and Selection --></label>
+        <name>New_Inventory_Quantity_Details__c</name>
+    </fields>
+    <fields>
+        <help><!-- Units sold per month and target units. --></help>
+        <label><!-- # New Vehicle Sales and Target --></label>
+        <name>New_Vehicle_Sales_and_Target__c</name>
+    </fields>
+    <fields>
+        <help><!-- Nicknames used to describe the geographical area. Example: Dallas Fort Worth is referred to as DFW. --></help>
+        <label><!-- Nicknames --></label>
+        <name>Nicknames__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notes --></label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Offer Dealer Specific Incentives? --></label>
+        <name>Offer_Dealer_Specific_Incentives__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Participate In All Manf Incentives? --></label>
+        <name>Participate_In_All_Manf_Incentives__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Some, Not All</masterLabel>
+            <translation><!-- Some, Not All --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- How is the dealer perceived by the overall community, online reviews, peer reviews, etc. --></help>
+        <label><!-- Perceived Reputation --></label>
+        <name>Perceived_Reputation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pricing Strategy Comments --></label>
+        <name>Pricing_Strategy_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Tell me about your pricing strategy.  Invoice pricing, MSRP, Percentage or amount above or below invoice. --></help>
+        <label><!-- Pricing Strategy --></label>
+        <name>Pricing_Strategy__c</name>
+        <picklistValues>
+            <masterLabel>Amount Above Invoice</masterLabel>
+            <translation><!-- Amount Above Invoice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amount Below Invoice</masterLabel>
+            <translation><!-- Amount Below Invoice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Invoice Pricing</masterLabel>
+            <translation><!-- Invoice Pricing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MSRP</masterLabel>
+            <translation><!-- MSRP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Percentage</masterLabel>
+            <translation><!-- Percentage --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Based on this information, I&apos;m going to develop some specific website optimization ideas so I can provide
+the most relevant recommendations for your dealership. Let&apos;s decide on a primary goal for your website. Note: Must be specific and measurable. --></help>
+        <label><!-- Primary Goals --></label>
+        <name>Primary_Goals__c</name>
+    </fields>
+    <fields>
+        <label><!-- Radius --></label>
+        <name>Radius__c</name>
+    </fields>
+    <fields>
+        <help><!-- What is the dealer&apos;s sales process? (Examples: one price, no hassle, defined customer friendly sales process, etc) --></help>
+        <label><!-- Sales Process --></label>
+        <name>Sales_Process__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ask the customer about their staff. Including their history in the community, longevity, experience, knowledge, courtesy, diversity, community involvement, reputation, certification, professionalism, etc. --></help>
+        <label><!-- Staff Details --></label>
+        <name>Staff_Details__c</name>
+    </fields>
+    <fields>
+        <help><!-- Dealer Taglines or Slogans --></help>
+        <label><!-- Taglines --></label>
+        <name>Taglines__c</name>
+    </fields>
+    <fields>
+        <help><!-- Tell me about the quality of your Used Car inventory? How do you compare against the competition? --></help>
+        <label><!-- Used Inventory Sales and Selection --></label>
+        <name>Used_Inventory_Sales_and_Selection__c</name>
+    </fields>
+    <fields>
+        <help><!-- Units sold per month and target units. --></help>
+        <label><!-- # Used Vehicle Sales and Target --></label>
+        <name>Used_Vehicle_Sales_and_target__c</name>
+    </fields>
+    <fields>
+        <label><!-- WebID --></label>
+        <name>WebID__c</name>
+        <relationshipLabel><!-- Marketing Alignment Plans --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Customer Profile Layout</layout>
+        <sections>
+            <label><!-- Additional Notes --></label>
+            <section>Additional Notes</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Ideal Customer Profile With Best Profit Opportunity Based On Dealer&apos;s Strengths --></label>
+            <section>Ideal Customer Profile With Best Profit Opportunity Based On Dealer&apos;s Strengths</section>
+        </sections>
+        <sections>
+            <label><!-- Inventory Questions --></label>
+            <section>Inventory Questions</section>
+        </sections>
+        <sections>
+            <label><!-- Logistics Questions for Discount, Impulse, &amp; Needs Based --></label>
+            <section>Logistics Questions for Discount, Impulse, &amp; Needs Based</section>
+        </sections>
+        <sections>
+            <label><!-- Loyalty-Only Questions --></label>
+            <section>Loyalty-Only Questions</section>
+        </sections>
+        <sections>
+            <label><!-- Pricing Questions for Discount, Impulse, &amp; Needs Based --></label>
+            <section>Pricing Questions for Discount, Impulse, &amp; Needs Based</section>
+        </sections>
+        <sections>
+            <label><!-- SEO Data --></label>
+            <section>SEO Data</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

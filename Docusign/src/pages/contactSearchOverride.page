@@ -1,0 +1,51 @@
+<apex:page standardController="Contact" extensions="contactSearchOverrideController" label="Contact Search" name="contactSearchOverridePage" sidebar="true" showHeader="true">
+	<apex:outputPanel id="test">
+		<apex:form id="contactSearchForm">
+			<apex:pageBlock id="searchForm" title="Contact Search">
+				<apex:pageMessages id="pageMessages"/>
+				<apex:pageBlockSection id="inputFields" columns="2">
+					<apex:outputLabel value="First Name" for="fName" />
+					<apex:inputText id="fName" value="{!fName}" required="false"/>
+					<apex:outputLabel value="Last Name" for="lName" />
+					<apex:inputText id="lName" value="{!lName}" required="false"/>
+					<apex:outputLabel value="Email" for="email" />
+					<apex:inputText id="email" value="{!email}" required="false"/>
+				</apex:pageBlockSection>
+				<apex:pageBlockButtons location="bottom" id="buttons">
+					<apex:commandButton action="{!searchExisting}" value="Search" rerender="contactList,pageMessages,test" status="searchResultStatus"/>
+					<apex:commandButton action="{!newContact}" rendered="{!renderNew}" value="New Contact"/>
+				</apex:pageBlockButtons>
+			</apex:pageBlock>
+		</apex:form>
+	</apex:outputPanel>
+	<apex:outputPanel id="contactList">
+		<apex:actionstatus id="searchResultStatus" startText="Generating List, please wait..." startStyle="font-weight:bold; padding:5px 5px 5px 5px;">
+			<apex:facet name="stop">
+				<apex:pageBlock title="First 10 Matching Search Results">
+					<apex:pageBlockTable value="{!contactResultsList}" var="cc" rows="{!searchLimit}">
+						<apex:column >
+							<apex:facet name="header">Action</apex:facet>
+							<apex:outputLink value="/{!cc.Id}">Use Contact</apex:outputLink>
+		                </apex:column>
+						<apex:column >
+							<apex:facet name="header">First Name</apex:facet>
+		                    {!cc.FirstName}
+		                </apex:column>
+		                <apex:column >
+		                	<apex:facet name="header">Last Name</apex:facet>
+		                    {!cc.LastName}
+		                </apex:column>
+		                <apex:column >
+		                	<apex:facet name="header">Email</apex:facet>
+		                    {!cc.Email}
+		                </apex:column>
+		                <apex:column >
+		                	<apex:facet name="header">Account</apex:facet>
+		                	<apex:outputLink value="/{!cc.AccountId}">{!cc.Account.Name}</apex:outputLink>
+		                </apex:column>
+					</apex:pageBlockTable>
+				</apex:pageBlock>
+			</apex:facet>
+		</apex:actionstatus>
+	</apex:outputPanel>
+</apex:page>

@@ -1,0 +1,6 @@
+<apex:page standardController="Case">
+   <style type="text/css">
+      div.knowledgeBlock input {display: none}
+   </style>
+   <apex:detail />
+</apex:page>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Clone Display Field Settings</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Clone Display Field Settings</value>
+    </caseValues>
+    <fields>
+        <help><!-- This is the list of fields from the Destination object to be listed in the Picklist options. This may need to be added to the Clone Settings Destination Display Fields. --></help>
+        <label><!-- Destination Picklist Option Fields --></label>
+        <name>Destination_Picklist_Option_Fields__c</name>
+    </fields>
+    <fields>
+        <help><!-- The API Name of the field to be displayed in the Clone Follow-up section. --></help>
+        <label><!-- Field API Name --></label>
+        <name>Field_API_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Options include &quot;Default&quot; (let Visualforce decide how to display it),&quot;Text&quot; (plain text), &quot;Link&quot; (a hyperlink to the cloned object if it has been inserted), &quot;Picklist&quot; (a select list with options, dependent on Field Display Query). --></help>
+        <label><!-- Field Display Type --></label>
+        <name>Field_Display_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Field Editable? --></label>
+        <name>Field_Editable__c</name>
+    </fields>
+    <fields>
+        <label><!-- Field Header Text --></label>
+        <name>Field_Header_Text__c</name>
+    </fields>
+    <fields>
+        <help><!-- The cloned object&apos;s field to match the query object&apos;s field. --></help>
+        <label><!-- Field Options Query Clone Field --></label>
+        <name>Field_Options_Query_Clone_Field__c</name>
+    </fields>
+    <fields>
+        <help><!-- The query object&apos;s field to match. --></help>
+        <label><!-- Field Options Query Match --></label>
+        <name>Field_Options_Query_Match__c</name>
+    </fields>
+    <fields>
+        <help><!-- The display text field from the Field Options Query (if provided). --></help>
+        <label><!-- Field Options Query Text --></label>
+        <name>Field_Options_Query_Text__c</name>
+    </fields>
+    <fields>
+        <help><!-- The value field from the Field Options Query (if provided). --></help>
+        <label><!-- Field Options Query Value --></label>
+        <name>Field_Options_Query_Value__c</name>
+    </fields>
+    <fields>
+        <help><!-- If the Field Display Type requires options (for example, if the Field Display Type is &quot;Picklist&quot;), this query is used to provide the values. --></help>
+        <label><!-- Field Options Query --></label>
+        <name>Field_Options_Query__c</name>
+    </fields>
+    <fields>
+        <help><!-- Hide this (display) field but still query the value. --></help>
+        <label><!-- Hide --></label>
+        <name>Hide__c</name>
+    </fields>
+    <fields>
+        <help><!-- This means, when the user clicks override with preferred values button --></help>
+        <label><!-- Include In Override Cloning --></label>
+        <name>Include_In_Override_Cloning__c</name>
+    </fields>
+    <fields>
+        <help><!-- This means, when user do not click the override with preferred values button --></help>
+        <label><!-- Include In Regular Cloning --></label>
+        <name>Include_In_Regular_Cloning__c</name>
+    </fields>
+    <fields>
+        <help><!-- This Field will help to check if the field value is displayed in visualforce page after cloning process --></help>
+        <label><!-- Override Do Not Display After Cloning --></label>
+        <name>Override_Do_Not_Display_After_Cloning__c</name>
+    </fields>
+    <fields>
+        <help><!-- This Field will help to check if the field value is displayed in visualforce page after saving clones to database --></help>
+        <label><!-- Override Do Not Display After Saving --></label>
+        <name>Override_Do_Not_Display_After_Saving__c</name>
+    </fields>
+    <fields>
+        <label><!-- Regular Do Not Display After Cloning --></label>
+        <name>Regular_Do_Not_Display_After_Cloning__c</name>
+    </fields>
+    <fields>
+        <label><!-- Regular Do Not Display After Saving --></label>
+        <name>Regular_Do_Not_Display_After_Saving__c</name>
+    </fields>
+    <fields>
+        <help><!-- If the field is a lookup field; this is the Field API Name of the associated relationship object. This currently only affects Picklist fields (to set saved value in the display table). --></help>
+        <label><!-- Relationship --></label>
+        <name>Relationship__c</name>
+    </fields>
+    <fields>
+        <label><!-- SubType --></label>
+        <name>SubType__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field is used to filter the settings and apply them to the object being cloned. For example, if the cloned sObject Type is Case, this field must also be Case so that the override settings are applied to Cases. --></help>
+        <label><!-- sObject API Name --></label>
+        <name>sObject_API_Name__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

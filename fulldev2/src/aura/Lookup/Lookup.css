@@ -1,0 +1,10 @@
+.THIS .hide{
+    display:none;
+}
+.THIS .show{
+    display:block;
+}
+.THIS .error{
+    color:red;
+    font-weight:bold;
+}

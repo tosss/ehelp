@@ -1,0 +1,44 @@
+/*2016-03-16- anirudh.singh@cdk.com- Created this style sheet for Request RQ-06471 NADA Leads Process - Work My Leads*/
+.THIS .logoStyle
+{
+    background: #EAB05D !important;
+    border-radius: 4px !important;
+}
+.THIS .tableRow
+{
+    border:0.1rem solid #d8dde6 !important;
+}
+.THIS .errorPosition
+{
+    position: fixed !important;
+    top: 0 !important;
+    bottom: auto !important;
+    left: 0 !important;
+    width: 100%;
+}
+.THIS .errorMessageAlignment
+{
+    text-align: center !important;
+    font-weight: bold !important;
+}
+.THIS .customMatchGridFields
+{
+    background-color: white !important;
+    border-top: 0.1rem solid #d8dde6 !important;
+}
+.THIS .customMatchColPadding
+{
+    padding: 0.2rem 0.75rem 0.2rem 0.75rem !important;
+}
+.THIS .customMatchButtonPadding
+{
+    padding: 0rem 0rem 0.2rem 0.75rem !important;
+}
+.THIS .customMatchHeading
+{
+    padding-top: 1rem !important;
+}
+.THIS .noDisplay
+{
+    display: none !important;
+}

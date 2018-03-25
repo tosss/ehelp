@@ -1,0 +1,45 @@
+<design:component >
+	
+    <design:attribute name="Link01" label="Link 1" />
+    <design:attribute name="Text01" label="Text 1" />
+    <design:attribute name="Target01" label="Target 1" datasource="_self, _blank, _top, _parent" />
+    
+    <design:attribute name="Link02" label="Link 2" />
+    <design:attribute name="Text02" label="Text 2" />
+    <design:attribute name="Target02" label="Target 2" datasource="_self, _blank, _top, _parent" />
+    
+    <design:attribute name="Link03" label="Link 3" />
+    <design:attribute name="Text03" label="Text 3" />
+    <design:attribute name="Target03" label="Target 3" datasource="_self, _blank, _top, _parent" />
+    
+    <design:attribute name="Link04" label="Link 4" />
+    <design:attribute name="Text04" label="Text 4" />
+    <design:attribute name="Target04" label="Target 4" datasource="_self, _blank, _top, _parent" />
+    
+    <design:attribute name="Link05" label="Link 5" />
+    <design:attribute name="Text05" label="Text 5" />
+    <design:attribute name="Target05" label="Target 5" datasource="_self, _blank, _top, _parent" />
+    
+    <design:attribute name="Link06" label="Link 6" />
+    <design:attribute name="Text06" label="Text 6" />
+    <design:attribute name="Target06" label="Target 6" datasource="_self, _blank, _top, _parent" />
+    
+    <design:attribute name="Link07" label="Link 7" />
+    <design:attribute name="Text07" label="Text 7" />
+    <design:attribute name="Target07" label="Target 7" datasource="_self, _blank, _top, _parent" />
+    
+    <design:attribute name="Link08" label="Link 8" />
+    <design:attribute name="Text08" label="Text 8" />
+    <design:attribute name="Target08" label="Target 8" datasource="_self, _blank, _top, _parent" />
+    
+    <design:attribute name="Link09" label="Link 9" />
+    <design:attribute name="Text09" label="Text 9" />
+    <design:attribute name="Target09" label="Target 9" datasource="_self, _blank, _top, _parent" />
+    
+    <design:attribute name="Link10" label="Link 10" />
+    <design:attribute name="Text10" label="Text 10" />
+    <design:attribute name="Target10" label="Target 10" datasource="_self, _blank, _top, _parent" />
+    
+    
+    
+</design:component>

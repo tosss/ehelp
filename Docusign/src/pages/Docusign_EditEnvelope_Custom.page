@@ -1,0 +1,32 @@
+<apex:page sidebar="false">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <style>
+        .docusign-container {
+            background-color: #eaeaea;
+            color: #333;
+            font-family: sans-serif;
+            padding: 30px;
+            padding-bottom: 45px;
+        }
+    .title {
+        font-size: 18px;
+        margin: 0 0 24px;
+        line-height: 26px;
+    }
+    </style>
+    <div class="docusign-container" >
+        <div class="title">
+            <img class="logo" src="/resource/1440660535000/dsfs__DocuSign" />
+                <h1 id="envelopeTitle">Deal State: DS - 028273</h1>
+                </div>
+                <div class="row">
+                    <section>
+                    Documents
+                    </section>
+                <section>
+                    Recipients
+                    </section>
+                </div>
+                </div>
+                </apex:page>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>CDK_Blacklist_Words_Compact_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>CDK_Blacklist_Words_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>Word_or_Phrase__c</fields>
+        <fields>Add_to_Compliance_Audit__c</fields>
+        <fields>is_Active__c</fields>
+        <fields>Match_Whole_Words_Only__c</fields>
+        <fields>Prevent_Post_on_Breach__c</fields>
+        <fields>RegexValue__c</fields>
+        <fields>Substitution__c</fields>
+        <fields>Short_Description__c</fields>
+        <fields>Custom_Expression__c</fields>
+        <label>CDK Blacklist Words Compact Layout</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>The records which will contain the Words or Phrases that are not allowed according to Organization&apos;s policy.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>false</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>false</enableSharing>
+    <enableStreamingApi>false</enableStreamingApi>
+    <fields>
+        <fullName>Add_to_Compliance_Audit__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>If checked, any posts hitting a blacklist shall be added to an audit table indicating who made the post, the un-scrubbed message, and the blacklisted word rule which triggered the compliance breach.</description>
+        <externalId>false</externalId>
+        <label>Add to Compliance Audit</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Custom_Expression__c</fullName>
+        <description>User entered regular expression.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter your own regular expression here. Setting this value to blank out the word field.
+Don&apos;t forget to add \b at the start and end if you want to match on a whole word!</inlineHelpText>
+        <label>Custom Expression</label>
+        <length>200</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Match_Whole_Words_Only__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>If checked, a match will only occur on a whole word. eg: bum vs. bummer.</description>
+        <externalId>false</externalId>
+        <label>Match Whole Words Only</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Prevent_Post_on_Breach__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>If checked, a post which hits a blacklist will not be posted to the chatter feed at all. Checking this box automatically enables the visual warning flag.</description>
+        <externalId>false</externalId>
+        <label>Prevent Post on Breach</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RegexValue__c</fullName>
+        <description>The RegexValue generated for the Blacklisted Word or Phrase.</description>
+        <externalId>false</externalId>
+        <label>RegexValue</label>
+        <length>200</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Short_Description__c</fullName>
+        <description>Enter a short description of the blacklist word, phrase or expression. Particularly useful add when describing a custom expression.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter a short description of the blacklist word, phrase or expression. Particularly useful add when describing a custom expression.</inlineHelpText>
+        <label>Short Description</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Short_Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Short Notes</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Substitution__c</fullName>
+        <defaultValue>&quot;****&quot;</defaultValue>
+        <externalId>false</externalId>
+        <label>Substitution</label>
+        <length>200</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Word_or_Phrase__c</fullName>
+        <description>This field will contain the Word or Phrase that needs to be Blacklisted.</description>
+        <externalId>false</externalId>
+        <label>Word or Phrase</label>
+        <length>200</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>is_Active__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Checking this field will mean the word will not be checked as part of the filter.</description>
+        <externalId>false</externalId>
+        <label>is Active</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Blacklisted Word</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Word_or_Phrase__c</columns>
+        <columns>is_Active__c</columns>
+        <columns>Add_to_Compliance_Audit__c</columns>
+        <columns>Custom_Expression__c</columns>
+        <columns>Match_Whole_Words_Only__c</columns>
+        <columns>RegexValue__c</columns>
+        <columns>Prevent_Post_on_Breach__c</columns>
+        <columns>Short_Description__c</columns>
+        <columns>Substitution__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>BLW-{0000}</displayFormat>
+        <label>Blacklisted Word Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Blacklisted Words</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Add_to_Compliance_Audit__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Custom_Expression__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>is_Active__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Match_Whole_Words_Only__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Prevent_Post_on_Breach__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>RegexValue__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Short_Description__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Substitution__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Word_or_Phrase__c</customTabListAdditionalFields>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <lookupDialogsAdditionalFields>Add_to_Compliance_Audit__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Custom_Expression__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>is_Active__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Match_Whole_Words_Only__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Prevent_Post_on_Breach__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RegexValue__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Substitution__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Word_or_Phrase__c</lookupDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Add_to_Compliance_Audit__c</searchFilterFields>
+        <searchFilterFields>Custom_Expression__c</searchFilterFields>
+        <searchFilterFields>is_Active__c</searchFilterFields>
+        <searchFilterFields>Match_Whole_Words_Only__c</searchFilterFields>
+        <searchFilterFields>Prevent_Post_on_Breach__c</searchFilterFields>
+        <searchFilterFields>RegexValue__c</searchFilterFields>
+        <searchFilterFields>Short_Description__c</searchFilterFields>
+        <searchFilterFields>Substitution__c</searchFilterFields>
+        <searchFilterFields>Word_or_Phrase__c</searchFilterFields>
+        <searchResultsAdditionalFields>is_Active__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Prevent_Post_on_Breach__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Add_to_Compliance_Audit__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Match_Whole_Words_Only__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Custom_Expression__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>RegexValue__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Short_Description__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Substitution__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Word_or_Phrase__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

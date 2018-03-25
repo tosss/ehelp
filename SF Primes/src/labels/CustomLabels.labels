@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Cancellation_Queue_OwnerId</fullName>
+        <categories>select Id, Name from Group where type = &apos;Queue&apos; and name like &apos;Canc%&apos;</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cancellation Queue OwnerId</shortDescription>
+        <value>00G40000001L7db</value>
+    </labels>
+    <labels>
+        <fullName>Customer_Data_Queue_RowId</fullName>
+        <categories>Group Object, Customer Data Queue, 00G40000001L7dl</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Customer Data Queue RowId</shortDescription>
+        <value>00G40000001L7dl</value>
+    </labels>
+    <labels>
+        <fullName>EMP_Form_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP Form Name</shortDescription>
+        <value>HR Forms</value>
+    </labels>
+    <labels>
+        <fullName>EMP_Home_Middle_Header</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP_Home_Middle_Header</shortDescription>
+        <value>CEO Messages</value>
+    </labels>
+    <labels>
+        <fullName>EMP_Home_Steve_Message_Content</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP Home Steve Message Content</shortDescription>
+        <value>Hi Everyone! Please take a moment to read the latest recap.</value>
+    </labels>
+    <labels>
+        <fullName>EMP_HumanResourceContent_Header</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP_HumanResourceContent_Header</shortDescription>
+        <value>&lt;p&gt;&lt;h1 style=&quot;font-size: 20px;&quot;&gt;Matching Gift Program &lt;/h1&gt;&lt;/p&gt;</value>
+    </labels>
+    <labels>
+        <fullName>EMP_HumanResource_Focal_header</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP_HumanResource_Focal_header</shortDescription>
+        <value>Focal Point Review</value>
+    </labels>
+    <labels>
+        <fullName>EMP_ITDocLib</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP_ITDocLib</shortDescription>
+        <value>IT Document Library</value>
+    </labels>
+    <labels>
+        <fullName>EMP_ITDocLibURL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP_ITDocLibURL</shortDescription>
+        <value>window.open(&apos;http://adpdsportal.ds.ad.adp.com/DivITSelfService/Documentation/Forms/Category%20View.aspx&apos;,&apos;_blank&apos;);</value>
+    </labels>
+    <labels>
+        <fullName>EMP_Immigration_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP Immigration Name</shortDescription>
+        <value>Immigration Postings</value>
+    </labels>
+    <labels>
+        <fullName>EMP_Library_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP_Library_Name</shortDescription>
+        <value>Associate Community Content</value>
+    </labels>
+    <labels>
+        <fullName>EMP_Policy_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP_Policy_Name</shortDescription>
+        <value>Policy</value>
+    </labels>
+    <labels>
+        <fullName>EMP_SPin_PortalLandingPage_QuickLinks_DealerServicesPortal_Sub_Header</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP Spin PortalLandingPage QuickLinks DealerServicesPortal Sub - Header</shortDescription>
+        <value>&lt;a href=&quot; http://adpdsportal.ds.ad.adp.com&quot; target=&quot;_blank&quot;&gt;&gt; Dealer Services Portal&lt;/a&gt;</value>
+    </labels>
+    <labels>
+        <fullName>EMP_SPin_PortalLandingPage_QuickLinks_FAQs_Sub_Header</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP SPin PortalLandingPage QuickLinks FAQs Sub - Header</shortDescription>
+        <value>FAQs</value>
+    </labels>
+    <labels>
+        <fullName>EMP_SPin_PortalLandingPage_QuickLinks_Letters_Sub_Header</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP_SPin_PortalLandingPage_QuickLinks_Letters_Sub_Header</shortDescription>
+        <value>LETTERS</value>
+    </labels>
+    <labels>
+        <fullName>EMP_SPin_PortalLandingPage_QuickLinks_Miscellaneous_Sub_Header</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP SPin PortalLandingPage QuickLinks Miscellaneous Sub - Header</shortDescription>
+        <value>MISCELLANEOUS</value>
+    </labels>
+    <labels>
+        <fullName>EMP_Spin_PortalLandingPage_AboutDealerServices_Header</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP Spin PortalLandingPage AboutDealerServices Header</shortDescription>
+        <value>Welcome to the CDK Global Spinoff Page</value>
+    </labels>
+    <labels>
+        <fullName>EMP_Spin_PortalLandingPage_AboutDealer_Sub_Header</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP Spin PortalLandingPage AboutDealer Sub-Heade</shortDescription>
+        <value>&lt;b&gt;This page contains all CDK Global Spinoff information and documents.&lt;/b&gt;
+&lt;br/&gt;
+&lt;br/&gt; 
+On April 10, we announced that ADP’s Board of Directors had approved a plan to spin off the Dealer Services business into a standalone, independent and publicly traded company. The Dealer Services business is strong, with good long-term growth prospects, and as an independent entity, will be well positioned to build on its solid client base. 
+&lt;br/&gt; 
+&lt;br/&gt; 
+There are many teams working through the details of the spinoff. Please visit this site often for updates on the progress with this transaction.</value>
+    </labels>
+    <labels>
+        <fullName>EMP_Spin_PortalLandingPage_ChatterEntity_ID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP Spin PortalLandingPage ChatterEntity ID</shortDescription>
+        <value>0F940000000PGkN</value>
+    </labels>
+    <labels>
+        <fullName>EMP_Spin_PortalLandingPage_CountdownTimer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP Spin PortalLandingPage CountdownTimer</shortDescription>
+        <value>2014/10/01 00:00:00</value>
+    </labels>
+    <labels>
+        <fullName>EMP_Spin_PortalLandingPage_PageHeader</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP Spin PortalLandingPage PageHeader</shortDescription>
+        <value>Dealer Services Portal</value>
+    </labels>
+    <labels>
+        <fullName>EMP_Spin_PortalLandingPage_Questions_Header</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP Spin PortalLandingPage Questions Header</shortDescription>
+        <value>We are Listening</value>
+    </labels>
+    <labels>
+        <fullName>EMP_Spin_PortalLandingPage_Questions_Sub_Header</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP Spin PortalLandingPage Questions Sub-Header</shortDescription>
+        <value>&lt;b&gt;Still have questions?&lt;/b&gt; 
+&lt;br/&gt; 
+&lt;br/&gt; 
+Please send any questions to: 
+&lt;a href=&quot;mailto:internal.communication@cdk.com&quot;&gt;internal.communication@cdk.com&lt;/a&gt;. We are committed to providing our associates with the most up-to-date information about the spinoff as possible. We collect question asked and once we have an answer, we include it in the FAQs for all associates to see.</value>
+    </labels>
+    <labels>
+        <fullName>EMP_Spin_PortalLandingPage_QuickLinks_Scripts_Sub_Header</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP Spin PortalLandingPage QuickLinks Scripts Sub-Header</shortDescription>
+        <value>SCRIPTS</value>
+    </labels>
+    <labels>
+        <fullName>EMP_Spin_PortalLandingPage_QuickLinks_Videos_Sub_Header</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP Spin PortalLandingPage QuickLinks Videos Sub-Header</shortDescription>
+        <value>VIDEOS</value>
+    </labels>
+    <labels>
+        <fullName>EMP_Spin_PortalLandingPage_Quick_Links_Header</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP Spin PortalLandingPage Quick Links Header</shortDescription>
+        <value>Spinoff Communications</value>
+    </labels>
+    <labels>
+        <fullName>EMP_Spin_PortalLandingPage_SpinOffNews_Header</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP Spin PortalLandingPage SpinOffNews Header</shortDescription>
+        <value>Spinoff News</value>
+    </labels>
+    <labels>
+        <fullName>EMP_Spin_PortalLandingPage_SpinoffNews_Sub_Header</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP Spin PortalLandingPage SpinoffNews_Sub_Header</shortDescription>
+        <value>The Dealer Services spinoff team will provide an update on the new Dealer Services standalone business activity each month, as well as highlight new or updated questions in the Frequently Asked Question documents.</value>
+    </labels>
+    <labels>
+        <fullName>EMP_Spin_PortalLandingPage_SpinoffNews_Sub_Header_Timer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP_Spin_PortalLandingPage_SpinoffNews_Sub_Header_Timer</shortDescription>
+        <value>Spinoff Countdown</value>
+    </labels>
+    <labels>
+        <fullName>EMP_Spin_PortalLandingPage_SteveAnenenUpdates_Header</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP Spin PortalLandingPage SteveAnenenUpdates</shortDescription>
+        <value>Recent Updates</value>
+    </labels>
+    <labels>
+        <fullName>EMP_Spin_PortalLandingPage_SteveAnenenUpdates_subHeader</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMP_Spin_PortalLandingPage_SteveAnenenUpdates_subHeader</shortDescription>
+        <value>&lt;b&gt;Steve Anenen&lt;/b&gt;&lt;br/&gt;
+CEO, CDK Global</value>
+    </labels>
+    <labels>
+        <fullName>IFS_Domains_Queue_RowId</fullName>
+        <categories>Group Object, IFS Domains Queue, 00G40000001L7g6</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>IFS Domains Queue RowId</shortDescription>
+        <value>00G40000001L7g6</value>
+    </labels>
+    <labels>
+        <fullName>Service_Ops_Transitions_Queue_RowId</fullName>
+        <categories>Group Object, Service Ops Transition Queue, 00G40000001L7ef</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Service Ops Transitions Queue RowId</shortDescription>
+        <value>00G40000001L7ef</value>
+    </labels>
+    <labels>
+        <fullName>Tier_1_Queue_RowId</fullName>
+        <categories>Group Object, Tier 1 Queue, 00G40000001L7fm</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tier 1 Queue RowId</shortDescription>
+        <value>00G40000001L7fm</value>
+    </labels>
+    <labels>
+        <fullName>Tier_2_Content_Queue_RowId</fullName>
+        <categories>Group Object, Tier 2 Content Queue, 00G40000001L7fr</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tier 2 Content Queue RowId</shortDescription>
+        <value>00G40000001L7fr</value>
+    </labels>
+    <labels>
+        <fullName>Tier_2_ETS_Queue_RowId</fullName>
+        <categories>Group Object, Tier 2 ETS Queue, 00G40000001L7fw</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tier 2 ETS Queue RowId</shortDescription>
+        <value>00G40000001L7fw</value>
+    </labels>
+    <labels>
+        <fullName>Validation_WebID_users_cannot_edit_webid_User_1</fullName>
+        <categories>Cast Iron UserId, 00540000001GrBh</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validation - WebID - users cannot edit webid User 1</shortDescription>
+        <value>00540000001IOkH</value>
+    </labels>
+    <labels>
+        <fullName>Validation_WebID_users_cannot_edit_webid_User_2</fullName>
+        <categories>Conversion UserId, 00540000001IOc0</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validation - WebID - users cannot edit webid User 2</shortDescription>
+        <value>00540000001IOc0</value>
+    </labels>
+    <labels>
+        <fullName>WorkFlow_Assign_Cancellation_Queue_User_1</fullName>
+        <categories>Jennifer Jones, 00540000001IOgO</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WorkFlow Assign Cancellation Queue User 1</shortDescription>
+        <value>00540000001IOgO</value>
+    </labels>
+    <labels>
+        <fullName>WorkFlow_Assign_Cancellation_Queue_User_10</fullName>
+        <categories>Mary O&apos;Driscoll, 00540000001i3pF</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WorkFlow Assign Cancellation Queue User 10</shortDescription>
+        <value>00540000001i3pF</value>
+    </labels>
+    <labels>
+        <fullName>WorkFlow_Assign_Cancellation_Queue_User_2</fullName>
+        <categories>Richard McNish, 00540000001IOdB</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WorkFlow Assign Cancellation Queue User 2</shortDescription>
+        <value>00540000001IOdB</value>
+    </labels>
+    <labels>
+        <fullName>WorkFlow_Assign_Cancellation_Queue_User_3</fullName>
+        <categories>Shannon Horton, 00540000001IOj1</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WorkFlow Assign Cancellation Queue User 3</shortDescription>
+        <value>00540000001IOj1</value>
+    </labels>
+    <labels>
+        <fullName>WorkFlow_Assign_Cancellation_Queue_User_4</fullName>
+        <categories>Nikki Battles, 00540000001IOiD</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WorkFlow Assign Cancellation Queue User 4</shortDescription>
+        <value>00540000001IOiD</value>
+    </labels>
+    <labels>
+        <fullName>WorkFlow_Assign_Cancellation_Queue_User_5</fullName>
+        <categories>Megan McManus, 00540000001IOhq</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WorkFlow Assign Cancellation Queue User 5</shortDescription>
+        <value>00540000001IOhq</value>
+    </labels>
+    <labels>
+        <fullName>WorkFlow_Assign_Cancellation_Queue_User_6</fullName>
+        <categories>Joe Stephanson, 00540000001IOgc</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WorkFlow Assign Cancellation Queue User 6</shortDescription>
+        <value>00540000001IOgc</value>
+    </labels>
+    <labels>
+        <fullName>WorkFlow_Assign_Cancellation_Queue_User_7</fullName>
+        <categories>Cara O&apos;Driscollz, 00540000001IOea</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WorkFlow Assign Cancellation Queue User 7</shortDescription>
+        <value>00540000001IOea</value>
+    </labels>
+    <labels>
+        <fullName>WorkFlow_Assign_Cancellation_Queue_User_8</fullName>
+        <categories>Ron Ross, 00540000001IOih</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WorkFlow Assign Cancellation Queue User 8</shortDescription>
+        <value>00540000001IOih</value>
+    </labels>
+    <labels>
+        <fullName>WorkFlow_Assign_Cancellation_Queue_User_9</fullName>
+        <categories>Elizabeth Palmer, 00540000001IOpZ</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WorkFlow Assign Cancellation Queue User 9</shortDescription>
+        <value>00540000001IOpZ</value>
+    </labels>
+    <labels>
+        <fullName>WorkFlow_Assign_PDC_to_Cancellations_User_1</fullName>
+        <categories>Cara O&apos;Driscoll, 00540000001IOea</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WorkFlow Assign - PDC to Cancellations User 1</shortDescription>
+        <value>00540000001IOea</value>
+    </labels>
+    <labels>
+        <fullName>WorkFlow_Assign_PDC_to_Cancellations_User_10</fullName>
+        <categories>Mary O&apos;Driscoll, 00540000001i3pF</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WorkFlow Assign - PDC to Cancellations User 10</shortDescription>
+        <value>00540000001i3pF</value>
+    </labels>
+    <labels>
+        <fullName>WorkFlow_Assign_PDC_to_Cancellations_User_2</fullName>
+        <categories>Jenifer Jones, 00540000001IOgO</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WorkFlow Assign - PDC to Cancellations User 2</shortDescription>
+        <value>00540000001IOgO</value>
+    </labels>
+    <labels>
+        <fullName>WorkFlow_Assign_PDC_to_Cancellations_User_3</fullName>
+        <categories>Megan McManus, 00540000001IOhq</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WorkFlow Assign - PDC to Cancellations User 3</shortDescription>
+        <value>00540000001IOhq</value>
+    </labels>
+    <labels>
+        <fullName>WorkFlow_Assign_PDC_to_Cancellations_User_4</fullName>
+        <categories>Nikki Battles, 00540000001IOiD</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WorkFlow Assign - PDC to Cancellations User 4</shortDescription>
+        <value>00540000001IOiD</value>
+    </labels>
+    <labels>
+        <fullName>WorkFlow_Assign_PDC_to_Cancellations_User_5</fullName>
+        <categories>Joe Stephanson, 00540000001IOgc</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WorkFlow Assign - PDC to Cancellations User 5</shortDescription>
+        <value>00540000001IOgc</value>
+    </labels>
+    <labels>
+        <fullName>WorkFlow_Assign_PDC_to_Cancellations_User_6</fullName>
+        <categories>Richard McNish, 00540000001IOdB</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WorkFlow Assign - PDC to Cancellations User 6</shortDescription>
+        <value>00540000001IOdB</value>
+    </labels>
+    <labels>
+        <fullName>WorkFlow_Assign_PDC_to_Cancellations_User_7</fullName>
+        <categories>Ron Ross, 00540000001IOih</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WorkFlow Assign - PDC to Cancellations User 7</shortDescription>
+        <value>00540000001IOih</value>
+    </labels>
+    <labels>
+        <fullName>WorkFlow_Assign_PDC_to_Cancellations_User_8</fullName>
+        <categories>Shannon Horton, 00540000001IOj1</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WorkFlow Assign - PDC to Cancellations User 8</shortDescription>
+        <value>00540000001IOj1</value>
+    </labels>
+    <labels>
+        <fullName>WorkFlow_Assign_PDC_to_Cancellations_User_9</fullName>
+        <categories>Elizabeth Palmer, 00540000001IOpZ</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WorkFlow Assign - PDC to Cancellations User 9</shortDescription>
+        <value>00540000001IOpZ</value>
+    </labels>
+    <labels>
+        <fullName>WorkFlow_Corp_IT_Cases_Cannot_be_Closed_User_1</fullName>
+        <categories>AJ Soysouvanh, 00540000001IOck</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WorkFlow Corp IT Cases Cannot be Closed User 1</shortDescription>
+        <value>00540000001IOck</value>
+    </labels>
+    <labels>
+        <fullName>WorkFlow_Corp_IT_Cases_Cannot_be_Closed_User_2</fullName>
+        <categories>Cameron Wong, 00540000001GqpH</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WorkFlow Corp IT Cases Cannot be Closed User 2</shortDescription>
+        <value>00540000001GqpH</value>
+    </labels>
+    <labels>
+        <fullName>WorkFlow_Corp_IT_Cases_Cannot_be_Closed_User_3</fullName>
+        <categories>William Thresher, 00540000001IOjl</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WorkFlow Corp IT Cases Cannot be Closed User 3</shortDescription>
+        <value>00540000001IOjl</value>
+    </labels>
+</CustomLabels>

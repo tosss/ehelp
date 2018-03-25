@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Dealership Ideal Customer Profiles</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Accessibility__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>How accessible is the dealership? Easy to get to, easy in-out, easy to find, handicap access</inlineHelpText>
+        <label>Accessibility</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>WebID__r.Account__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Advantages__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>List anything that differentiates then as a dealer. Examples: special sales process, highest customer satisfaction rating, oil change specials, free tires for life, discounts, etc.</inlineHelpText>
+        <label>Advantages</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>After_Sale_Benefits__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What benefits does the dealer offer their customers after the sale? (Examples: Service discounts, free oil changes, loaner cars, tires for life, loyalty discount, dealership used car warranty, rewards program, roadside assistance, etc)</inlineHelpText>
+        <label>After Sale Benefits</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Best_and_Least_Selling_Models__c</fullName>
+        <externalId>false</externalId>
+        <label>Best and Least Selling Models</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Branded_Name_of_Dealership__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Example: Stadium GM Superstore. Use when the name is actually a bit different.</inlineHelpText>
+        <label>Branded Name of Dealership</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CSI_Customer_Satisfaction__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What is the dealer&apos;s Customer Satisfaction Index Survey scores (CSI scores)? What feedback do they generally receive from their customers?</inlineHelpText>
+        <label>CSI/Customer Satisfaction</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Certified_Used_Inventory_Additional_Info__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Is there anything else that sets you apart?</inlineHelpText>
+        <label>Certified Used Inventory Additional Info</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Certified_Used_Inventory_Quantity_Detail__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Is your Certified Used Car quantity higher, lower, or same as your competition?</inlineHelpText>
+        <label>Certified Used Inventory Quantity Detail</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Certified_Used_Inventory_Selection_Det__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Do you have a variety of makes/models? How do you compare to your competition?</inlineHelpText>
+        <label>Certified Used Inventory Selection Dtls</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Certified_Vehicle_Sales_and_Target__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Units sold per month and target units.</inlineHelpText>
+        <label># Certified Vehicle Sales and Target</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Cities__c</fullName>
+        <externalId>false</externalId>
+        <label>Cities</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cobalt_Consolidation_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Cobalt_Consolidation_ID</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Counties__c</fullName>
+        <externalId>false</externalId>
+        <label>Counties</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Customer_Type__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Which of the four types of customers best identifies the dealer&apos;s IDEAL customer? In other words, the customer they feel represents the best profit opportunity based on their dealership&apos;s strengths?</inlineHelpText>
+        <label>Customer Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Discount</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Impulse</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Loyalty</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Needs Based</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Dealer_Specific_Incentives__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Do you offer additional dealership specific incentives?  Dollar off coupons (i.e. $750 Off), guaranteed x amount for trade, gifts with purchase, etc.</inlineHelpText>
+        <label>Dealer Specific Incentives</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Discount__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Ideal Dealer Profile for this customer to be valuable: High volume dealership with larger inventory selection,		
+aggressive pricing strategy and unique incentives.</inlineHelpText>
+        <label>Discount</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Financing_Options__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What financing options are available for your customers?  Bad credit, credit union relationship, special/secondary financing, local banks, national banks, etc.  Choose all that apply.</inlineHelpText>
+        <label>Financing Options</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Bad Credit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Credit Union</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Local Banks</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>National Banks</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special/Secondary</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Fixed_Operations_Details__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What fixed operations does the dealership offer? Ask the dealer to tell you a little about each area and how they stand apart from their competition.</inlineHelpText>
+        <label>Fixed Operations Details</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Hours__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Sales; Service; Express Lube; Body Shop</inlineHelpText>
+        <label>Hours</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Impulse__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Ideal Dealer Profile for this customer to be valuable: Offers unique incentives and has excellent inventory choices with
+a strong sales force and a great highly visible location with convenient access.</inlineHelpText>
+        <label>Impulse</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Location__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>City/Country setting, Landmarks, Street corner.</inlineHelpText>
+        <label>Location</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Loyalty__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Ideal Dealer Profile for this customer to be valuable: Dealership with professional staff, excellent CSI rating and community reputation and involvement. Customer friendly sales process and emphasis on after sale support and services.</inlineHelpText>
+        <label>Loyalty</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Manufacturer_Incentive_Programs__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Do you participate in all manufacture incentive programs?  Manufacturer rebates, low finance rates, combination of both?</inlineHelpText>
+        <label>Manufacturer Incentive Programs</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Models_to_Promote_the_Least__c</fullName>
+        <externalId>false</externalId>
+        <label>Models to Promote the Least</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Models_to_Promote_the_Most__c</fullName>
+        <externalId>false</externalId>
+        <label>Models to Promote the Most</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Needs_Based__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Ideal Dealer Profile for this customer to be valuable: Many flexible finance choices both in sales and service, offer unique incentives to create urgency for the customer that doesn&apos;t care &quot;who&quot; they buy from and have the selection of inventory.</inlineHelpText>
+        <label>Needs Based</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>New_Inventory_Quantity_Details__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Is your New Car quantity higher, lower, or same as your competition?</inlineHelpText>
+        <label>New Inventory Sales and Selection</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>New_Vehicle_Sales_and_Target__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Units sold per month and target units.</inlineHelpText>
+        <label># New Vehicle Sales and Target</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Nicknames__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Nicknames used to describe the geographical area. Example: Dallas Fort Worth is referred to as DFW.</inlineHelpText>
+        <label>Nicknames</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Notes</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Offer_Dealer_Specific_Incentives__c</fullName>
+        <externalId>false</externalId>
+        <label>Offer Dealer Specific Incentives?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Participate_In_All_Manf_Incentives__c</fullName>
+        <externalId>false</externalId>
+        <label>Participate In All Manf Incentives?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Some, Not All</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Perceived_Reputation__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>How is the dealer perceived by the overall community, online reviews, peer reviews, etc.</inlineHelpText>
+        <label>Perceived Reputation</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Pricing_Strategy_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Pricing Strategy Comments</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Pricing_Strategy__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Tell me about your pricing strategy.  Invoice pricing, MSRP, Percentage or amount above or below invoice.</inlineHelpText>
+        <label>Pricing Strategy</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Amount Above Invoice</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Amount Below Invoice</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Invoice Pricing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MSRP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Percentage</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Goals__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Based on this information, I&apos;m going to develop some specific website optimization ideas so I can provide
+the most relevant recommendations for your dealership. Let&apos;s decide on a primary goal for your website. Note: Must be specific and measurable.</inlineHelpText>
+        <label>Primary Goals</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Radius__c</fullName>
+        <externalId>false</externalId>
+        <label>Radius</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sales_Process__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What is the dealer&apos;s sales process? (Examples: one price, no hassle, defined customer friendly sales process, etc)</inlineHelpText>
+        <label>Sales Process</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Staff_Details__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Ask the customer about their staff. Including their history in the community, longevity, experience, knowledge, courtesy, diversity, community involvement, reputation, certification, professionalism, etc.</inlineHelpText>
+        <label>Staff Details</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Taglines__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Dealer Taglines or Slogans</inlineHelpText>
+        <label>Taglines</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Used_Inventory_Sales_and_Selection__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Tell me about the quality of your Used Car inventory? How do you compare against the competition?</inlineHelpText>
+        <label>Used Inventory Sales and Selection</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Used_Vehicle_Sales_and_target__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Units sold per month and target units.</inlineHelpText>
+        <label># Used Vehicle Sales and Target</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>WebID__c</fullName>
+        <externalId>false</externalId>
+        <label>WebID</label>
+        <referenceTo>WebID__c</referenceTo>
+        <relationshipName>Customer_Profiles</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <label>Marketing Alignment Plan</label>
+    <nameField>
+        <displayFormat>CP-{000000}</displayFormat>
+        <label>Customer Profile ID</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Marketing Alignment Plans</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

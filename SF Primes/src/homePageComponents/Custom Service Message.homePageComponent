@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HomePageComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <body>&lt;span class=&quot;Apple-style-span&quot; style=&quot;background-color: rgb(255,255,255);&quot;&gt;&lt;font class=&quot;Apple-style-span&quot; color=&quot;#6600cc&quot; size=&quot;1&quot;&gt;&lt;span class=&quot;Apple-style-span&quot; style=&quot;font-size: x-large;&quot;&gt;&lt;font color=&quot;#ff0000&quot; size=&quot;5&quot;&gt;&lt;strong&gt;&lt;/strong&gt;&lt;/font&gt;&lt;/span&gt;&lt;/font&gt;&lt;/span&gt;
+&lt;div&gt;&lt;font class=&quot;Apple-style-span&quot; color=&quot;#009900&quot;&gt;&lt;span class=&quot;Apple-style-span&quot;&gt;&lt;b&gt;&lt;/b&gt;&lt;/span&gt;&lt;/font&gt; &lt;/div&gt;</body>
+    <pageComponentType>htmlArea</pageComponentType>
+    <width>wide</width>
+</HomePageComponent>

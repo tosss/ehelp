@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Recap Field</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Recap Field</value>
+    </caseValues>
+    <fields>
+        <label><!-- AllWebsiteField? --></label>
+        <name>AllWebsiteField__c</name>
+    </fields>
+    <fields>
+        <label><!-- BMW CPO Product --></label>
+        <name>BMW_CPO_Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- DAP Email Product --></label>
+        <name>DAP_Email_Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- DAP Product --></label>
+        <name>DAP_Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- Field API Name --></label>
+        <name>Field_API_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- LMA_Product --></label>
+        <name>LMA_Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- LMA_RdRecapComplete --></label>
+        <name>LMA_RdRecapComplete__c</name>
+    </fields>
+    <fields>
+        <label><!-- LMA_RecapComplete --></label>
+        <name>LMA_RecapComplete__c</name>
+    </fields>
+    <fields>
+        <label><!-- LMA_RecapInComplete --></label>
+        <name>LMA_RecapInComplete__c</name>
+    </fields>
+    <fields>
+        <label><!-- LMA_Started --></label>
+        <name>LMA_Started__c</name>
+    </fields>
+    <fields>
+        <label><!-- LMA_WithLMAteam --></label>
+        <name>LMA_WithLMAteam__c</name>
+    </fields>
+    <fields>
+        <label><!-- LMA_Working --></label>
+        <name>LMA_Working__c</name>
+    </fields>
+    <fields>
+        <label><!-- Label --></label>
+        <name>Label__c</name>
+    </fields>
+    <fields>
+        <help><!-- The type of the sObject listed in the Lookup relationship field. --></help>
+        <label><!-- Lookup sObject Type --></label>
+        <name>Lookup_sObject_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lookup sObject --></label>
+        <name>Lookup_sObject__c</name>
+    </fields>
+    <fields>
+        <help><!-- An alternate field for the (Field API Name). --></help>
+        <label><!-- Or Field API Name --></label>
+        <name>Or_Field_API_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order --></label>
+        <name>Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Owner Marketing Product --></label>
+        <name>Owner_Marketing_Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- PowerBrand Product --></label>
+        <name>PowerBrand_Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- PowerSEO Product --></label>
+        <name>PowerSEO_Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- PowerSearch Product --></label>
+        <name>PowerSearch_Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recap_Non_LMA_Order --></label>
+        <name>Recap_Non_LMA_Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reputation Management Product --></label>
+        <name>Reputation_Management_Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- Required --></label>
+        <name>Required__c</name>
+    </fields>
+    <fields>
+        <label><!-- Search Essentials Product --></label>
+        <name>Search_Essentials_Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- Section --></label>
+        <name>Section__c</name>
+    </fields>
+    <fields>
+        <label><!-- Social Media Product --></label>
+        <name>Social_Media_Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- Website Product --></label>
+        <name>Website_Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- sObject --></label>
+        <name>sObject__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

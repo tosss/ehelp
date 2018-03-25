@@ -1,0 +1,7 @@
+<apex:page >
+    <!--Author     : Anirudh Singh-->
+    <!--Date       : 9th Jan, 2015-->
+    <!--Description: This Visualforce page is used for registration for Login Flow by the User.-->
+    
+    <flow:interview name="QR_Registration" finishLocation="{!URLFOR('/home/home.jsp')}" buttonLocation="bottom"/>
+</apex:page>

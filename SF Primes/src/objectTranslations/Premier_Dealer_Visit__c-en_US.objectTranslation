@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Premier Dealer Visit</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Premier Dealer Visits</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Premier Dealer Visits --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- SLX CreateDate --></label>
+        <name>SLX_CreateDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- SLX ID --></label>
+        <name>SLX_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Visit Date --></label>
+        <name>Visit_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Visit Hours --></label>
+        <name>Visit_Hours__c</name>
+    </fields>
+    <fields>
+        <label><!-- Visit Notes --></label>
+        <name>Visit_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Visiting Rep --></label>
+        <name>Visiting_Rep__c</name>
+        <relationshipLabel><!-- Premier Dealer Visits --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Premier Dealer Visit - MSR Layout</layout>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Premier Dealer Visit - Non-MSR Layout</layout>
+        <sections>
+            <label><!-- Notes --></label>
+            <section>Notes</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Premier Dealer Visit - MSR --></label>
+        <name>Premier_Dealer_Visit_MSR</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

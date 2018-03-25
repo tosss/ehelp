@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Request Team Member</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Request Team Members</value>
+    </caseValues>
+    <fields>
+        <label><!-- Request ID --></label>
+        <name>Request_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Request Link --></label>
+        <name>Request_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Request --></label>
+        <name>Request__c</name>
+        <relationshipLabel><!-- Request Team Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Role --></label>
+        <name>Role__c</name>
+        <picklistValues>
+            <masterLabel>Business Analyst</masterLabel>
+            <translation><!-- Business Analyst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>External Developer</masterLabel>
+            <translation><!-- External Developer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Project Manager</masterLabel>
+            <translation><!-- Project Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>QA Tester</masterLabel>
+            <translation><!-- QA Tester --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Release Manager</masterLabel>
+            <translation><!-- Release Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SF Config Admin</masterLabel>
+            <translation><!-- SF Config Admin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SF Developer</masterLabel>
+            <translation><!-- SF Developer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technical Reviewer</masterLabel>
+            <translation><!-- Technical Reviewer --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>User__c</name>
+        <relationshipLabel><!-- Request Team Members --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Request Team Member Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

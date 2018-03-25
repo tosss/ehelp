@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Employee QC Headcount</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Employee QC Headcount</value>
+    </caseValues>
+    <fields>
+        <label><!-- Employee Information --></label>
+        <name>Employee_Information__c</name>
+        <relationshipLabel><!-- Employee QC Headcount --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Fiscal Year --></label>
+        <name>Fiscal_Year__c</name>
+        <picklistValues>
+            <masterLabel>2010</masterLabel>
+            <translation><!-- 2010 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2011</masterLabel>
+            <translation><!-- 2011 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2012</masterLabel>
+            <translation><!-- 2012 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2013</masterLabel>
+            <translation><!-- 2013 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- QC Headcount --></label>
+        <name>QC_Headcount__c</name>
+    </fields>
+    <layouts>
+        <layout>Employee QC Headcount Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

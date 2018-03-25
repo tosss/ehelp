@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Account Strategy</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Account Strategies</value>
+    </caseValues>
+    <fields>
+        <label><!-- AA Account Plan Link --></label>
+        <name>AA_Account_Plan_Link__c</name>
+        <relationshipLabel><!-- Account Strategies (AA Account Plan Link) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Account Advocate Email --></label>
+        <name>Account_Advocate_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Advocate --></label>
+        <name>Account_Advocate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Status --></label>
+        <name>Account_Status__c</name>
+        <picklistValues>
+            <masterLabel>1 - Secondary, No Engagement</masterLabel>
+            <translation><!-- 1 - Secondary, No Engagement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2 - Secondary, Engagement</masterLabel>
+            <translation><!-- 2 - Secondary, Engagement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3 - Primary, No Spend</masterLabel>
+            <translation><!-- 3 - Primary, No Spend --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4 - Primary, Minimal Spend</masterLabel>
+            <translation><!-- 4 - Primary, Minimal Spend --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5 - Primary, Large Spend</masterLabel>
+            <translation><!-- 5 - Primary, Large Spend --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Account Strategies --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- CDK Solution to be utilized / optimized --></label>
+        <name>CDK_Solution_to_be_utilized_optimized2__c</name>
+    </fields>
+    <fields>
+        <label><!-- CDK Solution to be utilized / optimized --></label>
+        <name>CDK_Solution_to_be_utilized_optimized3__c</name>
+    </fields>
+    <fields>
+        <label><!-- CDK Solution to be utilized / optimized --></label>
+        <name>CDK_Solution_to_be_utilized_optimized__c</name>
+    </fields>
+    <fields>
+        <help><!-- What is the current marketing planning process? Who is involved?
+(Annual, Quarterly, Monthly) --></help>
+        <label><!-- Current Marketing Planning Process? --></label>
+        <name>Current_Marketing_Planning_Process__c</name>
+    </fields>
+    <fields>
+        <label><!-- DAA Account Plan Link --></label>
+        <name>DAA_Account_Plan_Link__c</name>
+        <relationshipLabel><!-- Accoun Strategies (DAA Account Plan Link) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Dealer Advocacy --></label>
+        <name>Dealer_Advocacy__c</name>
+        <picklistValues>
+            <masterLabel>Success Story</masterLabel>
+            <translation><!-- Success Story --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Verbal Testimonial</masterLabel>
+            <translation><!-- Verbal Testimonial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Video Testimonial</masterLabel>
+            <translation><!-- Video Testimonial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Will Call OEM</masterLabel>
+            <translation><!-- Will Call OEM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Will Email OEM</masterLabel>
+            <translation><!-- Will Email OEM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Written Testimonial</masterLabel>
+            <translation><!-- Written Testimonial --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Dealership Advertising Budget --></label>
+        <name>Dealership_Advertising_Budget__c</name>
+        <picklistValues>
+            <masterLabel>Annual</masterLabel>
+            <translation><!-- Annual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monthly</masterLabel>
+            <translation><!-- Monthly --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Dealership Goal 1 --></label>
+        <name>Dealership_Goal_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealership Goal 2 --></label>
+        <name>Dealership_Goal_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealership Goal 3 --></label>
+        <name>Dealership_Goal_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Digital Advertising Analyst Email --></label>
+        <name>Digital_Advertising_Analyst_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Digital Advertising Analyst --></label>
+        <name>Digital_Advertising_Analyst__c</name>
+    </fields>
+    <fields>
+        <label><!-- % Digital --></label>
+        <name>Digital__c</name>
+    </fields>
+    <fields>
+        <label><!-- EMS Account Plan Link --></label>
+        <name>EMS_Account_Plan_Link__c</name>
+        <relationshipLabel><!-- Accoun Strategies (EMS Account Plan Link) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Email Marketing Specialist --></label>
+        <name>Email_Marketing_Specialist2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Marketing Specialist Email --></label>
+        <name>Email_Marketing_Specialist_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Goal 1 Digital Marketing Strategy --></label>
+        <name>Goal_1_Digital_Marketing_Strategy__c</name>
+    </fields>
+    <fields>
+        <label><!-- Goal 2 Digital Marketing Strategy --></label>
+        <name>Goal_2_Digital_Marketing_Strategy__c</name>
+    </fields>
+    <fields>
+        <label><!-- Goal 3 Digital Marketing Strategy --></label>
+        <name>Goal_3_Digital_Marketing_Strategy__c</name>
+    </fields>
+    <fields>
+        <label><!-- LMA Strategist Email --></label>
+        <name>LMA_Strategist_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- LMA Strategist --></label>
+        <name>LMA_Strategist__c</name>
+    </fields>
+    <fields>
+        <label><!-- Make/Model(s) dealership struggles with? --></label>
+        <name>Make_Model_s_dealership_struggles_with__c</name>
+    </fields>
+    <fields>
+        <label><!-- Make/Model(s) with highest sales volume? --></label>
+        <name>Make_Model_s_with_highest_sales_volume__c</name>
+    </fields>
+    <fields>
+        <label><!-- Marketing Strategist Email --></label>
+        <name>Marketing_Strategist_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Marketing Strategist --></label>
+        <name>Marketing_Strategist__c</name>
+    </fields>
+    <fields>
+        <help><!-- Units Per Month --></help>
+        <label><!-- New Vehicle Sales Target --></label>
+        <name>New_Vehicle_Sales_Target__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next steps for DSM --></label>
+        <name>Next_steps_for_DSM__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next steps for dealer --></label>
+        <name>Next_steps_for_dealer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Account Strategies --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- If &quot;other&quot;, specificy --></label>
+        <name>Other_Primary__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other Profit Center --></label>
+        <name>Other_Profit_Center__c</name>
+    </fields>
+    <fields>
+        <label><!-- If &quot;other&quot;, specificy --></label>
+        <name>Other_Secondary__c</name>
+    </fields>
+    <fields>
+        <label><!-- Profit Center - Primary Focus --></label>
+        <name>Profit_Center_Primary_Focus__c</name>
+        <picklistValues>
+            <masterLabel>Body Shop</masterLabel>
+            <translation><!-- Body Shop --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance</masterLabel>
+            <translation><!-- Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fleet</masterLabel>
+            <translation><!-- Fleet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Vehicle Sales</masterLabel>
+            <translation><!-- New Vehicle Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service, Parts &amp; Accessories</masterLabel>
+            <translation><!-- Service, Parts &amp; Accessories --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Used Vehicle Sales</masterLabel>
+            <translation><!-- Used Vehicle Sales --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Profit Center - Seconday Focus --></label>
+        <name>Profit_Center_Seconday_Focus__c</name>
+        <picklistValues>
+            <masterLabel>Body Shop</masterLabel>
+            <translation><!-- Body Shop --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance</masterLabel>
+            <translation><!-- Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fleet</masterLabel>
+            <translation><!-- Fleet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Vehicle Sales</masterLabel>
+            <translation><!-- New Vehicle Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service, Parts &amp; Accessories</masterLabel>
+            <translation><!-- Service, Parts &amp; Accessories --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Used Vehicle Sales</masterLabel>
+            <translation><!-- Used Vehicle Sales --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Profit Centers --></label>
+        <name>Profit_Centers_Digital__c</name>
+        <picklistValues>
+            <masterLabel>Body Shop</masterLabel>
+            <translation><!-- Body Shop --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance</masterLabel>
+            <translation><!-- Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fleet</masterLabel>
+            <translation><!-- Fleet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Vehicle Sales</masterLabel>
+            <translation><!-- New Vehicle Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service, Pars &amp; Accessories</masterLabel>
+            <translation><!-- Service, Pars &amp; Accessories --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Used Vehicle Sales</masterLabel>
+            <translation><!-- Used Vehicle Sales --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Profit Centers --></label>
+        <name>Profit_Centers_Social__c</name>
+        <picklistValues>
+            <masterLabel>Body Shop</masterLabel>
+            <translation><!-- Body Shop --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance</masterLabel>
+            <translation><!-- Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fleet</masterLabel>
+            <translation><!-- Fleet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Vehicle Sales</masterLabel>
+            <translation><!-- New Vehicle Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service, Pars &amp; Accessories</masterLabel>
+            <translation><!-- Service, Pars &amp; Accessories --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Used Vehicle Sales</masterLabel>
+            <translation><!-- Used Vehicle Sales --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Profit Centers --></label>
+        <name>Profit_Centers_Traditional__c</name>
+        <picklistValues>
+            <masterLabel>Body Shop</masterLabel>
+            <translation><!-- Body Shop --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance</masterLabel>
+            <translation><!-- Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fleet</masterLabel>
+            <translation><!-- Fleet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Vehicle Sales</masterLabel>
+            <translation><!-- New Vehicle Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service, Pars &amp; Accessories</masterLabel>
+            <translation><!-- Service, Pars &amp; Accessories --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Used Vehicle Sales</masterLabel>
+            <translation><!-- Used Vehicle Sales --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- RMS Account Plan Link --></label>
+        <name>RMS_Account_Plan_Link__c</name>
+        <relationshipLabel><!-- Account Strategies (RMS Account Plan Link) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Reputation Management Specialist Email --></label>
+        <name>Reputation_Management_Specialist_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reputation Management Specialist --></label>
+        <name>Reputation_Management_Specialist__c</name>
+    </fields>
+    <fields>
+        <label><!-- SEO Account Plan Link --></label>
+        <name>SEO_Account_Plan_Link__c</name>
+        <relationshipLabel><!-- Account Strategies (SEO Account Plan Link) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- SEO Specialist Email --></label>
+        <name>SEO_Specialist_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- SEO Specialist --></label>
+        <name>SEO_Specialist__c</name>
+    </fields>
+    <fields>
+        <label><!-- SMS Account Plan Link --></label>
+        <name>SMS_Account_Plan_Link__c</name>
+        <relationshipLabel><!-- Accoun Strategies (SMS Account Plan Link) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Repair Orders per mnth/gross per RO/PO --></help>
+        <label><!-- Service/Parts --></label>
+        <name>Service_Parts__c</name>
+    </fields>
+    <fields>
+        <label><!-- Social Media Rep Email --></label>
+        <name>Social_Media_Rep_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Social Media Representative --></label>
+        <name>Social_Media_Representative__c</name>
+    </fields>
+    <fields>
+        <label><!-- Social Media Specialist --></label>
+        <name>Social_Media_Specialist2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Social Media Specialist --></label>
+        <name>Social_Media_Specialist__c</name>
+        <relationshipLabel><!-- Account Strategies --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- % Social --></label>
+        <name>Social__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sources Used --></label>
+        <name>Sources_Used_Digital__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sources Used --></label>
+        <name>Sources_Used_Social__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sources Used --></label>
+        <name>Sources_Used_Traditional__c</name>
+    </fields>
+    <fields>
+        <label><!-- Target --></label>
+        <name>Target_New_Vehicle__c</name>
+        <picklistValues>
+            <masterLabel>Above Target</masterLabel>
+            <translation><!-- Above Target --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Below Target</masterLabel>
+            <translation><!-- Below Target --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meeting Target</masterLabel>
+            <translation><!-- Meeting Target --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Target --></label>
+        <name>Target_Other_Profit_Center__c</name>
+        <picklistValues>
+            <masterLabel>Above Target</masterLabel>
+            <translation><!-- Above Target --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Below Target</masterLabel>
+            <translation><!-- Below Target --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meeting Target</masterLabel>
+            <translation><!-- Meeting Target --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Target --></label>
+        <name>Target_Service_Parts__c</name>
+        <picklistValues>
+            <masterLabel>Above Target</masterLabel>
+            <translation><!-- Above Target --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Below Target</masterLabel>
+            <translation><!-- Below Target --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meeting Target</masterLabel>
+            <translation><!-- Meeting Target --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Target --></label>
+        <name>Target_Used_Vehicle__c</name>
+        <picklistValues>
+            <masterLabel>Above Target</masterLabel>
+            <translation><!-- Above Target --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Below Target</masterLabel>
+            <translation><!-- Below Target --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meeting Target</masterLabel>
+            <translation><!-- Meeting Target --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- % Traditional --></label>
+        <name>Traditional__c</name>
+    </fields>
+    <fields>
+        <label><!-- Upcoming dealer promotions/incentives? --></label>
+        <name>Upcoming_dealer_promotions_incentives__c</name>
+    </fields>
+    <fields>
+        <help><!-- Units Per Month --></help>
+        <label><!-- Used Vehicles Sales Targets --></label>
+        <name>Used_Vehicles_Sales_Targets__c</name>
+    </fields>
+    <fields>
+        <label><!-- WebID --></label>
+        <name>WebID__c</name>
+        <relationshipLabel><!-- Accoun Strategies --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- What is dealership&apos;s advertising budget? --></label>
+        <name>What_is_dealership_s_advertising_budget__c</name>
+    </fields>
+    <layouts>
+        <layout>Account Strategy Layout</layout>
+        <sections>
+            <label><!-- Account Info --></label>
+            <section>Account Info</section>
+        </sections>
+        <sections>
+            <label><!-- Account Team Members --></label>
+            <section>Account Team Members</section>
+        </sections>
+        <sections>
+            <label><!-- Current Marketing Media Mix - % Fields must equal 100% --></label>
+            <section>Current Marketing Media Mix - % Fields must equal 100%</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Dealership Goals and Recommended Account Strategy - Identify 3 dealer goals --></label>
+            <section>Dealership Goals and Recommended Account Strategy - Identify 3 dealer goals</section>
+        </sections>
+        <sections>
+            <label><!-- Inventory and Model Information --></label>
+            <section>Inventory and Model Information</section>
+        </sections>
+        <sections>
+            <label><!-- Marketing Planning Information --></label>
+            <section>Marketing Planning Information</section>
+        </sections>
+        <sections>
+            <label><!-- Profit Center Information --></label>
+            <section>Profit Center Information</section>
+        </sections>
+        <sections>
+            <label><!-- Sales Target --></label>
+            <section>Sales Target</section>
+        </sections>
+    </layouts>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

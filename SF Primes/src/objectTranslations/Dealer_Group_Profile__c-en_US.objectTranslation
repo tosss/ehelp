@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Dealer Group Profile</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Dealer Group Profiles</value>
+    </caseValues>
+    <fields>
+        <help><!-- This is the contact at the corporation that the GAM or CAM interacts with. --></help>
+        <label><!-- DS GAM/Marketing Strategist Contact --></label>
+        <name>DS_GAM_CAM_Contact__c</name>
+        <relationshipLabel><!-- Dealer Group Profiles --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Dealer Group Name --></label>
+        <name>Dealer_Group_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealer Group --></label>
+        <name>Dealer_Group__c</name>
+        <relationshipLabel><!-- Dealer Group Profiles --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- If all decisions are made at Corporate, the model is Centralized.  If some decisions are made at the rooftop location, then the model is Hybrid.  If almost all decisions are made at the rooftop level, the model is Independent. --></help>
+        <label><!-- Decision Making Model --></label>
+        <name>Decision_Making_Model3rdParty__c</name>
+        <picklistValues>
+            <masterLabel>Centralized</masterLabel>
+            <translation><!-- Centralized --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hybrid</masterLabel>
+            <translation><!-- Hybrid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Independent</masterLabel>
+            <translation><!-- Independent --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- If all decisions are made at Corporate, the model is Centralized.  If some decisions are made at the rooftop location, then the model is Hybrid.  If almost all decisions are made at the rooftop level, the model is Independent. --></help>
+        <label><!-- Decision Making Model --></label>
+        <name>Decision_Making_ModelGH__c</name>
+        <picklistValues>
+            <masterLabel>Centralized</masterLabel>
+            <translation><!-- Centralized --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hybrid</masterLabel>
+            <translation><!-- Hybrid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Independent</masterLabel>
+            <translation><!-- Independent --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- If all decisions are made at Corporate, the model is Centralized.  If some decisions are made at the rooftop location, then the model is Hybrid.  If almost all decisions are made at the rooftop level, the model is Independent. --></help>
+        <label><!-- Decision Making Model --></label>
+        <name>Decision_Making_ModelInv__c</name>
+        <picklistValues>
+            <masterLabel>Centralized</masterLabel>
+            <translation><!-- Centralized --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hybrid</masterLabel>
+            <translation><!-- Hybrid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Independent</masterLabel>
+            <translation><!-- Independent --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- If all decisions are made at Corporate, the model is Centralized.  If some decisions are made at the rooftop location, then the model is Hybrid.  If almost all decisions are made at the rooftop level, the model is Independent. --></help>
+        <label><!-- Decision Making Model --></label>
+        <name>Decision_Making_ModelLP__c</name>
+        <picklistValues>
+            <masterLabel>Centralized</masterLabel>
+            <translation><!-- Centralized --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hybrid</masterLabel>
+            <translation><!-- Hybrid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Independent</masterLabel>
+            <translation><!-- Independent --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- If all decisions are made at Corporate, the model is Centralized.  If some decisions are made at the rooftop location, then the model is Hybrid.  If almost all decisions are made at the rooftop level, the model is Independent. --></help>
+        <label><!-- Decision Making Model --></label>
+        <name>Decision_Making_ModelSB__c</name>
+        <picklistValues>
+            <masterLabel>Centralized</masterLabel>
+            <translation><!-- Centralized --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hybrid</masterLabel>
+            <translation><!-- Hybrid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Independent</masterLabel>
+            <translation><!-- Independent --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- If all decisions are made at Corporate, the model is Centralized. If some decisions are made at the rooftop location, then the model is Hybrid. If almost all decisions are made at the rooftop level, the model is Independent. --></help>
+        <label><!-- Decision Making Model --></label>
+        <name>Decision_Marking_ModelSEO__c</name>
+        <picklistValues>
+            <masterLabel>Centralized</masterLabel>
+            <translation><!-- Centralized --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hybrid</masterLabel>
+            <translation><!-- Hybrid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Independent</masterLabel>
+            <translation><!-- Independent --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Group Information Folder --></label>
+        <name>Group_Information_Folder__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check this box if the corporate contacts do not want a CSI.  This will not apply to contacts listed at the individual dealerships (even if it&apos;s really a corporate contact) unless they respond to a survey and opt out. --></help>
+        <label><!-- Group Opt-Out of Surveys? --></label>
+        <name>Group_Opt_Out_of_Surveys__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the contact at the corporation who makes decisions around Inventory. --></help>
+        <label><!-- Inventory Contact --></label>
+        <name>Inventory_Contact__c</name>
+        <relationshipLabel><!-- Dealer Group Profiles (Inventory Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- This is the contact at the corporation who makes decisions around lead pathing. --></help>
+        <label><!-- Lead Pathing Contact --></label>
+        <name>Lead_Pathing_Contact__c</name>
+        <relationshipLabel><!-- Dealer Group Profiles (Lead Pathing Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Link to Branding Guidelines --></label>
+        <name>Link_to_Branding_Guidelines__c</name>
+    </fields>
+    <fields>
+        <label><!-- Link to Style Guide --></label>
+        <name>Link_to_Style_Guide__c</name>
+    </fields>
+    <fields>
+        <help><!-- Your choice will indicate who is in the &quot;From&quot; line in Marketing communications to the dealerships within this dealer group. --></help>
+        <label><!-- Marketing Email Signature --></label>
+        <name>Marketing_Email_Signature__c</name>
+        <picklistValues>
+            <masterLabel>Advocate</masterLabel>
+            <translation><!-- Advocate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CAM</masterLabel>
+            <translation><!-- CAM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GAM</masterLabel>
+            <translation><!-- GAM --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Migration_ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Multiple Vendors --></label>
+        <name>Multiple_Vendors__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- If there are dealership exceptions to the corporate rule, please enter them here.  Ex.  Dealer A can make their own 3rd Party decisions, but all others cannot. --></help>
+        <label><!-- Notes --></label>
+        <name>Notes3rdParty__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notes --></label>
+        <name>NotesGen__c</name>
+    </fields>
+    <fields>
+        <help><!-- If there are dealership exceptions to the corporate rule, please enter them here.  Ex.  Dealer A can make their own 3rd Party decisions, but all others cannot. --></help>
+        <label><!-- Notes --></label>
+        <name>NotesInv__c</name>
+    </fields>
+    <fields>
+        <help><!-- If there are dealership exceptions to the corporate rule or multiple vendors, please enter them here. --></help>
+        <label><!-- Notes --></label>
+        <name>NotesLP__c</name>
+    </fields>
+    <fields>
+        <help><!-- If there are dealership exceptions to the corporate rule, please enter them here.  Ex.  Dealer A can make their own branding decisions, but all others cannot. --></help>
+        <label><!-- Notes --></label>
+        <name>NotesSB__c</name>
+    </fields>
+    <fields>
+        <help><!-- If there are dealership exceptions to the corporate rule, please enter them here. --></help>
+        <label><!-- Notes --></label>
+        <name>NotesSEO__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is automatically calculated. --></help>
+        <label><!-- Number of Child Accounts --></label>
+        <name>Number_of_Child_Accounts__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is automatically calculated. --></help>
+        <label><!-- Number of WebIDs --></label>
+        <name>Number_of_WebIDs__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the CRM that is used at the majority of the group&apos;s dealerships.  Additional vendors go in notes. --></help>
+        <label><!-- Primary CRM --></label>
+        <name>Primary_CRM__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the vendor that is used at the majority of the group&apos;s dealerships.  Additional vendors go in notes. --></help>
+        <label><!-- Primary Vendor --></label>
+        <name>Primary_Vendor__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the contact at the corporation who makes decisions around SEO. --></help>
+        <label><!-- SEO Contact --></label>
+        <name>SEO_Contact__c</name>
+        <relationshipLabel><!-- Dealer Group Profiles (SEO Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Shared MLM Asset Library --></label>
+        <name>Shared_MLM_Asset_Library__c</name>
+    </fields>
+    <fields>
+        <help><!-- Only use this field if the dealer group has a username and password that applies across  multiple stores. If the password applies to under 5 stores, fill out a site config at the webid level. This field has restricted visibility. --></help>
+        <label><!-- Site Config Notes --></label>
+        <name>Site_Config_NotesSEO__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the contact at the corporation who makes decisions around style and branding. --></help>
+        <label><!-- Style/Branding Contact --></label>
+        <name>Style_Branding_Contact__c</name>
+        <relationshipLabel><!-- Dealer Group Profiles (Style/Branding Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- This is the contact at the corporation who makes decisions around 3rd Party Vendors. --></help>
+        <label><!-- 3rd Party Vendor Contact --></label>
+        <name>X3rd_Party_Vendor_Contact__c</name>
+        <relationshipLabel><!-- Dealer Group Profiles (3rd Party Vendor Contact) --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Sales Dealer Group Profile</layout>
+        <sections>
+            <label><!-- 3rd Party --></label>
+            <section>3rd Party</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- General --></label>
+            <section>General</section>
+        </sections>
+        <sections>
+            <label><!-- Group Decision Hierarchy --></label>
+            <section>Group Decision Hierarchy</section>
+        </sections>
+        <sections>
+            <label><!-- Information --></label>
+            <section>Information</section>
+        </sections>
+        <sections>
+            <label><!-- Inventory --></label>
+            <section>Inventory</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Pathing Details --></label>
+            <section>Lead Pathing Details</section>
+        </sections>
+        <sections>
+            <label><!-- SEO --></label>
+            <section>SEO</section>
+        </sections>
+        <sections>
+            <label><!-- Style/Branding --></label>
+            <section>Style/Branding</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Services Dealer Group Profile</layout>
+        <sections>
+            <label><!-- 3rd Party --></label>
+            <section>3rd Party</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- General --></label>
+            <section>General</section>
+        </sections>
+        <sections>
+            <label><!-- Group Decision Hierarchy --></label>
+            <section>Group Decision Hierarchy</section>
+        </sections>
+        <sections>
+            <label><!-- Information --></label>
+            <section>Information</section>
+        </sections>
+        <sections>
+            <label><!-- Inventory --></label>
+            <section>Inventory</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Pathing Details --></label>
+            <section>Lead Pathing Details</section>
+        </sections>
+        <sections>
+            <label><!-- SEO --></label>
+            <section>SEO</section>
+        </sections>
+        <sections>
+            <label><!-- Style/Branding --></label>
+            <section>Style/Branding</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Digital Services Dealer Group Profile --></label>
+        <name>Digital_Services_Dealer_Group_Profile</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- This_Dealer_Group_s_Account_List --></label>
+        <name>This_Dealer_Group_s_Account_List</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- This_Dealer_Group_s_Contact_List --></label>
+        <name>This_Dealer_Group_s_Contact_List</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- This_Dealer_Group_s_Installed_Base_List --></label>
+        <name>This_Dealer_Group_s_Installed_Base_List</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- This_Dealer_Group_s_Open_Cases_List --></label>
+        <name>This_Dealer_Group_s_Open_Cases_List</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- This_Dealer_Group_s_WebID_List --></label>
+        <name>This_Dealer_Group_s_WebID_List</name>
+    </webLinks>
+</CustomObjectTranslation>

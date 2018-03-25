@@ -1,0 +1,487 @@
+<apex:page controller="dh_superclone.SuperCloneConfigController" tabstyle="SuperCloneConfiguration__tab">
+   <style>
+.number {
+   text-align: right;
+}
+
+a.head-link {
+   color: #015BA7;
+   text-align: center;
+}
+
+a.head-link:hover {
+   text-decoration: underline !important;
+}
+
+.action-options {
+   width: 150px;
+}
+
+.value-block .requiredInput .requiredBlock {
+   display: none;
+}
+
+.value-block select {
+   display: block;
+}
+
+.value-block input[type=text]  {
+   width: 175px;
+}
+
+.dateFormat {
+   display: none; 
+ }
+
+.hide-text {
+   display: none;
+}
+</style>
+   <script>
+  function ActionChange(input, textid, fieldtype) {
+    var inputElem = document.getElementById(textid).getElementsByTagName('input');
+
+    // disable/enable input text boxes
+    for(var i=0; i<inputElem.length; i++) {
+      if(input == 'VALUE' ||
+         input == 'DAYCUR' ||
+         input == 'DAYREC' ||
+         input == 'PREFIX' ||
+         input == 'SUFFIX') {
+        inputElem[i].disabled = false;
+        if('checkbox' == inputElem[i].type) {
+          UpdateValueInput(inputElem[i], fieldtype, textid)
+        }
+      } else {
+        inputElem[i].disabled = true;
+      }
+    }
+    if (fieldtype == 'REFERENCE') {
+      var imgElem = document.getElementById(textid).getElementsByTagName('img');
+      var selElem = document.getElementById(textid).getElementsByTagName('select');
+      // hide/show the lookup icon
+      for(var i=0; i<imgElem.length; i++) {
+        if(input == 'VALUE') {
+          imgElem[i].style.display="inline";
+        } else {
+          imgElem[i].style.display="none";
+        }
+      }
+      // hide/show iswhat select box
+      for(var i=0; i<selElem.length; i++) {
+        if(input == 'VALUE') {
+          selElem[i].style.display="block";
+          UpdateValueInput(selElem[i], fieldtype, textid);
+        } else {
+          selElem[i].style.display="none";
+        }
+      }
+    }
+    
+    if (fieldtype == 'DATE' || fieldtype == 'DATETIME') {
+      var spanElem = document.getElementById(textid).getElementsByTagName('span');
+      // hide/show current date link
+      for(var i=0; i<spanElem.length; i++) {
+        if(spanElem[i].className == "dateFormat") {
+          if(input == 'VALUE') {
+            spanElem[i].style.display="block";
+          } else {
+            spanElem[i].style.display="none";
+          }
+        }
+      }
+      // hide/show text input or field input
+      for(var i=0; i<inputElem.length; i++) {
+        if(input == 'VALUE') {
+          if(inputElem[i].id.indexOf('text-input')!=-1) {
+            inputElem[i].style.display="none";
+          }
+          if(inputElem[i].id.indexOf('field-input')!=-1) {
+            inputElem[i].style.display="block";
+          }
+        } else {
+          if(inputElem[i].id.indexOf('text-input')!=-1) {
+            inputElem[i].style.display="block";
+          }
+          if(inputElem[i].id.indexOf('field-input')!=-1) {
+            inputElem[i].style.display="none";
+          }
+        }
+      }
+    }
+  }
+
+  function CheckShowAll(cb,reldiv) {
+    var inputElem = document.getElementById(reldiv).getElementsByTagName('input');
+    for(var i=0; i<inputElem.length; i++) {
+      if(inputElem[i].id.indexOf('checkshow')!=-1) {
+        inputElem[i].checked = cb.checked; 
+      }
+      if(inputElem[i].id.indexOf('inputorder')!=-1) {
+        inputElem[i].disabled = !cb.checked;
+      }
+      if(inputElem[i].id.indexOf('inputedit')!=-1) {
+        inputElem[i].disabled = !cb.checked;
+      }
+    }
+  }
+
+  function CheckEditAll(cb,reldiv) {
+    var inputElem = document.getElementById(reldiv).getElementsByTagName('input');
+    for(var i=0; i<inputElem.length; i++) {
+      if(inputElem[i].id.indexOf('inputedit')!=-1) {
+        if (inputElem[i].disabled) {
+          inputElem[i].checked = false;
+        } else {
+          inputElem[i].checked = cb.checked;
+        }
+      }
+    }
+  }
+
+  function ShowChange(input, divname) {
+    var inputElem;
+    inputElem = document.getElementById(divname+'_o').getElementsByTagName('input');
+    EnableDisableElem(input, inputElem);
+    
+    inputElem = document.getElementById(divname+'_e').getElementsByTagName('input');
+    EnableDisableElem(input, inputElem);
+  }
+    
+  function EnableDisableElem(input, inputElem) {
+    // disable/enable inputs for display
+    for(var i=0; i<inputElem.length; i++) {
+      if(input == 'true' ||
+         input == true) {
+         inputElem[i].disabled = false;
+      } else {
+         inputElem[i].disabled = true;
+      }
+    }
+  }
+  
+  function RenumberOrder(reldiv) {
+    ObjArr = [];
+    var inputElem = document.getElementById(reldiv).getElementsByTagName('input');
+    for(var i=0; i<inputElem.length; i++) {
+      var IsChecked;
+      if(inputElem[i].id.indexOf('checkshow')!=-1) {
+        IsChecked = inputElem[i].checked;
+      }
+      if(inputElem[i].id.indexOf('inputorder')!=-1) {
+        if (IsChecked == true) {
+          var OrdObj = new Object;
+          OrdObj['name'] = inputElem[i].id;
+          OrdObj['order'] = inputElem[i].value;
+          ObjArr.push(OrdObj);
+        }
+      }
+    }
+    ObjArr.sort(function(a, b){
+      return a['order'] - b['order'];
+    });
+    var NewOrder = 0;
+    var inputOrder;
+    for (index = 0; index < ObjArr.length; ++index) {
+       inputOrder = document.getElementById(ObjArr[index]['name']);
+       NewOrder += 5;
+       inputOrder.value = NewOrder;
+    }    
+  }
+  
+  function UpdateValueInput(inputobj, inputtype, reldiv) {
+    var savelkid = '';
+    var inputElem = document.getElementById(reldiv).getElementsByTagName('input');
+    for(var i=0; i<inputElem.length; i++) {
+      if(inputtype == 'REFERENCE' && inputElem[i].id.indexOf('lkid')!=-1) {
+         savelkid = inputElem[i].value;
+      }
+      if(inputtype == 'BOOLEAN' && inputElem[i].type === 'checkbox') {
+         if(inputElem[i].checked) {
+           savelkid = 'true';
+         } else {
+           savelkid = 'false';
+         }
+      }
+    }
+    // value for date,datetime,reference(select)
+    if (savelkid == '') {
+      savelkid = inputobj.value;
+    }
+    for(var i=0; i<inputElem.length; i++) {
+      if(inputElem[i].id.indexOf('text-input')!=-1) {
+        inputElem[i].value = savelkid;
+      }
+    }
+  }
+  
+ function isNumber(event) {
+  if (event) {
+    var charCode = (event.which) ? event.which : event.keyCode;
+    if (charCode != 190 && charCode > 31 && 
+       (charCode < 48 || charCode > 57) && 
+       (charCode < 96 || charCode > 105) && 
+       (charCode < 37 || charCode > 40) && 
+        charCode != 110 && charCode != 8 && charCode != 46 )
+       return false;
+  }
+  return true;
+}
+  
+  </script>
+   <apex:sectionHeader title="Super Clone Edit" subtitle="{!CloneConfig.Name}" />
+   <apex:pageMessages id="pageMessages" />
+
+   <apex:form id="theForm" rendered="{!FoundConfig}">
+
+      <!-- *********************************************** -->
+      <!-- Section 1: Configuration Name and main settings -->
+      <apex:pageBlock mode="maindetail" title="Clone Configuration Settings">
+         <apex:pageBlockButtons location="top">
+            <apex:actionStatus id="ButtonStatus1">
+               <apex:facet name="stop">
+                  <apex:outputPanel >
+                     <apex:commandButton action="{!DoSave}" status="ButtonStatus1" rerender="pageMessages" value="Save" />
+                     <apex:commandButton action="{!DoCancel}" status="ButtonStatus1" rerender="pageMessages" value="Cancel" immediate="true" />
+                     <apex:commandButton action="{!DoDelete}" status="ButtonStatus1" value="Delete" immediate="true" onclick="return confirm('Are you sure?');" />
+                  </apex:outputPanel>
+               </apex:facet>
+               <apex:facet name="start">
+                  <apex:outputPanel >
+                     <apex:commandButton value="Processing..." disabled="true" />
+                     <apex:commandButton value="Processing..." disabled="true" />
+                     <apex:commandButton value="Processing..." disabled="true" />
+                  </apex:outputPanel>
+               </apex:facet>
+            </apex:actionStatus>
+         </apex:pageBlockButtons>
+         <apex:pageBlockSection columns="2" showheader="false">
+            <apex:inputField value="{!CloneConfig.dh_superclone__ConfigurationName__c}" />
+            <apex:inputField value="{!CloneConfig.dh_superclone__SkipCloneConfirmationPage__c}" />
+            <apex:pageBlockSectionItem >
+               <apex:outputLabel value="Object Label" for="PrimObjLbl" />
+               <apex:outputText value="{!PrimaryObj.rObj.oLabel}" />
+            </apex:pageBlockSectionItem>
+            <apex:inputField value="{!CloneConfig.dh_superclone__ShowDetailedErrorMessage__c}" />
+            <apex:pageBlockSectionItem >
+               <apex:outputLabel value="Object Name" for="PrimObjName" />
+               <apex:outputText value="{!CloneConfig.dh_superclone__PrimaryObjectName__c}" id="PrimObjName" />
+            </apex:pageBlockSectionItem>
+            <apex:inputField value="{!CloneConfig.dh_superclone__AllowCloningMultipleTimes__c}" />
+            <apex:inputField value="{!CloneConfig.dh_superclone__AfterDisplay__c}" />
+            <apex:inputField value="{!CloneConfig.dh_superclone__Description__c}" />
+            
+         </apex:pageBlockSection>
+
+         <!-- ************************ -->
+         <!-- Section 2: Relationships -->
+         <apex:actionRegion >
+            <apex:pageBlockSection title="Select Child Relationships to Clone" columns="1" collapsible="false">
+               <apex:pageBlockSectionItem >
+                  <apex:pageBlockTable value="{!RelWrapList}" var="r">
+                     <apex:column style="width:40px">
+                        <apex:facet name="header">
+                           <span>Clone</span>
+                        </apex:facet>
+                        <apex:inputcheckbox value="{!r.rChecked}" id="check-object">
+                           <apex:actionSupport action="{!ReconnectTransObj}" event="onchange" rerender="field-section" />
+                        </apex:inputcheckbox>
+                     </apex:column>
+                     <apex:column headerValue="Object Label" value="{!r.rObj.oLabel}" />
+                     <apex:column headerValue="Object API Name" value="{!r.rObj.oName}" />
+                     <apex:column headerValue="Relationship Name" value="{!r.rRelName}" />
+                     <apex:column headerValue="Relationship Field" value="{!r.rFieldName}" />
+                  </apex:pageBlockTable>
+               </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+         </apex:actionRegion>
+      </apex:pageBlock>
+
+
+      <!-- **************************************** -->
+      <!-- Section 3: Primary Object field Settings -->
+      <apex:pageBlock title="Field Value Configuration">
+         <div id="{!PrimaryObj.rName}">
+            <apex:pageBlockSection title="{!PrimaryObj.rObj.oLabel} Fields" columns="1">
+               <apex:pageBlockSectionItem >
+                  <apex:pageBlockTable value="{!PrimaryObj.rObj.oFieldList}" var="pf">
+                     <apex:column headerValue="Field Label" width="30%">
+                        <apex:outputText value="{!pf.fLabel}" />
+                     </apex:column>
+                     <apex:column headerValue="API Name" width="30%">
+                        <apex:outputText value="{!pf.fName}" />
+                     </apex:column>
+                     <apex:column headerValue="Data Type" width="14%">
+                        <apex:outputText value="{!pf.fType}" />
+                     </apex:column>
+                     <apex:column headerValue="Required" width="10px">
+                        <apex:inputcheckbox value="{!pf.fRequired}" disabled="true" />
+                     </apex:column>
+                     <apex:column headerValue="Action" width="150px">
+                        <apex:selectList value="{!pf.fAction}" size="1" styleClass="action-options"
+                           onchange="ActionChange(this.value,'{!JSENCODE(PrimaryObj.rObj.oName)}_{!JSENCODE(pf.fName)}','{!pf.fType}');">
+                           <apex:selectOptions value="{!pf.fActionOptionList}" />
+                        </apex:selectList>
+                     </apex:column>
+
+                     <apex:column headerValue="Value" width="14%">
+                        <div class="value-block" id="{!PrimaryObj.rObj.oName}_{!pf.fName}">
+                           <apex:inputText id="text-input" value="{!pf.fValue}" styleClass="{!if(pf.fShowInputField,'hide-text','') }" />
+                           <apex:outputPanel rendered="{!AND(NOT(PrimaryObj.rObj.oTransObj=null),pf.fShowInputField)}">
+                              <apex:inputField id="field-input" required="false" value="{!PrimaryObj.rObj.oTransObj[pf.fName]}"
+                                 onchange="UpdateValueInput(this,'{!JSENCODE(pf.ftype)}','{!JSENCODE(PrimaryObj.rObj.oName)}_{!JSENCODE(pf.fName)}')" />
+                           </apex:outputPanel>
+                           <script>ActionChange('{!JSENCODE(pf.fAction)}','{!JSENCODE(PrimaryObj.rObj.oName)}_{!JSENCODE(pf.fName)}', '{!pf.fType}');</script>
+                        </div>
+                     </apex:column>
+
+                     <apex:column >
+                        <apex:facet name="header">
+                           <apex:outputPanel >
+                              <span>Show</span>
+                              <br />
+                              <apex:inputCheckbox value="{!CheckBoxInit}">
+                                 <apex:actionSupport event="onclick" onsubmit="CheckShowAll(this,'{!JSENCODE(PrimaryObj.rName)}')" rerender="nothing" />
+                                 </apex:inputcheckbox>
+                           </apex:outputPanel>
+                        </apex:facet>
+                        <apex:inputcheckbox id="checkshow" value="{!pf.fShow}"
+                           onclick="ShowChange(this.checked,'{!JSENCODE(PrimaryObj.rName)}_{!JSENCODE(pf.fName)}');" />
+                     </apex:column>
+
+                     <apex:column headerValue="Editable">
+                        <apex:facet name="header">
+                           <apex:outputPanel >
+                              <span>Editable</span>
+                              <br />
+                              <apex:inputCheckbox value="{!CheckBoxInit}">
+                                 <apex:actionSupport event="onclick" onsubmit="CheckEditAll(this,'{!JSENCODE(PrimaryObj.rName)}')"
+                                    rerender="nothing" />
+                                 </apex:inputcheckbox>
+                           </apex:outputPanel>
+                        </apex:facet>
+                        <div id="{!PrimaryObj.rName}_{!pf.fName}_e">
+                           <apex:inputcheckbox id="inputedit" value="{!pf.fEdit}" rendered="{!pf.fIsEditable}" />
+                        </div>
+                     </apex:column>
+
+                     <apex:column >
+                        <apex:facet name="header">
+                           <apex:outputPanel >
+                              <div>Display Order</div>
+                              <div style="margin-top: 4px;">
+                                 <apex:commandLink styleClass="head-link" value="--renumber--"
+                                    onclick="RenumberOrder('{!JSENCODE(PrimaryObj.rName)}')" rerender="nothing" />
+                              </div>
+                           </apex:outputPanel>
+                        </apex:facet>
+                        <div id="{!PrimaryObj.rName}_{!pf.fName}_o">
+                           <apex:inputText id="inputorder" styleClass="number" maxlength="4" size="5" value="{!pf.fOrder}"
+                              onkeydown="return isNumber(event);" />
+                        </div>
+                        <script>ShowChange('{!pf.fShow}','{!JSENCODE(PrimaryObj.rName)}_{!JSENCODE(pf.fName)}');</script>
+                     </apex:column>
+
+                  </apex:pageBlockTable>
+               </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+         </div>
+         <br />
+
+         <!-- **************************************** -->
+         <!-- Section 4: Related Object Field Settings -->
+         <apex:outputPanel id="field-section">
+            <apex:repeat value="{!RelWrapListChecked}" var="r">
+               <div id="{!r.rName}">
+                  <apex:pageBlockSection title="{!r.rObj.oLabel} Fields, Relationship Name: {!r.rRelName}" columns="1">
+                     <apex:pageBlockSectionItem >
+                        <apex:pageBlockTable value="{!r.rObj.oFieldList}" var="of">
+                           <apex:column headerValue="Field Label" width="30%">
+                              <apex:outputText value="{!of.fLabel}" />
+                           </apex:column>
+                           <apex:column headerValue="API Name" width="30%">
+                              <apex:outputText value="{!of.fName}" />
+                           </apex:column>
+                           <apex:column headerValue="Data Type" width="14%">
+                              <apex:outputText value="{!of.fType}" />
+                           </apex:column>
+                           <apex:column headerValue="Required" width="10px">
+                              <apex:inputcheckbox value="{!of.fRequired}" disabled="true" />
+                           </apex:column>
+
+                           <apex:column headerValue="Action" width="150px">
+                              <apex:selectList value="{!of.fAction}" size="1" styleClass="action-options"
+                                 onchange="ActionChange(this.value,'{!JSENCODE(r.rName)}_{!JSENCODE(of.fName)}', '{!of.fType}');">
+                                 <apex:selectOptions value="{!of.fActionOptionList}" />
+                              </apex:selectList>
+                           </apex:column>
+
+                           <apex:column headerValue="Value" width="14%">
+                              <div class="value-block" id="{!r.rName}_{!of.fName}">
+                                 <apex:inputText id="text-input" value="{!of.fValue}" styleClass="{!if(of.fShowInputField,'hide-text','')}" />
+                                 <apex:outputPanel rendered="{!AND(NOT(r.rObj.oTransObj=null),of.fShowInputField)}">
+                                    <apex:inputField id="field-input"  required="false" value="{!r.rObj.oTransObj[of.fName]}"
+                                       onchange="UpdateValueInput(this,'{!JSENCODE(of.ftype)}','{!JSENCODE(r.rName)}_{!JSENCODE(of.fName)}')" />
+                                 </apex:outputPanel>
+                                 <script>ActionChange('{!JSENCODE(of.fAction)}','{!JSENCODE(r.rName)}_{!JSENCODE(of.fName)}', '{!of.fType}');</script>
+                              </div>
+                           </apex:column>
+
+                           <apex:column headerValue="Show">
+                              <apex:facet name="header">
+                                 <apex:outputPanel >
+                                    <span>Show</span>
+                                    <br />
+                                    <apex:inputCheckbox value="{!CheckBoxInit}">
+                                       <apex:actionSupport event="onclick" onsubmit="CheckShowAll(this,'{!JSENCODE(r.rName)}')" rerender="nothing" />
+                                       </apex:inputcheckbox>
+                                 </apex:outputPanel>
+                              </apex:facet>
+                              <apex:inputcheckbox id="checkshow" value="{!of.fShow}"
+                                 onclick="ShowChange(this.checked,'{!JSENCODE(r.rName)}_{!JSENCODE(of.fName)}');" />
+                           </apex:column>
+
+                           <apex:column headerValue="Editable">
+                              <apex:facet name="header">
+                                 <apex:outputPanel >
+                                    <span>Editable</span>
+                                    <br />
+                                    <apex:inputCheckbox value="{!CheckBoxInit}">
+                                       <apex:actionSupport event="onclick" onsubmit="CheckEditAll(this,'{!JSENCODE(r.rName)}')"
+                                          rerender="nothing" />
+                                       </apex:inputcheckbox>
+                                 </apex:outputPanel>
+                              </apex:facet>
+                              <div id="{!r.rName}_{!of.fName}_e">
+                                 <apex:inputcheckbox id="inputedit" value="{!of.fEdit}"  rendered="{!of.fIsEditable}"/>
+                              </div>
+                           </apex:column>
+
+                           <apex:column >
+                              <apex:facet name="header">
+                                 <apex:outputPanel >
+                                    <div>Display Order</div>
+                                    <div style="margin-top: 4px;">
+                                       <apex:commandLink styleClass="head-link" value="--renumber--" onclick="RenumberOrder('{!JSENCODE(r.rName)}')"
+                                          rerender="nothing" />
+                                    </div>
+                                 </apex:outputPanel>
+                              </apex:facet>
+                              <div id="{!r.rName}_{!of.fName}_o">
+                                 <apex:inputText id="inputorder" styleClass="number" maxlength="4" size="5" value="{!of.fOrder}"
+                                    onkeydown="return isNumber(event);" />
+
+                              </div>
+                              <script>ShowChange('{!of.fShow}','{!JSENCODE(r.rName)}_{!JSENCODE(of.fName)}');</script>
+                           </apex:column>
+
+                        </apex:pageBlockTable>
+                     </apex:pageBlockSectionItem>
+                  </apex:pageBlockSection>
+               </div>
+            </apex:repeat>
+         </apex:outputPanel>
+      </apex:pageBlock>
+
+   </apex:form>
+</apex:page>

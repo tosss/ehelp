@@ -1,0 +1,20 @@
+<apex:page controller="CB_AccountDealerGroupProfile" action="{!Init}" tabstyle="Dealer_Group_Profile__c">
+    
+    <style>
+        .pad-left { margin-left: 37px; }
+    </style>
+    
+    <apex:sectionheader title="New" subtitle="Dealer Group Profile" />
+    
+    <div class="pad-left">
+        <h2><apex:messages layout="table" style="font-size: 1.5em;" /></h2>
+    </div>
+    
+    <apex:form >
+        <div class="pad-left">
+            <apex:commandbutton action="{!CreateDealerGroupProfile}" value="Continue" rendered="{!ShowContinue}" />
+            <apex:commandbutton action="/{!IF(NOT(ISBLANK($CurrentPage.parameters.oid)),$CurrentPage.parameters.oid,'')}" value="Cancel" />
+        </div>
+    </apex:form>
+    
+</apex:page>

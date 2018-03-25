@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Search Config</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Search Configs</value>
+    </caseValues>
+    <fields>
+        <help><!-- Only one Active config record is allowed per Salesforce object. --></help>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <help><!-- API field name of the fields to be displayed in custom search results.  Should be listed in comma separated order of appearance.  Name field must be first.  (ie. Name,AccountNumber,CustomField__c,...). --></help>
+        <label><!-- Fields --></label>
+        <name>Fields__c</name>
+    </fields>
+    <fields>
+        <help><!-- API Name of the Salesforce Object --></help>
+        <label><!-- Object Name --></label>
+        <name>Object_Name__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

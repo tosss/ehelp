@@ -1,0 +1,54 @@
+<apex:page standardController="Deal_State_Secured__c" extensions="ALL_ShowNotesAndAttachments_Controller" showheader="false" >
+    <html lang="en">
+        <head> 
+            <apex:stylesheet value="{!URLFOR($Resource.BootstrapSF1, '/bootstrap-sf1-master/dist/css/bootstrap.css')}"/>
+            <apex:stylesheet value="{!URLFOR($Resource.BootstrapSF1, '/bootstrap-sf1-master/dist/css/bootstrap-namespaced.css')}"/>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>  
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>  
+            <style>
+                .wordwrap { 
+                word-wrap: break-word   
+                }          
+            </style> 
+            <meta charset="utf-8" />
+            <title>Display Notes and Attachments</title>
+        </head>
+        <body>
+            <br />
+            <div class="container">
+                <apex:form styleClass="container" >
+                    <apex:outputPanel rendered="{!IF(notes.size==0,true,false)}"><div class="alert alert-info" style="font-weight: bold" role="alert"><font size="3">No Notes to display</font></div></apex:outputPanel>
+                    <apex:outputPanel rendered="{!IF(attachments.size==0,true,false)}"><div class="alert alert-info" style="font-weight: bold" role="alert"><font size="3">No Attachments to display</font></div></apex:outputPanel>
+                    <div class="panel-group" id="accordion">
+                        <apex:repeat rendered="{!IF(notes.size<>null,true,false)}" value="{!notes}" var="note" >
+                            <div class="panel panel-default">
+                                <div class="panel-heading ">
+                                    <h4 class="panel-title wordwrap">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="{!'#'+note.id}">
+                                            <span class="glyphicon glyphicon-edit"></span><span> </span><apex:outputField value="{!note.title}" /></a>
+                                    </h4>
+                                </div>
+                                <div id="{!note.id}" class="panel-collapse collapse">
+                                    <div class="panel-body wordwrap">
+                                        <p><apex:outputText value="Created By" /><br/><apex:outputField value="{!note.CreatedByid}"/>,<span> </span> <apex:outputField value="{!note.createddate}"/><br/><br/><apex:outputField value="{!note.body}"/></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </apex:repeat>
+                    </div>
+                    <div class="panel-group" id="accordion2">
+                        <apex:repeat rendered="{!IF(attachments.size<>null,true,false)}" value="{!attachments}" var="attachment">
+                            <div class="panel panel-default">                                           
+                                <div id="{!attachment.id}" class="panel-heading">
+                                    <div class="panel-title wordwrap">
+                                        <p><span class="glyphicon glyphicon-link"></span><span> </span><apex:Commandlink Value="{!attachment.name}" action="{!URLFOR($Action.Attachment.Download, attachment.id)}" rerender="dummy"/> </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </apex:repeat>
+                    </div>                  
+                </apex:form>
+            </div>
+        </body>
+    </html>    
+</apex:page>

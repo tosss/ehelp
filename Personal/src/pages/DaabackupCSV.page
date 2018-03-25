@@ -1,0 +1,4 @@
+<apex:page contentType="text/csv#Contact.csv" controller="Databackup">
+    {!feildNames}
+    {!recordDetail}
+</apex:page>

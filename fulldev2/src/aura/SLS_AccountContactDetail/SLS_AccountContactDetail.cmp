@@ -1,0 +1,417 @@
+<aura:component controller="SLS_CampaignLeadList_Controller">
+    <!--
+	Author:        Vishal Bandari
+	Description:   To show Account , Contact and Activity Details in Work My Leads Page
+	Created on:    05 March 2016
+ 	-->
+    
+    <aura:attribute name="Account" type="sobject" default=""/>
+    <aura:attribute name="AccountId" type="string" default=""/>
+    <aura:attribute name="Contact" type="sobject" default=""/>
+    <aura:attribute name="ContactId" type="string" default=""/>
+    <aura:attribute name="LeadId" type="string" default=""/>
+    <aura:attribute name="CampaignId" type="string" default=""/> 
+    <aura:attribute name="VendorSystem" type="string" default=""/>
+    <aura:attribute name="ISR" type="string" default=""/>
+    <aura:attribute name="openActivityFilter" type="string" default="all"/>
+    <aura:attribute name="activityHistoryFilter" type="string" default="all"/>
+    <aura:attribute name="OpenActivities" type="sobject[]" default="[]" />
+    <aura:attribute name="ActivitiesHistory" type="sobject[]" default="[]" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <aura:attribute name="hardware" type="String" default="{!$Browser.formFactor}" />
+    
+    <div class="slds-grid slds-container--center slds-container--large" style="margin-top: 0.5%;max-width:100%;">
+        <div class="slds-col--padded">
+            <h3 class="slds-section-title--divider">Account</h3>
+            <table class="slds-table slds-table--bordered slds-table--fixed-layout slds-scrollable--x slds-table--bordered slds-max-medium-table--stacked-horizontal">
+                <tbody >
+                    <tr class="slds-hint-parent" style="border-top:0px;">
+                        <td class="slds-text-heading--label slds-truncate" data-label="Account Name" style="{!v.hardware != 'DESKTOP' ? 'display:none;' : ''}">ACCOUNT NAME</td>
+                        <td class="slds-truncate" scope="row" data-label="Account Name"><a id="{!v.Account.Id}" onclick="{!c.recordDetail}" style="text-decoration:none;">{!v.Account.Name}</a></td>
+                        <td class="slds-text-heading--label slds-truncate" data-label="KEY DOS" style="{!v.hardware != 'DESKTOP' ? 'display:none;' :'border-left: rgb(216, 221, 230) solid 0.2rem;'}">KEY DOS</td>
+                        <td class="slds-truncate" data-label="KEY DOS"><a id="{!v.Account.Key_DOS__c}" onclick="{!c.recordDetail}" style="text-decoration:none;">{!v.Account.Key_DOS__r.Name}</a></td>
+                    </tr>
+                    <tr class="slds-hint-parent" style="border-top:0px;">
+                        <td class="slds-text-heading--label slds-truncate" data-label="GROUP" style="{!v.hardware != 'DESKTOP' ? 'display:none;' : ''}">GROUP</td>
+                        <td class="slds-truncate" scope="row" data-label="GROUP"><a id="{!v.Account.Group__c}" onclick="{!c.recordDetail}" style="text-decoration:none;">{!v.Account.Group__r.Name}</a></td>
+                        <td class="slds-text-heading--label slds-truncate" data-label="KEY REP" style="{!v.hardware != 'DESKTOP' ? 'display:none;' :'border-left: rgb(216, 221, 230) solid 0.2rem;'}">KEY REP</td>
+                        <td class="slds-truncate" data-label="KEY REP"><a id="{!v.Account.Key_Rep__c}" onclick="{!c.recordDetail}" style="text-decoration:none;">{!v.Account.Key_Rep__r.Name}</a></td>
+                    </tr>
+                    <tr class="slds-hint-parent" style="border-top:0px;">
+                        <td class="slds-text-heading--label slds-truncate" data-label="SITE TYPE" style="{!v.hardware != 'DESKTOP' ? 'display:none;' : ''}">SITE TYPE</td>
+                        <td class="slds-truncate" scope="row" data-label="SITE TYPE"><a id="{!v.Account.Site_Type__c}">{!v.Account.Site_Type__r.Name}</a></td>
+                        <td class="slds-text-heading--label slds-truncate" data-label="REGION" style="{!v.hardware != 'DESKTOP' ? 'display:none;' :'border-left: rgb(216, 221, 230) solid 0.2rem;'}">REGION</td>
+                        <td class="slds-truncate" data-label="REGION">{!v.Account.Region__c}</td>
+                        
+                    </tr>
+                    <tr class="slds-hint-parent" style="border-top:0px;">
+                        <td class="slds-text-heading--label slds-truncate" data-label="City" style="{!v.hardware != 'DESKTOP' ? 'display:none;' : ''}">CITY</td>
+                        <td class="slds-truncate" scope="row" data-label="CITY">{!v.Account.City}</td>
+                        <td class="slds-text-heading--label slds-truncate" data-label="State" style="{!v.hardware != 'DESKTOP' ? 'display:none;' :'border-left: rgb(216, 221, 230) solid 0.2rem;'}">STATE</td>
+                        <td class="slds-truncate" scope="row" data-label="State">{!v.Account.State}</td>
+                    </tr>
+                    <tr style="border-top:0px;border-bottom:1rem;">
+                        <td class="slds-text-heading--label slds-truncate" data-label="DESIGNATED DSM" style="{!v.hardware != 'DESKTOP' ? 'display:none;' :''}">DESIGNATED DSM</td>
+                        <td class="slds-truncate" data-label="DESIGNATED DSM"><a id="{!v.Account.Designated_DSM__c}" onclick="{!c.recordDetail}">{!v.Account.Designated_DSM__r.Name}</a></td>
+                        <td class="slds-text-heading--label slds-truncate" data-label="DSM DOS" style="{!v.hardware != 'DESKTOP' ? 'display:none;' :'border-left: rgb(216, 221, 230) solid 0.2rem;'}">DSM DOS</td>
+                        <td class="slds-truncate" data-label="DSM DOS">{!v.Account.DSM_DOS__c}</td>
+                    </tr>
+                    <tr style="border-top:0px;border-bottom:1rem;">
+                        <td class="slds-text-heading--label slds-truncate" data-label="Vendor" style="{!v.hardware != 'DESKTOP' ? 'display:none;' :''}">Vendor</td>
+                        <td class="slds-truncate" data-label="Vendor">{!v.VendorSystem}</td>
+                        <td class="slds-text-heading--label slds-truncate" data-label="ISR" style="{!v.hardware != 'DESKTOP' ? 'display:none;' :'border-left: rgb(216, 221, 230) solid 0.2rem;'}">ISR</td>
+                        <td class="slds-truncate" data-label="ISR">{!v.ISR}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div class="slds-grid slds-container--center slds-container--large" style="margin-top: 1.5%;max-width:100%;">
+        <div class="slds-col--padded">
+            <h3 class="slds-section-title--divider">Contact</h3>
+            <table class="slds-table slds-table--bordered slds-table--fixed-layout slds-scrollable--x slds-table--bordered slds-max-medium-table--stacked-horizontal">
+                <tbody >
+                    <tr class="slds-hint-parent" style="border-top:0px;">
+                        <td class="slds-text-heading--label slds-truncate" data-label="Contact Name" style="{!v.hardware != 'DESKTOP' ? 'display:none;' : ''}">Contact NAME</td>
+                        <td class="slds-truncate" scope="row" data-label="Contact Name"><a id="{!v.Contact.Id}" onclick="{!c.recordDetail}" style="text-decoration:none;">{!v.Contact.Name}</a></td>
+                        <td class="slds-text-heading--label slds-truncate" data-label="Email" style="{!v.hardware != 'DESKTOP' ? 'display:none;' :'border-left: rgb(216, 221, 230) solid 0.2rem;'}">EMAIL</td>
+                        <td class="slds-truncate" data-label="Email"><a id="{!v.Contact.Email}">{!v.Contact.Email}</a></td>
+                    </tr>
+                    <tr class="slds-hint-parent" style="border-top:0px;">
+                        <td class="slds-text-heading--label slds-truncate" data-label="Phone" style="{!v.hardware != 'DESKTOP' ? 'display:none;' : ''}">PHONE</td>
+                        <td class="slds-truncate" scope="row" data-label="Phone">{!v.Contact.Phone}</td>
+                        <td class="slds-text-heading--label slds-truncate" data-label="Roles" style="{!v.hardware != 'DESKTOP' ? 'display:none;' :'border-left: rgb(216, 221, 230) solid 0.2rem;'}">ROLES</td>
+                        <td class="slds-truncate" data-label="Roles">{!v.Contact.Role__c}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="slds-grid slds-container--center slds-container--large" style="margin-top: 0.5%;max-width:100%;">
+        <div class="slds-col--padded">
+            <div class="slds-card">
+                <div class="slds-card__header slds-grid">
+                        <div class="slds-media__body" >
+                            <h2 class="slds-text-heading--small slds-truncate">Open Activities <span style="{!v.hardware=='DESKTOP'?'font-size:0.8rem;':'display:none;'}">(Up to 15 Activities)</span></h2>
+                        </div>
+                    <div class="slds-no-flex slds-dropdown-trigger slds-dropdown-trigger--click slds-is-open" aria-expanded="true" >
+                        <td>
+                        <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small" aria-haspopup="true" onclick="{!c.showActions}" >
+                            <img src="/resource/slds100/assets/icons/utility/down_60.png" class="slds-button__icon slds-button__icon--small" /> 
+                        </button>
+                        <div id="actions" class="slds-dropdown slds-dropdown--right slds-dropdown--actions" style="{!v.hardware=='DESKTOP'?'display:none;':'display:none;position:static;'}" onmouseleave="{!c.hideActions}">
+                            <ul class="dropdown__list" role="menu">
+                                <li class="slds-dropdown__item"  onclick="{!c.toggleActivity}">
+                                    <a role="menuitem" id="myOpenActivities">
+                                        <p  > 
+                                            <img src="/resource/slds100/assets/icons/utility/check_60.png" class="slds-button__icon slds-button__icon--small openActivityFilter" style="display:none;" /> 
+                                            My Activities
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="slds-dropdown__item" onclick="{!c.toggleActivity}">
+                                    <a role="menuitem" id="allOpenActivities">
+                                        <p >
+                                            <img src="/resource/slds100/assets/icons/utility/check_60.png" class="slds-button__icon slds-button__icon--small openActivityFilter" />
+                                            All Activities
+                                        </p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                        </div>
+                </div>
+                <div class="slds-card__body">
+                    <table id="openActivitiesTable" class="slds-table slds-scrollable--x slds-table--fixed-layout slds-table--bordered slds-max-medium-table--stacked-horizontal" aura:id="table">
+                        <thead aura:id="thead">
+                            <tr class="slds-text-heading--label">
+                                <th class="slds-is-sortable " scope="col"  id="Action">
+                                    <div class="slds-truncate">
+                                    </div>
+                                </th>
+                                <th class="slds-is-sortable" scope="col" onclick="{!c.sort}" id="Subject">
+                                    <div class="slds-truncate">Subject
+                                        <button class="slds-button ">
+                                            <img src="/resource/slds100/assets/icons/utility/arrowdown_60.png" class="slds-button__icon slds-button__icon--small sortImage upImage" /> 
+                                            <img src="/resource/slds100/assets/icons/utility/arrowup_60.png" class="slds-button__icon slds-button__icon--small sortImage downImage"  style="display:none;"/>
+                                            <span class="slds-assistive-text">Sort</span>
+                                        </button>
+                                    </div>
+                                </th>
+                                <th class="slds-is-sortable" scope="col" onclick="{!c.sort}" id="Who.Name">
+                                    <div class="slds-truncate">Lead
+                                        <button class="slds-button slds-button--icon-bare">
+                                            <img src="/resource/slds100/assets/icons/utility/arrowdown_60.png" class="slds-button__icon slds-button__icon--small sortImage upImage" /> 
+                                            <img src="/resource/slds100/assets/icons/utility/arrowup_60.png" class="slds-button__icon slds-button__icon--small sortImage downImage"  style="display:none;"/>
+                                            <span class="slds-assistive-text">Sort</span>
+                                        </button>
+                                    </div>
+                                </th>
+                                <th class="slds-is-sortable " scope="col" onclick="{!c.sort}" id="Id">
+                                    <div class="">Task
+                                        <button class="slds-button slds-button--icon-bare">
+                                            <img src="/resource/slds100/assets/icons/utility/arrowdown_60.png" class="slds-button__icon slds-button__icon--small sortImage upImage" /> 
+                                            <img src="/resource/slds100/assets/icons/utility/arrowup_60.png" class="slds-button__icon slds-button__icon--small sortImage downImage"  style="display:none;"/>
+                                            <span class="slds-assistive-text">Sort</span>
+                                        </button>
+                                    </div>
+                                </th>
+                                <th class="slds-is-sortable" scope="col" onclick="{!c.sort}" id="Type">
+                                    <div class="slds-truncate">Type
+                                        <button class="slds-button slds-button--icon-bare">
+                                            <img src="/resource/slds100/assets/icons/utility/arrowdown_60.png" class="slds-button__icon slds-button__icon--small sortImage upImage" /> 
+                                            <img src="/resource/slds100/assets/icons/utility/arrowup_60.png" class="slds-button__icon slds-button__icon--small sortImage downImage"  style="display:none;"/>
+                                            <span class="slds-assistive-text">Sort</span>
+                                        </button>
+                                    </div>
+                                </th>
+                                <th class="slds-is-sortable" scope="col" onclick="{!c.sort}" id="ActivityDate">
+                                    <div class="slds-truncate">Due Date
+                                        <button class="slds-button slds-button--icon-bare">
+                                            <img src="/resource/slds100/assets/icons/utility/arrowdown_60.png" class="slds-button__icon slds-button__icon--small sortImage upImage" /> 
+                                            <img src="/resource/slds100/assets/icons/utility/arrowup_60.png" class="slds-button__icon slds-button__icon--small sortImage downImage"  style="display:none;"/>
+                                            <span class="slds-assistive-text">Sort</span>
+                                        </button>
+                                    </div>
+                                </th>
+                                <th class="slds-is-sortable" scope="col" onclick="{!c.sort}" id="Status">
+                                    <div class="slds-truncate">Status
+                                        <button class="slds-button slds-button--icon-bare">
+                                            <img src="/resource/slds100/assets/icons/utility/arrowdown_60.png" class="slds-button__icon slds-button__icon--small sortImage upImage" /> 
+                                            <img src="/resource/slds100/assets/icons/utility/arrowup_60.png" class="slds-button__icon slds-button__icon--small sortImage downImage"  style="display:none;"/>
+                                            <span class="slds-assistive-text">Sort</span>
+                                        </button>
+                                    </div>
+                                </th>
+                                <th class="slds-is-sortable" scope="col" onclick="{!c.sort}" id="Priority">
+                                    <div class="slds-truncate">Priority
+                                        <button class="slds-button slds-button--icon-bare">
+                                            <img src="/resource/slds100/assets/icons/utility/arrowdown_60.png" class="slds-button__icon slds-button__icon--small sortImage upImage" /> 
+                                            <img src="/resource/slds100/assets/icons/utility/arrowup_60.png" class="slds-button__icon slds-button__icon--small sortImage downImage"  style="display:none;"/>
+                                            <span class="slds-assistive-text">Sort</span>
+                                        </button>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody aura:id="tbody" id="tbodyOpen">
+                            <aura:iteration items="{!v.OpenActivities}" var="openActivity" >
+                                <tr class="slds-hint-parent">
+                                    <td class=" slds-cell-wrap " data-label="Actions" >
+                                        <div class="slds-dropdown-trigger slds-dropdown-trigger--click slds-is-open" aria-expanded="true" >
+                                            
+                                            <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small" aria-haspopup="true" onclick="{!c.showActions}" >
+                                                <img src="/resource/slds100/assets/icons/utility/down_60.png" class="slds-button__icon slds-button__icon--small" /> 
+                                            </button>
+                                            <div id="actions" class="{!v.hardware=='DESKTOP'?'slds-dropdown slds-dropdown--left slds-dropdown--actions slds-nubbin--top-left':'slds-dropdown slds-dropdown--right slds-dropdown--actions'}" style="{!v.hardware=='DESKTOP'?'display:none;':'display:none;position:static;'}" onmouseleave="{!c.hideActions}">
+                                                <ul class="dropdown__list" role="menu">
+                                                    <li class="slds-dropdown__item"  onclick="{!c.editActivity}">
+                                                        <a role="menuitem" id="{!openActivity.Id}">
+                                                            <p class="slds-truncate" >Edit</p>
+                                                        </a>
+                                                    </li>
+                                                    <li class="slds-dropdown__item" onclick="{!c.closeActivity}">
+                                                        <a role="menuitem" id="{!openActivity.Id}">
+                                                            <p class="slds-truncate">Close</p>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="slds-truncate slds-cell-wrap " data-label="Status" title="{!openActivity.Subject}">{!openActivity.Subject}</td>
+                                    <td class="slds-truncate slds-cell-wrap " scope="row" data-label="Lead Name" title="{!openActivity.Who.Name}"><a id="{!openActivity.WhoId}" onclick="{!c.recordDetail}" style="text-decoration:none;">{!openActivity.Who.Name}</a></td>
+                                    
+                                    <td class=" slds-cell-wrap " data-label="Task" title="{!openActivity.Company}"><img src="/resource/slds100/assets/icons/utility/check_60.png" style="{!openActivity.Id lt '00U'?'':'display:none;'}" class="slds-button__icon slds-button__icon--small" /> </td>
+                                    <td class="slds-truncate slds-cell-wrap " data-label="Type" title="{!openActivity.Type}">{!openActivity.Type}</td>
+                                    <td class="slds-truncate slds-cell-wrap " data-label="Due Date" title="{!openActivity.ActivityDate}">{!openActivity.ActivityDate}</td>
+                                    <td class="slds-truncate slds-cell-wrap " data-label="Status" style="white-space: pre-line;" title="{!openActivity.Status}">{!openActivity.Status}</td>
+                                    <td class="slds-truncate slds-cell-wrap " data-label="Priority" title="{!openActivity.Priority}">{!openActivity.Priority}</td>
+                                    
+                                </tr>
+                            </aura:iteration>
+                        </tbody>
+                         <tbody aura:id="loadTable" id="loadTableOpen" style="display:none;">
+                            <tr >
+                                <td align="center"  height="50" colspan="9">
+                                    <div class="slds-spinner_container">
+                                        <div class="slds-spinner slds-spinner--small" aria-hidden="false" role="alert">
+                                            <div class="slds-spinner__dot-a"></div>
+                                            <div class="slds-spinner__dot-b"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>        
+    </div>
+    <div class="slds-grid slds-container--center slds-container--large" style="margin-top: 0.5%;max-width:100%;">
+        <div class="slds-col--padded">
+            <div class="slds-card">
+                <div class="slds-card__header slds-grid">
+                    <div class="slds-media slds-media--center slds-has-flexi-truncate" >
+                        <div class="slds-media__body">
+                            <h2 class="slds-text-heading--small slds-truncate">Activity History<span style="{!v.hardware=='DESKTOP'?'font-size:0.8rem;':'display:none;'}">(Up to 15 Activities)</span></h2>
+                        </div>
+                    </div>
+                     <div class="slds-no-flex slds-dropdown-trigger slds-dropdown-trigger--click slds-is-open" aria-expanded="true" >
+                        <td>
+                        <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small" aria-haspopup="true" onclick="{!c.showActions}" >
+                            <img src="/resource/slds100/assets/icons/utility/down_60.png" class="slds-button__icon slds-button__icon--small" /> 
+                        </button>
+                        <div id="actions" class="slds-dropdown slds-dropdown--right slds-dropdown--actions" style="{!v.hardware=='DESKTOP'?'display:none;':'display:none;position:static;'}" onmouseleave="{!c.hideActions}">
+                            <ul class="dropdown__list" role="menu">
+                                <li class="slds-dropdown__item"  onclick="{!c.toggleActivity}">
+                                    <a role="menuitem" id="myActivitiesHistory">
+                                        <p  > 
+                                            <img src="/resource/slds100/assets/icons/utility/check_60.png" class="slds-button__icon slds-button__icon--small openActivityFilter" style="display:none;" /> 
+                                            My Activities
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="slds-dropdown__item" onclick="{!c.toggleActivity}">
+                                    <a role="menuitem" id="allActivitiesHistory">
+                                        <p >
+                                            <img src="/resource/slds100/assets/icons/utility/check_60.png" class="slds-button__icon slds-button__icon--small openActivityFilter" />
+                                            All Activities
+                                        </p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                        </div>
+                </div>
+                <div class="slds-card__body">
+                    <table id="activitiesHistoryTable" class="slds-table slds-scrollable--x slds-table--fixed-layout slds-table--bordered slds-max-medium-table--stacked-horizontal" aura:id="table">
+                        <thead aura:id="thead">
+                            <tr class="slds-text-heading--label">
+                                <th class="slds-is-sortable " scope="col" id="Actions">
+                                    <div class="slds-truncate">
+                                    </div>
+                                </th>
+                                <th class="slds-is-sortable" scope="col" onclick="{!c.sortHistory}" id="Subject">
+                                    <div class="slds-truncate">Subject
+                                        <button class="slds-button ">
+                                            <img src="/resource/slds100/assets/icons/utility/arrowdown_60.png" class="slds-button__icon slds-button__icon--small sortImage upImage" /> 
+                                            <img src="/resource/slds100/assets/icons/utility/arrowup_60.png" class="slds-button__icon slds-button__icon--small sortImage downImage"  style="display:none;"/>
+                                            <span class="slds-assistive-text">Sort</span>
+                                        </button>
+                                    </div>
+                                </th>
+                                <th class="slds-is-sortable" scope="col" onclick="{!c.sortHistory}" id="Who.Name">
+                                    <div class="slds-truncate">Lead
+                                        <button class="slds-button slds-button--icon-bare">
+                                            <img src="/resource/slds100/assets/icons/utility/arrowdown_60.png" class="slds-button__icon slds-button__icon--small sortImage upImage" /> 
+                                            <img src="/resource/slds100/assets/icons/utility/arrowup_60.png" class="slds-button__icon slds-button__icon--small sortImage downImage"  style="display:none;"/>
+                                            <span class="slds-assistive-text">Sort</span>
+                                        </button>
+                                    </div>
+                                </th>
+                                <th class="slds-is-sortable " scope="col" onclick="{!c.sortHistory}" id="Id">
+                                    <div class="">Task
+                                        <button class="slds-button slds-button--icon-bare">
+                                            <img src="/resource/slds100/assets/icons/utility/arrowdown_60.png" class="slds-button__icon slds-button__icon--small sortImage upImage" /> 
+                                            <img src="/resource/slds100/assets/icons/utility/arrowup_60.png" class="slds-button__icon slds-button__icon--small sortImage downImage"  style="display:none;"/>
+                                            <span class="slds-assistive-text">Sort</span>
+                                        </button>
+                                    </div>
+                                </th>
+                                <th class="slds-is-sortable" scope="col" onclick="{!c.sortHistory}" id="Type">
+                                    <div class="slds-truncate">Type
+                                        <button class="slds-button slds-button--icon-bare">
+                                            <img src="/resource/slds100/assets/icons/utility/arrowdown_60.png" class="slds-button__icon slds-button__icon--small sortImage upImage" /> 
+                                            <img src="/resource/slds100/assets/icons/utility/arrowup_60.png" class="slds-button__icon slds-button__icon--small sortImage downImage"  style="display:none;"/>
+                                            <span class="slds-assistive-text">Sort</span>
+                                        </button>
+                                    </div>
+                                </th>
+                                <th class="slds-is-sortable" scope="col" onclick="{!c.sortHistory}" id="ActivityDate">
+                                    <div class="slds-truncate">Due Date
+                                        <button class="slds-button slds-button--icon-bare">
+                                            <img src="/resource/slds100/assets/icons/utility/arrowdown_60.png" class="slds-button__icon slds-button__icon--small sortImage upImage" /> 
+                                            <img src="/resource/slds100/assets/icons/utility/arrowup_60.png" class="slds-button__icon slds-button__icon--small sortImage downImage"  style="display:none;"/>
+                                            <span class="slds-assistive-text">Sort</span>
+                                        </button>
+                                    </div>
+                                </th>
+                                <th class="slds-is-sortable" scope="col" onclick="{!c.sort}" id="Status">
+                                    <div class="slds-truncate">Status
+                                        <button class="slds-button slds-button--icon-bare">
+                                            <img src="/resource/slds100/assets/icons/utility/arrowdown_60.png" class="slds-button__icon slds-button__icon--small sortImage upImage" /> 
+                                            <img src="/resource/slds100/assets/icons/utility/arrowup_60.png" class="slds-button__icon slds-button__icon--small sortImage downImage"  style="display:none;"/>
+                                            <span class="slds-assistive-text">Sort</span>
+                                        </button>
+                                    </div>
+                                </th>
+                                <th class="slds-is-sortable" scope="col" onclick="{!c.sort}" id="Priority">
+                                    <div class="slds-truncate">Priority
+                                        <button class="slds-button slds-button--icon-bare">
+                                            <img src="/resource/slds100/assets/icons/utility/arrowdown_60.png" class="slds-button__icon slds-button__icon--small sortImage upImage" /> 
+                                            <img src="/resource/slds100/assets/icons/utility/arrowup_60.png" class="slds-button__icon slds-button__icon--small sortImage downImage"  style="display:none;"/>
+                                            <span class="slds-assistive-text">Sort</span>
+                                        </button>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody aura:id="tbody"  id="tbodyHistory">
+                            <aura:iteration items="{!v.ActivitiesHistory}" var="activityHistory" >
+                                <tr class="slds-hint-parent">
+                                    <td class=" slds-cell-wrap " data-label="Action" >
+                                        <div class="slds-dropdown-trigger slds-dropdown-trigger--click slds-is-open" aria-expanded="true" >
+                                            <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small" aria-haspopup="true" onclick="{!c.showActions}" >
+                                                <img src="/resource/slds100/assets/icons/utility/down_60.png" class="slds-button__icon slds-button__icon--small" /> 
+                                            </button>
+                                            <div id="actions" class="{!v.hardware=='DESKTOP'?'slds-dropdown slds-dropdown--left slds-dropdown--actions slds-nubbin--top-left':'slds-dropdown slds-dropdown--right slds-dropdown--actions'}" style="{!v.hardware=='DESKTOP'?'display:none;':'display:none;position:static;'}" onmouseleave="{!c.hideActions}">
+                                                <ul class="dropdown__list" role="menu">
+                                                    <li class="slds-dropdown__item" onclick="{!c.editActivity}">
+                                                        <a role="menuitem" id="{!activityHistory.Id}" >
+                                                            <p class="slds-truncate" >Edit</p>
+                                                        </a>
+                                                    </li>
+                                                    <li class="slds-dropdown__item" onclick="{!c.closeActivity}">
+                                                        <a role="menuitem" id="{!activityHistory.Id}">
+                                                            <p class="slds-truncate">Close</p>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    
+                                    <td class="slds-truncate slds-cell-wrap " data-label="Subject" title="{!activityHistory.Status}">{!activityHistory.Subject}</td>
+                                    <td class="slds-truncate slds-cell-wrap " scope="row" data-label="Lead Name" title="{!activityHistory.Who.Name}"><a id="{!activityHistory.WhoId}" onclick="{!c.recordDetail}" style="text-decoration:none;">{!activityHistory.Who.Name}</a></td>
+                                    <td class=" slds-cell-wrap " data-label="Task" ><img src="/resource/slds100/assets/icons/utility/check_60.png" style="{!activityHistory.Id lt '00U'?'':'display:none;'}" class="slds-button__icon slds-button__icon--small" /> </td>
+                                    <td class="slds-truncate slds-cell-wrap " data-label="Type" title="{!activityHistory.Type}">{!activityHistory.Type}</td>
+                                    <td class="slds-truncate slds-cell-wrap " data-label="Due Date" title="{!activityHistory.ActivityDate}">{!activityHistory.ActivityDate}</td>
+                                    <td class="slds-truncate slds-cell-wrap " data-label="Status" style="white-space: pre-line;" title="{!activityHistory.Status}">{!activityHistory.Status}</td>
+                                    <td class="slds-truncate slds-cell-wrap " data-label="Priority" title="{!activityHistory.Priority}">{!activityHistory.Priority}</td>
+                                     </tr>
+                            </aura:iteration>
+                        </tbody>
+                         <tbody aura:id="loadTable" style="display:none;" id="loadTableHistory">
+                            <tr >
+                                <td align="center"  height="50" colspan="9">
+                                    <div class="slds-spinner_container">
+                                        <div class="slds-spinner slds-spinner--small" aria-hidden="false" role="alert">
+                                            <div class="slds-spinner__dot-a"></div>
+                                            <div class="slds-spinner__dot-b"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>        
+    </div>
+</aura:component>

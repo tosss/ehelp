@@ -1,0 +1,1085 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Laser Forms installed by Client</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>CMF_Info__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>CMF Info</label>
+        <referenceTo>CMF_Info__c</referenceTo>
+        <relationshipLabel>Installed Laser Forms</relationshipLabel>
+        <relationshipName>R00N40000001m7zHEAQ</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CMF__c</fullName>
+        <externalId>false</externalId>
+        <formula>CMF_Info__r.Ship_CMF__c</formula>
+        <label>CMF #</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Copies__c</fullName>
+        <externalId>false</externalId>
+        <label>Copies</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Form_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Form Name</label>
+        <picklist>
+            <picklistValues>
+                <fullName>4 Square Worksheet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5 Square Worksheet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A/P Check</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A/R Statement</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Buyers Order</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cash Receipt</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Customer Information Sheet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Daily Rental Agreement</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Deal Jacket</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Due Bill</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Key Tag</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lease Order</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Letterhead</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Miscellaneous Form</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>On Demand Check</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parts Invoice</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Payroll Check</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pick Ticket</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pre-WorkOrder</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Purchase Order</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Invoice</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service WorkOrder</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special Order Request</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Stock Sheet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trigger Form</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Used Car Appraisal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>We Owe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Worksheet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Form_Types__c</fullName>
+        <externalId>false</externalId>
+        <label>Form Types</label>
+        <picklist>
+            <controllingField>Form_Name__c</controllingField>
+            <picklistValues>
+                <fullName>1-up</fullName>
+                <controllingFieldValues>Due Bill</controllingFieldValues>
+                <controllingFieldValues>Parts Invoice</controllingFieldValues>
+                <controllingFieldValues>Used Car Appraisal</controllingFieldValues>
+                <controllingFieldValues>We Owe</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2-up</fullName>
+                <controllingFieldValues>Due Bill</controllingFieldValues>
+                <controllingFieldValues>Parts Invoice</controllingFieldValues>
+                <controllingFieldValues>Used Car Appraisal</controllingFieldValues>
+                <controllingFieldValues>We Owe</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2-up (Landscape)</fullName>
+                <controllingFieldValues>Used Car Appraisal</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ELF (Accounting)</fullName>
+                <controllingFieldValues>Parts Invoice</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ELF (Customer)</fullName>
+                <controllingFieldValues>Parts Invoice</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ELF (Service)</fullName>
+                <controllingFieldValues>Parts Invoice</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ELF Standard</fullName>
+                <controllingFieldValues>Cash Receipt</controllingFieldValues>
+                <controllingFieldValues>Purchase Order</controllingFieldValues>
+                <controllingFieldValues>Trigger Form</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ELF Type 1</fullName>
+                <controllingFieldValues>Service Invoice</controllingFieldValues>
+                <controllingFieldValues>Service WorkOrder</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ELF Type 2</fullName>
+                <controllingFieldValues>Service WorkOrder</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ELF Type 2 (Accounting)</fullName>
+                <controllingFieldValues>Service Invoice</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ELF Type 2 (Customer)</fullName>
+                <controllingFieldValues>Service Invoice</controllingFieldValues>
+                <controllingFieldValues>Trigger Form</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ELF Type 2 (Internal)</fullName>
+                <controllingFieldValues>Trigger Form</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ELF Type 2 (Service)</fullName>
+                <controllingFieldValues>Service Invoice</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lease</fullName>
+                <controllingFieldValues>A/R Statement</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Standard</fullName>
+                <controllingFieldValues>A/P Check</controllingFieldValues>
+                <controllingFieldValues>Buyers Order</controllingFieldValues>
+                <controllingFieldValues>Cash Receipt</controllingFieldValues>
+                <controllingFieldValues>Daily Rental Agreement</controllingFieldValues>
+                <controllingFieldValues>Deal Jacket</controllingFieldValues>
+                <controllingFieldValues>Key Tag</controllingFieldValues>
+                <controllingFieldValues>Lease Order</controllingFieldValues>
+                <controllingFieldValues>Letterhead</controllingFieldValues>
+                <controllingFieldValues>On Demand Check</controllingFieldValues>
+                <controllingFieldValues>Payroll Check</controllingFieldValues>
+                <controllingFieldValues>Pick Ticket</controllingFieldValues>
+                <controllingFieldValues>Pre-WorkOrder</controllingFieldValues>
+                <controllingFieldValues>Purchase Order</controllingFieldValues>
+                <controllingFieldValues>Stock Sheet</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Type 1</fullName>
+                <controllingFieldValues>A/R Statement</controllingFieldValues>
+                <controllingFieldValues>Service Invoice</controllingFieldValues>
+                <controllingFieldValues>Service WorkOrder</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Type 2</fullName>
+                <controllingFieldValues>A/R Statement</controllingFieldValues>
+                <controllingFieldValues>Service Invoice</controllingFieldValues>
+                <controllingFieldValues>Service WorkOrder</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unknown</fullName>
+                <controllingFieldValues>Miscellaneous Form</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Version 1</fullName>
+                <controllingFieldValues>4 Square Worksheet</controllingFieldValues>
+                <controllingFieldValues>Worksheet</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Version 2</fullName>
+                <controllingFieldValues>5 Square Worksheet</controllingFieldValues>
+                <controllingFieldValues>Worksheet</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Version 3</fullName>
+                <controllingFieldValues>Worksheet</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Version 4</fullName>
+                <controllingFieldValues>Worksheet</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>LAO_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>LAO Id</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LAO_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>LAO Name</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LAO__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/&quot;&amp; LAO_Id__c ,  LAO_Name__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>LAO #</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Laser_Order_Form_Form_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Form Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>A/P Check</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A/P Check Canada</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A/R Open Item - Portrait</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A/R Statement (Can)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A/R Statement (Lease)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A/R Statement (Truck)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A/R Statement (Type 1)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A/R Statement (Type 2)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Addtl Cabinet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Addtl Proofs</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>B/O Custom</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Buy/Sell</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cash Receipt</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color A/P Check</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color A/P Check Canada</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color A/R Statement (Can)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color A/R Statement (Lease)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color A/R Statement (Truck)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color A/R Statement (Type 1)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color A/R Statement (Type 2)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color B/O Custom</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color Cash Receipt</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color Cust Info</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color Custom Cust Info</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color Custom Lease Order</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color Custom Rental</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color Deal Jacket</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color Lease Order</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color Letterhead</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color On Demand Check</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color On Demand Check Canada</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color Parts Invoice (1-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color Parts Invoice (2-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color Payroll Check</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color Payroll Check Canada</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color Pick Ticket</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color Prework Order</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color Purchase Order</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color Rental</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color Service Invoice (Type 1)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color Service Invoice (Type 2)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color Service Work Order (Type 2)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color Special Order Request (1-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color Special Order Request (2-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color Stock Sheet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color Used Car Appraisal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color We Owe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Color Worksheet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Combine</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cust Info</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Custom Artwork</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Custom Color Artwork</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Custom Cust Info</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Custom Lease Order</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Custom Rental</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Custom Used Car Appraisal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Damage Report</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Data Mapping</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Deal Jacket</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Delete Form</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electronic Download</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF - 3 Pack Forms</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF - 5 Pack Forms</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF A/R Statement (Type 1)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF A/R Statement (Type 2)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Cash Receipt (1-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Cash Receipt (2-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Color A/R Statement (Type 1)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Color A/R Statement (Type 2)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Color Cash Receipt (1-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Color Cash Receipt (2-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Color Parts Invoice (1-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Color Parts Invoice (2-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Color Purchase Order (1-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Color Purchase Order (2-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Color Service Invoice (Type 2)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Color Service Work Order (Type 2)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Color Special Order Request (1-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Color Special Order Request (2-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Color Trigger</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Custom A/R Statement (Type 1)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Custom A/R Statement (Type 2)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Custom Cash Receipt (1-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Custom Cash Receipt (2-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Custom Parts Invoice (1-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Custom Parts Invoice (2-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Custom Purchase Order (1-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Custom Purchase Order (2-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Custom Service Invoice (Type 2)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Custom Service Work Order (Type 2)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Custom Special Order Request (1-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Custom Special Order Request (2-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Custom Trigger</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Data Map-Major</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Data Map-Minor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF French Translation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Multi-Ply</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Parts Invoice (1-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Parts Invoice (2-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Prework Order</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Purchase Order (1-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Purchase Order (2-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Service Invoice (Type 1)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Service Invoice (Type 2)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Service Quote</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Service Work Order (Type 2)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Special Order Request (1-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Special Order Request (2-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMF Trigger</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FMLR Invoice - 4 Pack</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FMLR Invoice - Single Form</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FMLR Rental Agreement - Single form</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Form Building</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Framewrok Agreement Artwork</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FSDD Voucher</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Generic Forms</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lease Order</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Letterhead</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MICR ODC/AP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Misc Backer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Next Day Rush Fee</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ODC/AP - Check Sig Image</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ODC/AP CPA Bilingual</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ODC/AP CPA CAN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ODC/AP CPA French</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>On Demand Check</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>On Demand Check Canada</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parts Invoice (1-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parts Invoice (2-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Payroll Check</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Payroll Check Canada</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Payroll Check CPA Bilingual</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Payroll Check CPA Canada</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Payroll Check CPA French</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pick Ticket</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Prework Order</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Printout</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Purchase Order</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rental</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rush Fee</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Invoice (Type 1)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Invoice (Type 2)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Work Order (Type 2)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special Order Request (1-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special Order Request (2-up)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>STD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Stock Sheet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transfer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Used Car Appraisal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle Query</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>We Owe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Worksheet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Laser_Order_Form_Quantity__c</fullName>
+        <externalId>false</externalId>
+        <label>Quantity</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Migration_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Migration ID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Overlay__c</fullName>
+        <externalId>false</externalId>
+        <label>Overlay</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Installed Laser Forms</label>
+    <nameField>
+        <displayFormat>ILF -{00000}</displayFormat>
+        <label>Installed Form</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Installed Laser Forms</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Form_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Form_Types__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CREATEDBY_USER</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Form_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Form_Types__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CREATED_DATE</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Form_Name__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Form_Types__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CREATED_DATE</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Form_Name__c</searchFilterFields>
+        <searchFilterFields>Form_Types__c</searchFilterFields>
+        <searchResultsAdditionalFields>Form_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Form_Types__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CREATED_DATE</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

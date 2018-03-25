@@ -1,0 +1,16 @@
+<apex:page standardController="Calculator__c" extensions="Calculator_Extension">
+    <apex:form >
+        <apex:outputPanel title="Calculator" id="Pg">
+            <apex:inputfield value="{!Calculator__c.First_Number__c}"/>
+            <apex:inputfield value="{!Calculator__c.Second_Number__c}"/>
+            <apex:commandbutton value="Add" action="{!Add}" />
+            <apex:commandbutton value="Sub" action="{!Sub}" />
+            <apex:commandbutton value="Mul" action="{!Mul}" />
+            <apex:commandbutton value="Div" action="{!Div}" />
+            <apex:actionSupport action="{!Add}" event="onclick" status="Status" rendered="true" reRender="pg"/>
+            <apex:detail subject="{!Calculator__c}" />
+        </apex:outputPanel> 
+        
+            <apex:actionStatus id="Status" startText=" (incrementing...)" stopText=" (done)"/>       
+    </apex:form>
+</apex:page>

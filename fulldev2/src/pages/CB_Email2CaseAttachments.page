@@ -1,0 +1,18 @@
+<apex:page standardController="Case" showHeader="false" sidebar="false">
+    <a href="{!$Setup.GlobalSettings__c.Email_2_Case_Attachment_Link__c}{!Case.CaseNumber}" target="_blank" style="display:none;" id="attachments_link">{!$Setup.GlobalSettings__c.Email_2_Case_Attachment_Link__c}{!Case.CaseNumber}</a>
+    <apex:repeat value="{!Case.EmailMessages}" var="msg"><span class="e2c_attachment" style="display:none;">{!msg.HasAttachment}</span></apex:repeat>
+    <span id="e2c_user" style="display:none;">{!$Setup.GlobalSettings__c.Email_2_Case_User__c}</span> 
+    <span id="e2c_createdby" style="display:none;">{!Case.CreatedBy.UserName}</span> 
+    <script>
+        var e2c_user = document.getElementById("e2c_user").innerHTML;
+        var e2c_createdby = document.getElementById("e2c_createdby").innerHTML;
+        var attachments = document.getElementsByTagName("span");
+        var showlink = false;
+        for (var ctr = 0; ctr < attachments.length; ctr++) {
+            if(e2c_createdby === e2c_user) {
+                if(attachments[ctr].className === "e2c_attachment" && attachments[ctr].innerHTML === "true") { showlink = true; } 
+            }
+        }
+        if(showlink === true) { document.getElementById("attachments_link").style.display=""; }
+    </script>
+</apex:page>

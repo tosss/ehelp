@@ -1,0 +1,35 @@
+<apex:page controller="DS_listContactsController" showHeader="false" sidebar="false" standardStylesheets="true">
+	<apex:form >
+		<apex:outputPanel id="acctCampSection">
+			<apex:pageBlock title="Account Campaign Member" mode="edit" tabStyle="Task">
+				<apex:pageBlockButtons >
+					<apex:commandButton action="{!saveCampAcctMem}" rendered="{!PageView}" status="ajaxStatus" value="Save Member Status Change" rerender="acctCampSection"/>
+					&nbsp;&nbsp;<apex:actionStatus id="ajaxStatus" startText="Saving..."/>
+				</apex:pageBlockButtons>
+				<apex:pageBlockSection title="Account Campaign Member" columns="2">
+                    <apex:pageblocksectionitem >
+                        <apex:outputtext value="Account Name" />
+                        <apex:outputLink id="acctName" value="/{!newAccount.Id}" target="_parent">{!newAccount.Name}</apex:outputLink>
+                    </apex:pageblocksectionitem>
+                    <apex:outputField id="phone" value="{!newAccount.Phone}"/>
+                    <apex:outputField id="billingCity" value="{!newAccount.BillingCity}"/>
+                    <apex:outputField id="billingState" value="{!newAccount.BillingState}" />  
+                    <apex:pageblocksectionitem ></apex:pageblocksectionitem>
+					<apex:pageblocksectionitem >
+                        <apex:outputtext value="Leadsource Status" />
+	                    <apex:selectlist size="1" value="{!countries2}" title="Leadsource Types" id="leadsource" disabled="{!IF((PageView!=false),'true','false')}">
+	                        <apex:selectoptions value="{!items1}"/>
+	                    </apex:selectlist>
+					</apex:pageblocksectionitem>
+					<apex:pageblocksectionitem ></apex:pageblocksectionitem>
+					<apex:pageblocksectionitem >
+	                    <apex:outputtext value="Campaign Member Status" />
+	                    <apex:selectList value="{!countries}" size="1" id="statuses" disabled="{!IF((PageView==false),'true','false')}">
+	                        <apex:selectOptions value="{!items}"/>
+	                    </apex:selectList>
+					</apex:pageblocksectionitem>
+				</apex:pageBlockSection>
+			</apex:pageBlock>
+		</apex:outputPanel>
+	</apex:form>
+</apex:page>

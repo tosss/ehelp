@@ -1,0 +1,560 @@
+<apex:component allowDML="true" controller="ALL_ParentChildRecords_Controller" >
+    <!--Author: Anirudh Singh-->
+    <!--Description: This component is used for displaying Parent and Child Records for any generic Parent Child Relationship. 
+        It includes functionalities such as Save on View Mode, Editing the records and Saving them, Mass Delete and Mass Update.-->
+    
+    <apex:attribute name="allAttributes" type="ALL_RecordsViewWrapper" assignTo="{!fetchAllAttributes}" description="It is the collection of all the attributes for this component." required="true"/>
+    <apex:attribute name="vfPageController" type="ALL_PageBase_Controller" assignTo="{!pageController}" description="It is the controller of the Visualforce Page using this component." required="true"/>
+    
+    <!--15th May, 2015 Anirudh Singh-->
+    <!--<apex:includeScript value="{!$Resource.jQuery_Latest}"/>-->
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.10.4.custom.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jQueryDataTables_v1104, 'DataTables-1.10.4/media/js/jquery.dataTables.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.ParentChild_JS)}"/>
+    
+    <apex:stylesheet value="{!URLFOR($Resource.jQuery, 'css/redmond/jquery-ui-1.10.4.custom.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.jQueryDataTables_v1104, 'DataTables-1.10.4/media/css/jquery.dataTables.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.ParentChild_CSS,'/img/Canvas.css')}"/>
+    
+    <apex:form id="formId">
+        <apex:actionFunction name="saveFunction" action="{!saveMethod}" oncomplete="save();" rerender="formId" status="loader">
+        	<apex:param id="quickSaveScenario" name="quickSaveScenario" value="Quick Save"/>
+        </apex:actionFunction>
+        <apex:actionFunction name="saveAndCloseFunction" action="{!saveMethod}" onComplete="saveAndClose();" rerender="formId" status="loader">
+        	<apex:param id="saveScenario" name="saveScenario" value="Save"/>
+        </apex:actionFunction>
+        <apex:actionFunction name="refreshMyPanel" action="{!reloadMethod}" oncomplete="editAll();" reRender="formId" immediate="true" status="loader"/>
+        <apex:actionFunction name="fieldUpdatePanel" action="{!displayFieldUpdatePanel}" reRender="fieldUpdatePanel" status="loader">
+            <apex:param id="fieldName" name="fieldName" value=""/>
+            <apex:param id="recordId" name="recordId" value=""/>
+        </apex:actionFunction>
+        <apex:actionFunction name="fieldUpdatedInViewMode" action="{!reloadMethod}" oncomplete="viewMode();" reRender="formId" immediate="true" status="loader"/>
+        <apex:actionFunction name="selectionParentPanel" action="{!displayParentSelectionPanel}" reRender="parentFieldSelectionPanel, parentMassUpdatePanel" onComplete="showParentSelectionPanel();" status="loader" immediate="true"/>
+        <apex:actionFunction name="selectionChildPanel" action="{!displayChildSelectionPanel}" reRender="childFieldSelectionPanel, childMassUpdatePanel" onComplete="showChildSelectionPanel();" status="loader" immediate="true"/>
+        <apex:actionFunction name="cancelMethod" action="{!cancelMethod}" immediate="true" status="loader"/>
+        <apex:actionFunction name="saveAndCloseMethod" action="{!saveAndCloseMethod}" immediate="true" status="loader"/>
+        <apex:actionFunction name="createNewParentWOGrandparent" action="{!createNewParent}" immediate="true" oncomplete="createNewParent();" reRender="formId" status="loader"/>
+        <apex:actionFunction name="createNewParentWGrandparent" action="{!createNewParentWGrandparent}" immediate="true" oncomplete="createNewParent();" reRender="grandparentSelectionPanel, formId" status="loader"/>
+        <apex:actionFunction name="closeGrandparentPanel" action="{!closeGrandparentPanel}" reRender="grandparentSelectionPanel, formId" status="loader" oncomplete="createNewParent();"/>
+        <apex:actionFunction name="massUpdateMethod" action="{!massUpdateMethod}" reRender="dataTablePanel" immediate="true" status="loader"/>
+        <apex:actionRegion >
+            <apex:actionFunction name="errorMessagesDelete" action="{!errorOnRecords}" oncomplete="editAll();" status="loader" reRender="formId">
+                <apex:param id="deleteRecordsList" name="recordsList" value=""/>
+                <apex:param id="typeOfDeleteScenario" name="typeOfUpdateScenario" value=""/>
+            </apex:actionFunction>
+        </apex:actionRegion>
+        <apex:actionRegion >
+            <apex:actionFunction name="errorMessagesMassUpdate" action="{!errorOnRecords}" oncomplete="ReloadMassUpdate();" status="loader" reRender="formId">
+                <apex:param id="muRecordsList" name="recordsList" value=""/>
+                <apex:param id="typeOfMassUpdate" name="typeOfUpdateScenario" value=""/>
+            </apex:actionFunction>
+        </apex:actionRegion>
+        <apex:actionFunction name="cancelGrandparentPanelFunction" action="{!cancelGrandparentPanel}" reRender="grandparentSelectionPanel" status="loader" oncomplete="cancelGrandparent();"/>
+        
+        <apex:pageBlock >
+            <input type="hidden" value="{!$ObjectType[fetchParentAPIName].Label}" id="parentName"/>
+            <input type="hidden" value="{!$ObjectType[fetchChildAPIName].Label}" id="childName"/>
+            <input type="hidden" value="{!fetchParentAPIName}" id="parentAPIName"/>
+            <input type="hidden" value="{!fetchChildAPIName}" id="childAPIName"/>
+            <input type="hidden" value="{!childSearch}" id="enableChildSearch"/>
+            <input type="hidden" value="{!displayMode}" id="displayMode" />
+            <input type="hidden" value="{!redirectURLLocation}" id="redirectURLLocation"/>
+            <input type="hidden" value="{!displayCreateNewChildButton}" id="displayCreateNewChildButton"/>
+            <input type="hidden" value="{!displayEditButton}" id="displayEditButton"/>
+            <input type="hidden" value="{!displayQuickSaveButton}" id="displayQuickSaveButton"/>
+            <input type="hidden" value="{!displaySaveButton}" id="displaySaveButton"/>
+            <input type="hidden" value="{!displayDeleteButton}" id="displayDeleteButton"/>
+            <input type="hidden" value="{!displayMassUpdateButton}" id="displayMassUpdateButton"/>
+            <input type="hidden" value="{!displayCreateNewParentButton}" id="displayCreateNewParentButton"/>
+            <input type="hidden" value="{!showChildRecForNewParentMessage}" id="showChildRecForNewParentMessage"/>
+            <input type="hidden" value="{!fetchGrandparentRelationshipField}" id="fetchGrandparentRelationshipField"/>
+            
+            <apex:pageBlockButtons location="top" rendered="{!showData}">
+                <input type="button" class="btn" value="Expand All" id="Expand" onclick="expandAll();"/>
+                <input type="button" class="btn" value="Collapse All" id="Collapse" onclick="collapseAll();"/>
+                <input type="button" class="btn" value="Add New Contact" id="newContact" onclick="addContact();"/>
+                <input type="button" class="btn" value="Quick Save" id="SaveButton" onclick="checkValidSave(this);" style="display:none;"/>
+                <input type="button" class="btn" value="Save" id="SaveCloseButton" onclick="checkValidSave(this);" style="display:none;"/>
+                <apex:commandButton value="Edit" id="EditRecords" oncomplete="editAll();" reRender="formId" status="loader"/>
+                <!--22nd May, 2015- Anirudh Singh-->
+                <!--<apex:commandButton value="Create New {!$ObjectType[fetchParentAPIName].Label}" id="createNewParent" action="{!createNewParent}" oncomplete="createNewParent();" reRender="formId" status="loader" style="display:none;" immediate="true"/>-->
+                <input type="button" class="btn" value="Create New {!$ObjectType[fetchParentAPIName].Label}" id="createNewParent" onclick="createNewParentFunction();" style="display:none;"/>
+                <input type="button" class="btn" value="Delete" id="DeleteButton" onclick="confirmAndDelete();" style="display:none;"/>
+                <apex:commandButton value="Mass Update" id="MassUpdateRecButton" onclick="massUpdateRecords();" rerender="dummy" status="loader" style="display:none;"/>
+                <!--21st May, 2015- Anirudh Singh - Cancel button is now invoking a jQuery method onclick event-->
+                <!--<apex:commandButton value="Cancel" id="CancelButton" action="{!cancelMethod}" immediate="true"/>--><!--oncomplete="Cancel();" reRender="dummy" style="display:none;" status="loader"-->
+                <input type="button" class="btn" value="Cancel" id="CancelButton" onclick="if(event && event.preventDefault) { event.preventDefault(); } Cancel(); return false;" style="display:none;"/>
+                <input type="button" class="btn" value="Clear All Changes" id="ClearAllChanges" onClick="clearAllChanges();" style="display:none;"/>
+                <span id="saveMessage" style="display:none; color:red; font-size: 16px;">
+                    <br/>
+                    <i><b>Note: </b>You have made changes on record(s), please save before closing.</i>
+                </span>
+            </apex:pageBlockButtons>
+            
+            <apex:pageMessages />
+            
+            <!--Main Panel containing both the Parent and Child Data-->
+            <apex:outputPanel id="mainPanel" rendered="{!showData}">
+                <span id="newRecordsMsg" style="display:none;">
+                    <b>Note: </b><i>If you do not want to save a <b>New {!$ObjectType[fetchChildAPIName].Label} Record</b>, please fill in all required fields on the record AND uncheck the row checkbox for that record.</i>
+                </span>
+                <br/>
+                <h2 class="h2" title="{!$ObjectType[fetchParentAPIName].Name}">{!$ObjectType[fetchParentAPIName].Label}</h2>
+                <br/>
+                <br/>
+                <!--Parent Table-->
+                <table class="mainTable">
+                    <thead>
+                        <tr class="parent_header_tr">
+                            <th class="showCheckboxParentHeader" id="parentHeaderCheckbox" style="width:20px;"></th>
+                            <apex:repeat value="{!displayParentColumnsAndWidthList}" var="parentField">
+                                <th class="parent_header_th" id="parentFieldHeaders" style="width:{!parentField.columnWidth};">
+                                    {!$ObjectType[fetchParentAPIName].fields[parentField.columnName].Label}
+                                </th>
+                            </apex:repeat>
+                        </tr>
+                    </thead>
+                    
+                    <apex:variable var="parentNumber" value="{!0}"/>
+                    <apex:repeat value="{!displayQueryResult}" var="parentObjectRecord">
+                        <apex:variable var="parentNumber" value="{!parentNumber+1}"/>
+                        <tr id="parentRecRow" class="parent_data_tr">
+                            <td class="showCheckboxForParentData" id="parentRowCheckbox" style="width:20px;">
+                                <div>
+                                    <apex:inputCheckbox value="{!parentObjectRecord.parentSelected}" id="chkParentSelected" onClick="disableChildCheckboxes();"/>
+                                    <input type="hidden" value="{!parentObjectRecord.parentRecord['Id']}" id="parentRecId"/>
+                                    <apex:image id="parentErrorImage" title="{!parentObjectRecord.errParent}" url="{!$Resource.Error}" rendered="{!parentObjectRecord.errParent!=''}"/>
+                                </div>
+                            </td>
+                            
+                            <apex:variable var="colNumber" value="{!0}"/>
+                            <apex:repeat value="{!displayParentColumnsAndWidthList}" var="parentField">
+                                <apex:variable var="colNumber" value="{!colNumber+1}" />
+                                <td id="parentInOutFields" class="parent_data_td" ondblclick="fieldUpdate(this);" style="width:{!parentField.columnWidth};">
+                                    <div id="parent_td_input_fieldR{!parentNumber}C{!colNumber}" class="showFieldsInEditMode">
+                                        <div title="{!$ObjectType[fetchParentAPIName].fields[parentField.columnName].Label}">
+                                            <apex:inputField value="{!parentObjectRecord.parentRecord[parentField.columnName]}" id="pInput" onchange="selectParentRowForSave(this);"/>
+                                        </div>
+                                    </div>
+                                    
+                                    <apex:outputPanel id="nameLinkParentRec" title="{!$ObjectType[fetchParentAPIName].fields[parentField.columnName].Label}" rendered="{!parentField.columnName=='Name'}">
+                                        <a href="/{!parentObjectRecord.parentRecord['Id']}" target="_top">
+                                            <span class="parent_data_td_Output">{!parentObjectRecord.parentRecord[parentField.columnName]}</span>
+                                        </a>
+                                    </apex:outputPanel>
+                                    
+                                    <apex:outputPanel id="fieldDataParentRec" title="{!$ObjectType[fetchParentAPIName].fields[parentField.columnName].Label}" rendered="{!parentField.columnName!='Name'}">
+                                        <apex:outputField value="{!parentObjectRecord.parentRecord[parentField.columnName]}" html-class="parent_data_td_Output"/>
+                                    </apex:outputPanel>
+                                    <input type="hidden" id="fieldAccessibleParent" value="{!$ObjectType[fetchParentAPIName].fields[parentField.columnName].Accessible}"/>
+                                    <input type="hidden" id="fieldUpdateableParent" value="{!$ObjectType[fetchParentAPIName].fields[parentField.columnName].Updateable}"/>
+                                    <input type="hidden" id="objectType" value="Parent"/>
+                                </td>
+                            </apex:repeat>
+                        </tr>
+                        
+                        <!--Child Data-->
+                        <tr id="child_data_tr">
+                            <td colspan="{!displayParentColumnsAndWidthList.size+1}">
+                                <div class="child_start">
+                                    <h3 class="child_name" onclick="collapseExpandSelected(this);">
+                                        <span class="child_node"></span>
+                                        <span class="toggleImg">&nbsp;</span>{!$ObjectType[fetchChildAPIName].Label} ({!parentObjectRecord.childRecords.size})
+                                    </h3>
+                                    &nbsp;&nbsp;
+                                    <div id="create_New_Child_Record" style="display:inline; font-weight:bold;">
+                                        |&nbsp;&nbsp;
+                                        <apex:actionRegion >
+                                            <apex:commandButton value="Create New {!$ObjectType[fetchChildAPIName].Label}" id="createNewChild" action="{!createNewChild}" oncomplete="createNewChild();" reRender="formId" status="loader">
+                                                <apex:param name="parentRecId" assignTo="{!parentId}" value="{!parentObjectRecord.parentRecord['Id']}"/>
+                                            </apex:commandButton>
+                                        </apex:actionRegion>
+                                    </div>
+                                    <br/>
+                                    <div id="childDataTableStart" class="child_td_content" style="display:none;">
+                                        <div id="childContainer" class="child_td_content_container">
+                                            <div id="childTableContainer" class="clear">
+                                                <table id="childTable" class="dataTable display">
+                                                    <thead>
+                                                        <tr>
+                                                            <th id="child_td_checkboxes" style="width:20px;">
+                                                                <apex:inputCheckbox id="selectAllChilds" onclick="selectAllRecords(this);"/>
+                                                            </th>
+                                                            <apex:repeat value="{!displayChildColumnsAndWidthList}" var="childField">
+                                                                <th style="width:{!childField.columnWidth};">
+                                                                    {!$ObjectType[fetchChildAPIName].fields[childField.columnName].Label}
+                                                                </th>
+                                                            </apex:repeat>
+                                                        </tr>
+                                                    </thead>
+                                                    
+                                                    <apex:repeat value="{!parentObjectRecord.childRecords}" var="childObjectRecord">
+                                                        <tr>
+                                                            <td id="child_td_checkboxesRow" style="width:20px;">
+                                                                <apex:inputCheckbox id="child_AllCheckbox_Selected" value="{!childObjectRecord.childSelected}" onclick="clearSelectAllChildCheckbox(this);"/>
+                                                                <input type="hidden" id="childRecId" value="{!childObjectRecord.childRecord['Id']}"/>
+                                                                <apex:image id="childErrorImage" title="{!childObjectRecord.errChild}" url="{!$Resource.Error}" rendered="{!childObjectRecord.errChild!=''}"/>
+                                                            </td>
+                                                            
+                                                            <apex:repeat value="{!displayChildColumnsAndWidthList}" var="childField">
+                                                                <td id="childInOutFields" ondblclick="fieldUpdate(this);" style="width:{!childField.columnWidth};">
+                                                                    <div id="child_td_input_field" class="showChildFieldsInEditMode">
+                                                                        <div title="{!$ObjectType[fetchChildAPIName].fields[childField.columnName].Label}">
+                                                                            <apex:inputField id="cInput" value="{!childObjectRecord.childRecord[childField.columnName]}" onchange="selectChildRowForSave(this);"/>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                    <apex:outputPanel id="nameLinkChildRec" title="{!$ObjectType[fetchChildAPIName].fields[childField.columnName].Label}" rendered="{!childField.columnName=='Name'}">
+                                                                        <a href="/{!childObjectRecord.childRecord['Id']}" target="_top">
+                                                                            <span>{!childObjectRecord.childRecord[childField.columnName]}</span>
+                                                                        </a>
+                                                                    </apex:outputPanel>
+                                                                    
+                                                                    <apex:outputPanel id="fieldDataChildRec" title="{!$ObjectType[fetchChildAPIName].fields[childField.columnName].Label}" rendered="{!childField.columnName!='Name'}">
+                                                                        <apex:outputField value="{!childObjectRecord.childRecord[childField.columnName]}"/>
+                                                                    </apex:outputPanel>
+                                                                    <input type="hidden" id="fieldAccessibleChild" value="{!$ObjectType[fetchChildAPIName].fields[childField.columnName].Accessible}"/>
+                                                                    <input type="hidden" id="fieldUpdateableChild" value="{!$ObjectType[fetchChildAPIName].fields[childField.columnName].Updateable}"/>
+                                                                    <input type="hidden" id="objectType" value="Child"/>
+                                                                </td>
+                                                            </apex:repeat>
+                                                        </tr>
+                                                    </apex:repeat>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </apex:repeat>
+                </table>
+            </apex:outputPanel>
+            
+            <!--Panel for Field Update on View Mode-->
+            <apex:outputPanel id="fieldUpdatePanel">
+                <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{!displayFieldInViewMode}"/>
+                <apex:outputPanel styleClass="custPopup" layout="block" rendered="{!displayFieldInViewMode}">
+                    <div>
+                        <div class="pbSubheader brandTertiaryBgr first tertiaryPalette">
+                            <h3>Edit {!fieldNameToBeUpdated}</h3>
+                        </div>
+                        <div class="pbSubsection">
+                            <table style="min-width: 200px;" border="0" cellpadding="0" cellspacing="0">
+                                <tbody>
+                                    <tr>
+                                        <th class="labelCol vfLabelColTextWrap first last" scope="row">
+                                            <label>{!fieldNameToBeUpdated}</label>
+                                        </th>
+                                        <td class="data2Col first last">
+                                            <apex:inputField label="" value="{!objectToUpdateInViewMode[fieldAPINameToBeUpdated]}"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; border-top: 1px solid #A0A0A0; padding: 3px;">
+                        <apex:commandButton value="Save" action="{!fieldUpdateInViewMode}" oncomplete="fieldUpdatedInViewMode();" rerender="formId" status="loader"/>
+                        <apex:commandButton value="Cancel" action="{!closeFieldUpdatePanel}" rerender="fieldUpdatePanel" immediate="true" status="loader"/>
+                    </div>
+                </apex:outputPanel>
+            </apex:outputPanel>
+            
+            <!--Parent Panel for Field Selection-->
+            <apex:outputPanel id="parentFieldSelectionPanel" style="display:none;">
+                <apex:outputPanel styleClass="popupBackground" layout="block"/>
+                <apex:outputPanel styleClass="custPopup" layout="block">
+                    <div>
+                        <div class="pbSubheader brandTertiaryBgr first tertiaryPalette">
+                            <h3>Mass Update {!$ObjectType[fetchParentAPIName].Label} Records</h3>
+                        </div>
+                        <div class="pbSubsection">
+                            <table class="detailList" border="0" cellpadding="0" cellspacing="0">
+                                <tbody>
+                                    <tr>
+                                        <td class="data2Col first last" colspan="2">
+                                            <table class="list" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <colgroup span="2"></colgroup>
+                                                <thead class="">
+                                                    <tr class="headerRow">
+                                                        <th class="headerRow" scope="col" colspan="1">
+                                                            <div>Field Names</div>
+                                                        </th>
+                                                        <th class="headerRow" scope="col" colspan="1">
+                                                            <div>Field to Update?</div>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <apex:repeat value="{!emptyObjFieldMapParent}" var="fieldMap">
+                                                        <tr>
+                                                            <td>
+                                                                <apex:outputLabel id="selectedLabel" value="{!$ObjectType[fetchParentAPIName].fields[fieldMap.field].Label}" style="font-weight:bold;"/>
+                                                            </td>
+                                                            <td>
+                                                                <input type="checkbox" id="selectedParentField" value="{!fieldMap.selected}" />
+                                                                <input type="hidden" id="selectedParentFieldLabel" value="{!$ObjectType[fetchParentAPIName].fields[fieldMap.field].Label}"/>
+                                                            </td>
+                                                        </tr>
+                                                    </apex:repeat>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div id="selectionErrorMessageParent" style="color:red; display:none; text-align:center;">Please select at least one field to proceed.</div>
+                    <div style="text-align:center; border-top: 1px solid #A0A0A0; padding: 3px;">
+                        <input type="button" class="btn" value="Continue" onclick="setValuesParent();"/>
+                        <input type="button" class="btn" value="Cancel" onclick="closeParentFSPanel();"/>
+                    </div>
+                </apex:outputPanel>
+            </apex:outputPanel>
+            
+            <!--Panel for Mass Update For Parent Record-->
+            <apex:actionRegion >
+            <apex:outputPanel id="parentMassUpdatePanel" style="display:none;">
+                <apex:outputPanel styleClass="popupBackground" layout="block"/>
+                <apex:outputPanel id="pMUPanel" styleClass="custPopup" layout="block">
+                    <div>
+                        <div class="pbSubheader brandTertiaryBgr first tertiaryPalette">
+                            <h3>Mass Update {!$ObjectType[fetchParentAPIName].Label} Records</h3>
+                        </div>
+                        <div class="pbSubsection">
+                            <table border="0" cellpadding="0" cellspacing="0">
+                                <tbody>
+                                    <apex:repeat value="{!emptyObjFieldMapParent}" var="fieldMap">
+                                        <tr>
+                                            <th class="labelCol vfLabelColTextWrap first last" scope="row">
+                                                <label>{!$ObjectType[fetchParentAPIName].fields[fieldMap.field].Label}</label>
+                                            </th>
+                                            <td class="data2Col first last">
+                                                <apex:outputPanel title="{!$ObjectType[fetchParentAPIName].fields[fieldMap.field].Name}" styleClass="updatedValueParent" style="display:inline;">
+                                                    <apex:inputField id="pInputField" value="{!emptyRecordParent[fieldMap.field]}"/>
+                                                </apex:outputPanel>
+                                            </td>
+                                        </tr>
+                                    </apex:repeat>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align:center; border-top: 1px solid #A0A0A0; padding: 3px;">
+                        <input type="button" class="btn" value="Previous" onclick="renderSelectionPanelParent();"/>
+                        <!--<apex:commandButton value="Update" onclick="updateValuesParent();" oncomplete="Reload();" immediate="true" status="loader"/>-->
+                        <input type="button" class="btn" value="Update {!$ObjectType[fetchParentAPIName].Label} Records" onclick="parentConfirmationPanel();"/>
+                        <input type="button" class="btn" value="Cancel" onclick="closeParentMUPanel();"/>
+                    </div>
+                </apex:outputPanel>
+            </apex:outputPanel>
+            </apex:actionRegion>
+            
+            <!--Confirmation Panel for Parent-->
+            <apex:outputPanel id="parentConfirmationPanel" style="display:none;">
+                <apex:outputPanel styleClass="popupBackground" layout="block"/>
+                <apex:outputPanel id="pCPanel" styleClass="custPopup" layout="block">
+                    <div>
+                        <div class="pbSubheader brandTertiaryBgr first tertiaryPalette">
+                            <h3>Mass Update {!$ObjectType[fetchParentAPIName].Label} Records</h3>
+                        </div>
+                        <div class="pbSubsection">
+                            <center>
+                                <br/>
+                                <b>Are you sure you want to make the saved changes to the selected {!$ObjectType[fetchParentAPIName].Label} records? <br/><br/>Please click <i>"Proceed"</i> button, if you want to proceed with the saved changes.</b>
+                                <br/><br/>
+                            </center>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align:center; border-top: 1px solid #A0A0A0; padding: 3px;">
+                        <input type="button" class="btn" value="Previous" onclick="renderParentMassUpdatePanel();"/>
+                        <!--<apex:commandButton value="Proceed" onclick="updateValuesParent();" oncomplete="Reload();" immediate="true" status="loader"/>-->
+                        <input type="button" class="btn" value="Proceed" onclick="updateValuesParent();"/>
+                        <input type="button" class="btn" value="Cancel" onclick="closeParentConfirmationPanel();"/>
+                    </div>
+                </apex:outputPanel>
+            </apex:outputPanel>
+            
+            <!--Child Panel for Field Selection-->
+            <apex:outputPanel id="childFieldSelectionPanel" style="display:none;">
+                <apex:outputPanel styleClass="popupBackground" layout="block"/>
+                <apex:outputPanel styleClass="custPopup" layout="block">
+                    <div>
+                        <div class="pbSubheader brandTertiaryBgr first tertiaryPalette">
+                            <h3>Mass Update {!$ObjectType[fetchChildAPIName].Label} Records</h3>
+                        </div>
+                        <div class="pbSubsection">
+                            <table class="detailList" border="0" cellpadding="0" cellspacing="0">
+                                <tbody>
+                                    <tr>
+                                        <td class="data2Col first last" colspan="2">
+                                            <table class="list" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <colgroup span="2"></colgroup>
+                                                <thead class="">
+                                                    <tr class="headerRow">
+                                                        <th class="headerRow" scope="col" colspan="1">
+                                                            <div>Field Names</div>
+                                                        </th>
+                                                        <th class="headerRow" scope="col" colspan="1">
+                                                            <div>Field to Update?</div>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <apex:repeat value="{!emptyObjFieldMapChild}" var="fieldMap">
+                                                        <tr>
+                                                            <td>
+                                                                <apex:outputLabel id="selectedLabel" value="{!$ObjectType[fetchChildAPIName].fields[fieldMap.field].Label}" style="font-weight:bold;"/>
+                                                            </td>
+                                                            <td>
+                                                                <input type="checkbox" id="selectedChildField" value="{!fieldMap.selected}"/>
+                                                                <input type="hidden" id="selectedChildFieldLabel" value="{!$ObjectType[fetchChildAPIName].fields[fieldMap.field].Label}"/>
+                                                            </td>
+                                                        </tr>
+                                                    </apex:repeat>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div id="selectionErrorMessageChild" style="color:red; display:none; text-align:center;">Please select at least one field to proceed.</div>
+                    <div style="text-align:center; border-top: 1px solid #A0A0A0; padding: 3px;">
+                        <input type="button" class="btn" value="Continue" onclick="setValuesChild();"/>
+                        <input type="button" class="btn" value="Cancel" onclick="closeChildFSPanel();"/>
+                    </div>
+                </apex:outputPanel>
+            </apex:outputPanel>
+            
+            <!--Panel for Mass Update For Child Record-->
+            <apex:actionRegion >
+            <apex:outputPanel id="childMassUpdatePanel" style="display:none;">
+                <apex:outputPanel styleClass="popupBackground" layout="block"/>
+                <apex:outputPanel id="cMUPanel" styleClass="custPopup" layout="block">
+                    <div>
+                        <div class="pbSubheader brandTertiaryBgr first tertiaryPalette">
+                            <h3>Mass Update {!$ObjectType[fetchChildAPIName].Label} Records</h3>
+                        </div>
+                        <div class="pbSubsection">
+                            <table border="0" cellpadding="0" cellspacing="0">
+                                <tbody>
+                                    <apex:repeat value="{!emptyObjFieldMapChild}" var="fieldMap">
+                                        <tr>
+                                            <th class="labelCol vfLabelColTextWrap first last" scope="row">
+                                                <label>{!$ObjectType[fetchChildAPIName].fields[fieldMap.field].Label}</label>
+                                            </th>
+                                            <td class="data2Col first last">
+                                                <apex:outputPanel title="{!$ObjectType[fetchChildAPIName].fields[fieldMap.field].Name}" styleClass="updatedValueChild" style="display:inline;">
+                                                    <apex:inputField value="{!emptyRecordChild[fieldMap.field]}" id="cInputField"/>
+                                                </apex:outputPanel>
+                                            </td>
+                                        </tr>
+                                    </apex:repeat>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align:center; border-top: 1px solid #A0A0A0; padding: 3px;">
+                        <input type="button" class="btn" value="Previous" onclick="renderSelectionPanelChild();"/>
+                        <!--<apex:commandButton value="Update" onclick="updateValuesChild();" oncomplete="Reload();" immediate="true" status="loader"/>-->
+                        <input type="button" class="btn" value="Update {!$ObjectType[fetchChildAPIName].Label} Records" onclick="childConfirmationPanel();"/>
+                        <input type="button" class="btn" value="Cancel" onclick="closeChildMUPanel();"/>
+                    </div>
+                </apex:outputPanel>
+            </apex:outputPanel>
+            </apex:actionRegion>
+            
+            <!--Confirmation Panel for Child-->
+            <apex:outputPanel id="childConfirmationPanel" style="display:none;">
+                <apex:outputPanel styleClass="popupBackground" layout="block"/>
+                <apex:outputPanel id="cCPanel" styleClass="custPopup" layout="block">
+                    <div>
+                        <div class="pbSubheader brandTertiaryBgr first tertiaryPalette">
+                            <h3>Mass Update {!$ObjectType[fetchChildAPIName].Label} Records</h3>
+                        </div>
+                        <div class="pbSubsection">
+                            <center>
+                                <br/>
+                                <b>Are you sure you want to make the saved changes to the selected {!$ObjectType[fetchChildAPIName].Label} records? <br/><br/>Please click <i>"Proceed"</i> button, if you want to proceed with the saved changes.</b>
+                                <br/><br/>
+                            </center>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align:center; border-top: 1px solid #A0A0A0; padding: 3px;">
+                        <input type="button" class="btn" value="Previous" onclick="renderChildMassUpdatePanel();"/>
+                        <!--<apex:commandButton value="Proceed" onclick="updateValuesChild();" oncomplete="Reload();" immediate="true" status="loader" rerender="dummy"/>-->
+                        <input type="button" class="btn" value="Proceed" onclick="updateValuesChild();"/>
+                        <input type="button" class="btn" value="Cancel" onclick="closeChildConfirmationPanel();"/>
+                    </div>
+                </apex:outputPanel>
+            </apex:outputPanel>
+            
+            <!--Panel for Field Update on View Mode-->
+            <apex:outputPanel id="grandparentSelectionPanel">
+                <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{!displayGrandparentPanel}"/>
+                <apex:outputPanel styleClass="custPopup" layout="block" rendered="{!displayGrandparentPanel}">
+                    <div>
+                        <div class="pbSubheader brandTertiaryBgr first tertiaryPalette">
+                            <h3>Select {!grandparentLabel}</h3>
+                        </div>
+                        <div class="pbSubsection">
+                            <table style="min-width: 200px;" border="0" cellpadding="0" cellspacing="0">
+                                <tbody>
+                                    <tr>
+                                        <th class="labelCol vfLabelColTextWrap first last" scope="row">
+                                            <label>Please select a {!grandparentLabel}: </label>
+                                        </th>
+                                        <td class="data2Col first last">
+                                            <apex:selectList value="{!selectedGrandparent}" id="selectedGrandparent" size="1" multiselect="false" styleClass="centerTable">
+                                                <apex:selectOptions value="{!displayGrandparentOptions}"/>
+                                            </apex:selectList>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div id="selectionErrorMessageGranparent" style="color:red; display:none; text-align:center;">Please select a value to proceed.</div>
+                    <div style="text-align:center; border-top: 1px solid #A0A0A0; padding: 3px;">
+                        <!--<apex:commandButton value="Proceed" action="{!closeGrandparentPanel}" reRender="grandparentSelectionPanel, formId" status="loader" oncomplete="createNewParent();"/>-->
+                        <input type="button" class="btn" value="Proceed" onclick="closeGrandparentPanelFunction();"/>
+                        <input type="button" class="btn" value="Cancel" onclick="cancelGrandparentPanelFunction();"/>
+                    </div>
+                </apex:outputPanel>
+            </apex:outputPanel>
+        </apex:pageBlock>
+    </apex:form>
+    
+    <apex:actionStatus id="loader">
+        <apex:facet name="start">
+            <div class="waitingSearchDiv outerGrayedPanel" id="casActionProcessing"> 
+                <div class="waitingHolder innerProcessPanel">
+                    <br/>
+                    <img class="waitingImage" src="/img/loading.gif" title="Please Wait..."/>   
+                    <span class="waitingDescription">Loading...</span>
+                </div>
+            </div>
+        </apex:facet>
+    </apex:actionStatus>
+    <!-- 5/20/2015 PH TIME  Rey Austral Fix Edit mode -->
+    <script>
+    $j = jQuery.noConflict();  
+    $j(function () {  
+        init();
+    });
+    </script>
+    <c:IMP_AddNewContact ></c:IMP_AddNewContact>
+</apex:component>

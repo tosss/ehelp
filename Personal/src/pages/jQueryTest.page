@@ -1,0 +1,25 @@
+<apex:page controller="exampleCon">
+<apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.7.2.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.8.20.custom.min.js')}" />
+    <script type="text/javascript">
+    j$ = jQuery.noConflict();
+    j$(document).ready(function(){
+    j$('[id$=Btn]').on('change',function(){alert('xyz');});
+        var element = j$("[id$=ActionPoller]").html();
+        element = element.replace("'pollinterval':60000","'pollinterval':5000");
+        j$("[id$=ActionPoller]").html(element);
+    });
+     </script> 
+ 
+ <apex:form id="form">
+ 
+ <div>
+        <apex:actionPoller action="{!incrementCounter}" rerender="counter"
+            status="counterStatus" interval="60" enabled="true" id="ActionPoller"  /></div>
+            
+
+ <apex:outputpanel id="counter"  >
+            <apex:commandButton value="Click Me!: {!count}"  id="Btn" />
+        </apex:outputpanel>
+</apex:form>
+</apex:page>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Finalized Deal NSA Request</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Finalized Deal NSA Request</value>
+    </caseValues>
+    <fields>
+        <label><!-- AVP --></label>
+        <name>AVP__c</name>
+        <relationshipLabel><!-- Finalized Deal NSA Request (AVP) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Account Name --></label>
+        <name>Account_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Competitive Situation --></label>
+        <name>Competitive_Situation__c</name>
+    </fields>
+    <fields>
+        <label><!-- DOS --></label>
+        <name>DOS__c</name>
+        <relationshipLabel><!-- Finalized Deal NSA Request (DOS) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Deal State --></label>
+        <name>Deal_State__c</name>
+        <relationshipLabel><!-- Finalized Deal NSA Request --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Link To SQT Deal --></label>
+        <name>Link_To_SQT_Deal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Migration ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- RGM --></label>
+        <name>RGM__c</name>
+        <relationshipLabel><!-- Finalized Deal NSA Request (RGM) --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Finalized Deal NSA Request Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

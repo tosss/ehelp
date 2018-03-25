@@ -1,0 +1,167 @@
+<apex:page controller="AutosearchController">
+<apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}" />
+<apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.10.4.custom.min.js')}" />
+<style>
+.options
+{
+position:absolute;
+border:grey thin solid;
+border-top:hidden;
+border: 1px solid #4488D1;
+box-shadow: 0 0 3px #4472B9;
+}
+.hovered
+{
+    background-color:#1E90FF;
+    color:white;
+}
+.option
+{
+position:relative;
+display:block;
+padding-top:0.5%;
+text-indent:2%;
+padding-bottom:0.5%;
+cursor:default;
+}
+</style>
+<script>
+var j$=jQuery.noConflict();
+var spanSelected = '';
+var value = '';
+j$(document).ready(function(){
+var p= j$('[id$=SearchBar]').offset();
+j$('.options').hide();
+j$('[id$=SearchBar]').focusin(function()
+                              {
+                                 start(); 
+                              });
+j$('#parent').focusout(function(){j$('.options').hide();})
+j$('[id$=SearchBar]').keyup(event,function(){
+var charCode = (event.charCode) ? event.charCode : event.keyCode; 
+if(charCode ==8)
+{
+ value = value.substring(0, value.length-1);
+ SearchAtServer();
+}
+else if(charCode==37 || charCode==38)
+{
+var element = j$('.hovered').prev('.option');
+if(element !=undefined)
+{
+element.addClass('hovered');
+element.next('.option').removeClass('hovered');
+}
+}
+else if(charCode==39 || charCode==40)
+{
+var element = j$('.hovered').next('.option');
+if(element !=undefined)
+{
+element.addClass('hovered');
+element.prev('.option').removeClass('hovered');
+}
+}
+else if(charCode==13)
+{
+var selectedVal = j$('.hovered').html();
+j$('[id$=SearchBar]').val(selectedVal );
+j$('.options').hide();
+}
+else if(charCode==16||charCode==17||charCode==20||charCode==27||charCode==45||charCode==145||charCode==144||charCode==19||(charCode>=33&&charCode<=36)||(charCode>=112&&charCode<=126))
+{
+
+}
+else
+{
+value=value+String.fromCharCode(charCode);
+SearchAtServer();
+}   
+});
+j$('.options').css('left',p.left-8);
+j$('.options').css('min-width',j$('[id$=SearchBar]').width());
+j$('.option').css('min-width',j$('[id$=SearchBar]').width());
+j$('.option').hover(function(){ 
+           j$('.option').removeClass('hovered');
+        j$(this).addClass('hovered');
+},
+function(){
+j$(this).removeClass('hovered');
+});
+j$('.option').click(function(){ 
+spanSelected =j$(this).html();
+j$('[id$=SearchBar]').val(spanSelected );
+j$('.options').hide();
+ });
+ 
+});
+function start()
+{
+AutosearchController.searchResult(j$('[id$=SearchBar]').val(),function(result){
+                                      for(var i=0;i<result.length;i++){
+                                      var record = result[i];
+                                          j$('.option').each(function(){
+                                              if(j$(this).attr('id')==i){
+                                                  j$(this).html(record.Name);
+                                              }
+                                          });
+                                      }
+                                      for(var j=i;j<5;j++){
+                                          j$('.option').each(function(){
+                                              if(j$(this).attr('id')==j){
+                                                  j$(this).html('');
+                                                  j$(this).css('padding-bottom','0px');
+                                                  j$(this).css('padding-top','0px');
+                                                  
+                                              }
+                                          });
+                                      }
+                                      j$('.options').show();
+                                  });
+}
+function SearchAtServer()
+{
+AutosearchController.searchResult(value,function(result){
+    var i;
+                                      for(i=0;i<result.length;i++){
+                                      var record = result[i];
+                                          j$('.option').each(function(){
+                                              if(j$(this).attr('id')==i){
+                                                  j$(this).html(record.Name);
+                                                  j$(this).css('padding-bottom','0.5%');
+                                                  j$(this).css('padding-top','0.5%');
+                                              }
+                                          });
+                                      }
+                                      for(var j=i;j<5;j++){
+                                          j$('.option').each(function(){
+                                              if(j$(this).attr('id')==j){
+                                                  j$(this).html('');
+                                                  j$(this).css('padding-bottom','0px');
+                                                  j$(this).css('padding-top','0px');
+                                                  
+                                              }
+                                          });
+                                      }
+                                      j$('.options').show();
+                                  });
+}
+</script>
+<apex:form >
+<div id="parent">
+   <apex:inputText /> <apex:inputText id="SearchBar"></apex:inputText>
+    <div class="options" >
+    <span class="option" id="0"></span>
+    <span class="option" id="1"></span>
+    <span class="option" id="2"></span>
+    <span class="option" id="3"></span>
+    <span class="option" id="4"></span>
+    </div>
+    </div>
+    <apex:selectList size="1">
+    <apex:selectoption itemValue="1" itemLabel="1" ></apex:selectoption>
+    <apex:selectoption itemValue="2" itemLabel="2" ></apex:selectoption>
+    <apex:selectoption itemValue="3" itemLabel="3" ></apex:selectoption>
+    </apex:selectList>
+</apex:form>
+</apex:page>

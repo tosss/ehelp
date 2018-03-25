@@ -1,0 +1,3532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>ADP_DS_Compact</fullName>
+        <fields>Name</fields>
+        <fields>Deal_Status__c</fields>
+        <fields>Uncompleted_Changes__c</fields>
+        <fields>Uncompleted_Rush_Changes__c</fields>
+        <fields>Rush__c</fields>
+        <fields>OwnerId</fields>
+        <fields>Deal_Requested_Date__c</fields>
+        <fields>Account__c</fields>
+        <fields>Account_Region__c</fields>
+        <fields>Opportunity__c</fields>
+        <label>ADP_DS_Compact</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Deal Related information. BDC Communication Project</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>ADP_Opportunity_Owner_Manager__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.ADP_Opportunity_Owner__r.Manager.FirstName &amp; &quot; &quot; &amp; Opportunity__r.ADP_Opportunity_Owner__r.Manager.LastName</formula>
+        <label>CDK Opportunity Owner Manager</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ADP_Opportunity_Owner__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.ADP_Opportunity_Owner__r.FirstName &amp; &quot; &quot; &amp; Opportunity__r.ADP_Opportunity_Owner__r.LastName</formula>
+        <label>CDK Opportunity Owner</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Key_Rep_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Key Rep Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Region__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Opportunity__r.Account.Region__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Region</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Account.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Alternate_DocuSign_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Alternate DocuSign Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Deal State</relationshipLabel>
+        <relationshipName>Deal_State</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Any_Other_Sites_Involved_With_Request__c</fullName>
+        <externalId>false</externalId>
+        <label>Sites Involved With Request</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Assigned_PSE_Engineer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Assigned PSE Engineer</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>You can only add PSE user in Assigned PSE Engineer Field</errorMessage>
+            <filterItems>
+                <field>User.Department</field>
+                <operation>equals</operation>
+                <value>PSE</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Deal_State1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Billing_Review_Complete_Date_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Billing Review Complete Date/Time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Billing_Review_Complete__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Billing Review Complete</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>CA_Approved_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Central Time Zone (CST)</inlineHelpText>
+        <label>CA Approved Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>CA_Approver_Email__c</fullName>
+        <externalId>false</externalId>
+        <formula>If(TEXT(Opportunity__r.Account.Region__c)=&quot;Canada&quot; &amp;&amp; IPNS_Only__c=false &amp;&amp; Intravision_Only__c=false &amp;&amp; Dash_Only__c=false,&quot;HOF.ContractAdmin.CAN@cdk.com&quot;, 
+If(TEXT(Opportunity__r.Account.Region__c)=&quot;Enterprise&quot; &amp;&amp; IPNS_Only__c=false &amp;&amp; Intravision_Only__c=false &amp;&amp; Dash_Only__c=false,&quot;HOF.ContractAdmin.ENTPR@cdk.com&quot;, 
+If(TEXT(Opportunity__r.Account.Region__c)=&quot;National&quot; &amp;&amp; IPNS_Only__c=false &amp;&amp; Intravision_Only__c=false &amp;&amp; Dash_Only__c=false,&quot;HOF.ContractAdmin.NATL@cdk.com&quot;, 
+If(OR(TEXT(Opportunity__r.Account.Region__c)=&quot;North&quot;,AND(TEXT(Opportunity__r.Account.Region__c)=&quot;NIADA&quot;,NIADA_Region_Location__c = &quot;North&quot;)) &amp;&amp; IPNS_Only__c=false &amp;&amp; Intravision_Only__c=false &amp;&amp; Dash_Only__c=false,&quot;HOF.ContractAdmin.NE@cdk.com&quot;, 
+If(OR(TEXT(Opportunity__r.Account.Region__c)=&quot;South&quot;,AND(TEXT(Opportunity__r.Account.Region__c)=&quot;NIADA&quot;,NIADA_Region_Location__c = &quot;South&quot;)) &amp;&amp; IPNS_Only__c=false &amp;&amp; Intravision_Only__c=false &amp;&amp; Dash_Only__c=false,&quot;HOF.ContractAdmin.SE@cdk.com&quot;, 
+If(OR(TEXT(Opportunity__r.Account.Region__c)=&quot;West&quot;,AND(TEXT(Opportunity__r.Account.Region__c)=&quot;NIADA&quot;,NIADA_Region_Location__c = &quot;West&quot;)) &amp;&amp; IPNS_Only__c=false &amp;&amp; Intravision_Only__c=false &amp;&amp; Dash_Only__c=false,&quot;HOF.ContractAdmin.West@cdk.com&quot;, 
+If(TEXT(Opportunity__r.Account.Region__c)=&quot;PFW&quot; &amp;&amp; IPNS_Only__c=false &amp;&amp; Intravision_Only__c=false &amp;&amp; Dash_Only__c=false,&quot;ContractAdminPFW@cdk.com&quot;, 
+If(OR(TEXT(Opportunity__r.Account.Region__c)=&quot;Central&quot;,AND(TEXT(Opportunity__r.Account.Region__c)=&quot;NIADA&quot;,NIADA_Region_Location__c = &quot;Central&quot;)) &amp;&amp; IPNS_Only__c=false &amp;&amp; Intravision_Only__c=false &amp;&amp; Dash_Only__c=false,&quot;HOF.ContractAdmin.CENTRAL@cdk.com&quot;, 
+If(OR(TEXT(Opportunity__r.Account.Region__c)=&quot;Southwest&quot;,AND(TEXT(Opportunity__r.Account.Region__c)=&quot;NIADA&quot;,NIADA_Region_Location__c = &quot;Southwest&quot;)) &amp;&amp; IPNS_Only__c=false &amp;&amp; Intravision_Only__c=false &amp;&amp; Dash_Only__c=false,&quot;HOFContractAdminSW.HOFContractAdminSW@cdk.com&quot;, 
+If(OR(TEXT(Opportunity__r.Account.Region__c)=&quot;Truck&quot;,TEXT(Opportunity__r.Account.Region__c)=&quot;Independent Truck Dealers&quot;) &amp;&amp; IPNS_Only__c=false &amp;&amp; Intravision_Only__c=false &amp;&amp; Dash_Only__c=false,&quot;HOF.ContractAdmin.Truck@cdk.com&quot;, 
+If(OR(TEXT(Opportunity__r.Account.Region__c)=&quot;Hoffman Sales&quot;,AND(TEXT(Opportunity__r.Account.Region__c)=&quot;NIADA&quot;,NIADA_Region_Location__c = &quot;NAIDA&quot;),Dash_Only__c=true) &amp;&amp; IPNS_Only__c=false &amp;&amp; Intravision_Only__c=false,&quot;Hof.ContractAdmin.DASH@cdk.com&quot;,
+If(IPNS_Only__c=true,&quot;HOF.ContractAdmin.IPNS@cdk.com&quot;, 
+If(Intravision_Only__c=true,&quot;HOF.ContractAdmin.INTVISION@cdk.com&quot;, 
+&quot;&quot;)))))))))))))</formula>
+        <label>CA Approver Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CA_Approver__c</fullName>
+        <externalId>false</externalId>
+        <label>CA Approver</label>
+        <length>4</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CDK_Opportunity_Owner_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>CDK Opportunity Owner Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CMF__c</fullName>
+        <externalId>false</externalId>
+        <label>CMF</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CRA_Signed_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Central Time Zone (CST)</inlineHelpText>
+        <label>CRA Signed Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>CRA_Signer__c</fullName>
+        <externalId>false</externalId>
+        <label>CRA Signer</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CRM__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Sol. Design still required</inlineHelpText>
+        <label>CRM</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Cash_Credit__c</fullName>
+        <externalId>false</externalId>
+        <label>Cash/Credit</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Loan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Cash_Discovery__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Cash Discovery</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Client_1_Delivered_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Central Time Zone (CST)</inlineHelpText>
+        <label>Client 1 Delivered Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Client_1_Sign_In_Person__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Client 1 Sign In Person</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Client_1_Signed_RTS__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( 
+FLOOR(Client_Signed_Date__c- Send_To_Client_Date__c) 
+) &amp; &quot; Day(s), &quot; &amp; 
+TEXT( 
+ROUND(MOD((Client_Signed_Date__c- Send_To_Client_Date__c)*24,24),0) 
+) &amp;&quot; Hour(s), &quot; &amp; 
+TEXT( 
+ROUND(MOD((Client_Signed_Date__c- Send_To_Client_Date__c)*1440,60),0) 
+) &amp;&quot; Minute(s) &quot;</formula>
+        <label>Client 1 Signed - RTS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Client_2_Delivered_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Central Time Zone (CST)</inlineHelpText>
+        <label>Client 2 Delivered Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Client_2_Sign_In_Person__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Client 2 Sign In Person</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Client_2_Signed_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Central Time Zone (CST)</inlineHelpText>
+        <label>Client 2 Signed Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Client_Data_Exchange_Products__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Client Data Exchange Products</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Client_Signed_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Central Time Zone (CST)</inlineHelpText>
+        <label>Client 1 Signed Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Client_Signer_1_Del__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Client_Signer_1__r.Full_Name__c</formula>
+        <label>Client Signer 1</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Client_Signer_1_Role__c</fullName>
+        <externalId>false</externalId>
+        <label>Client Signer 1 Role</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Client_Signer_1__c</fullName>
+        <externalId>false</externalId>
+        <label>Client Signer 1</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Client_Signer_2_Del__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Client_Signer_2__r.Full_Name__c</formula>
+        <label>Client Signer 2</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Client_Signer_2_Role__c</fullName>
+        <externalId>false</externalId>
+        <label>Client Signer 2 Role</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Client_Signer_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Client Signer 2</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contract_Needed_By_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Needed By Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Number_s__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Number(s)</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Contract_term_in_months__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract term (in months)</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Controller_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Controller Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Core_CMF_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Core CMF Number</label>
+        <length>8</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Count_of_Shared_System_Addendum__c</fullName>
+        <externalId>false</externalId>
+        <label>Count of Shared System Addendum</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Created_By_Chatter_Action__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Created By Chatter Action</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Created_By__c</fullName>
+        <description>Created to get only created by First Name and Last Name</description>
+        <externalId>false</externalId>
+        <formula>CreatedBy.FirstName &amp; &quot; &quot; &amp;  CreatedBy.LastName</formula>
+        <label>Created By</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Credit_Check__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Credit Check</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DCS__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>DCS</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Dash_Only__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Dash Only</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Deal_Approver__c</fullName>
+        <externalId>false</externalId>
+        <label>Deal Approver</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Deal_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Deal Description</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Deal_From_Solution_Design__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Deal From Solution Design</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Deal_Requested_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Deal Requested Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Deal_State_Link__c</fullName>
+        <externalId>false</externalId>
+        <formula>hyperlink(&quot;https://&quot;&amp;$Setup.CustomSettings__c.SF_Instance_Link__c &amp; Id, &quot;Deal State Link&quot;,&quot;_blank&quot;)</formula>
+        <label>Deal State Link</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Deal_State_Secured_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>Deal State Secured Id</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Deal_State_Secured_Link__c</fullName>
+        <externalId>false</externalId>
+        <formula>hyperlink(&quot;https://&quot;&amp;$Setup.CustomSettings__c.SF_Instance_Link__c &amp; Deal_State_Secured_Id__c, &quot;Deal State Secured Link&quot;,&quot;_blank&quot;)</formula>
+        <label>Deal State Secured Link</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Deal_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Deal Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>New Deal Arrived</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rep Created SQT Deal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Assigned - SCS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending Networking Response</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Networking Quote Uploaded</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending SOW Approval</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SOW Deal Change Needed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Released To Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending Sales Response</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending Approval in SQT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Signed by All Parties</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales Deal Change Needed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Client Signed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finalized Deal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Send To CA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Send To Countersign</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Send To CRA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Client Declined</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Envelope Voided</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sent To Client</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sent To Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Deal_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Deal Type</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dealer_Group__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer Group</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Description_of_Need__c</fullName>
+        <externalId>false</externalId>
+        <label>Description of Item(s) Needed</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Discount_Monthlies__c</fullName>
+        <externalId>false</externalId>
+        <label>Discount % Monthlies</label>
+        <length>4</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Discount_One_Times__c</fullName>
+        <externalId>false</externalId>
+        <label>Discount % One-Times</label>
+        <length>4</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Docs_Pushed_from_SQT__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Last Time SQT Docs were pushed to SalesForce</inlineHelpText>
+        <label>Docs Pushed from SQT</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Docusign_Create_Envelope_URL__c</fullName>
+        <externalId>false</externalId>
+        <label>Docusign Create Envelope URL</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Docusign_Envelope_Status__c</fullName>
+        <description>Created to populate Docusign Envelope Status via Custom Deal State Connect Object in DocuSign</description>
+        <externalId>false</externalId>
+        <label>Docusign Envelope Status</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Envelope_Sender_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Envelope Sender Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Exception_Contract_Push__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Initials to be Filled by CA when filling Contract#&apos;s AFTER Signing the envelope only.</inlineHelpText>
+        <label>Exception Contract # Push</label>
+        <length>5</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Existing_Item_s_this_is_replacing__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Existing_Item_s_this_is_replacing__c</formula>
+        <label>Existing Item(s) this is replacing?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FRM_TSM_DOS__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Account.TSM_DOS__c</formula>
+        <label>TSM DOS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Finalized_Deal_Deal_Requested__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( 
+FLOOR(Finalized_Deal__c- Deal_Requested_Date__c) 
+) &amp; &quot; Day(s), &quot; &amp; 
+TEXT( 
+ROUND(MOD((Finalized_Deal__c- Deal_Requested_Date__c )*24,24),0) 
+) &amp;&quot; Hour(s), &quot; &amp; 
+TEXT( 
+ROUND(MOD((Finalized_Deal__c- Deal_Requested_Date__c )*1440,60),0) 
+) &amp;&quot; Minute(s) &quot;</formula>
+        <label>Finalized Deal - Deal Requested</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Finalized_Deal__c</fullName>
+        <externalId>false</externalId>
+        <label>Finalized Deal</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>First_NW_Quote_Uploaded_Date_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>First NW Quote Uploaded Date/Time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Flash_Config_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Flash Config # 2</label>
+        <length>1000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Flash_Config__c</fullName>
+        <externalId>false</externalId>
+        <label>Flash Config #</label>
+        <length>1000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>French_Wording__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>French Wording</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Front_Office_Edge_Data_Consent_Signer2__c</fullName>
+        <externalId>false</externalId>
+        <label>Front Office Edge Data Consent (Signer2)</label>
+        <length>5</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Front_Office_Edge_Data_Consent__c</fullName>
+        <externalId>false</externalId>
+        <label>Front Office Edge Data Consent (Signer1)</label>
+        <length>5</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Fully_Approved__c</fullName>
+        <externalId>false</externalId>
+        <label>Fully Approved</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>IPNS_CMF_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>IPNS CMF Number</label>
+        <length>8</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IPNS_Only__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>IPNS Only</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IPNS_Site_Address__c</fullName>
+        <externalId>false</externalId>
+        <label>IPNS Site Address</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IPNS_Site_City__c</fullName>
+        <externalId>false</externalId>
+        <label>IPNS Site City</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IPNS_Site_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>IPNS Site Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IPNS_Site_State__c</fullName>
+        <externalId>false</externalId>
+        <label>IPNS Site State</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IPNS_Site_Zip__c</fullName>
+        <externalId>false</externalId>
+        <label>IPNS Site Zip</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Impact_Project_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Impact Project Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Install_Contact_Name_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Install Contact Name/Number</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Intravision_Only__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Intravision Only</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_product_replacing_an_existing_item__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Opportunity__r.Is_any_item_product_that_is_being_sold__c)</formula>
+        <label>Is product replacing an existing item?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Key_DOS_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Key DOS Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Key_DOS__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Account.Key_DOS__r.FirstName&amp;&quot; &quot;&amp;Opportunity__r.Account.Key_DOS__r.LastName</formula>
+        <label>Key DOS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Key_Rep__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Account.Key_Rep__r.FirstName&amp;&quot; &quot;&amp;Opportunity__r.Account.Key_Rep__r.LastName</formula>
+        <label>Key Rep</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Last_Updated_By__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Updated By</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Last_Updated_Date_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Updated Date/Time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Lease_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Lease Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lease</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Loan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Legal_Counter_Signed_RTS__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( 
+FLOOR(Legal_Counter_Signer_Date__c- Client_Signed_Date__c) 
+) &amp; &quot; Day(s), &quot; &amp; 
+TEXT( 
+ROUND(MOD((Legal_Counter_Signer_Date__c- Client_Signed_Date__c)*24,24),0) 
+) &amp;&quot; Hour(s), &quot; &amp; 
+TEXT( 
+ROUND(MOD((Legal_Counter_Signer_Date__c- Client_Signed_Date__c)*1440,60),0) 
+) &amp;&quot; Minute(s) &quot;</formula>
+        <label>Legal Counter Signed - RTS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Legal_Counter_Signer_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Central Time Zone (CST)</inlineHelpText>
+        <label>Legal Counter Signer Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Legal_Counter_Signer__c</fullName>
+        <externalId>false</externalId>
+        <label>Legal Counter Signer</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Main_Site_Address__c</fullName>
+        <externalId>false</externalId>
+        <label>Main Site Address</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Main_Site_City__c</fullName>
+        <externalId>false</externalId>
+        <label>Main Site City</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Main_Site_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Main Site Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Main_Site_State__c</fullName>
+        <externalId>false</externalId>
+        <label>Main Site State</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Main_Site_Zip__c</fullName>
+        <externalId>false</externalId>
+        <label>Main Site Zip</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Menu_Data_Consent_Signer2__c</fullName>
+        <externalId>false</externalId>
+        <label>Menu Data Consent (Signer2)</label>
+        <length>5</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Menu_Data_Consent__c</fullName>
+        <externalId>false</externalId>
+        <label>Menu Data Consent (Signer1)</label>
+        <length>5</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Migration_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Migration ID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>NIADA_Region_Location__c</fullName>
+        <externalId>false</externalId>
+        <label>NIADA Region Location</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Network_Needed__c</fullName>
+        <externalId>false</externalId>
+        <label>Network Needed</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Network_Telephony__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Network/Telephony</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>New_Car_IQ_Data_Consent_Signer2__c</fullName>
+        <externalId>false</externalId>
+        <label>New Car IQ Data Consent (Signer2)</label>
+        <length>5</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>New_Car_IQ_Data_Consent__c</fullName>
+        <externalId>false</externalId>
+        <label>New Car IQ Data Consent (Signer1)</label>
+        <length>5</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Non_Refundable_Deposit_IPNS__c</fullName>
+        <externalId>false</externalId>
+        <label>Non-Refundable Deposit IPNS</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Non_Refundable_Deposit__c</fullName>
+        <externalId>false</externalId>
+        <label>Non-Refundable Deposit Core</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>On_Behalf_Of__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Entered on behalf of a User</inlineHelpText>
+        <label>On Behalf Of</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Deal_State2</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Close_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.CloseDate</formula>
+        <label>Opportunity Close Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Link__c</fullName>
+        <externalId>false</externalId>
+        <formula>hyperlink(&quot;https://&quot;&amp;$Setup.CustomSettings__c.SF_Instance_Link__c &amp; Opportunity__r.Id, &quot;Opportunity Link&quot;,&quot;_blank&quot;)</formula>
+        <label>Opportunity Link</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Record_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.RecordType.Name</formula>
+        <label>Opportunity Record Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Stage_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Opportunity__r.StageName)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opportunity Stage Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Opportunity__r.Type)</formula>
+        <label>Opportunity Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Deal State</relationshipLabel>
+        <relationshipName>Deal_State</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Owner_Change_Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Owner Change Notes</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Owner__c</fullName>
+        <externalId>false</externalId>
+        <formula>Owner:User.FirstName&amp;&quot; &quot;&amp;Owner:User.LastName</formula>
+        <label>Owner</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PSE_Quote_s_Received_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>PSE Quote(s) Received Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>PSE_Revision__c</fullName>
+        <externalId>false</externalId>
+        <label>PSE Revision</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PSE_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>PSE Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Open</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Network Changes Requested</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>PartsVoice__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>PartsVoice</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Process_Core_Deposit_Check_Using_Chax__c</fullName>
+        <externalId>false</externalId>
+        <label>Process Core Deposit Check Using Chax?</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Process_IPNS_Deposit_Check_Using_Chax__c</fullName>
+        <externalId>false</externalId>
+        <label>Process IPNS Deposit Check Using Chax?</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_Highway_Routing__c</fullName>
+        <description>Changing the field type as mentioned in RQ-04125</description>
+        <externalId>false</externalId>
+        <label>Project Highway Routing</label>
+        <picklist>
+            <picklistValues>
+                <fullName>FSO Region</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PSE Lane</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SCS Lane</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Quantity_of_Sites__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Sites</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RTS_Deal_Requested__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( 
+FLOOR(Released_to_Sales__c - Deal_Requested_Date__c) 
+) &amp; &quot; Day(s), &quot; &amp; 
+TEXT( 
+ROUND(MOD((Released_to_Sales__c - Deal_Requested_Date__c)*24,24),0) 
+) &amp;&quot; Hour(s), &quot; &amp; 
+TEXT( 
+ROUND(MOD((Released_to_Sales__c - Deal_Requested_Date__c)*1440,60),0) 
+) &amp;&quot; Minute(s) &quot;</formula>
+        <label>RTS - Deal Requested</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Received_ServiceEdge_Doc_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Received ServiceEdge Doc Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Received_ServiceEdge_Doc__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Received ServiceEdge Doc</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Released_to_Sales__c</fullName>
+        <externalId>false</externalId>
+        <label>Released to Sales</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Reprioritized_Needed_By_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Reprioritized Needed By Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Roll_Call_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Roll Call Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Rush_Reasons__c</fullName>
+        <externalId>false</externalId>
+        <label>Rush Reasons</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Client Needs ASAP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales On Site</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Installers On Site</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Per VP/RGM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Client is Down</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Internal Project</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NADA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Rush__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Rush</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SCS_Approved_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Central Time Zone (CST)</inlineHelpText>
+        <label>SCS Approved Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>SCS_Approver__c</fullName>
+        <externalId>false</externalId>
+        <label>SCS Approver</label>
+        <length>4</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SCS_Envelope_Sent__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>SCS Envelope Sent</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SQT_Created_By__c</fullName>
+        <externalId>false</externalId>
+        <label>SQT Created By</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SQT_Created_Date_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>SQT Created Date/Time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>SQT_Deal_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>SQT Deal ID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SQT_Deal_Link__c</fullName>
+        <externalId>false</externalId>
+        <formula>hyperlink(&quot;http://&quot; &amp; $Setup.CustomSettings__c.SQTServer__c &amp; &quot;Home.aspx?DealID=&quot; &amp; SQT_Deal_ID__c &amp; &quot;&amp;UID=&quot; &amp; $User.Id, SQT_Deal_ID__c,&quot;_blank&quot;)</formula>
+        <label>SQT Deal Link</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SQT_Deal_Requested__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( 
+FLOOR(SQT_Created_Date_Time__c- Deal_Requested_Date__c) 
+) &amp; &quot; Day(s), &quot; &amp; 
+TEXT( 
+ROUND(MOD((SQT_Created_Date_Time__c- Deal_Requested_Date__c)*24,24),0) 
+) &amp;&quot; Hour(s), &quot; &amp; 
+TEXT( 
+ROUND(MOD((SQT_Created_Date_Time__c- Deal_Requested_Date__c)*1440,60),0) 
+) &amp;&quot; Minute(s) &quot;</formula>
+        <label>SQT - Deal Requested</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SQT_Deal_Version_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>SQT Deal Version Number</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SQT_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>SQT Status</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sales_Discovery__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Sales Discovery</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>$Source.Opportunity__c</field>
+                <operation>equals</operation>
+                <valueField>Sales_Discovery__c.Opportunity__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Sales_Discovery__c</referenceTo>
+        <relationshipLabel>Deal State</relationshipLabel>
+        <relationshipName>Deal_State</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Second_SCS_Notifications__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Second SCS Notifications</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>You can only add SCS user in Second SCS Notification Field</errorMessage>
+            <filterItems>
+                <field>User.Title</field>
+                <operation>equals</operation>
+                <value>SCS</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Deal_State</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Send_To_Client_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Central Time Zone (CST)</inlineHelpText>
+        <label>Sent To Client Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Sent_to_Client_RTS__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( 
+FLOOR(Send_To_Client_Date__c- Released_to_Sales__c ) 
+) &amp; &quot; Day(s), &quot; &amp; 
+TEXT( 
+ROUND(MOD((Send_To_Client_Date__c- Released_to_Sales__c )*24,24),0) 
+) &amp;&quot; Hour(s), &quot; &amp; 
+TEXT( 
+ROUND(MOD((Send_To_Client_Date__c- Released_to_Sales__c )*1440,60),0) 
+) &amp;&quot; Minute(s) &quot;</formula>
+        <label>Sent to Client - RTS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ServiceEdge__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>ServiceEdge</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Shared_System_Addendum__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Shared System Addendum</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Shared_System_Signer2_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Shared System Signer2 Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Shared_System_Signer2_Signed_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Central Time Zone (CST)</inlineHelpText>
+        <label>Shared System Signer2 Signed Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Shared_System_Signer2_Title__c</fullName>
+        <externalId>false</externalId>
+        <label>Shared System Signer2 Title</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Shared_System_Signer_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Shared System Signer Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Shared_System_Signer_Signed_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Central Time Zone (CST)</inlineHelpText>
+        <label>Shared System Signer Signed Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Shared_System_Signer_Title__c</fullName>
+        <externalId>false</externalId>
+        <label>Shared System Signer Title</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Signer1_Sign_on_Paper__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Client 1 Sign on Paper</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Signer2_Sign_on_Paper__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Client 2 Sign on Paper</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Solution_Design_E_Mailed_to_PSE__c</fullName>
+        <externalId>false</externalId>
+        <label>Solution Design E-Mailed to PSE</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Specific_Dealership_Install_Location__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please specify dealership area for install, i.e., Business Office, Parts Front Counter, Service Advisor Write Up Station, etc.</inlineHelpText>
+        <label>Specific Dealership Install Location</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>TSM_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>TSM Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Technology_Solutions_Manager__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Account.Technology_Solutions_Manager__r.FirstName &amp; &quot; &quot; &amp; Opportunity__r.Account.Technology_Solutions_Manager__r.LastName</formula>
+        <label>Technology Solutions Manager</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Monthlies__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Monthlies</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_One_Times__c</fullName>
+        <externalId>false</externalId>
+        <label>Total One-Times</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Uncompleted_Changes__c</fullName>
+        <externalId>false</externalId>
+        <label>Uncompleted Changes</label>
+        <summaryFilterItems>
+            <field>Deal_Change__c.Change_Completed__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Deal_Change__c.Cancelled__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Deal_Change__c.Type_of_Change__c</field>
+            <operation>notEqual</operation>
+            <value>Network Needed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Deal_Change__c.Deal_State__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Uncompleted_Network_Deal_Changes__c</fullName>
+        <externalId>false</externalId>
+        <label>Uncompleted Network Deal Changes</label>
+        <summaryFilterItems>
+            <field>Deal_Change__c.Type_of_Change__c</field>
+            <operation>equals</operation>
+            <value>Network Quote Uploaded</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Deal_Change__c.Change_Completed__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Deal_Change__c.Cancelled__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Deal_Change__c.Deal_State__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Uncompleted_Rush_Changes__c</fullName>
+        <externalId>false</externalId>
+        <label>Uncompleted Rush Changes</label>
+        <summaryFilterItems>
+            <field>Deal_Change__c.Rush__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Deal_Change__c.Change_Completed__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Deal_Change__c.Cancelled__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Deal_Change__c.Type_of_Change__c</field>
+            <operation>notEqual</operation>
+            <value>Network Needed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Deal_Change__c.Deal_State__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Uncompleted_SOW_Deal_Changes__c</fullName>
+        <externalId>false</externalId>
+        <label>Uncompleted SOW Deal Changes</label>
+        <summaryFilterItems>
+            <field>Deal_Change__c.Type_of_Change__c</field>
+            <operation>equals</operation>
+            <value>SOW</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Deal_Change__c.Cancelled__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Deal_Change__c.Change_Completed__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Deal_Change__c.Deal_State__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Uncompleted_Sales_Deal_Changes__c</fullName>
+        <externalId>false</externalId>
+        <label>Uncompleted Sales Deal Changes</label>
+        <summaryFilterItems>
+            <field>Deal_Change__c.Type_of_Change__c</field>
+            <operation>equals</operation>
+            <value>Sales Request-Changes Needed to SQT Deal, Sales Request-Contracts Needed</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Deal_Change__c.Change_Completed__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Deal_Change__c.Cancelled__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Deal_Change__c.Deal_State__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>VP_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>VP Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Vehicle_Xchange_Data_Consent_Signer2__c</fullName>
+        <externalId>false</externalId>
+        <label>Vehicle Xchange Data Consent (Signer2)</label>
+        <length>5</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Vehicle_Xchange_Data_Consent__c</fullName>
+        <externalId>false</externalId>
+        <label>Vehicle Xchange Data Consent (Signer1)</label>
+        <length>5</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>X3PA__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>3PA</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Deal State</label>
+    <listViews>
+        <fullName>All_Deals</fullName>
+        <columns>NAME</columns>
+        <columns>Account_Region__c</columns>
+        <columns>Account__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Deal_Status__c</columns>
+        <columns>Deal_Requested_Date__c</columns>
+        <columns>Rush__c</columns>
+        <columns>SQT_Deal_ID__c</columns>
+        <columns>Network_Needed__c</columns>
+        <columns>Quantity_of_Sites__c</columns>
+        <columns>Contract_Needed_By_Date__c</columns>
+        <columns>Deal_From_Solution_Design__c</columns>
+        <columns>Created_By__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Cancelled</value>
+        </filters>
+        <label>All Deals</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>CA_Approved_Not_Legal_Countersigned_Yet</fullName>
+        <columns>NAME</columns>
+        <columns>Account_Region__c</columns>
+        <columns>Account__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Deal_Status__c</columns>
+        <columns>Deal_Requested_Date__c</columns>
+        <columns>Contract_Number_s__c</columns>
+        <columns>Rush__c</columns>
+        <columns>Rush_Reasons__c</columns>
+        <columns>Quantity_of_Sites__c</columns>
+        <columns>SQT_Deal_ID__c</columns>
+        <columns>Deal_From_Solution_Design__c</columns>
+        <columns>Created_By__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>equals</operation>
+            <value>Send To Countersign</value>
+        </filters>
+        <label>CA Approved Not Legal Countersigned Yet</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Client_Declined</fullName>
+        <columns>NAME</columns>
+        <columns>Account_Region__c</columns>
+        <columns>Account__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Deal_Status__c</columns>
+        <columns>Deal_Requested_Date__c</columns>
+        <columns>Rush__c</columns>
+        <columns>Rush_Reasons__c</columns>
+        <columns>Network_Needed__c</columns>
+        <columns>Quantity_of_Sites__c</columns>
+        <columns>SQT_Deal_ID__c</columns>
+        <columns>Deal_From_Solution_Design__c</columns>
+        <columns>Created_By__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>equals</operation>
+            <value>Client Declined</value>
+        </filters>
+        <label>Client Declined</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Completed_DocuSign_Deals</fullName>
+        <columns>NAME</columns>
+        <columns>Account_Region__c</columns>
+        <columns>Account__c</columns>
+        <columns>Key_DOS__c</columns>
+        <columns>Key_Rep__c</columns>
+        <columns>ADP_Opportunity_Owner__c</columns>
+        <columns>Deal_Requested_Date__c</columns>
+        <columns>Contract_Needed_By_Date__c</columns>
+        <columns>SQT_Created_Date_Time__c</columns>
+        <columns>Send_To_Client_Date__c</columns>
+        <columns>Client_Signed_Date__c</columns>
+        <columns>Finalized_Deal__c</columns>
+        <columns>CA_Approved_Date__c</columns>
+        <columns>Legal_Counter_Signer_Date__c</columns>
+        <columns>CRA_Signed_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>equals</operation>
+            <value>Signed by All Parties</value>
+        </filters>
+        <label>Completed DocuSign Deals</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Deal_Changes</fullName>
+        <booleanFilter>1 OR 2 OR 3 OR 4</booleanFilter>
+        <columns>NAME</columns>
+        <columns>Account_Region__c</columns>
+        <columns>Account__c</columns>
+        <columns>Key_Rep__c</columns>
+        <columns>Deal_Status__c</columns>
+        <columns>Rush__c</columns>
+        <columns>Uncompleted_Rush_Changes__c</columns>
+        <columns>Uncompleted_Network_Deal_Changes__c</columns>
+        <columns>Uncompleted_Sales_Deal_Changes__c</columns>
+        <columns>Uncompleted_SOW_Deal_Changes__c</columns>
+        <columns>Quantity_of_Sites__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Deal_Requested_Date__c</columns>
+        <columns>Deal_From_Solution_Design__c</columns>
+        <columns>Owner__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Uncompleted_Rush_Changes__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>Uncompleted_Network_Deal_Changes__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>Uncompleted_Sales_Deal_Changes__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>Uncompleted_SOW_Deal_Changes__c</field>
+            <operation>greaterThan</operation>
+            <value>0</value>
+        </filters>
+        <label>Deal Changes</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Deals_with_NW_Quotes_Uploaded_SQT_Deal</fullName>
+        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Account_Region__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Opportunity_Record_Type__c</columns>
+        <columns>ADP_Opportunity_Owner__c</columns>
+        <columns>Deal_Status__c</columns>
+        <columns>Rush__c</columns>
+        <columns>Contract_Needed_By_Date__c</columns>
+        <columns>Network_Needed__c</columns>
+        <columns>Quantity_of_Sites__c</columns>
+        <columns>PSE_Quote_s_Received_Date__c</columns>
+        <columns>Owner__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>equals</operation>
+            <value>Networking Quote Uploaded</value>
+        </filters>
+        <filters>
+            <field>OWNER.ALIAS</field>
+            <operation>equals</operation>
+            <value>SCS Deal State</value>
+        </filters>
+        <filters>
+            <field>SQT_Created_Date_Time__c</field>
+            <operation>equals</operation>
+        </filters>
+        <label>Deals with NW Quotes Uploaded – SQT Deal</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Envelope_Voided</fullName>
+        <columns>NAME</columns>
+        <columns>Account_Region__c</columns>
+        <columns>Account__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Deal_Status__c</columns>
+        <columns>Deal_Requested_Date__c</columns>
+        <columns>Rush__c</columns>
+        <columns>Rush_Reasons__c</columns>
+        <columns>Network_Needed__c</columns>
+        <columns>Quantity_of_Sites__c</columns>
+        <columns>SQT_Deal_ID__c</columns>
+        <columns>Deal_From_Solution_Design__c</columns>
+        <columns>Created_By__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>equals</operation>
+            <value>Envelope Voided</value>
+        </filters>
+        <label>Envelope Voided</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Needed_NADA</fullName>
+        <columns>NAME</columns>
+        <columns>Account_Region__c</columns>
+        <columns>Account__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Deal_Status__c</columns>
+        <columns>Deal_Requested_Date__c</columns>
+        <columns>Contract_Needed_By_Date__c</columns>
+        <columns>Deal_From_Solution_Design__c</columns>
+        <columns>Rush__c</columns>
+        <columns>Rush_Reasons__c</columns>
+        <columns>Key_Rep__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Rush_Reasons__c</field>
+            <operation>equals</operation>
+            <value>NADA</value>
+        </filters>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>equals</operation>
+            <value>New Deal Arrived</value>
+        </filters>
+        <label>Needed @ NADA</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>New_Contract_Request</fullName>
+        <columns>NAME</columns>
+        <columns>Account_Region__c</columns>
+        <columns>Account__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Deal_Status__c</columns>
+        <columns>Deal_Requested_Date__c</columns>
+        <columns>Contract_Needed_By_Date__c</columns>
+        <columns>Deal_From_Solution_Design__c</columns>
+        <columns>Rush__c</columns>
+        <columns>Network_Needed__c</columns>
+        <columns>Quantity_of_Sites__c</columns>
+        <columns>Key_Rep__c</columns>
+        <columns>Reprioritized_Needed_By_Date__c</columns>
+        <columns>Created_By__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>equals</operation>
+            <value>New Deal Arrived</value>
+        </filters>
+        <label>New Contract Request</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Opps_Closing_This_Month_Canada</fullName>
+        <columns>NAME</columns>
+        <columns>Key_DOS__c</columns>
+        <columns>Account__c</columns>
+        <columns>ADP_Opportunity_Owner__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Opportunity_Type__c</columns>
+        <columns>Opportunity_Close_Date__c</columns>
+        <columns>Opportunity_Stage_Name__c</columns>
+        <columns>Released_to_Sales__c</columns>
+        <columns>SQT_Status__c</columns>
+        <columns>Docs_Pushed_from_SQT__c</columns>
+        <columns>Send_To_Client_Date__c</columns>
+        <columns>Client_Signed_Date__c</columns>
+        <columns>Finalized_Deal__c</columns>
+        <columns>Roll_Call_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Opportunity_Close_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>7/1/2015</value>
+        </filters>
+        <filters>
+            <field>Opportunity_Close_Date__c</field>
+            <operation>lessOrEqual</operation>
+            <value>7/31/2015</value>
+        </filters>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Cancelled</value>
+        </filters>
+        <filters>
+            <field>Account_Region__c</field>
+            <operation>equals</operation>
+            <value>Canada</value>
+        </filters>
+        <label>Opps Closing This Month - Canada</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Opps_Closing_This_Month_Central</fullName>
+        <columns>NAME</columns>
+        <columns>Key_DOS__c</columns>
+        <columns>Account__c</columns>
+        <columns>ADP_Opportunity_Owner__c</columns>
+        <columns>Opportunity_Type__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Opportunity_Close_Date__c</columns>
+        <columns>Opportunity_Stage_Name__c</columns>
+        <columns>Released_to_Sales__c</columns>
+        <columns>SQT_Status__c</columns>
+        <columns>Docs_Pushed_from_SQT__c</columns>
+        <columns>Send_To_Client_Date__c</columns>
+        <columns>Client_Signed_Date__c</columns>
+        <columns>Finalized_Deal__c</columns>
+        <columns>Roll_Call_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Opportunity_Close_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>7/1/2015</value>
+        </filters>
+        <filters>
+            <field>Opportunity_Close_Date__c</field>
+            <operation>lessOrEqual</operation>
+            <value>7/31/2015</value>
+        </filters>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Cancelled</value>
+        </filters>
+        <filters>
+            <field>Account_Region__c</field>
+            <operation>equals</operation>
+            <value>Central</value>
+        </filters>
+        <label>Opps Closing This Month - Central</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Opps_Closing_This_Month_Enterprise</fullName>
+        <columns>NAME</columns>
+        <columns>Key_DOS__c</columns>
+        <columns>Account__c</columns>
+        <columns>ADP_Opportunity_Owner__c</columns>
+        <columns>Opportunity_Type__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Opportunity_Close_Date__c</columns>
+        <columns>Opportunity_Stage_Name__c</columns>
+        <columns>Released_to_Sales__c</columns>
+        <columns>SQT_Status__c</columns>
+        <columns>Docs_Pushed_from_SQT__c</columns>
+        <columns>Send_To_Client_Date__c</columns>
+        <columns>Client_Signed_Date__c</columns>
+        <columns>Finalized_Deal__c</columns>
+        <columns>Roll_Call_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Opportunity_Close_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>7/1/2015</value>
+        </filters>
+        <filters>
+            <field>Opportunity_Close_Date__c</field>
+            <operation>lessOrEqual</operation>
+            <value>7/31/2015</value>
+        </filters>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Cancelled</value>
+        </filters>
+        <filters>
+            <field>Account_Region__c</field>
+            <operation>equals</operation>
+            <value>Enterprise</value>
+        </filters>
+        <label>Opps Closing This Month - Enterprise</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Opps_Closing_This_Month_Heavy_Equipmen</fullName>
+        <columns>NAME</columns>
+        <columns>Key_DOS__c</columns>
+        <columns>Account__c</columns>
+        <columns>ADP_Opportunity_Owner__c</columns>
+        <columns>Opportunity_Type__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Opportunity_Close_Date__c</columns>
+        <columns>Opportunity_Stage_Name__c</columns>
+        <columns>Released_to_Sales__c</columns>
+        <columns>SQT_Status__c</columns>
+        <columns>Docs_Pushed_from_SQT__c</columns>
+        <columns>Send_To_Client_Date__c</columns>
+        <columns>Client_Signed_Date__c</columns>
+        <columns>Finalized_Deal__c</columns>
+        <columns>Roll_Call_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Opportunity_Close_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>7/1/2015</value>
+        </filters>
+        <filters>
+            <field>Opportunity_Close_Date__c</field>
+            <operation>lessOrEqual</operation>
+            <value>7/31/2015</value>
+        </filters>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Cancelled</value>
+        </filters>
+        <filters>
+            <field>Account_Region__c</field>
+            <operation>equals</operation>
+            <value>PFW</value>
+        </filters>
+        <label>Opps Closing This Month - Heavy Equipmen</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Opps_Closing_This_Month_Hoffman_Sales</fullName>
+        <columns>NAME</columns>
+        <columns>Key_DOS__c</columns>
+        <columns>Account__c</columns>
+        <columns>ADP_Opportunity_Owner__c</columns>
+        <columns>Opportunity_Type__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Opportunity_Close_Date__c</columns>
+        <columns>Opportunity_Stage_Name__c</columns>
+        <columns>Released_to_Sales__c</columns>
+        <columns>SQT_Status__c</columns>
+        <columns>Docs_Pushed_from_SQT__c</columns>
+        <columns>Send_To_Client_Date__c</columns>
+        <columns>Client_Signed_Date__c</columns>
+        <columns>Finalized_Deal__c</columns>
+        <columns>Roll_Call_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Opportunity_Close_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>7/1/2015</value>
+        </filters>
+        <filters>
+            <field>Opportunity_Close_Date__c</field>
+            <operation>lessOrEqual</operation>
+            <value>7/31/2015</value>
+        </filters>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Cancelled</value>
+        </filters>
+        <filters>
+            <field>Account_Region__c</field>
+            <operation>equals</operation>
+            <value>Hoffman Sales</value>
+        </filters>
+        <label>Opps Closing This Month - Hoffman Sales</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Opps_Closing_This_Month_Inside_Sales</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>ADP_Opportunity_Owner_Manager__c</columns>
+        <columns>ADP_Opportunity_Owner__c</columns>
+        <columns>Opportunity_Type__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Opportunity_Close_Date__c</columns>
+        <columns>Opportunity_Stage_Name__c</columns>
+        <columns>Released_to_Sales__c</columns>
+        <columns>SQT_Status__c</columns>
+        <columns>Docs_Pushed_from_SQT__c</columns>
+        <columns>Send_To_Client_Date__c</columns>
+        <columns>Client_Signed_Date__c</columns>
+        <columns>Finalized_Deal__c</columns>
+        <columns>Roll_Call_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Opportunity_Close_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>7/1/2015</value>
+        </filters>
+        <filters>
+            <field>Opportunity_Close_Date__c</field>
+            <operation>lessOrEqual</operation>
+            <value>7/31/2015</value>
+        </filters>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Cancelled</value>
+        </filters>
+        <filters>
+            <field>ADP_Opportunity_Owner_Manager__c</field>
+            <operation>contains</operation>
+            <value>famiano,cook,villareal</value>
+        </filters>
+        <label>Opps Closing This Month - Inside Sales</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Opps_Closing_This_Month_National</fullName>
+        <columns>NAME</columns>
+        <columns>Key_DOS__c</columns>
+        <columns>Account__c</columns>
+        <columns>ADP_Opportunity_Owner__c</columns>
+        <columns>Opportunity_Type__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Opportunity_Close_Date__c</columns>
+        <columns>Opportunity_Stage_Name__c</columns>
+        <columns>Released_to_Sales__c</columns>
+        <columns>SQT_Status__c</columns>
+        <columns>Docs_Pushed_from_SQT__c</columns>
+        <columns>Send_To_Client_Date__c</columns>
+        <columns>Client_Signed_Date__c</columns>
+        <columns>Finalized_Deal__c</columns>
+        <columns>Roll_Call_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Opportunity_Close_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>7/1/2015</value>
+        </filters>
+        <filters>
+            <field>Opportunity_Close_Date__c</field>
+            <operation>lessOrEqual</operation>
+            <value>7/31/2015</value>
+        </filters>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Cancelled</value>
+        </filters>
+        <filters>
+            <field>Account_Region__c</field>
+            <operation>equals</operation>
+            <value>National</value>
+        </filters>
+        <label>Opps Closing This Month - National</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Opps_Closing_This_Month_North</fullName>
+        <columns>NAME</columns>
+        <columns>Key_DOS__c</columns>
+        <columns>Account__c</columns>
+        <columns>ADP_Opportunity_Owner__c</columns>
+        <columns>Opportunity_Type__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Opportunity_Close_Date__c</columns>
+        <columns>Opportunity_Stage_Name__c</columns>
+        <columns>Released_to_Sales__c</columns>
+        <columns>SQT_Status__c</columns>
+        <columns>Docs_Pushed_from_SQT__c</columns>
+        <columns>Send_To_Client_Date__c</columns>
+        <columns>Client_Signed_Date__c</columns>
+        <columns>Finalized_Deal__c</columns>
+        <columns>Roll_Call_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Opportunity_Close_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>7/1/2015</value>
+        </filters>
+        <filters>
+            <field>Opportunity_Close_Date__c</field>
+            <operation>lessOrEqual</operation>
+            <value>7/31/2015</value>
+        </filters>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Cancelled</value>
+        </filters>
+        <filters>
+            <field>Account_Region__c</field>
+            <operation>equals</operation>
+            <value>North</value>
+        </filters>
+        <label>Opps Closing This Month - North</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Opps_Closing_This_Month_South</fullName>
+        <columns>NAME</columns>
+        <columns>Key_DOS__c</columns>
+        <columns>Account__c</columns>
+        <columns>ADP_Opportunity_Owner__c</columns>
+        <columns>Opportunity_Type__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Opportunity_Close_Date__c</columns>
+        <columns>Opportunity_Stage_Name__c</columns>
+        <columns>Released_to_Sales__c</columns>
+        <columns>SQT_Status__c</columns>
+        <columns>Docs_Pushed_from_SQT__c</columns>
+        <columns>Send_To_Client_Date__c</columns>
+        <columns>Client_Signed_Date__c</columns>
+        <columns>Finalized_Deal__c</columns>
+        <columns>Roll_Call_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Opportunity_Close_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>7/1/2015</value>
+        </filters>
+        <filters>
+            <field>Opportunity_Close_Date__c</field>
+            <operation>lessOrEqual</operation>
+            <value>7/31/2015</value>
+        </filters>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Cancelled</value>
+        </filters>
+        <filters>
+            <field>Account_Region__c</field>
+            <operation>equals</operation>
+            <value>South</value>
+        </filters>
+        <label>Opps Closing This Month - South</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Opps_Closing_This_Month_Southwest</fullName>
+        <columns>NAME</columns>
+        <columns>Key_DOS__c</columns>
+        <columns>Account__c</columns>
+        <columns>ADP_Opportunity_Owner__c</columns>
+        <columns>Opportunity_Type__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Opportunity_Close_Date__c</columns>
+        <columns>Opportunity_Stage_Name__c</columns>
+        <columns>Released_to_Sales__c</columns>
+        <columns>SQT_Status__c</columns>
+        <columns>Docs_Pushed_from_SQT__c</columns>
+        <columns>Send_To_Client_Date__c</columns>
+        <columns>Client_Signed_Date__c</columns>
+        <columns>Finalized_Deal__c</columns>
+        <columns>Roll_Call_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Opportunity_Close_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>7/1/2015</value>
+        </filters>
+        <filters>
+            <field>Opportunity_Close_Date__c</field>
+            <operation>lessOrEqual</operation>
+            <value>7/31/2015</value>
+        </filters>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Cancelled</value>
+        </filters>
+        <filters>
+            <field>Account_Region__c</field>
+            <operation>equals</operation>
+            <value>Southwest</value>
+        </filters>
+        <label>Opps Closing This Month - Southwest</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Opps_Closing_This_Month_Truck</fullName>
+        <columns>NAME</columns>
+        <columns>Key_DOS__c</columns>
+        <columns>Account__c</columns>
+        <columns>ADP_Opportunity_Owner__c</columns>
+        <columns>Opportunity_Type__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Opportunity_Close_Date__c</columns>
+        <columns>Opportunity_Stage_Name__c</columns>
+        <columns>Released_to_Sales__c</columns>
+        <columns>SQT_Status__c</columns>
+        <columns>Docs_Pushed_from_SQT__c</columns>
+        <columns>Send_To_Client_Date__c</columns>
+        <columns>Client_Signed_Date__c</columns>
+        <columns>Finalized_Deal__c</columns>
+        <columns>Roll_Call_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Opportunity_Close_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>7/1/2015</value>
+        </filters>
+        <filters>
+            <field>Opportunity_Close_Date__c</field>
+            <operation>lessOrEqual</operation>
+            <value>7/31/2015</value>
+        </filters>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Cancelled</value>
+        </filters>
+        <filters>
+            <field>Account_Region__c</field>
+            <operation>equals</operation>
+            <value>Truck</value>
+        </filters>
+        <label>Opps Closing This Month - Truck</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Opps_Closing_This_Month_West</fullName>
+        <columns>NAME</columns>
+        <columns>Key_DOS__c</columns>
+        <columns>Account__c</columns>
+        <columns>ADP_Opportunity_Owner__c</columns>
+        <columns>Opportunity_Type__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Opportunity_Close_Date__c</columns>
+        <columns>Opportunity_Stage_Name__c</columns>
+        <columns>Released_to_Sales__c</columns>
+        <columns>SQT_Status__c</columns>
+        <columns>Docs_Pushed_from_SQT__c</columns>
+        <columns>Send_To_Client_Date__c</columns>
+        <columns>Client_Signed_Date__c</columns>
+        <columns>Finalized_Deal__c</columns>
+        <columns>Roll_Call_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Opportunity_Close_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>6/1/2015</value>
+        </filters>
+        <filters>
+            <field>Opportunity_Close_Date__c</field>
+            <operation>lessOrEqual</operation>
+            <value>6/30/2015</value>
+        </filters>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Cancelled</value>
+        </filters>
+        <filters>
+            <field>Account_Region__c</field>
+            <operation>equals</operation>
+            <value>West</value>
+        </filters>
+        <label>Opps Closing This Month - West</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Rep_Created_SQT_Deal</fullName>
+        <columns>NAME</columns>
+        <columns>Account_Region__c</columns>
+        <columns>Account__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>SQT_Created_By__c</columns>
+        <columns>Deal_Requested_Date__c</columns>
+        <columns>Contract_Number_s__c</columns>
+        <columns>Rush__c</columns>
+        <columns>Network_Needed__c</columns>
+        <columns>Quantity_of_Sites__c</columns>
+        <columns>SQT_Deal_ID__c</columns>
+        <columns>Uncompleted_Changes__c</columns>
+        <columns>Deal_Status__c</columns>
+        <columns>Deal_From_Solution_Design__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>equals</operation>
+            <value>Rep Created SQT Deal</value>
+        </filters>
+        <label>Rep Created SQT Deal</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>SCS_Approved_Waiting_CA_Approval</fullName>
+        <columns>NAME</columns>
+        <columns>Account_Region__c</columns>
+        <columns>Account__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Deal_Status__c</columns>
+        <columns>Contract_Number_s__c</columns>
+        <columns>Rush__c</columns>
+        <columns>Rush_Reasons__c</columns>
+        <columns>Quantity_of_Sites__c</columns>
+        <columns>SQT_Deal_ID__c</columns>
+        <columns>Deal_From_Solution_Design__c</columns>
+        <columns>SCS_Approved_Date__c</columns>
+        <columns>Created_By__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>equals</operation>
+            <value>Send To CA</value>
+        </filters>
+        <label>SCS Approved - Waiting CA Approval</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>SCS_Working</fullName>
+        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5</booleanFilter>
+        <columns>NAME</columns>
+        <columns>Account_Region__c</columns>
+        <columns>Account__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Deal_Status__c</columns>
+        <columns>Deal_Requested_Date__c</columns>
+        <columns>Rush__c</columns>
+        <columns>Quantity_of_Sites__c</columns>
+        <columns>SQT_Deal_ID__c</columns>
+        <columns>Uncompleted_Changes__c</columns>
+        <columns>Deal_From_Solution_Design__c</columns>
+        <columns>Contract_Needed_By_Date__c</columns>
+        <columns>Reprioritized_Needed_By_Date__c</columns>
+        <columns>Key_Rep__c</columns>
+        <columns>Owner__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>notEqual</operation>
+            <value>New Deal Arrived,Rep Created SQT Deal,Networking Quote Uploaded</value>
+        </filters>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>notEqual</operation>
+            <value>SOW Deal Change Needed,Finalized Deal,Cancelled</value>
+        </filters>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Client Signed,Signed by All Parties,Send To CA</value>
+        </filters>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Send To Countersign,Send To CRA,Envelope Voided,Sent To Client</value>
+        </filters>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Client Declined</value>
+        </filters>
+        <label>SCS Working</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Sent_To_Client</fullName>
+        <columns>NAME</columns>
+        <columns>Account_Region__c</columns>
+        <columns>Account__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Deal_Status__c</columns>
+        <columns>Deal_Requested_Date__c</columns>
+        <columns>Rush__c</columns>
+        <columns>Network_Needed__c</columns>
+        <columns>Quantity_of_Sites__c</columns>
+        <columns>Deal_From_Solution_Design__c</columns>
+        <columns>Created_By__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>equals</operation>
+            <value>Sent to Client</value>
+        </filters>
+        <label>Sent To Client</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Signed_Deal_Received</fullName>
+        <columns>NAME</columns>
+        <columns>Account_Region__c</columns>
+        <columns>ADP_Opportunity_Owner_Manager__c</columns>
+        <columns>Account__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Deal_Status__c</columns>
+        <columns>Rush__c</columns>
+        <columns>Rush_Reasons__c</columns>
+        <columns>Client_Signed_Date__c</columns>
+        <columns>Network_Needed__c</columns>
+        <columns>Quantity_of_Sites__c</columns>
+        <columns>Deal_From_Solution_Design__c</columns>
+        <columns>Created_By__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Deal_Status__c</field>
+            <operation>equals</operation>
+            <value>Client Signed</value>
+        </filters>
+        <label>Signed Deal Received</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>DS - {000000}</displayFormat>
+        <label>Deal State ID</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Deal State</pluralLabel>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Contract_Sigining</fullName>
+        <active>true</active>
+        <label>Contract Sigining</label>
+        <picklistValues>
+            <picklist>Cash_Credit__c</picklist>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loan</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Deal_Status__c</picklist>
+            <values>
+                <fullName>Assigned - SCS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finalized Deal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Deal Arrived</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Pending Networking Response</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending SOW Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Sales Response</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Lease_Type__c</picklist>
+            <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loan</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Network_Needed__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>PSE_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Network Changes Requested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Project_Highway_Routing__c</picklist>
+            <values>
+                <fullName>FSO Region</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PSE Lane</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SCS Lane</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Rush_Reasons__c</picklist>
+            <values>
+                <fullName>Client Needs ASAP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Client is Down</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Installers On Site</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal Project</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NADA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per VP%2FRGM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales On Site</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>Deal_Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Uncompleted_Rush_Changes__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Uncompleted_Changes__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Rush__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Deal_Requested_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Account_Region__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Opportunity__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OWNER.LAST_NAME</customTabListAdditionalFields>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <excludedStandardButtons>New</excludedStandardButtons>
+        <lookupDialogsAdditionalFields>Deal_Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Uncompleted_Rush_Changes__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Uncompleted_Changes__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Rush__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Deal_Requested_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Account_Region__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Account__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Opportunity__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>OWNER.LAST_NAME</lookupDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Account__c</searchFilterFields>
+        <searchFilterFields>Account_Region__c</searchFilterFields>
+        <searchFilterFields>Deal_Status__c</searchFilterFields>
+        <searchFilterFields>Deal_Requested_Date__c</searchFilterFields>
+        <searchFilterFields>Rush__c</searchFilterFields>
+        <searchFilterFields>On_Behalf_Of__c</searchFilterFields>
+        <searchFilterFields>OWNER.LAST_NAME</searchFilterFields>
+        <searchResultsAdditionalFields>Deal_Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Uncompleted_Rush_Changes__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Uncompleted_Changes__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Rush__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Deal_Requested_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Account_Region__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Account__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Opportunity__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>OWNER.LAST_NAME</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>DS_BDC_Check_Opportunity_Change</fullName>
+        <active>true</active>
+        <description>Created for not allowing  user to change opportunity on deal state once selected</description>
+        <errorConditionFormula>AND(ISCHANGED(Opportunity__c), NOT(ISBLANK(Opportunity__c)))</errorConditionFormula>
+        <errorDisplayField>Opportunity__c</errorDisplayField>
+        <errorMessage>You can not change the Opportunity once selected</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DS_BDC_ContractNeededByDate</fullName>
+        <active>true</active>
+        <description>Created to verify Contract Needed By Date greater then or equal to current date</description>
+        <errorConditionFormula>AND(OR(ISNEW() &amp;&amp; Contract_Needed_By_Date__c &lt; Today(),ISCHANGED(Contract_Needed_By_Date__c) &amp;&amp; Contract_Needed_By_Date__c &lt; Today()),NOT(BEGINS($User.Username,$Setup.GlobalSettings__c.Admin_Integration_Username__c)))</errorConditionFormula>
+        <errorDisplayField>Contract_Needed_By_Date__c</errorDisplayField>
+        <errorMessage>Contract Needed By Date should be greater then or equal to today&apos;s date.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DS_BDC_Rush_Reason_Req</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+Rush__c = TRUE, 
+ISBLANK(TEXT(Rush_Reasons__c)) 
+)</errorConditionFormula>
+        <errorDisplayField>Rush_Reasons__c</errorDisplayField>
+        <errorMessage>Please Provide a Reason for Rush</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DS_BDC_Rush_Req</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+Rush__c = FALSE, 
+NOT(ISBLANK(TEXT(Rush_Reasons__c))) 
+)</errorConditionFormula>
+        <errorDisplayField>Rush__c</errorDisplayField>
+        <errorMessage>Please select Rush as Rush Reason is selected</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DS_ExceptionContractPush_Validation</fullName>
+        <active>true</active>
+        <description>Checks the Exception Contract# Push must be filled when updating the Contract number once the SCS Approved and CA Approved date fields are already  filled.</description>
+        <errorConditionFormula>AND(ISCHANGED(Contract_Number_s__c), NOT(ISNULL(SCS_Approved_Date__c)),  NOT(ISNULL(CA_Approved_Date__c)) ,ISBLANK(Exception_Contract_Push__c ))</errorConditionFormula>
+        <errorDisplayField>Exception_Contract_Push__c</errorDisplayField>
+        <errorMessage>Please enter a value in Exception Contract # Push</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>BDC_DocuSign</fullName>
+        <availability>online</availability>
+        <description>This button will initiate a DocuSign Envelope that is linked to the Deal State</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>BDC DocuSign</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>//********* Option Declarations (Do not modify )*********// 
+var LA=&apos;&apos;;var STB=&apos;&apos;;var RES=&apos;&apos;;
+//*************************************************// 
+
+LA = &apos;0&apos;; 
+STB = &apos;0&apos;; 
+RES =&apos;1,2,3,1,30,3&apos;;
+
+//********* Page Callout (Do not modify) *********// 
+window.location.href =&quot;/apex/dsfs__DocuSign_CreateEnvelope?DSEID=0&amp;SourceID={!Deal_State__c.Id}&amp;LA=&quot;+LA+&quot;&amp;STB=&quot;+STB+&quot;&amp;RES=&quot;+RES;
+//*******************************************//</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Create_Deal</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Create Deal</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>var __FinalizedDate = &quot;{!Deal_State__c.Finalized_Deal__c}&quot;;
+var __OwnerFullName = &quot;{!Deal_State__c.OwnerFullName}&quot;;
+var __AccountRegion = &quot;{!Deal_State__c.Account_Region__c}&quot;;
+
+if (__FinalizedDate != &quot;&quot;)
+{
+    alert(&quot;A new Deal cannot be created if the Deal State is already Finalized.&quot;);
+}
+else if (__OwnerFullName == &quot;SCS Deal State&quot;)
+{
+    alert(&quot;Please set the Owner before creating a new Deal. Owner cannot be &apos;SCS Deal State&apos;.&quot;);
+}
+else if (__AccountRegion == &quot;Division&quot;)
+{
+    alert(&quot;A new Deal cannot be created for Account Region Division.&quot;);
+}
+else
+{
+    window.open(&apos;http://{!$Setup.CustomSettings__c.SQTServer__c}home.aspx?OppID={!Deal_State__c.OpportunityId__c}&amp;UID={!$User.Id}&apos;, &apos;sqtnew&apos;, &apos;top=150,left=250,height=400,width=400,status=yes,toolbar=no,location=no,menubar=no,scrollbars=yes,resizable=yes&apos;);
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>View_Attachments</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>View Attachments</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/ui/content/ViewAllNotesPage?id={!Deal_State__c.Id}&amp;retURL=/{!Deal_State__c.Id}</url>
+    </webLinks>
+</CustomObject>

@@ -1,0 +1,47 @@
+<!----------------------------------------------------------------------------------------------------------------------- 
+// RQ-05791    - SubProject Home Page changes.
+// Description - This Page displays the different buttons to navigate from subProject page
+// 2015-12-09  - venkata.shrivol@cdk.com  - Created
+// History:
+// 2016-03-08   Ragashalini.koka@cdk.com    Modified the value of Milestones from IMP_MilestoneView to ALL_TreeGrid   
+
+--------------------------------------------------------------------------------------------------------------------------->
+
+<apex:page standardController="SubProject__c" docType="html -5.0" >
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- used for mobile -->
+        <apex:stylesheet value="{!$Resource.IMP_SubProjectButtons_CSS}" />
+        
+    </head>
+    <div id="buttonsDiv">
+        <apex:outputLink value="/{!SubProject__c.Id}" 
+                         styleClass="{!IF($CurrentPage.Name== 'IMP_SubProjectButtons', 'custom-btn custom-btn-primary', 'custom-btn custom-btn-default')}" target="_top" 
+                         disabled="{!IF($CurrentPage.Name== 'IMP_SubProjectButtons', true, false)}">
+            Details 
+        </apex:outputLink>&nbsp;&nbsp;
+         <apex:outputLink value="/apex/IMP_MilestoneView?id={!SubProject__c.Id}" 
+              styleClass="{!IF($CurrentPage.Name== 'IMP_MilestoneView', 'custom-btn custom-btn-primary', 'custom-btn custom-btn-default')}" target="_top" 
+              rendered="{!IF(SubProject__c.Count_of_Milestones_on_SubProject__c > 0 || $CurrentPage.Name== 'IMP_MilestoneView', true, false)}"
+              disabled="{!IF($CurrentPage.Name== 'IMP_MilestoneView', true, false)}">
+            Milestones
+        </apex:outputLink>&nbsp;&nbsp;
+        <apex:outputLink value="/apex/IMP_CDFLinesCanvasAppView?id={!SubProject__c.Id}" 
+                         styleClass="{!IF($CurrentPage.Name== 'IMP_CDFLinesCanvasAppView', 'custom-btn custom-btn-primary', 'custom-btn custom-btn-default')}" target="_top"
+                         disabled="{!IF($CurrentPage.Name== 'IMP_CDFLinesCanvasAppView', true, false)}">          
+            Contract Lines
+        </apex:outputLink>&nbsp;&nbsp;
+        <apex:outputLink value="/apex/IMP_DiscoveryView?id={!SubProject__c.Id}" 
+                         styleClass="{!IF($CurrentPage.Name== 'IMP_DiscoveryView', 'custom-btn custom-btn-primary', 'custom-btn custom-btn-default')}" target="_top"
+                         rendered="{!IF(SubProject__c.Count_of_Discovery_Wbks_on_SubProject__c > 0 || $CurrentPage.Name== 'IMP_DiscoveryView', true, false)}"
+                         disabled="{!IF($CurrentPage.Name== 'IMP_DiscoveryView', true, false)}">
+            Discovery
+        </apex:outputLink>&nbsp;&nbsp;
+        <apex:outputLink value="/apex/ALL_TreeGrid?subproject={!SubProject__c.SubProject_Name__c}&object=project_milestone__c&id={!SubProject__c.Id}&treeId=001" 
+              styleClass="{!IF($CurrentPage.Name== 'ALL_TreeGrid', 'custom-btn custom-btn-primary', 'custom-btn custom-btn-default')}" target="_blank" 
+              rendered="{!IF(SubProject__c.Count_of_Milestones_on_SubProject__c > 0 || $CurrentPage.Name== 'ALL_TreeGrid', true, false)}"
+              disabled="{!IF($CurrentPage.Name== 'ALL_TreeGrid', true, false)}" title="Click to see something New and Exciting">
+            New Milestones Page
+        </apex:outputLink>
+    </div>
+</apex:page>

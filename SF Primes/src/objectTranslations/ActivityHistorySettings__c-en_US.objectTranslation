@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Activity History Settings</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Activity History Settings</value>
+    </caseValues>
+    <fields>
+        <help><!-- Enter the API Name of the Date Field (on the Last Activity object) to update with the activity date of the last activity (Event or Task). --></help>
+        <label><!-- Date Field --></label>
+        <name>Date_Field__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group --></label>
+        <name>Group__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Type value is used to match a User&apos;s Title when logging last activity history. If the value matches the User Title and the Date of the matching activity is greater than the current logged activity, the field is updated with this new last activity. --></help>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter the API Name of the User Field (on the Last Activity object) to update with the Owner of the last activity (Event or Task). --></help>
+        <label><!-- User Field --></label>
+        <name>User_Field__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

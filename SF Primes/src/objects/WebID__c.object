@@ -1,0 +1,3179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>webIDs are the name given to website on an account</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>AA_Echelon_Level__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ProCare_Gold__c &gt; 0, &quot;Audience Optimization&quot;, IF( GM_Performance_ProCare__c &gt;0, &quot;GM Performance&quot;,IF( ProCare_Silver__c &gt;0,&quot;ProCare&quot;,IF( Procare_Product__c &gt;0,&quot;ProCare&quot;,&quot;No ProCare&quot;))))</formula>
+        <inlineHelpText>This is based on active installed base. If you see a ProCare echelon product that is active in the installed base that is not represented, submit an Inquiry - Service Reports &amp; Applications case with the webid &amp; product as examples.</inlineHelpText>
+        <label>AA Echelon Level</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AA_Manager_Notes__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>This field is only visible to Services Managers.</inlineHelpText>
+        <label>AA Manager Notes</label>
+        <length>10000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>AA_Phone__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account_Advocate__r.Phone + &apos; x&apos;  + Account_Advocate__r.Extension</formula>
+        <label>AA Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Advocate_Extension__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account_Advocate__r.Extension</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>AA Extension</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Advocate__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account Advocate</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Website</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Account_Executive__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Account Executive on the Account</description>
+        <externalId>false</externalId>
+        <label>Digital Solutions Manager</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>WebIDs</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>Sites</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Ad_Review2__c</fullName>
+        <description>This will link to ad creator if there are multiple DAP products on the account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This will link to ad creator if there are multiple DAP products on the account.</inlineHelpText>
+        <label>Ad Review</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Ad_Review3__c</fullName>
+        <description>This will link to ad creator if there are multiple DAP products on the account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This will link to ad creator if there are multiple DAP products on the account.</inlineHelpText>
+        <label>Ad Review</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Ad_Review__c</fullName>
+        <description>This will link to ad creator</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This will link to ad creator</inlineHelpText>
+        <label>Ad Review</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Advantages__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>List anything that differentiates then as a dealer. Examples: special sales process, highest customer satisfaction rating, oil change specials, free tires for life, discounts, etc.</inlineHelpText>
+        <label>Advantages</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Advocate_DAP_Data_Last_Updated__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter today&apos;s date if you have updated or validated the data in this section.</inlineHelpText>
+        <label>Advocate DAP Data Last Updated</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Advocate_Dealer_Data_Last_Updated__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter today&apos;s date if you have updated or validated the data in this section.</inlineHelpText>
+        <label>Advocate Dealer Data Last Updated</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Approved_GEO_s__c</fullName>
+        <description>The ones you CAN go after. These are not being targeted now, but have been approved to be added when strategy and timing permits</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The GEOs the dealer has requested we target</inlineHelpText>
+        <label>Dealer Requested GEOs</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Autotrader_Check__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Autotrader Check</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>BAC_Dealer_Code__c</fullName>
+        <description>Text field for user to enter the dealer&apos;s BAC or dealer code. This is then used through the OOS button to populate the OOS login page.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the Dealer Code(BAC, if GM) here and it will auto-fill the OOS</inlineHelpText>
+        <label>BAC/Dealer Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BZ_Site__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Checkbox to indicate if website originated from BZ. Based on the Order Priority field being marked as IFS Project 7.</description>
+        <externalId>false</externalId>
+        <label>BZ Migrated Site</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Best_Selling_Model__c</fullName>
+        <externalId>false</externalId>
+        <label>Best Selling Model</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bing_Webmaster_Tools_Submitted_To__c</fullName>
+        <description>Select Bing Webmaster Tools Login</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select Bing Webmaster Tools Login</inlineHelpText>
+        <label>Bing Webmaster Tools Submitted To</label>
+        <picklist>
+            <picklistValues>
+                <fullName>procareseo2@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo3@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo4@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo5@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo6@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo7@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo8@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo9@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo10@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo11@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo12@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo13@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo14@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo15@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo16@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo17@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Branded_Name_of_Dealership__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Example: Stadium GM Superstore. Use when the name is actually a bit different.</inlineHelpText>
+        <label>Branded Name of Dealership</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bulk_Upload_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Bulk Upload Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Cities__c</fullName>
+        <externalId>false</externalId>
+        <label>Cities</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Client_Account_Manager__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If populated, this is the primary Services contact for Cobalt related products for this dealer group.</inlineHelpText>
+        <label>Marketing Strategist</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>WebIDs4</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Cobalt_Consolidation_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Cobalt_Consolidation_ID</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Cobalt_Services_Attribute_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Cobalt Services Attribute Reason</label>
+        <picklist>
+            <controllingField>Cobalt_Services_Attribute__c</controllingField>
+            <picklistValues>
+                <fullName>Pilot Participant - ProCare</fullName>
+                <controllingFieldValues>checked</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pilot Participant - Other</fullName>
+                <controllingFieldValues>checked</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>High Service Focus - General</fullName>
+                <controllingFieldValues>checked</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>High Service Focus - Low Sat</fullName>
+                <controllingFieldValues>checked</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Cobalt_Services_Attribute__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Cobalt Services Attribute</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Counties__c</fullName>
+        <externalId>false</externalId>
+        <label>Counties</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Creative_Case_Limit__c</fullName>
+        <externalId>false</externalId>
+        <label>Creative Case Limit</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Creative_Case_Tally__c</fullName>
+        <externalId>false</externalId>
+        <label>Creative Case Tally</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Current_User_Is_Advocate__c</fullName>
+        <description>If the current user is the same as the Account Advocate user then yes else no.</description>
+        <externalId>false</externalId>
+        <formula>IF( $User.Id = Account_Advocate__r.Id , &quot;Yes&quot;,&quot;No&quot;)</formula>
+        <label>Current User Is Advocate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Current_User_Is_OMS__c</fullName>
+        <description>If the current user is the same as the Online Marketing Specialist user then yes else no.</description>
+        <externalId>false</externalId>
+        <formula>IF($User.Id = Online_Marketing_Specialist__r.Id , &quot;Yes&quot;,&quot;No&quot;)</formula>
+        <label>Current User Is OMS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Customer_Type__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>We&apos;ve identified 4 types of customers. Tell me which one best identifies your IDEAL customer. In other words, the customer you feel represents your best profit opportunity based your dealership&apos;s strengths?</inlineHelpText>
+        <label>Customer Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Discount</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Impulse</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Loyalty</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Needs Based</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>DAP_Focus_Vehicle__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Example: &quot;Promote CTS but not SRX&quot;</inlineHelpText>
+        <label>DAP Focus Vehicle</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>DAS_Data_Last_Updated__c</fullName>
+        <externalId>false</externalId>
+        <label>DAS Data Last Updated</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DA_Echelon_Level__c</fullName>
+        <externalId>false</externalId>
+        <label>DA Echelon Level</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Silver</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gold</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Platinum</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>DA_Help_List_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>DA Help List Description</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>DA_Help_List_Manager_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>DA Help List Manager Comments</label>
+        <length>10000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>DA_Help_List_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>DA Help List Reason</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Ad Performance – only use if recommended by DAA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Competitive Displacement – Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Concurrent Digital Advertising program provided by OEM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer says Sales misrepresented product</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealership Personnel Change</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Disengaged</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dissatisfied with billing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lack of Inventory / Co-Op Fund</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lack of Product Flexibility</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pilot termination</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Plan to move money to non-digital advertising</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pricing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Products not delivering expected results</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reporting – Inability to Demonstrate ROI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reporting – Lack of Transparency</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ROI - results not good enough</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Signed up due to OEM influence</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>DA_Help_List__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>DA Help List</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DA_Performance_Trends2__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field if there is more than one DAP product active on the WebId.</inlineHelpText>
+        <label>DA Update</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>DA_Performance_Trends3__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field if there is more than one DAP product active on the WebId.</inlineHelpText>
+        <label>DA Update</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>DA_Performance_Trends__c</fullName>
+        <externalId>false</externalId>
+        <label>DA Update</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>DDP__c</fullName>
+        <externalId>false</externalId>
+        <label>DDP</label>
+        <summaryFilterItems>
+            <field>Installed_Base__c.Product_Code__c</field>
+            <operation>contains</operation>
+            <value>DDP</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Installed_Base__c.Product_Status__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Installed_Base__c.WebID__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>DMA_or_Radius_Targeted_Details__c</fullName>
+        <description>Detailed information about OMS Geography targeting.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Detailed information about OMS Geography targeting.</inlineHelpText>
+        <label>DMA or Radius Targeted Details</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>DMS_Data_Last_Modified_Date__c</fullName>
+        <description>Displays the date/time when a change was made to either the DMS (Primary), DMS (Secondary), Username or Password fields.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Will update via workflow when either the DMS (Primary), DMS (Secondary), Username or Password fields are changed.</inlineHelpText>
+        <label>DMS Data Last Modified Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>DMS_Secondary__c</fullName>
+        <externalId>false</externalId>
+        <label>DMS (Secondary)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DMS__c</fullName>
+        <externalId>false</externalId>
+        <label>DMS (Primary)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>ACS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Adams</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ADP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ADP ARG (EDS)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Advent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Arkona</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Automate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Autosoft</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DPC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reynolds &amp; Reynolds</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SelectQu</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>UCS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>DSM_Mobile__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account_Executive__r.MobilePhone</formula>
+        <label>DSM Mobile</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DSM_Nat_Ent__c</fullName>
+        <description>RQ-03047</description>
+        <externalId>false</externalId>
+        <formula>Account__r.Designated_DSM_Nat_Ent__r.FirstName &amp; &apos; &apos; &amp; Account__r.Designated_DSM_Nat_Ent__r.LastName</formula>
+        <label>DSM Nat Ent</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Date_Audited__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Audited</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Dealer_Approvals__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please provide primary contact information, who you work with, who approves campaigns, compliance and any critical approval notes.</inlineHelpText>
+        <label>General Dealer Updates and Approvals</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Dealer_DAP_Goals__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Example: &quot;Dealer just added Cadillac brand to their stores and wants to increase exposure&quot;</inlineHelpText>
+        <label>Dealer DAP Goals</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Dealer_Goals_SEO__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer Goals</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Dealer_Goals__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Dealer business goals/objectives – example: target revenues, ROI, etc.</inlineHelpText>
+        <label>Dealer Goals</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Dealer_Group_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.Dealer_Group_Name2__c</formula>
+        <label>Dealer Group Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dealer_Group_Support_Customer__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>This is filled out by Service Ops when there is a GAM, CAM, or a la carte Dealer Group Support.</inlineHelpText>
+        <label>Dealer Group Support Customer</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Dealer_Hurts__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Dealer “hurts” - challenges in website traffic, leads, conversions, phone/email leads, etc</inlineHelpText>
+        <label>Dealer Hurts</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Dealer_Logo__c</fullName>
+        <description>If we have logo then field will show &quot;Yes&quot;, if not it will show &quot;No.&quot; A blank field indicates the status is unknown.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If we have logo then field will show &quot;Yes&quot;, if not it will show &quot;No.&quot; A blank field indicates the status is unknown.</inlineHelpText>
+        <label>Dealer Logo</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Dealership_logo__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Select &quot;Yes&quot; if the logo is in the dealer folder.</inlineHelpText>
+        <label>Dealership logo</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Digital_Advertising_Strategist__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Digital Advertising Strategist</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>WebIDs8</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Email_Goals_and_Pain_Points__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please provide the goals your dealer wants to accomplish with their email program this period.</inlineHelpText>
+        <label>Email Goals and Pain Points</label>
+        <length>1000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Email_Health__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please provide traditional health check notes and any applicable hot list updates with the date.</inlineHelpText>
+        <label>Email Account Health</label>
+        <length>1000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>External_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>External ID</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Fixed_Operations_Details__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What fixed operations does the dealership offer? Ask the dealer to tell you a little about each area and how they stand apart from their competition.</inlineHelpText>
+        <label>Fixed Operations Details</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>GM_Performance_ProCare__c</fullName>
+        <description>This is not intended to display on the page layout.</description>
+        <externalId>false</externalId>
+        <label>GM Performance ProCare</label>
+        <summaryFilterItems>
+            <field>Installed_Base__c.Product_Code__c</field>
+            <operation>equals</operation>
+            <value>23.207.00</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Installed_Base__c.Product_Status__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Installed_Base__c.WebID__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Geographic_Interest__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Collect up to 10 geographies.</inlineHelpText>
+        <label>Geographic Interest</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Goal_Measurement_Tools__c</fullName>
+        <externalId>false</externalId>
+        <label>Goal Measurement Tools</label>
+        <picklist>
+            <picklistValues>
+                <fullName>AdWizard</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CMR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Dashboard</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Voicestar</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Group_Account_Manager__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If populated, this is the primary Services contact for Cobalt related products for this dealer group.</inlineHelpText>
+        <label>Group Account Manager</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>WebIDs3</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Hot_List_Manager_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Hot List Manager Comments</label>
+        <length>10000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Hot_List_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Hot List Reason</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Product/Data Issues</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Competitive Displacement</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Disengaged</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pricing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Products not delivering expected results</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Hot_List__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Hot List</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Installed_Base_Parent_Count_Of_Glory__c</fullName>
+        <externalId>false</externalId>
+        <label>Installed Base Parent Count Of Glory</label>
+        <summaryForeignKey>Installed_Base__c.WebID__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>LMA_Analyst2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>LMA Analyst2</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>WebIDs7</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>LMA_Analyst__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>LMA Analyst</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>WebIDs6</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>LMA_Product__c</fullName>
+        <description>Count of LMA Product in Install Base</description>
+        <externalId>false</externalId>
+        <label>LMA Product</label>
+        <summaryFilterItems>
+            <field>Installed_Base__c.Product_Description__c</field>
+            <operation>contains</operation>
+            <value>LMA</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Installed_Base__c.Product_Status__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Installed_Base__c.WebID__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>LMA_Strategist__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>LMA Strategist</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>WebIDs5</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Last_Site_Check_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the date of the most recent Testimonial site check.</inlineHelpText>
+        <label>Last Site Check Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Last_Updated__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Updated</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Least_Selling_Model__c</fullName>
+        <externalId>false</externalId>
+        <label>Least Selling Model</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Link_To_Mission__c</fullName>
+        <description>This is an external reference to the old Social Instance of Salesforce.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Copy the link into another browser.  If you are in IE then use Firefox, if you are in Firefox then use IE.  Log in to the other instance of Salesforce in order to see the mission.</inlineHelpText>
+        <label>Link To Mission</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Locale__c</fullName>
+        <externalId>false</externalId>
+        <label>Locale</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Location_Name__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the name of the Location from the old Social Instance of Salesforce.</inlineHelpText>
+        <label>Location Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MLP_Pages__c</fullName>
+        <externalId>false</externalId>
+        <label>MLP Pages</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Migration_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Migration_ID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Models_to_Promote_the_Least__c</fullName>
+        <externalId>false</externalId>
+        <label>Models to Promote the Least</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Models_to_Promote_the_Most__c</fullName>
+        <externalId>false</externalId>
+        <label>Models to Promote the Most</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NRM_Call_Priority__c</fullName>
+        <description>Used for the GM NRM launch to prioritize call outs to dealers. This will be pulled into the MM object and utilized there.</description>
+        <externalId>false</externalId>
+        <label>NRM Call Priority</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>New_Vehicle_Sales_Target__c</fullName>
+        <externalId>false</externalId>
+        <label>New Vehicle Sales Target</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>New_Vehicle_Sales__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of used vehicles sold per month</inlineHelpText>
+        <label># New Vehicle Sales/Month</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nicknames__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Nicknames used to describe the geographical area. Example: Dallas Fort Worth is referred to as DFW.</inlineHelpText>
+        <label>Nicknames</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nitra_URL__c</fullName>
+        <externalId>false</externalId>
+        <label>Nitra URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Non_Performing_GEOs__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The GEOs that did not perform, including reason (e.g., ranking/traffic) and dates.</inlineHelpText>
+        <label>Non-Performing GEOs</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Non_Primary_Reason_Code__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Specify the reason that the Cobalt website is not the dealer&apos;s primary site.</inlineHelpText>
+        <label>NonPrimary Reason Code</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Existing Contract</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Group Standard</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Vendor Preference</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Prior Cobalt Issues</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Cobalt Website Found</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Organic Reference Only</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Third Party Refer-In</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Notes</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>OEM_Area__c</fullName>
+        <description>Enter the OEM Area for the OEM. Please follow standard coding per OEM</description>
+        <externalId>false</externalId>
+        <label>OEM Area</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OEM_Hidden__c</fullName>
+        <description>Use for OEM Field</description>
+        <externalId>false</externalId>
+        <label>OEM Hidden</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OEM__c</fullName>
+        <description>Workflow rule use to update OEM_Hidden__c.</description>
+        <externalId>false</externalId>
+        <formula>OEM_Hidden__c</formula>
+        <label>OEM</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OMS_DAP_Goals__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer DAP Goals</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>OMS_Geography__c</fullName>
+        <externalId>false</externalId>
+        <label>OMS Geography</label>
+        <picklist>
+            <picklistValues>
+                <fullName>DMA Targeted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Radius Targeted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>OMS_Taglines__c</fullName>
+        <externalId>false</externalId>
+        <label>OMS Taglines</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Offline_Other_Media__c</fullName>
+        <externalId>false</externalId>
+        <label>Offline/Other Media</label>
+        <picklist>
+            <picklistValues>
+                <fullName>TV ad</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Radio ad</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Print – newspaper, direct mail,</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Outdoor – Billboards, digital, poster</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3rd Party Paid Search</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3rd Party Display</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Online_Marketing_Specialist__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Digital Advertising Analyst</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Website1</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>OwnerMktg_Specialist_lookup__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Email Marketing Specialist</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Website2</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Owner_Marketing_DAP__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This field lists the Email Marketing  Specialist assigned if the account has DAP but no AA.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field lists the Email Marketing  Specialist assigned if the account has DAP but no AA.</inlineHelpText>
+        <label>Email Marketing (DAP)</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>webID2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Owner_Marketing_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>Email Marketing ID</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Owner_Marketing_Product__c</fullName>
+        <externalId>false</externalId>
+        <label>Email Marketing Product</label>
+        <summaryFilterItems>
+            <field>Installed_Base__c.Item_Category_Segment1__c</field>
+            <operation>contains</operation>
+            <value>OnStation</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Installed_Base__c.Product_Status__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Installed_Base__c.WebID__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Owner_Marketing_Specialist__c</fullName>
+        <externalId>false</externalId>
+        <label>Email Marketing Specialist</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Part_of_Dealer_Group__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Example: &quot;This dealership is part of a Excellence Dealer Group and has three sister stores - Excellence 1, Excellence 2 and Excellence 3&quot;</inlineHelpText>
+        <label>Part of Dealer Group?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Password__c</fullName>
+        <externalId>false</externalId>
+        <label>Password</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Performance_Improvement_Consultant__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.Performance_Improvement_Consultant_User__r.FirstName &amp; &quot; &quot; &amp; Account__r.Performance_Improvement_Consultant_User__r.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Performance Improvement Consultant</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Performance_Solution_Start_Date1__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Shows the most recent start date of the Performance Solution product in the WebId&apos;s Installed Base.</inlineHelpText>
+        <label>Performance Solution Start Date1</label>
+        <summarizedField>Installed_Base__c.Start_Date__c</summarizedField>
+        <summaryFilterItems>
+            <field>Installed_Base__c.Product_Code__c</field>
+            <operation>equals</operation>
+            <value>46.369.00</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Installed_Base__c.Product_Status__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Installed_Base__c.WebID__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Performance_Solution_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Performance_Solution_Start_Date1__c &lt;= Date(2013,6,10), Date(2013,6,10), Performance_Solution_Start_Date1__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Shows the start date of the Performance Solution product in the Installed Base.  If this is blank then the WebId does not have the Performance Solution.</inlineHelpText>
+        <label>Performance Solution Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Polk_Brand_Radius__c</fullName>
+        <description>Polk Report Brand and Radius</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Polk Report Brand and Radius. Information should be maintained in both DAP and SF.</inlineHelpText>
+        <label>Polk Brand/Radius</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Polk_Flag__c</fullName>
+        <description>Polk Report flag for PowerBrand. Informational only. Flag maintained in DAP tool.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Polk Report flag. Flag should be maintained in DAP tool.</inlineHelpText>
+        <label>Polk Flag</label>
+        <picklist>
+            <picklistValues>
+                <fullName>N/A</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>PowerSEO_Help_List_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>PowerSEO Help List Description</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>PowerSEO_Help_List_Manager_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>PowerSEO Help List Manager Comments</label>
+        <length>10000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>PowerSEO_Help_List_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>PowerSEO Help List Reason</label>
+        <picklist>
+            <picklistValues>
+                <fullName>3rd Party/Competitor Interference</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not competitive with other dealers</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer says Sales misrepresented product</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealership Personnel Change</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Disengaged</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Plan to move money to a different product</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pricing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reporting – Inability to Demonstrate ROI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reporting – Lack of Transparency</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ROI – results not good enough</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Voiced Ranking Issues</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Voiced Traffic Issues</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unrealistic Expectations</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cobalt is secondary domain</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales Down at Dealership</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Internal Teaming Issue</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Leaving Cobalt entirely</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>PowerSEO_Help_List__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>PowerSEO Help List</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>PowerSEO_Product__c</fullName>
+        <externalId>false</externalId>
+        <label>PowerSEO Product</label>
+        <summaryFilterItems>
+            <field>Installed_Base__c.Product_Description__c</field>
+            <operation>contains</operation>
+            <value>SEO</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Installed_Base__c.Product_Description__c</field>
+            <operation>notContain</operation>
+            <value>SEO Essentials</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Installed_Base__c.Product_Status__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Installed_Base__c.Product_Description__c</field>
+            <operation>contains</operation>
+            <value>Power</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Installed_Base__c.WebID__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Power_Site__c</fullName>
+        <externalId>false</externalId>
+        <label>PowerSite Level of Service</label>
+        <summaryFilterItems>
+            <field>Installed_Base__c.Product_Description__c</field>
+            <operation>contains</operation>
+            <value>PowerSite, GM PowerSite, GM Dealer Website, Design Differentiator Pak</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Installed_Base__c.Product_Status__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Installed_Base__c.WebID__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Power_Social_Rep_Mgmt_Product__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Account__r.Power_Social_Rep_Mgmt_Product__c = 0, 0, 1)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Power Social/Rep Mgmt Product</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Primary_Website_Vendor__c</fullName>
+        <externalId>false</externalId>
+        <label>Primary Website Vendor</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Primary__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this box when the Cobalt website is the dealer&apos;s primary website. Leave flag unchecked if the site is secondary.</inlineHelpText>
+        <label>Primary</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ProCare_Gold__c</fullName>
+        <description>This field is not intended to show up on the page layout.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is calculated from the Installed base.</inlineHelpText>
+        <label>ProCare Gold</label>
+        <summaryFilterItems>
+            <field>Installed_Base__c.Product_Code__c</field>
+            <operation>equals</operation>
+            <value>14.501.00</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Installed_Base__c.Product_Status__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Installed_Base__c.WebID__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>ProCare_Silver__c</fullName>
+        <description>This is not intended for display on the page layout.</description>
+        <externalId>false</externalId>
+        <label>ProCare Silver</label>
+        <summaryFilterItems>
+            <field>Installed_Base__c.Product_Code__c</field>
+            <operation>equals</operation>
+            <value>14.500.00</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Installed_Base__c.Product_Status__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Installed_Base__c.WebID__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Procare_Product__c</fullName>
+        <externalId>false</externalId>
+        <label>Procare Product</label>
+        <summaryFilterItems>
+            <field>Installed_Base__c.Product_Description__c</field>
+            <operation>contains</operation>
+            <value>ProCare, Proactive, PowerSearch Complete, Procare</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Installed_Base__c.Product_Status__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Installed_Base__c.WebID__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Quarterly_Call_Schedule__c</fullName>
+        <externalId>false</externalId>
+        <label>Quarterly Call Schedule</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Radius__c</fullName>
+        <externalId>false</externalId>
+        <label>Radius</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RepMan_Help_List_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>RepMan Help List Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>RepMan_Help_List_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>RepMan Help List Description</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>RepMan_Help_List_Manager_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>RepMan Help List Manager Comments</label>
+        <length>10000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>RepMan_Help_List_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>RepMan Help List Reason</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Competitive Displacement</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Email Collection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Google Places Issue</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Non-engagement</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>OEM Program</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>OEM Surveys</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ROI - results not good enough</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>RepMan_Help_List__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>RepMan Help List</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RepMan_Welcome_Kit_Tracking__c</fullName>
+        <description>This field contains the tracking # for the Welcome Kit that was sent when the dealer ordered RepMan</description>
+        <externalId>false</externalId>
+        <label>RepMan Welcome Kit Tracking #</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Reputation_Management_Specialist__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Reputation Management Specialist</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>WebIDs2</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Restricted_GEO_s__c</fullName>
+        <description>The ones you CANNOT go after. These are either not in dealer’s DMA or have been removed due to little success/traffic.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The GEOs the dealer has asked us not to target.</inlineHelpText>
+        <label>Dealer Restricted GEOs</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Review_Protocols__c</fullName>
+        <description>This is a field for RMS section of WebId</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Describe the protocols for responding to negative reviews.</inlineHelpText>
+        <label>Review Protocols</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>SEO_Decision_Made_By__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the name of the person at the dealership who informed ADP/Cobalt that they will be using a 3rd Party or internal person for SEO.</inlineHelpText>
+        <label>SEO Decision Made By</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>Please select a Contact against the WebID&apos;s Account.</errorMessage>
+            <filterItems>
+                <field>$Source.Account__c</field>
+                <operation>equals</operation>
+                <valueField>Contact.AccountId</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>WebIDs</relationshipLabel>
+        <relationshipName>WebIDs</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>SEO_Essentials__c</fullName>
+        <externalId>false</externalId>
+        <label>SEO Essentials</label>
+        <summaryFilterItems>
+            <field>Installed_Base__c.Product_Status__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Installed_Base__c.Product_Description__c</field>
+            <operation>contains</operation>
+            <value>SEO Essentials, Enhanced SEO, Audience Management Package, GM Canada ProCare,VW Digital Core Package, Inifiniti Digital Package Plus,Infiniti Digital Package Plus</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Installed_Base__c.WebID__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>SEO_Opt_Out__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>If this account uses a 3rd party or an internal person for their SEO, please have your manager check this box and provide the name of the person at the dealership who has informed you of this decision.</inlineHelpText>
+        <label>SEO – Dealer/3rd Party</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SEO_Specialist__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>SEO Specialist</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Websites</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>SEO_Targeted_Geographies__c</fullName>
+        <description>The ones you ARE going after</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The GEOs that are currently part of the SEO strategy.</inlineHelpText>
+        <label>Currently Targeted GEOs</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>SEO_Website_Scan_Tool_URL__c</fullName>
+        <externalId>false</externalId>
+        <label>SEO: Website Scan Tool URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Sales_Process__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What is the dealer&apos;s sales process? (Examples: one price, no hassle, defined customer friendly sales process, etc)</inlineHelpText>
+        <label>Sales Process</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Service_Parts_Pages__c</fullName>
+        <externalId>false</externalId>
+        <label>Service &amp; Parts Pages</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Site_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Site ID</label>
+        <length>150</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Social_Media_Specialist__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Social Marketing Specialist</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>WebIDs1</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Social_Rep_Mgmt_Product__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Account__r.Social_Rep_Mgmt_Product__c = 0, 0, 1)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>This will show a 0 if there are no Social or Reputation Management products on this account.  If this account has Social or Reputation Management products this will field will show a 1.</inlineHelpText>
+        <label>Social/Rep Mgmt Product</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Social_Service__c</fullName>
+        <externalId>false</externalId>
+        <label>Social Service Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Full Voice</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Additional Franchise Voice</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Rater Only</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inactive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Taglines__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Dealer Taglines or Slogans</inlineHelpText>
+        <label>Taglines</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Type_of_Site__c</fullName>
+        <externalId>false</externalId>
+        <label>Type of Site</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Jump Site</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cobalt Site</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Non-Cobalt site</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>URL_Offline_Other_Marketing__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>URL example is a jump site. Could be different from web-id URL such as http://www.sutliffauto.com/</inlineHelpText>
+        <label>URL Offline/Other Marketing</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Used_Vehicle_Sales_Target__c</fullName>
+        <externalId>false</externalId>
+        <label>Used Vehicle Sales Target</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Used_Vehicle_Sales__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of used vehicles sold per month</inlineHelpText>
+        <label># Used Vehicle Sales/Month</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>User_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>User Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>VIP_Reason_Primary__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.VIP_Reason_Primary_Text__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>VIP Reason</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>VIP_Reason_Secondary__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.VIP_Reason_Secondary_Text__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>VIP Reason Detail</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>VIP__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.VIP__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>VIP</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>VWCare_Product__c</fullName>
+        <externalId>false</externalId>
+        <label>VWCare Product</label>
+        <summarizedField>Installed_Base__c.Quantity__c</summarizedField>
+        <summaryFilterItems>
+            <field>Installed_Base__c.Product_Description__c</field>
+            <operation>equals</operation>
+            <value>VW Care</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Installed_Base__c.Product_Status__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Installed_Base__c.WebID__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Vanity_URL__c</fullName>
+        <externalId>false</externalId>
+        <label>Vanity URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Webmaster_Tools_Login_Submitted_to__c</fullName>
+        <description>Select Webmaster Tools Login</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select Webmaster Tools Login</inlineHelpText>
+        <label>Webmaster Tools Login Submitted to</label>
+        <picklist>
+            <picklistValues>
+                <fullName>procareseo2@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo3@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo4@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo5@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo6@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo7@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo8@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo9@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo10@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo11@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo12@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo13@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo14@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo15@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo16@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>procareseo17@yahoo.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Webnum__c</fullName>
+        <externalId>false</externalId>
+        <label>Webnum</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Website_Goals__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Primary Goals for website. Note: Must be specific and measurable. (I.E. Increase phone calls, emails, sales, etc)</inlineHelpText>
+        <label>Website Goals</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Website_Scan_Tool_URL__c</fullName>
+        <externalId>false</externalId>
+        <label>AA: Website Scan Tool URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>X5_Star_Review_Last_Update__c</fullName>
+        <externalId>false</externalId>
+        <label>5 Star Review Last Update</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>X5_Star_Reviews1__c</fullName>
+        <description>RMS enters Review for DAA to use in 5 Star DAP Ads</description>
+        <externalId>false</externalId>
+        <inlineHelpText>RMS enters Review for DAA to use in 5 Star DAP Ads</inlineHelpText>
+        <label>5 Star Reviews</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>X5_Star_Reviews2__c</fullName>
+        <description>RMS enters Review for DAA to use in 5 Star DAP Ads</description>
+        <externalId>false</externalId>
+        <inlineHelpText>RMS enters Review for DAA to use in 5 Star DAP Ads</inlineHelpText>
+        <label>5 Star Reviews</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>X5_Star_Reviews__c</fullName>
+        <description>RMS enters Review for DAA to use in 5 Star DAP Ads</description>
+        <externalId>false</externalId>
+        <inlineHelpText>RMS enters Review for DAA to use in 5 Star DAP Ads</inlineHelpText>
+        <label>5 Star Reviews</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>X5_Star_Video_Last_Update__c</fullName>
+        <externalId>false</externalId>
+        <label>5 Star Video Last Update</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>X5_Star_Video_Link__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Link to mapped network drive to video for dealership.</inlineHelpText>
+        <label>5 Star Video Link</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>X5_Star_Video_Text__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Recommended text for use in video creation. Character limit of 255.</inlineHelpText>
+        <label>5 Star Video Text</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Zip_Code__c</fullName>
+        <description>Pulls account zip code</description>
+        <externalId>false</externalId>
+        <formula>Account__r.CBLTZip__c</formula>
+        <inlineHelpText>Account Zip Code. Used as the Dealer&apos;s OOS password.</inlineHelpText>
+        <label>Zip Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>eAppend_Group__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(OR( 
+
+BEGINS( Account__r.Name , &quot;A&quot;), BEGINS(Account__r.Name, &quot;B&quot;), BEGINS(Account__r.Name, &quot;C&quot;), BEGINS(Account__r.Name, &quot;D&quot;), BEGINS(Account__r.Name, &quot;E&quot;), BEGINS(Account__r.Name, &quot;F&quot;), BEGINS(Account__r.Name, &quot;G&quot;), BEGINS(Account__r.Name, &quot;H&quot;) , BEGINS(Account__r.Name, &quot;I&quot;), BEGINS(Account__r.Name, &quot;J&quot;), BEGINS(Account__r.Name, &quot;K&quot;), BEGINS(Account__r.Name, &quot;L&quot;) ), &quot;A&quot; ,&quot;B&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>eAppend Group</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>WebID</label>
+    <listViews>
+        <fullName>My_WebId_s_AA</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Primary__c</columns>
+        <columns>Dealer_Group_Name__c</columns>
+        <columns>DA_Help_List__c</columns>
+        <columns>DA_Help_List_Reason__c</columns>
+        <columns>Account_Executive__c</columns>
+        <columns>SEO_Specialist__c</columns>
+        <columns>Online_Marketing_Specialist__c</columns>
+        <columns>OwnerMktg_Specialist_lookup__c</columns>
+        <columns>Social_Rep_Mgmt_Product__c</columns>
+        <columns>Reputation_Management_Specialist__c</columns>
+        <columns>Social_Media_Specialist__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Current_User_Is_Advocate__c</field>
+            <operation>equals</operation>
+            <value>Yes</value>
+        </filters>
+        <label>My WebId&apos;s - AA</label>
+        <language>en_US</language>
+        <sharedTo>
+            <roleAndSubordinates>AccountAdvocateDirector</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>My_WebId_s_OMS</fullName>
+        <columns>Account__c</columns>
+        <columns>NAME</columns>
+        <columns>Dealer_Group_Name__c</columns>
+        <columns>DA_Help_List__c</columns>
+        <columns>DA_Help_List_Reason__c</columns>
+        <columns>Account_Executive__c</columns>
+        <columns>Account_Advocate__c</columns>
+        <columns>SEO_Specialist__c</columns>
+        <columns>OwnerMktg_Specialist_lookup__c</columns>
+        <columns>Social_Rep_Mgmt_Product__c</columns>
+        <columns>Reputation_Management_Specialist__c</columns>
+        <columns>Social_Media_Specialist__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Current_User_Is_OMS__c</field>
+            <operation>equals</operation>
+            <value>Yes</value>
+        </filters>
+        <label>My WebId&apos;s - OMS</label>
+        <sharedTo>
+            <role>DigitalMarketingServicesDirector</role>
+            <roleAndSubordinates>OnlineMarketingManager</roleAndSubordinates>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <label>WebID</label>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>WebIDs</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Account_Advocate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OEM__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Locale__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Online_Marketing_Specialist__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Social_Media_Specialist__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Reputation_Management_Specialist__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>SEO_Specialist__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Account__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Account_Advocate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>OwnerMktg_Specialist_lookup__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Social_Media_Specialist__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Reputation_Management_Specialist__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>SEO_Specialist__c</lookupDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Locale__c</searchFilterFields>
+        <searchFilterFields>Account__c</searchFilterFields>
+        <searchFilterFields>Nitra_URL__c</searchFilterFields>
+        <searchFilterFields>OEM__c</searchFilterFields>
+        <searchFilterFields>Site_ID__c</searchFilterFields>
+        <searchFilterFields>Vanity_URL__c</searchFilterFields>
+        <searchResultsAdditionalFields>Account__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Account_Advocate__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>SEO_Specialist__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Online_Marketing_Specialist__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>OwnerMktg_Specialist_lookup__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Social_Media_Specialist__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Reputation_Management_Specialist__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>CB_DAHelpList_ReqReason</fullName>
+        <active>true</active>
+        <description>Reason pick list is required when DA Help List is checked.</description>
+        <errorConditionFormula>AND(
+NOT(BEGINS($User.Username,$Setup.GlobalSettings__c.Admin_Integration_Username__c)),
+$Profile.Name &lt;&gt;&quot;Cobalt Cast Iron Integration&quot;,
+ DA_Help_List__c = TRUE,
+ispickval(DA_Help_List_Reason__c , &quot;&quot;)
+)</errorConditionFormula>
+        <errorDisplayField>DA_Help_List_Reason__c</errorDisplayField>
+        <errorMessage>DA Help List Reason is required when DA Help List is checked.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CB_PowerSEOHelpList_ReqReason</fullName>
+        <active>true</active>
+        <description>Reason pick list is required when PowerSEO Help List is checked.</description>
+        <errorConditionFormula>AND(
+	NOT(BEGINS($User.Username,$Setup.GlobalSettings__c.Admin_Integration_Username__c)),
+	$Profile.Name&lt;&gt;&quot;Cobalt Cast Iron Integration&quot;,
+	PowerSEO_Help_List__c = TRUE,
+	ISPICKVAL(PowerSEO_Help_List_Reason__c,&quot;&quot;)
+	)</errorConditionFormula>
+        <errorDisplayField>PowerSEO_Help_List_Reason__c</errorDisplayField>
+        <errorMessage>PowerSEO Help List Reason is requires when PowerSEO Help List is checked.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CB_RepManHelpList_ReqReason</fullName>
+        <active>true</active>
+        <description>Reason pick list is required when RepMan Help List is checked.</description>
+        <errorConditionFormula>AND(
+NOT(BEGINS($User.Username,$Setup.GlobalSettings__c.Admin_Integration_Username__c)),
+$Profile.Name &lt;&gt;&quot;Cobalt Cast Iron Integration&quot;,
+ RepMan_Help_List__c = TRUE,
+ispickval( RepMan_Help_List_Reason__c  , &quot;&quot;)
+)</errorConditionFormula>
+        <errorDisplayField>RepMan_Help_List_Reason__c</errorDisplayField>
+        <errorMessage>RepMan Help List Reason is required when RepMan Help List is checked.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CB_SEO_3rd_P_Dealer_Needs_Decision_Maker</fullName>
+        <active>false</active>
+        <description>When the SEO – 3rd Party/Dealer check box is checked, the user must provide the contact at the dealership who made the decision. Excludes Service Ops users.</description>
+        <errorConditionFormula>AND( 
+NOT(BEGINS($User.Username,$Setup.GlobalSettings__c.Admin_Integration_Username__c)), 
+NOT( $UserRole.Name = &quot;Service Ops&quot;),
+ SEO_Opt_Out__c = TRUE,
+ISBLANK( SEO_Decision_Made_By__c )
+)</errorConditionFormula>
+        <errorDisplayField>SEO_Opt_Out__c</errorDisplayField>
+        <errorMessage>Please provide the contact who made this decision in the SEO Decision Made By field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CB_SEO_3rd_P_Dealer_Remove_Decision_Make</fullName>
+        <active>true</active>
+        <description>When the SEO – 3rd Party/Dealer check box is unchecked, the user must delete the contact at the dealership who originally made the decision.</description>
+        <errorConditionFormula>AND( 
+NOT(BEGINS($User.Username,$Setup.GlobalSettings__c.Admin_Integration_Username__c)), 
+SEO_Opt_Out__c = FALSE, 
+NOT(ISBLANK( SEO_Decision_Made_By__c ))
+)</errorConditionFormula>
+        <errorDisplayField>SEO_Opt_Out__c</errorDisplayField>
+        <errorMessage>If the dealership is switching back to Cobalt SEO, please remove the SEO Decision Made By contact.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Users_Cannot_edit_webid</fullName>
+        <active>true</active>
+        <description>Prevent webid from being edited by any users besides CastIron Integration/Conversoin</description>
+        <errorConditionFormula>AND (NOT(BEGINS($User.Username,$Setup.GlobalSettings__c.Admin_Integration_Username__c)), 
+Name&lt;&gt; PRIORVALUE(Name), 
+$User.Id &lt;&gt; $Label.Validation_WebID_users_cannot_edit_webid_User_1 , 
+$User.Id &lt;&gt; $Label.Validation_WebID_users_cannot_edit_webid_User_2 )</errorConditionFormula>
+        <errorDisplayField>Name</errorDisplayField>
+        <errorMessage>WEBID field Cannot be changed</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Business_Sites</fullName>
+        <availability>online</availability>
+        <description>Opens Business Sites applicable to this WebID.</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Business Sites</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/a11?rlid=00N40000002aU57&amp;id={!WebID__c.AccountId__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Cases</fullName>
+        <availability>online</availability>
+        <description>Links to a report - Cases By WebId and Status in the unfiled public reports folder.</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Cases</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00O40000003CJTb?&amp;pv0={!WebID__c.Name}&amp;pv1={!WebID__c.AccountId__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Contacts</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Contacts</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/003?rlid=RelatedContactList&amp;id={!WebID__c.AccountId__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Current_CMR</fullName>
+        <availability>online</availability>
+        <description>opens current CMR</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Current CMR</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>/* Created by: Alan Voorheis 
+Last Update: 9/24/2010av 
+NOTES: 
+- open current CMR if available 
+- Display Type is &quot;Detail Page Button&quot; 
+- Behavior is &quot;Execute JavaScript&quot; 
+- Content Source is &quot;OnClick JavaScript&quot; 
+note, to use net app folder, file://///Netapp-11/... (only works for IE) 
+to use sharepoint, http://cobalt/SiteDirectory/... (need to use this to support firefox) 
+last update, 11/22/10av, noticed that the year will be incorrect on jan 1, 2011, fixed 
+*/ 
+{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)} //adds the proper code for inclusion of AJAX toolkit 
+//alert(&quot;Please select at least one record to update.&quot;); //just a test for displaying a message 
+var d = new Date(); 
+d.setDate(1);     //first of the month
+d.setMonth(d.getMonth() - 1);//last month, since current month is actually one month behind 
+//this adjusts year, if needed, also 
+var curr_month = d.getMonth();//months start at 0, Jan is 0 
+curr_month = curr_month * 1;//set to number 
+curr_month = curr_month + 1;//adjust for js month offset 
+var curr_year = d.getYear(); 
+curr_year = curr_year + &quot;&quot;; 
+if (navigator.appName == &quot;Netscape&quot;)
+     {
+     curr_year = curr_year.slice(1);//just 2 digits for firefox
+     }
+else if (navigator.appVersion.slice(0,1) * 1 &lt; 5)
+     {
+     curr_year = curr_year.slice(2);//just 2 digits for IE8 and below
+     }
+else
+     {
+     curr_year = curr_year.slice(1);//just 2 digits for IE9 and above
+     };
+curr_month = curr_month + &quot;&quot;;//change to text 
+if (curr_month.length == 1) 
+     { 
+     curr_month = &quot;0&quot; + curr_month; //make sure we have a 2 digit month 
+     } 
+curr_month = curr_month + &quot;-&quot; + curr_year; 
+if({!WebID__c.Procare_Product__c}&gt;0) 
+     { 
+     window.open(&quot;http://adpdscobalt.ds.ad.adp.com/SiteDirectory/ABU/CustomerServices/ServiceOpsReportingPortal/CurrentMonthCMR/{!WebID__c.Name}_&quot; + curr_month + &quot;.pdf&quot;); 
+     } 
+else 
+     { 
+     alert(&quot;No CMR for {!WebID__c.Name}&quot;); 
+     };</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Dashboard</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Dashboard</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/apex/cb_accountdashboard?id={!WebID__c.AccountId__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Dealer_Group_Profile</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Dealer Group Profile</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/CB_DealerGroupProfile?oid={!WebID__c.Id}&amp;otype=WebID__c</url>
+    </webLinks>
+    <webLinks>
+        <fullName>MotorPlace</fullName>
+        <availability>online</availability>
+        <description>open mmp for this webid</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>MotorPlace</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>/* button to open my motor place with log in info from webid/webnum
+A. Voorheis, Oct &apos;10
+*/
+
+{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)} //adds the proper code for inclusion of AJAX toolkit
+window.open(&quot;https://www.webedge.com/sales_access/sales_access.cgi?form=redirect&amp;username={!URLENCODE( WebID__c.Name )}&amp;new_owner_id={!WebID__c.Webnum__c}&quot;);</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Case</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>New Case</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/500/e?retURL=%2F{!Case.Account}&amp;cas4= {!WebID__c.Account__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>OOS</fullName>
+        <availability>online</availability>
+        <description>Opens the OOS and populates the Zip Code and Dealer Code fields.</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>OOS</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://orders.cobalt.com/en/cobalt/login/index/form/54/package/49/reset/1?&amp;login_dealer_code={!WebID__c.BAC_Dealer_Code__c}&amp;login_post_code={!WebID__c.Zip_Code__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Previous_CMR</fullName>
+        <availability>online</availability>
+        <description>opens previous month CMR</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Previous CMR</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>/* Created by: Alan Voorheis
+Last Update: 9/24/2010av
+NOTES:
+     - open previous CMR if available (will get error if current/previous CMR is not available)
+     - Display Type is &quot;Detail Page Button&quot;
+     - Behavior is &quot;Execute JavaScript&quot;
+     - Content Source is &quot;OnClick JavaScript&quot;
+note, to use net app folder, file://///Netapp-11/... (only works in IE)
+to use sharepoint, http://cobalt/SiteDirectory/... (using this for now to support firefox)
+*/
+{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)} //adds the proper code for inclusion of AJAX toolkit
+var d = new Date();
+d.setDate(1); //first of the month 
+d.setMonth(d.getMonth() - 2);//previous month CMR, since current month is actually one month behind
+//this adjusts year, if needed, also
+var prev_month = d.getMonth();//months start at 0, Jan is 0
+prev_month = prev_month * 1;//set to number
+prev_month = prev_month + 1;//adjust for month offset
+var prev_year = d.getYear();
+prev_year = prev_year + &quot;&quot;;//set to text
+if (navigator.appName == &quot;Netscape&quot;)
+     {
+     prev_year = prev_year.slice(1);//just 2 digits for firefox
+     }
+else if (navigator.appVersion.slice(0,1) * 1 &lt; 5)
+     {
+     prev_year = prev_year.slice(2);//just 2 digits for IE8 and below
+     }
+else
+     {
+     prev_year = prev_year.slice(1);//just 2 digits for IE9 and above
+     };
+prev_month = prev_month + &quot;&quot;;//change to text
+if (prev_month.length == 1)
+     {
+     prev_month = &quot;0&quot; + prev_month; //make sure we have a 2 digit month
+     };
+prev_month = prev_month + &quot;-&quot; + prev_year;
+if({!WebID__c.Procare_Product__c}&gt;0)
+     {
+     window.open(&quot;http://adpdscobalt.ds.ad.adp.com/SiteDirectory/ABU/CustomerServices/ServiceOpsReportingPortal/PreviousMonthCMR/{!WebID__c.Name}_&quot; + prev_month + &quot;.pdf&quot;);
+     }
+else
+     {
+     alert(&quot;No CMR for {!WebID__c.Name}&quot;);
+     };</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Service_Contracts</fullName>
+        <availability>online</availability>
+        <description>Opens Service contracts applicable to this WebID.</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Service Contracts</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00O40000003CJTf?&amp;pv0={!WebID__c.AccountId__c}&amp;pv1={!WebID__c.Name}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>This_Dealer_Group_s_Contact_List</fullName>
+        <availability>online</availability>
+        <description>This links to the report This Dealer Group’s Contact List located in unfiled public reports folder.</description>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>This Dealer Group’s Contact List</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00O40000002xBdZ?&amp;pv0={!WebID__c.Dealer_Group_Name__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>This_Dealer_Group_s_WebId_List</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>This Dealer Group’s WebId List</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00O40000002xBda?&amp;pv0={!WebID__c.Dealer_Group_Name__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>URL_Details</fullName>
+        <availability>online</availability>
+        <description>View URL Details for the WebID</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>URL Details</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://services.prod.cobaltgroup.com/evo/websiteInfo?webId={!WebID__c.Name}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>View_Installed_Base_Details</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>View Installed Base Details</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00O40000002xBdQ?&amp;pv0={!WebID__c.Name}</url>
+    </webLinks>
+</CustomObject>

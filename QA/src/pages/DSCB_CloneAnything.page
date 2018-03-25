@@ -1,0 +1,133 @@
+<apex:page controller="DSCB_CloneAnything" docType="html-5.0" id="page">
+    
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.7.2.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.8.20.custom.min.js')}" />
+    
+    <apex:includeScript value="{!URLFOR($Resource.jQueryDataTables_v194, 'media/js/jquery.dataTables.js')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.jQueryDataTables_v194, 'media/css/demo_table_jui.css')}" />
+    
+    <apex:stylesheet value="{!URLFOR($Resource.jQuery, 'css/redmond/jquery-ui-1.8.20.custom.css')}" />
+    
+    <!-- Visualforce variables used by custom scripts -->
+    <script type="text/javascript">
+    var __InputBoxLoadingIcon = "{!URLFOR($Resource.InputBoxLoadingIcon)}";
+    var __InputBoxLoadingIconSmall = "{!URLFOR($Resource.InputBoxLoadingIconSmall)}";
+    var __ProcessingBarLoadingIcon = "{!URLFOR($Resource.blue_bar_loading_icon)}";
+    var __sFields = "{!AutocompleteFields}";
+    var __sType = "{!sType}";
+    var __sSubType = "{!sSubType}";
+    var __sId = "{!sId}";
+    
+    //added for addressing link issues with sObjects with no Name field like Case and Task
+    var __SobjectCloneStettingsNameField = "{!SobjectCloneStettingsNameField}";
+        
+    function SourceRecordFieldsForEdit() 
+    {
+        var FieldLists = {};
+        
+        var FieldNames = new Array();
+        var REFERENCEfieldsList = new Array();  
+        var AUTONUMBERfieldsList = new Array();
+        var DATEfieldsList = new Array();
+        
+        <apex:repeat value="{!REFERENCEfieldsList}" var="field">
+        REFERENCEfieldsList.push('{!JSENCODE(field)}');
+        </apex:repeat>
+            
+        <apex:repeat value="{!AUTONUMBERfieldsList}" var="field">
+        AUTONUMBERfieldsList.push('{!JSENCODE(field)}');
+        </apex:repeat>
+            
+        <apex:repeat value="{!FilteredSourceDisplayFields}" var="field">
+        FieldNames.push('{!JSENCODE(field)}');
+        </apex:repeat>
+        
+        <apex:repeat value="{!DATEfieldsList}" var="field">
+        DATEfieldsList.push('{!JSENCODE(field)}');
+        </apex:repeat>
+            
+        FieldLists["FieldNames"] = FieldNames;
+        FieldLists["REFERENCEfieldsList"] = REFERENCEfieldsList;
+        FieldLists["AUTONUMBERfieldsList"] = AUTONUMBERfieldsList;
+        FieldLists["DATEfieldsList"] = DATEfieldsList;
+        
+        return FieldLists;                
+    }   
+    </script>
+    
+    <apex:includeScript value="{!URLFOR($Resource.DSCB_CloneAnything_JS)}" />
+    <apex:stylesheet value="{!URLFOR($Resource.DSCB_CloneAnything_CSS)}" />
+    
+    <apex:sectionheader title="Clone Source Record to Destination Records" subtitle="Clone Records" />
+    <apex:messages style="color:red;" id="PageMessages" />
+    
+    <apex:form id="form">        
+        <apex:pageblock mode="maindetail" title="Source" >
+            <apex:pageblocksection title="Find Source Record" columns="1" id="FindSource">
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel value="Select Source Object Type" />
+                    <apex:outputpanel >
+                        <apex:selectlist size="1" multiselect="false" value="{!sType}" onchange="__sType = this.value; ToggleAutocompleteSearch();" styleclass="source-object-type-select" id="SelectType">
+                            <apex:selectoptions value="{!SourceObjectTypes}" />
+                        </apex:selectlist>
+                        <script type="text/javascript">
+                        var SelectType = document.getElementById("{!$Component.SelectType}");
+                        SelectType.value = "{!$CurrentPage.Parameters.sourcetype}";
+                        </script>
+                    </apex:outputpanel>
+                </apex:pageblocksectionitem>
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel value="Select Source Object" />
+                    <input type="text" class="autocomplete-input" id="SelectSObject" />
+                </apex:pageblocksectionitem>
+            </apex:pageblocksection>
+        </apex:pageblock>
+        
+        
+        <apex:pageblock mode="edit" title="Source Record Detail" rendered="{!IF(SourceRecord!=null,true,false)}" id="TheBlock">            
+            <apex:pageblocksection title="{!$ObjectType[$CurrentPage.Parameters.type].Label}" columns="1" id="PgBlockSec">                
+                <apex:actionFunction action="{!setDisplayAsOutputFieldsToFalse}" name="SetToFalse" reRender="PgBlockSec" status="StatusDisplay"/>
+                <apex:actionFunction action="{!setDisplayAsOutputFieldsToTrue}" name="SetToTrue" reRender="PgBlockSec"/>
+                <apex:inputhidden value="{!SourceRecord.Id}" id="HiddenSourceRecordId" />
+                <apex:inputhidden value="{!isOverrideCloning}" id="DisplayAsOutputFields" />                
+                <apex:repeat value="{!IF(DisplayAsOutputFields==true,SourceDisplayFields,FilteredSourceDisplayFields)}" var="sf" id="repeat">                    
+                    <apex:outputfield value="{!SourceRecord[sf]}" id="SourceRecordOutput" Rendered="{!DisplayAsOutputFields}">
+                        <!--<apex:inlineEditSupport showOnEdit="SaveSource, CancelSaveSource" event="ondblclick" changedStyleClass="bold" resetFunction="resetInlineEdit" />-->
+                    </apex:outputfield>
+                    <div class="divClass" id="divid">
+                    <apex:Inputfield value="{!SourceRecord[sf]}" id="SourceRecordInput" Rendered="{!Not(DisplayAsOutputFields)}"/>
+                    </div>                                                                                  
+                </apex:repeat> 
+                
+            </apex:pageblocksection>
+            
+            
+            <apex:pageblockbuttons >              
+                <!-- <apex:commandbutton action="{!SaveSource}" value="Save" id="SaveSource" /> -->
+                <!-- <apex:commandbutton onclick="resetInlineEdit();" value="Cancel" id="CancelSaveSource" /> -->
+                <button class="btn" id="SourceRecordEdit" onclick="OverrideButtonClick(); return false;">Override With Preferred Values</button>
+                <apex:actionStatus startText="Please wait..." id="StatusDisplay"/>       
+            </apex:pageblockbuttons>
+        </apex:pageblock>
+        
+    </apex:form>
+    
+    <apex:pageblock title="Destination" rendered="{!IF(SourceRecord!=null,true,false)}" id="DestinationRecords">
+        <apex:pageblockbuttons >            
+             <button class="btn" id="CloneToSelected" onclick="CloneToSelected();">Clone to Selected</button>
+            <button class="btn" id="Cancel" onclick="Cancel();">Cancel</button>            
+        </apex:pageblockbuttons>
+        <c:DataTable data="{!DestinationObjects}" columns="{!DestinationDisplayFields}" idField="Id" nameField="Name" checkboxes="true" /> 
+    </apex:pageblock>
+    
+    <div style="display:none;" id="ClonedRecordsContainer">
+        <apex:pageblock title="Cloned Records">
+            <div id="ClonedRecordsTableContainer">
+                <table id="ClonedRecordsTable"></table>
+            </div>
+            <apex:pageblockbuttons >
+                <button class="btn" onclick="SaveClones(); DisableCloneToSelectedButton();" id="SaveClonedRecords">Save Cloned Records</button>
+            </apex:pageblockbuttons>
+        </apex:pageblock>
+    </div>       
+</apex:page>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Competitive Products At Dealership</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Competitive Products At Dealership</value>
+    </caseValues>
+    <fields>
+        <help><!-- Select an ADP like solution that matches the client’s product. --></help>
+        <label><!-- ADP Product Name --></label>
+        <name>ADP_Product_Name__c</name>
+        <relationshipLabel><!-- Competitive Products At Dealership --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Competitive Products At Dealership --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Competitive Vendor Name --></label>
+        <name>Competitive_Vendor_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Competitive Vendor --></label>
+        <name>Competitive_Vendor__c</name>
+        <relationshipLabel><!-- Competitive Products At Dealership --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Enter as whole dollars. --></help>
+        <label><!-- Monthly Transactions --></label>
+        <name>Current_Monthly_Transactions__c</name>
+    </fields>
+    <fields>
+        <label><!-- End of Term Date --></label>
+        <name>End_of_Term_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Install Date --></label>
+        <name>Install_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Months to End of Term --></label>
+        <name>Months_to_End_of_Term__c</name>
+    </fields>
+    <fields>
+        <help><!-- Only fill in if &apos;Other&apos; is chosen for Competitive Vendor. --></help>
+        <label><!-- Non-Listed Vendor --></label>
+        <name>Non_Listed_Vendor__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notes --></label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter the # of users using the application or the # of handsets for telephony products. --></help>
+        <label><!-- # Users (or) # Handsets --></label>
+        <name>Num_Users_Num_Handsets__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter as whole dollars. --></help>
+        <label><!-- Recurring Monthlies --></label>
+        <name>Recurring_Monthlies__c</name>
+    </fields>
+    <layouts>
+        <layout>Competitive Products At Dealership Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- The Non-Listed Vendor field cannot be blank if Competitive Vendor selection is &apos;Other&apos;. The Non-Listed Vendor field should be blank when &apos;Other&apos; is not selected. --></errorMessage>
+        <name>Non_Listed_Vendor_Cannot_be_Null</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Competitive_Products_Total_Report --></label>
+        <name>Competitive_Products_Total_Report</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Mass_Clone --></label>
+        <name>Mass_Clone</name>
+    </webLinks>
+</CustomObjectTranslation>

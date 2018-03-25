@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Account Hierarchy Rolldown</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Account Hierarchy Rolldown</value>
+    </caseValues>
+    <fields>
+        <label><!-- All Profiles Allowed --></label>
+        <name>All_Profiles_Allowed__c</name>
+    </fields>
+    <fields>
+        <help><!-- The number of different fields can only be 22 (beyond this, the Account Hierarchy will error). --></help>
+        <label><!-- Field Name --></label>
+        <name>Field_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Profile Id --></label>
+        <name>Profile_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Query Condition --></label>
+        <name>Query_Condition__c</name>
+    </fields>
+    <fields>
+        <label><!-- Update WebID Field --></label>
+        <name>Update_WebID_Field__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

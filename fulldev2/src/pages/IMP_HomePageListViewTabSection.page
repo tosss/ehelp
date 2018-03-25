@@ -1,0 +1,14 @@
+<!--
+/*------------------------------------------------------------
+Author:      Jerick Lauio   
+Company:     Cloud Sherpas
+Description: [Phase 2 Rel 1]A VF Page used as a homepage component that shows a component that contains a group of Standard List Views
+History
+02/04/15     Jerick Laurio          Drafted
+03/16/15     Jerick Laurio          Created
+03/20/15     Jerick Laurio          Cleaned and refactored
+------------------------------------------------------------*/
+-->
+<apex:page >
+    <c:IMP_EnhanceListTabComponent />
+</apex:page>

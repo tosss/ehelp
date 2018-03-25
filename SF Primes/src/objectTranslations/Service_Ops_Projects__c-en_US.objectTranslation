@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Services Project</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Services Projects</value>
+    </caseValues>
+    <fields>
+        <label><!-- Business Owner --></label>
+        <name>Business_Owner__c</name>
+        <relationshipLabel><!-- Services Projects (Business Owner) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- This field will contain the technical overview of project provided by the Engagement Manager. --></help>
+        <label><!-- EM Notes --></label>
+        <name>EM_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- EM Status Update --></label>
+        <name>EM_Status_Update__c</name>
+    </fields>
+    <fields>
+        <label><!-- Launch Manager --></label>
+        <name>Launch_Manager__c</name>
+    </fields>
+    <fields>
+        <label><!-- Launch Type --></label>
+        <name>Launch_Type__c</name>
+        <picklistValues>
+            <masterLabel>Awareness Only</masterLabel>
+            <translation><!-- Awareness Only --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CXEM Priority List</masterLabel>
+            <translation><!-- CXEM Priority List --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Full Launch</masterLabel>
+            <translation><!-- Full Launch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal Services</masterLabel>
+            <translation><!-- Internal Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal Services Lite</masterLabel>
+            <translation><!-- Internal Services Lite --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Launch Lite</masterLabel>
+            <translation><!-- Launch Lite --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This field is used by management to assign a value to each project in order to determine capacity/workload. --></help>
+        <label><!-- Level of Effort --></label>
+        <name>Level_of_Effort__c</name>
+    </fields>
+    <fields>
+        <label><!-- Links &amp; Resources --></label>
+        <name>Links_Resources__c</name>
+    </fields>
+    <fields>
+        <label><!-- Milestones --></label>
+        <name>Milestones__c</name>
+    </fields>
+    <fields>
+        <label><!-- Overall Services Impact --></label>
+        <name>Overall_Services_Impact__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Open, Closed, or Cancelled (based on Project Stage) --></help>
+        <label><!-- Overall Status --></label>
+        <name>Overall_Status__c</name>
+    </fields>
+    <fields>
+        <help><!-- Bullet Points with Dates --></help>
+        <label><!-- PM Notes --></label>
+        <name>PM_Notes__c</name>
+    </fields>
+    <fields>
+        <help><!-- This box should be checked once the EM has transitioned this project to the PM. --></help>
+        <label><!-- PM Sync Complete --></label>
+        <name>PM_Sync_Complete__c</name>
+    </fields>
+    <fields>
+        <label><!-- Program --></label>
+        <name>Program__c</name>
+        <picklistValues>
+            <masterLabel>Ad Products</masterLabel>
+            <translation><!-- Ad Products --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BI</masterLabel>
+            <translation><!-- BI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BMW</masterLabel>
+            <translation><!-- BMW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Core</masterLabel>
+            <translation><!-- Core --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM</masterLabel>
+            <translation><!-- GM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM Canada</masterLabel>
+            <translation><!-- GM Canada --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM Mexico</masterLabel>
+            <translation><!-- GM Mexico --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Holden</masterLabel>
+            <translation><!-- Holden --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hyundai</masterLabel>
+            <translation><!-- Hyundai --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IT/Corp Initiative</masterLabel>
+            <translation><!-- IT/Corp Initiative --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Infiniti</masterLabel>
+            <translation><!-- Infiniti --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal Focused</masterLabel>
+            <translation><!-- Internal Focused --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kia</masterLabel>
+            <translation><!-- Kia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lexus</masterLabel>
+            <translation><!-- Lexus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MINI</masterLabel>
+            <translation><!-- MINI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mazda</masterLabel>
+            <translation><!-- Mazda --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nissan</masterLabel>
+            <translation><!-- Nissan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non Endorsed</masterLabel>
+            <translation><!-- Non Endorsed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toyota</masterLabel>
+            <translation><!-- Toyota --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VW</masterLabel>
+            <translation><!-- VW --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Project Description --></label>
+        <name>Project_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Stage --></label>
+        <name>Project_Stage__c</name>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Launched</masterLabel>
+            <translation><!-- Launched --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Hold</masterLabel>
+            <translation><!-- On Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planning</masterLabel>
+            <translation><!-- Planning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post Launch Support</masterLabel>
+            <translation><!-- Post Launch Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pre-Launch</masterLabel>
+            <translation><!-- Pre-Launch --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Project Start Date --></label>
+        <name>Project_Start_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Green: Project is on track for completion by GA Date. 
+Yellow: Project target GA date is at risk of slipping.
+Red: Project is blocked and team cannot make further progress. --></help>
+        <label><!-- Project Status --></label>
+        <name>Project_Status__c</name>
+        <picklistValues>
+            <masterLabel>Green</masterLabel>
+            <translation><!-- Green --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Red</masterLabel>
+            <translation><!-- Red --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yellow</masterLabel>
+            <translation><!-- Yellow --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Project Updates --></label>
+        <name>Project_Updates__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Engagement Manager --></label>
+        <name>Service_Engagement_Manager__c</name>
+        <relationshipLabel><!-- Services Projects (Service Engagement Manager) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Service Projects --></label>
+        <name>Service_Projects__c</name>
+        <relationshipLabel><!-- Services Projects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Services Priority --></label>
+        <name>Services_Priority__c</name>
+    </fields>
+    <fields>
+        <label><!-- Services Project ID --></label>
+        <name>Services_Project_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Steps to Green --></label>
+        <name>Steps_to_Green__c</name>
+    </fields>
+    <fields>
+        <label><!-- Target End Date --></label>
+        <name>Target_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Target Launch Date --></label>
+        <name>Target_Launch_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Teams Impacted --></label>
+        <name>Teams_Impacted__c</name>
+        <picklistValues>
+            <masterLabel>AA</masterLabel>
+            <translation><!-- AA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DAA</masterLabel>
+            <translation><!-- DAA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IFS</masterLabel>
+            <translation><!-- IFS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>L&amp;D</masterLabel>
+            <translation><!-- L&amp;D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing Strategist</masterLabel>
+            <translation><!-- Marketing Strategist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RepMan</masterLabel>
+            <translation><!-- RepMan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SEO</masterLabel>
+            <translation><!-- SEO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Ops</masterLabel>
+            <translation><!-- Service Ops --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TS</masterLabel>
+            <translation><!-- TS --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Project Profile</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Engagement Manager 2 --></label>
+            <section>Engagement Manager 2</section>
+        </sections>
+        <sections>
+            <label><!-- Project Overview --></label>
+            <section>Project Overview</section>
+        </sections>
+        <sections>
+            <label><!-- Project Overview 2 --></label>
+            <section>Project Overview 2</section>
+        </sections>
+        <sections>
+            <label><!-- Project Status --></label>
+            <section>Project Status</section>
+        </sections>
+        <sections>
+            <label><!-- Service Engagement Manager --></label>
+            <section>Service Engagement Manager</section>
+        </sections>
+        <sections>
+            <label><!-- blank --></label>
+            <section>blank</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Project Profile --></label>
+        <name>Project_Profile</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Issues_Export --></label>
+        <name>Issues_Export</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Questions_Action_Items_Export --></label>
+        <name>Questions_Action_Items_Export</name>
+    </webLinks>
+</CustomObjectTranslation>

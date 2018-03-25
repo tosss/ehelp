@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Letterhead xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <backgroundColor>#CCCCCC</backgroundColor>
+    <bodyColor>#CCCCCC</bodyColor>
+    <bottomLine>
+        <color>#CCCCCC</color>
+        <height>5</height>
+    </bottomLine>
+    <footer>
+        <backgroundColor>#CCCCCC</backgroundColor>
+        <height>0</height>
+        <horizontalAlignment>Left</horizontalAlignment>
+        <verticalAlignment>Top</verticalAlignment>
+    </footer>
+    <header>
+        <backgroundColor>#CCCCCC</backgroundColor>
+        <height>0</height>
+        <horizontalAlignment>Left</horizontalAlignment>
+        <verticalAlignment>Top</verticalAlignment>
+    </header>
+    <middleLine>
+        <color>#CCCCCC</color>
+        <height>5</height>
+    </middleLine>
+    <name>DSM Letterhead #4</name>
+    <topLine>
+        <color>#CCCCCC</color>
+        <height>5</height>
+    </topLine>
+</Letterhead>

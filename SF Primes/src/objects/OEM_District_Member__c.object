@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>This is a junction object to create many to many relationships between OEM District, WebId and Account Plans.  This object was primarily built to support GM US District alignment.  This is to support communication logging against district records.  This may be expanded to the CB Digital Advisor group (part of Enterprise Sales) if they choose.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>CB_Account_Plan__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account Plan</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>Please select an Account Plan that is associated to the listed WebId</errorMessage>
+            <filterItems>
+                <field>Account_Plan__c.WebID__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.CB_WebId__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account_Plan__c</referenceTo>
+        <relationshipLabel>OEM District Members</relationshipLabel>
+        <relationshipName>Account_Plan_OEM_District_Members</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CB_Account__c</fullName>
+        <externalId>false</externalId>
+        <formula>CB_WebId__r.Account__r.Name</formula>
+        <label>Account</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CB_Dealer_Group_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>CB_WebId__r.Dealer_Group_Name__c</formula>
+        <label>Dealer Group Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CB_District_Manager_After_Sales__c</fullName>
+        <externalId>false</externalId>
+        <label>District Manager After Sales</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CB_District_Manager__c</fullName>
+        <externalId>false</externalId>
+        <formula>CB_OEM_District__r.CB_District_Manager__r.Full_Name__c &amp; &quot; / &quot; &amp; CB_OEM_District__r.CB_District_Manager__r.Email &amp; &quot; / &quot; &amp;  CB_OEM_District__r.CB_District_Manager__r.Phone</formula>
+        <label>District Manager</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CB_District_Owner__c</fullName>
+        <externalId>false</externalId>
+        <formula>CB_OEM_District__r.Owner:User.FirstName &amp; &quot; &quot; &amp;  CB_OEM_District__r.Owner:User.LastName</formula>
+        <label>District Owner</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CB_OEM_District_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>CB_OEM_District__r.CB_OEM_District_Name__c</formula>
+        <label>OEM District Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CB_OEM_District__c</fullName>
+        <deleteConstraint>Cascade</deleteConstraint>
+        <externalId>false</externalId>
+        <label>OEM District</label>
+        <referenceTo>CB_OEM_District__c</referenceTo>
+        <relationshipLabel>OEM District Members</relationshipLabel>
+        <relationshipName>OEM_District_OEM_District_Members</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CB_Primary_District__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>If checked then this is the primary district for the listed account.</inlineHelpText>
+        <label>Primary District</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>CB_SVC_AP_Owner__c</fullName>
+        <externalId>false</externalId>
+        <formula>CB_Account_Plan__r.Owner:User.FirstName &amp; &quot; &quot; &amp; CB_Account_Plan__r.Owner:User.LastName</formula>
+        <label>AP Owner</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CB_WebId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>WebID</label>
+        <referenceTo>WebID__c</referenceTo>
+        <relationshipLabel>OEM District Members</relationshipLabel>
+        <relationshipName>WebId_OEM_District_Members</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CB_Zone_Manager_After_Sales__c</fullName>
+        <externalId>false</externalId>
+        <label>Zone Manager After Sales</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CB_Zone_Manager__c</fullName>
+        <externalId>false</externalId>
+        <formula>CB_OEM_District__r.CB_Zone_Manager__r.Full_Name__c &amp; &quot; / &quot; &amp;  CB_OEM_District__r.CB_Zone_Manager__r.Email &amp; &quot; / &quot; &amp;  CB_OEM_District__r.CB_Zone_Manager__r.Phone</formula>
+        <label>Zone Manager</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>OEM District Member</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>OEMDM-{00000}</displayFormat>
+        <label>OEM District Member Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>OEM District Members</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>CB_OEM_District__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>CB_OEM_District__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CB_OEM_District__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>CB_OEM_District__c</searchFilterFields>
+        <searchFilterFields>CB_Account__c</searchFilterFields>
+        <searchFilterFields>CB_WebId__c</searchFilterFields>
+        <searchFilterFields>CB_Account_Plan__c</searchFilterFields>
+        <searchResultsAdditionalFields>CB_OEM_District__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

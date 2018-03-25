@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Baseline/Multiple Products - Admin</layout>
+        <sections>
+            <label><!-- Additional Lost/Inactive Info --></label>
+            <section>Additional Lost/Inactive Info</section>
+        </sections>
+        <sections>
+            <label><!-- Channel QC Credit --></label>
+            <section>Channel QC Credit</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Dash Info --></label>
+            <section>Dash Info</section>
+        </sections>
+        <sections>
+            <label><!-- Digital Advertising - Monthly Spend --></label>
+            <section>Digital Advertising - Monthly Spend</section>
+        </sections>
+        <sections>
+            <label><!-- Lost/Inactive/Canceled Information --></label>
+            <section>Lost/Inactive/Canceled Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Strategic Growth Solutions --></label>
+            <section>Strategic Growth Solutions</section>
+        </sections>
+        <sections>
+            <label><!-- TSM Information - Insert Dates Completed Below --></label>
+            <section>TSM Information - Insert Dates Completed Below</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Baseline/Multiple Products - New</layout>
+        <sections>
+            <label><!-- Additional Lost/Inactive Info --></label>
+            <section>Additional Lost/Inactive Info</section>
+        </sections>
+        <sections>
+            <label><!-- Channel QC Credit --></label>
+            <section>Channel QC Credit</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Dash Info --></label>
+            <section>Dash Info</section>
+        </sections>
+        <sections>
+            <label><!-- Digital Advertising - Monthly Spend --></label>
+            <section>Digital Advertising - Monthly Spend</section>
+        </sections>
+        <sections>
+            <label><!-- Lost/Inactive/Canceled Information --></label>
+            <section>Lost/Inactive/Canceled Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Strategic Growth Solutions --></label>
+            <section>Strategic Growth Solutions</section>
+        </sections>
+        <sections>
+            <label><!-- TSM Information - Insert Dates Completed Below --></label>
+            <section>TSM Information - Insert Dates Completed Below</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Baseline/Multiple Products - SC</layout>
+        <sections>
+            <label><!-- Additional Lost/Inactive Info --></label>
+            <section>Additional Lost/Inactive Info</section>
+        </sections>
+        <sections>
+            <label><!-- Channel QC Credit --></label>
+            <section>Channel QC Credit</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Digital Advertising - Monthly Spend --></label>
+            <section>Digital Advertising - Monthly Spend</section>
+        </sections>
+        <sections>
+            <label><!-- Lost/Inactive/Canceled Information --></label>
+            <section>Lost/Inactive/Canceled Information</section>
+        </sections>
+        <sections>
+            <label><!-- Strategic Growth Solutions --></label>
+            <section>Strategic Growth Solutions</section>
+        </sections>
+        <sections>
+            <label><!-- TSM Information - Insert Dates Completed Below --></label>
+            <section>TSM Information - Insert Dates Completed Below</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>DOX Opportunity Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Digital Solutions Add-On Layout - New</layout>
+        <sections>
+            <label><!-- Additional Lost/Inactive Info --></label>
+            <section>Additional Lost/Inactive Info</section>
+        </sections>
+        <sections>
+            <label><!-- Channel QC Credit --></label>
+            <section>Channel QC Credit</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Digital Advertising - Monthly Spend --></label>
+            <section>Digital Advertising - Monthly Spend</section>
+        </sections>
+        <sections>
+            <label><!-- Lost/Inactive/Canceled Information --></label>
+            <section>Lost/Inactive/Canceled Information</section>
+        </sections>
+        <sections>
+            <label><!-- Strategic Growth Solutions --></label>
+            <section>Strategic Growth Solutions</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Digital Solutions BZ Migration Layout</layout>
+        <sections>
+            <label><!-- Influencer Notes --></label>
+            <section>Influencer Notes</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Digital Solutions Enrollment Layout(Testing-Temp)</layout>
+        <sections>
+            <label><!-- Influencing the Decision --></label>
+            <section>Influencing the Decision</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Digital Solutions Enrollment/DAP Page Layout(NOT IN USE)</layout>
+        <sections>
+            <label><!-- Influencing the Decision --></label>
+            <section>Influencing the Decision</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Digital Solutions Pipeline Layout</layout>
+        <sections>
+            <label><!-- Influencer Notes --></label>
+            <section>Influencer Notes</section>
+        </sections>
+        <sections>
+            <label><!-- MDA and Order Form Information --></label>
+            <section>MDA and Order Form Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Forecast Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- THIS IS A CHILD OPPORTUNITY!  CLICK BELOW TO EDIT THE PARENT! --></label>
+            <section>THIS IS A CHILD OPPORTUNITY!  CLICK BELOW TO EDIT THE PARENT!</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>IPT Add-On Layout - New</layout>
+        <sections>
+            <label><!-- Additional Lost/Inactive Info --></label>
+            <section>Additional Lost/Inactive Info</section>
+        </sections>
+        <sections>
+            <label><!-- Channel QC Credit --></label>
+            <section>Channel QC Credit</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Lost/Inactive/Canceled Information --></label>
+            <section>Lost/Inactive/Canceled Information</section>
+        </sections>
+        <sections>
+            <label><!-- Strategic Growth Solutions --></label>
+            <section>Strategic Growth Solutions</section>
+        </sections>
+        <sections>
+            <label><!-- TSM Information - Insert Dates Completed Below --></label>
+            <section>TSM Information - Insert Dates Completed Below</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Inside Sales Layout - ISR users</layout>
+        <sections>
+            <label><!-- Additional Lost/Inactive Info --></label>
+            <section>Additional Lost/Inactive Info</section>
+        </sections>
+        <sections>
+            <label><!-- Channel QC Credit --></label>
+            <section>Channel QC Credit</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Inside Sales Information --></label>
+            <section>Inside Sales Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lost/Inactive/Canceled Information --></label>
+            <section>Lost/Inactive/Canceled Information</section>
+        </sections>
+        <sections>
+            <label><!-- Strategic Growth Solutions --></label>
+            <section>Strategic Growth Solutions</section>
+        </sections>
+        <sections>
+            <label><!-- TSM Information - Insert Dates Completed Below --></label>
+            <section>TSM Information - Insert Dates Completed Below</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Inside Sales Layout - Non-ISR users</layout>
+        <sections>
+            <label><!-- Additional Lost/Inactive Info --></label>
+            <section>Additional Lost/Inactive Info</section>
+        </sections>
+        <sections>
+            <label><!-- Channel QC Credit --></label>
+            <section>Channel QC Credit</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Inside Sales Information --></label>
+            <section>Inside Sales Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lost/Inactive/Canceled Information --></label>
+            <section>Lost/Inactive/Canceled Information</section>
+        </sections>
+        <sections>
+            <label><!-- Strategic Growth Solutions --></label>
+            <section>Strategic Growth Solutions</section>
+        </sections>
+        <sections>
+            <label><!-- TSM Information - Insert Dates Completed Below --></label>
+            <section>TSM Information - Insert Dates Completed Below</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Retail Solutions Layout</layout>
+        <sections>
+            <label><!-- Additional Lost/Inactive Info --></label>
+            <section>Additional Lost/Inactive Info</section>
+        </sections>
+        <sections>
+            <label><!-- Channel QC Credit --></label>
+            <section>Channel QC Credit</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Lost/Inactive/Canceled Information --></label>
+            <section>Lost/Inactive/Canceled Information</section>
+        </sections>
+        <sections>
+            <label><!-- Strategic Growth Solutions --></label>
+            <section>Strategic Growth Solutions</section>
+        </sections>
+        <sections>
+            <label><!-- TSM Information - Insert Dates Completed Below --></label>
+            <section>TSM Information - Insert Dates Completed Below</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Simple Add-On Opportunity</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Add-On Deal Request --></label>
+        <name>Add_On_Deal_Request</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Remote Sign --></label>
+        <name>CB_Remote_Sign</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Sign In Person --></label>
+        <name>CB_Sign_In_Person</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Solution Consultant Presentation --></label>
+        <name>Create_SC_Demo</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create Sales Discovery --></label>
+        <name>Create_Sales_Discovery</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Deal Change Request --></label>
+        <name>Deal_Change_Request</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Remote Demo --></label>
+        <name>Remote_Demo</name>
+    </quickActions>
+    <workflowTasks>
+        <description><!-- This is a reminder to follow up with the Opportunity that is listed under the Related To column on the Task section on the homepage.  It Stage value of Decision/Cancelled or Closed Lost was previously selected. --></description>
+        <name>OpportunityFollowUp</name>
+        <subject><!-- Opportunity Follow Up --></subject>
+    </workflowTasks>
+</CustomObjectTranslation>

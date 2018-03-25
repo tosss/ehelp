@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Account Re-Link</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Account Re-Links</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account Updated? --></label>
+        <name>Account_Updated__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cobalt Account City --></label>
+        <name>Cobalt_Account_City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cobalt Account Country --></label>
+        <name>Cobalt_Account_Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cobalt Account Number --></label>
+        <name>Cobalt_Account_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cobalt Account Phone --></label>
+        <name>Cobalt_Account_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cobalt Account State --></label>
+        <name>Cobalt_Account_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cobalt Account Street --></label>
+        <name>Cobalt_Account_Street__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cobalt Account Zip Code --></label>
+        <name>Cobalt_Account_Zip_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cobalt Account --></label>
+        <name>Cobalt_Account__c</name>
+        <relationshipLabel><!-- Account Re-Links (Cobalt Account) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Detail Errors --></label>
+        <name>Detail_Errors__c</name>
+    </fields>
+    <fields>
+        <label><!-- Detail Successes --></label>
+        <name>Detail_Successes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Details Pending --></label>
+        <name>Details_Pending__c</name>
+    </fields>
+    <fields>
+        <label><!-- Details with Inactive Owners --></label>
+        <name>Details_with_Inactive_Owners__c</name>
+    </fields>
+    <fields>
+        <label><!-- Overall Status --></label>
+        <name>Overall_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Party Account City --></label>
+        <name>Party_Account_City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Party Account Country --></label>
+        <name>Party_Account_Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- Party Account Phone --></label>
+        <name>Party_Account_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Party Account State --></label>
+        <name>Party_Account_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Party Account Street --></label>
+        <name>Party_Account_Street__c</name>
+    </fields>
+    <fields>
+        <label><!-- Party Account Zip Code --></label>
+        <name>Party_Account_Zip_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Party Account --></label>
+        <name>Party_Account__c</name>
+        <relationshipLabel><!-- Account Re-Links --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Party ID --></label>
+        <name>Party_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Relink Date --></label>
+        <name>Relink_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Request --></label>
+        <name>Request__c</name>
+        <relationshipLabel><!-- Account Re-Links --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Status Message --></label>
+        <name>Status_Message__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Detail Records --></label>
+        <name>Total_Detail_Records__c</name>
+    </fields>
+    <layouts>
+        <layout>Account Re-Link Layout</layout>
+        <sections>
+            <label><!-- Cobalt Number and Party ID --></label>
+            <section>Cobalt Number and Party ID</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Ids and Numbers --></label>
+            <section>Ids and Numbers</section>
+        </sections>
+        <sections>
+            <label><!-- Status Message --></label>
+            <section>Status Message</section>
+        </sections>
+        <sections>
+            <label><!-- Summary Details --></label>
+            <section>Summary Details</section>
+        </sections>
+        <sections>
+            <label><!-- Validation Information --></label>
+            <section>Validation Information</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Relink_Accounts --></label>
+        <name>Relink_Accounts</name>
+    </webLinks>
+</CustomObjectTranslation>

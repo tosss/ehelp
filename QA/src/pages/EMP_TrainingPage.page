@@ -1,0 +1,9 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="false" controller="EMP_TrainingComponentController">
+    <ul id="choose" class="tool-list">
+        <apex:repeat value="{!lstContentVersions}" var="TR" >
+            <li>
+                <apex:outputLink styleClass="sidebarlist" target="_blank" onclick="" value="/apex/ContentPreview?contentId={!TR.Id}">{!TR.Title}</apex:outputLink>
+            </li>
+        </apex:repeat>  
+    </ul>    
+</apex:page>

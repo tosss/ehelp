@@ -1,0 +1,120 @@
+<apex:page controller="dh_superclone.SuperCloneController" action="{!SkipConfirmation}">
+   <script>
+function checkAll(cb,reldiv) {
+  var inputElem = document.getElementById(reldiv).getElementsByTagName('input');
+  for(var i=0; i<inputElem.length; i++) {
+    if(inputElem[i].id.indexOf("checkedrow")!=-1)
+     inputElem[i].checked = cb.checked;
+  }
+}   
+</script>
+   <apex:pageMessages id="pageMessages" />
+   <apex:outputPanel rendered="{!DisplayClone}">
+      <apex:form id="theForm">
+         <apex:outputPanel rendered="{!!ShowList}">
+            <!-- Command Buttons -->
+            <apex:pageblock mode="maindetail">
+               <apex:pageBlockButtons location="top">
+                  <apex:actionStatus id="ButtonStatus1">
+                     <apex:facet name="stop">
+                        <apex:outputPanel >
+                           <apex:commandButton value="Clone" action="{!DoClone}" status="ButtonStatus1" rerender="pageMessages,theForm" />
+                           <apex:commandButton value="Cancel" action="{!DoCancel}" status="ButtonStatus1" rerender="pageMessages"
+                              immediate="true" />
+                        </apex:outputPanel>
+                     </apex:facet>
+                     <apex:facet name="start">
+                        <apex:outputPanel >
+                           <apex:commandButton value="Processing..." disabled="true" />
+                           <apex:commandButton value="Processing..." disabled="true" />
+                        </apex:outputPanel>
+                     </apex:facet>
+                  </apex:actionStatus>
+               </apex:pageBlockButtons>
+            </apex:pageblock>
+
+            <!-- Clone Multiple Times -->
+            <apex:pageBlock mode="maindetail" rendered="{!CloneConfig.dh_superclone__AllowCloningMultipleTimes__c}">
+               <apex:pageBlockSection columns="2">
+                  <apex:pageBlockSectionItem >
+                     <apex:outputLabel for="CloneMultiple" value="How many clones should be created?" />
+                     <apex:inputText maxlength="3" value="{!CloneMultiple}" id="CloneMultiple" onkeydown="return isNumber(event);"/>
+                  </apex:pageBlockSectionItem>
+               </apex:pageBlockSection>
+            </apex:pageBlock> 
+
+            <!-- Primary Object Data -->
+            <apex:pageBlock mode="edit" title="{!PrimaryObj.rObj.oLabel}" rendered="{!PrimaryObj.rObj.ShowFieldList.size>0}">
+               <apex:pageBlockSection columns="2">
+                  <apex:repeat value="{!PrimaryObj.rObj.oRecordList}" var="rec">
+                     <apex:repeat value="{!PrimaryObj.rObj.ShowFieldList}" var="fld">
+                        <apex:inputField value="{!rec.orRecord[fld.fName]}" rendered="{!fld.fEdit}" />
+                        <apex:outputField value="{!rec.orRecord[fld.fName]}" rendered="{!!fld.fEdit}" />
+                     </apex:repeat>
+                  </apex:repeat>
+               </apex:pageBlockSection>
+            </apex:pageBlock>
+            <!-- Related List Data -->
+            <apex:repeat value="{!RelWrapList}" var="rel">
+               <div id="{!rel.rName}">
+                  <apex:PageBlock title="{!rel.rObj.oLabel}">
+                     <apex:pageBlockTable value="{!rel.rObj.oRecordList}" var="rec" columnsWidth="35px">
+
+                        <apex:column >
+                           <apex:facet name="header">
+                              <apex:inputCheckbox value="{!CheckBoxInit}">
+                                 <apex:actionSupport event="onclick" onsubmit="checkAll(this,'{!rel.rName}')" rerender="nothing" />
+                              </apex:inputCheckbox>
+                           </apex:facet>
+                           <apex:inputCheckbox value="{!rec.orChecked}" id="checkedrow" />
+                        </apex:column>
+
+                        <apex:repeat value="{!rel.rObj.ShowFieldList}" var="fld">
+                           <apex:column >
+                              <apex:facet name="header">{!fld.fLabel}</apex:facet>
+                              <apex:inputField value="{!rec.orRecord[fld.fName]}" rendered="{!fld.fEdit}" />
+                              <apex:outputField value="{!rec.orRecord[fld.fName]}" rendered="{!!fld.fEdit}" />
+                           </apex:column>
+                        </apex:repeat>
+
+                     </apex:pageBlockTable>
+                  </apex:PageBlock>
+               </div>
+            </apex:repeat>
+         </apex:outputPanel>
+         <apex:outputPanel rendered="{!ShowList}">
+            <h3>Cloned Records</h3>
+            <ol>
+               <apex:repeat value="{!sObjList}" var="rec">
+                  <li class="clone-rec"><a href="/{!rec['Id']}">{!JSENCODE(rec[ListField])}</a></li>
+               </apex:repeat>
+            </ol>
+         </apex:outputPanel>
+      </apex:form>
+   </apex:outputPanel>
+<style>
+.clone-rec {
+    margin-bottom: 5px;
+}
+.clone-rec a {
+    text-decoration: none;
+}
+.clone-rec a.hover {
+    text-decoration: underline;
+}
+</style>
+<script>
+function isNumber(event) {
+  if (event) {
+    var charCode = (event.which) ? event.which : event.keyCode;
+    if (charCode > 31 && 
+       (charCode < 48 || charCode > 57) && 
+       (charCode < 96 || charCode > 105) && 
+       (charCode < 37 || charCode > 40) && 
+        charCode != 8 && charCode != 46 )
+       return false;
+  }
+  return true;
+}
+</script>
+</apex:page>

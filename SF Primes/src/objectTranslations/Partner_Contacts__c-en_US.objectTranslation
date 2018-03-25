@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Partner Contact</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Partner Contacts</value>
+    </caseValues>
+    <fields>
+        <label><!-- Email --></label>
+        <name>Email__c</name>
+    </fields>
+    <fields>
+        <help><!-- Organization affiliated with partner contact. --></help>
+        <label><!-- Partner Organization --></label>
+        <name>Partner_Organization__c</name>
+        <picklistValues>
+            <masterLabel>Shift Digital</masterLabel>
+            <translation><!-- Shift Digital --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Phone --></label>
+        <name>Phone__c</name>
+    </fields>
+    <fields>
+        <help><!-- Authorization code for partner contact --></help>
+        <label><!-- Security Code --></label>
+        <name>Security_Code__c</name>
+    </fields>
+    <fields>
+        <help><!-- Status of the contact record --></help>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Partner Contact Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

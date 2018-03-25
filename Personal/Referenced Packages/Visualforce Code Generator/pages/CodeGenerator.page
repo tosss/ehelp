@@ -1,0 +1,258 @@
+<apex:page id="pg" controller="vfgenerator.CodeGeneratorController">
+
+<c:YUI_ModalLoader id="YUILoader"/>
+
+<apex:form id="frm">
+
+<script type="text/javascript">
+    var __sfdcSessionId = '{!GETSESSIONID()}';
+</script>
+
+<script src="../../soap/ajax/19.0/connection.js" type="text/javascript"></script>
+
+<script>
+    function resultOfDescribeLayout()
+    {
+        var result;
+        try
+        {
+            var obj = document.getElementById('pg:frm:pb:pbs1:pbs4:obj') ;
+            var recordType = document.getElementById('pg:frm:pb:pbRec:pbsiRec:recTyp') ;
+            var type = document.getElementById('pg:frm:pb:pbs2:pbs3:selectLst').value ;
+            
+            if(type != 'CustomDetail' && type != 'CustomEdit')
+            {
+                if(recordType.value != '' && recordType.value != null)
+                    result = sforce.connection.describeLayout(obj.value, new Array(recordType.value));
+                else
+                    result = sforce.connection.describeLayout(obj.value);
+                
+                if(type == 'Edit')
+                    editLayoutResults(result, obj)
+                else
+                    detailLayoutResults(result , obj)
+            }
+            else
+            {
+                sendResult('') ;
+            }
+            
+        }
+        catch(error)
+        {
+            alert('ERROR : Please Check the Object API Name or Record Type Id if you have entered') ;
+        }
+    }
+    
+    //Edit Layout
+    function editLayoutResults(result, obj) {
+        var output = '';
+        var layouts = result.getArray("layouts");
+    
+        output += '<' + 'apex' + ':' + 'page standardController=' + '"' + obj.value + '"' + '>';
+        output += '\n';
+        output += '<' + 'apex' + ':' + 'sectionHeader' + ' title=' + '"' + obj.value + ' Edit' + '"' + ' subtitle=' + '"' + '{' + '!' + obj.value + '.name}' + '"' + '/>';
+        output += '\n';
+        output += '<' + 'apex' + ':' + 'form' + '>';
+        output += '\n';
+        output += '<' + 'apex' + ':' + 'pageBlock title=' + '"' + obj.value + ' Edit' + '"' + ' mode=' + '"edit">';
+        output += '\n';
+        output += '\n';
+        output += '<' + 'apex' + ':' + 'pageBlockButtons location=' + '"top">';
+        output += '\n';
+        output += '<' + 'apex:commandButton value=' + '"' + 'Save' + '" ' + 'action=' + '"' + '{' + '!' + 'save' + '}"' + '/>';
+        output += '\n';
+        output += '<' + 'apex:commandButton value=' + '"' + 'Save & New' + '"' + ' action=' + '"' + '{' + '!save}" />';
+        output += '\n';
+        output += '<' + 'apex:commandButton value="Cancel" action=' + '"' + '{' + '!cancel}' + '"/>';
+        output += '\n';
+        output += '<' + '/apex:pageBlockButtons>';
+        output += '\n';
+        output += '\n';
+        output += '<' + 'apex' + ':' + 'pageBlockButtons location=' + '"bottom">';
+        output += '\n';
+        output += '<' + 'apex:commandButton value=' + '"' + 'Save' + '" ' + 'action=' + '"' + '{' + '!' + 'save' + '}"' + '/>';
+        output += '\n';
+        output += '<' + 'apex:commandButton value=' + '"' + 'Save & New' + '"' + ' action=' + '"' + '{' + '!save}" />';
+        output += '\n';
+        output += '<' + 'apex:commandButton value="Cancel" action=' + '"' + '{' + '!cancel}' + '"/>';
+        output += '\n';
+        output += '<' + '/apex:pageBlockButtons>';
+    
+        
+        //adding fields and sections
+        var allTheLayouts = result.getArray("layouts");
+        for (var i = 0; i < allTheLayouts.length; i++){
+            var layout = allTheLayouts[i];
+            if (layout.editLayoutSections != null){
+                var elSections = layout.getArray("editLayoutSections");
+                for (var j = 0; j < elSections.length; j++){
+                    var els = elSections[j];
+                     
+                    output += '\n';
+                    output += '\n';
+                    output += '<' + 'apex:pageBlockSection title=' + '"' + els.heading + '" ' +  'columns=' + '"' + els.columns + '"' + '>';
+                    output += '\n';
+    
+                    var allTheLayoutRows = els.getArray("layoutRows");
+                    for (var k = 0; k < allTheLayoutRows.length; k++){
+                        var lr = allTheLayoutRows[k];
+                        var lis = lr.getArray("layoutItems");
+                        for (var h = 0; h < lis.length; h++){
+                            var li = lis[h];
+                            //only in case of Lead and Contact First Name, which includes Salutation also
+                            if (li.layoutComponents != null && li.layoutComponents.length == 2){                            
+                                output += '<' + 'apex:inputField value=' + '"' + '{' + '!' + obj.value + '.' + li.layoutComponents[1].value + '}' + '" ' + 'required=' + '"' + li.required.toString() + '"' + '/>';
+                                output += '\n';
+                            }
+                            //for all other fields
+                            else if (li.layoutComponents != null){
+                                output += '<' + 'apex:inputField value=' + '"' + '{' + '!' + obj.value + '.' + li.layoutComponents.value + '}' + '" ' + 'required=' + '"' + li.required.toString() + '"' + '/>'; 
+                                output += '\n';
+                            }
+                        }
+                    } 
+                    output += '<' + '/apex:pageBlockSection>';
+                    output += '\n';
+                }
+            }
+        }
+        output += '\n';
+        output += '<' + '/apex:pageBlock>';
+        output += '\n';
+        output += '<' + '/apex:form>';
+        output += '\n';
+        output += '<' + '/apex:page>';
+      
+        sendResult('' + output) ;
+    }
+    
+    //Details Layout
+    function detailLayoutResults(result, obj) {
+        var layouts = result.getArray("layouts");
+        var output = '';
+    
+        output += '<' + 'apex' + ':' + 'page standardController=' + '"' + obj.value + '"' + '>';
+        output += '\n';
+        output += '<' + 'apex' + ':' + 'sectionHeader' + ' title=' + '"' + obj.value + '"' + ' subtitle=' + '"' + '{' + '!' + obj.value + '.name}' + '"' + '/>';
+        output += '\n';
+        output += '<' + 'apex' + ':' + 'pageBlock title=' + '"' + obj.value + '"' + '>';
+        output += '\n';
+        
+        //adding fields and sections
+        var allTheLayouts = result.getArray("layouts");
+        for (var i = 0; i < allTheLayouts.length; i++){
+            var layout = allTheLayouts[i];
+            if (layout.editLayoutSections != null){
+                var elSections = layout.getArray("editLayoutSections");
+                for (var j = 0; j < elSections.length; j++){
+                    var els = elSections[j];
+                     
+                    output += '\n';
+                    output += '<' + 'apex:pageBlockSection title=' + '"' + els.heading + '" ' +  'columns=' + '"' + els.columns + '"' + '>';
+                    output += '\n';
+    
+                    var allTheLayoutRows = els.getArray("layoutRows");
+                    for (var k = 0; k < allTheLayoutRows.length; k++){
+                        var lr = allTheLayoutRows[k];
+                        var lis = lr.getArray("layoutItems");
+                        for (var h = 0; h < lis.length; h++){
+                            var li = lis[h];
+                            //only in case of Lead and Contact First Name, which includes Salutation also
+                            if (li.layoutComponents != null && li.layoutComponents.length == 2){                            
+                                output += '<' + 'apex:outputField title=' + '"' + li.label + '" value="' + '{' + '!' + obj.value + '.' + li.layoutComponents[1].value + '}' + '"' + '/>';
+                                output += '\n';
+                            }
+                            //for all other fields
+                            else if (li.layoutComponents != null){
+                                output += '<' + 'apex:outputField title=' + '"' + li.label + '" value="' + '{' + '!' + obj.value + '.' + li.layoutComponents.value + '}' + '"' + '/>';
+                                output += '\n';
+                            }
+                        }
+                    } 
+                    output += '<' + '/apex:pageBlockSection>';
+                    output += '\n';
+                }
+            }
+        }
+        output += '\n';
+        output += '<' + '/apex:pageBlock>';    
+        output += '\n';
+        output += '<' + '/apex:page>';
+    
+        sendResult('' + output) ;
+    }
+</script>
+
+    <apex:pageBlock id="pb" title="Visualforce Code Generator">
+    
+        <apex:actionFunction name="sendResult" action="{!GenerateCode}" reRender="mes , resultSec">
+            <apex:param name="param1" value="" assignTo="{!outPut}"/>
+        </apex:actionFunction>
+        
+        <apex:actionFunction name="refreshFields" action="{!RefreshFieldDesc}" onComplete="YUIHideLoading();" reRender="mes , resultSec , CustomSec , CustomSec2"/>
+        
+        <apex:actionFunction name="customSelect" action="{!createCustomPage}" onComplete="YUIHideLoading();" reRender="pb"/>
+    
+        <apex:pageBlockButtons >
+            <apex:commandButton value="Generate Code" onClick="resultOfDescribeLayout(); return false ;" reRender="mes"/>
+        </apex:pageBlockButtons>
+        
+        <apex:pageMessages id="mes" />
+        
+        <apex:pageBlockSection id="pbs1" columns="3">
+        
+            <apex:pageBlockSectionItem id="pbs4">
+                <apex:outputLabel value="Object Name"/>
+                <apex:inputText onChange="YUIShowLoading(); refreshFields() ;" id="obj" value="{!ObjectName}" />
+            </apex:pageBlockSectionItem>
+        
+        </apex:pageBlockSection>
+        
+        <apex:pageBlockSection id="pbRec" rendered="{!NOT(show)}">
+            <apex:pageBlockSectionItem id="pbsiRec">
+                <apex:outputLabel value="Record Type Id"/>
+                <apex:inputText id="recTyp" value="{!RecordType}"/>
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+        
+        <apex:pageBlockSection id="pbs2" columns="2">
+            <apex:pageBlockSectionItem id="pbs3">
+                <apex:outputLabel value="Type Of Page"/>
+                <apex:selectList id="selectLst" value="{!SelectedType}" onChange="YUIShowLoading(); customSelect() ;" multiselect="false" size="1">
+                    <apex:selectOptions value="{!typeOfPage}" />
+                </apex:selectList>
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+        
+        <apex:pageBlockSection >
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="E-Mail me the Generated Code @ : "/>
+                <apex:inputText value="{!emailId}"/>
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+        
+        <apex:pageBlockSection columns="1" id="CustomSec" title="Select Fields" rendered="{!show}">
+            <apex:pageBlockSectionItem id="CustomSec2">
+                <apex:commandButton value="Display Fields" action="{!DescribeFields}" onclick="YUIShowLoading();" onComplete="YUIHideLoading();" reRender="pb"/>                
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem id="describeFields" rendered="{!DisplayDescribeFields}">
+                <apex:repeat value="{!wc}" var="wrapper">
+                    <apex:inputCheckbox id="test" value="{!wrapper.isSelected}"/> 
+                    <apex:outputLabel value="{!wrapper.fieldLabel}"/>
+                    <br/>
+                </apex:repeat>
+            </apex:pageBlockSectionItem>
+            
+        </apex:pageBlockSection>
+        
+        <apex:pageBlockSection columns="1" id="resultSec" title="Generated Code" rendered="true">
+            <apex:outputLabel escape="false">
+                {!outPut}
+            </apex:outputLabel>
+        </apex:pageBlockSection>
+        
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

@@ -1,0 +1,48 @@
+<apex:page showHeader="true" sidebar="false" standardStylesheets="false" title="{!$Label.site.file_not_found}" cache="false">
+    <apex:stylesheet value="{!URLFOR($Resource.Bootstrap, 'css/bootstrap.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.FontAwesome, '4.3.0/css/font-awesome.min.css')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.Bootstrap, 'js/bootstrap.min.js')}"/>
+    
+    <style type="text/css">
+        .zen-pageFooter
+        {
+            display:none; 
+        } 
+    </style>
+    <apex:define name="body" >
+        <center>
+            <apex:panelGrid bgcolor="white" columns="1" style="align: center;">
+                <br/>
+                <br/>
+                <apex:panelGrid width="758" cellpadding="0" cellspacing="0" bgcolor="white" columns="1" styleClass="topPanelContainer">
+                    <br/>
+                    <apex:outputPanel layout="block" styleClass="topPanel">
+                        <apex:panelGrid width="758" cellpadding="0" cellspacing="0" bgcolor="white" columns="3">
+                            <i class="fa fa-exclamation-triangle fa-4x" style="color: orange !important;" ></i>
+                            <apex:panelGroup >
+                                <h4><b>
+                                    <apex:outputText styleClass="title" value="{!$Label.site.page_not_found_detail}">
+                                        <apex:param value="{!$Site.OriginalUrl}"/>
+                                    </apex:outputText>
+                                    </b></h4>
+                                
+                                <br/>  <br/>   
+                                If you need assistance, please email 
+                                <a id="mail" href="mailto:HelpMeIT@cdk.com?subject=Associate Community: Page Not Found&body=Page with url " style="color:#658C19 !important;" >HelpMeIT@cdk.com</a>
+                            </apex:panelGroup>
+                        </apex:panelGrid>
+                    </apex:outputPanel>
+                </apex:panelGrid>
+                <br/><br/>
+            </apex:panelGrid>
+        </center>
+    </apex:define>
+    <script type="text/javascript">
+    jQuery(document).ready(function(){
+        var href = jQuery("#mail").attr('href');
+        href = href +location.href+' was not found.';
+        jQuery("#mail").attr('href',href);
+    });
+    </script>
+</apex:page>

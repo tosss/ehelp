@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Manufacturer</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Manufacturers</value>
+    </caseValues>
+    <fields>
+        <label><!-- Inactive --></label>
+        <name>Inactive__c</name>
+    </fields>
+    <fields>
+        <label><!-- Manufacturers Parent Name --></label>
+        <name>Manufacturers_Parent_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Migration_ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ora Manufacturers Code --></label>
+        <name>Ora_Manufacturers_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ora Manufacturers Parent Code --></label>
+        <name>Ora_Manufacturers_Parent_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- SLX Manufacts CreateDate --></label>
+        <name>SLX_Manufacts_CreateDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- SLX Manufacts ID --></label>
+        <name>SLX_Manufacts_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Segment Code --></label>
+        <name>Segment_Code__c</name>
+        <picklistValues>
+            <masterLabel>AUTG</masterLabel>
+            <translation><!-- AUTG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NAAT</masterLabel>
+            <translation><!-- NAAT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PFW</masterLabel>
+            <translation><!-- PFW --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,829 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Account_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Amplify_the_Hurt__c</fullName>
+        <description>What is the confirmed date of the current DMS Contract expiration? What have you done to amplify the clients hurt to increase their perceived value of your pending solutions? How does the client describe the consequences of their inaction?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>What is the confirmed date of the current DMS Contract expiration? What have you done to amplify the clients hurt to increase their perceived value of your pending solutions? How does the client describe the consequences of their inaction?</inlineHelpText>
+        <label>Amplify the Hurt</label>
+        <length>2000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Approve_Site_Walk__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Site Walk Request Approved</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Decision_Makers__c</fullName>
+        <description>- Who is the Champion/Ultimate Decision Maker? 
+- Who are the Stakeholders and Advocates who will influence the decision in the dealership?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>- Who is the Champion/Ultimate Decision Maker? 
+- Who are the Stakeholders and Advocates who will influence the decision in the dealership?</inlineHelpText>
+        <label>Decision Makers</label>
+        <length>2000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Discover_the_Hurt__c</fullName>
+        <description>- How does the client describe the hurt?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>- How does the client describe the hurt?</inlineHelpText>
+        <label>Discover the Hurt</label>
+        <length>2000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Existing_Dealer_Commitment__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Have you been able to determine that the prospect is not locked in to someone else’s capabilities and are willing to make changes?</inlineHelpText>
+        <label>Existing Dealer Commitment</label>
+        <length>2000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Migration_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Migration ID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Sites__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Sites ( *Required)</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>On_Site_Sales_Discovery_Approval_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Site Walk Approval Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Sales Discovery</relationshipLabel>
+        <relationshipName>Sales_Discovery</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Present_a_solution_to_the_hurt__c</fullName>
+        <description>Has the client agreed to allow you to conduct a Site Walk and demo the solutions we can provide to fix the clients hurt? Have you and the client discussed the implementation process and the installation date?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Has the client agreed to allow you to conduct a Site Walk and demo the solutions we can provide to fix the clients hurt? Have you and the client discussed the implementation process and the installation date?</inlineHelpText>
+        <label>Present a solution to the hurt</label>
+        <length>2000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Proposed_Solutions_Count__c</fullName>
+        <externalId>false</externalId>
+        <label>Proposed Solutions Count</label>
+        <summaryFilterItems>
+            <field>Sales_Discovery_Site__c.Proposed_Solutions_Completed__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Sales_Discovery_Site__c.Sales_Discovery__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Qualify_the_Hurt__c</fullName>
+        <description>How do you know the client wants to fix the hurt? What was said that leads you to believe that this hurt is going to be solved by some method or solution? What hurt does each participant in the decision process expects your solution to fix?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>How do you know the client wants to fix the hurt? What was said that leads you to believe that this hurt is going to be solved by some method or solution? What hurt does each participant in the decision process expects your solution to fix?</inlineHelpText>
+        <label>Qualify the Hurt</label>
+        <length>2000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Quote_Request_Submitted_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Quote Request Submitted Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Quote_Request_Submitted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Quote Request Submitted</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Reject_Site_Walk__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Site Walk Request Rejected</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Rush__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Is this a Rush Request</description>
+        <externalId>false</externalId>
+        <label>Rush</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Sales_DOS__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Sales DOS</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Sales_Discovery1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Sales_Discovery_Completed_Count__c</fullName>
+        <externalId>false</externalId>
+        <label>Sales Discovery Completed Count</label>
+        <summaryFilterItems>
+            <field>Sales_Discovery_Site__c.Sales_Discovery_Completed__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Sales_Discovery_Site__c.Sales_Discovery__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Sales_Discovery_Needed_By__c</fullName>
+        <externalId>false</externalId>
+        <label>Estimated Pricing needed by</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Sales_Discovery_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Sales Discovery Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Sales Discovery Created</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Qualitative Sales Discovery Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales Discovery Summary Report Created</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales Discovery Summary Report Sent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales Discovery In Process</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales Discovery Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quote Request Submitted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Sales_Rep__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Sales Rep</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Sales_Discovery</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Sharepoint_Link__c</fullName>
+        <description>Click here to access the Sales Discovery Workbook Folder:</description>
+        <externalId>false</externalId>
+        <label>Click here for Sales Discovery Workbook</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Site_Count__c</fullName>
+        <externalId>false</externalId>
+        <label>Site Count</label>
+        <summaryForeignKey>Sales_Discovery_Site__c.Sales_Discovery__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Site_Walk_Completed_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Site Walk Completed Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Site_Walk_Needed_By__c</fullName>
+        <externalId>false</externalId>
+        <label>Site Walk Needed By</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Site_Walk_Rejection_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Site Walk Rejection Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Site_Walk_Request_Submitted_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Site Walk Request Submitted Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Site_Walk_Request_Submitted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Check here to Submit Site Walk Request</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Site_Walk_Technician_Assigned__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Site Walk Technician Assigned</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Sites_Involved_With_Request__c</fullName>
+        <externalId>false</externalId>
+        <label>Sites Involved With Request (*Required)</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Current Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Virtual Discovery Request Created</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Virtual Sales Discovery Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Site Walk Request Submitted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Site Walk Request Approved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Site Walk Request Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Site Walk Discovery Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales Discovery Summary Report Requested</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales Discovery Summary Report Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales Discovery Summary Report Sent to Client</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales Discovery Summary Report Acknowledged by Client</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Request Submitted for a Quote</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Summary_Report_Acknowledged_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Summary Report Acknowledged Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Summary_Report_Acknowledged__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Summary Report Acknowledged</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Summary_Report_Completed_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Summary Report Completed Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Summary_Report_Completed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Summary Report Completed</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Summary_Report_Sent_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Summary Report Sent Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Summary_Report_Sent__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Summary Report Sent</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TSM_DOS__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>TSM DOS</description>
+        <externalId>false</externalId>
+        <label>TSM DOS</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Sales_Discovery3</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>TSM__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Technology Sales Manager</description>
+        <externalId>false</externalId>
+        <label>TSM</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Sales_Discovery2</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Technical_Site_Walk_Completed_Count__c</fullName>
+        <externalId>false</externalId>
+        <label>Technical Site Walk Completed Count</label>
+        <summaryFilterItems>
+            <field>Sales_Discovery_Site__c.Technical_Site_Walk_Completed__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Sales_Discovery_Site__c.Sales_Discovery__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Technical_Site_Walk_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Technical Site Walk Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Request Submitted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Request Approved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Request Rejected</fullName>
+                <color>#FF6666</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>In Process</fullName>
+                <color>#FFCC66</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed</fullName>
+                <color>#33CC00</color>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Virtual_Discovery_Completed_Count__c</fullName>
+        <externalId>false</externalId>
+        <label>Virtual Discovery Completed Count</label>
+        <summaryFilterItems>
+            <field>Sales_Discovery_Site__c.Virtual_Discovery_Completed__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Sales_Discovery_Site__c.Sales_Discovery__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Virtual_Discovery_Request_Submitted_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Virtual Discovery Request Submitted Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Virtual_Discovery_Request_Submitted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Virtual Discovery Request Submitted</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Virtual_Sales_Discovery_Completed_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Virtual Sales Discovery Completed Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Virtual_Sales_Discovery_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Virtual Sales Discovery Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Request Submitted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Request in Process</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <label>Sales Discovery</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Account_Name__c</columns>
+        <columns>Sales_Rep__c</columns>
+        <columns>Sales_Discovery_Needed_By__c</columns>
+        <columns>Virtual_Sales_Discovery_Completed_Date__c</columns>
+        <columns>Site_Walk_Completed_Date__c</columns>
+        <columns>Summary_Report_Completed_Date__c</columns>
+        <columns>Summary_Report_Sent_Date__c</columns>
+        <columns>Summary_Report_Acknowledged_Date__c</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Pending_Approval_for_Site_Walk</fullName>
+        <columns>NAME</columns>
+        <columns>Account_Name__c</columns>
+        <columns>Virtual_Sales_Discovery_Completed_Date__c</columns>
+        <columns>Site_Walk_Request_Submitted_Date__c</columns>
+        <columns>Sales_Rep__c</columns>
+        <columns>Sales_DOS__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Site Walk Request Submitted</value>
+        </filters>
+        <label>Pending Approval for Site Walk</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Sales_Discovery_Site_Technician_Sales_Discovery</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Site_Count__c</columns>
+        <columns>Virtual_Discovery_Request_Submitted_Date__c</columns>
+        <columns>Virtual_Sales_Discovery_Completed_Date__c</columns>
+        <columns>Site_Walk_Completed_Date__c</columns>
+        <columns>Summary_Report_Completed_Date__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <filterScope>Queue</filterScope>
+        <label>Sales Discovery Site Technician</label>
+        <language>en_US</language>
+        <queue>Sales_Discovery_Site_Technician</queue>
+        <sharedTo>
+            <role>Site_Walk_Technician</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Sales_Discovery_Virtual_Specialist_Sales_Discovery</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Site_Count__c</columns>
+        <columns>Virtual_Discovery_Request_Submitted_Date__c</columns>
+        <columns>Virtual_Sales_Discovery_Completed_Date__c</columns>
+        <columns>Site_Walk_Completed_Date__c</columns>
+        <columns>Summary_Report_Completed_Date__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <filterScope>Queue</filterScope>
+        <label>Sales Discovery Virtual Specialist</label>
+        <language>en_US</language>
+        <queue>Sales_Discovery_Virtual_Specialist</queue>
+        <sharedTo>
+            <role>Virtual_Discovery_Specialist</role>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <displayFormat>SD-{0000}</displayFormat>
+        <label>Sales Discovery ID</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Sales Discovery</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Opportunity__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>UPDATEDBY_USER</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Virtual_Sales_Discovery_Completed_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Site_Walk_Completed_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Summary_Report_Completed_Date__c</customTabListAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Answer_missing_for_Amplify_the_Hurt</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(Site_Walk_Request_Submitted__c ==true, ISBLANK(Amplify_the_Hurt__c ))</errorConditionFormula>
+        <errorDisplayField>Amplify_the_Hurt__c</errorDisplayField>
+        <errorMessage>Please answer the question before submitting request for Site Walk to the DOS.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Answer_missing_for_Discover_the_Hurt</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(Site_Walk_Request_Submitted__c ==true, ISBLANK(Discover_the_Hurt__c ))</errorConditionFormula>
+        <errorDisplayField>Discover_the_Hurt__c</errorDisplayField>
+        <errorMessage>Please answer the question before submitting request for Site Walk to the DOS.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Answer_missing_for_Present_a_solution</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(Site_Walk_Request_Submitted__c ==true, ISBLANK(    Present_a_solution_to_the_hurt__c ))</errorConditionFormula>
+        <errorDisplayField>Present_a_solution_to_the_hurt__c</errorDisplayField>
+        <errorMessage>Please answer the question before submitting request for Site Walk to the DOS.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Answer_missing_for_Qualify_the_Hurt</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(Site_Walk_Request_Submitted__c ==true, ISBLANK(Qualify_the_Hurt__c))</errorConditionFormula>
+        <errorDisplayField>Qualify_the_Hurt__c</errorDisplayField>
+        <errorMessage>Please answer the question before submitting request for Site Walk to the DOS.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Answer_missing_for_decision_maker</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(Site_Walk_Request_Submitted__c ==true, ISBLANK( Decision_Makers__c))</errorConditionFormula>
+        <errorDisplayField>Decision_Makers__c</errorDisplayField>
+        <errorMessage>Please answer the question before submitting request for Site Walk to the DOS.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Cannot_submit_request_before_completion</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(Not( ISPICKVAL( Virtual_Sales_Discovery_Status__c , &quot;Completed&quot;) ), 
+Site_Walk_Request_Submitted__c ==true)</errorConditionFormula>
+        <errorDisplayField>Site_Walk_Request_Submitted__c</errorDisplayField>
+        <errorMessage>Please wait for the Virtual Discovery to be completed in order to submit request for Site Walk to the DOS.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Cannot_submit_virtual_with_no_sites</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND(Site_Count__c ==0 ,  Virtual_Discovery_Request_Submitted__c ==true)</errorConditionFormula>
+        <errorDisplayField>Virtual_Discovery_Request_Submitted__c</errorDisplayField>
+        <errorMessage>Please add the site information  before requesting a Virtual Discovery  for this Opportunity.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Create_Discovery_for_Unhook_Opportunity</fullName>
+        <active>true</active>
+        <errorConditionFormula>NOT(ISPICKVAL(Opportunity__r.Type, &quot;Unhook&quot;))</errorConditionFormula>
+        <errorMessage>Sales Discovery request can be submitted for Unhook deals only</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DOS_information_missing</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(Site_Walk_Request_Submitted__c ==true, ISBLANK(   Sales_DOS__c))</errorConditionFormula>
+        <errorDisplayField>Sales_DOS__c</errorDisplayField>
+        <errorMessage>DOS information is missing</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Sales_Discovery_limited_to_region</fullName>
+        <active>true</active>
+        <errorConditionFormula>OR(ISPICKVAL(Opportunity__r.Account.Region__c,&quot;ARG&quot;),ISPICKVAL(Opportunity__r.Account.Region__c,&quot;Division&quot;),ISPICKVAL(Opportunity__r.Account.Region__c,&quot;Enterprise&quot;),ISPICKVAL(Opportunity__r.Account.Region__c,&quot;Hoffman Sales&quot;),ISPICKVAL(Opportunity__r.Account.Region__c,&quot;Independent Truck Dealer&quot;),ISPICKVAL(Opportunity__r.Account.Region__c,&quot;National&quot;),ISPICKVAL(Opportunity__r.Account.Region__c,&quot;NIADA&quot;),ISPICKVAL(Opportunity__r.Account.Region__c,&quot;PFW&quot;),ISPICKVAL(Opportunity__r.Account.Region__c,&quot;Truck&quot;))</errorConditionFormula>
+        <errorMessage>Sales Discovery creation is currently available for specific regions only</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Request_Virtual_Sales_Discovery</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Request Virtual Sales Discovery</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/31.0/connection.js&quot;)} 
+
+var sd = new sforce.SObject(&quot;Sales_Discovery__c&quot;); 
+sd.id = &quot;{!Sales_Discovery__c.Id}&quot;; 
+sd.Status__c= &apos;Virtual Discovery Request Created&apos;; 
+sd.Virtual_Sales_Discovery_Status__c = &apos;Request Submitted&apos;
+result = sforce.connection.update([sd]); 
+
+if (result[0].success == &apos;false&apos;) 
+{
+  alert(result[0].errors.message);
+}
+else {
+  location.reload(true); /* redisplay the detail page */
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Send_Summary_Report_via_Docusign</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send Summary Report via Docusign</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>if({!Sales_Discovery__c.Summary_Report_Completed__c}){
+//********* Option Declarations (Do not modify )*********// 
+var LA=&apos;&apos;;var STB=&apos;&apos;;var RES=&apos;&apos;;
+//*************************************************// 
+
+LA = &apos;0&apos;; 
+STB = &apos;0&apos;; 
+RES =&apos;1,2,3,1,30,3&apos;;
+
+//********* Page Callout (Do not modify) *********// 
+window.location.href =&quot;/apex/dsfs__DocuSign_CreateEnvelope?DSEID=0&amp;SourceID={!Sales_Discovery__c.Id}&amp;LA=&quot;+LA+&quot;&amp;STB=&quot;+STB+&quot;&amp;RES=&quot;+RES;
+//*******************************************//
+}
+else{
+alert(&quot;Please complete Summary Report before sending to Docusign&quot;);
+}</url>
+    </webLinks>
+</CustomObject>

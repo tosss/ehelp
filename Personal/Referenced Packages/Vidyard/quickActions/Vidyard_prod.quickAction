@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canvas>vidyard__Vidyard_prod</canvas>
+    <description>Adding a video layer to your Salesforce experience, Vidyard gives your sales organization a simple interface to upload and share videos with contacts and leads. Individual viewing history can be tracked right within Salesforce, making targeted sales conve</description>
+    <height>280</height>
+    <icon>play_icon</icon>
+    <label>Video</label>
+    <type>Canvas</type>
+    <width>521</width>
+</QuickAction>

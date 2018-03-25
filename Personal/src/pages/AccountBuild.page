@@ -1,0 +1,68 @@
+<apex:page standardController="Account" extensions="Account_Extension" sidebar="true"> 
+<apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.7.2.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.8.20.custom.min.js')}" />
+<script>
+var j$ = jQuery.noConflict();
+j$('[title="New Contact"]').hide();
+</script>
+    <social:profileViewer entityId="{!Account.id}"/><br/><br/><br/><br/><br/>
+    <chatter:feedWithFollowers entityId="{!account.id}"   />
+    <apex:form ondblclick="ChangeButton()" >
+        <apex:pageblock title="Account Detail" mode="maindetail" >
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!edit}" value="Edit" id="editButton" onclick="return X()" />
+                <apex:commandButton action="{!save}" value="Save" id="saveButton" />
+                <apex:commandButton action="{!cancel}" value="Cancel" id="cancelButton"  />
+                <apex:commandButton action="{!delete}" value="Delete" id="deleteButton"/>
+                <apex:commandButton action="{!connectOffLine}" value="Include Offline" id="connectButton"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection columns="2" id="block"  >
+                <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton, deleteButton, connectButton" event="ondblclick" resetFunction="resetInLineEdit" />
+               
+                <apex:panelGrid columns="3" id="theGrid">
+        <apex:outputField value="{!account.name}" id="theFirst" label="Name"/>
+        <apex:commandLink value="[view hierarchy]"/>
+    </apex:panelGrid>
+                <apex:outputField value="{!account.rating}"/>
+                <apex:commandLink ondblclick="return X()" value="Hi"/>
+                <apex:outputField value="{!account.name}"/>
+                <apex:outputField value="{!account.phone}"/>
+                <apex:outputField label="Parent Name" value="{!account.parent.name}"/>
+                <apex:outputField value="{!account.fax}"/>
+                <apex:outputField value="{!account.accountNumber}"/>
+                <apex:outputField value="{!account.website}"/>
+                <apex:outputField value="{!account.site}"/>
+                <apex:outputField value="{!account.tickersymbol}"/>
+                <apex:outputField value="{!account.type}"/>
+                <apex:outputField value="{!account.ownership}"/>
+                <apex:outputField value="{!account.industry}"/>
+                <apex:outputField value="{!account.numberofemployees}"/>
+                <apex:outputField value="{!account.annualrevenue}"/>
+                <apex:outputField value="{!account.sic}"/>
+                <apex:outputField value="{!account.CustomerPriority__c}"/>
+                <apex:outputField value="{!account.SLA__c}"/>
+                <apex:outputField value="{!account.SLAExpirationDate__c}"/>
+                <apex:outputField value="{!account.SLASerialNumber__c}"/>
+                <apex:outputField value="{!account.NumberofLocations__c}"/>
+                <apex:outputField value="{!account.UpsellOpportunity__c}"/>
+                <apex:outputField value="{!account.Active__c}"/>
+                <apex:outputLink value="{!account.owner.name}" />
+                <apex:outputField value="{!account.description}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <a id="a" href="#">Hello</a>
+    </apex:form>
+    <apex:relatedList list="Contacts">
+    </apex:relatedList>
+    <apex:relatedList list="Opportunities">
+    </apex:relatedList>
+    <apex:relatedList list="Cases">
+    </apex:relatedList>
+    <apex:relatedList list="OpenActivities">
+    </apex:relatedList>
+    <apex:relatedList list="ActivityHistories">
+    </apex:relatedList> 
+    <apex:relatedList list="CombinedAttachments">
+    </apex:relatedList>
+</apex:page>

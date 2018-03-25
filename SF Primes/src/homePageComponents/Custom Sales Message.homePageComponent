@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HomePageComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <body>&lt;span class=&quot;Apple-style-span&quot; style=&quot;font-size: x-large;&quot;&gt;&lt;font class=&quot;Apple-style-span&quot; color=&quot;#000099&quot;&gt;Welcome to Salesforce!&lt;br&gt;&lt;/font&gt;&lt;/span&gt;</body>
+    <pageComponentType>htmlArea</pageComponentType>
+    <width>wide</width>
+</HomePageComponent>

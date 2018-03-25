@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Installed Laser Product</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Installed Laser Products</value>
+    </caseValues>
+    <fields>
+        <label><!-- Application --></label>
+        <name>Application__c</name>
+        <picklistValues>
+            <masterLabel>Alliance</masterLabel>
+            <translation><!-- Alliance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Alliance-Canada</masterLabel>
+            <translation><!-- Alliance-Canada --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bar Code-Parts Inv</masterLabel>
+            <translation><!-- Bar Code-Parts Inv --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Check Signature Image</masterLabel>
+            <translation><!-- Check Signature Image --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DCAP-F&amp;I</masterLabel>
+            <translation><!-- DCAP-F&amp;I --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DCAP-P&amp;S</masterLabel>
+            <translation><!-- DCAP-P&amp;S --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DSDA</masterLabel>
+            <translation><!-- DSDA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Damage Report</masterLabel>
+            <translation><!-- Damage Report --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EFD</masterLabel>
+            <translation><!-- EFD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ELF</masterLabel>
+            <translation><!-- ELF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>F&amp;I/DC</masterLabel>
+            <translation><!-- F&amp;I/DC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FMLR</masterLabel>
+            <translation><!-- FMLR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FSDD</masterLabel>
+            <translation><!-- FSDD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FTS</masterLabel>
+            <translation><!-- FTS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MICR</masterLabel>
+            <translation><!-- MICR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MICR-Canada</masterLabel>
+            <translation><!-- MICR-Canada --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PAYROLL PLUS</masterLabel>
+            <translation><!-- PAYROLL PLUS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SHOWROOM</masterLabel>
+            <translation><!-- SHOWROOM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SSDD</masterLabel>
+            <translation><!-- SSDD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle Query</masterLabel>
+            <translation><!-- Vehicle Query --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WDS</masterLabel>
+            <translation><!-- WDS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eShowroom</masterLabel>
+            <translation><!-- eShowroom --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- CMF Info --></label>
+        <name>CMF_Info__c</name>
+        <relationshipLabel><!-- Installed Laser Products --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- CMF # --></label>
+        <name>CMF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Catalog Number --></label>
+        <name>Catalog_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract ID --></label>
+        <name>Contract_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Install Date --></label>
+        <name>Install_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Laser Installed Products Comments --></label>
+        <name>Laser_Installed_Products_Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Migration ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Declined</masterLabel>
+            <translation><!-- Declined --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Installed</masterLabel>
+            <translation><!-- Installed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Installed Laser Product Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- An Install Date is required if the product is installed. --></errorMessage>
+        <name>Install_Date_Required_If_Installed</name>
+    </validationRules>
+</CustomObjectTranslation>

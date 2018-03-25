@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Project Milestone</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Project Milestones</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual End Date --></label>
+        <name>Actual_End_Date_Final__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Max Project Activity End Date --></label>
+        <name>Actual_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Start Date --></label>
+        <name>Actual_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Completion % --></label>
+        <name>Completion_Percentage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Confidential --></label>
+        <name>Confidential__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealer Group --></label>
+        <name>Dealer_Group__c</name>
+    </fields>
+    <fields>
+        <label><!-- Milestone Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Display on PSR --></label>
+        <name>Display_on_PSR__c</name>
+    </fields>
+    <fields>
+        <label><!-- Do Not Physically Delete --></label>
+        <name>Do_Not_Physically_Delete__c</name>
+    </fields>
+    <fields>
+        <label><!-- Duration Buffer --></label>
+        <name>Duration_Buffer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expected Remaining Duration --></label>
+        <name>Expected_Remaining_Duration__c</name>
+    </fields>
+    <fields>
+        <label><!-- External System ID --></label>
+        <name>External_System_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- External System Id2 --></label>
+        <name>External_System_Id2__c</name>
+    </fields>
+    <fields>
+        <label><!-- External System Name --></label>
+        <name>External_System_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Subproject External Reference Id --></label>
+        <name>External_System_New_Id__c</name>
+        <relationshipLabel><!-- Project Milestones --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Is a Product Milestone --></label>
+        <name>Is_a_Product_Milestone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Location Name --></label>
+        <name>Location_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Migration_ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Milestone Definition --></label>
+        <name>Milestone_Definition__c</name>
+        <relationshipLabel><!-- Project Milestones --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Non-RMS-Owned Standard Activities Create --></label>
+        <name>Non_RMS_Owned_Standard_Activities_Create__c</name>
+    </fields>
+    <fields>
+        <label><!-- Planned End Date --></label>
+        <name>Planned_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Planned End Dt Delayed Count --></label>
+        <name>Planned_End_Dt_Delayed_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- Planned Start Date --></label>
+        <name>Planned_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Planned Start Dt Delayed Count --></label>
+        <name>Planned_Start_Dt_Delayed_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- Process Step --></label>
+        <name>Process_Step__c</name>
+        <picklistValues>
+            <masterLabel>01-Implementation Discovery</masterLabel>
+            <translation><!-- 01-Implementation Discovery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02-Project Mapping</masterLabel>
+            <translation><!-- 02-Project Mapping --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03-Site Readiness</masterLabel>
+            <translation><!-- 03-Site Readiness --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04-CDK GoLive</masterLabel>
+            <translation><!-- 04-CDK GoLive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05-Transition Meeting</masterLabel>
+            <translation><!-- 05-Transition Meeting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06-Ongoing Training</masterLabel>
+            <translation><!-- 06-Ongoing Training --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Project ID --></label>
+        <name>Project_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- RMS Deleted Flag --></label>
+        <name>RMS_Deleted_Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- RMS External Id --></label>
+        <name>RMS_External_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- RMS Milestone Id --></label>
+        <name>RMS_Milestone_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- RMS Owned Flag --></label>
+        <name>RMS_Owned_Flag__c</name>
+    </fields>
+    <fields>
+        <help><!-- Red - At Risk 
+Yellow - Caution 
+Green - On Target --></help>
+        <label><!-- Risk Gauge Color --></label>
+        <name>Risk_Gauge_Color__c</name>
+    </fields>
+    <fields>
+        <label><!-- Site Name --></label>
+        <name>Site_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Site --></label>
+        <name>Site__c</name>
+        <relationshipLabel><!-- Project Milestones --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Sort Sequence --></label>
+        <name>Sort_Sequence__c</name>
+    </fields>
+    <fields>
+        <label><!-- Standard --></label>
+        <name>Standard__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- SubProject Client Manager --></label>
+        <name>SubProject_Client_Manager__c</name>
+    </fields>
+    <fields>
+        <label><!-- SubProject --></label>
+        <name>SubProject__c</name>
+        <relationshipLabel><!-- Milestones --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Total Activities Closed --></label>
+        <name>Total_Activities_Closed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Activities --></label>
+        <name>Total_Activities__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Actual Days Spent --></label>
+        <name>Total_Actual_Time_Spent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Expected Time Spent --></label>
+        <name>Total_Expected_Time_Spent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Number of Records --></label>
+        <name>Total_Number_of_Records__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Tasks --></label>
+        <name>Total_Tasks__c</name>
+    </fields>
+    <layouts>
+        <layout>Project Milestone Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Dates --></label>
+            <section>Dates</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You cannot modify an existing record&apos;s referenced definition. --></errorMessage>
+        <name>Cannot_Edit_Referenced_Definition</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Milestone cannot be created if it is RMS Owned and Site is blank. --></errorMessage>
+        <name>Milestone_RMSOwned_Null_SubProjectSite</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This record is owned by RMS. Contact an RMS scheduler to change the CDK Assignee.  Other updates should be performed by the owner of the task via the My RMS Assignments tab in CDK Expressway. --></errorMessage>
+        <name>Prevent_Edit_RMSRecord_Milestone</name>
+    </validationRules>
+</CustomObjectTranslation>

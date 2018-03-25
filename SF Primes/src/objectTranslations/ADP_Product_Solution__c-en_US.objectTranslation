@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>ADP Product Solution</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>ADP Product Solution</value>
+    </caseValues>
+    <fields>
+        <label><!-- ADP Product Solution ID --></label>
+        <name>ADP_Product_Solution_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- ADP Product Solution Sub-Dept --></label>
+        <name>ADP_Product_Solution_Sub_Dept__c</name>
+        <picklistValues>
+            <masterLabel>Accounting</masterLabel>
+            <translation><!-- Accounting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Core</masterLabel>
+            <translation><!-- Core --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>F&amp;I</masterLabel>
+            <translation><!-- F&amp;I --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Human Resources</masterLabel>
+            <translation><!-- Human Resources --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Infrastructure</masterLabel>
+            <translation><!-- Infrastructure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parts</masterLabel>
+            <translation><!-- Parts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rental</masterLabel>
+            <translation><!-- Rental --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales</masterLabel>
+            <translation><!-- Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service</masterLabel>
+            <translation><!-- Service --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- ADP Product Solution Type --></label>
+        <name>ADP_Product_Solution_Type__c</name>
+        <picklistValues>
+            <masterLabel>Accounting GL</masterLabel>
+            <translation><!-- Accounting GL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CRM</masterLabel>
+            <translation><!-- CRM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DMS</masterLabel>
+            <translation><!-- DMS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Extraction</masterLabel>
+            <translation><!-- Data Extraction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Digital Marketing</masterLabel>
+            <translation><!-- Digital Marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EPC</masterLabel>
+            <translation><!-- EPC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electronic Document Management</masterLabel>
+            <translation><!-- Electronic Document Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>F&amp;I/Desking</masterLabel>
+            <translation><!-- F&amp;I/Desking --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HCM</masterLabel>
+            <translation><!-- HCM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Impact Printers</masterLabel>
+            <translation><!-- Impact Printers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lasers</masterLabel>
+            <translation><!-- Lasers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mfg. Communications</masterLabel>
+            <translation><!-- Mfg. Communications --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Name File Management</masterLabel>
+            <translation><!-- Name File Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Network</masterLabel>
+            <translation><!-- Network --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PC</masterLabel>
+            <translation><!-- PC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parts Inventory Management</masterLabel>
+            <translation><!-- Parts Inventory Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Management</masterLabel>
+            <translation><!-- Service Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Training</masterLabel>
+            <translation><!-- Training --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle/Unit Management</masterLabel>
+            <translation><!-- Vehicle/Unit Management --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Migration ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <layouts>
+        <layout>ADP Product Solution Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

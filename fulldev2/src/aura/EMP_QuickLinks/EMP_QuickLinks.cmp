@@ -1,0 +1,84 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes">
+    
+    <aura:attribute name="Link01" type="String" access="global" />
+    <aura:attribute name="Text01" type="String" access="global" />
+    <aura:attribute name="Target01" type="String" access="global" />
+    
+    <aura:attribute name="Link02" type="String" access="global" />
+    <aura:attribute name="Text02" type="String" access="global" />
+    <aura:attribute name="Target02" type="String" access="global" />
+    
+    <aura:attribute name="Link03" type="String" access="global" />
+    <aura:attribute name="Text03" type="String" access="global" />
+    <aura:attribute name="Target03" type="String" access="global" />
+    
+    <aura:attribute name="Link04" type="String" access="global" />
+    <aura:attribute name="Text04" type="String" access="global" />
+    <aura:attribute name="Target04" type="String" access="global" />
+    
+    <aura:attribute name="Link05" type="String" access="global" />
+    <aura:attribute name="Text05" type="String" access="global" />
+    <aura:attribute name="Target05" type="String" access="global" />
+    
+    <aura:attribute name="Link06" type="String" access="global" />
+    <aura:attribute name="Text06" type="String" access="global" />
+    <aura:attribute name="Target06" type="String" access="global" />
+    
+    <aura:attribute name="Link07" type="String" access="global" />
+    <aura:attribute name="Text07" type="String" access="global" />
+    <aura:attribute name="Target07" type="String" access="global" />
+    
+    <aura:attribute name="Link08" type="String" access="global" />
+    <aura:attribute name="Text08" type="String" access="global" />
+    <aura:attribute name="Target08" type="String" access="global" />
+    
+    <aura:attribute name="Link09" type="String" access="global" />
+    <aura:attribute name="Text09" type="String" access="global" />
+    <aura:attribute name="Target09" type="String" access="global" />
+    
+    <aura:attribute name="Link10" type="String" access="global" />
+    <aura:attribute name="Text10" type="String" access="global" />
+    <aura:attribute name="Target10" type="String" access="global" />
+    
+    <li style="{!v.Link01 == '' ? 'display:none;' : ''}">
+        <a href="{!v.Link01}" target="{!v.Target01}">{!v.Text01}</a>
+        <span style="{!v.Target01 != '_blank' ? 'display:none;' : ''}">&nbsp;<i class="fa fa-external-link"></i>&nbsp;</span>
+    </li>
+    <li style="{!v.Link02 == '' ? 'display:none;' : ''}">
+        <a href="{!v.Link02}" target="{!v.Target02}">{!v.Text02}</a>
+        <span style="{!v.Target02 != '_blank' ? 'display:none;' : ''}">&nbsp;<i class="fa fa-external-link"></i>&nbsp;</span>
+    </li>
+    <li style="{!v.Link03 == '' ? 'display:none;' : ''}">
+        <a href="{!v.Link03}" target="{!v.Target03}">{!v.Text03}</a>
+        <span style="{!v.Target03 != '_blank' ? 'display:none;' : ''}">&nbsp;<i class="fa fa-external-link"></i>&nbsp;</span>
+    </li>
+    <li style="{!v.Link04 == '' ? 'display:none;' : ''}">
+        <a href="{!v.Link04}" target="{!v.Target04}">{!v.Text04}</a>
+        <span style="{!v.Target04 != '_blank' ? 'display:none;' : ''}">&nbsp;<i class="fa fa-external-link"></i>&nbsp;</span>
+    </li>
+    <li style="{!v.Link05 == '' ? 'display:none;' : ''}">
+        <a href="{!v.Link05}" target="{!v.Target05}">{!v.Text05}</a>
+        <span style="{!v.Target05 != '_blank' ? 'display:none;' : ''}">&nbsp;<i class="fa fa-external-link"></i>&nbsp;</span>
+    </li>
+    <li style="{!v.Link06 == '' ? 'display:none;' : ''}">
+        <a href="{!v.Link06}" target="{!v.Target06}">{!v.Text06}</a>
+        <span style="{!v.Target06 != '_blank' ? 'display:none;' : ''}">&nbsp;<i class="fa fa-external-link"></i>&nbsp;</span>
+    </li>
+    <li style="{!v.Link07 == '' ? 'display:none;' : ''}">
+        <a href="{!v.Link07}" target="{!v.Target07}">{!v.Text07}</a>
+        <span style="{!v.Target07 != '_blank' ? 'display:none;' : ''}">&nbsp;<i class="fa fa-external-link"></i>&nbsp;</span>
+    </li>
+    <li style="{!v.Link08 == '' ? 'display:none;' : ''}">
+        <a href="{!v.Link08}" target="{!v.Target08}">{!v.Text08}</a>
+        <span style="{!v.Target08 != '_blank' ? 'display:none;' : ''}">&nbsp;<i class="fa fa-external-link"></i>&nbsp;</span>
+    </li>
+    <li style="{!v.Link09 == '' ? 'display:none;' : ''}">
+        <a href="{!v.Link09}" target="{!v.Target09}">{!v.Text09}</a>
+        <span style="{!v.Target09 != '_blank' ? 'display:none;' : ''}">&nbsp;<i class="fa fa-external-link"></i>&nbsp;</span>
+    </li>
+    <li style="{!v.Link10 == '' ? 'display:none;' : ''}">
+        <a href="{!v.Link10}" target="{!v.Target10}">{!v.Text10}</a>
+        <span style="{!v.Target10 != '_blank' ? 'display:none;' : ''}">&nbsp;<i class="fa fa-external-link"></i>&nbsp;</span>
+    </li>
+    
+</aura:component>

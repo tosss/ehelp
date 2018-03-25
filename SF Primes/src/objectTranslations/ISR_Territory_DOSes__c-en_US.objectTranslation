@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>ISR Territory DOSes</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>ISR Territory DOSes</value>
+    </caseValues>
+    <fields>
+        <label><!-- DOS --></label>
+        <lookupFilter>
+            <errorMessage><!-- Only DOSs, EADs, NADs, EAVPs, and NAVPs may be selected! --></errorMessage>
+            <informationalMessage><!-- Please select a  DOS, EAD, NAD, EAVP, NAVP. --></informationalMessage>
+        </lookupFilter>
+        <name>DOS__c</name>
+        <relationshipLabel><!-- ISR Territory DOSes (DOS) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- ISR Group --></label>
+        <name>ISR_Group__c</name>
+    </fields>
+    <fields>
+        <label><!-- ISR --></label>
+        <lookupFilter>
+            <errorMessage><!-- Only ISRs can be selected. --></errorMessage>
+            <informationalMessage><!-- Please select an ISR --></informationalMessage>
+        </lookupFilter>
+        <name>ISR__c</name>
+        <relationshipLabel><!-- ISR Territory DOSes (ISR) --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>ISR Territory DOSes Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

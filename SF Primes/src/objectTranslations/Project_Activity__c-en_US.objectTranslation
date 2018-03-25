@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Project Activity</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Project Activities</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is an automated field that will show the manager of the assigned associats --></help>
+        <label><!-- Activity Assignee&apos;s Manager --></label>
+        <name>Activity_Assignee_s_Manager__c</name>
+    </fields>
+    <fields>
+        <label><!-- Activity Definition --></label>
+        <name>Activity_Definition__c</name>
+        <relationshipLabel><!-- Project Activities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Actual End Date --></label>
+        <name>Actual_End_Date_Final__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Max Project Task End Date --></label>
+        <name>Actual_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Start Date --></label>
+        <name>Actual_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- CDK Assignee Role --></label>
+        <name>CDK_Assignee_Role__c</name>
+        <picklistValues>
+            <masterLabel>3PA</masterLabel>
+            <translation><!-- 3PA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A/R Conversion Specialist</masterLabel>
+            <translation><!-- A/R Conversion Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business Solutions Consultant</masterLabel>
+            <translation><!-- Business Solutions Consultant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business Systems Analyst​​</masterLabel>
+            <translation><!-- Business Systems Analyst​​ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CVR</masterLabel>
+            <translation><!-- CVR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Car!nk</masterLabel>
+            <translation><!-- Car!nk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Client Account Manager (CAM)</masterLabel>
+            <translation><!-- Client Account Manager (CAM) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Conversion Data Specialist</masterLabel>
+            <translation><!-- Conversion Data Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Conversion Specialist</masterLabel>
+            <translation><!-- Conversion Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Conversion Specialist (Unhook)</masterLabel>
+            <translation><!-- Conversion Specialist (Unhook) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Services</masterLabel>
+            <translation><!-- Credit Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Programming</masterLabel>
+            <translation><!-- Custom Programming --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DMI</masterLabel>
+            <translation><!-- DMI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Digital Contracting Project Manager</masterLabel>
+            <translation><!-- Digital Contracting Project Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Field Service</masterLabel>
+            <translation><!-- Field Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forms Builder</masterLabel>
+            <translation><!-- Forms Builder --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forms Collector​</masterLabel>
+            <translation><!-- Forms Collector​ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Implementation Support</masterLabel>
+            <translation><!-- Implementation Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Install Specialist (ICD)</masterLabel>
+            <translation><!-- Install Specialist (ICD) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Laser Artwork Specialist</masterLabel>
+            <translation><!-- Laser Artwork Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Laser Imaging</masterLabel>
+            <translation><!-- Laser Imaging --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Laser Installation Specialist</masterLabel>
+            <translation><!-- Laser Installation Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Librarian</masterLabel>
+            <translation><!-- Librarian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Migration Follow-Up Specialist</masterLabel>
+            <translation><!-- Migration Follow-Up Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Migration Specialist</masterLabel>
+            <translation><!-- Migration Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Migration Specialist (Box Upgrade)</masterLabel>
+            <translation><!-- Migration Specialist (Box Upgrade) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Network Project Manager (Network / IPT)</masterLabel>
+            <translation><!-- Network Project Manager (Network / IPT) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payroll Tax Services</masterLabel>
+            <translation><!-- Payroll Tax Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Professional Services Consultants</masterLabel>
+            <translation><!-- Professional Services Consultants --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSM IT Support Analyst</masterLabel>
+            <translation><!-- RSM IT Support Analyst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Red Bumper</masterLabel>
+            <translation><!-- Red Bumper --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales</masterLabel>
+            <translation><!-- Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scheduling Coordinator</masterLabel>
+            <translation><!-- Scheduling Coordinator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ServiceBook Pro</masterLabel>
+            <translation><!-- ServiceBook Pro --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Software Application Engineer</masterLabel>
+            <translation><!-- Software Application Engineer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Total Source Project Manager</masterLabel>
+            <translation><!-- Total Source Project Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Training &amp; Implementation Client Manager</masterLabel>
+            <translation><!-- Training &amp; Implementation Client Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Training Consultant (RPM)</masterLabel>
+            <translation><!-- Training Consultant (RPM) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Training Coordinator</masterLabel>
+            <translation><!-- Training Coordinator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Utilization &amp; Training Project Manager​</masterLabel>
+            <translation><!-- Utilization &amp; Training Project Manager​ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Virtual Implementation Consultant</masterLabel>
+            <translation><!-- Virtual Implementation Consultant --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- CDK Assignee --></label>
+        <name>CDK_Assignee__c</name>
+        <relationshipLabel><!-- Project Activities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Client Assignee --></label>
+        <name>Client_Assignee__c</name>
+        <relationshipLabel><!-- Project Activities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Confidential --></label>
+        <name>Confidential__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealer Group --></label>
+        <name>Dealer_Group__c</name>
+    </fields>
+    <fields>
+        <label><!-- Department --></label>
+        <name>Department__c</name>
+        <picklistValues>
+            <masterLabel>Accounting</masterLabel>
+            <translation><!-- Accounting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Body Shop</masterLabel>
+            <translation><!-- Body Shop --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lease &amp; Rental</masterLabel>
+            <translation><!-- Lease &amp; Rental --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parts</masterLabel>
+            <translation><!-- Parts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales / F&amp;I</masterLabel>
+            <translation><!-- Sales / F&amp;I --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service</masterLabel>
+            <translation><!-- Service --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Activity Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Display on PSR --></label>
+        <name>Display_on_PSR__c</name>
+    </fields>
+    <fields>
+        <label><!-- Do Not Physically Delete --></label>
+        <name>Do_Not_Physically_Delete__c</name>
+    </fields>
+    <fields>
+        <label><!-- Duration Buffer --></label>
+        <name>Duration_Buffer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expected Remaining Duration --></label>
+        <name>Expected_Remaining_Duration__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expected Time Spent --></label>
+        <name>Expected_Time_Spent__c</name>
+    </fields>
+    <fields>
+        <label><!-- External Activity Name --></label>
+        <name>External_Activity_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- External ID --></label>
+        <name>External_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Force Rollup --></label>
+        <name>Force_Rollup__c</name>
+    </fields>
+    <fields>
+        <help><!-- A code should be selected when the actual end date is greater than the planned end date. --></help>
+        <label><!-- Hold Code --></label>
+        <name>Hold_Code__c</name>
+        <picklistValues>
+            <masterLabel>HB - NEW DMS</masterLabel>
+            <translation><!-- HB - NEW DMS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HC - CLIENT</masterLabel>
+            <translation><!-- HC - CLIENT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HD - DATA/CONVERSION</masterLabel>
+            <translation><!-- HD - DATA/CONVERSION --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HF - FACILITY</masterLabel>
+            <translation><!-- HF - FACILITY --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HL - LEGAL</masterLabel>
+            <translation><!-- HL - LEGAL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HM - MANUFACTURER</masterLabel>
+            <translation><!-- HM - MANUFACTURER --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HN - NOSTART</masterLabel>
+            <translation><!-- HN - NOSTART --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HP - PRODUCT</masterLabel>
+            <translation><!-- HP - PRODUCT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR - RISK ON CONTRACT</masterLabel>
+            <translation><!-- HR - RISK ON CONTRACT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HT - TELEPHONY</masterLabel>
+            <translation><!-- HT - TELEPHONY --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HX - NETWORK</masterLabel>
+            <translation><!-- HX - NETWORK --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Migration_ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Milestone Description --></label>
+        <name>Milestone_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Milestone --></label>
+        <name>Milestone__c</name>
+        <relationshipLabel><!-- Activities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Planned End Date --></label>
+        <name>Planned_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Planned End Dt Delayed Count --></label>
+        <name>Planned_End_Dt_Delayed_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- Planned Start Date --></label>
+        <name>Planned_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Planned Start Dt Delayed Count --></label>
+        <name>Planned_Start_Dt_Delayed_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- Process Step --></label>
+        <name>Process_Step__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project ID --></label>
+        <name>Project_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- RMS Activity Id --></label>
+        <name>RMS_Activity_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- RMS Deleted Flag --></label>
+        <name>RMS_Deleted_Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- RMS Owned Flag --></label>
+        <name>RMS_Owned_Flag__c</name>
+    </fields>
+    <fields>
+        <help><!-- Red - At Risk
+Yellow - Caution
+Green - On Target --></help>
+        <label><!-- Risk Gauge Color --></label>
+        <name>Risk_Gauge_Color__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sequence --></label>
+        <name>Sequence__c</name>
+    </fields>
+    <fields>
+        <label><!-- Site Name --></label>
+        <name>Site_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Standard --></label>
+        <name>Standard__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- SubProject Client Manager --></label>
+        <name>SubProject_Client_Manager__c</name>
+    </fields>
+    <fields>
+        <label><!-- SubProject ID --></label>
+        <name>SubProject_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- SubProject Name --></label>
+        <name>SubProject_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Actual Days Spent --></label>
+        <name>Total_Actual_Time_Spent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Expected Time Spent --></label>
+        <name>Total_Expected_Time_Spent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Tasks Closed --></label>
+        <name>Total_Tasks_Closed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Tasks --></label>
+        <name>Total_Tasks__c</name>
+    </fields>
+    <fields>
+        <label><!-- isActive --></label>
+        <name>isActive__c</name>
+    </fields>
+    <fields>
+        <label><!-- isStatusComplete --></label>
+        <name>isStatusComplete__c</name>
+    </fields>
+    <layouts>
+        <layout>Project Activity Layout</layout>
+        <sections>
+            <label><!-- Assignee(s) --></label>
+            <section>Assignee(s)</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Dates --></label>
+            <section>Dates</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Actual End Date cannot occur before Actual Start Date. --></errorMessage>
+        <name>Actual_End_Date_Before_Start</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- A CDK Assignee needs to be filled-in prior to entering Actual Start or End Dates. --></errorMessage>
+        <name>Assign_Associate_before_Actual_Dates</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot create a Project Activity record if its parent Project Milestone is already Complete.  Please remove the record that you’re trying to create. --></errorMessage>
+        <name>Cannot_Create_Activity_if_Milestone_Comp</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot modify an existing record&apos;s referenced definition. --></errorMessage>
+        <name>Cannot_Edit_Referenced_Definition</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Planned / Actual Start Date needs to be specified before specifying a Planned / Actual End Date for the Activity. --></errorMessage>
+        <name>End_Date_before_Start_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Actual Start and End Dates cannot be in the future. --></errorMessage>
+        <name>No_Future_Actual_Start_End_Dates</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Planned End Date cannot occur before Planned Start Date. --></errorMessage>
+        <name>Planned_End_Date_Before_Start</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This record is owned by RMS. Contact an RMS scheduler to change the CDK Assignee.  Other updates should be performed by the owner of the task via the My RMS Assignments tab in CDK Expressway. --></errorMessage>
+        <name>Prevent_Edit_RMSRecord_Activity</name>
+    </validationRules>
+</CustomObjectTranslation>

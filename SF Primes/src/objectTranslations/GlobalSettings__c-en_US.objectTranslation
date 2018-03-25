@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Global Settings</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Global Settings</value>
+    </caseValues>
+    <fields>
+        <help><!-- Comma(,) seperated List. If the account was owned by an AE (Not Camela Thompson, Cast Iron, or Conversion) and is now owned by Cast Iron, Conversion, Or Camela Thompson, delete the Regional Manager record and do not add a new Regional Manager. --></help>
+        <label><!-- AEs to Delete RM --></label>
+        <name>AEs_To_Delete_RM__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the integration username to be used in validation rules. --></help>
+        <label><!-- Admin Integration Username --></label>
+        <name>Admin_Integration_Username__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enables (checked) or Disables (unchecked) the Case After Insert or Update trigger. --></help>
+        <label><!-- CaseTriggers On? --></label>
+        <name>CaseTriggers_On__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conversion User ID --></label>
+        <name>Conversion_User_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- DMG Contact ByPass Username --></label>
+        <name>DMG_Contact_ByPass_Username__c</name>
+    </fields>
+    <fields>
+        <help><!-- A comma separated list of profiles that can create a new Dealer Group Profile from the Visualforce page --></help>
+        <label><!-- Dealer Group Profile - Profiles 1 --></label>
+        <name>Dealer_Group_Profile_Profiles_1__c</name>
+    </fields>
+    <fields>
+        <help><!-- A comma separated list of profiles that can create a new Dealer Group Profile from the Visualforce page --></help>
+        <label><!-- Dealer Group Profile - Profiles 2 --></label>
+        <name>Dealer_Group_Profile_Profiles_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- DefaultBusinessHoursId --></label>
+        <name>DefaultBusinessHoursId__c</name>
+    </fields>
+    <fields>
+        <label><!-- DefaultCaseTeamMemberId --></label>
+        <name>DefaultCaseTeamMemberId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email 2 Case Attachment Link --></label>
+        <name>Email_2_Case_Attachment_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email 2 Case Email Attachment Profiles --></label>
+        <name>Email_2_Case_Email_Attachment_Profiles__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email 2 Case Email Message Profiles --></label>
+        <name>Email_2_Case_Email_Message_Profiles__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email 2 Case Prevent Delete --></label>
+        <name>Email_2_Case_Prevent_Delete__c</name>
+    </fields>
+    <fields>
+        <help><!-- This e-mail is the UserName (in the form of an e-mail address) for the e-mail to Case functionality. --></help>
+        <label><!-- Email 2 Case User --></label>
+        <name>Email_2_Case_User__c</name>
+    </fields>
+    <fields>
+        <label><!-- ErrorEmail --></label>
+        <name>ErrorEmail__c</name>
+    </fields>
+    <fields>
+        <help><!-- Used in the DS_UpdateLead Trigger to exclude certain Roles from being set on the Owner Manager&apos;s Manager field on Lead. --></help>
+        <label><!-- Lead Owner Mgr&apos;s Mgr Roles to Exclude --></label>
+        <name>Lead_Owner_Mgrs_Mgr_Roles_to_Exclude__c</name>
+    </fields>
+    <fields>
+        <label><!-- MMReportURL --></label>
+        <name>MMReportURL__c</name>
+    </fields>
+    <fields>
+        <label><!-- NADA Lead Campaign Name --></label>
+        <name>NADA_Lead_Campaign__c</name>
+    </fields>
+    <fields>
+        <label><!-- NADA Lead Folder Name --></label>
+        <name>NADA_Lead_Folder__c</name>
+    </fields>
+    <fields>
+        <label><!-- NADA Lead Status --></label>
+        <name>NADA_Lead_Status__c</name>
+    </fields>
+    <fields>
+        <help><!-- Used in the CB_Recap.RecapBeforeInsertTriggerHandler method to advance the status to &quot;With IFS - Working&quot;. --></help>
+        <label><!-- Recap Activation Order Specialist --></label>
+        <name>Recap_Activation_Order_Specialist__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

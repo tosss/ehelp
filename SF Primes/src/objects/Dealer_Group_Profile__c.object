@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Object used to store key dealer group decision making information.  This object was created initially for the Digital Marketing Services group.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>DS_GAM_CAM_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the contact at the corporation that the GAM or CAM interacts with.</inlineHelpText>
+        <label>DS GAM/Marketing Strategist Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Dealer Group Profiles</relationshipLabel>
+        <relationshipName>Dealer_Group_Profiles</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Dealer_Group_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Dealer_Group__r.Dealer_Group_Name2__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Dealer Group Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dealer_Group__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Dealer Group</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Dealer Group Profiles</relationshipLabel>
+        <relationshipName>Dealer_Group_Profiles</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Decision_Making_Model3rdParty__c</fullName>
+        <description>Decision Making indicator for inclusion of 3rd Party Vendors.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If all decisions are made at Corporate, the model is Centralized.  If some decisions are made at the rooftop location, then the model is Hybrid.  If almost all decisions are made at the rooftop level, the model is Independent.</inlineHelpText>
+        <label>Decision Making Model</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Centralized</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hybrid</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Independent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Decision_Making_ModelGH__c</fullName>
+        <description>Decision Making indicator for the overall Group Hierarchy section.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If all decisions are made at Corporate, the model is Centralized.  If some decisions are made at the rooftop location, then the model is Hybrid.  If almost all decisions are made at the rooftop level, the model is Independent.</inlineHelpText>
+        <label>Decision Making Model</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Centralized</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hybrid</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Independent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Decision_Making_ModelInv__c</fullName>
+        <description>Decision Making indicator for Inventory.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If all decisions are made at Corporate, the model is Centralized.  If some decisions are made at the rooftop location, then the model is Hybrid.  If almost all decisions are made at the rooftop level, the model is Independent.</inlineHelpText>
+        <label>Decision Making Model</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Centralized</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hybrid</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Independent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Decision_Making_ModelLP__c</fullName>
+        <description>Decision Making indicator for the Lead Pathing section.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If all decisions are made at Corporate, the model is Centralized.  If some decisions are made at the rooftop location, then the model is Hybrid.  If almost all decisions are made at the rooftop level, the model is Independent.</inlineHelpText>
+        <label>Decision Making Model</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Centralized</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hybrid</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Independent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Decision_Making_ModelSB__c</fullName>
+        <description>Decision Making indicator for the Style and Branding section.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If all decisions are made at Corporate, the model is Centralized.  If some decisions are made at the rooftop location, then the model is Hybrid.  If almost all decisions are made at the rooftop level, the model is Independent.</inlineHelpText>
+        <label>Decision Making Model</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Centralized</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hybrid</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Independent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Decision_Marking_ModelSEO__c</fullName>
+        <description>Decision Making indicator for SEO.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If all decisions are made at Corporate, the model is Centralized. If some decisions are made at the rooftop location, then the model is Hybrid. If almost all decisions are made at the rooftop level, the model is Independent.</inlineHelpText>
+        <label>Decision Making Model</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Centralized</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hybrid</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Independent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Group_Information_Folder__c</fullName>
+        <externalId>false</externalId>
+        <label>Group Information Folder</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Group_Opt_Out_of_Surveys__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this box if the corporate contacts do not want a CSI.  This will not apply to contacts listed at the individual dealerships (even if it&apos;s really a corporate contact) unless they respond to a survey and opt out.</inlineHelpText>
+        <label>Group Opt-Out of Surveys?</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Inventory_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the contact at the corporation who makes decisions around Inventory.</inlineHelpText>
+        <label>Inventory Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Dealer Group Profiles (Inventory Contact)</relationshipLabel>
+        <relationshipName>Dealer_Group_Profiles4</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Lead_Pathing_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the contact at the corporation who makes decisions around lead pathing.</inlineHelpText>
+        <label>Lead Pathing Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Dealer Group Profiles (Lead Pathing Contact)</relationshipLabel>
+        <relationshipName>Dealer_Group_Profiles1</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Link_to_Branding_Guidelines__c</fullName>
+        <externalId>false</externalId>
+        <label>Link to Branding Guidelines</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Link_to_Style_Guide__c</fullName>
+        <externalId>false</externalId>
+        <label>Link to Style Guide</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Marketing_Email_Signature__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Your choice will indicate who is in the &quot;From&quot; line in Marketing communications to the dealerships within this dealer group.</inlineHelpText>
+        <label>Marketing Email Signature</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Advocate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GAM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CAM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Migration_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Migration_ID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Multiple_Vendors__c</fullName>
+        <externalId>false</externalId>
+        <label>Multiple Vendors</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Notes3rdParty__c</fullName>
+        <description>This is the notes field for the 3rd Party Vendor section.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If there are dealership exceptions to the corporate rule, please enter them here.  Ex.  Dealer A can make their own 3rd Party decisions, but all others cannot.</inlineHelpText>
+        <label>Notes</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>7</visibleLines>
+    </fields>
+    <fields>
+        <fullName>NotesGen__c</fullName>
+        <description>This is the notes field for the General section.</description>
+        <externalId>false</externalId>
+        <label>Notes</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>NotesInv__c</fullName>
+        <description>This is the notes field for the Inventory section.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If there are dealership exceptions to the corporate rule, please enter them here.  Ex.  Dealer A can make their own 3rd Party decisions, but all others cannot.</inlineHelpText>
+        <label>Notes</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>7</visibleLines>
+    </fields>
+    <fields>
+        <fullName>NotesLP__c</fullName>
+        <description>This is the notes field for the Lead Pathing section.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If there are dealership exceptions to the corporate rule or multiple vendors, please enter them here.</inlineHelpText>
+        <label>Notes</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>7</visibleLines>
+    </fields>
+    <fields>
+        <fullName>NotesSB__c</fullName>
+        <description>This is the notes field for the Style &amp; Branding section.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If there are dealership exceptions to the corporate rule, please enter them here.  Ex.  Dealer A can make their own branding decisions, but all others cannot.</inlineHelpText>
+        <label>Notes</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>7</visibleLines>
+    </fields>
+    <fields>
+        <fullName>NotesSEO__c</fullName>
+        <description>This is the notes field for the SEO section.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If there are dealership exceptions to the corporate rule, please enter them here.</inlineHelpText>
+        <label>Notes</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>7</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Number_of_Child_Accounts__c</fullName>
+        <description>This should be populated by a trigger or similar functionality and should only calculate how many Site Type Auto accounts or (Status = Active and Cobalt Account Number is not null) accounts exist within the dealer group.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is automatically calculated.</inlineHelpText>
+        <label>Number of Child Accounts</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_WebIDs__c</fullName>
+        <description>This field should be populated by a trigger or similar functionality, and should calculate how many Active WebIDs exist on child accounts associated with the given group.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is automatically calculated.</inlineHelpText>
+        <label>Number of WebIDs</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Primary_CRM__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the CRM that is used at the majority of the group&apos;s dealerships.  Additional vendors go in notes.</inlineHelpText>
+        <label>Primary CRM</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Vendor__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the vendor that is used at the majority of the group&apos;s dealerships.  Additional vendors go in notes.</inlineHelpText>
+        <label>Primary Vendor</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>SEO_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the contact at the corporation who makes decisions around SEO.</inlineHelpText>
+        <label>SEO Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Dealer Group Profiles (SEO Contact)</relationshipLabel>
+        <relationshipName>Dealer_Group_Profiles5</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Shared_MLM_Asset_Library__c</fullName>
+        <externalId>false</externalId>
+        <label>Shared MLM Asset Library</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Site_Config_NotesSEO__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Only use this field if the dealer group has a username and password that applies across  multiple stores. If the password applies to under 5 stores, fill out a site config at the webid level. This field has restricted visibility.</inlineHelpText>
+        <label>Site Config Notes</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Style_Branding_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the contact at the corporation who makes decisions around style and branding.</inlineHelpText>
+        <label>Style/Branding Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Dealer Group Profiles (Style/Branding Contact)</relationshipLabel>
+        <relationshipName>Dealer_Group_Profiles2</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>X3rd_Party_Vendor_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the contact at the corporation who makes decisions around 3rd Party Vendors.</inlineHelpText>
+        <label>3rd Party Vendor Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Dealer Group Profiles (3rd Party Vendor Contact)</relationshipLabel>
+        <relationshipName>Dealer_Group_Profiles3</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Dealer Group Profile</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>Dealer_Group_Name__c</columns>
+        <columns>NAME</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>DGP-{00000}</displayFormat>
+        <label>Dealer Group Profile Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Dealer Group Profiles</pluralLabel>
+    <recordTypeTrackHistory>true</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Digital_Services_Dealer_Group_Profile</fullName>
+        <active>true</active>
+        <description>This is the profile to apply to Cobalt type profiles and the System Admin profile in order to test.</description>
+        <label>Digital Services Dealer Group Profile</label>
+        <picklistValues>
+            <picklist>Decision_Making_Model3rdParty__c</picklist>
+            <values>
+                <fullName>Centralized</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hybrid</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Independent</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Decision_Making_ModelGH__c</picklist>
+            <values>
+                <fullName>Centralized</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hybrid</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Independent</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Decision_Making_ModelInv__c</picklist>
+            <values>
+                <fullName>Centralized</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hybrid</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Independent</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Decision_Making_ModelLP__c</picklist>
+            <values>
+                <fullName>Centralized</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hybrid</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Independent</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Decision_Making_ModelSB__c</picklist>
+            <values>
+                <fullName>Centralized</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hybrid</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Independent</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Decision_Marking_ModelSEO__c</picklist>
+            <values>
+                <fullName>Centralized</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hybrid</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Independent</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Marketing_Email_Signature__c</picklist>
+            <values>
+                <fullName>Advocate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CAM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GAM</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Multiple_Vendors__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <webLinks>
+        <fullName>This_Dealer_Group_s_Account_List</fullName>
+        <availability>online</availability>
+        <description>This links to the report This Dealer Group’s Account Report located in unfiled public reports folder.</description>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>This Dealer Group&apos;s Account List</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00O40000003Lfpg?&amp;pv0={!Dealer_Group_Profile__c.Dealer_Group_Name__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>This_Dealer_Group_s_Contact_List</fullName>
+        <availability>online</availability>
+        <description>This links to the report This Dealer Group’s Contact Report located in unfiled public reports folder.</description>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>This Dealer Group&apos;s Contact List</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00O40000002xBdZ?&amp;pv0={!Dealer_Group_Profile__c.Dealer_Group_Name__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>This_Dealer_Group_s_Installed_Base_List</fullName>
+        <availability>online</availability>
+        <description>This links to the report This Dealer Group’s Installed Base Rpt located in unfiled public reports folder.</description>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>This Dealer Group&apos;s Installed Base List</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00O40000003Lfph?&amp;pv0={!Dealer_Group_Profile__c.Dealer_Group_Name__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>This_Dealer_Group_s_Open_Cases_List</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>This Dealer Group&apos;s Open Cases List</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00O40000003MnO8?&amp;pv0={!Dealer_Group_Profile__c.Dealer_Group_Name__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>This_Dealer_Group_s_WebID_List</fullName>
+        <availability>online</availability>
+        <description>This links to the report This Dealer Group’s WebID Report located in unfiled public reports folder.</description>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>This Dealer Group&apos;s WebID List</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00O40000002xBda?&amp;pv0={!Dealer_Group_Profile__c.Dealer_Group_Name__c}</url>
+    </webLinks>
+</CustomObject>

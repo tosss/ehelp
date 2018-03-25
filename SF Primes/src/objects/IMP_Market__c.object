@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>Used to retrieve Market logo and important notice image</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Logo__c</fullName>
+        <description>Full document/file path to find the Market’s logo</description>
+        <externalId>false</externalId>
+        <label>Logo</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Market__c</fullName>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Notice__c</fullName>
+        <description>Full document/file path to find the Market’s important notice image</description>
+        <externalId>false</externalId>
+        <label>Notice</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>IMP_Market</label>
+    <visibility>Public</visibility>
+</CustomObject>

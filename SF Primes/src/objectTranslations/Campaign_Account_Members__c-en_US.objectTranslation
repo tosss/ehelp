@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Campaign Account Member</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Campaign Account Members</value>
+    </caseValues>
+    <fields>
+        <label><!-- Campaign Member (Account) --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Campaigns Targeting Account --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Campaign Member Status --></label>
+        <name>Campaign_Member_Status__c</name>
+        <picklistValues>
+            <masterLabel>Call Attempt</masterLabel>
+            <translation><!-- Call Attempt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Called</masterLabel>
+            <translation><!-- Called --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Converted to Opportunity</masterLabel>
+            <translation><!-- Converted to Opportunity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Contacted Yet</masterLabel>
+            <translation><!-- Not Contacted Yet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Interested</masterLabel>
+            <translation><!-- Not Interested --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Upgrade</masterLabel>
+            <translation><!-- Upgrade --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Campaign --></label>
+        <name>Campaign__c</name>
+        <relationshipLabel><!-- Campaign Account Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Cobalt Consolidation ID --></label>
+        <name>Cobalt_Consolidation_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Composite ID --></label>
+        <name>Composite_ID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Stores ID of the lead. --></help>
+        <label><!-- Lead --></label>
+        <name>LeadID__c</name>
+        <relationshipLabel><!-- Campaign Account Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Leadsource --></label>
+        <name>Leadsource__c</name>
+        <picklistValues>
+            <masterLabel>Incoming Email</masterLabel>
+            <translation><!-- Incoming Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Incoming Phone Call</masterLabel>
+            <translation><!-- Incoming Phone Call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing Website</masterLabel>
+            <translation><!-- Marketing Website --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rep Initiated</masterLabel>
+            <translation><!-- Rep Initiated --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Migration ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>OpportunityID__c</name>
+        <relationshipLabel><!-- Campaign Account Members --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Campaign Account Member Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please enter value for Campaign Member Status Field --></errorMessage>
+        <name>DS_SLS_CampaignMemberStatus_Req</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>ADP_Emp_Hdwr_Assests_Compact_Layoutu</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>ADP_Emp_Hdwr_Assests_Compact_Layoutu</fullName>
+        <fields>Name</fields>
+        <fields>Employee_Name__c</fields>
+        <fields>Hardware_Asset__c</fields>
+        <fields>Asset_Number__c</fields>
+        <fields>Asset_Start_Date__c</fields>
+        <label>ADP Emp Hdwr Assests Compact Layout</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Hardware assets for specific sales rep</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Asset_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Asset End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Asset_Number__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>false</externalId>
+        <label>Asset Number</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Asset_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Asset Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Employee_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Employee Name</label>
+        <referenceTo>Employee_Information__c</referenceTo>
+        <relationshipLabel>Employee Hardware Assets</relationshipLabel>
+        <relationshipName>R00N40000001lhGPEAY</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Hardware_Asset__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Hardware Asset</label>
+        <referenceTo>Hardware_Asset__c</referenceTo>
+        <relationshipLabel>Employee Hardware Assets</relationshipLabel>
+        <relationshipName>R00N40000001lt0HEAQ</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>SPX_ADPHardware_CreateDate__c</fullName>
+        <externalId>false</externalId>
+        <label>SPX Asset Assign Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>SPX_ADPHardware_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>SPX ADPHardware ID</label>
+        <length>12</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Serial_Number_Link__c</fullName>
+        <externalId>false</externalId>
+        <formula>hyperlink(&quot;http://support.dell.com/support/topics/global.aspx/support/my_systems_info/details?c=us&amp;cs=2684&amp;l=en&amp;s=pub&amp;servicetag=&quot; &amp; Serial_Number__c , Serial_Number__c)</formula>
+        <label>Serial Number (Link)</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Serial_Number_Notes__c</fullName>
+        <description>Notes associated to this specific piece of equipment</description>
+        <externalId>false</externalId>
+        <label>Serial Number Notes</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Serial_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Serial Number</label>
+        <length>32</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Employee Hardware Assets</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Employee_Name__c</columns>
+        <columns>Hardware_Asset__c</columns>
+        <columns>Asset_Number__c</columns>
+        <columns>Serial_Number__c</columns>
+        <columns>Asset_Start_Date__c</columns>
+        <columns>Asset_End_Date__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Lenovo_T410</fullName>
+        <columns>NAME</columns>
+        <columns>Employee_Name__c</columns>
+        <columns>Serial_Number__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Hardware_Asset__c</field>
+            <operation>equals</operation>
+            <value>Lenovo T410</value>
+        </filters>
+        <label>Lenovo T410</label>
+    </listViews>
+    <listViews>
+        <fullName>Lenovo_X201</fullName>
+        <columns>NAME</columns>
+        <columns>Employee_Name__c</columns>
+        <columns>Serial_Number__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Hardware_Asset__c</field>
+            <operation>equals</operation>
+            <value>Lenovo X201</value>
+        </filters>
+        <label>Lenovo X201</label>
+    </listViews>
+    <listViews>
+        <fullName>MapPoint_Licensing</fullName>
+        <columns>NAME</columns>
+        <columns>Asset_Number__c</columns>
+        <columns>Employee_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Hardware_Asset__c</field>
+            <operation>equals</operation>
+            <value>MapPoint 2010</value>
+        </filters>
+        <label>MapPoint Licensing</label>
+    </listViews>
+    <listViews>
+        <fullName>MapPoint_Licensing_Inventory</fullName>
+        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+        <columns>NAME</columns>
+        <columns>Asset_Number__c</columns>
+        <columns>Employee_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Hardware_Asset__c</field>
+            <operation>equals</operation>
+            <value>MapPoint 2010</value>
+        </filters>
+        <filters>
+            <field>Employee_Name__c</field>
+            <operation>equals</operation>
+            <value>INVENTORY</value>
+        </filters>
+        <filters>
+            <field>Employee_Name__c</field>
+            <operation>contains</operation>
+            <value>Retired</value>
+        </filters>
+        <label>MapPoint Licensing Inventory</label>
+    </listViews>
+    <listViews>
+        <fullName>Recent_Adds</fullName>
+        <columns>NAME</columns>
+        <columns>Employee_Name__c</columns>
+        <columns>Hardware_Asset__c</columns>
+        <columns>Asset_Number__c</columns>
+        <columns>Serial_Number__c</columns>
+        <columns>Asset_Start_Date__c</columns>
+        <columns>Asset_End_Date__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>LAST_N_DAYS:30</value>
+        </filters>
+        <label>Recent Adds</label>
+    </listViews>
+    <listViews>
+        <fullName>Video_Codecs</fullName>
+        <booleanFilter>1 or 2 OR 3 OR 4</booleanFilter>
+        <columns>Employee_Name__c</columns>
+        <columns>Hardware_Asset__c</columns>
+        <columns>Serial_Number__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Hardware_Asset__c</field>
+            <operation>equals</operation>
+            <value>LifeSize Team 220</value>
+        </filters>
+        <filters>
+            <field>Hardware_Asset__c</field>
+            <operation>equals</operation>
+            <value>Polycom HDX8000 Series</value>
+        </filters>
+        <filters>
+            <field>Hardware_Asset__c</field>
+            <operation>equals</operation>
+            <value>Polycom HDX7000 Series</value>
+        </filters>
+        <filters>
+            <field>Hardware_Asset__c</field>
+            <operation>equals</operation>
+            <value>Polycom VSX7000 Series</value>
+        </filters>
+        <label>Video Codecs</label>
+    </listViews>
+    <listViews>
+        <fullName>Video_Conference_Rooms</fullName>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <columns>Employee_Name__c</columns>
+        <columns>Hardware_Asset__c</columns>
+        <columns>Serial_Number__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Employee_Name__c</field>
+            <operation>contains</operation>
+            <value>Video</value>
+        </filters>
+        <filters>
+            <field>Employee_Name__c</field>
+            <operation>contains</operation>
+            <value>Boardroom</value>
+        </filters>
+        <label>Video Conference Rooms</label>
+    </listViews>
+    <nameField>
+        <displayFormat>ID {00000}</displayFormat>
+        <label>Emp Hardware Assets</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Employee Hardware Assets</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Employee_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Hardware_Asset__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Asset_Number__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>SPX_ADPHardware_CreateDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Asset_Start_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Asset_End_Date__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Employee_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Hardware_Asset__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Asset_Number__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>SPX_ADPHardware_CreateDate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Asset_Start_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Asset_End_Date__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Employee_Name__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Hardware_Asset__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Asset_Number__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Asset_Start_Date__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Asset_End_Date__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Employee_Name__c</searchFilterFields>
+        <searchFilterFields>Hardware_Asset__c</searchFilterFields>
+        <searchFilterFields>Asset_Number__c</searchFilterFields>
+        <searchFilterFields>Serial_Number__c</searchFilterFields>
+        <searchFilterFields>Asset_Start_Date__c</searchFilterFields>
+        <searchFilterFields>Asset_End_Date__c</searchFilterFields>
+        <searchResultsAdditionalFields>Employee_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Hardware_Asset__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Asset_Number__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Serial_Number__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Asset_Start_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Asset_End_Date__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

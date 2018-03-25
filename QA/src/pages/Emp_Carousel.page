@@ -1,0 +1,43 @@
+<apex:page standardStylesheets="false" controller="EMP_AssociatePortalPage_Controller" >
+    <div class="">
+        <div id="ImageCarousel" class="carousel slide" data-ride="carousel" data-interval="7500">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <apex:variable value="{!0}" var="indicatorNum"/>
+                <apex:repeat value="{!Attachments}" var="at" rendered="{!Attachments.size>1}">
+                    <li data-target="#ImageCarousel" data-slide-to="{!indicatorNum}" class="{!if(indicatorNum==0,'active','')}"></li>
+                    <apex:variable var="indicatorNum" value="{!indicatorNum + 1}"/>
+                </apex:repeat>
+            </ol>
+            
+            <div class="carousel-inner" role="listbox">
+                <apex:variable value="{!1}" var="rowNum"/>
+                <apex:repeat value="{!Attachments}" var="at" >
+                    <div class="{!if(rowNum==1,'item active','item')}">
+                        <apex:image styleclass="third-slide" value="{!$Site.Prefix}/servlet/servlet.FileDownload?file={!at.id}" style=""></apex:image>
+                        <div class="custom-carousel-caption">
+                            <apex:outputtext value="{!pageComponents[at.parentid].Main_Content__c}" escape="false"/>
+                        </div>
+                    </div>
+                    <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+                </apex:repeat>
+            </div>
+            
+            <apex:outputPanel rendered="{!Attachments.size>1}" layout="block">
+                <span class="left custom-carousel-control" href="#ImageCarousel" data-slide="prev" style=""> 
+                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                    <span class="sr-only">Previous</span>
+                </span>
+            </apex:outputPanel>
+            
+            <apex:outputPanel rendered="{!Attachments.size>1}" layout="block">
+                <span class="right custom-carousel-control" href="#ImageCarousel" role="button" data-slide="next" style="">
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    <span class="sr-only">Next</span>
+                </span>
+            </apex:outputPanel>
+            
+        </div>
+        <!-- /.carousel --> 
+    </div>
+</apex:page>

@@ -1,0 +1,1207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Trip Report</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Trip Reports</value>
+    </caseValues>
+    <fields>
+        <help><!-- Please enter the percent complete for the deliverable --></help>
+        <label><!-- Agenda Signed Off - % Complete --></label>
+        <name>Agenda_Signed_Off_Complete__c</name>
+        <picklistValues>
+            <masterLabel>00%</masterLabel>
+            <translation><!-- 00% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10%</masterLabel>
+            <translation><!-- 10% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>100%</masterLabel>
+            <translation><!-- 100% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20%</masterLabel>
+            <translation><!-- 20% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30%</masterLabel>
+            <translation><!-- 30% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>40%</masterLabel>
+            <translation><!-- 40% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>50%</masterLabel>
+            <translation><!-- 50% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60%</masterLabel>
+            <translation><!-- 60% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>70%</masterLabel>
+            <translation><!-- 70% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>80%</masterLabel>
+            <translation><!-- 80% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>90%</masterLabel>
+            <translation><!-- 90% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Once you have started work you should assign a risk color. If you denote as &quot;Red&quot; please open an Issue in the Project Log. --></help>
+        <label><!-- Agenda Signed Off - Risk --></label>
+        <name>Agenda_Signed_Off_Risk__c</name>
+        <picklistValues>
+            <masterLabel>GREEN</masterLabel>
+            <translation><!-- GREEN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RED</masterLabel>
+            <translation><!-- RED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>YELLOW</masterLabel>
+            <translation><!-- YELLOW --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please enter the day/time that you arrived at the dealership --></help>
+        <label><!-- Arrival (Start) Date/Time --></label>
+        <name>Arrival_Start_Date_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Associate&apos;s Manager --></label>
+        <name>Associate_s_Manager__c</name>
+    </fields>
+    <fields>
+        <help><!-- Default value will be the logged in associated.  You can manually change  the field is required. --></help>
+        <label><!-- Associate&apos;s Title --></label>
+        <name>Associate_s_Title__c</name>
+    </fields>
+    <fields>
+        <help><!-- If you launch the &quot;new&quot; from the site this field will be auto-updated with the related Site.  You can also choose a different site or replace if the relationship was wrong. --></help>
+        <label><!-- Associated SubProjectSite --></label>
+        <name>Associated_SubProjectSite__c</name>
+        <relationshipLabel><!-- Trip Reports --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- BSC Full Name --></label>
+        <name>BSC_Full_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please enter the name of the person who requested the dealership visit --></help>
+        <label><!-- CDK Requester Name --></label>
+        <name>CDK_Requester_Name__c</name>
+        <relationshipLabel><!-- Trip Reports --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- City, State --></label>
+        <name>City_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client Manager for the SubProject --></label>
+        <name>Client_Manager_for_the_SubProject__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select the appropriate percent complete for the purpose of your visit --></help>
+        <label><!-- % Complete with Purpose of Visit --></label>
+        <name>Complete_with_Purpose_of_Visit__c</name>
+        <picklistValues>
+            <masterLabel>00%</masterLabel>
+            <translation><!-- 00% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10%</masterLabel>
+            <translation><!-- 10% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>100%</masterLabel>
+            <translation><!-- 100% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20%</masterLabel>
+            <translation><!-- 20% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30%</masterLabel>
+            <translation><!-- 30% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>40%</masterLabel>
+            <translation><!-- 40% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>50%</masterLabel>
+            <translation><!-- 50% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60%</masterLabel>
+            <translation><!-- 60% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>70%</masterLabel>
+            <translation><!-- 70% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>80%</masterLabel>
+            <translation><!-- 80% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>90%</masterLabel>
+            <translation><!-- 90% --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Once you have started work you should assign a risk color. If you denote as &quot;Red&quot; please open an Issue in the Project Log. --></help>
+        <label><!-- Conversion Verified - Risk --></label>
+        <name>Conversion_Verified_Risk__c</name>
+        <picklistValues>
+            <masterLabel>GREEN</masterLabel>
+            <translation><!-- GREEN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RED</masterLabel>
+            <translation><!-- RED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>YELLOW</masterLabel>
+            <translation><!-- YELLOW --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please select the appropriate percent complete for this deliverable --></help>
+        <label><!-- Conversion Verified - % Complete --></label>
+        <name>Conversion_Verified__c</name>
+        <picklistValues>
+            <masterLabel>00%</masterLabel>
+            <translation><!-- 00% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10%</masterLabel>
+            <translation><!-- 10% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>100%</masterLabel>
+            <translation><!-- 100% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20%</masterLabel>
+            <translation><!-- 20% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30%</masterLabel>
+            <translation><!-- 30% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>40%</masterLabel>
+            <translation><!-- 40% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>50%</masterLabel>
+            <translation><!-- 50% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60%</masterLabel>
+            <translation><!-- 60% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>70%</masterLabel>
+            <translation><!-- 70% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>80%</masterLabel>
+            <translation><!-- 80% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>90%</masterLabel>
+            <translation><!-- 90% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please select the proper value to indicate your progress toward completion --></help>
+        <label><!-- DCS/3rd Party Comm Verified - % Complete --></label>
+        <name>DCS_3rd_Party_Comm_Verified_Complete__c</name>
+        <picklistValues>
+            <masterLabel>00%</masterLabel>
+            <translation><!-- 00% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10%</masterLabel>
+            <translation><!-- 10% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>100%</masterLabel>
+            <translation><!-- 100% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20%</masterLabel>
+            <translation><!-- 20% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30%</masterLabel>
+            <translation><!-- 30% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>40%</masterLabel>
+            <translation><!-- 40% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>50%</masterLabel>
+            <translation><!-- 50% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60%</masterLabel>
+            <translation><!-- 60% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>70%</masterLabel>
+            <translation><!-- 70% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>80%</masterLabel>
+            <translation><!-- 80% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>90%</masterLabel>
+            <translation><!-- 90% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Once you have started work you should assign a risk color. If you denote as &quot;Red&quot; please open an Issue in the Project Log. --></help>
+        <label><!-- DCS/3rd Party Comm Verified - Risk --></label>
+        <name>DCS_3rd_Party_Comm_Verified_Risk__c</name>
+        <picklistValues>
+            <masterLabel>GREEN</masterLabel>
+            <translation><!-- GREEN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RED</masterLabel>
+            <translation><!-- RED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>YELLOW</masterLabel>
+            <translation><!-- YELLOW --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- For SubProject related Trip reports this field will be automatically populated upon save.  For Non-SubProject trip reports please enter the CMF for the dealership. --></help>
+        <label><!-- Dealership CMF --></label>
+        <name>Dealership_CMF__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is an automated field based on the related SubProject site --></help>
+        <label><!-- Dealership Name / CMF --></label>
+        <name>Dealership_Name_CMF__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is an automatic field pulling from the Account name for the associated site or account --></help>
+        <label><!-- Dealership Name --></label>
+        <name>Dealership_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select a department for the trip report --></help>
+        <label><!-- Department --></label>
+        <name>Department__c</name>
+        <picklistValues>
+            <masterLabel>Business Office</masterLabel>
+            <translation><!-- Business Office --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dash</masterLabel>
+            <translation><!-- Dash --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer Wide</masterLabel>
+            <translation><!-- Dealer Wide --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fixed Operations</masterLabel>
+            <translation><!-- Fixed Operations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Front-End Sales</masterLabel>
+            <translation><!-- Front-End Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Heavy Equipment</masterLabel>
+            <translation><!-- Heavy Equipment --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please enter the date/time that you departed the dealership at the conclusion of the onsite portion of the install --></help>
+        <label><!-- Departure (Finish) Date/Time --></label>
+        <name>Departure_Finish_Date_Time__c</name>
+    </fields>
+    <fields>
+        <help><!-- please select the proper value for the deliverable --></help>
+        <label><!-- Equipment Verified - % Complete --></label>
+        <name>Equipment_Verified_Complete__c</name>
+        <picklistValues>
+            <masterLabel>00%</masterLabel>
+            <translation><!-- 00% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10%</masterLabel>
+            <translation><!-- 10% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>100%</masterLabel>
+            <translation><!-- 100% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20%</masterLabel>
+            <translation><!-- 20% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30%</masterLabel>
+            <translation><!-- 30% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>40%</masterLabel>
+            <translation><!-- 40% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>50%</masterLabel>
+            <translation><!-- 50% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60%</masterLabel>
+            <translation><!-- 60% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>70%</masterLabel>
+            <translation><!-- 70% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>80%</masterLabel>
+            <translation><!-- 80% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>90%</masterLabel>
+            <translation><!-- 90% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Once you have started work you should assign a risk color. If you denote as &quot;Red&quot; please open an Issue in the Project Log. --></help>
+        <label><!-- Equipment Verified - Risk --></label>
+        <name>Equipment_Verified_Risk__c</name>
+        <picklistValues>
+            <masterLabel>GREEN</masterLabel>
+            <translation><!-- GREEN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RED</masterLabel>
+            <translation><!-- RED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>YELLOW</masterLabel>
+            <translation><!-- YELLOW --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please select the proper percent complete --></help>
+        <label><!-- Forms &amp; Printers Verified - % Complete --></label>
+        <name>Forms_Printers_Equipment_Verified__c</name>
+        <picklistValues>
+            <masterLabel>00%</masterLabel>
+            <translation><!-- 00% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10%</masterLabel>
+            <translation><!-- 10% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>100%</masterLabel>
+            <translation><!-- 100% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20%</masterLabel>
+            <translation><!-- 20% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30%</masterLabel>
+            <translation><!-- 30% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>40%</masterLabel>
+            <translation><!-- 40% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>50%</masterLabel>
+            <translation><!-- 50% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60%</masterLabel>
+            <translation><!-- 60% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>70%</masterLabel>
+            <translation><!-- 70% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>80%</masterLabel>
+            <translation><!-- 80% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>90%</masterLabel>
+            <translation><!-- 90% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Once you have started work you should assign a risk color. If you denote as &quot;Red&quot; please open an Issue in the Project Log. --></help>
+        <label><!-- Forms &amp; Printers Verified - Risk --></label>
+        <name>Forms_Printers_Verified_Risk__c</name>
+        <picklistValues>
+            <masterLabel>GREEN</masterLabel>
+            <translation><!-- GREEN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RED</masterLabel>
+            <translation><!-- RED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>YELLOW</masterLabel>
+            <translation><!-- YELLOW --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- please select the appropriate percent complete for the deliverable --></help>
+        <label><!-- Manager Training Completed - % Complete --></label>
+        <name>Manager_Training_Completed_Complete__c</name>
+        <picklistValues>
+            <masterLabel>00%</masterLabel>
+            <translation><!-- 00% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10%</masterLabel>
+            <translation><!-- 10% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>100%</masterLabel>
+            <translation><!-- 100% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20%</masterLabel>
+            <translation><!-- 20% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30%</masterLabel>
+            <translation><!-- 30% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>40%</masterLabel>
+            <translation><!-- 40% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>50%</masterLabel>
+            <translation><!-- 50% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60%</masterLabel>
+            <translation><!-- 60% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>70%</masterLabel>
+            <translation><!-- 70% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>80%</masterLabel>
+            <translation><!-- 80% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>90%</masterLabel>
+            <translation><!-- 90% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Once you have started work you should assign a risk color. If you denote as &quot;Red&quot; please open an Issue in the Project Log. --></help>
+        <label><!-- Manager Training Completed - Risk --></label>
+        <name>Manager_Training_Completed_Risk__c</name>
+        <picklistValues>
+            <masterLabel>GREEN</masterLabel>
+            <translation><!-- GREEN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RED</masterLabel>
+            <translation><!-- RED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>YELLOW</masterLabel>
+            <translation><!-- YELLOW --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Metrics Red --></label>
+        <name>Metrics_Red__c</name>
+    </fields>
+    <fields>
+        <label><!-- Metrics Yellow --></label>
+        <name>Metrics_Yellow__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please enter a product name as you entered &quot;other&quot; in the Product Installed picklist. --></help>
+        <label><!-- Other Product Name(s) --></label>
+        <name>Other_Product_Names__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select the product for the Trip Report --></help>
+        <label><!-- Product(s) Installed --></label>
+        <name>Products_Installed__c</name>
+        <picklistValues>
+            <masterLabel>Accounting</masterLabel>
+            <translation><!-- Accounting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business Office Consolidation</masterLabel>
+            <translation><!-- Business Office Consolidation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CRM</masterLabel>
+            <translation><!-- CRM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CT Wizard</masterLabel>
+            <translation><!-- CT Wizard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Canada Lease Management</masterLabel>
+            <translation><!-- Canada Lease Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Contact Management</masterLabel>
+            <translation><!-- Customer Contact Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Desking</masterLabel>
+            <translation><!-- Desking --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Digital Contracting</masterLabel>
+            <translation><!-- Digital Contracting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Digital Contracting VCI</masterLabel>
+            <translation><!-- Digital Contracting VCI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dispatch</masterLabel>
+            <translation><!-- Dispatch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Document Archiving</masterLabel>
+            <translation><!-- Document Archiving --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Document Scanning</masterLabel>
+            <translation><!-- Document Scanning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E-Payments</masterLabel>
+            <translation><!-- E-Payments --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E-Sign</masterLabel>
+            <translation><!-- E-Sign --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electronic Repair Order</masterLabel>
+            <translation><!-- Electronic Repair Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electronic Time Clock</masterLabel>
+            <translation><!-- Electronic Time Clock --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electronic Time Ticket</masterLabel>
+            <translation><!-- Electronic Time Ticket --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Express Scanning</masterLabel>
+            <translation><!-- Express Scanning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>F&amp;I Laser</masterLabel>
+            <translation><!-- F&amp;I Laser --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ford Ace</masterLabel>
+            <translation><!-- Ford Ace --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Heavy Equipment</masterLabel>
+            <translation><!-- Heavy Equipment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Layered Application</masterLabel>
+            <translation><!-- Layered Application --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lot Management</masterLabel>
+            <translation><!-- Lot Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Menu</masterLabel>
+            <translation><!-- Menu --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Multi-Company Accounting</masterLabel>
+            <translation><!-- Multi-Company Accounting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Multiple Departments</masterLabel>
+            <translation><!-- Multiple Departments --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ONE-Eighty</masterLabel>
+            <translation><!-- ONE-Eighty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parts</masterLabel>
+            <translation><!-- Parts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parts Delivery Management</masterLabel>
+            <translation><!-- Parts Delivery Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parts Scan</masterLabel>
+            <translation><!-- Parts Scan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payroll</masterLabel>
+            <translation><!-- Payroll --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales</masterLabel>
+            <translation><!-- Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Velocity</masterLabel>
+            <translation><!-- Sales Velocity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service</masterLabel>
+            <translation><!-- Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Edge Inspect</masterLabel>
+            <translation><!-- Service Edge Inspect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Edge Lane</masterLabel>
+            <translation><!-- Service Edge Lane --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Edge Smartt</masterLabel>
+            <translation><!-- Service Edge Smartt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Pricing</masterLabel>
+            <translation><!-- Service Pricing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Signature Capture</masterLabel>
+            <translation><!-- Signature Capture --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technician Workbench</masterLabel>
+            <translation><!-- Technician Workbench --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Truck Lease</masterLabel>
+            <translation><!-- Truck Lease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Truck SCM</masterLabel>
+            <translation><!-- Truck SCM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Upgrade</masterLabel>
+            <translation><!-- Upgrade --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle Inspection</masterLabel>
+            <translation><!-- Vehicle Inspection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle Scan</masterLabel>
+            <translation><!-- Vehicle Scan --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Project Manager for SubProject --></label>
+        <name>Project_Manager_for_SubProject__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select the proper reason for the dealership visit --></help>
+        <label><!-- Reason for Visit --></label>
+        <name>Reason_for_Visit__c</name>
+        <picklistValues>
+            <masterLabel>Critical Client Visit</masterLabel>
+            <translation><!-- Critical Client Visit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Implementation Go-Back</masterLabel>
+            <translation><!-- Implementation Go-Back --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Long Term Assignment</masterLabel>
+            <translation><!-- Long Term Assignment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Service Visit</masterLabel>
+            <translation><!-- Sales Service Visit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Support Service Visit</masterLabel>
+            <translation><!-- Support Service Visit --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please enter the account name and then select the lookup icon in order to locate the proper account for the trip report. --></help>
+        <label><!-- Related Account --></label>
+        <name>Related_Account__c</name>
+        <relationshipLabel><!-- Trip Reports --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Please indicate the risk level for completing the purpose of your visit --></help>
+        <label><!-- Risk regarding the Purpose of the Visit --></label>
+        <name>Risk_regarding_the_Purpose_of_the_Visit__c</name>
+        <picklistValues>
+            <masterLabel>GREEN</masterLabel>
+            <translation><!-- GREEN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RED</masterLabel>
+            <translation><!-- RED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>YELLOW</masterLabel>
+            <translation><!-- YELLOW --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please select the proper percent complete for the deliverable --></help>
+        <label><!-- Setups Verified - % Complete --></label>
+        <name>Setups_Verified_Complete__c</name>
+        <picklistValues>
+            <masterLabel>00%</masterLabel>
+            <translation><!-- 00% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10%</masterLabel>
+            <translation><!-- 10% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>100%</masterLabel>
+            <translation><!-- 100% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20%</masterLabel>
+            <translation><!-- 20% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30%</masterLabel>
+            <translation><!-- 30% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>40%</masterLabel>
+            <translation><!-- 40% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>50%</masterLabel>
+            <translation><!-- 50% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60%</masterLabel>
+            <translation><!-- 60% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>70%</masterLabel>
+            <translation><!-- 70% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>80%</masterLabel>
+            <translation><!-- 80% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>90%</masterLabel>
+            <translation><!-- 90% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Once you have started work you should assign a risk color. If you denote as &quot;Red&quot; please open an Issue in the Project Log. --></help>
+        <label><!-- Setups Verified - Risk --></label>
+        <name>Setups_Verified_Risk__c</name>
+        <picklistValues>
+            <masterLabel>GREEN</masterLabel>
+            <translation><!-- GREEN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RED</masterLabel>
+            <translation><!-- RED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>YELLOW</masterLabel>
+            <translation><!-- YELLOW --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- SubProject Name --></label>
+        <name>SubProject_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Automated field to display the SubProject Number --></help>
+        <label><!-- SubProject Number --></label>
+        <name>SubProject_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Metrics at Risk --></label>
+        <name>Total_Metrics_at_Risk__c</name>
+    </fields>
+    <fields>
+        <help><!-- Automated rollup field --></help>
+        <label><!-- # of Narratives --></label>
+        <name>Total_Number_of_Narratives__c</name>
+    </fields>
+    <fields>
+        <help><!-- If you are the Install Lead, this is the total users in the department(s) you are leading.  If you are an Install Assist, this is the total users you are personally responsible to train. --></help>
+        <label><!-- Total # of Users --></label>
+        <name>Total_of_Users__c</name>
+    </fields>
+    <fields>
+        <label><!-- Trip Report Status --></label>
+        <name>Trip_Report_Status__c</name>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please select the appropriate percent compete for the deliverable --></help>
+        <label><!-- User Training Completed - % Complete --></label>
+        <name>User_Training_Completed_Complete__c</name>
+        <picklistValues>
+            <masterLabel>00%</masterLabel>
+            <translation><!-- 00% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10%</masterLabel>
+            <translation><!-- 10% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>100%</masterLabel>
+            <translation><!-- 100% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20%</masterLabel>
+            <translation><!-- 20% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30%</masterLabel>
+            <translation><!-- 30% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>40%</masterLabel>
+            <translation><!-- 40% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>50%</masterLabel>
+            <translation><!-- 50% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60%</masterLabel>
+            <translation><!-- 60% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>70%</masterLabel>
+            <translation><!-- 70% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>80%</masterLabel>
+            <translation><!-- 80% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>90%</masterLabel>
+            <translation><!-- 90% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Once you have started work you should assign a risk color. If you denote as &quot;Red&quot; please open an Issue in the Project Log. --></help>
+        <label><!-- User Training Completed - Risk --></label>
+        <name>User_Training_Completed_Risk__c</name>
+        <picklistValues>
+            <masterLabel>GREEN</masterLabel>
+            <translation><!-- GREEN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RED</masterLabel>
+            <translation><!-- RED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>YELLOW</masterLabel>
+            <translation><!-- YELLOW --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please select the proper percent complete for the deliverable --></help>
+        <label><!-- Users Capable of Logging in - % Complete --></label>
+        <name>Users_Capable_of_Logging_in_Complete__c</name>
+        <picklistValues>
+            <masterLabel>00%</masterLabel>
+            <translation><!-- 00% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10%</masterLabel>
+            <translation><!-- 10% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>100%</masterLabel>
+            <translation><!-- 100% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20%</masterLabel>
+            <translation><!-- 20% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30%</masterLabel>
+            <translation><!-- 30% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>40%</masterLabel>
+            <translation><!-- 40% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>50%</masterLabel>
+            <translation><!-- 50% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60%</masterLabel>
+            <translation><!-- 60% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>70%</masterLabel>
+            <translation><!-- 70% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>80%</masterLabel>
+            <translation><!-- 80% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>90%</masterLabel>
+            <translation><!-- 90% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Once you have started work you should assign a risk color. If you denote as &quot;Red&quot; please open an Issue in the Project Log. --></help>
+        <label><!-- Users Capable of Logging in - Risk --></label>
+        <name>Users_Capable_of_Logging_in_Risk__c</name>
+        <picklistValues>
+            <masterLabel>GREEN</masterLabel>
+            <translation><!-- GREEN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RED</masterLabel>
+            <translation><!-- RED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>YELLOW</masterLabel>
+            <translation><!-- YELLOW --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please select your percent complete for WIP completed. --></help>
+        <label><!-- WIP Completed - % Complete --></label>
+        <name>WIP_Completed_PercentComplete__c</name>
+        <picklistValues>
+            <masterLabel>00%</masterLabel>
+            <translation><!-- 00% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10%</masterLabel>
+            <translation><!-- 10% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>100%</masterLabel>
+            <translation><!-- 100% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20%</masterLabel>
+            <translation><!-- 20% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30%</masterLabel>
+            <translation><!-- 30% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>40%</masterLabel>
+            <translation><!-- 40% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>50%</masterLabel>
+            <translation><!-- 50% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60%</masterLabel>
+            <translation><!-- 60% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>70%</masterLabel>
+            <translation><!-- 70% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>80%</masterLabel>
+            <translation><!-- 80% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>90%</masterLabel>
+            <translation><!-- 90% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- WIP Completed RYG: --></label>
+        <name>WIP_Completed_RYG__c</name>
+    </fields>
+    <fields>
+        <help><!-- Once you have started work you should assign a risk color. If you denote as &quot;Red&quot; please open an Issue in the Project Log. --></help>
+        <label><!-- WIP Completed - Risk --></label>
+        <name>WIP_Completed_Risk__c</name>
+        <picklistValues>
+            <masterLabel>GREEN</masterLabel>
+            <translation><!-- GREEN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RED</masterLabel>
+            <translation><!-- RED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>YELLOW</masterLabel>
+            <translation><!-- YELLOW --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please enter the number of days that you are scheduled to be onsite for the install --></help>
+        <label><!-- # of Onsite Days --></label>
+        <name>no_of_Onsite_Days__c</name>
+    </fields>
+    <layouts>
+        <layout>Assist Trip Report Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Install Tracking Metrics --></label>
+            <section>Install Tracking Metrics</section>
+        </sections>
+        <sections>
+            <label><!-- Trip Report Header Details --></label>
+            <section>Trip Report Header Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Non Project Trip Report Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Trip Report Header Details --></label>
+            <section>Trip Report Header Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Trip Report Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Install Tracking Metrics --></label>
+            <section>Install Tracking Metrics</section>
+        </sections>
+        <sections>
+            <label><!-- Trip Report Header Details --></label>
+            <section>Trip Report Header Details</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Install Assist --></label>
+        <name>Install_Assist</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Install Lead --></label>
+        <name>Install_Lead</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Non SubProject Related --></label>
+        <name>Non_SubProject_Related</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- The CMF must be numeric and contain 8 digits --></errorMessage>
+        <name>IMP_CMF_8Char</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You selected &quot;other&quot; as a product installed. Please enter the name(s) for the product(s) you installed.....[IMP_Other_Product_Name_Required] --></errorMessage>
+        <name>IMP_Other_Product_Name_Required</name>
+    </validationRules>
+</CustomObjectTranslation>

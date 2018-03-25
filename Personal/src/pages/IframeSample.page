@@ -1,0 +1,35 @@
+<apex:page controller="repeatCon" id="thePage">
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}" />
+            <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.10.4.custom.min.js')}" />
+    <style>
+    .sidebarCell, .bPageHeader, .iframe
+        {
+        display:none;
+        }
+        .brdPalette
+        {
+        	border-top:0px !important;
+        }
+    </style>
+    <script type="text/javascript">
+    var j$ = jQuery.noConflict();
+    function hide(element)
+    {
+        var content = j$(element).contents().find('body').html();
+        if(content.trim().length>0)
+        {
+            j$(element).parent().next().html(content);
+        }
+        j$(this).parent().remove();
+    }
+    </script>
+    <apex:repeat value="{!strings}" var="string" id="theRepeat">
+        
+        <div class="iframe"> <iframe src="https://ap1.salesforce.com/apex/research" onLoad="hide(this);" width="0" height="0"/></div>
+        <div>
+            
+        </div>
+
+    </apex:repeat>
+
+</apex:page>

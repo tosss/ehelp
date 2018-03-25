@@ -1,0 +1,56 @@
+<apex:component controller="VisualizeData" >
+    <apex:attribute name="object" type="String" required="true" description="sobject"  />
+    <apex:attribute name="field" type="String" required="true" description="field"  />
+    <apex:attribute name="title" type="String" required="true" description="title"  />
+    <apex:attribute name="cid" type="String" required="true" description="cid"  />
+    <apex:attribute name="condition" type="String"  description="where clause" />
+    <apex:attribute name="pieHole" type="Double" description="pieHole"  />
+    <apex:attribute name="is3D" type="Boolean" description="is3D"  />
+    <apex:attribute name="pieStartAngle" type="Double" description="pieStartAngle"  />
+    <apex:attribute name="sliceVisibilityThreshold" type="String" description="sliceVisibilityThreshold"  />
+    <apex:attribute name="style" type="String" description="Pie style"  />
+    <apex:includeScript value="{!URLFOR($Resource.VisualizeData)}" />
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}" />
+    <html>
+  <head>
+    
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(getData('{!object}','{!field}','{!condition}','{!title}','{!cid}','{!pieHole}','{!is3D}','{!pieStartAngle}','{!sliceVisibilityThreshold}'));
+      function getData(Object,field,condition,title,cid,pieHole,is3D,pieStartAngle,sliceVisibilityThreshold)
+      {
+          VisualizeData.visualize(Object,field,condition,function(result){
+              var dataArray = new Array();
+              dataArray.push([field,'Count']);
+              for(var i=0;i<result.length;i++)
+              {
+                  var record  = new Array();
+                  record.push(result[i]['columnName']);
+                  record.push(result[i]['value']);
+                  dataArray.push(record);
+              }
+          drawChart(dataArray,title,cid,pieHole,is3D,pieStartAngle,sliceVisibilityThreshold);
+          });
+      }
+      function drawChart(dataArray,title,cid,pieHole,is3D,pieStartAngle,sliceVisibilityThreshold) {
+
+        var data = google.visualization.arrayToDataTable( dataArray);
+          var options = {
+              title:title,
+              sliceVisibilityThreshold:sliceVisibilityThreshold,
+              pieHole:pieHole,
+              is3D:is3D,
+              pieStartAngle:pieStartAngle
+          };
+
+        var chart = new google.visualization.PieChart(document.getElementById(cid));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="{!cid}" class="pie" style="{!style}"></div>
+  </body>
+</html>
+</apex:component>

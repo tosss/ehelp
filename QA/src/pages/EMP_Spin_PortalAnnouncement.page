@@ -1,0 +1,12 @@
+<apex:page standardStylesheets="false" sidebar="false">
+    <apex:outputPanel id="employee" rendered="{!IF (AND($User.Contractor__c == false,$User.Non_Employee__c == false), True, False)}">
+        <apex:outputText >All Spin Off information will be housed on the new ADP Associate Portal Page, that can be found at</apex:outputText>
+        <br/>
+        <apex:outputLink value="EMP_Spin_PortalLandingPage" id="theLink" target="_blank">ADP Dealer Services Spinoff Information</apex:outputLink>
+    </apex:outputPanel>
+    
+    <apex:outputPanel id="nonemployee" rendered="{!IF (OR($User.Contractor__c == true,$User.Non_Employee__c == true), True, False)}">
+        <apex:outputText >Watch this space for announcements regarding changes to the Org because of the Dealer Services Spinoff</apex:outputText>
+    </apex:outputPanel> 
+    
+</apex:page>

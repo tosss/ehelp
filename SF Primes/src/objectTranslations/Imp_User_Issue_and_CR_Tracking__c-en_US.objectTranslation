@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Imp User Issue and CR Tracking</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Imp User Issue and CR Tracking</value>
+    </caseValues>
+    <fields>
+        <help><!-- Please enter specific criteria on how you will verify that the Issue or CR has been implemented.  This may occur in a sandbox environment prior to push to production or directly in production depending on the item --></help>
+        <label><!-- Acceptance Criteria --></label>
+        <name>Acceptance_Criteria__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select the appropriate value when setting status to canceled. --></help>
+        <label><!-- Canceled Reason --></label>
+        <name>Canceled_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Business process issue</masterLabel>
+            <translation><!-- Business process issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Duplicate</masterLabel>
+            <translation><!-- Duplicate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Obsolete</masterLabel>
+            <translation><!-- Obsolete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Requestor initiated cancellation</masterLabel>
+            <translation><!-- Requestor initiated cancellation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Training issue</masterLabel>
+            <translation><!-- Training issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Working as designed</masterLabel>
+            <translation><!-- Working as designed --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This field will autofill with the complete date based on the status being changed to Complete or Canceled --></help>
+        <label><!-- Complete Date --></label>
+        <name>Complete_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please describe the issue or change request being submitted to the development team --></help>
+        <label><!-- Description of Issue or CR --></label>
+        <name>Description_of_Issue_or_CR__c</name>
+    </fields>
+    <fields>
+        <help><!-- This section is for the Product Owner, Analyst, and/or Developer to update the record with notes and any information on resolution if appropriate. --></help>
+        <label><!-- Development Notes/Resolution --></label>
+        <name>Development_Notes_Resolution__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select your priority for the item.  The priority may be updated by the development team once received if appropriate. --></help>
+        <label><!-- Priority --></label>
+        <name>Priority__c</name>
+        <picklistValues>
+            <masterLabel>Critical</masterLabel>
+            <translation><!-- Critical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Normal</masterLabel>
+            <translation><!-- Normal --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Check this box to indicate that this has been determined to be an enhancement and will be added as a user story. --></help>
+        <label><!-- Product Enhancement --></label>
+        <name>Product_Enhancement__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter the email address where you want to receive notifications --></help>
+        <label><!-- Requestor Email Address --></label>
+        <name>Requestor_Email_Address__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field will default to the current user.  If you need to change simple update to a different name. --></help>
+        <label><!-- Requestor --></label>
+        <name>Requestor__c</name>
+    </fields>
+    <fields>
+        <help><!-- enter the appropriate status.  It will default to Submitted --></help>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation><!-- Assigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Canceled</masterLabel>
+            <translation><!-- Canceled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Moved to Backlog</masterLabel>
+            <translation><!-- Moved to Backlog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Hold</masterLabel>
+            <translation><!-- On Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Re-opened</masterLabel>
+            <translation><!-- Re-opened --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready for Acceptance Test</masterLabel>
+            <translation><!-- Ready for Acceptance Test --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted</masterLabel>
+            <translation><!-- Submitted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting on Approval for change</masterLabel>
+            <translation><!-- Waiting on Approval for change --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting on Requester for information</masterLabel>
+            <translation><!-- Waiting on Requester for information --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This date is the date the request was submitted.  Will default to the current date on create and update if not set to &quot;submitted&quot; until a future date. --></help>
+        <label><!-- Submitted Date --></label>
+        <name>Submitted_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select the item that describes the issue or request --></help>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>General - Question</masterLabel>
+            <translation><!-- General - Question --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Issue - Blocking</masterLabel>
+            <translation><!-- Issue - Blocking --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Issue - Data missing or wrong</masterLabel>
+            <translation><!-- Issue - Data missing or wrong --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Issue - Error message received on page</masterLabel>
+            <translation><!-- Issue - Error message received on page --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Issue - Workflow not working as expected</masterLabel>
+            <translation><!-- Issue - Workflow not working as expected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Request - Change to Pick-list</masterLabel>
+            <translation><!-- Request - Change to Pick-list --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Request - New Email Template</masterLabel>
+            <translation><!-- Request - New Email Template --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Request - New Public View</masterLabel>
+            <translation><!-- Request - New Public View --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Request - New Report or Dashboard</masterLabel>
+            <translation><!-- Request - New Report or Dashboard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Request - New field</masterLabel>
+            <translation><!-- Request - New field --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Request - New workflow</masterLabel>
+            <translation><!-- Request - New workflow --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Request - PSR</masterLabel>
+            <translation><!-- Request - PSR --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Imp User Issue and CR Tracking Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Single column --></label>
+            <section>Single column</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

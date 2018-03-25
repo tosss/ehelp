@@ -1,0 +1,193 @@
+<!--
+/*------------------------------------------------------------
+Author: hemanth.kesapragada@cdk.com
+Description: Component to display Interviewee and Interviewer on the page
+History
+2015-05-11    hemanth.kesapragada@cdk.com	Created
+------------------------------------------------------------*/
+-->
+<apex:component controller="IMP_Interview_Controller" allowDML="true"  >
+    
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.10.4.custom.min.js')}" />
+    
+    <apex:attribute assignTo="{!siteWorkbookCategoryId}" name="DiscSiteWorkbookCategoryId" description="Id of Discovery Site Workbook Category record" type="String" required="true"/>
+    <apex:attribute assignTo="{!questionCategoryId}" name="QuestionCategory" description="Id of the Question Category" type="String" required="true"/>
+    <apex:attribute assignTo="{!subProjectId}" name="SubProject" description="Sub Project ID" type="String" required="true"/>
+    <apex:attribute assignTo="{!isEditMode}" name="mode" description="Flag to check if edit/view mode" type="boolean" required="true"/>
+    
+    <style type="text/css">
+        .popupBackground
+        {
+        background-color:black;
+        opacity: 0.20;
+        filter: alpha(opacity = 20);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 9998;
+        }
+        
+        .custPopup
+        {
+        background-color: white;
+        border-width: 2px;
+        border-style: solid;
+        z-index: 9999;
+        left: 50%;
+        padding:10px;
+        position: fixed;
+        /* These are the 3 css properties you will need to change so the popup 
+        displays in the center of the screen. First set the width. Then set 
+        margin-left to negative half of what the width is. You can add 
+        the height property for a fixed size pop up if you want.*/
+        width: auto;
+        margin-left: -250px;
+        top:200px;
+        }
+       
+
+    </style>
+    <script>
+    function openDialog()
+    {
+        j$("[Id$='newContactPanel']").show();
+    }
+    
+    function closeDialog()
+    {
+        j$("[Id$='saveBtn']").show();
+        j$("[Id$='savingBtn']").hide();
+        j$("[Id$='newContactPanel']").hide();
+    }
+    
+    function disableAndSave()
+    {
+        var flag=true;
+        j$('.requiredInput').each(function(){
+            if(flag) {
+                var _reqBlck=j$(this).find(".requiredBlock");
+                if(_reqBlck != null){
+                    var val=j$(_reqBlck).next().val();
+                    if(val==null || val ==''){
+                        flag=false;
+                    }
+                }
+            }
+        });
+        
+        if(flag==true)
+        {
+            j$("[Id$='saveBtn']").val("Saving...").attr("disabled","disabled").addClass("btnDisabled");
+            saveContact();
+        }
+        else
+        {
+            alert('Required fields are missing');
+        }
+    }
+    </script>  
+    <apex:pageBlock id="pb" >
+        <apex:pageBlockSection columns="2" >
+            <apex:pageBlockSectionItem >
+                <apex:actionRegion >
+                    <apex:outputPanel id="interviewPanel">
+                        <apex:pageblocktable value="{!intervieweeMap}"  cellpadding="0" cellspacing="0" var="interviewee" id="pbt1">              
+                            <apex:column headerValue="Interviewee">
+                                <apex:commandLink value="{!intervieweeMap[interviewee].Interviewee__r.Name}" 
+                                                  onclick="window.open('/{!intervieweeMap[interviewee].Interviewee__r.Id}','UserProfile','location=1,status=1,scrollbars=1,resizable=1, width=800,height=600'); return false" 
+                                                  target="_blank">
+                                </apex:commandLink>
+                            </apex:column>
+                            <apex:column rendered="{!isEditMode}">
+                                <apex:commandLink action="{!removeInterviewee}" reRender="interviewPanel" value="(Remove)" status="actStatusId2" >
+                                    <apex:param assignTo="{!chosenInterviewee}" name="chosenInterviewee" value="{!intervieweeMap[interviewee].Id}"/>
+                                </apex:commandLink>
+                            </apex:column>
+                        </apex:pageblocktable>
+                        <br />
+                        <apex:panelGrid id="pg" columns="3" rendered="{!isEditMode}">
+                            Interviewee: &nbsp;<apex:selectList id="multiselect" size="1" multiselect="false" value="{!selectedTypeOfContact}"> 
+                            <apex:selectOption itemLabel="Select" itemValue="none"/>
+                            <apex:selectOption itemLabel="Add from Contacts" itemValue="contacts"/>    
+                            <apex:selectOption itemLabel="Add from SubProject Client Contacts" itemValue="clientContacts"/>
+                            <apex:selectOption itemLabel="Create Contact" itemValue="createContact"/>
+                            <apex:actionSupport event="onchange" action="{!renderAction}" reRender="interviewPanel" status="actStatusId2"/>
+                            </apex:selectList> 
+                            <apex:outputText id="text" value="{!$CurrentPage.parameters.message}"></apex:outputText>
+                            <apex:outputLabel />
+                            <apex:panelGrid columns="2" id="pg2">
+                                <apex:inputField label="Interviewee" value="{!captureInterviewee.Interviewee__c}" rendered="{!IF((selectedTypeOfContact='contacts'),true,false)}"/>                
+                                <apex:commandButton action="{!addInterviewee}" reRender="interviewPanel" rendered="{!IF((selectedTypeOfContact='contacts'),true,false)}" value="Add" status="actStatusId2"/>
+                                <apex:selectList id="multiselect2" size="4" multiselect="true" rendered="{!IF((selectedTypeOfContact='clientContacts'),true,false)}" value="{!selectedClientContacts}">
+                                    <apex:selectOptions value="{!clientContactsOptions}" />
+                                </apex:selectList>
+                                <apex:commandButton action="{!addInterviewee}" reRender="interviewPanel,pg2" oncomplete="" rendered="{!IF((selectedTypeOfContact='clientContacts'),true,false)}" value="Add" status="actStatusId2"/>
+                                <apex:commandButton rendered="{!IF((selectedTypeOfContact='createContact'),true,false)}" onclick="openDialog();" reRender="popup"  value="Create new Contact"/>
+                            </apex:panelGrid>
+                        </apex:panelGrid>
+                    </apex:outputPanel>
+                </apex:actionRegion>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >
+                <apex:pageBlockTable value="{!interviewerList}" var="u" border="0" >
+                    <apex:column headerValue="Interviewer">
+                        <apex:commandLink value="{!u.Name}" onclick="window.open('/{!u.Id}','UserProfile','location=1,status=1,scrollbars=1,resizable=1, width=800,height=600'); return false" target="_blank"></apex:commandLink>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    
+    <apex:outputPanel id="newContactPanel" style="display:none;">
+         <apex:actionRegion >
+            <apex:outputPanel styleClass="popupBackground" layout="block"/>
+            <apex:outputPanel id="pMUPanel" styleClass="custPopup" layout="block">
+                <!-- 2015-06-03 matt.keefe@cdk.com - This section should always be rendered regardless of edit mode -->
+                <!-- because the view=true parameter may not always be in the querystring (if edit mode is entered from a command button). -->
+                <!-- This issue caused the Create Contact dialog box to render as blank (unrelated to AdBlockPlus) when the Edit button was clicked. -->
+                <apex:pageBlock title="New Contact" tabStyle="Contact" id="c" ><!--rendered="{!isEditMode}"-->
+                    <apex:pageBlockButtons location="bottom">
+                        <apex:commandButton id="saveBtn" onclick="disableAndSave();" reRender="dummy" value="Save"/>
+                        <apex:actionFunction action="{!saveNewContact}" name="saveContact"/>
+                        <apex:commandButton id="savingBtn" style="display:none;" action="{!}" disabled="true" value="Saving"/>
+                        <apex:commandButton immediate="true" onclick="closeDialog();" reRender="dummy" value="Cancel"/>
+                    </apex:pageBlockButtons>
+                    <apex:pageBlockSection columns="1">
+                        <apex:pageBlockSectionItem >
+                            <apex:outputText value="First Name"/>
+                            <apex:inputField value="{!contactObj.FirstName}"/>
+                        </apex:pageBlockSectionItem>  
+                        <apex:pageBlockSectionItem >
+                            <apex:outputText value="Last Name"/>
+                            <apex:inputField label="LastName" value="{!contactObj.LastName}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputText value="Account"/>
+                            <apex:inputField id="Account" label="Account" required="true" value="{!discWrkSiteCategory.Site_Workbook__r.Site__c}"/>
+                        </apex:pageBlockSectionItem>
+                          <apex:pageBlockSectionItem >
+                            <apex:outputText value="Role"/>
+                            <apex:inputField id="Role" label="Role" required="true" value="{!contactObj.Role__c}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputText value="Phone"/>
+                            <apex:inputField value="{!contactObj.phone}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputText value="Mobile"/>
+                            <apex:inputField value="{!contactObj.MobilePhone}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputText value="Email"/>
+                            <apex:inputField value="{!contactObj.Email}"/>
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                </apex:pageBlock> 
+            </apex:outputPanel>
+        </apex:actionRegion>
+    </apex:outputPanel> 
+    
+</apex:component>

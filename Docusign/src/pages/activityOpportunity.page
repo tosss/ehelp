@@ -1,0 +1,231 @@
+<apex:page controller="DS_ActivityOpportunityController" showHeader="true" sidebar="true" standardStylesheets="true">
+
+<apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.6.2.min.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.8.16.custom.min.js')}"/>
+
+<!-- jQuery CSS Options: redmond, cupertino, smoothness, black-tie, ui-lightness, humanity, blitzer, excite-bike -->
+<apex:stylesheet value="{!URLFOR($Resource.jQuery, 'css/redmond/jquery-ui-1.8.16.custom.css')}"/>
+<apex:stylesheet value="{!URLFOR($Resource.jQueryDataTables, 'media/css/demo_table_jui.css')}"/>
+
+<style>
+    .ui-autocomplete {
+        max-height: 100px;
+        overflow-y: auto;
+        /* prevent horizontal scrollbar */
+        overflow-x: hidden;
+        /* add padding to account for vertical scrollbar */
+        padding-right: 20px;
+    }
+    .phone { text-decoration:underline; cursor:pointer; }
+    /* IE 6 doesn't support max-height; using height instead, but this forces the menu to always be this tall */
+    * html .ui-autocomplete {
+        height: 100px;
+    }
+</style>
+
+<script type="text/javascript" >
+    var j$ = jQuery.noConflict();
+    function log(item) { if(j$.browser.mozilla) { console.log(item); } }
+    
+    function init()
+    {
+        j$("[id$='eventPrivate']").attr("disabled","disabled");
+        
+        var times = [];
+        for (var i=0;i<24;i++) {
+            for (var j=0;j<4;j++) {
+                var hour = (i>12?(i-12)+"":(i==0?"12":i)+"");
+                var mins = "00"; 
+                var ampm = (i>=12?"PM":"AM");
+                if(j==0) { mins="00"; }
+                if(j==1) { mins="15"; }
+                if(j==2) { mins="30"; }
+                if(j==3) { mins="45"; }
+                times.push(hour+":"+mins+" "+ampm);
+            }
+        }
+        
+        // initialize the autocompletes
+        j$("[id$='eventStartTime'],[id$='eventEndTime']")
+            .autocomplete({
+                source: times,
+                minLength: 0,
+                delay: 0,
+                autoFocus: true,
+                open: function () {
+                    var menu = j$(this).data("autocomplete").menu;
+                    var now = new Date();
+                    var hours = now.getHours();
+                    var minutes = now.getMinutes();
+                    var ampm = hours >= 12 ? " PM" : " AM";
+                    var timeStr;
+                    var $item;
+                    
+                    hours = hours > 12 ? hours - 12 : hours;
+                    minutes = (minutes - minutes % 15) + 15;
+                    
+                    if (minutes === 60) {
+                        minutes = 0;
+                        hours++;
+                    }
+                    
+                    timeStr = hours + ":" + (minutes < 10 ? "0" + minutes : minutes) + ampm;
+                    $item = menu.element.find(":contains(" + timeStr + ")");
+                    
+                    menu.activate(new j$.Event("mouseover"), $item);               
+                    menu.element.scrollTop(
+                        $item.offset().top - 
+                        menu.element.offset().top + 
+                        menu.element.scrollTop());
+                }
+            })
+            .bind("click",function(){
+                j$(this).autocomplete("search","");
+            });
+    }
+    
+    j$(document).ready(function(){init();});
+    
+    function dial(event, pn, whoid, whatid)
+    {
+        if(event) { event.preventDefault(); }
+        
+        if(ISTools && ISTools.Record) 
+        { 
+            scrollToTop(); 
+            ISTools.Record.dialNumber({phone_number:pn, who_id:whoid, what_id:whatid}); 
+        }
+    }
+    
+    function scrollToTop() {
+        j$("html, body").animate({ scrollTop: 0 }, "slow");
+    }
+    
+    function scrollToBottom() {
+        j$("html, body").animate({ scrollTop: j$(document).height() }, "slow");
+    }
+</script>
+
+    <apex:sectionHeader title="Log a Call"/>
+    <div style="color:red;font-size:1.4em;">
+        <apex:messages />
+    </div>
+    <apex:form >
+        <apex:outputPanel id="hideIt">
+            <apex:pageBlock title="Task, Follow-up, and Campaign Member Status" mode="edit" tabStyle="Task">
+                <apex:pageBlockButtons >
+                    <apex:commandButton action="{!save}" value="Save"/>
+                    <apex:commandButton action="{!cancel}" value="Cancel" immediate="true"/>
+                    <apex:commandButton action="{!saveAndCreateOpt}" value="Save & Create Opportunity" rendered="{!!ProfileVFSettings.Lead_Gen_Checkbox__c}"/>
+                    <apex:commandButton action="{!saveAndCreateLead}" value="Save & Create Lead" rendered="{!ProfileVFSettings.Lead_Gen_Checkbox__c}"/>
+                </apex:pageBlockButtons>
+                
+                <apex:pageBlockSection title="Completed Activity Information" rendered="{!ProfileVFSettings.Show_Log_a_Call__c}">
+                    <apex:inputField id="eventOwner" value="{!task.OwnerId}"/>
+                    <apex:inputField id="eventWhat" value="{!task.WhatId}" required="true" />
+                    <apex:inputField id="eventSub" value="{!task.Subject}" required="true" />
+                    <apex:inputField id="eventWho" value="{!task.WhoId}" required="true" />
+                    <apex:inputField id="activityDate" value="{!task.ActivityDate}" style="width:100px"/>
+                    <apex:outputField value="{!contact.Email}"/>
+                    <apex:inputField id="activityType" value="{!task.Activity_Type__c}" rendered="{!RenderDS}"/>
+                    <apex:inputField id="TaskType" value="{!task.Type}" rendered="{!RenderCobalt}"/>
+                    <apex:pageblocksectionitem >
+                        <apex:outputLabel >Contact Phone</apex:outputLabel>
+                        <apex:outputpanel >
+                            <a class="phone" href="" onclick="dial(event, this.innerHTML, '{!contact.Id}', '{!$CurrentPage.parameters.campaignid}'); return false;">{!contact.Phone}</a>
+                        </apex:outputpanel>
+                    </apex:pageblocksectionitem>
+                    <apex:inputField id="comments" value="{!task.Description}" style="width:480px"/>
+                    <apex:outputField id="status" value="{!task.Status}"/>
+                    <apex:outputLabel value=" " rendered="{!RenderCobalt}"/>
+                    <apex:pageblocksectionitem ></apex:pageblocksectionitem>
+                    <apex:pageblocksectionitem >
+                        <apex:outputLabel >Task Record Type</apex:outputLabel>
+                        <apex:outputText id="text" title="Task Record Type" value="{!recTypeTaskName}"></apex:outputText>
+                    </apex:pageblocksectionitem>
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection columns="1">
+                    <apex:commandButton style="margin-left:30%;" action="{!flipSwitch}" value="{!IF((showBlock),'Follow-Up Not Needed','Follow-Up Needed')}" rerender="hideIt"/>
+                </apex:pageBlockSection>
+                
+                <apex:actionRegion rendered="{!showBlock}">
+                    <apex:pageBlockSection title="Create Follow-up Activity">
+                        <apex:inputField id="eventWhatId" value="{!followUpEvent.WhatId}"/>
+                        <apex:pageblocksectionitem >
+                            <apex:outputLabel >Event Record Type</apex:outputLabel>
+                            <apex:outputText id="text" title="Event Record Type" value="{!recTypeName}"></apex:outputText>
+                        </apex:pageblocksectionitem>
+                        <apex:inputField id="eventSubFollow" value="{!followUpEvent.Subject}" required="true"/>
+                        <apex:inputField id="eventWhoId" value="{!followUpEvent.WhoId}"/>
+                        <apex:inputField id="eventOwnerFollow" value="{!followUpEvent.OwnerId}"/>
+                        <apex:inputField id="eventStart" value="{!followUpEvent.Start_Date__c}" style="width:100px">
+                            <apex:inputText id="eventStartTime" value="{!startTime}" title="Time"/>
+                        </apex:inputField>
+                        <apex:inputField id="eventPrivate" value="{!followUpEvent.IsPrivate}"></apex:inputField>
+                        <apex:inputField id="eventEnd" value="{!followUpEvent.End_Date__c}" style="width:100px">
+                            <apex:inputText id="eventEndTime" value="{!endTime}"/>
+                        </apex:inputField>
+                        <apex:inputField id="eventType" value="{!followUpEvent.Type}" rendered="{!RenderCobalt}"/><apex:outputLabel value=" "/>
+                        <apex:pageblocksectionitem ></apex:pageblocksectionitem>
+                        <apex:pageblocksectionitem >
+                            <apex:outputLabel >Reminder</apex:outputLabel>
+                            <apex:outputPanel >
+                                <apex:inputCheckbox selected="true" id="reminderSet" value="{!followUpEvent.IsReminderSet}"/>
+                                <apex:selectList value="{!reminderTime}" size="1" id="remTimes">
+                                    <apex:selectOptions value="{!reminderTimes}"/>
+                                </apex:selectList>
+                            </apex:outputPanel>
+                        </apex:pageblocksectionitem>
+                        <apex:outputLabel value=" "/>
+                        <apex:inputField id="eventIsAllDay" value="{!followUpEvent.IsAllDayEvent}"/>
+                        <apex:outputLabel value=" "/>
+                        <apex:inputField id="ShowAs" value="{!followUpEvent.ShowAs}"/>
+                        <apex:outputLabel value=" "/>
+                        <apex:inputField id="Location" value="{!followUpEvent.location}"/>
+                        <apex:outputLabel value=" "/>
+                        <apex:outputField value="{!contact.Email}"/>
+                        <apex:inputField id="commentsFollow" value="{!followUpEvent.Description}" style="width:480px"/>
+                    </apex:pageBlockSection>
+                </apex:actionRegion>
+                
+                <apex:pageBlockSection title="Campaign - Account Status">
+                    <apex:pageblocksectionitem >
+                        <apex:outputLabel value="Account Name" for="acctName"></apex:outputLabel>
+                        <apex:outputLink id="acctName" value="/{!acct.Id}" target="_blank">{!acct.Name}</apex:outputlink>
+                    </apex:pageblocksectionitem>
+                    <apex:outputField id="billingCity" value="{!acct.BillingCity}"/>
+                    <apex:outputField id="billingState" value="{!acct.BillingState}"/>
+                    <apex:pageblocksectionitem >
+                        <apex:outputLabel >Contact Phone</apex:outputLabel>
+                        <apex:outputpanel >
+                            <a class="phone" href="" onclick="dial(event, this.innerHTML, '{!contact.Id}', '{!$CurrentPage.parameters.campaignid}'); return false;">{!contact.Phone}</a>
+                        </apex:outputpanel>
+                    </apex:pageblocksectionitem>
+                    <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                    <apex:pageblocksectionitem >
+                        <apex:outputlabel for="phone" value="Account Phone"></apex:outputlabel>
+                        <a class="phone" href="" onclick="dial(event, this.innerHTML, '{!contact.Id}', '{!$CurrentPage.parameters.campaignid}'); return false;">{!acct.Phone}</a>
+                    </apex:pageblocksectionitem>
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection >
+                    <apex:pageblocksectionitem ></apex:pageblocksectionitem>
+                    <apex:pageblocksectionitem >
+                        <apex:outputLabel >Campaign Member Status</apex:outputLabel>
+                        <apex:selectList value="{!CampaignMemberStatus}" size="1" id="statuses">
+                            <apex:selectOptions value="{!items}"/>
+                        </apex:selectList>
+                    </apex:pageblocksectionitem>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+        </apex:outputPanel>
+        
+        <script>
+            //function popEndDate(){
+            //  alert('{!$Component.eventEndTime}'+'   '+'{!linkTime}');
+            //  document.getElementById("{!$Component.eventEndTime}").value="{!linkTime}";
+            //}
+        </script>
+    </apex:form>
+</apex:page>

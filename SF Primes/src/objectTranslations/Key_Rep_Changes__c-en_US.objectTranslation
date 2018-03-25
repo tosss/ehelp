@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Key Rep Changes</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Key Rep Changes</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Key Rep Changes --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Change Reason --></label>
+        <name>Change_Reason__c</name>
+        <picklistValues>
+            <masterLabel>1 - Client Request</masterLabel>
+            <translation><!-- 1 - Client Request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2 - DOS Decision</masterLabel>
+            <translation><!-- 2 - DOS Decision --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3 - Territory Realignment</masterLabel>
+            <translation><!-- 3 - Territory Realignment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4 - Ownership Change</masterLabel>
+            <translation><!-- 4 - Ownership Change --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5 - Year End Mistake</masterLabel>
+            <translation><!-- 5 - Year End Mistake --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6 - New Point/Party</masterLabel>
+            <translation><!-- 6 - New Point/Party --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- New Key Rep --></label>
+        <name>New_Key_Rep__c</name>
+        <relationshipLabel><!-- Key Rep Changes --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Previous Key DOS --></label>
+        <name>Previous_Key_DOS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Previous Key Rep --></label>
+        <name>Previous_Key_Rep__c</name>
+    </fields>
+    <fields>
+        <label><!-- Region --></label>
+        <name>Region__c</name>
+    </fields>
+    <layouts>
+        <layout>Key Rep Changes Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

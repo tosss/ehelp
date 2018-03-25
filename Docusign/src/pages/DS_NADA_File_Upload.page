@@ -1,0 +1,10 @@
+<apex:page controller="DS_NADAFileUpload" tabStyle="NADA_Swipe__c">
+    <apex:form >
+        <apex:sectionHeader title="Upload NADA Swipe/Scan data from XLS file"/>
+        <apex:pagemessages />
+        <apex:pageBlock title="File Upload">
+       		<apex:inputFile value="{!FileContents}" filename="{!FileName}" />
+       		<apex:commandButton action="{!ReadFile}" value="Upload File" id="theButton" style="width:70px;" />
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,22 @@
+<apex:page controller="EmbedPage">
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.10.4.custom.min.js')}" />
+    <script>
+    function setContent(element)
+    {
+        var content = jQuery(element).contents().find('html').html();
+        var parent = '#'+jQuery(element).parents('.iframe').attr('id');
+        jQuery(parent).html(content);
+        jQuery(parent).find('.bPageHeader,.sidebarCell,.bPageFooter').hide();
+        jQuery(parent).find('.brdPalette').removeClass('bodyDiv');
+        /*var arr = jQuery(parent).find('script');
+        for (var n = 0; n < arr.length; n++)
+            eval(arr[n].innerHTML);*/
+    }
+    </script>
+    <apex:repeat value="{!pageList}" var="page">
+        <div class="iframe" id="{!pageList[page]}">
+            <iframe frameBorder="0" src="{!LEFT($CurrentPage.URL,FIND('/',$CurrentPage.URL,9))}{!$Site.Prefix}apex/{!pageList[page]}" onload="setContent(this);" style="display:none;"/>
+        </div>
+    </apex:repeat>
+</apex:page>

@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <content>DS_CompetitiveProductsAtDealership_Edit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>DS_CompetitiveProductsAtDealership_Edit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>DS_CompetitiveProductsAtDealership_Edit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>ADP_Comp_ProdsAtDlr_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>ADP_Comp_ProdsAtDlr_Layout</fullName>
+        <fields>Name</fields>
+        <fields>ADP_Product_Name__c</fields>
+        <fields>Account__c</fields>
+        <fields>Competitive_Vendor_Name__c</fields>
+        <fields>End_of_Term_Date__c</fields>
+        <fields>Install_Date__c</fields>
+        <label>ADP Comp ProdsAtDlr Layout</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>The custom object/related list is needed to allow a user the ability to enter key information about a product that an account is using from a competitor.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fieldSets>
+        <fullName>Competitive_Products_at_Dealership</fullName>
+        <description>This field set is used on the Competitive Products at Dealership Visualforce Page.</description>
+        <displayedFields>
+            <field>Install_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>End_of_Term_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Recurring_Monthlies__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Current_Monthly_Transactions__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Num_Users_Num_Handsets__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Notes__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Competitive Products at Dealership</label>
+    </fieldSets>
+    <fields>
+        <fullName>ADP_Product_Name__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Select an ADP like solution that matches the client’s product.</inlineHelpText>
+        <label>ADP Product Name</label>
+        <referenceTo>ADP_Product_Solution__c</referenceTo>
+        <relationshipLabel>Competitive Products At Dealership</relationshipLabel>
+        <relationshipName>Competitive_Products_At_Dealership</relationshipName>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Account__c</fullName>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Competitive Products At Dealership</relationshipLabel>
+        <relationshipName>Competitive_Products_At_Dealership</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Competitive_Vendor_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Competitive_Vendor__r.Competitive_Vendor_Name__c =  &apos;Other&apos;, Competitive_Vendor__r.Competitive_Vendor_Name__c + &apos; - &apos; +  Non_Listed_Vendor__c, Competitive_Vendor__r.Competitive_Vendor_Name__c)</formula>
+        <label>Competitive Vendor Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Competitive_Vendor__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Competitive Vendor</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1</booleanFilter>
+            <filterItems>
+                <field>Competitive_Vendor__c.ADP_Product_Solution__r.Id</field>
+                <operation>equals</operation>
+                <valueField>$Source.ADP_Product_Name__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Competitive_Vendor__c</referenceTo>
+        <relationshipLabel>Competitive Products At Dealership</relationshipLabel>
+        <relationshipName>Competitive_Products_At_Dealership</relationshipName>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Current_Monthly_Transactions__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter as whole dollars.</inlineHelpText>
+        <label>Monthly Transactions</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>End_of_Term_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>End of Term Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Install_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Install Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Months_to_End_of_Term__c</fullName>
+        <externalId>false</externalId>
+        <formula>(Year( End_of_Term_Date__c) * 12 + Month(End_of_Term_Date__c)) - (Year(TODAY()) * 12 + Month( TODAY()))</formula>
+        <label>Months to End of Term</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Non_Listed_Vendor__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Only fill in if &apos;Other&apos; is chosen for Competitive Vendor.</inlineHelpText>
+        <label>Non-Listed Vendor</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Notes</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Num_Users_Num_Handsets__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the # of users using the application or the # of handsets for telephony products.</inlineHelpText>
+        <label># Users (or) # Handsets</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Recurring_Monthlies__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter as whole dollars.</inlineHelpText>
+        <label>Recurring Monthlies</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <label>Competitive Products At Dealership</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>ADP_Product_Name__c</columns>
+        <columns>Competitive_Vendor__c</columns>
+        <columns>Install_Date__c</columns>
+        <columns>End_of_Term_Date__c</columns>
+        <columns>Current_Monthly_Transactions__c</columns>
+        <columns>Recurring_Monthlies__c</columns>
+        <columns>Months_to_End_of_Term__c</columns>
+        <columns>Non_Listed_Vendor__c</columns>
+        <columns>Num_Users_Num_Handsets__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>CPD-{00000}</displayFormat>
+        <label>Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Competitive Products At Dealership</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ADP_Product_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Competitive_Vendor_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Install_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>End_of_Term_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Current_Monthly_Transactions__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Recurring_Monthlies__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Months_to_End_of_Term__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Num_Users_Num_Handsets__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Account__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ADP_Product_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Competitive_Vendor_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Current_Monthly_Transactions__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>End_of_Term_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Install_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Months_to_End_of_Term__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Non_Listed_Vendor__c</lookupDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Account__c</searchFilterFields>
+        <searchFilterFields>ADP_Product_Name__c</searchFilterFields>
+        <searchFilterFields>Competitive_Vendor_Name__c</searchFilterFields>
+        <searchFilterFields>End_of_Term_Date__c</searchFilterFields>
+        <searchFilterFields>Install_Date__c</searchFilterFields>
+        <searchResultsAdditionalFields>Competitive_Vendor__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADP_Product_Name__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Non_Listed_Vendor_Cannot_be_Null</fullName>
+        <active>true</active>
+        <errorConditionFormula>OR(Case(  Competitive_Vendor__r.Competitive_Vendor_Name__c  , &quot;Other&quot;, &quot;Other&quot;, &quot;&quot;) = &quot;Other&quot; &amp;&amp; ISBLANK(Non_Listed_Vendor__c), Case( Competitive_Vendor__r.Competitive_Vendor_Name__c , &quot;Other&quot;, &quot;Other&quot;, &quot;&quot;) &lt;&gt; &quot;Other&quot; &amp;&amp; NOT(ISBLANK(Non_Listed_Vendor__c)))</errorConditionFormula>
+        <errorMessage>The Non-Listed Vendor field cannot be blank if Competitive Vendor selection is &apos;Other&apos;. The Non-Listed Vendor field should be blank when &apos;Other&apos; is not selected.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Competitive_Products_Total_Report</fullName>
+        <availability>online</availability>
+        <description>Competitive Products Total Report button</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Competitive Products Total Report</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>//var sURL = &apos;https://na2.salesforce.com/00O40000003LVQP?pv0=&apos;;
+//var accid = &apos;{!Account.Id}&apos;;
+
+window.open(&apos;{!$Site.OriginalUrl}/00O40000003LVQP?pv0=&apos; + &apos;{!Account.Id}&apos;);</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Mass_Clone</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Mass Clone</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>// add JS libraries
+{!REQUIRESCRIPT(&apos;//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js&apos;)}
+{!REQUIRESCRIPT(&apos;//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js&apos;)}
+{!REQUIRESCRIPT(&apos;/soap/ajax/30.0/connection.js&apos;)}
+
+// add CSS
+jQuery(&apos;head&apos;).append(&apos;&lt;link rel=&quot;stylesheet&quot; href=&quot;//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/redmond/jquery-ui.css&quot; type=&quot;text/css&quot; /&gt;&apos;);
+
+var UserProfileId = &apos;{!User.ProfileId}&apos;; 
+var AccId = &quot;{!Competitive_Products_At_Dealership__c.AccountId__c}&quot;;
+
+var AccessGranted = false;
+
+var noAccessMessage = &quot;Your profile does not have access to the Competitive Products at Dealership cloning application. &quot;;
+
+var massCloneDialogOptions = {
+    autoOpen: false,
+    title: &quot;Competitive Products at Dealership Mass Cloning&quot;,
+    width: 500, 
+    modal: true,
+    buttons: {
+        &quot;Cancel&quot; : function () { jQuery(this).dialog(&quot;close&quot;); }
+    }
+};
+
+jQuery(function() 
+{
+    var massCloneDialog = jQuery(&quot;&lt;div&gt;&quot;).attr(&quot;id&quot;,&quot;massCloneDialog&quot;);
+    if (!jQuery(&apos;#massCloneDialog&apos;).size()) { jQuery(&apos;body&apos;).append(massCloneDialog); }
+    
+    var CloneProfileAccessSettings = sforce.connection.query(&quot;&quot;
+        + &quot;SELECT Id, Name, Profile_Id__c, Case__c, &quot;
+            + &quot;Task_Account__c, Task_Account_Plan__c, Task_WebID__c, &quot;
+            + &quot;Competitive_Products_at_Dealership__c &quot;
+        + &quot;FROM Clone_Profile_Access__c &quot;
+        + &quot;WHERE Profile_Id__c like &apos;&quot;+UserProfileId+&quot;%&apos;&quot;
+    );
+    
+    if(CloneProfileAccessSettings) { 
+        var CloneProfileAccess = CloneProfileAccessSettings.getArray(&quot;records&quot;);
+        if(CloneProfileAccess) { 
+            var r = CloneProfileAccess[0]; 
+            if(r) { 
+                if(r.Competitive_Products_at_Dealership__c === &quot;true&quot;) { AccessGranted = true; }
+            }
+        }
+    }
+    
+    if (!AccessGranted) {
+        massCloneDialog.html(noAccessMessage).dialog(massCloneDialogOptions);
+        massCloneDialog.dialog(&quot;open&quot;);
+    }
+    else {
+        var SourceId = &quot;{!Competitive_Products_At_Dealership__c.Id}&quot;;
+        window.location.href = &quot;/apex/dscb_cloneanything?sourceid=&quot;+SourceId+&quot;&amp;aid=&quot;+AccId+&quot;&amp;sourcetype=Competitive_Products_at_Dealership__c&quot;;
+    }
+});</url>
+    </webLinks>
+</CustomObject>

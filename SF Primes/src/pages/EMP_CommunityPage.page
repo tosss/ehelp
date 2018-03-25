@@ -1,0 +1,15 @@
+<apex:page showHeader="false" sidebar="false" standardstylesheets="false" controller="EMP_MyCommunities_Controller">
+    <apex:outputPanel > 
+        <apex:form >
+            <h2>My Groups</h2>
+            <ul>
+                <apex:repeat value="{!collabortaiongroupmenbers}" var="Groups"> 
+                    <li>
+                        <apex:outputLink value="/{!Groups.CollaborationGroupId}">{!Groups.CollaborationGroup.name}
+                        </apex:outputLink>
+                    </li>
+                </apex:repeat>
+            </ul>
+        </apex:form>
+    </apex:outputPanel>
+</apex:page>

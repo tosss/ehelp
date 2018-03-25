@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Contains all Project Activities across all SubProjects</description>
+    <label>My Project Tasks</label>
+    <mobileReady>false</mobileReady>
+    <motif>Custom86: Red Cross</motif>
+    <page>IMP_ViewAllTasks</page>
+</CustomTab>

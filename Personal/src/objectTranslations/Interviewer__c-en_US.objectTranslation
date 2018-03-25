@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Interviewer</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Interviewers</value>
+    </caseValues>
+    <fields>
+        <label><!-- Employee --></label>
+        <name>Employee__c</name>
+        <relationshipLabel><!-- Interviewers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Legacy Interviewer Number --></label>
+        <name>Legacy_Interviewer_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Position --></label>
+        <name>Position__c</name>
+        <relationshipLabel><!-- Interviewers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Role --></label>
+        <name>Role__c</name>
+        <picklistValues>
+            <masterLabel>Functional</masterLabel>
+            <translation><!-- Functional --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General</masterLabel>
+            <translation><!-- General --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Managerial</masterLabel>
+            <translation><!-- Managerial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technical</masterLabel>
+            <translation><!-- Technical --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Agency Account Contact</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Agency Account Contacts</value>
+    </caseValues>
+    <fields>
+        <label><!-- Agency Account --></label>
+        <name>Agency_Account__c</name>
+        <relationshipLabel><!-- Agency Account Contacts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Agency Contact Notes --></label>
+        <name>Agency_Contact_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Brand --></label>
+        <name>Brand__c</name>
+        <picklistValues>
+            <masterLabel>BG</masterLabel>
+            <translation><!-- BG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cadillac</masterLabel>
+            <translation><!-- Cadillac --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chevy</masterLabel>
+            <translation><!-- Chevy --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Business Card Title --></label>
+        <name>Business_Card_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Role --></label>
+        <name>Contact_Role__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Agency Account Contacts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- LMA Account --></label>
+        <lookupFilter>
+            <errorMessage><!-- Account listed must be LMA with Site Type of Local Marketing --></errorMessage>
+        </lookupFilter>
+        <name>LMA_Account_Account__c</name>
+        <relationshipLabel><!-- Agency Account Contacts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Region --></label>
+        <name>Region__c</name>
+        <picklistValues>
+            <masterLabel>NORTHCENTRAL</masterLabel>
+            <translation><!-- NORTHCENTRAL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NORTHEAST</masterLabel>
+            <translation><!-- NORTHEAST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SOUTH CENTRAL</masterLabel>
+            <translation><!-- SOUTH CENTRAL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SOUTHEAST</masterLabel>
+            <translation><!-- SOUTHEAST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WESTERN</masterLabel>
+            <translation><!-- WESTERN --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Agency Account Contact Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

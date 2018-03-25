@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Account ReLink Object</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Account ReLink Object</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account Field --></label>
+        <name>Account_Field__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Relationship Name --></label>
+        <name>Account_Relationship_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the action that will be preformed on the matched record. Options are: Update or Clone. --></help>
+        <label><!-- Action --></label>
+        <name>Action__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditions 1 --></label>
+        <name>Conditions_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditions 2 --></label>
+        <name>Conditions_2__c</name>
+    </fields>
+    <fields>
+        <help><!-- The necessary fields to query. This should include Account ID (usually AccountId or Account__c), Owner ID (OwnerId), and Owner Name (Owner.Name) if these fields exist on the object. --></help>
+        <label><!-- Fields --></label>
+        <name>Fields__c</name>
+    </fields>
+    <fields>
+        <label><!-- Limit Per Day --></label>
+        <name>Limit_Per_Day__c</name>
+    </fields>
+    <fields>
+        <label><!-- Object API Name --></label>
+        <name>Object_API_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- The order in which to process the objects. --></help>
+        <label><!-- Order --></label>
+        <name>Order__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

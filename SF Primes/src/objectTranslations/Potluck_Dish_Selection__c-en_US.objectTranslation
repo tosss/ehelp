@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Potluck Dish Selection</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Potluck Dish Selections</value>
+    </caseValues>
+    <fields>
+        <help><!-- Please select cooking, if you are cooking the dish. --></help>
+        <label><!-- Brought By --></label>
+        <name>Brought_By__c</name>
+        <picklistValues>
+            <masterLabel>Buying</masterLabel>
+            <translation><!-- Buying --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cooking</masterLabel>
+            <translation><!-- Cooking --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Dish Detailed Name --></label>
+        <name>Dish_Detailed_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Potluck Attendee --></label>
+        <name>Potluck_Attendee__c</name>
+        <relationshipLabel><!-- Potluck Dish Selections --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Dish you are about to get. --></help>
+        <label><!-- Potluck Dish --></label>
+        <name>Potluck_Dish__c</name>
+        <relationshipLabel><!-- Potluck Dish Selections --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Quantity being brought by you... --></help>
+        <label><!-- Quantity --></label>
+        <name>Quantity__c</name>
+    </fields>
+    <layouts>
+        <layout>Potluck Dish Selection Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

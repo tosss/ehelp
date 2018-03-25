@@ -1,0 +1,4 @@
+<aura:component implements="force:appHostable">
+    <aura:attribute name="contactRecord" type="Contact" default="{'sobjectType': 'Contact'}"/>
+    <force:inputField aura:id="contactName" value="{!v.contactRecord.Name}"/>
+</aura:component>

@@ -1,0 +1,31 @@
+<aura:component controller="PotuLuck_ListDetailController" implements="force:appHostable">
+    <aura:attribute type="String" name="hardware" default="{!$Browser.formFactor}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="registeredPotLuck" event="c:PotLuck_Registered"  action="{!c.doInit}" />
+    <aura:attribute type="Sobject" default="[]" name="currentAttendee" />
+    
+    <div class="slds-grid slds-container--center slds-container--large" style="margin-top: 0.5%;max-width:100%;">
+        <div class="slds-col--padded">
+            <div class="slds-page-header" role="banner" style="height: 15rem;background-image:url(/resource/PotluckBanner);background-size:cover;opacity:0.7;" >
+                
+            </div>
+            <div class="slds-tabs--default">
+                <ul class="slds-tabs--default__nav" role="tablist">
+                    <li class="slds-tabs--default__item slds-text-heading--label slds-active" onclick="{!c.goToHome}" title="Item One" role="presentation"><a class="slds-tabs--default__link" href="#void" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-1" id="tab-default-1__item">Home</a></li>
+                    <li class="slds-tabs--default__item slds-text-heading--label" onclick="{!c.getAboutMe}" title="My Details" role="presentation"><a class="slds-tabs--default__link" href="#void" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-1" id="tab-default-1__item">My Details</a></li>
+                    <li class="slds-tabs--default__item slds-text-heading--label" onclick="{!c.getAllDishes}" title="Dishes Available" role="presentation"><a class="slds-tabs--default__link" href="#void" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-default-2" id="tab-default-2__item">Menu</a></li>
+                    <li class="slds-tabs--default__item slds-text-heading--label" onclick="{!c.makeDishSelection}" title="Select a dish to get" role="presentation"><a class="slds-tabs--default__link" href="#void" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-3" id="tab-default-3__item">Get Dishes</a></li>
+                    <li class="slds-tabs--default__item slds-text-heading--label" onclick="{!c.getDishSelections}" title="Dishes Selected" role="presentation"><a class="slds-tabs--default__link" href="#void" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-default-2" id="tab-default-2__item">Selected Dishes</a></li>
+                    <li class="slds-tabs--default__item slds-text-heading--label" onclick="{!c.openChatter}" title="Post Comments" role="presentation"><a class="slds-tabs--default__link" href="#void" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-3" id="tab-default-3__item">Chatter</a></li>
+                    <li class="slds-tabs--default__item slds-text-heading--label" onclick="{!c.getContactDetails}" title="Contacts" role="presentation"><a class="slds-tabs--default__link" href="#void" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-1" id="tab-default-1__item">Contacts</a></li>
+                    <li class="slds-tabs--default__item slds-text-heading--label" onclick="{!c.goToHelp}" title="Portal Help" role="presentation"><a class="slds-tabs--default__link" href="#void" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-default-2" id="tab-default-2__item">Help</a></li>
+                </ul>
+                <div id="tab-default-1"  class="slds-tabs--default__content slds-show" role="tabpanel" aria-labelledby="tab-default-1__item">
+                                 <div aura:id="mainContent">
+                    <c:Potluck_Home />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

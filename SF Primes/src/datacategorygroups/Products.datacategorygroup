@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCategoryGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <dataCategory>
+        <dataCategory>
+            <label>Account Transition</label>
+            <name>Account_Transition</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Cisco/Calabrio</label>
+            <name>Cisco_Calabrio</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Cobalt University</label>
+            <name>Cobalt_University</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Domains</label>
+            <name>Domains</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Email</label>
+            <name>Email</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Inventory</label>
+            <name>Inventory</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Lead Management</label>
+            <name>Lead_Management</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Manage Specials</label>
+            <name>Manage_Specials</name>
+        </dataCategory>
+        <dataCategory>
+            <label>DCC</label>
+            <name>DCC</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Nitra Tools</label>
+            <name>Nitra_Tools</name>
+        </dataCategory>
+        <dataCategory>
+            <label>OEM Programs</label>
+            <name>OEM_Programs</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Online Marketing</label>
+            <name>Online_Marketing</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Phone Tracking</label>
+            <name>Phone_Tracking</name>
+        </dataCategory>
+        <dataCategory>
+            <label>ProCare</label>
+            <name>ProCare</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Reporting/Analytics</label>
+            <name>Reporting_Analytics</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Salesforce</label>
+            <name>Salesforce</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Sharepoint</label>
+            <name>Sharepoint</name>
+        </dataCategory>
+        <dataCategory>
+            <label>User Admin</label>
+            <name>User_Admin</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Website Advisory Board</label>
+            <name>Website_Advisory_Board</name>
+        </dataCategory>
+        <label>All</label>
+        <name>All</name>
+    </dataCategory>
+    <label>Products</label>
+    <objectUsage>
+        <object>KnowledgeArticleVersion</object>
+    </objectUsage>
+</DataCategoryGroup>

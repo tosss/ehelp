@@ -1,0 +1,22 @@
+<apex:page controller="compositionExample">
+    <apex:messages />
+    <apex:composition template="Composition">
+    
+    <apex:define name="meal">
+        <apex:outputLabel value="Enter your favorite meal: " for="mealField"/>
+        <apex:inputText id="mealField" value="{!mealField}"/>
+    </apex:define>
+
+    <apex:define name="age">
+        <apex:outputLabel value="Enter your age: " for="ageField"/>
+        <apex:inputText id="ageField" value="{!ageField}"/>
+    </apex:define>
+    
+   <apex:outputLabel value="Enter your favorite color: " for="colorField"/>
+   <apex:inputText id="colorField" value="{!colorField}"/>
+    
+    </apex:composition>
+    
+    <apex:outputText id="greeting" rendered="{!showGreeting}" value="Hello {!nameField}. 
+    You look {!ageField} years old. Would you like some {!colorField} {!mealField}?"/>
+</apex:page>

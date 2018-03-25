@@ -1,0 +1,46 @@
+<apex:page sidebar="false" controller="AngularJSDemoController">
+    <html ng-app="genericTableApp">
+        <head>
+            <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"/>
+            <script src="/soap/ajax/33.0/connection.js" type="text/javascript"></script>
+            <script src="/soap/ajax/33.0/apex.js" type="text/javascript"></script>
+            <script >
+            var genericTableApp = angular.module('genericTableApp',[]);
+            genericTableApp.controller('tableController',function($scope){
+                var path = window.location.href;
+                var index = path.indexOf('objectName=');
+                index = index+11;
+                var lastIndex = path.indexOf('&');
+                path = path.substring(index,lastIndex);
+                $scope.objectName = path;
+                console.log(path);
+                $scope.fieldNames = getFieldNames($scope.objectName);
+                sforce.connection.sessionId = '{!$Api.Session_ID}';
+                var results = sforce.connection.query('select '+ $scope.fieldNames+' from '+$scope.objectName+' limit 10');
+                $scope.records = results.get('records');
+                console.log(results);
+            });
+            function getFieldNames(objectName)
+            {
+            	AngularJSDemoController.getFieldNames(objectName,function(result,event){
+                   return result.result.join(',');
+                });
+            }
+            </script>
+        </head>
+        <body>
+            <div ng-controller="tableController">
+                <table>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                    </tr>
+                    <tr ng-repeat="record in records">
+                        <td>{{record[0]}}</td>
+                        <td>{{record[1]}}</td>
+                    </tr>
+                </table>
+            </div>
+        </body>
+    </html>
+</apex:page>

@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Services Project Issue/Risk</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Services Projects Issues/Risks</value>
+    </caseValues>
+    <fields>
+        <label><!-- Ask of Sr. Leadership --></label>
+        <name>Ask_of_Sr_Leadership__c</name>
+    </fields>
+    <fields>
+        <help><!-- This individual is responsible for tracking, monitoring and completing work on the assigned bug. --></help>
+        <label><!-- Bug Owner --></label>
+        <name>Bug_Owner__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bug Status --></label>
+        <name>Bug_Status__c</name>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation><!-- Assigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Duplicate</masterLabel>
+            <translation><!-- Duplicate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Started</masterLabel>
+            <translation><!-- Not Started --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Valid</masterLabel>
+            <translation><!-- Not Valid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending Validation</masterLabel>
+            <translation><!-- Pending Validation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Bug # --></label>
+        <name>Bug__c</name>
+    </fields>
+    <fields>
+        <label><!-- Business Driver --></label>
+        <name>Business_Driver__c</name>
+        <picklistValues>
+            <masterLabel>Customer satisfaction</masterLabel>
+            <translation><!-- Customer satisfaction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eliminate use of mark-up widget</masterLabel>
+            <translation><!-- Eliminate use of mark-up widget --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Increase operational efficiencies</masterLabel>
+            <translation><!-- Increase operational efficiencies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Support dealer groups</masterLabel>
+            <translation><!-- Support dealer groups --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Support migration efforts</masterLabel>
+            <translation><!-- Support migration efforts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>User satisfaction</masterLabel>
+            <translation><!-- User satisfaction --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Blocker: Issue must be resolved before launch. 
+Category 1: Issue must be resolved within 3 weeks post launch.
+Category 2: Issue must be resolved within a quarter. 
+Category 3: Issue is an enhancement request. --></help>
+        <label><!-- Category --></label>
+        <name>Category__c</name>
+        <picklistValues>
+            <masterLabel>1</masterLabel>
+            <translation><!-- 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3</masterLabel>
+            <translation><!-- 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Blocker</masterLabel>
+            <translation><!-- Blocker --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Steps taken to date to resolve issue or mitigate risk. --></help>
+        <label><!-- Corrective Actions --></label>
+        <name>Corrective_Actions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Reported --></label>
+        <name>Date_Reported__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- This box should be checked if an issue is considered a blocker or category 1 and needs to be escalated to senior leadership. --></help>
+        <label><!-- Escalation --></label>
+        <name>Escalation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Impact --></label>
+        <name>Impact__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Impacted Teams --></label>
+        <name>Impacted_Teams__c</name>
+        <picklistValues>
+            <masterLabel>AA</masterLabel>
+            <translation><!-- AA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DAA</masterLabel>
+            <translation><!-- DAA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IFS</masterLabel>
+            <translation><!-- IFS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing Strategist</masterLabel>
+            <translation><!-- Marketing Strategist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RepMan</masterLabel>
+            <translation><!-- RepMan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SEO</masterLabel>
+            <translation><!-- SEO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TS</masterLabel>
+            <translation><!-- TS --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Issue_Type__c</name>
+        <picklistValues>
+            <masterLabel>Product Issue</masterLabel>
+            <translation><!-- Product Issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Risk</masterLabel>
+            <translation><!-- Product Risk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Project Issue</masterLabel>
+            <translation><!-- Project Issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Project Risk</masterLabel>
+            <translation><!-- Project Risk --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Notes from Sr. Leadership --></label>
+        <name>Notes_from_Sr_Leadership__c</name>
+    </fields>
+    <fields>
+        <label><!-- OEM --></label>
+        <name>OEM__c</name>
+        <picklistValues>
+            <masterLabel>All</masterLabel>
+            <translation><!-- All --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BMW</masterLabel>
+            <translation><!-- BMW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM</masterLabel>
+            <translation><!-- GM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM Canada</masterLabel>
+            <translation><!-- GM Canada --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Holden</masterLabel>
+            <translation><!-- Holden --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hyundia</masterLabel>
+            <translation><!-- Hyundia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KIA</masterLabel>
+            <translation><!-- KIA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lexus</masterLabel>
+            <translation><!-- Lexus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MINI</masterLabel>
+            <translation><!-- MINI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-Endorsed</masterLabel>
+            <translation><!-- Non-Endorsed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VW</masterLabel>
+            <translation><!-- VW --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Overall Project Status --></label>
+        <name>Overall_Project_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Owner Name --></label>
+        <name>Owner_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Probability --></label>
+        <name>Probability__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Program --></label>
+        <name>Program__c</name>
+        <picklistValues>
+            <masterLabel>BI</masterLabel>
+            <translation><!-- BI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Core</masterLabel>
+            <translation><!-- Core --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IT</masterLabel>
+            <translation><!-- IT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PS</masterLabel>
+            <translation><!-- PS --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Project Name --></label>
+        <name>Project_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Stage --></label>
+        <name>Project_Stage__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field is used by the Engagement Manager to identify the priority of this request. --></help>
+        <label><!-- Ranking --></label>
+        <name>Ranking__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reported By --></label>
+        <name>Reported_By__c</name>
+        <relationshipLabel><!-- Services Projects Issues/Risks --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- A bug is a technical problem with a current product or solution. An enhancement is a request for new feature or functionality. --></help>
+        <label><!-- Request Type --></label>
+        <name>Request_Type__c</name>
+        <picklistValues>
+            <masterLabel>Bug</masterLabel>
+            <translation><!-- Bug --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enhancement</masterLabel>
+            <translation><!-- Enhancement --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Date bug or enhancement was resolved or closed. --></help>
+        <label><!-- Resolution Date --></label>
+        <name>Resolution_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Ops Project --></label>
+        <name>Service_Ops_Projects__c</name>
+        <relationshipLabel><!-- Services Projects Issues/Risks --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Ticket Count --></label>
+        <name>Ticket_Count__c</name>
+    </fields>
+    <layouts>
+        <layout>Services Project Issues Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Escalation --></label>
+            <section>Escalation</section>
+        </sections>
+        <sections>
+            <label><!-- Issue/Risk Detail 2 --></label>
+            <section>Issue/Risk Detail 2</section>
+        </sections>
+        <sections>
+            <label><!-- Service Engagement Manager --></label>
+            <section>Service Engagement Manager</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

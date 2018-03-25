@@ -1,0 +1,3225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <content>IMP_SubProjectManagement</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Subproject contains project information related to project type and/or product(s), as well as milestones, project logs and additional details;  rolls up to the Project.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fieldSets>
+        <fullName>SubProjectDataTableFields</fullName>
+        <description>This will be used to define the column of the datatable component</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SubProject_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Project_Manager__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SubProject_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>SubProjectDataTableFields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>SubProjectFilterFields</fullName>
+        <description>This is used to define the filter section fields of the datatable component</description>
+        <displayedFields>
+            <field>SubProject_Region__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Project_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Project_SubType__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SubProject_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>SubProjectFilterFields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>SubProject_Commons</fullName>
+        <description>To query subproject fields</description>
+        <displayedFields>
+            <field>Id</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SubProject_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Project__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Confidential__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Project__r.Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Project_Type__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Market__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Estimated_Install_Date_EID__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Contract_Roll_Called__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Rush__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Milestones_Auto_Generated_Flag__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CMF_Numbers__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Project_Manager__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>PM_Phone__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>PM_Email__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Impact_Project_Numbers__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SubProject_Overview__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Project__r.Project_Overview__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SubProject_Health_Indicator__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Project_Manager__r.Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SubProject_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SubProject_Region__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Heavy_Equipment_Manufacturer_Franchise__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Previous_System__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Count_of_Milestones_on_SubProject__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>SubProject Commons</label>
+    </fieldSets>
+    <fields>
+        <fullName>Age_in_Days__c</fullName>
+        <externalId>false</externalId>
+        <formula>TODAY() - DATEVALUE( CreatedDate )</formula>
+        <label>Age in Days</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BU_Convert__c</fullName>
+        <description>Field to convert picklist value to a text value</description>
+        <externalId>false</externalId>
+        <formula>TEXT( SubProject_Region__c )</formula>
+        <inlineHelpText>None needed - not on page layout</inlineHelpText>
+        <label>BU Convert</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BU_PMC__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( PMC_Convert__c = &quot;Region&quot;,  BU_Convert__c, BU_Convert__c&amp;(&quot;-&quot; &amp;PMC_Convert__c) )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>BU-PMC</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Business_Alignment_Workshop_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Alignment Workshop Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Business_Unit_Changed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Business Unit Changed</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Buy_Sell_Clone_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Buy-Sell Clone Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Clone - Multi-Company to Single Company Split</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Clone - Q-Pointer Body Shop</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Clone - Single Company to Multi-Company</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Clone - Standard</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Company Renumber</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Data Merge</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Logon Rename</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other - see Special Instructions</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>CMF_Numbers__c</fullName>
+        <externalId>false</externalId>
+        <label>CMF Number(s)</label>
+        <length>2000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>CSI_Survey__c</fullName>
+        <externalId>false</externalId>
+        <label>CSI Survey %</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>CTI_Desktop__c</fullName>
+        <externalId>false</externalId>
+        <label>CTI Desktop</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Client_Intro_Call_15__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK( Client_Intro_Call_Conducted__c ) ,null,  Client_Intro_Call_Conducted__c  -  Contract_Roll_Called__c )</formula>
+        <label>Client Intro Call (&lt;=15)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Client_Intro_Call_Conducted__c</fullName>
+        <externalId>false</externalId>
+        <label>Client Intro Call Conducted</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <description>Input scope details and notes (i.e. HOLD information, contacts w/o workspace, etc.)</description>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Confidential__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Confidential</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Details__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Details</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Contract_Review_Call_10__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(  ISBLANK( Contract_Review_Call_Conducted__c ), null , Contract_Review_Call_Conducted__c  -  Contract_Roll_Called__c )</formula>
+        <label>Contract Review Call (&lt;=10)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contract_Review_Call_Conducted__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Review Call Conducted</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Roll_Called__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Roll Called</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Count_of_Activities_on_SubProject__c</fullName>
+        <description>Represents the total of grandchild Project Activities on the subproject.</description>
+        <externalId>false</externalId>
+        <label>Count of Activities on SubProject</label>
+        <summarizedField>Project_Milestone__c.Total_Activities__c</summarizedField>
+        <summaryForeignKey>Project_Milestone__c.SubProject__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Count_of_Discovery_Wbks_on_SubProject__c</fullName>
+        <description>Rollup of all the Discovery Workbook records on a subproject</description>
+        <externalId>false</externalId>
+        <label>Count of Discovery Wbks on SubProject</label>
+        <summaryForeignKey>Site_Workbook__c.SubProject__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Count_of_MAT_on_SubProject__c</fullName>
+        <description>Represents the total count of milestone, activity, and task records on the subproject.</description>
+        <externalId>false</externalId>
+        <formula>Count_of_Milestones_on_SubProject__c +  Count_of_Activities_on_SubProject__c +  Count_of_Tasks_on_SubProject__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Count of MAT on SubProject</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Count_of_Milestones_on_SubProject__c</fullName>
+        <description>Rolup field to display the number of Milestone records on a SubProject</description>
+        <externalId>false</externalId>
+        <label>Count of Milestones on SubProject</label>
+        <summaryForeignKey>Project_Milestone__c.SubProject__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Count_of_SubProject_Sites__c</fullName>
+        <externalId>false</externalId>
+        <label>Count of SubProject Sites</label>
+        <summaryForeignKey>SubProjectSite__c.SubProject__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Count_of_Tasks_on_SubProject__c</fullName>
+        <description>Represents the total of great grandchild Project Tasks on the subproject.</description>
+        <externalId>false</externalId>
+        <label>Count of Tasks on SubProject</label>
+        <summarizedField>Project_Milestone__c.Total_Tasks__c</summarizedField>
+        <summaryForeignKey>Project_Milestone__c.SubProject__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>D_A_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>D&amp;A Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Sent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Received</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>N/A</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Date_PMC_Assigned__c</fullName>
+        <description>The date that the PMC field was updated from &quot;region&quot; to another value</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field is read-only but updated when the PMC field is changes from Region to any other value</inlineHelpText>
+        <label>Date PMC Assigned</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Days_Sold__c</fullName>
+        <externalId>false</externalId>
+        <label>Days Sold</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Days_Used__c</fullName>
+        <externalId>false</externalId>
+        <label>Days Used</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Deal_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>Deal Id</label>
+        <length>120</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dealership_Phone__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealership Phone</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Does_Report_To_Me__c</fullName>
+        <externalId>false</externalId>
+        <formula>(NOT(ISBLANK( Manager_Id_Of_Project_Manager__c )) &amp;&amp; ( Manager_Id_Of_Project_Manager__c == $User.Id))
+|| (NOT(ISBLANK( Manager_Id_Of_Manager__c )) &amp;&amp; ( Manager_Id_Of_Manager__c == $User.Id))</formula>
+        <label>Does Report To Me?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ER_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>ER Status</label>
+        <length>200</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Estimated_Install_Date_EID__c</fullName>
+        <externalId>false</externalId>
+        <label>Estimated Install Date (EID)</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Final_PSR_sent_to_Client__c</fullName>
+        <externalId>false</externalId>
+        <label>Final PSR sent to Client</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Forms_45__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK( Forms_Received__c ) , null ,  Estimated_Install_Date_EID__c  -  Forms_Received__c  )</formula>
+        <label>Forms (&gt;=45)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Forms_Received__c</fullName>
+        <externalId>false</externalId>
+        <label>Forms Received</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Go_Live_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Go-Live Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>HW_NW_Installed__c</fullName>
+        <externalId>false</externalId>
+        <label>HW/NW Installed</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>H_W_20__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK( HW_NW_Installed__c ) , null ,  Estimated_Install_Date_EID__c  -  HW_NW_Installed__c  )</formula>
+        <label>H/W (&gt;=20)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>H_W_Specialist_PFW__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>H/W Specialist (PFW)</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>SubProjects_HW_Specialist</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Heavy_Equipment_Manufacturer_Franchise__c</fullName>
+        <externalId>false</externalId>
+        <label>Heavy Equipment Manufacturer/Franchise</label>
+        <length>128</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IPP_90__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK( Project_Plan_Delivered_to_Client__c ) , null ,  Estimated_Install_Date_EID__c  -  Project_Plan_Delivered_to_Client__c )</formula>
+        <label>IPP (&gt;=90)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Impact_Folders__c</fullName>
+        <description>Link to Folder Structure to save documents.</description>
+        <externalId>false</externalId>
+        <label>Impact Folders Link</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Impact_Project_Numbers__c</fullName>
+        <externalId>false</externalId>
+        <label>Impact Project Number(s)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Install_Start_Date_Migration_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Install Start Date / Migration Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Is_Project_Managed_By_Me__c</fullName>
+        <externalId>false</externalId>
+        <formula>NOT(ISBLANK( SubProject_Manager_Id__c )) &amp;&amp; ( SubProject_Manager_Id__c == $User.Id)</formula>
+        <label>Is Project Managed By Me?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Lag_Time_to_Install__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK( Estimated_Install_Date_EID__c ) , null ,  Estimated_Install_Date_EID__c  -  Contract_Roll_Called__c )</formula>
+        <label>Lag Time to Install</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Language__c</fullName>
+        <externalId>false</externalId>
+        <label>Language</label>
+        <picklist>
+            <picklistValues>
+                <fullName>English</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>French</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Spanish</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>MS_Project_Workspace__c</fullName>
+        <externalId>false</externalId>
+        <label>MS Project Workspace Link</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Manager_Id_Of_Manager__c</fullName>
+        <externalId>false</externalId>
+        <formula>Project_Manager__r.Manager.ManagerId</formula>
+        <label>Manager Id Of Manager</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Manager_Id_Of_Project_Manager__c</fullName>
+        <externalId>false</externalId>
+        <formula>Project_Manager__r.ManagerId</formula>
+        <label>Manager Id Of Project Manager</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Market__c</fullName>
+        <externalId>false</externalId>
+        <label>Market</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Dash - Small Auto</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Drive - Baseline</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lightspeed - Powersports</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PFW - Heavy Equipment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Max_Tot_Rec_Threshold_Override__c</fullName>
+        <description>To enable a CDK admin to supply an override value for records that prove to be “exceptions” (i.e. “outliers”) to the general rule</description>
+        <externalId>false</externalId>
+        <label>Max Tot Rec Threshold Override</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Migration_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Migration_ID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Milestones_Auto_Generated_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Flag if Standard Milestones are created for the SubProject</description>
+        <externalId>false</externalId>
+        <label>Milestones Auto Generated Flag</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Network_Certified__c</fullName>
+        <externalId>false</externalId>
+        <label>Network Certified</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>N/A</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_Rooftops__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Rooftops</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_User_Connections__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of User Connections</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PFW_Verification_Meeting_Conducted__c</fullName>
+        <externalId>false</externalId>
+        <label>PFW Verification Meeting Conducted</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>PMC_Convert__c</fullName>
+        <description>Store PMC value as text</description>
+        <externalId>false</externalId>
+        <formula>TEXT( Project_Management_Center__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>None won&apos;t be on page</inlineHelpText>
+        <label>PMC Convert</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PM_Email__c</fullName>
+        <externalId>false</externalId>
+        <formula>Project_Manager__r.Email</formula>
+        <label>PM Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PM_Phone__c</fullName>
+        <externalId>false</externalId>
+        <formula>Project_Manager__r.Phone</formula>
+        <label>PM Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Pre_GoLive_Mtg_Client_10__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK( Pre_GoLive_Mtg_Client_Conducted__c ) , null ,  Estimated_Install_Date_EID__c  -  Pre_GoLive_Mtg_Client_Conducted__c  )</formula>
+        <label>Pre-GoLive Mtg (Client) (&lt;=10)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Pre_GoLive_Mtg_Client_Conducted__c</fullName>
+        <externalId>false</externalId>
+        <label>Pre-GoLive Mtg (Client) Conducted</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Pre_GoLive_Mtg_Internal_20__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK(  Pre_GoLive_Mtg_Internal_Conducted__c  ) , null ,  Estimated_Install_Date_EID__c  -  Pre_GoLive_Mtg_Internal_Conducted__c  )</formula>
+        <label>Pre-GoLive Mtg (Internal) (&gt;=20)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Pre_GoLive_Mtg_Internal_Conducted__c</fullName>
+        <externalId>false</externalId>
+        <label>Pre-GoLive Mtg (Internal) Conducted</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Pre_Install_Training_80__c</fullName>
+        <externalId>false</externalId>
+        <label>Pre-Install Training (&gt;=80%)</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Previous_System__c</fullName>
+        <description>This field is to indicate the previous system (if applicable) for the client</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Previous system for the client.  Use this field to indicate the client&apos;s previous system - whether a CDK system and/or a competitor</inlineHelpText>
+        <label>Previous System</label>
+        <length>128</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Process_Discovery_Meeting_30__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK( Process_Discovery_Mtg_Conducted__c ) , null ,  Process_Discovery_Mtg_Conducted__c  -  Contract_Roll_Called__c )</formula>
+        <label>Process Discovery Meeting (&lt;=30)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Process_Discovery_Mtg_Conducted__c</fullName>
+        <externalId>false</externalId>
+        <label>Process Discovery Mtg Conducted</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Process_Overview_Meeting_Conducted__c</fullName>
+        <externalId>false</externalId>
+        <label>Process Overview Meeting Conducted</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Project_Assigned_to_PM_PS__c</fullName>
+        <externalId>false</externalId>
+        <label>Project Assigned to PM/PS</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Project_Close_20__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK( Final_PSR_sent_to_Client__c ) , null ,  Final_PSR_sent_to_Client__c  -  Transition_Meeting_Conducted__c  )</formula>
+        <label>Project Close (&lt;=20)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_Kick_Off_Mtg_Internal_90__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK( Project_Kick_Off_Mtg_Internal__c ) , null ,  Estimated_Install_Date_EID__c  -  Project_Kick_Off_Mtg_Internal__c )</formula>
+        <label>Project Kick-Off Mtg (Internal) (&gt;=90)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_Kick_Off_Mtg_Internal__c</fullName>
+        <externalId>false</externalId>
+        <label>Project Kick-Off Mtg (Internal)</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Project_Management_Center__c</fullName>
+        <externalId>false</externalId>
+        <label>Project Management Center</label>
+        <picklist>
+            <picklistValues>
+                <fullName>ACE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Augusta</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ford SMARTT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Region</fullName>
+                <default>true</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Project_Manager__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Project Manager</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>SubProjectsMgrs</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Project_Manager_s_Manager__c</fullName>
+        <description>Field to display the assigned Project Manager&apos;s Manager</description>
+        <externalId>false</externalId>
+        <formula>Project_Manager__r.Manager.FirstName &amp; &quot; &quot; &amp; Project_Manager__r.Manager.LastName</formula>
+        <inlineHelpText>This is an automated field that displays the assigned Project Manager&apos;s Manager&apos;s Name</inlineHelpText>
+        <label>Project Manager&apos;s Manager</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_Phase__c</fullName>
+        <externalId>false</externalId>
+        <label>Project Phase</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Step 1 - Discovery (Pre-Sales)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Step 1 - Discovery</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Step 2 - Project Mapping</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Step 3 - Site Readiness</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Step 4 - CDK GoLive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Step 5 - Transition Meeting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Step 6 - Ongoing Training (Closed)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Project_Plan_Delivered_to_Client__c</fullName>
+        <externalId>false</externalId>
+        <label>Project Plan Delivered to Client</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Project_SubType__c</fullName>
+        <externalId>false</externalId>
+        <label>Project SubType</label>
+        <picklist>
+            <picklistValues>
+                <fullName>AAX</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Accounting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Accounts Payable</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Advanced Rental</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business Office Consolidation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CDK Credit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CDK CRM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CDK CRM - Concurrent with DMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CDK CRM Reverse Phone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CDK CRM Stongmail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CDK Desking</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CDK Desking Licenses</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CDK Drive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CDK DriveXL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CDK F&amp;I (CA Only)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CDK Menu</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CDK Vehicle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CDK Vehicle Migration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CRM Lead Integration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CRM Migration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CT Wizard</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CT Wizard Front Office</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Customer Satisfaction Management (CSM)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Customer Touch</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Custom Pencil</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Deal Review</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Decision Support</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Digital Contracting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dispatching</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Document Archiving (DA)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Document Storage (Scanning)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DSDA Viewer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DT Enhanced Integration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electronic Repair Order (ERO)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electronic Time Clock (ETC)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ePayments</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>eServices</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Express Scanning</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>F&amp;I</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Financesource VW CA/CV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ford ACE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ford SMARTT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Front Office Edge</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Full Maintenance Lease &amp; Rental (Truck)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Generic Accounting Interface</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Historical DA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Implementation Service Day</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Implementation Service Day - Remote</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Intellitech</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IP Telephony</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IP Telephony - Concurrent with DMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Laser F&amp;I</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lease &amp; Rental (Canada)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Manufacturer Interfaces (Truck - PFW)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mobile Tech</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>OEM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ONE-EIGHTY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other (Specify own value)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PartScan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Payment Credit Card Interface (PCI)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Payroll</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Payroll Plus</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PFW ASP Migration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PFW Structure Conversion</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Preventative Mtce</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Purchase Orders</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reports Archiving</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RT1 INTEGRATION FI LOG RPT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales Contact Management (Truck)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales Management</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales Velocity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales Velocity Plus</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Self Service Direct Deposit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Edge Appointments</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ServiceEdge Inspect</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ServiceEdge Lane</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Showroom Control</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Signature Capture</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SPS Onboard New</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Technician Workbench</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Traffic</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Used Equip Eval</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VAuto</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VCI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle Inspection Sheet (VIS)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle Management (VMS)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle Scan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Virtual Biller</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>w.e.b.Suite1000 (Canada)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>w.e.b.Suite1000 (US)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W1K(Canada) Document Archiving (DA)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W1K(Canada) Electronic Time Ticket (ETT)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>W1K(Canada) Purchase Orders (PO)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wireless Inventory</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Project_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Project Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Add-On</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Buy / Sell</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Migration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Miscellaneous</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Structural Conversion</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unhook</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Upgrade</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Project__c</fullName>
+        <externalId>false</externalId>
+        <label>Project</label>
+        <referenceTo>Project__c</referenceTo>
+        <relationshipLabel>SubProjects</relationshipLabel>
+        <relationshipName>SubProjects</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>RAR__c</fullName>
+        <externalId>false</externalId>
+        <label>RAR</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Resource_Request_RMS_Approved__c</fullName>
+        <externalId>false</externalId>
+        <label>Resource Request (RMS) Approved</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Resource_Request_RMS_Submitted__c</fullName>
+        <externalId>false</externalId>
+        <label>Resource Request (RMS) Submitted</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Rush__c</fullName>
+        <externalId>false</externalId>
+        <formula>OR((ISPICKVAL(Project_Type__c,&quot;Unhook&quot;) &amp;&amp; ( Estimated_Install_Date_EID__c  -  Contract_Roll_Called__c ) &lt; 120),
+ (ISPICKVAL(Project_Type__c,&quot;Upgrade&quot;) &amp;&amp; ( Estimated_Install_Date_EID__c  -  Contract_Roll_Called__c ) &lt; 60), (ISPICKVAL(Project_Type__c,&quot;Add-On&quot;) &amp;&amp; ( Estimated_Install_Date_EID__c  -  Contract_Roll_Called__c ) &lt; 30), (ISPICKVAL(Project_Type__c,&quot;Buy / Sell&quot;) &amp;&amp; ( Estimated_Install_Date_EID__c  -  Contract_Roll_Called__c ) &lt; 60))</formula>
+        <label>Rush</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Scope__c</fullName>
+        <description>High-level text description of the project</description>
+        <externalId>false</externalId>
+        <label>Scope</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Secondary_Project_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Secondary Project Type</label>
+        <picklist>
+            <controllingField>Project_Type__c</controllingField>
+            <picklistValues>
+                <fullName>Standard</fullName>
+                <controllingFieldValues>Unhook</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Competitive Buy-Sell</fullName>
+                <controllingFieldValues>Unhook</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rush (&lt;30 Days)</fullName>
+                <controllingFieldValues>Unhook</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Box / Server</fullName>
+                <controllingFieldValues>Upgrade</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Box w/Add On</fullName>
+                <controllingFieldValues>Upgrade</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Software Only</fullName>
+                <controllingFieldValues>Upgrade</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Software Only / Add On</fullName>
+                <controllingFieldValues>Upgrade</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Core</fullName>
+                <controllingFieldValues>Add-On</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Layered</fullName>
+                <controllingFieldValues>Add-On</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Branch Add</fullName>
+                <controllingFieldValues>Add-On</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Franchise Add</fullName>
+                <controllingFieldValues>Add-On</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DCS Only Server</fullName>
+                <controllingFieldValues>Add-On</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ownership Change</fullName>
+                <controllingFieldValues>Buy / Sell</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Data Merge</fullName>
+                <controllingFieldValues>Buy / Sell</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Renewal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Renewal with Add-On</fullName>
+                <controllingFieldValues>Miscellaneous</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parts Copy</fullName>
+                <controllingFieldValues>Miscellaneous</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Interfaces/Module</fullName>
+                <controllingFieldValues>Migration</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GL/Data Merge</fullName>
+                <controllingFieldValues>Migration</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Structural Drop</fullName>
+                <controllingFieldValues>Structural Conversion</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Custom Programming</fullName>
+                <controllingFieldValues>Miscellaneous</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Price Tapes</fullName>
+                <controllingFieldValues>Miscellaneous</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Specify_Other__c</fullName>
+        <externalId>false</externalId>
+        <label>Specify Other</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SubProject_Health_Indicator__c</fullName>
+        <externalId>false</externalId>
+        <label>SubProject Health Indicator</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Green</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yellow</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Red</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Blue</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>SubProject_Manager_Id__c</fullName>
+        <externalId>false</externalId>
+        <formula>Project_Manager__c</formula>
+        <label>SubProject Manager Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SubProject_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>SubProject Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SubProject_Overview__c</fullName>
+        <externalId>false</externalId>
+        <label>SubProject Overview</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>SubProject_Region__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Unit</label>
+        <picklist>
+            <picklistValues>
+                <fullName>ALLIANCE-PC SOLUTIONS-ADMIN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ALLIANCE-PC SOLUTIONS-CENTRAL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ALLIANCE-PC SOLUTIONS-NORTHEAST</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ALLIANCE-PC SOLUTIONS-SOUTHEAST</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ALLIANCE-PC SOLUTIONS-WEST</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ASBURY ADMIN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ASP-US/Toronto</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ASP-US/Vancouver</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AUTONATION-ADMINISTRATION</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AUTONATION-CENTRAL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AUTONATION-NORTHEAST</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AUTONATION-SOUTHEAST</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AUTONATION-WEST</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CANADA-EAST</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CANADA-WEST</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ENTERPRISE - ADMINISTRATION</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ENTERPRISE - CENTRAL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ENTERPRISE - NORTHEAST</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ENTERPRISE - SOUTHEAST</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ENTERPRISE - WEST</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Group 1 - Administration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Group 1 - Central</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Group 1 - Northeast</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Group 1 - Southeast</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Group 1 - West</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MAJOR-ADMIN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MAJOR CENTRAL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MAJOR-CENTRAL-FLORENCE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MAJOR-NORTHEAST</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MAJOR-SOUTHEAST</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MAJOR-SOUTHWEST</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MAJOR-WEST-LAPALMA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MAJOR-WEST-PORTLAND</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NATIONAL-ADMIN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NATIONAL-CENTRAL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NATIONAL NORTHEAST</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NATIONAL-SOUTHEAST</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NATIONAL-WEST</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ONE-EIGHTY CORP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PFW SYSTEMS-CANADA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PFW SYSTEMS-MAJOR-CENTRAL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PFW SYSTEMS-MAJOR-NORTHEAST</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PFW SYSTEMS-MAJOR-SOUTHEAST</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PFW SYSTEMS-MAJOR-WEST</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SONIC-ADMINISTRATION</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SONIC-CENTRAL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SONIC-NORTHEAST</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SONIC-SOUTHEAST</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SONIC-WEST</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TRUCK-CANADA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TRUCK-US</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>SubProject_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>SubProject Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Open</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New Request</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>In Scheduling</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>On Target</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Caution</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>At Risk</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hold Client</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hold Risk</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hold Box</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hold Network</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hold Product</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hold No Start</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hold Facility</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Follow-Up</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>TC_10__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK( Training_LMS_Logins_Delivered__c ) , null ,  Training_LMS_Logins_Delivered__c  -  Training_Request_Submitted__c )</formula>
+        <label>TC (&lt;=10)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Training_Implementation_Client_Mgr_2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Training &amp; Implementation Client Mgr 2</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>SubProjects2</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Training_Implementation_Client_Mgr__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Training &amp; Implementation Client Mgr</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>SubProjects</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Training_LMS_Logins_Delivered__c</fullName>
+        <externalId>false</externalId>
+        <label>Training (LMS) Logins Delivered</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Training_Request_90__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK( Training_Request_Submitted__c ) , null ,  Estimated_Install_Date_EID__c  -  Training_Request_Submitted__c )</formula>
+        <label>Training Request (&gt;=90)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Training_Request_Submitted__c</fullName>
+        <externalId>false</externalId>
+        <label>Training Request Submitted</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Transition_Meeting_Conducted__c</fullName>
+        <externalId>false</externalId>
+        <label>Transition Meeting Conducted</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>WFM_10__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK( Resource_Request_RMS_Approved__c ) , null ,  Resource_Request_RMS_Approved__c  -  Resource_Request_RMS_Submitted__c )</formula>
+        <label>WFM (&lt;=10)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Workflow_Manager_1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Workflow Manager 1</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>SubProjectWMangers1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Workflow_Manager_2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Workflow Manager 2</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>SubProjectWMangers2</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>SubProject</label>
+    <listViews>
+        <fullName>All_At_Risk_Assigned_to_My_Associates</fullName>
+        <columns>NAME</columns>
+        <columns>CMF_Numbers__c</columns>
+        <columns>SubProject_Region__c</columns>
+        <columns>Impact_Project_Numbers__c</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Project_Type__c</columns>
+        <columns>Install_Start_Date_Migration_Date__c</columns>
+        <columns>Estimated_Install_Date_EID__c</columns>
+        <columns>Number_of_Rooftops__c</columns>
+        <columns>Number_of_User_Connections__c</columns>
+        <columns>Training_Implementation_Client_Mgr__c</columns>
+        <columns>SubProject_Status__c</columns>
+        <columns>Project_SubType__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Does_Report_To_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>SubProject_Status__c</field>
+            <operation>equals</operation>
+            <value>At Risk</value>
+        </filters>
+        <label>All At Risk - Assigned To My Associates</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_At_Risk_Project_Managed_by_Me</fullName>
+        <columns>NAME</columns>
+        <columns>CMF_Numbers__c</columns>
+        <columns>SubProject_Region__c</columns>
+        <columns>Impact_Project_Numbers__c</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Project_Type__c</columns>
+        <columns>Install_Start_Date_Migration_Date__c</columns>
+        <columns>Estimated_Install_Date_EID__c</columns>
+        <columns>Number_of_Rooftops__c</columns>
+        <columns>Number_of_User_Connections__c</columns>
+        <columns>Training_Implementation_Client_Mgr__c</columns>
+        <columns>SubProject_Status__c</columns>
+        <columns>Project_SubType__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Is_Project_Managed_By_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>SubProject_Status__c</field>
+            <operation>equals</operation>
+            <value>At Risk</value>
+        </filters>
+        <label>All At Risk - Project Managed By Me</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_Caution_Assigned_to_My_Associates</fullName>
+        <columns>NAME</columns>
+        <columns>CMF_Numbers__c</columns>
+        <columns>SubProject_Region__c</columns>
+        <columns>Impact_Project_Numbers__c</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Project_Type__c</columns>
+        <columns>Install_Start_Date_Migration_Date__c</columns>
+        <columns>Estimated_Install_Date_EID__c</columns>
+        <columns>Number_of_Rooftops__c</columns>
+        <columns>Number_of_User_Connections__c</columns>
+        <columns>Training_Implementation_Client_Mgr__c</columns>
+        <columns>SubProject_Status__c</columns>
+        <columns>Project_SubType__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Does_Report_To_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>SubProject_Status__c</field>
+            <operation>equals</operation>
+            <value>Caution</value>
+        </filters>
+        <label>All Caution - Assigned To My Associates</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_Caution_Project_Managed_by_Me</fullName>
+        <columns>NAME</columns>
+        <columns>CMF_Numbers__c</columns>
+        <columns>SubProject_Region__c</columns>
+        <columns>Impact_Project_Numbers__c</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Project_Type__c</columns>
+        <columns>Install_Start_Date_Migration_Date__c</columns>
+        <columns>Estimated_Install_Date_EID__c</columns>
+        <columns>Number_of_Rooftops__c</columns>
+        <columns>Number_of_User_Connections__c</columns>
+        <columns>Training_Implementation_Client_Mgr__c</columns>
+        <columns>SubProject_Status__c</columns>
+        <columns>Project_SubType__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Is_Project_Managed_By_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>SubProject_Status__c</field>
+            <operation>equals</operation>
+            <value>Caution</value>
+        </filters>
+        <label>All Caution - Project Managed By Me</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_Closed_Assigned_to_My_Associates</fullName>
+        <columns>NAME</columns>
+        <columns>CMF_Numbers__c</columns>
+        <columns>SubProject_Region__c</columns>
+        <columns>Impact_Project_Numbers__c</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Project_Type__c</columns>
+        <columns>Install_Start_Date_Migration_Date__c</columns>
+        <columns>Estimated_Install_Date_EID__c</columns>
+        <columns>Number_of_Rooftops__c</columns>
+        <columns>Number_of_User_Connections__c</columns>
+        <columns>Training_Implementation_Client_Mgr__c</columns>
+        <columns>SubProject_Status__c</columns>
+        <columns>Project_SubType__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Does_Report_To_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>SubProject_Status__c</field>
+            <operation>equals</operation>
+            <value>Closed</value>
+        </filters>
+        <label>All Closed - Assigned To My Associates</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_Closed_Project_Managed_by_Me</fullName>
+        <columns>NAME</columns>
+        <columns>CMF_Numbers__c</columns>
+        <columns>SubProject_Region__c</columns>
+        <columns>Impact_Project_Numbers__c</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Project_Type__c</columns>
+        <columns>Install_Start_Date_Migration_Date__c</columns>
+        <columns>Estimated_Install_Date_EID__c</columns>
+        <columns>Number_of_Rooftops__c</columns>
+        <columns>Number_of_User_Connections__c</columns>
+        <columns>Training_Implementation_Client_Mgr__c</columns>
+        <columns>SubProject_Status__c</columns>
+        <columns>Project_SubType__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Is_Project_Managed_By_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>SubProject_Status__c</field>
+            <operation>equals</operation>
+            <value>Closed</value>
+        </filters>
+        <label>All Closed - Project Managed By Me</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_Open_Assigned_to_My_Associates</fullName>
+        <columns>NAME</columns>
+        <columns>CMF_Numbers__c</columns>
+        <columns>SubProject_Region__c</columns>
+        <columns>Impact_Project_Numbers__c</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Project_Type__c</columns>
+        <columns>Install_Start_Date_Migration_Date__c</columns>
+        <columns>Estimated_Install_Date_EID__c</columns>
+        <columns>Number_of_Rooftops__c</columns>
+        <columns>Number_of_User_Connections__c</columns>
+        <columns>Training_Implementation_Client_Mgr__c</columns>
+        <columns>SubProject_Status__c</columns>
+        <columns>Project_SubType__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Does_Report_To_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>SubProject_Status__c</field>
+            <operation>equals</operation>
+            <value>Open</value>
+        </filters>
+        <label>All Open - Assigned To My Associates</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_Open_Project_Managed_by_Me</fullName>
+        <columns>NAME</columns>
+        <columns>CMF_Numbers__c</columns>
+        <columns>SubProject_Region__c</columns>
+        <columns>Impact_Project_Numbers__c</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Project_Type__c</columns>
+        <columns>Install_Start_Date_Migration_Date__c</columns>
+        <columns>Estimated_Install_Date_EID__c</columns>
+        <columns>Number_of_Rooftops__c</columns>
+        <columns>Number_of_User_Connections__c</columns>
+        <columns>Training_Implementation_Client_Mgr__c</columns>
+        <columns>SubProject_Status__c</columns>
+        <columns>Project_SubType__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Is_Project_Managed_By_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>SubProject_Status__c</field>
+            <operation>equals</operation>
+            <value>Open</value>
+        </filters>
+        <label>All Open - Project Managed By Me</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Alliance</fullName>
+        <columns>NAME</columns>
+        <columns>CMF_Numbers__c</columns>
+        <columns>SubProject_Region__c</columns>
+        <columns>Impact_Project_Numbers__c</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Project_Type__c</columns>
+        <columns>Install_Start_Date_Migration_Date__c</columns>
+        <columns>Estimated_Install_Date_EID__c</columns>
+        <columns>Number_of_Rooftops__c</columns>
+        <columns>Number_of_User_Connections__c</columns>
+        <columns>Training_Implementation_Client_Mgr__c</columns>
+        <columns>SubProject_Status__c</columns>
+        <columns>Project_SubType__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>SubProject_Region__c</field>
+            <operation>startsWith</operation>
+            <value>ALLIANCE</value>
+        </filters>
+        <filters>
+            <field>SubProject_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </filters>
+        <label>Alliance</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Canada</fullName>
+        <columns>NAME</columns>
+        <columns>CMF_Numbers__c</columns>
+        <columns>SubProject_Region__c</columns>
+        <columns>Impact_Project_Numbers__c</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Project_Type__c</columns>
+        <columns>Install_Start_Date_Migration_Date__c</columns>
+        <columns>Estimated_Install_Date_EID__c</columns>
+        <columns>Number_of_Rooftops__c</columns>
+        <columns>Number_of_User_Connections__c</columns>
+        <columns>Training_Implementation_Client_Mgr__c</columns>
+        <columns>SubProject_Status__c</columns>
+        <columns>Project_SubType__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>SubProject_Region__c</field>
+            <operation>startsWith</operation>
+            <value>CANADA</value>
+        </filters>
+        <filters>
+            <field>SubProject_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </filters>
+        <label>Canada</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Enterprise</fullName>
+        <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+        <columns>NAME</columns>
+        <columns>CMF_Numbers__c</columns>
+        <columns>SubProject_Region__c</columns>
+        <columns>Impact_Project_Numbers__c</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Project_Type__c</columns>
+        <columns>Install_Start_Date_Migration_Date__c</columns>
+        <columns>Estimated_Install_Date_EID__c</columns>
+        <columns>Number_of_Rooftops__c</columns>
+        <columns>Number_of_User_Connections__c</columns>
+        <columns>Training_Implementation_Client_Mgr__c</columns>
+        <columns>SubProject_Status__c</columns>
+        <columns>Project_SubType__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>SubProject_Region__c</field>
+            <operation>startsWith</operation>
+            <value>ENTERPRISE,DIVISION,AUTONATION,ASBURY,SONIC</value>
+        </filters>
+        <filters>
+            <field>SubProject_Region__c</field>
+            <operation>contains</operation>
+            <value>group</value>
+        </filters>
+        <filters>
+            <field>SubProject_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </filters>
+        <label>Enterprise</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Major_Central</fullName>
+        <columns>NAME</columns>
+        <columns>CMF_Numbers__c</columns>
+        <columns>SubProject_Region__c</columns>
+        <columns>Impact_Project_Numbers__c</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Project_Type__c</columns>
+        <columns>Install_Start_Date_Migration_Date__c</columns>
+        <columns>Estimated_Install_Date_EID__c</columns>
+        <columns>Number_of_Rooftops__c</columns>
+        <columns>Number_of_User_Connections__c</columns>
+        <columns>Training_Implementation_Client_Mgr__c</columns>
+        <columns>SubProject_Status__c</columns>
+        <columns>Project_SubType__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>SubProject_Region__c</field>
+            <operation>startsWith</operation>
+            <value>MAJOR CENTRAL</value>
+        </filters>
+        <filters>
+            <field>SubProject_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </filters>
+        <label>Major Central</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Major_Northeast</fullName>
+        <columns>NAME</columns>
+        <columns>CMF_Numbers__c</columns>
+        <columns>SubProject_Region__c</columns>
+        <columns>Impact_Project_Numbers__c</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Project_Type__c</columns>
+        <columns>Install_Start_Date_Migration_Date__c</columns>
+        <columns>Estimated_Install_Date_EID__c</columns>
+        <columns>Number_of_Rooftops__c</columns>
+        <columns>Number_of_User_Connections__c</columns>
+        <columns>Training_Implementation_Client_Mgr__c</columns>
+        <columns>SubProject_Status__c</columns>
+        <columns>Project_SubType__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>SubProject_Region__c</field>
+            <operation>startsWith</operation>
+            <value>MAJOR-NORTHEAST</value>
+        </filters>
+        <filters>
+            <field>SubProject_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </filters>
+        <label>Major Northeast</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Major_Southeast</fullName>
+        <columns>NAME</columns>
+        <columns>CMF_Numbers__c</columns>
+        <columns>SubProject_Region__c</columns>
+        <columns>Impact_Project_Numbers__c</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Project_Type__c</columns>
+        <columns>Install_Start_Date_Migration_Date__c</columns>
+        <columns>Estimated_Install_Date_EID__c</columns>
+        <columns>Number_of_Rooftops__c</columns>
+        <columns>Number_of_User_Connections__c</columns>
+        <columns>Training_Implementation_Client_Mgr__c</columns>
+        <columns>SubProject_Status__c</columns>
+        <columns>Project_SubType__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>SubProject_Region__c</field>
+            <operation>startsWith</operation>
+            <value>MAJOR-SOUTHEAST</value>
+        </filters>
+        <filters>
+            <field>SubProject_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </filters>
+        <label>Major Southeast</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Major_West_LaPalma</fullName>
+        <columns>NAME</columns>
+        <columns>CMF_Numbers__c</columns>
+        <columns>SubProject_Region__c</columns>
+        <columns>Impact_Project_Numbers__c</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Project_Type__c</columns>
+        <columns>Install_Start_Date_Migration_Date__c</columns>
+        <columns>Estimated_Install_Date_EID__c</columns>
+        <columns>Number_of_Rooftops__c</columns>
+        <columns>Number_of_User_Connections__c</columns>
+        <columns>Training_Implementation_Client_Mgr__c</columns>
+        <columns>SubProject_Status__c</columns>
+        <columns>Project_SubType__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>SubProject_Region__c</field>
+            <operation>startsWith</operation>
+            <value>MAJOR-WEST</value>
+        </filters>
+        <filters>
+            <field>SubProject_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </filters>
+        <label>Major West</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>National</fullName>
+        <columns>NAME</columns>
+        <columns>CMF_Numbers__c</columns>
+        <columns>SubProject_Region__c</columns>
+        <columns>Impact_Project_Numbers__c</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Project_Type__c</columns>
+        <columns>Install_Start_Date_Migration_Date__c</columns>
+        <columns>Estimated_Install_Date_EID__c</columns>
+        <columns>Number_of_Rooftops__c</columns>
+        <columns>Number_of_User_Connections__c</columns>
+        <columns>Training_Implementation_Client_Mgr__c</columns>
+        <columns>SubProject_Status__c</columns>
+        <columns>Project_SubType__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>SubProject_Region__c</field>
+            <operation>startsWith</operation>
+            <value>NATIONAL</value>
+        </filters>
+        <filters>
+            <field>SubProject_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </filters>
+        <label>National</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>PFW</fullName>
+        <columns>NAME</columns>
+        <columns>CMF_Numbers__c</columns>
+        <columns>SubProject_Region__c</columns>
+        <columns>Impact_Project_Numbers__c</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Project_Type__c</columns>
+        <columns>Install_Start_Date_Migration_Date__c</columns>
+        <columns>Estimated_Install_Date_EID__c</columns>
+        <columns>Number_of_Rooftops__c</columns>
+        <columns>Number_of_User_Connections__c</columns>
+        <columns>Training_Implementation_Client_Mgr__c</columns>
+        <columns>SubProject_Status__c</columns>
+        <columns>Project_SubType__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>SubProject_Region__c</field>
+            <operation>contains</operation>
+            <value>PFW</value>
+        </filters>
+        <filters>
+            <field>SubProject_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </filters>
+        <label>Heavy Equipment</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Truck</fullName>
+        <columns>NAME</columns>
+        <columns>CMF_Numbers__c</columns>
+        <columns>SubProject_Region__c</columns>
+        <columns>Impact_Project_Numbers__c</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Project_Manager__c</columns>
+        <columns>Project_Type__c</columns>
+        <columns>Install_Start_Date_Migration_Date__c</columns>
+        <columns>Estimated_Install_Date_EID__c</columns>
+        <columns>Number_of_Rooftops__c</columns>
+        <columns>Number_of_User_Connections__c</columns>
+        <columns>Training_Implementation_Client_Mgr__c</columns>
+        <columns>SubProject_Status__c</columns>
+        <columns>Project_SubType__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>SubProject_Region__c</field>
+            <operation>contains</operation>
+            <value>truck</value>
+        </filters>
+        <filters>
+            <field>SubProject_Status__c</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </filters>
+        <label>Truck</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>SP-{00000000}</displayFormat>
+        <label>SubProject ID</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>SubProjects</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Impact_Project_Numbers__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>SubProject_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Project_Manager__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Project_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Estimated_Install_Date_EID__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Training_Implementation_Client_Mgr__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>SubProject_Status__c</customTabListAdditionalFields>
+        <excludedStandardButtons>New</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <lookupDialogsAdditionalFields>SubProject_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Project_Manager__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>SubProject_Status__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>SubProject_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Project__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Impact_Project_Numbers__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Project_Manager__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Market__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Project_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>SubProject_Status__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Buy_Sell_Clone_Type_Required</fullName>
+        <active>true</active>
+        <description>Buy-Sell Clone Type field is required when &quot;Buy / Sell&quot; is selected for Project Type and &quot;Ownership Change&quot; for Secondary Project Type.</description>
+        <errorConditionFormula>ISBLANK(TEXT(Buy_Sell_Clone_Type__c)) &amp;&amp; ISPICKVAL(Project_Type__c, &quot;Buy / Sell&quot;) &amp;&amp; ISPICKVAL(Secondary_Project_Type__c, &quot;Ownership Change&quot;) &amp;&amp; NOT(BEGINS($User.Username,$Setup.GlobalSettings__c.Admin_Integration_Username__c)) &amp;&amp;
+NOT(ISPICKVAL(Market__c, &quot;PFW - Heavy Equipment&quot;))</errorConditionFormula>
+        <errorDisplayField>Buy_Sell_Clone_Type__c</errorDisplayField>
+        <errorMessage>Please select a value.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>EID_cannot_be_in_the_Past</fullName>
+        <active>false</active>
+        <description>Estimated Install Date can&apos;t be a date before today(i.e.in the past).
+11/19/14-It appears the validation for the EID not being in the past is working in a way we didn’t anticipate. Can we turn that off until we have a chance to sort this out? S. Hommer</description>
+        <errorConditionFormula>Estimated_Install_Date_EID__c &lt; TODAY() &amp;&amp; NOT(BEGINS($User.Username,$Setup.GlobalSettings__c.Admin_Integration_Username__c))</errorConditionFormula>
+        <errorDisplayField>Estimated_Install_Date_EID__c</errorDisplayField>
+        <errorMessage>Cannot be a date before today (i.e. in the past).</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Add_SiteProducts</fullName>
+        <availability>online</availability>
+        <description>Used to add products to different sub-project sites associated with this sub-project</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Add SiteProducts</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>if({!SubProject__c.Count_of_SubProject_Sites__c} &gt; 0)
+{
+window.open(&apos;/apex/IMP_AddProductsToSite?Id={!SubProject__c.Id}&apos;,&apos;AddSiteProducts&apos;, &apos;location=1,status=1,scrollbars=1,resizable=1, width=1065,height=500&apos;);
+}
+else
+{
+alert(&quot;Please insert the SubProject Sites to this SubProject&quot;);
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Clone_SubProject</fullName>
+        <availability>online</availability>
+        <description>Allows the user to clone the SubProject along with the related client contacts, cdk  contacts and sites</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Clone SubProject</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/apex/dh_superclone__superclone?rid={!SubProject__c.Id}&amp;cfg=CloneSubProject</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Copy_Contacts</fullName>
+        <availability>online</availability>
+        <description>This executes the superclone function to copy items from one object to another.  This will copy CDK and Clients from subproject to subproject.</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Copy Contacts</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/apex/dh_superclone__superclonecopy?rid={!SubProject__c.Id}&amp;cfg=CopyContacts</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Discovery</fullName>
+        <availability>online</availability>
+        <description>Discovery button to redirect to IMP_SiteWorkbook page</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Discovery</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>if({!SubProject__c.Count_of_SubProject_Sites__c} &gt; 0)
+{
+window.open(&apos;/apex/IMP_DiscoveryView?id={!SubProject__c.Id}&apos;,&apos;_self&apos;,false)
+}else
+{
+alert(&quot;Please insert the SubProject Sites to this SubProject&quot;);
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Generate_Milestones</fullName>
+        <availability>online</availability>
+        <description>Generate standard Milestones and Activities</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Generate Milestones</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
+
+if(&apos;{!SubProject__c.SubProject_Status__c}&apos; != &apos;Closed&apos;){
+if({!SubProject__c.Milestones_Auto_Generated_Flag__c}|| {!SubProject__c.Count_of_Milestones_on_SubProject__c} &gt; 0){
+	alert(&apos;Milestones already generated&apos;);
+parent.window.location.href=&quot;/apex/IMP_MilestoneView?id={!SubProject__c.Id}&quot;; 
+} else if({!ISBLANK(TEXT(SubProject__c.Project_Type__c))}){
+	alert(&apos;Please select Project Type&apos;);
+} else if({!ISBLANK(TEXT(SubProject__c.Market__c))}){
+	alert(&apos;Please select Market&apos;);
+} else if({!ISBLANK(SubProject__c.Contract_Roll_Called__c)} || {!ISBLANK(SubProject__c.Estimated_Install_Date_EID__c)}){
+	alert(&apos;Please populate Contract Roll Called and Estimated Install Date fields&apos;);
+} else {
+	var stringMessage = sforce.apex.execute(&quot;IMP_GenerateMilestones_Controller&quot;,&quot;getStandardMilestones&quot;,{subProjectId:&quot;{!SubProject__c.Id}&quot;});
+	if(stringMessage != &apos;true&apos;){
+		alert(stringMessage);
+	} else{
+		alert(&apos;Milestones generated&apos;);
+		//location.reload(true);
+parent.window.location.href=&quot;/apex/IMP_MilestoneView?id={!SubProject__c.Id}&quot;;
+	}
+}
+}
+else{
+alert(&apos;This SubProject is already closed. You cannot generate Milestones on a SubProject that is already closed.&apos;);
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Generate_Status</fullName>
+        <availability>online</availability>
+        <description>Initiate project status report generation</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Generate PSR</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/apex/IMP_StatusReportGeneration?Id={!SubProject__c.ProjectId__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Action_Item</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Action Item</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/a3q/e?CF00N40000002Orz6={!SubProject__c.SubProject_Name__c}&amp;CF00N40000002Orz6_lkid={!SubProject__c.Id}&amp;CF00N40000002Oryq={!SubProject__c.Project__c}&amp;CF00N40000002Oryq_lkid={!Project__c.Id}&amp;retURL=%2Fapex%2FIMP_SubProjectManagement%3Fid%3D{!SubProject__c.Id}%26sfdc.override%3D1&amp;RecordType=012400000009luL&amp;ent=01I40000000F4AC&amp;saveURL=%2Fapex%2FIMP_SubProjectManagement%3Fid%3D{!SubProject__c.Id}%26sfdc.override%3D1</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Change_Request</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Change Request</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/a3q/e?CF00N40000002Orz7={!SubProject__c.SubProject_Name__c}&amp;CF00N40000002Orz7_lkid={!SubProject__c.Id}&amp;CF00N40000002Oryr={!SubProject__c.Project__c}&amp;CF00N40000002Oryr_lkid={!Project__c.Id}&amp;retURL=%2Fapex%2FIMP_SubProjectManagement%3Fid%3D{!SubProject__c.Id}%26sfdc.override%3D1&amp;RecordType=012400000009luM&amp;ent=01I40000000F4AC&amp;saveURL=%2Fapex%2FIMP_SubProjectManagement%3Fid%3D{!SubProject__c.Id}%26sfdc.override%3D1</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Issue</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Issue</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/a3q/e?CF00N40000002Orz8={!SubProject__c.SubProject_Name__c}&amp;CF00N40000002Orz8_lkid={!SubProject__c.Id}&amp;CF00N40000002Orys={!SubProject__c.Project__c}&amp;CF00N40000002Orys_lkid={!Project__c.Id}&amp;retURL=%2Fapex%2FIMP_SubProjectManagement%3Fid%3D{!SubProject__c.Id}%26sfdc.override%3D1&amp;RecordType=012400000009luN&amp;ent=01I40000000F4AC&amp;saveURL=%2Fapex%2FIMP_SubProjectManagement%3Fid%3D{!SubProject__c.Id}%26sfdc.override%3D1</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Lesson_Learned</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Lesson Learned</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/a3q/e?CF00N40000002Orz9={!SubProject__c.SubProject_Name__c}&amp;CF00N40000002Orz9_lkid={!SubProject__c.Id}&amp;CF00N40000002Oryt={!SubProject__c.Project__c}&amp;CF00N40000002Oryt_lkid={!Project__c.Id}&amp;retURL=%2Fapex%2FIMP_SubProjectManagement%3Fid%3D{!SubProject__c.Id}%26sfdc.override%3D1&amp;RecordType=012400000009luO&amp;ent=01I40000000F4AC&amp;saveURL=%2Fapex%2FIMP_SubProjectManagement%3Fid%3D{!SubProject__c.Id}%26sfdc.override%3D1</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Risk</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Risk</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/a3q/e?CF00N40000002OrzA={!SubProject__c.SubProject_Name__c}&amp;CF00N40000002OrzA_lkid={!SubProject__c.Id}&amp;CF00N40000002Oryw={!SubProject__c.Project__c}&amp;CF00N40000002Oryw_lkid={!Project__c.Id}&amp;retURL=%2Fapex%2FIMP_SubProjectManagement%3Fid%3D{!SubProject__c.Id}%26sfdc.override%3D1&amp;RecordType=012400000009luP&amp;ent=01I40000000F4AC&amp;saveURL=%2Fapex%2FIMP_SubProjectManagement%3Fid%3D{!SubProject__c.Id}%26sfdc.override%3D1</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Subproject_Contacts</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Subproject Contacts</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>window.open(&apos;/apex/IMP_CdkClientContacts?id={!SubProject__c.Id}&apos;,&apos;location=1,status=1,scrollbars=1,resizable=1, width=800,height=600&apos;,&apos;target=_blank&apos;);</url>
+    </webLinks>
+    <webLinks>
+        <fullName>X6_Step_Process</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>6 Step Process</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://adpdsoperations.ds.ad.adp.com/sites/tis/tisa/tiprocess/VCM%20Wiki/1%20-%20Process%20Overview.aspx</url>
+    </webLinks>
+</CustomObject>

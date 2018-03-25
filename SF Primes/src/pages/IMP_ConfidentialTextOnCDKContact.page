@@ -1,0 +1,3 @@
+<apex:page standardController="SubProject_CDK_Contact__c">
+    <c:IMP_ConfidentialText isConfidential="{!SubProject_CDK_Contact__c.SubProject_Confidential__c}"></c:IMP_ConfidentialText>
+</apex:page>

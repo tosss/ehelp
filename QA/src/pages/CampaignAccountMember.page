@@ -1,0 +1,20 @@
+<apex:page controller="DS_CampaignMemberController" showHeader="true" sidebar="true" standardStylesheets="true">
+<apex:sectionHeader title="Account Member Edit" subtitle="New Campaign Account Member"/>
+	<apex:form > 
+		<apex:pageBlock title="Campaign Account Member Edit" mode="edit" tabStyle="Task">
+			<apex:pageBlockButtons >
+        		<apex:commandButton action="{!save}" value="Save"/>
+        		<apex:commandButton action="{!saveAndNew}" value="Save and New"/>
+        		<apex:commandButton action="{!cancel}" value="Cancel"/>
+    		</apex:pageBlockButtons>
+			<apex:pageBlockSection title="Information">
+				<apex:inputField value="{!campAcctMem.Account__c}"/>
+				<span class="labelCol first">Campaign Member Status</span>
+				<apex:inputField value="{!campAcctMem.Campaign__c}"/>
+				<apex:selectList value="{!countries}" size="1" id="statuses">
+				<apex:selectOptions value="{!items}"/> 
+				</apex:selectList>
+		</apex:pageBlockSection>	
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

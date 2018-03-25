@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Employee Certification</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Employee Certification</value>
+    </caseValues>
+    <fields>
+        <label><!-- Certification --></label>
+        <name>Certification__c</name>
+        <relationshipLabel><!-- Employee Certification --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Date Certified --></label>
+        <name>Date_Certified__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employee Name --></label>
+        <name>Employee_Name__c</name>
+        <relationshipLabel><!-- Employee Certification --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+    </fields>
+    <layouts>
+        <layout>Employee Certification Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

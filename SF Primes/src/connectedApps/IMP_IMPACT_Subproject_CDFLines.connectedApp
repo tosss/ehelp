@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <canvasConfig>
+        <accessMethod>Post</accessMethod>
+        <canvasUrl>https://dsassociateappsprod.ds.adp.com/ImpactSF/Home.aspx</canvasUrl>
+        <locations>Visualforce</locations>
+        <locations>ServiceDesk</locations>
+        <samlInitiationMethod>None</samlInitiationMethod>
+    </canvasConfig>
+    <contactEmail>dave.hanson@cdk.com</contactEmail>
+    <contactPhone>8474854851</contactPhone>
+    <description>Intended for embedding within the SubProject page, to enable users to view/update CDF Lines from IMPACT</description>
+    <label>IMP_IMPACT_Subproject_CDFLines</label>
+    <oauthConfig>
+        <callbackUrl>https://dsassociateappsprod.ds.adp.com/ImpactSF/Home.aspx</callbackUrl>
+        <consumerKey>3MVG9sLbBxQYwWqtI3hcR1Odn14kP5ZZnkIBIYSORyRuBNzRbMJji2VBXUUW5wgEhMDymXQCvQmNsNnncT33g</consumerKey>
+        <scopes>Basic</scopes>
+        <scopes>Api</scopes>
+    </oauthConfig>
+</ConnectedApp>

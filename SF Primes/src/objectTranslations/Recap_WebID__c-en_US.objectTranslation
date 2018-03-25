@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Recap WebID</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Recap WebIDs</value>
+    </caseValues>
+    <fields>
+        <label><!-- Migration_ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- WebID Product --></label>
+        <name>Product__c</name>
+        <picklistValues>
+            <masterLabel>BMW CPO</masterLabel>
+            <translation><!-- BMW CPO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DAP</masterLabel>
+            <translation><!-- DAP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DAP eMail</masterLabel>
+            <translation><!-- DAP eMail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Owner Marketing</masterLabel>
+            <translation><!-- Owner Marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PowerBrand</masterLabel>
+            <translation><!-- PowerBrand --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PowerSEO</masterLabel>
+            <translation><!-- PowerSEO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PowerSearch</masterLabel>
+            <translation><!-- PowerSearch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reputation Management</masterLabel>
+            <translation><!-- Reputation Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Search Essentials</masterLabel>
+            <translation><!-- Search Essentials --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Social Media</masterLabel>
+            <translation><!-- Social Media --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Website</masterLabel>
+            <translation><!-- Website --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Recap Product --></label>
+        <name>Recap_Product__c</name>
+        <relationshipLabel><!-- Recap WebIDs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Recap --></label>
+        <name>Recap__c</name>
+        <relationshipLabel><!-- Recap WebIDs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- WebID (Text) --></label>
+        <name>WebID_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- WebID --></label>
+        <name>WebID__c</name>
+        <relationshipLabel><!-- Recap WebIDs --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Recap WebID Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please fill in a value in either the WebID or the WebID(Text) field. --></errorMessage>
+        <name>CB_Recap_WebID_WebID_orWebIDText_blank</name>
+    </validationRules>
+</CustomObjectTranslation>

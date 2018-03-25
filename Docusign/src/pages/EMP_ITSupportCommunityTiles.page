@@ -1,0 +1,44 @@
+<apex:page showHeader="false" sidebar="false" standardstylesheets="false">
+    <div class="">
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="">
+                <div class="center fa-margin-top">
+                    <i class="fa fa-phone fa-5em"></i>
+                </div>
+                <h2 class="center">Phone Support</h2>
+                <button class="btn btn-default btn-lg it-support-button" disabled="disabled">Call</button>
+                Want to speak with us via the phone? Call us at <b>866-995-4700</b>. If you leave a voice mail, you will still retain your place in line.
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="">
+                <div class="center fa-margin-top">
+                    <i class="fa fa-envelope-o fa-5em"></i>
+                </div>
+                <h2 class="center">Email Support</h2>
+                <button class="btn btn-warning btn-lg it-support-button" onclick="parent.location='mailto:helpmeit@cdk.com';">Open a Case</button>
+                Prefer to email us your request? Email us to Open a Case and just enter in a description of your issue. Please enter a phone if you are not at your desk where an agent can reach you.
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="">
+                <div class="center fa-margin-top">
+                    <i class="fa fa-weixin fa-5em"></i>
+                </div>
+                <h2 class="center">Chat with Us</h2>
+                <button class="btn btn-success btn-lg it-support-button" onclick="window.open('https://iitschatsupport.ds.adp.com/','_blank');">Chat</button>
+                Just like your bank or cable provider, you can chat online with an agent.
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="">
+                <div class="center fa-margin-top">
+                    <i class="fa fa-users fa-5em"></i>
+                </div>
+                <h2 class="center">Community</h2>
+                <a class="btn btn-primary btn-lg it-support-button" href="#ChatterAnchor">Ask the Community</a>
+                Check out the Q&amp;A community on this page. Don’t see an answer to your question? Post a question and an agent will answer it for you.
+            </div>
+        </div>
+    </div>
+</apex:page>

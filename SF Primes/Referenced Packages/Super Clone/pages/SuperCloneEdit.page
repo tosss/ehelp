@@ -1,0 +1,58 @@
+<apex:page controller="dh_superclone.SuperCloneEditController" >
+   <apex:pageMessages id="pageMessages" />
+   <apex:outputPanel rendered="{!DisplayEdit}">
+      <apex:form >
+         <!-- Command Buttons -->
+         <apex:pageblock mode="maindetail">
+            <apex:pageBlockButtons location="top">
+               <apex:actionStatus id="ButtonStatus1">
+                  <apex:facet name="stop">
+                     <apex:outputPanel >
+                        <apex:commandButton value="Save" action="{!DoSave}" status="ButtonStatus1" rerender="pageMessages" />
+                        <apex:commandButton value="Cancel" action="{!DoCancel}" status="ButtonStatus1" rerender="pageMessages" immediate="true" />
+                     </apex:outputPanel>
+                  </apex:facet>
+                  <apex:facet name="start">
+                     <apex:outputPanel >
+                        <apex:commandButton value="Processing..." disabled="true" />
+                        <apex:commandButton value="Processing..." disabled="true" />
+                     </apex:outputPanel>
+                  </apex:facet>
+               </apex:actionStatus>
+            </apex:pageBlockButtons>
+         </apex:pageblock>
+
+         <!-- Primary Object Data -->
+         <apex:pageBlock mode="edit" title="{!PrimaryObj.rObj.oLabel}" rendered="{!PrimaryObj.rObj.ShowFieldList.size>0}">
+            <apex:pageBlockSection columns="2">
+               <apex:repeat value="{!PrimaryObj.rObj.oRecordList}" var="rec">
+                  <apex:repeat value="{!PrimaryObj.rObj.ShowFieldList}" var="fld">
+                     <apex:inputField value="{!rec.orRecord[fld.fName]}" rendered="{!fld.fEdit}" />
+                     <apex:outputField value="{!rec.orRecord[fld.fName]}" rendered="{!!fld.fEdit}" />
+                  </apex:repeat>
+               </apex:repeat>
+            </apex:pageBlockSection>
+         </apex:pageBlock>
+         <!-- Related List Data -->
+         <apex:repeat value="{!RelWrapList}" var="rel">
+            <div id="{!rel.rName}">
+               <apex:PageBlock title="{!rel.rObj.oLabel}">
+                  <apex:pageBlockTable value="{!rel.rObj.oRecordList}" var="rec" columnsWidth="35px">
+
+                     <apex:repeat value="{!rel.rObj.ShowFieldList}" var="fld">
+                        <apex:column >
+                           <apex:facet name="header">{!fld.fLabel}</apex:facet>
+                           <apex:inputField value="{!rec.orRecord[fld.fName]}" rendered="{!fld.fEdit}"/>
+                           <apex:outputField value="{!rec.orRecord[fld.fName]}"  rendered="{!!fld.fEdit}" />
+                        </apex:column>
+                     </apex:repeat>
+
+                  </apex:pageBlockTable>
+               </apex:PageBlock>
+            </div>
+         </apex:repeat>
+
+      </apex:form>
+   </apex:outputPanel>
+
+</apex:page>

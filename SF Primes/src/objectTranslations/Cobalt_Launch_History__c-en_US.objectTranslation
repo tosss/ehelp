@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Launch History</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Launch History</value>
+    </caseValues>
+    <fields>
+        <label><!-- Cobalt Consolidation ID --></label>
+        <name>Cobalt_Consolidation_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Field --></label>
+        <name>Field__c</name>
+    </fields>
+    <fields>
+        <label><!-- Launch --></label>
+        <name>Launch__c</name>
+        <relationshipLabel><!-- Launch History --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- New Value --></label>
+        <name>New_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Old Value --></label>
+        <name>Old_Value__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

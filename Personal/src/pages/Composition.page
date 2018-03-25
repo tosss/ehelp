@@ -1,0 +1,5 @@
+<apex:page controller="compositionExample">
+    <apex:form >
+        <apex:include pageName="Sample2" />
+    </apex:form>
+</apex:page>

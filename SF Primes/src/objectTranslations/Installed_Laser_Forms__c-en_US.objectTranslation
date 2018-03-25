@@ -1,0 +1,876 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Installed Laser Forms</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Installed Laser Forms</value>
+    </caseValues>
+    <fields>
+        <label><!-- CMF Info --></label>
+        <name>CMF_Info__c</name>
+        <relationshipLabel><!-- Installed Laser Forms --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- CMF # --></label>
+        <name>CMF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Copies --></label>
+        <name>Copies__c</name>
+    </fields>
+    <fields>
+        <label><!-- Form Name --></label>
+        <name>Form_Name__c</name>
+        <picklistValues>
+            <masterLabel>4 Square Worksheet</masterLabel>
+            <translation><!-- 4 Square Worksheet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5 Square Worksheet</masterLabel>
+            <translation><!-- 5 Square Worksheet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A/P Check</masterLabel>
+            <translation><!-- A/P Check --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A/R Statement</masterLabel>
+            <translation><!-- A/R Statement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Buyers Order</masterLabel>
+            <translation><!-- Buyers Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cash Receipt</masterLabel>
+            <translation><!-- Cash Receipt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Information Sheet</masterLabel>
+            <translation><!-- Customer Information Sheet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Daily Rental Agreement</masterLabel>
+            <translation><!-- Daily Rental Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deal Jacket</masterLabel>
+            <translation><!-- Deal Jacket --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Due Bill</masterLabel>
+            <translation><!-- Due Bill --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Key Tag</masterLabel>
+            <translation><!-- Key Tag --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lease Order</masterLabel>
+            <translation><!-- Lease Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Letterhead</masterLabel>
+            <translation><!-- Letterhead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Miscellaneous Form</masterLabel>
+            <translation><!-- Miscellaneous Form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Demand Check</masterLabel>
+            <translation><!-- On Demand Check --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parts Invoice</masterLabel>
+            <translation><!-- Parts Invoice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payroll Check</masterLabel>
+            <translation><!-- Payroll Check --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pick Ticket</masterLabel>
+            <translation><!-- Pick Ticket --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pre-WorkOrder</masterLabel>
+            <translation><!-- Pre-WorkOrder --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purchase Order</masterLabel>
+            <translation><!-- Purchase Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Invoice</masterLabel>
+            <translation><!-- Service Invoice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service WorkOrder</masterLabel>
+            <translation><!-- Service WorkOrder --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Special Order Request</masterLabel>
+            <translation><!-- Special Order Request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stock Sheet</masterLabel>
+            <translation><!-- Stock Sheet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trigger Form</masterLabel>
+            <translation><!-- Trigger Form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Used Car Appraisal</masterLabel>
+            <translation><!-- Used Car Appraisal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>We Owe</masterLabel>
+            <translation><!-- We Owe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Worksheet</masterLabel>
+            <translation><!-- Worksheet --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Form Types --></label>
+        <name>Form_Types__c</name>
+        <picklistValues>
+            <masterLabel>1-up</masterLabel>
+            <translation><!-- 1-up --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2-up</masterLabel>
+            <translation><!-- 2-up --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2-up (Landscape)</masterLabel>
+            <translation><!-- 2-up (Landscape) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ELF (Accounting)</masterLabel>
+            <translation><!-- ELF (Accounting) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ELF (Customer)</masterLabel>
+            <translation><!-- ELF (Customer) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ELF (Service)</masterLabel>
+            <translation><!-- ELF (Service) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ELF Standard</masterLabel>
+            <translation><!-- ELF Standard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ELF Type 1</masterLabel>
+            <translation><!-- ELF Type 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ELF Type 2</masterLabel>
+            <translation><!-- ELF Type 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ELF Type 2 (Accounting)</masterLabel>
+            <translation><!-- ELF Type 2 (Accounting) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ELF Type 2 (Customer)</masterLabel>
+            <translation><!-- ELF Type 2 (Customer) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ELF Type 2 (Internal)</masterLabel>
+            <translation><!-- ELF Type 2 (Internal) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ELF Type 2 (Service)</masterLabel>
+            <translation><!-- ELF Type 2 (Service) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lease</masterLabel>
+            <translation><!-- Lease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standard</masterLabel>
+            <translation><!-- Standard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Type 1</masterLabel>
+            <translation><!-- Type 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Type 2</masterLabel>
+            <translation><!-- Type 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Version 1</masterLabel>
+            <translation><!-- Version 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Version 2</masterLabel>
+            <translation><!-- Version 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Version 3</masterLabel>
+            <translation><!-- Version 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Version 4</masterLabel>
+            <translation><!-- Version 4 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- LAO Id --></label>
+        <name>LAO_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- LAO Name --></label>
+        <name>LAO_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- LAO # --></label>
+        <name>LAO__c</name>
+    </fields>
+    <fields>
+        <label><!-- Form Type --></label>
+        <name>Laser_Order_Form_Form_Type__c</name>
+        <picklistValues>
+            <masterLabel>A/P Check</masterLabel>
+            <translation><!-- A/P Check --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A/P Check Canada</masterLabel>
+            <translation><!-- A/P Check Canada --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A/R Open Item - Portrait</masterLabel>
+            <translation><!-- A/R Open Item - Portrait --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A/R Statement (Can)</masterLabel>
+            <translation><!-- A/R Statement (Can) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A/R Statement (Lease)</masterLabel>
+            <translation><!-- A/R Statement (Lease) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A/R Statement (Truck)</masterLabel>
+            <translation><!-- A/R Statement (Truck) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A/R Statement (Type 1)</masterLabel>
+            <translation><!-- A/R Statement (Type 1) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A/R Statement (Type 2)</masterLabel>
+            <translation><!-- A/R Statement (Type 2) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Addtl Cabinet</masterLabel>
+            <translation><!-- Addtl Cabinet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Addtl Proofs</masterLabel>
+            <translation><!-- Addtl Proofs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B/O Custom</masterLabel>
+            <translation><!-- B/O Custom --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Buy/Sell</masterLabel>
+            <translation><!-- Buy/Sell --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cash Receipt</masterLabel>
+            <translation><!-- Cash Receipt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color A/P Check</masterLabel>
+            <translation><!-- Color A/P Check --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color A/P Check Canada</masterLabel>
+            <translation><!-- Color A/P Check Canada --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color A/R Statement (Can)</masterLabel>
+            <translation><!-- Color A/R Statement (Can) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color A/R Statement (Lease)</masterLabel>
+            <translation><!-- Color A/R Statement (Lease) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color A/R Statement (Truck)</masterLabel>
+            <translation><!-- Color A/R Statement (Truck) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color A/R Statement (Type 1)</masterLabel>
+            <translation><!-- Color A/R Statement (Type 1) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color A/R Statement (Type 2)</masterLabel>
+            <translation><!-- Color A/R Statement (Type 2) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color B/O Custom</masterLabel>
+            <translation><!-- Color B/O Custom --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color Cash Receipt</masterLabel>
+            <translation><!-- Color Cash Receipt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color Cust Info</masterLabel>
+            <translation><!-- Color Cust Info --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color Custom Cust Info</masterLabel>
+            <translation><!-- Color Custom Cust Info --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color Custom Lease Order</masterLabel>
+            <translation><!-- Color Custom Lease Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color Custom Rental</masterLabel>
+            <translation><!-- Color Custom Rental --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color Deal Jacket</masterLabel>
+            <translation><!-- Color Deal Jacket --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color Lease Order</masterLabel>
+            <translation><!-- Color Lease Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color Letterhead</masterLabel>
+            <translation><!-- Color Letterhead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color On Demand Check</masterLabel>
+            <translation><!-- Color On Demand Check --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color On Demand Check Canada</masterLabel>
+            <translation><!-- Color On Demand Check Canada --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color Parts Invoice (1-up)</masterLabel>
+            <translation><!-- Color Parts Invoice (1-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color Parts Invoice (2-up)</masterLabel>
+            <translation><!-- Color Parts Invoice (2-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color Payroll Check</masterLabel>
+            <translation><!-- Color Payroll Check --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color Payroll Check Canada</masterLabel>
+            <translation><!-- Color Payroll Check Canada --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color Pick Ticket</masterLabel>
+            <translation><!-- Color Pick Ticket --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color Prework Order</masterLabel>
+            <translation><!-- Color Prework Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color Purchase Order</masterLabel>
+            <translation><!-- Color Purchase Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color Rental</masterLabel>
+            <translation><!-- Color Rental --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color Service Invoice (Type 1)</masterLabel>
+            <translation><!-- Color Service Invoice (Type 1) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color Service Invoice (Type 2)</masterLabel>
+            <translation><!-- Color Service Invoice (Type 2) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color Service Work Order (Type 2)</masterLabel>
+            <translation><!-- Color Service Work Order (Type 2) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color Special Order Request (1-up)</masterLabel>
+            <translation><!-- Color Special Order Request (1-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color Special Order Request (2-up)</masterLabel>
+            <translation><!-- Color Special Order Request (2-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color Stock Sheet</masterLabel>
+            <translation><!-- Color Stock Sheet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color Used Car Appraisal</masterLabel>
+            <translation><!-- Color Used Car Appraisal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color We Owe</masterLabel>
+            <translation><!-- Color We Owe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Color Worksheet</masterLabel>
+            <translation><!-- Color Worksheet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Combine</masterLabel>
+            <translation><!-- Combine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cust Info</masterLabel>
+            <translation><!-- Cust Info --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Artwork</masterLabel>
+            <translation><!-- Custom Artwork --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Color Artwork</masterLabel>
+            <translation><!-- Custom Color Artwork --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Cust Info</masterLabel>
+            <translation><!-- Custom Cust Info --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Lease Order</masterLabel>
+            <translation><!-- Custom Lease Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Rental</masterLabel>
+            <translation><!-- Custom Rental --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Used Car Appraisal</masterLabel>
+            <translation><!-- Custom Used Car Appraisal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Damage Report</masterLabel>
+            <translation><!-- Damage Report --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Mapping</masterLabel>
+            <translation><!-- Data Mapping --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deal Jacket</masterLabel>
+            <translation><!-- Deal Jacket --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delete Form</masterLabel>
+            <translation><!-- Delete Form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF - 3 Pack Forms</masterLabel>
+            <translation><!-- EMF - 3 Pack Forms --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF - 5 Pack Forms</masterLabel>
+            <translation><!-- EMF - 5 Pack Forms --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF A/R Statement (Type 1)</masterLabel>
+            <translation><!-- EMF A/R Statement (Type 1) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF A/R Statement (Type 2)</masterLabel>
+            <translation><!-- EMF A/R Statement (Type 2) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Cash Receipt (1-up)</masterLabel>
+            <translation><!-- EMF Cash Receipt (1-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Cash Receipt (2-up)</masterLabel>
+            <translation><!-- EMF Cash Receipt (2-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Color A/R Statement (Type 1)</masterLabel>
+            <translation><!-- EMF Color A/R Statement (Type 1) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Color A/R Statement (Type 2)</masterLabel>
+            <translation><!-- EMF Color A/R Statement (Type 2) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Color Cash Receipt (1-up)</masterLabel>
+            <translation><!-- EMF Color Cash Receipt (1-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Color Cash Receipt (2-up)</masterLabel>
+            <translation><!-- EMF Color Cash Receipt (2-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Color Parts Invoice (1-up)</masterLabel>
+            <translation><!-- EMF Color Parts Invoice (1-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Color Parts Invoice (2-up)</masterLabel>
+            <translation><!-- EMF Color Parts Invoice (2-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Color Purchase Order (1-up)</masterLabel>
+            <translation><!-- EMF Color Purchase Order (1-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Color Purchase Order (2-up)</masterLabel>
+            <translation><!-- EMF Color Purchase Order (2-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Color Service Invoice (Type 2)</masterLabel>
+            <translation><!-- EMF Color Service Invoice (Type 2) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Color Service Work Order (Type 2)</masterLabel>
+            <translation><!-- EMF Color Service Work Order (Type 2) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Color Special Order Request (1-up)</masterLabel>
+            <translation><!-- EMF Color Special Order Request (1-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Color Special Order Request (2-up)</masterLabel>
+            <translation><!-- EMF Color Special Order Request (2-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Color Trigger</masterLabel>
+            <translation><!-- EMF Color Trigger --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Custom A/R Statement (Type 1)</masterLabel>
+            <translation><!-- EMF Custom A/R Statement (Type 1) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Custom A/R Statement (Type 2)</masterLabel>
+            <translation><!-- EMF Custom A/R Statement (Type 2) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Custom Cash Receipt (1-up)</masterLabel>
+            <translation><!-- EMF Custom Cash Receipt (1-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Custom Cash Receipt (2-up)</masterLabel>
+            <translation><!-- EMF Custom Cash Receipt (2-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Custom Parts Invoice (1-up)</masterLabel>
+            <translation><!-- EMF Custom Parts Invoice (1-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Custom Parts Invoice (2-up)</masterLabel>
+            <translation><!-- EMF Custom Parts Invoice (2-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Custom Purchase Order (1-up)</masterLabel>
+            <translation><!-- EMF Custom Purchase Order (1-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Custom Purchase Order (2-up)</masterLabel>
+            <translation><!-- EMF Custom Purchase Order (2-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Custom Service Invoice (Type 2)</masterLabel>
+            <translation><!-- EMF Custom Service Invoice (Type 2) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Custom Service Work Order (Type 2)</masterLabel>
+            <translation><!-- EMF Custom Service Work Order (Type 2) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Custom Special Order Request (1-up)</masterLabel>
+            <translation><!-- EMF Custom Special Order Request (1-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Custom Special Order Request (2-up)</masterLabel>
+            <translation><!-- EMF Custom Special Order Request (2-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Custom Trigger</masterLabel>
+            <translation><!-- EMF Custom Trigger --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Data Map-Major</masterLabel>
+            <translation><!-- EMF Data Map-Major --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Data Map-Minor</masterLabel>
+            <translation><!-- EMF Data Map-Minor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF French Translation</masterLabel>
+            <translation><!-- EMF French Translation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Multi-Ply</masterLabel>
+            <translation><!-- EMF Multi-Ply --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Parts Invoice (1-up)</masterLabel>
+            <translation><!-- EMF Parts Invoice (1-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Parts Invoice (2-up)</masterLabel>
+            <translation><!-- EMF Parts Invoice (2-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Prework Order</masterLabel>
+            <translation><!-- EMF Prework Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Purchase Order (1-up)</masterLabel>
+            <translation><!-- EMF Purchase Order (1-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Purchase Order (2-up)</masterLabel>
+            <translation><!-- EMF Purchase Order (2-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Service Invoice (Type 1)</masterLabel>
+            <translation><!-- EMF Service Invoice (Type 1) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Service Invoice (Type 2)</masterLabel>
+            <translation><!-- EMF Service Invoice (Type 2) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Service Quote</masterLabel>
+            <translation><!-- EMF Service Quote --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Service Work Order (Type 2)</masterLabel>
+            <translation><!-- EMF Service Work Order (Type 2) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Special Order Request (1-up)</masterLabel>
+            <translation><!-- EMF Special Order Request (1-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Special Order Request (2-up)</masterLabel>
+            <translation><!-- EMF Special Order Request (2-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EMF Trigger</masterLabel>
+            <translation><!-- EMF Trigger --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electronic Download</masterLabel>
+            <translation><!-- Electronic Download --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FMLR Invoice - 4 Pack</masterLabel>
+            <translation><!-- FMLR Invoice - 4 Pack --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FMLR Invoice - Single Form</masterLabel>
+            <translation><!-- FMLR Invoice - Single Form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FMLR Rental Agreement - Single form</masterLabel>
+            <translation><!-- FMLR Rental Agreement - Single form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FSDD Voucher</masterLabel>
+            <translation><!-- FSDD Voucher --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Form Building</masterLabel>
+            <translation><!-- Form Building --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Framewrok Agreement Artwork</masterLabel>
+            <translation><!-- Framewrok Agreement Artwork --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Generic Forms</masterLabel>
+            <translation><!-- Generic Forms --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lease Order</masterLabel>
+            <translation><!-- Lease Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Letterhead</masterLabel>
+            <translation><!-- Letterhead --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MICR ODC/AP</masterLabel>
+            <translation><!-- MICR ODC/AP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Misc Backer</masterLabel>
+            <translation><!-- Misc Backer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Next Day Rush Fee</masterLabel>
+            <translation><!-- Next Day Rush Fee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ODC/AP - Check Sig Image</masterLabel>
+            <translation><!-- ODC/AP - Check Sig Image --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ODC/AP CPA Bilingual</masterLabel>
+            <translation><!-- ODC/AP CPA Bilingual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ODC/AP CPA CAN</masterLabel>
+            <translation><!-- ODC/AP CPA CAN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ODC/AP CPA French</masterLabel>
+            <translation><!-- ODC/AP CPA French --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Demand Check</masterLabel>
+            <translation><!-- On Demand Check --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Demand Check Canada</masterLabel>
+            <translation><!-- On Demand Check Canada --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parts Invoice (1-up)</masterLabel>
+            <translation><!-- Parts Invoice (1-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parts Invoice (2-up)</masterLabel>
+            <translation><!-- Parts Invoice (2-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payroll Check</masterLabel>
+            <translation><!-- Payroll Check --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payroll Check CPA Bilingual</masterLabel>
+            <translation><!-- Payroll Check CPA Bilingual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payroll Check CPA Canada</masterLabel>
+            <translation><!-- Payroll Check CPA Canada --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payroll Check CPA French</masterLabel>
+            <translation><!-- Payroll Check CPA French --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payroll Check Canada</masterLabel>
+            <translation><!-- Payroll Check Canada --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pick Ticket</masterLabel>
+            <translation><!-- Pick Ticket --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prework Order</masterLabel>
+            <translation><!-- Prework Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Printout</masterLabel>
+            <translation><!-- Printout --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purchase Order</masterLabel>
+            <translation><!-- Purchase Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rental</masterLabel>
+            <translation><!-- Rental --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rush Fee</masterLabel>
+            <translation><!-- Rush Fee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>STD</masterLabel>
+            <translation><!-- STD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Invoice (Type 1)</masterLabel>
+            <translation><!-- Service Invoice (Type 1) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Invoice (Type 2)</masterLabel>
+            <translation><!-- Service Invoice (Type 2) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Work Order (Type 2)</masterLabel>
+            <translation><!-- Service Work Order (Type 2) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Special Order Request (1-up)</masterLabel>
+            <translation><!-- Special Order Request (1-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Special Order Request (2-up)</masterLabel>
+            <translation><!-- Special Order Request (2-up) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stock Sheet</masterLabel>
+            <translation><!-- Stock Sheet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transfer</masterLabel>
+            <translation><!-- Transfer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Used Car Appraisal</masterLabel>
+            <translation><!-- Used Car Appraisal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle Query</masterLabel>
+            <translation><!-- Vehicle Query --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>We Owe</masterLabel>
+            <translation><!-- We Owe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Worksheet</masterLabel>
+            <translation><!-- Worksheet --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Quantity --></label>
+        <name>Laser_Order_Form_Quantity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Migration ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Overlay --></label>
+        <name>Overlay__c</name>
+    </fields>
+    <layouts>
+        <layout>Installed Form Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

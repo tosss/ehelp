@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Object to display Last Activity by Sales Channel for an Accounts, Opportunity, or Lead</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Last Activity records are related to either an Account, Lead, or Opportunity. If an Activity (Event or Task) occurred on an Account or Campaign, a Last Activity record is created with this Account relationship set to the Account. The &quot;Related To&quot; field is also set (for reporting) to the Account for all Last Activity records.</description>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Last Activities</relationshipLabel>
+        <relationshipName>Last_Activities</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Activity_By__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Activity By</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Last_Activities</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Activity_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Activity Last Modified Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Activity_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>Activity Id</label>
+        <length>18</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Activity_Link__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/&quot;&amp; Activity_Id__c, LEFT(Activity_Subject__c,40) &amp; (IF(LEN(Activity_Subject__c) &gt; 40,&quot;...&quot;,&quot;&quot;)), &quot;blank&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Activity Link</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Activity_Subject__c</fullName>
+        <externalId>false</externalId>
+        <label>Activity Subject</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Campaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>If an Activity (Event or Task) is related to a Campaign primarily, this field would be set to the Campaign ID. However, Campaign Activities are recorded on the Account Last Activity record rather than on a separate Campaign Last Activity record.</description>
+        <externalId>false</externalId>
+        <label>Campaign</label>
+        <referenceTo>Campaign</referenceTo>
+        <relationshipLabel>Last Activities</relationshipLabel>
+        <relationshipName>Last_Activities</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Channel_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Channel Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lead__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Last Activity records are related to either an Account, Lead, or Opportunity. If an Activity (Event or Task) occurred on a Lead, a Last Activity record is created with this Lead relationship set to the Lead. The &quot;Related To&quot; field is also set (for reporting) to the Account for all Last Activity records.</description>
+        <externalId>false</externalId>
+        <label>Lead</label>
+        <referenceTo>Lead</referenceTo>
+        <relationshipLabel>Last Activities</relationshipLabel>
+        <relationshipName>Last_Activities</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Last Activity records are related to either an Account, Lead, or Opportunity. If an Activity (Event or Task) occurred on an Opportunity, a Last Activity record is created with this Opportunity relationship set to the Opportunity. The &quot;Related To&quot; field is also set (for reporting) to the Account for all Last Activity records.</description>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Last Activities</relationshipLabel>
+        <relationshipName>Last_Activities</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Related_IDs__c</fullName>
+        <description>This field is only for reference; it contains the Salesforce IDs of the related objects.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field is only for reference; it contains the Salesforce IDs of the related objects.</inlineHelpText>
+        <label>Related IDs</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Related_To__c</fullName>
+        <description>Set to the Account for all Last Activity records.</description>
+        <externalId>false</externalId>
+        <label>Related To</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Last Activities (Related To)</relationshipLabel>
+        <relationshipName>Account_Related_To</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <label>Last Activity</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Channel_Name__c</columns>
+        <columns>Account__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Lead__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <columns>Related_IDs__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All1</fullName>
+        <columns>NAME</columns>
+        <columns>Related_To__c</columns>
+        <columns>Related_IDs__c</columns>
+        <columns>Account__c</columns>
+        <columns>Campaign__c</columns>
+        <columns>Lead__c</columns>
+        <columns>Opportunity__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>LA-{00000000}</displayFormat>
+        <label>Last Activity Id</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Last Activities</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Channel_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Lead__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Campaign__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Opportunity__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Activity_By__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Activity_Id__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Activity_Link__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Activity_Date__c</customTabListAdditionalFields>
+        <excludedStandardButtons>New</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <lookupDialogsAdditionalFields>Channel_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Account__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Lead__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Campaign__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Opportunity__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Activity_By__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Activity_Id__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Activity_Link__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Activity_Date__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Channel_Name__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Account__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Lead__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Campaign__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Opportunity__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Activity_By__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Activity_Id__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Activity_Link__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Activity_Date__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Channel_Name__c</searchFilterFields>
+        <searchFilterFields>Account__c</searchFilterFields>
+        <searchFilterFields>Lead__c</searchFilterFields>
+        <searchFilterFields>Campaign__c</searchFilterFields>
+        <searchFilterFields>Opportunity__c</searchFilterFields>
+        <searchFilterFields>Activity_By__c</searchFilterFields>
+        <searchFilterFields>Activity_Id__c</searchFilterFields>
+        <searchFilterFields>Activity_Link__c</searchFilterFields>
+        <searchFilterFields>Activity_Date__c</searchFilterFields>
+        <searchResultsAdditionalFields>Channel_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Account__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Lead__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Campaign__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Opportunity__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Activity_By__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Activity_Id__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Activity_Link__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Activity_Date__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

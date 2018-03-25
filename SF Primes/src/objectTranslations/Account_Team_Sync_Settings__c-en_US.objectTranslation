@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Account Team Sync Settings</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Account Team Sync Settings</value>
+    </caseValues>
+    <fields>
+        <label><!-- Team Role --></label>
+        <name>Team_Role__c</name>
+    </fields>
+    <fields>
+        <label><!-- User ID Field API Name --></label>
+        <name>User_ID_Field_API_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- sObject --></label>
+        <name>sObject__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

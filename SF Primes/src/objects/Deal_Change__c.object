@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>ADP_DC_Compact</fullName>
+        <fields>Name</fields>
+        <fields>Type_of_Change__c</fields>
+        <fields>Rush__c</fields>
+        <fields>Rush_Reasons__c</fields>
+        <fields>Change_Completed__c</fields>
+        <fields>Completed_Date__c</fields>
+        <fields>Cancelled__c</fields>
+        <fields>Deal_State__c</fields>
+        <fields>Account__c</fields>
+        <fields>CreatedById</fields>
+        <label>ADP_DC_Compact</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Any Deal Change associated to Deal State</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>ASP_Buy_Out_Cat_34174_36__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>ASP Buy-Out Cat # 34174-36</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ASP_Buy_Out_Price__c</fullName>
+        <externalId>false</externalId>
+        <label>ASP Buy-Out Price</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ASP_Buy_Out_Quote__c</fullName>
+        <externalId>false</externalId>
+        <label>ASP Buy-Out Quote #</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account__c</fullName>
+        <externalId>false</externalId>
+        <formula>Deal_State__r.Account__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CDK_Opportunity_Owner__c</fullName>
+        <externalId>false</externalId>
+        <formula>Deal_State__r.Opportunity__r.ADP_Opportunity_Owner__r.FirstName&amp;&quot; &quot;&amp;Deal_State__r.Opportunity__r.ADP_Opportunity_Owner__r.LastName</formula>
+        <label>CDK Opportunity Owner</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cancelled__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Cancelled</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Change_Completed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Change Completed</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Completed_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Completed Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Needed_By_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Needed By Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Deal_State__c</fullName>
+        <externalId>false</externalId>
+        <label>Deal State</label>
+        <referenceTo>Deal_State__c</referenceTo>
+        <relationshipLabel>Deal Change</relationshipLabel>
+        <relationshipName>Deal_Change</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Hole_in_Firewall_No_Charge__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Hole in Firewall No Charge</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Hole_in_Firewall_use_Cat_34122_98__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Hole in Firewall use Cat # 34122-98</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Key_Rep__c</fullName>
+        <externalId>false</externalId>
+        <formula>Deal_State__r.Opportunity__r.Account.Key_Rep__r.FirstName&amp;&quot; &quot;&amp;Deal_State__r.Opportunity__r.Account.Key_Rep__r.LastName</formula>
+        <label>Key Rep</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Migration_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Migration ID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Network_Needed__c</fullName>
+        <externalId>false</externalId>
+        <label>Network Needed</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Network_Quotes_Attached__c</fullName>
+        <description>Number of Network Quotes Attached for an opportunity.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of Network Quotes Attached for an opportunity.</inlineHelpText>
+        <label># of Network Quotes Attached</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>No_Quotes_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>No Quotes Required</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Notes</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>On_Behalf_Of__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Entered on behalf of a user</inlineHelpText>
+        <label>On Behalf Of</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Deal_Change</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <externalId>false</externalId>
+        <formula>Deal_State__r.Opportunity__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opportunity</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Reason_for_Changes__c</fullName>
+        <externalId>false</externalId>
+        <label>Reason for Changes</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Requested_Changes__c</fullName>
+        <externalId>false</externalId>
+        <label>Requested Changes</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Rush_Reasons__c</fullName>
+        <externalId>false</externalId>
+        <label>Rush Reasons</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Client Needs ASAP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales On Site</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Installers On Site</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Per VP/RGM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Client is Down</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NADA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Rush__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Rush</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SQT_Deal_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>hyperlink(&quot;http://&quot; &amp; $Setup.CustomSettings__c.SQTServer__c &amp; &quot;Home.aspx?DealID=&quot; &amp; Deal_State__r.SQT_Deal_ID__c &amp; &quot;&amp;UID=&quot; &amp; $User.Id, Deal_State__r.SQT_Deal_ID__c,&quot;_blank&quot;)</formula>
+        <label>SQT Deal ID</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Technology_Solutions_Manager__c</fullName>
+        <externalId>false</externalId>
+        <formula>Deal_State__r.Opportunity__r.Account.Technology_Solutions_Manager__r.FirstName&amp;&quot; &quot; &amp;Deal_State__r.Opportunity__r.Account.Technology_Solutions_Manager__r.LastName</formula>
+        <label>Technology Solutions Manager</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type_of_Change__c</fullName>
+        <externalId>false</externalId>
+        <label>Type of Change</label>
+        <picklist>
+            <picklistValues>
+                <fullName>SOW</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales Request-Changes Needed to SQT Deal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Network Quote Uploaded</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales Request-Contracts Needed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <label>Deal Change</label>
+    <nameField>
+        <displayFormat>DC-{000000}</displayFormat>
+        <label>Deal Change ID</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Deal Change</pluralLabel>
+    <recordTypes>
+        <fullName>BDC</fullName>
+        <active>true</active>
+        <label>BDC</label>
+        <picklistValues>
+            <picklist>Network_Needed__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Rush_Reasons__c</picklist>
+            <values>
+                <fullName>Client Needs ASAP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Client is Down</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Installers On Site</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NADA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per VP%2FRGM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales On Site</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_of_Change__c</picklist>
+            <values>
+                <fullName>Network Quote Uploaded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SOW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Request-Changes Needed to SQT Deal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Request-Contracts Needed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Network_Quote_Uploaded</fullName>
+        <active>true</active>
+        <label>Network Quote Uploaded</label>
+        <picklistValues>
+            <picklist>Network_Needed__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Rush_Reasons__c</picklist>
+            <values>
+                <fullName>Client Needs ASAP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Client is Down</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Installers On Site</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NADA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per VP%2FRGM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales On Site</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_of_Change__c</picklist>
+            <values>
+                <fullName>Network Quote Uploaded</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>SOW</fullName>
+        <active>true</active>
+        <label>SOW</label>
+        <picklistValues>
+            <picklist>Network_Needed__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Rush_Reasons__c</picklist>
+            <values>
+                <fullName>Client Needs ASAP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Client is Down</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Installers On Site</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NADA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per VP%2FRGM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales On Site</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_of_Change__c</picklist>
+            <values>
+                <fullName>SOW</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Sales_Request</fullName>
+        <active>true</active>
+        <label>Sales Request</label>
+        <picklistValues>
+            <picklist>Network_Needed__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Rush_Reasons__c</picklist>
+            <values>
+                <fullName>Client Needs ASAP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Client is Down</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Installers On Site</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NADA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Per VP%2FRGM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales On Site</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_of_Change__c</picklist>
+            <values>
+                <fullName>Sales Request-Changes Needed to SQT Deal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales Request-Contracts Needed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Type_of_Change__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Rush__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Rush_Reasons__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Change_Completed__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Completed_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Cancelled__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Deal_State__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Account__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Opportunity__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Type_of_Change__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Rush__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Rush_Reasons__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Change_Completed__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Completed_Date__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Cancelled__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Deal_State__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Account__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Opportunity__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Deal_State__c</searchFilterFields>
+        <searchFilterFields>Account__c</searchFilterFields>
+        <searchFilterFields>Completed_Date__c</searchFilterFields>
+        <searchFilterFields>Rush__c</searchFilterFields>
+        <searchFilterFields>On_Behalf_Of__c</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>DS_BDC_ContractNeededByDate</fullName>
+        <active>true</active>
+        <description>Created to verify Contract Needed By Date greater then or equal to current date</description>
+        <errorConditionFormula>AND(OR(ISNEW() &amp;&amp; Contract_Needed_By_Date__c &lt; Today(),ISCHANGED(Contract_Needed_By_Date__c) &amp;&amp; Contract_Needed_By_Date__c &lt; Today()),NOT(BEGINS($User.Username,$Setup.GlobalSettings__c.Admin_Integration_Username__c)))</errorConditionFormula>
+        <errorDisplayField>Contract_Needed_By_Date__c</errorDisplayField>
+        <errorMessage>Contract Needed By Date should be greater then or equal to today&apos;s date.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DS_BDC_Fields_Read_Only</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(AND(NOT(ISCHANGED(Change_Completed__c)),Change_Completed__c= TRUE) || AND(NOT(ISCHANGED(Cancelled__c)), Cancelled__c=TRUE), 
+OR( 
+ISCHANGED(Notes__c), 
+ISCHANGED(On_Behalf_Of__c), 
+ISCHANGED(Reason_for_Changes__c), 
+ISCHANGED(Requested_Changes__c), 
+ISCHANGED(Rush__c), 
+ISCHANGED(Type_of_Change__c),
+ISCHANGED(Network_Needed__c) 
+))</errorConditionFormula>
+        <errorMessage>You can not modify completed or cancelled deal change. Please create a new deal change request</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DS_BDC_ReasonforChanges_Required</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISPICKVAL(Type_of_Change__c,&quot;Sales Request-Changes Needed to SQT Deal&quot;),ISPICKVAL(Type_of_Change__c,&quot;Sales Request-Contracts Needed&quot;)),ISBLANK(Reason_for_Changes__c))</errorConditionFormula>
+        <errorDisplayField>Reason_for_Changes__c</errorDisplayField>
+        <errorMessage>Please enter value for Reason for Changes</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DS_BDC_Rush_Reason_Req</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+Rush__c = TRUE, 
+ISBLANK(TEXT(Rush_Reasons__c))
+)</errorConditionFormula>
+        <errorDisplayField>Rush_Reasons__c</errorDisplayField>
+        <errorMessage>Please Provide a Reason for Rush</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DS_BDC_Rush_Req</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+Rush__c = False, 
+NOT(ISBLANK(TEXT(Rush_Reasons__c)))
+)</errorConditionFormula>
+        <errorDisplayField>Rush__c</errorDisplayField>
+        <errorMessage>Please select Rush as Rush Reason is selected</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DS_BDC_Type_Of_Change_Read_Only</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(CONTAINS($Profile.Name,&quot;Sales&quot;),
+ISCHANGED(Type_of_Change__c)
+)</errorConditionFormula>
+        <errorDisplayField>Type_of_Change__c</errorDisplayField>
+        <errorMessage>You can not edit Type of Change Field</errorMessage>
+    </validationRules>
+</CustomObject>

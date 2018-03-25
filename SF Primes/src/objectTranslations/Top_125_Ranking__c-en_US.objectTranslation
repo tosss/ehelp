@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Top 125 Ranking</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Top 125 Ranking</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Top 125 Ranking --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Group Revenue --></label>
+        <name>Group_Revenue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rank --></label>
+        <name>Rank__c</name>
+    </fields>
+    <fields>
+        <label><!-- SLX CreateDate --></label>
+        <name>SLX_CreateDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- SLX ID --></label>
+        <name>SLX_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Dealerships --></label>
+        <name>Total_Dealerships__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Fleet Units --></label>
+        <name>Total_Fleet_Units__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total New Cars --></label>
+        <name>Total_New_Cars__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Used Cars --></label>
+        <name>Total_Used_Cars__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Wholesale Units --></label>
+        <name>Total_Wholesale_Units__c</name>
+    </fields>
+    <fields>
+        <label><!-- Year --></label>
+        <name>Year__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

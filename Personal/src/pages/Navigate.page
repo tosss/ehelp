@@ -1,0 +1,12 @@
+<apex:page controller="Vishal">
+    <script type="text/javascript">
+    function a()
+    {
+        window.open('https://www.google.co.in','abc');
+        window.focus();
+    }
+    </script>
+    <apex:form >
+    <apex:commandLink onclick="window.open('/{!u}','_blank','height=400,width=600,left=10,top=10,,scrollbars=yes,menubar=no'); return false;" value="abc" target="abc"/>
+        </apex:form>
+</apex:page>

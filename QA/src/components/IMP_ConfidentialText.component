@@ -1,0 +1,7 @@
+<apex:component >
+   <apex:stylesheet value="{!$Resource.IMP_ConfidentialText_CSS}"/>
+    <apex:attribute name="isConfidential" required="true" type="boolean" description="confidential boolean value of the record"/>
+    <apex:outputPanel layout="block" rendered="{!isConfidential}">
+    	<div class="confidentialIndicatorImage">CONFIDENTIAL</div>
+    </apex:outputPanel>
+</apex:component>

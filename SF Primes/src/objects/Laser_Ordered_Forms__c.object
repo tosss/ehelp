@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Used by Laser group for forms ordered tracking</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fieldSets>
+        <fullName>Unlock_And_Update</fullName>
+        <description>DS_LAO_Update vf page</description>
+        <displayedFields>
+            <field>Catalog_Number__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Quantity__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Unit_Price_Override__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Unlock And Update</label>
+    </fieldSets>
+    <fields>
+        <fullName>Catalog_Number__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Catalog Number</label>
+        <referenceTo>Laser_Ordered_Forms_Catalog_Numbers__c</referenceTo>
+        <relationshipLabel>Laser Ordered Forms</relationshipLabel>
+        <relationshipName>Laser_Ordered_Forms</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Conditional_A_R_Statement__c</fullName>
+        <externalId>false</externalId>
+        <label>Conditional A/R Statement</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Form_Name2__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Catalog_Number__c) &amp;&amp; NOT(ISBLANK(TEXT(Form_Name__c))), TEXT(Form_Name__c), Catalog_Number__r.Description__c)</formula>
+        <label>Form Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Form_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Form Name</label>
+        <picklist>
+            <picklistValues>
+                <fullName>A/R Statement</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Accounts Payable Check</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Backer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cash Receipt</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>eShowroom</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>F&amp;I</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FMLR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FMLR - Rental Contract</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ODC/AP Check</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>On Demand Check</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parts Invoice</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Payroll Check</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pick Ticket</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Purchase Order</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Invoice</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special Order Request</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SSDD/FSDD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trigger Form</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Workorder</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Form_Type2__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Catalog_Number__c) &amp;&amp; NOT(ISBLANK(TEXT(Form_Types__c))), TEXT(Form_Types__c), TEXT(Catalog_Number__r.Form_Type__c))</formula>
+        <label>Form Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Form_Types__c</fullName>
+        <externalId>false</externalId>
+        <label>Form Types</label>
+        <picklist>
+            <controllingField>Form_Name__c</controllingField>
+            <picklistValues>
+                <fullName>Bar Code</fullName>
+                <controllingFieldValues>Parts Invoice</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DCAP 1-up</fullName>
+                <controllingFieldValues>Parts Invoice</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DCAP 2-up</fullName>
+                <controllingFieldValues>Parts Invoice</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DCAP Type 1</fullName>
+                <controllingFieldValues>Service Invoice</controllingFieldValues>
+                <controllingFieldValues>Workorder</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DCAP Type 2</fullName>
+                <controllingFieldValues>Service Invoice</controllingFieldValues>
+                <controllingFieldValues>Workorder</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ELF</fullName>
+                <controllingFieldValues>Cash Receipt</controllingFieldValues>
+                <controllingFieldValues>Purchase Order</controllingFieldValues>
+                <controllingFieldValues>Trigger Form</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ELF 1-up</fullName>
+                <controllingFieldValues>Parts Invoice</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ELF 2-up</fullName>
+                <controllingFieldValues>Parts Invoice</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ELF Type 1</fullName>
+                <controllingFieldValues>Service Invoice</controllingFieldValues>
+                <controllingFieldValues>Workorder</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ELF Type 2</fullName>
+                <controllingFieldValues>Service Invoice</controllingFieldValues>
+                <controllingFieldValues>Workorder</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Form Type - 1-up</fullName>
+                <controllingFieldValues>Parts Invoice</controllingFieldValues>
+                <controllingFieldValues>Special Order Request</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Form Type - 2-up</fullName>
+                <controllingFieldValues>Parts Invoice</controllingFieldValues>
+                <controllingFieldValues>Special Order Request</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Form Type - Type 1</fullName>
+                <controllingFieldValues>A/R Statement</controllingFieldValues>
+                <controllingFieldValues>Service Invoice</controllingFieldValues>
+                <controllingFieldValues>Workorder</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Form Type - Type 2</fullName>
+                <controllingFieldValues>A/R Statement</controllingFieldValues>
+                <controllingFieldValues>Service Invoice</controllingFieldValues>
+                <controllingFieldValues>Workorder</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Form Type - Type 3</fullName>
+                <controllingFieldValues>A/R Statement</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Work Order (Type 1)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Standard</fullName>
+                <controllingFieldValues>Backer</controllingFieldValues>
+                <controllingFieldValues>Cash Receipt</controllingFieldValues>
+                <controllingFieldValues>F&amp;I</controllingFieldValues>
+                <controllingFieldValues>Purchase Order</controllingFieldValues>
+                <controllingFieldValues>eShowroom</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Truck</fullName>
+                <controllingFieldValues>A/R Statement</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Laser_Artwork_Order__c</fullName>
+        <externalId>false</externalId>
+        <label>Laser Artwork Order</label>
+        <referenceTo>Laser_Artwork_Order__c</referenceTo>
+        <relationshipLabel>Laser Ordered Forms</relationshipLabel>
+        <relationshipName>Forms</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Laser_Ordered_Forms__c</fullName>
+        <externalId>false</externalId>
+        <label>ePayments Client</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Migration_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Migration ID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>OverRide_Field__c</fullName>
+        <description>Field not to be displayed on page layout - for use with conga form only</description>
+        <externalId>false</externalId>
+        <formula>IF(Unit_Price_Override__c &gt;0,  Unit_Price_Override__c ,  Unit_Price__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OverRide_Field</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Quantity__c</fullName>
+        <externalId>false</externalId>
+        <label>Quantity</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Service_Edge_Client__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Edge Client</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISBLANK(Quantity__c)), Quantity__c * IF(AND(NOT(ISBLANK( Unit_Price_Override__c )), Unit_Price_Override__c &gt;= 0), Unit_Price_Override__c, Unit_Price__c), 0)</formula>
+        <label>Total$</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Unit_Price_Override2__c</fullName>
+        <externalId>false</externalId>
+        <formula>Unit_Price__c +  Unit_Price_Override__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Form Charge</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Unit_Price_Override__c</fullName>
+        <description>We need to implement a way of overriding the default price. There are specific clients that have discounted rates or receive changes free, as well as any contracted lines (which we collect from the contract)</description>
+        <externalId>false</externalId>
+        <label>Unit Price (Override)</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Unit_Price_Total__c</fullName>
+        <externalId>false</externalId>
+        <formula>Quantity__c  *  Unit_Price_Override2__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Unit Price Total Hidden</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Unit_Price__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISBLANK(Laser_Artwork_Order__r.Ship_CMF_Business_Unit__c)) &amp;&amp; CONTAINS(Laser_Artwork_Order__r.Ship_CMF_Business_Unit__c, &quot;CANADA&quot;), Catalog_Number__r.CAN__c, Catalog_Number__r.US__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Unit Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Update_Conditional_A_R_Statement__c</fullName>
+        <externalId>false</externalId>
+        <formula>AND(Catalog_Number__r.Conditional_A_R_Statement__c=TRUE,Laser_Artwork_Order__r.Ship_CMF_Info__r.Conditional_A_R_Statement__c=TRUE)</formula>
+        <label>Update Conditional A/R Statement</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Update_Service_Edge__c</fullName>
+        <externalId>false</externalId>
+        <formula>AND(Catalog_Number__r.Service_Edge_Notification_Flag__c=TRUE, Laser_Artwork_Order__r.Ship_CMF_Info__r.Service_Edge_Client__c=TRUE)</formula>
+        <label>Update Service Edge</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Update_ePayments__c</fullName>
+        <externalId>false</externalId>
+        <formula>AND(Catalog_Number__r.ePayments_Notification_Flag__c=TRUE,Laser_Artwork_Order__r.Ship_CMF_Info__r.ePayments_Client__c=TRUE)</formula>
+        <label>Update ePayments</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Update_eSignature__c</fullName>
+        <externalId>false</externalId>
+        <formula>AND(Catalog_Number__r.eSignature_Notification_Flag__c=TRUE,Laser_Artwork_Order__r.Ship_CMF_Info__r.eSignature_Client__c=TRUE)</formula>
+        <label>Update eSignature</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>eSignature__c</fullName>
+        <externalId>false</externalId>
+        <label>eSignature Client</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Laser Ordered Forms</label>
+    <nameField>
+        <displayFormat>LOF-{00000}</displayFormat>
+        <label>Ordered Form</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Laser Ordered Forms</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Form_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Form_Types__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Quantity__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Catalog_Number__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Form_Name2__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Form_Type2__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Quantity__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Unit_Price__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Total__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Catalog_Number__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Form_Name2__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Form_Type2__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Quantity__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Unit_Price__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Total__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Catalog_Number__c</searchFilterFields>
+        <searchFilterFields>Form_Name2__c</searchFilterFields>
+        <searchFilterFields>Form_Type2__c</searchFilterFields>
+        <searchFilterFields>Quantity__c</searchFilterFields>
+        <searchFilterFields>Unit_Price__c</searchFilterFields>
+        <searchFilterFields>Total__c</searchFilterFields>
+        <searchFilterFields>CREATED_DATE</searchFilterFields>
+        <searchResultsAdditionalFields>Form_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Form_Types__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Quantity__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CREATED_DATE</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

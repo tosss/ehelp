@@ -1,0 +1,24 @@
+<apex:page showHeader="false" sidebar="false" >
+    
+    <apex:includeScript value="/soap/ajax/29.0/connection.js" />
+    
+    <script type="text/javascript">
+        sforce.connection.sessionId = "{!GETSESSIONID()}";
+        
+        var __sObjectType = "{!$CurrentPage.parameters.type}";
+        var __sObjectField = "{!$CurrentPage.parameters.field}";
+        var __sObjectValue = "{!$CurrentPage.parameters.value}";
+        var __PassParams = "{!$CurrentPage.parameters.params}"; 
+        
+        var q = "Select Id From " + __sObjectType + " Where " + __sObjectField + " = '" + __sObjectValue + "' limit 1";
+        //if(console) { console.log(q); }
+        
+        var r = sforce.connection.query(q);
+        //if(console) { console.log(r); }
+        
+        if(r != null && r.records != null) { 
+            window.location = "/" + r.records.Id + __PassParams; 
+        }
+    </script>
+    
+</apex:page>

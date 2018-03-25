@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>This custom setting records will hold specific keywords which when used in Chatter Posts will create a Case.</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Case_Record_Type__c</fullName>
+        <description>This field is used to hold the value of Case Record Type for which a Case will be created, if this keyword will be used in a Chatter Post along with #.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field is used to hold the value of Case Record Type for which a Case will be created, if this keyword will be used in a Chatter Post along with #.</inlineHelpText>
+        <label>Case Record Type</label>
+        <length>90</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>DS Chatter to Case Keywords</label>
+    <visibility>Protected</visibility>
+</CustomObject>

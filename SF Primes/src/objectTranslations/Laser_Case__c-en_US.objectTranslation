@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Laser Case</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Laser Cases</value>
+    </caseValues>
+    <fields>
+        <label><!-- Case Reason Code Type --></label>
+        <name>Case_Reason_Code_Type__c</name>
+        <picklistValues>
+            <masterLabel>Additional Laser</masterLabel>
+            <translation><!-- Additional Laser --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Archiving</masterLabel>
+            <translation><!-- Archiving --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Back-bill</masterLabel>
+            <translation><!-- Back-bill --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Box Upgrade</masterLabel>
+            <translation><!-- Box Upgrade --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Buy/Sell</masterLabel>
+            <translation><!-- Buy/Sell --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Exception</masterLabel>
+            <translation><!-- Exception --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Minimum Processing</masterLabel>
+            <translation><!-- Minimum Processing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NSA Issue</masterLabel>
+            <translation><!-- NSA Issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Client</masterLabel>
+            <translation><!-- New Client --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Longer ADP/Elite</masterLabel>
+            <translation><!-- No Longer ADP/Elite --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paper</masterLabel>
+            <translation><!-- Paper --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rate</masterLabel>
+            <translation><!-- Rate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sarbanes</masterLabel>
+            <translation><!-- Sarbanes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unix Transactions</masterLabel>
+            <translation><!-- Unix Transactions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Usage Pack</masterLabel>
+            <translation><!-- Usage Pack --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Case Reason Code --></label>
+        <name>Case_Reason_Code__c</name>
+        <picklistValues>
+            <masterLabel>Collector</masterLabel>
+            <translation><!-- Collector --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Management Generated</masterLabel>
+            <translation><!-- Management Generated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Region</masterLabel>
+            <translation><!-- Region --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Report Generated</masterLabel>
+            <translation><!-- Report Generated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales</masterLabel>
+            <translation><!-- Sales --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Case # --></label>
+        <name>Case__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credit Amount (Before Tax) --></label>
+        <name>Credit_Amount_Before_Tax__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credit Memo Number --></label>
+        <name>Credit_Memo_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Closed --></label>
+        <name>Date_Closed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Opened --></label>
+        <name>Date_Opened__c</name>
+    </fields>
+    <fields>
+        <label><!-- Laser Billing Info --></label>
+        <name>Laser_Billing_Info__c</name>
+        <relationshipLabel><!-- Laser Cases --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Migration ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <layouts>
+        <layout>Laser Case Layout</layout>
+        <sections>
+            <label><!-- Comments --></label>
+            <section>Comments</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

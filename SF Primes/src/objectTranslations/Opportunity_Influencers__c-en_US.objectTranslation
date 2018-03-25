@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Influencer</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Influencers</value>
+    </caseValues>
+    <fields>
+        <label><!-- Cobalt_Consolidation_ID --></label>
+        <name>Cobalt_Consolidation_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Main Phone --></label>
+        <name>Contact_Main_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Mobile Phone --></label>
+        <name>Contact_Mobile_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Title --></label>
+        <name>Contact_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Influencers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Deal Size --></label>
+        <name>Deal_Size__c</name>
+    </fields>
+    <fields>
+        <label><!-- E-Proof Used to Amplify Hurt? --></label>
+        <name>E_Proof_Used_to_Amplify_Hurt__c</name>
+    </fields>
+    <fields>
+        <label><!-- External ID --></label>
+        <name>External_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Influencer Hurts? --></label>
+        <name>Influencer_Hurts__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Role --></label>
+        <name>Opportunity_Role__c</name>
+        <picklistValues>
+            <masterLabel>Advocate</masterLabel>
+            <translation><!-- Advocate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Champion</masterLabel>
+            <translation><!-- Champion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stakeholder</masterLabel>
+            <translation><!-- Stakeholder --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Influencers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Proposed Solution Notes --></label>
+        <name>Proposed_Solution_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- R-proof for specs, tailor &amp; confirm? --></label>
+        <name>R_proof_for_specs_tailor_confirm__c</name>
+    </fields>
+    <fields>
+        <label><!-- Stage --></label>
+        <name>Stage__c</name>
+        <picklistValues>
+            <masterLabel>1. Discover the Hurt</masterLabel>
+            <translation><!-- 1. Discover the Hurt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2. Qualify the Hurt</masterLabel>
+            <translation><!-- 2. Qualify the Hurt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3. Amplify the Hurt</masterLabel>
+            <translation><!-- 3. Amplify the Hurt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4. Propose a Solution</masterLabel>
+            <translation><!-- 4. Propose a Solution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5. Buy In</masterLabel>
+            <translation><!-- 5. Buy In --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6. Solution Details</masterLabel>
+            <translation><!-- 6. Solution Details --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>7. Tailor the Solution</masterLabel>
+            <translation><!-- 7. Tailor the Solution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8. Confirm Commitment</masterLabel>
+            <translation><!-- 8. Confirm Commitment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>9. Formal Contracting</masterLabel>
+            <translation><!-- 9. Formal Contracting --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Influencer Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

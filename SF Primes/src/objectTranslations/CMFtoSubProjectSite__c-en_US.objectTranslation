@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>CMFtoSubProjectSite</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>CMFtoSubProjectSites</value>
+    </caseValues>
+    <fields>
+        <label><!-- CMF Info --></label>
+        <name>CMF_Info__c</name>
+        <relationshipLabel><!-- CMFtoSubProjectSites --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RMS Request Id --></label>
+        <name>RMS_Request_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ship CMF --></label>
+        <name>Ship_CMF__c</name>
+    </fields>
+    <fields>
+        <label><!-- SiteCmfRmsReqId --></label>
+        <name>SiteCmfRmsReqId__c</name>
+    </fields>
+    <fields>
+        <label><!-- SubProjectSite --></label>
+        <name>SubProjectSite__c</name>
+        <relationshipLabel><!-- CMFtoSubProjectSites --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

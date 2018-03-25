@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>MapAnything Button Set</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>MapAnything Button Sets</value>
+    </caseValues>
+    <fields>
+        <label><!-- Custom Address Layout --></label>
+        <name>CustomAddressLayout__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mass Action Layout --></label>
+        <name>MassActionLayout__c</name>
+    </fields>
+    <fields>
+        <label><!-- My Position Layout --></label>
+        <name>MyPositionLayout__c</name>
+    </fields>
+    <fields>
+        <label><!-- POI Layout --></label>
+        <name>POILayout__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tooltip Layout --></label>
+        <name>TooltipLayout__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

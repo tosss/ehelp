@@ -1,0 +1,13 @@
+<apex:page standardStylesheets="false" controller="EMP_latestNews_Controller">
+    <apex:stylesheet value="{!URLFOR($Resource.Bootstrap, 'css/bootstrap.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.Bootstrap, 'js/bootstrap.min.js')}"/>
+    <h2>Latest News</h2>
+    <ul  class="carrer_ul">
+        <apex:repeat value="{!lstContentVersions}" var="cv" id="theRepeat" rendered="{!IF(lstContentVersions != null && $CurrentPage.Name!='EMP_HistoricalAnnouncements',true,false)}" rows="8">
+            <li>
+                <apex:outputLink target="_blank" onclick="" value="/apex/ContentPreview?contentId={!cv.Id}">{!cv.Title} </apex:outputLink>
+            </li>
+        </apex:repeat>
+    </ul>
+    <apex:outputLink onclick="" value="/Employees/apex/EMP_AssociatePortalPage?page=EMP_ShowMorepage&PageName=latest" target="_top" styleClass="btn btn-default" rendered="{!IF(showRealAllLink,true,false)}"> Show More &raquo;</apex:outputlink>
+</apex:page>

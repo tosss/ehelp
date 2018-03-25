@@ -1,0 +1,335 @@
+<apex:component controller="EMP_Chatter_Controller" extensions="ALL_ChatterUtility" allowDML="true"  >
+    
+    <apex:attribute name="ChatterGroupId" description="The ID of the Chatter Group." type="String" required="true" assignTo="{!ChatterGroupIdvalue}"/>
+    
+    <script>
+    var j$ = jQuery.noConflict();
+    
+    var _URL;
+    
+    //Get url of the photo on page load
+    jQuery(window).load(function() {
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.ALL_ChatterUtility.photoURL}',
+            function(result, event) 
+            {
+                if(result!=null)
+                {
+                    _URL = result
+                }
+            }, 
+            {escape: true}
+        );
+    })
+    
+    
+    //construct date in the req format
+    function formatDate(completeDate)
+    {
+        var createdDate = new Date(completeDate);
+        var localTime  = createdDate.getTime();
+        var localOffset = createdDate.getTimezoneOffset() * 60000;
+        var utc =  localTime + localOffset;
+        offset = 5; //Associate portal displays date in CT  
+        var t = utc - (3600000*offset);
+        createdDate = new Date(t);
+        var date = createdDate.getDate();
+        var month = createdDate.getMonth()+1;//0-11
+        var year = createdDate.getFullYear();
+        var hours = createdDate.getHours();
+        var minutes = createdDate.getMinutes();
+        minutes = minutes<10?'0'+minutes:minutes;// Converting 4:4 AM to 4:04 AM
+        var mer = hours>12?'PM':'AM';
+        hours = hours>12?hours-12:hours; //Converting to 12 hr format
+        var cmpDate = month+'/'+date+'/'+year+' '+hours+':'+minutes+' '+mer; // 2/25/2015 8:04 PM
+        return cmpDate;
+    }
+    
+    function saveComment(element, feedItemId)
+    {
+        jQuery(element).addClass("disabled").attr("disabled","disabled").html('Posting...');
+        
+        // Getting the value from the html-input and set it to the apex-input
+        var PostInput = jQuery('.'+feedItemId+'-body');
+        
+        try 
+        {
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.ALL_ChatterUtility.addComment}', 
+                feedItemId,
+                PostInput.val(),
+                function(result, event) {
+                    
+                    jQuery(element).removeClass("disabled").removeAttr("disabled").html('Post');
+                    
+                    if(result && result.Message == 'success') { 
+                        //window.location.href=window.location.href; 
+                        var CommentItem = result.FeedCommentItem;
+                        var feedItemId = CommentItem.FeedItemId;
+                        var CommentBody = CommentItem.CommentBody;
+                        var cmpDate =  formatDate(CommentItem.CreatedDate);
+                        jQuery(element).closest('[id$=buttonContainer]').siblings('#commentsDiv').append(
+                            '<div class="pad-bottom">'
+                            +'<div class="media-left"><a href="/_ui/core/userprofile/UserProfilePage?u={!$USer.Id}">'
+                            +'<img id="theImag" src="'+_URL+'" height="60" width="60"></a>'
+                            +'</div>'
+                            +'<div class="media-body"><a href="/_ui/core/userprofile/UserProfilePage?u={!$USer.Id}" class="media-heading">'
+                            +'{!$User.firstName}&nbsp;{!$User.lastName}</a>'
+                            +'&nbsp;&nbsp;&nbsp;'
+                            +'<span class="chatter-date"><span>'+cmpDate+'</span></span>'
+                            +'<br><span id="MyCommentID">'+CommentBody+'</span>'
+                            +'</div>'
+                            +'</div>');
+                        var selector="input[id$='"+feedItemId+"-Commentinput']";
+                        jQuery(selector).val('');
+                        jQuery('span[id$=Error]').each(function() {
+                            jQuery(this).remove();
+                        });
+                    }
+                    else {
+                        var errorElement = jQuery(PostInput).siblings("#Error");
+                        if(errorElement!=null || errorElement!=undefined)
+                        {
+                            errorElement.remove();
+                        }
+                        PostInput.after('<span id="Error" > Error: ' +result.Message+'</span>');
+                    }    
+                }, 
+                {escape: true}
+            );
+        } 
+        catch(e) 
+        {  
+            PostInput.after('Error: '+e);
+        }
+    }
+    
+    function insertShare(element)
+    {
+        // Getting the value from the html-input and set it to the apex-input
+        var body = jQuery('#myGroupFeed').val();
+        var groupId = jQuery('#myGrpID').val();
+        
+        jQuery(element).addClass("disabled").attr("disabled","disabled").html('Sharing...');
+        
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.ALL_ChatterUtility.postToChatter}',
+            groupId,
+            body,
+            '',
+            function(result, event) 
+            {
+                jQuery(element).removeClass("disabled").removeAttr("disabled").html('Share');
+                
+                if(result!=null) 
+                { 
+                    var cmpDate = formatDate(result.CreatedDate);
+                    var postBody =  result.Body;
+                    var postId = result.Id;
+                    jQuery('#step1Content').children().first().prepend(
+                        '<div class="pad-bottom">'
+                        +'<div class="media-body">'
+                        +'<div class="media">'
+                        +'<div class="media-left"><a href="{!$Site.Prefix}/_ui/core/userprofile/UserProfilePage?u={!$User.Id}">'
+                        +'<img id="theImage" src="'+_URL+'" height="60" width="60"></a>'
+                        +'</div>'
+                        +'<div class="media-body"><a href="{!$Site.Prefix}/_ui/core/userprofile/UserProfilePage?u={!$USer.Id}" class="media-heading">'
+                        +'{!$User.firstName}&nbsp;{!$User.lastName}</a>'
+                        +' &nbsp;'
+                        +'<span class="chatter-date"><span>'+cmpDate+'</span></span>'
+                        +'<br>'+postBody+'<br><a href="#" id="likeID" name="likeID" onclick="likeAPost(this,\''+postId+'\');return false;" style="display:inline">Like </a>'
+                        +'<a href="#" id="UnlikePostId" name="UnlikePostId" onclick="unlikeAPost(this,\''+postId+'\');return false;" style="display:none">Unlike </a><span id="thumbsUp">'
+                        +'<i class="fa fa-thumbs-o-up"></i>&nbsp;<span id="likeCount">0</span></span><span>'
+                        +'<br>'
+                        +'<div class="media pad-left well margin-right" style="margin-right: 10px;">'
+                        +'<div class="media-body">'
+                        +'<div class="'+postId+'-comments" id="commentsDiv">'
+                        +'</div><span id="buttonContainer">'
+                        +'<h4>Post a Comment </h4>'
+                        +'<div class="form-group width-80-percent">'
+                        +'<input class="form-control input-width-100-percent '+postId+'-body" id="'+postId+'-Commentinput" type="text"><br>'
+                        +'</div>'
+                        +'&nbsp;<button class="btn btn-default" onclick="event.preventDefault(); saveComment(this, \''+postId+'\'); return false;">Post</button></span>'
+                        +'</div>'
+                        +'</div></span>'
+                        +'</div></div></div></div>'
+                    );
+                    jQuery('#myGroupFeed').val('');
+                    //Removes all the errors on the page after successful post
+                    jQuery('span[id$=Error]').each(function() {
+                        jQuery(this).remove();
+                    });
+                }
+                else
+                {
+                    console.log(event);
+                    //jQuery('#myGroupFeed').after('ERROR posting feed'); 
+                    var errorElement = jQuery('#myGroupFeed').siblings("#Error");
+                    if(errorElement!=null || errorElement!=undefined)
+                    {
+                        errorElement.remove();
+                    }
+                    jQuery('#myGroupFeed').after('<span id="Error">An error occured while sharing.</span>');
+
+                }
+                
+            }, 
+            {escape: true}
+        );
+    }
+    
+    function likeAComment(postid){
+       
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.ALL_ChatterUtility.likeAComment}',
+            postid,
+            
+            function(result, event) { 
+            
+            }, 
+            {escape: true}
+        );
+    }
+    
+    
+    function likeAPost(element,Parntpostid){
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.ALL_ChatterUtility.likeAPost}',
+            Parntpostid,
+            function(result, event) 
+            {
+                if(result!=null)
+                {
+                    jQuery(element).hide();
+                    jQuery(element).siblings('[id$=UnlikePostId]').show();
+                    var likeCount = jQuery(element).siblings('[id$=thumbsUp]').children('[id$=likeCount]').html();
+                    likeCount=parseInt(likeCount)+1;
+                    jQuery(element).siblings('[id$=thumbsUp]').children('[id$=likeCount]').html(likeCount);   
+                }
+                else
+                {
+                    jQuery(element).after('Error');
+                }
+            }, 
+            {escape: true}
+        );
+    }
+    
+     function unlikeAPost(element,UnlikePostId){
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.ALL_ChatterUtility.unlikeAPost}',
+            UnlikePostId,
+            function(result, event) 
+            {
+                if(result!=null && result=='success')
+                {
+                    jQuery(element).hide();
+                    jQuery(element).siblings('[id$=likeID]').show();
+                    var likeCount = jQuery(element).siblings('[id$=thumbsUp]').children('[id$=likeCount]').html();
+                    likeCount=parseInt(likeCount)-1;
+                    jQuery(element).siblings('[id$=thumbsUp]').children('[id$=likeCount]').html(likeCount);
+                }
+                else
+                {
+                    jQuery(element).after('Error');
+                }
+            }, 
+            {escape: true}
+        );
+    }
+    
+    </script>
+    
+    <div class="form-inline" id="Formid">
+        <div class="">
+            <h2>Join the Conversation!</h2>
+            
+            <div class="form-group width-80-percent">
+                <input id="myGroupFeed" type="text"  class="form-control input-width-100-percent"/><br/>
+                <input type="hidden" value="{!GroupID}" id="myGrpID"/>
+            </div>
+            &nbsp;
+            <button onclick="event.preventDefault(); insertShare(this); return false;" class="btn btn-success" style="vertical-align: top;">Share</button>    
+        </div><br/>
+        
+        <div class="chatter-scrolling-area" id="step1Content">
+            <apex:repeat id="repeatBlock" value="{!retrieveAllFeeds}" var="feeds" >
+                <div class="pad-bottom">
+                    <div class="media-body">
+                        
+                        <div class="media" >
+                            <div class="media-left">
+                                <apex:outputLink value="{!$Site.Prefix}/_ui/core/userprofile/UserProfilePage?u={!feeds.feedItemObj.CreatedByID}">
+                                    <apex:image id="theImage" value="{!feeds.UserPhoto}" width="60" height="60"/>
+                                </apex:outputLink>
+                            </div>
+                            
+                            <div class="media-body" >
+                                
+                                <apex:outputLink value="{!$Site.Prefix}/_ui/core/userprofile/UserProfilePage?u={!feeds.feedItemObj.CreatedByID}" styleclass="media-heading">
+                                    {!feeds.feedItemObj.CreatedBy.firstName}&nbsp;{!feeds.feedItemObj.CreatedBy.lastName}
+                                </apex:outputLink>
+                                &nbsp;
+                                <span class="chatter-date" ><apex:outputField value=" {!feeds.feedItemObj.CreatedDate}" /></span>
+                                <br/>
+                                <apex:outputText value="{!feeds.feedItemObj.Body}" />
+                                <br/>
+                                <a onclick="event.preventDefault(); jQuery('#{!feeds.feedItemObj.Id}-comment-container').show(); return false;" style="cursor:pointer; {!IF(feeds.FeedComments.size > 0,'display:none','display:inline')}" id="ShowComments">Comment</a><span style="{!IF(feeds.FeedComments.size > 0,'display:none','display:inline')}">&nbsp;</span>
+                                <a onclick="event.preventDefault(); likeAPost(this,'{!feeds.feedItemObj.Id}'); return false;" style="cursor:pointer; {!IF(feeds.isLiked==true,'display:none','display:inline')}" id="likeID">Like</a><span style="{!IF(feeds.isLiked==true,'display:none','display:inline')}">&nbsp;</span>
+                                <a onclick="event.preventDefault(); unlikeAPost(this,'{!feeds.feedItemObj.Id}'); return false;" style="cursor:pointer; {!IF(feeds.isLiked==false,'display:none','display:inline')}" id="UnlikePostId">Unlike</a><span style="{!IF(feeds.isLiked==false,'display:none','display:inline')}">&nbsp;</span>
+                                <apex:outputPanel id="thumbsUp"  >
+                                    <i class="fa fa-thumbs-o-up"></i>&nbsp;
+                                    <apex:outputfield styleclass="fa fa-thumbs-o-up" value="{!feeds.feedItemObj.LikeCount}"  id="likeCount"/>
+                                </apex:outputPanel> 
+
+                                <div id="{!feeds.feedItemObj.Id}-comment-container" style="{!IF(feeds.FeedComments.size > 0,'display:block','display:none')}" >
+                                    <div class="media pad-left well margin-right" style="margin-top:10px; margin-right:10px;">
+                                        <div class="media-body">
+                                            <div class="{!feeds.feedItemObj.Id}-comments" id="commentsDiv">
+                                                <apex:repeat value="{!feeds.FeedComments}" var="comment">
+                                                    <div class="pad-bottom">
+                                                        <div class="media-left">
+                                                            <apex:outputLink value="{!$Site.Prefix}/_ui/core/userprofile/UserProfilePage?u={!comment.FeedCommentItem.CreatedByID}" >
+                                                                <apex:image id="theImag" value="{!comment.UserPhoto}" width="60" height="60"/>
+                                                            </apex:outputLink>
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <apex:outputLink value="{!$Site.Prefix}/_ui/core/userprofile/UserProfilePage?u={!comment.FeedCommentItem.CreatedByID}" 
+                                                                             styleclass="media-heading">
+                                                                {!comment.FeedCommentItem.CreatedBy.firstName}&nbsp;{!comment.FeedCommentItem.CreatedBy.lastName}
+                                                            </apex:outputLink>
+                                                            &nbsp;
+                                                            <span class="chatter-date" ><apex:outputField value=" {!comment.FeedCommentItem.CreatedDate}" /></span>
+                                                            <br/>
+                                                            <apex:outputText value="{!comment.FeedCommentItem.CommentBody}"  id="MyCommentID" />
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </apex:repeat>
+                                            </div>
+                                            <apex:outputPanel id="buttonContainer" >
+                                                <h4>
+                                                    Post a Comment 
+                                                </h4>
+                                                <div class="form-group width-80-percent">
+                                                    <input type="text" class="form-control input-width-100-percent {!feeds.feedItemObj.Id}-body" id="{!feeds.feedItemObj.Id}-Commentinput"/><br/>
+                                                </div>
+                                                &nbsp;
+                                                <button onclick="event.preventDefault(); saveComment(this, '{!feeds.feedItemObj.Id}'); return false;" class="btn btn-default" style="vertical-align: top;">Post</button> 
+                                            </apex:outputPanel>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </apex:repeat>
+        </div>
+        <br/>
+    </div>
+    
+    <a class="btn btn-default" href="{!$Site.Prefix}/_ui/core/chatter/groups/GroupProfilePage?g={!GroupId}" target="_self" >Show More »</a>
+    
+</apex:component>

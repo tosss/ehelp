@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <articleTypeChannelDisplay>
+        <articleTypeTemplates>
+            <channel>App</channel>
+            <template>Toc</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Prm</channel>
+            <template>Toc</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Csp</channel>
+            <template>Toc</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Pkb</channel>
+            <template>Toc</template>
+        </articleTypeTemplates>
+    </articleTypeChannelDisplay>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <fields>
+        <fullName>Attachment__c</fullName>
+        <externalId>false</externalId>
+        <label>Attachment</label>
+        <required>false</required>
+        <type>File</type>
+    </fields>
+    <fields>
+        <fullName>Error_Message__c</fullName>
+        <description>Copy and pasted Error messages should go here, if blank should be marked so.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Copy and pasted Error messages should go here, if blank should be marked so.</inlineHelpText>
+        <label>Error Message</label>
+        <length>32000</length>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Next_Steps__c</fullName>
+        <description>Succinctly describe what should happen after the troubleshooting steps</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Succinctly describe what should happen after the troubleshooting steps</inlineHelpText>
+        <label>Next Steps</label>
+        <length>32000</length>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Possible_Causes__c</fullName>
+        <description>May be optional depending on the type of problem.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Intended for longer trouble shooting articles that require information to be separated out more.</inlineHelpText>
+        <label>Possible Causes</label>
+        <length>32000</length>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Problem__c</fullName>
+        <description>Enter Problem Description here.  It should be brief.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter Problem Description here.  It should be brief.</inlineHelpText>
+        <label>Problem</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Related_Information__c</fullName>
+        <description>Optional</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Optional</inlineHelpText>
+        <label>Related Information</label>
+        <length>32000</length>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Search_Terms_and_Statements__c</fullName>
+        <description>List of terms or questions that are asked as part of research.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>List of terms or questions that are asked as part of research.</inlineHelpText>
+        <label>Search Terms and Statements</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Troubleshooting_and_Resolution__c</fullName>
+        <description>The Process for troubleshooting the stated problem should go here.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Process for troubleshooting the stated problem should go here.</inlineHelpText>
+        <label>Troubleshooting and Resolution</label>
+        <length>32000</length>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <label>Troubleshooting</label>
+    <pluralLabel>Troubleshooting</pluralLabel>
+</CustomObject>

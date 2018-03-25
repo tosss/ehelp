@@ -1,0 +1,28 @@
+<apex:component >
+    
+    <apex:includeScript value="{!$Resource.IMP_ForSubProjectConfidentialUse_JS}"/>
+    <apex:stylesheet value="{!$Resource.IMP_ForSubProjectConfidentialUse_CSS}"/>
+    
+    <apex:attribute name="autoName" required="true" type="string" description="subProject autoNumber"/>
+    <apex:attribute name="subProjectName" required="true" type="string" description="SubProject Name"/>
+    <apex:attribute name="subProjectId" required="true" type="string" description="Id of a SubProject record"/>
+    <apex:attribute name="confidentialCheck" required="true" type="boolean" description="Confidential check value of SubProject"/>
+    <apex:attribute name="chatterFeedCheck" required="true" type="boolean" description="To display chatterFeed"/>
+    
+    <apex:sectionHeader title="SubProject" subtitle="{!autoName} - {!subProjectName}{!IF(confidentialCheck, ': CONFIDENTIAL','')}"/>   
+    <chatter:feedWithFollowers entityId="{!subProjectId}" showHeader="true" rendered="{!chatterFeedCheck}"/>
+    <script>
+    	if(jQuery) 
+        {
+            jQuery.noConflict();
+        }
+    	console.log({!confidentialCheck});
+    	jQuery(document).ready
+            (
+                function()
+                {
+                    addConfidentialStyle({!confidentialCheck});
+                }
+            );
+    </script>
+</apex:component>

@@ -1,0 +1,15 @@
+<apex:page >
+    <div style="height:200px;width:400px;float:left;">
+        <c:PieChart object="Account" field="Name" cid="id1" title="First" pieHole="0.3"  sliceVisibilityThreshold="5/8" />
+    </div>
+    
+    <div style="height:200px;width:400px;float:left;">
+        <c:PieChart object="Opportunity" field="StageName" cid="id2" title="Second" sliceVisibilityThreshold="5/8" /> 
+        </div>
+    <div style="height:200px;width:400px;float:left;">
+        <c:PieChart object="Contact" field="CleanStatus" cid="id3" title="Third" sliceVisibilityThreshold="5/8" /> 
+        </div>
+    <div style="height:200px;width:400px;float:left;">
+        <c:PieChart object="Account" field="Type" cid="id4" title="Fourth" sliceVisibilityThreshold="5/8" /> 
+        </div>
+</apex:page>

@@ -1,0 +1,22 @@
+<apex:page >
+          <script src="/soap/ajax/24.0/apex.js" type="text/javascript"></script>
+    <script src="/soap/ajax/24.0/connection.js" type="text/javascript"></script>
+    
+    <script type="text/javascript">    
+     window.onload = setupPage;
+    function setupPage() {
+      //function contains all code to execute after page is rendered
+     result = sforce.connection.query("Select Name, Id from User");
+     alert(result);
+  records = result.getArray("records");
+ 
+  for (var i=0; i< records.length; i++) {
+    var record = records[i];
+    log(record.Name + " -- " + record.Id);
+  }
+  }
+  </script>
+
+    <div id="output"> </div>
+   
+</apex:page>

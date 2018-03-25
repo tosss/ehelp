@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <baseObject>Launch_Promotions_Projects__c</baseObject>
+    <category>other</category>
+    <deployed>true</deployed>
+    <description>Launch Promotions/Projects</description>
+    <label>Launch Promotions/Projects</label>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CreatedDate</field>
+            <table>Launch_Promotions_Projects__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>End_Date__c</field>
+            <table>Launch_Promotions_Projects__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Id</field>
+            <table>Launch_Promotions_Projects__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Owner</field>
+            <table>Launch_Promotions_Projects__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Start_Date__c</field>
+            <table>Launch_Promotions_Projects__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Status__c</field>
+            <table>Launch_Promotions_Projects__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CreatedBy</field>
+            <table>Launch_Promotions_Projects__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>test__c</field>
+            <table>Launch_Promotions_Projects__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastModifiedDate</field>
+            <table>Launch_Promotions_Projects__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastModifiedBy</field>
+            <table>Launch_Promotions_Projects__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Name</field>
+            <table>Launch_Promotions_Projects__c</table>
+        </columns>
+        <masterLabel>Launch Promotions/Projects</masterLabel>
+    </sections>
+</ReportType>

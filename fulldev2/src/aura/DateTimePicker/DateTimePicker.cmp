@@ -1,0 +1,311 @@
+<aura:component >
+    <!--
+ Author:        Vishal Bandari
+ Description:   LookUp Field for Mobile and Lighning Compatibility
+ Created on:    05 March 2016
+  -->
+    <ltng:require scripts="/resource/ALL_LightningUtility" afterScriptsLoaded="{!c.doInit}"/>
+    <aura:attribute type="String" name="displayMonth" />
+    <aura:attribute type="Integer" name="displayYear" />
+    <aura:attribute type="Integer" name="currentDate" />
+    <aura:attribute type="String" name="selectedDate" default="" />
+    <aura:attribute type="String" name="selectedTime" default="" />
+    <aura:attribute type="String" name="selectedTimeHrs" default="" />
+    <aura:attribute type="String" name="selectedTimeMin" default="" />
+    <aura:attribute type="String" name="value" default="" />
+    <aura:attribute type="String" name="label" default="Calender" />
+    <aura:attribute type="Boolean" name="datetime" default="true" />
+    <aura:handler name="init" value="{!this}" action="{!c.initialize}" />
+    <aura:handler event="c:initializeValues"  action="{!c.doInit}"/>
+    
+    <aura:attribute type="String" name="selectedCompleteDate" />
+    <div id="fullComponent" >
+        <div class="slds-form-element"  >
+            <label class="slds-form-element__label" for="searchString" style="{!v.label=='' ? 'display:none;': 'display:block'}">{!v.label}</label>
+            <div id="dateInput">
+            <div style="{!v.datetime ? 'width:50%;display:inline-block;':''}">
+                <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon--right" onclick="{!c.toggleCalender}">
+                    <img  class="slds-input__icon slds-icon-text-default" src="/resource/slds100/assets/icons/utility/event_60.png"  />
+                    <input aura:id="selectedDate" id="selectedDate"  class="slds-input"  value="{!v.selectedDate}"  onblur="{!c.setValue}" readonly="true" />
+                </div>
+            </div>
+            <div class="slds-datepicker slds-dropdown slds-dropdown--center" id="divCalender" aria-hidden="false" style="display:none;">
+                <div class="slds-datepicker__filter slds-grid">
+                    <div class="slds-datepicker__filter--month slds-grid slds-grid--align-spread slds-grow">
+                        <div class="slds-align-middle dontHide">
+                            <button class="slds-button slds-button--icon-container" onclick ="{!c.prevMonth}">
+                                <img src="/resource/slds100/assets/icons/utility/left_60.png" class="slds-icon slds-button__icon slds-button__icon--small" />
+                                <span class="slds-assistive-text">Previous Month</span>
+                            </button>
+                        </div>
+                        <h2 id="displayMonth" class="slds-align-middle" aria-live="assertive" aria-atomic="true">{!v.displayMonth}</h2>
+                        <div class="slds-align-middle dontHide">
+                            <button class="slds-button slds-button--icon-container" onclick="{!c.nextMonth}">
+                                <img src="/resource/slds100/assets/icons/utility/right_60.png" class="slds-icon slds-button__icon slds-button__icon--small" />
+                                <span class="slds-assistive-text">Next Month</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="slds-datepicker__filter--month slds-grid slds-grid--align-spread slds-grow">
+                        <div class="slds-align-middle dontHide">
+                            <button class="slds-button slds-button--icon-container" onclick ="{!c.prevYear}">
+                                <img src="/resource/slds100/assets/icons/utility/left_60.png" class="slds-icon slds-button__icon slds-button__icon--small" />
+                                <span class="slds-assistive-text">Previous Year</span>
+                            </button>
+                        </div>
+                        <h2 id="displayYear" class="slds-align-middle" aria-live="assertive" aria-atomic="true">{!v.displayYear}</h2>
+                        <div class="slds-align-middle dontHide">
+                            <button class="slds-button slds-button--icon-container" onclick="{!c.nextYear}">
+                                <img src="/resource/slds100/assets/icons/utility/right_60.png" class="slds-icon slds-button__icon slds-button__icon--small" />
+                                <span class="slds-assistive-text">Next Year</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <table class="datepicker__month" role="grid" aria-labelledby="month">
+                    <thead>
+                        <tr id="weekdays">
+                            <th id="Sunday" scope="col">
+                                <abbr title="Sunday">Sun</abbr>
+                            </th>
+                            <th id="Monday" scope="col">
+                                <abbr title="Monday">Mon</abbr>
+                            </th>
+                            <th id="Tuesday" scope="col">
+                                <abbr title="Tuesday">Tue</abbr>
+                            </th>
+                            <th id="Wednesday" scope="col">
+                                <abbr title="Wednesday">Wed</abbr>
+                            </th>
+                            <th id="Thursday" scope="col">
+                                <abbr title="Thursday">Thu</abbr>
+                            </th>
+                            <th id="Friday" scope="col">
+                                <abbr title="Friday">Fri</abbr>
+                            </th>
+                            <th id="Saturday" scope="col">
+                                <abbr title="Saturday">Sat</abbr>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="calenderMonths" class="calenderMonths">
+                        <tr>
+                            <td class="slds-disabled-text" headers="Sunday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">31</span>
+                            </td>
+                            <td headers="Monday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">1</span>
+                            </td>
+                            <td headers="Tuesday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">2</span>
+                            </td>
+                            <td headers="Wednesday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">3</span>
+                            </td>
+                            <td headers="Thursday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">4</span>
+                            </td>
+                            <td headers="Friday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">5</span>
+                            </td>
+                            <td headers="Saturday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">6</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td headers="Sunday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">7</span>
+                            </td>
+                            <td headers="Monday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">8</span>
+                            </td>
+                            <td headers="Tuesday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">9</span>
+                            </td>
+                            <td headers="Wednesday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">10</span>
+                            </td>
+                            <td headers="Thursday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">11</span>
+                            </td>
+                            <td headers="Friday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">12</span>
+                            </td>
+                            <td headers="Saturday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">13</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td headers="Sunday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">14</span>
+                            </td>
+                            <td headers="Monday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">15</span>
+                            </td>
+                            <td headers="Tuesday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">16</span>
+                            </td>
+                            <td headers="Wednesday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">17</span>
+                            </td>
+                            <td class="slds-is-today" headers="Thursday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">18</span>
+                            </td>
+                            <td headers="Friday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">19</span>
+                            </td>
+                            <td headers="Saturday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">20</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td headers="Sunday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">21</span>
+                            </td>
+                            <td headers="Monday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">22</span>
+                            </td>
+                            <td headers="Tuesday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">23</span>
+                            </td>
+                            <td headers="Wednesday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">24</span>
+                            </td>
+                            <td headers="Thursday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">25</span>
+                            </td>
+                            <td headers="Friday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">26</span>
+                            </td>
+                            <td headers="Saturday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">27</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td headers="Sunday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">28</span>
+                            </td>
+                            <td headers="Monday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">29</span>
+                            </td>
+                            <td headers="Tuesday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">30</span>
+                            </td>
+                            <td class="slds-disabled-text" headers="Wednesday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">1</span>
+                            </td>
+                            <td class="slds-disabled-text" headers="Thursday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">2</span>
+                            </td>
+                            <td class="slds-disabled-text" headers="Friday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">3</span>
+                            </td>
+                            <td class="slds-disabled-text" headers="Saturday" role="gridcell" aria-disabled="true">
+                                <span class="slds-day">4</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="7" role="gridcell">
+                                <a id="today" class="slds-show--inline-block slds-p-bottom--x-small" onclick="{!c.today}" >Today</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon--right" style="{!v.datetime?'margin-left:5%;margin-right:1.5%;width:20%;display:inline-block;':'display:none;'}">
+                <ui:inputSelect class="slds-select" value="{!v.selectedTimeHrs}" updateOn="change" change="{!c.setTime}">
+                    <ui:inputSelectOption text=" 00" label=" 00"/>
+                    <ui:inputSelectOption text=" 01" label=" 01"/>
+                    <ui:inputSelectOption text=" 02" label=" 02"/>
+                    <ui:inputSelectOption text=" 03" label=" 03"/>
+                    <ui:inputSelectOption text=" 04" label=" 04"/>
+                    <ui:inputSelectOption text=" 05" label=" 05"/>
+                    <ui:inputSelectOption text=" 06" label=" 06"/>
+                    <ui:inputSelectOption text=" 07" label=" 07"/>
+                    <ui:inputSelectOption text=" 08" label=" 08"/>
+                    <ui:inputSelectOption text=" 09" label=" 09"/>
+                    <ui:inputSelectOption text=" 10" label=" 10"/>
+                    <ui:inputSelectOption text=" 11" label=" 11"/>
+                    <ui:inputSelectOption text=" 12" label=" 12"/>
+                    <ui:inputSelectOption text=" 13" label=" 13"/>
+                    <ui:inputSelectOption text=" 14" label=" 14"/>
+                    <ui:inputSelectOption text=" 15" label=" 15"/>
+                    <ui:inputSelectOption text=" 16" label=" 16"/>
+                    <ui:inputSelectOption text=" 17" label=" 17"/>
+                    <ui:inputSelectOption text=" 18" label=" 18"/>
+                    <ui:inputSelectOption text=" 19" label=" 19"/>
+                    <ui:inputSelectOption text=" 20" label=" 20"/>
+                    <ui:inputSelectOption text=" 21" label=" 21"/>
+                    <ui:inputSelectOption text=" 22" label=" 22"/>
+                    <ui:inputSelectOption text=" 23" label=" 23"/>
+                </ui:inputSelect> 
+            </div> <b style="{!v.datetime?'':'display:none;'}">:</b>
+             <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon--right" style="{!v.datetime?'margin-left:1.5%;width:20%;display:inline-block;':'display:none;'}">
+                <ui:inputSelect class="slds-select" value="{!v.selectedTimeMin}" updateOn="change" change="{!c.setTime}">
+                    <ui:inputSelectOption text=" 00" label=" 00"/>
+                    <ui:inputSelectOption text=" 01" label=" 01"/>
+                    <ui:inputSelectOption text=" 02" label=" 02"/>
+                    <ui:inputSelectOption text=" 03" label=" 03"/>
+                    <ui:inputSelectOption text=" 04" label=" 04"/>
+                    <ui:inputSelectOption text=" 05" label=" 05"/>
+                    <ui:inputSelectOption text=" 06" label=" 06"/>
+                    <ui:inputSelectOption text=" 07" label=" 07"/>
+                    <ui:inputSelectOption text=" 08" label=" 08"/>
+                    <ui:inputSelectOption text=" 09" label=" 09"/>
+                    <ui:inputSelectOption text=" 10" label=" 10"/>
+                    <ui:inputSelectOption text=" 11" label=" 11"/>
+                    <ui:inputSelectOption text=" 12" label=" 12"/>
+                    <ui:inputSelectOption text=" 13" label=" 13"/>
+                    <ui:inputSelectOption text=" 14" label=" 14"/>
+                    <ui:inputSelectOption text=" 15" label=" 15"/>
+                    <ui:inputSelectOption text=" 16" label=" 16"/>
+                    <ui:inputSelectOption text=" 17" label=" 17"/>
+                    <ui:inputSelectOption text=" 18" label=" 18"/>
+                    <ui:inputSelectOption text=" 19" label=" 19"/>
+                    <ui:inputSelectOption text=" 20" label=" 20"/>
+                    <ui:inputSelectOption text=" 21" label=" 21"/>
+                    <ui:inputSelectOption text=" 22" label=" 22"/>
+                    <ui:inputSelectOption text=" 23" label=" 23"/>
+                    <ui:inputSelectOption text=" 24" label=" 24"/>
+                    <ui:inputSelectOption text=" 25" label=" 25"/>
+                    <ui:inputSelectOption text=" 26" label=" 26"/>
+                    <ui:inputSelectOption text=" 27" label=" 27"/>
+                    <ui:inputSelectOption text=" 28" label=" 28"/>
+                    <ui:inputSelectOption text=" 29" label=" 29"/>
+                    <ui:inputSelectOption text=" 30" label=" 30"/>
+                    <ui:inputSelectOption text=" 31" label=" 31"/>
+                    <ui:inputSelectOption text=" 32" label=" 32"/>
+                    <ui:inputSelectOption text=" 33" label=" 33"/>
+                    <ui:inputSelectOption text=" 34" label=" 34"/>
+                    <ui:inputSelectOption text=" 35" label=" 35"/>
+                    <ui:inputSelectOption text=" 36" label=" 36"/>
+                    <ui:inputSelectOption text=" 37" label=" 37"/>
+                    <ui:inputSelectOption text=" 38" label=" 38"/>
+                    <ui:inputSelectOption text=" 39" label=" 39"/>
+                    <ui:inputSelectOption text=" 40" label=" 40"/>
+                    <ui:inputSelectOption text=" 41" label=" 41"/>
+                    <ui:inputSelectOption text=" 42" label=" 42"/>
+                    <ui:inputSelectOption text=" 43" label=" 43"/>
+                    <ui:inputSelectOption text=" 44" label=" 44"/>
+                    <ui:inputSelectOption text=" 45" label=" 45"/>
+                    <ui:inputSelectOption text=" 46" label=" 46"/>
+                    <ui:inputSelectOption text=" 47" label=" 47"/>
+                    <ui:inputSelectOption text=" 48" label=" 48"/>
+                    <ui:inputSelectOption text=" 49" label=" 49"/>
+                    <ui:inputSelectOption text=" 50" label=" 50"/>
+                    <ui:inputSelectOption text=" 51" label=" 51"/>
+                    <ui:inputSelectOption text=" 52" label=" 52"/>
+                    <ui:inputSelectOption text=" 53" label=" 53"/>
+                    <ui:inputSelectOption text=" 54" label=" 54"/>
+                    <ui:inputSelectOption text=" 55" label=" 55"/>
+                    <ui:inputSelectOption text=" 56" label=" 56"/>
+                    <ui:inputSelectOption text=" 57" label=" 57"/>
+                    <ui:inputSelectOption text=" 58" label=" 58"/>
+                    <ui:inputSelectOption text=" 59" label=" 59"/>
+                </ui:inputSelect> 
+            </div>
+        </div>
+            </div>
+        
+    </div>
+</aura:component>

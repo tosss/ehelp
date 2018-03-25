@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Sandbox Refresh Update Fields</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Sandbox Refresh Update Fields</value>
+    </caseValues>
+    <fields>
+        <help><!-- API name of the field --></help>
+        <label><!-- Field API Name --></label>
+        <name>Field_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- API name of the object --></help>
+        <label><!-- Object API Name --></label>
+        <name>Object_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Value that needs to be update in the field .Leave it blank to update the fields to null values. --></help>
+        <label><!-- Value --></label>
+        <name>Value__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

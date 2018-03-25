@@ -1,0 +1,6 @@
+<apex:page sidebar="false" showHeader="false">
+    Hello 
+    <script>
+    alert('abc');
+    </script>
+</apex:page>

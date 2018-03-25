@@ -1,0 +1,16 @@
+<!-- Page: -->
+<apex:page standardController="Account">
+<apex:chart height="400" width="700" data="{!Account.id}">
+    <apex:axis type="Numeric" position="left" fields="data1"
+        title="Opportunities Closed" grid="true"/>
+    <apex:axis type="Numeric" position="right" fields="data3"
+        title="Revenue (millions)"/>
+    <apex:axis type="Category" position="bottom" fields="name"
+        title="Month of the Year"/>
+    <apex:barSeries title="Monthly Sales" orientation="vertical" axis="right"
+        xField="name" yField="data3">
+        <apex:chartTips height="20" width="120"/>
+    </apex:barSeries>
+    <apex:lineSeries title="Closed-Won" axis="left" xField="name" yField="data1"/>
+</apex:chart>
+</apex:page>

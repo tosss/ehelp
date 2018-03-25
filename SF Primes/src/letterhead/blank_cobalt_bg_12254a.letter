@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Letterhead xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <backgroundColor>#12254a</backgroundColor>
+    <bodyColor>#FFFFFF</bodyColor>
+    <bottomLine>
+        <color>#12254a</color>
+        <height>0</height>
+    </bottomLine>
+    <description>blank cobalt template with background color 12254a and white body.</description>
+    <footer>
+        <backgroundColor>#12254a</backgroundColor>
+        <height>100</height>
+        <horizontalAlignment>Left</horizontalAlignment>
+        <verticalAlignment>Top</verticalAlignment>
+    </footer>
+    <header>
+        <backgroundColor>#12254a</backgroundColor>
+        <height>0</height>
+        <horizontalAlignment>Left</horizontalAlignment>
+        <verticalAlignment>Top</verticalAlignment>
+    </header>
+    <middleLine>
+        <color>#12254a</color>
+        <height>0</height>
+    </middleLine>
+    <name>blank cobalt bg: 12254a</name>
+    <topLine>
+        <color>#12254a</color>
+        <height>0</height>
+    </topLine>
+</Letterhead>

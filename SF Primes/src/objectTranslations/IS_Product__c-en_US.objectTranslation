@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>IS Product</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>IS Products</value>
+    </caseValues>
+    <fields>
+        <label><!-- Product Family --></label>
+        <name>Family__c</name>
+        <picklistValues>
+            <masterLabel>Inside Sales</masterLabel>
+            <translation><!-- Inside Sales --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- ISR Group --></label>
+        <name>ISR_Group__c</name>
+        <picklistValues>
+            <masterLabel>G1</masterLabel>
+            <translation><!-- G1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>G2</masterLabel>
+            <translation><!-- G2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>G3</masterLabel>
+            <translation><!-- G3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>G4</masterLabel>
+            <translation><!-- G4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>G5</masterLabel>
+            <translation><!-- G5 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>G6</masterLabel>
+            <translation><!-- G6 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Active --></label>
+        <name>IsActive__c</name>
+    </fields>
+    <fields>
+        <label><!-- Migration ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <layouts>
+        <layout>IS Product Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

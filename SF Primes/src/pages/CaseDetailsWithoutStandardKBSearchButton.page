@@ -1,0 +1,7 @@
+<!--2015-12-07- anirudh.singh@cdk.com- Modified the API Version from 18.0 to 34.0. Corrected the indentation.-->
+<apex:page standardController="Case">
+    <style type="text/css">
+        div.knowledgeBlock input {display: none}
+    </style>
+    <apex:detail />
+</apex:page>

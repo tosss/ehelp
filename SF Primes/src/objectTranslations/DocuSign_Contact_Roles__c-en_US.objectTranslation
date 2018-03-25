@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>DocuSign Contact Roles</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>DocuSign Contact Roles</value>
+    </caseValues>
+    <fields>
+        <label><!-- RoleSet1 --></label>
+        <name>RoleSet1__c</name>
+    </fields>
+    <fields>
+        <label><!-- RoleSet2 --></label>
+        <name>RoleSet2__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

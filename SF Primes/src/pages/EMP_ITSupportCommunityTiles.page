@@ -1,0 +1,58 @@
+<apex:page controller="EMP_ITSupport_TopDoc_Controller"  showHeader="false" sidebar="false" standardstylesheets="false">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="">
+                <div class="center fa-margin-top" style="text-align:center;">
+                    <div class="label-warning" style="width:120px; height:120px; border-radius: 100px; padding-top:16px; margin:auto;">
+                        <i class="fa fa-envelope-o fa-5em" style="color: rgb(255,255,255);"></i>    
+                    </div>
+                </div>
+                <h2 class="center">Email Support</h2>
+                <button class="btn btn-warning btn-lg it-support-button" onclick="parent.location='mailto:helpmeit@cdk.com';">Open a Case</button>
+                Prefer to email us your request? Email us to Open a Case and just enter in a description of your issue. Please enter a phone if you are not at your desk where an agent can reach you.
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="">
+                <div class="center fa-margin-top" style="text-align:center;">
+                     <div class="label-success" style="width:120px; height:120px; border-radius: 100px; padding-top:16px; margin:auto;">
+                        <i class="fa fa-comments-o fa-5em" style="color: rgb(255,255,255);"></i>
+                    </div>
+                </div>
+                <h2 class="center">Chat with Us</h2>
+                <button class="btn btn-success btn-lg it-support-button" onclick="window.open('https://iitschatsupport.ds.adp.com/','_blank');">Chat</button>
+                Just like your bank or cable provider, you can chat online with an agent.
+            </div>
+        </div>
+         <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="">
+                <div class="center fa-margin-top" style="text-align:center;">
+                     <div class="label-primary" style="width:120px; height:120px; border-radius: 100px; padding-top:16px; margin:auto;">
+                        <i class="fa fa-files-o fa-5em" style="color: rgb(255,255,255);"></i>
+                    </div>
+                </div>
+                <h2 class="center">Top 5 Questions</h2>
+                <a  class="btn btn-primary btn-lg it-support-button" href="/Employees/apex/EMP_AssociatePortalPage?page=EMP_ShowMorepage&PageName=Top%205%20Questions&ContentLibraryName=IT%20Communication" >Show More</a>
+                 <ul  class="carrer_ul">
+                    <apex:repeat value="{!contentCritical}" var="cc" id="theRepeat" rows="5">
+                        <li>
+                             <apex:outputLink target="_blank" onclick="" value="/Employees/sfc/servlet.shepherd/version/download/{!cc.contentId}">{!cc.Title} </apex:outputLink>
+                        </li>
+                    </apex:repeat>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="">
+                <div class="center fa-margin-top" style="text-align:center;">
+                    <div class="label-info" style="width:120px; height:120px; border-radius: 100px; padding-top:16px ; margin:auto;">
+                        <i class="fa fa-download fa-5em" style="color: rgb(255,255,255);"></i>
+                    </div>
+                </div>
+                <h2 class="center">Applications</h2>
+                <a class="btn btn-info btn-lg it-support-button" href="http://hofpdsasccm01.ds.ad.adp.com/cmapplicationcatalog/#/SoftwareLibrary/AppListPageView.xaml">Application Catalog</a>
+                <span>Need applications? Click the above link to visit the Application Catalog.</span>
+            </div>
+        </div>
+    </div>
+</apex:page>

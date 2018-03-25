@@ -1,0 +1,48 @@
+<apex:page standardController="dh_superclone__CloneConfiguration__c" extensions="dh_superclone.SuperCloneConfigNewController" tabstyle="SuperCloneConfiguration__tab">
+   <apex:sectionHeader title="Super Clone Creation" subtitle="New Configuration" />
+   <apex:form >
+      <apex:pageMessages id="pageMessages" />
+      <apex:pageBlock mode="detail" title="Super Clone Creation">
+
+         <apex:pageBlockButtons location="top">
+            <apex:actionStatus id="ButtonStatus1">
+               <apex:facet name="stop">
+                  <apex:outputPanel >
+                     <apex:commandButton value="Create" action="{!DoCreate}" status="ButtonStatus1" rerender="pageMessages" />
+                     <apex:commandButton value="Cancel" action="{!DoCancel}" status="ButtonStatus1" rerender="pageMessages" immediate="true" />
+                  </apex:outputPanel>
+               </apex:facet>
+               <apex:facet name="start">
+                  <apex:outputPanel >
+                     <apex:commandButton value="Processing..." disabled="true" />
+                     <apex:commandButton value="Processing..." disabled="true" />
+                  </apex:outputPanel>
+               </apex:facet>
+            </apex:actionStatus>
+         </apex:pageBlockButtons>
+
+         <apex:pageBlockSection columns="2" showheader="true">
+            <apex:pageblocksectionitem >
+               <apex:outputlabel >Configuration Name</apex:outputlabel>
+
+               <apex:outputpanel layout="block" styleClass="requiredInput">
+                  <apex:outputpanel layout="block" styleClass="requiredBlock" />
+                  <apex:inputfield value="{!CloneConfig.dh_superclone__ConfigurationName__c}" />
+               </apex:outputpanel>
+            </apex:pageblocksectionitem>
+
+            <apex:pageBlockSectionItem >
+               <apex:outputLabel value="Primary Object" />
+
+               <apex:outputpanel layout="block" styleClass="requiredInput">
+                  <apex:outputpanel layout="block" styleClass="requiredBlock" />
+                  <apex:selectlist value="{!CloneConfig.dh_superclone__PrimaryObjectName__c}" multiselect="false" size="1">
+                     <apex:selectoptions value="{!SupportedObjectList}" />
+                  </apex:selectlist>
+                  </apex:outputPanel>
+            </apex:pageBlockSectionItem>
+
+         </apex:pageBlockSection>
+      </apex:pageBlock>
+   </apex:form>
+</apex:page>

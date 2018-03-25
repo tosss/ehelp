@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StaticResource xmlns="http://soap.sforce.com/2006/04/metadata">
+    <cacheControl>Public</cacheControl>
+    <contentType>application/x-zip-compressed</contentType>
+    <description>contains: Activity_Area.jpg, Carlos_Rodriguez.png, EMP_Spin_ADP_Logo.jpg, EMP_Spin_Corporate_Logo.jpg, EMP_Spin_Banner.jpg, EMP_Spin_Steve_Anenen.jpg, Lounge.jpg, Questions.png, Steve_Anenen.jpg</description>
+</StaticResource>

@@ -1,0 +1,1339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Employee Information</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Employee Information</value>
+    </caseValues>
+    <fields>
+        <label><!-- ADPS-AN - Acclivus Negotiations --></label>
+        <name>ADPS_AN_Acclivus_Negotiations__c</name>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation><!-- Assigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Assigned</masterLabel>
+            <translation><!-- Not Assigned --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- ADPS-AN - Assigned Date --></label>
+        <name>ADPS_AN_Assigned_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- ADPS-AN - Completed Date --></label>
+        <name>ADPS_AN_Completed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- ADPS-DE - Assigned Date --></label>
+        <name>ADPS_DE_Assigned_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- ADPS-DE - Completed Date --></label>
+        <name>ADPS_DE_Completed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- ADPS-DE - New Hire - DRIVER&apos;s Ed --></label>
+        <name>ADPS_DE_New_Hire_Drivers_Ed__c</name>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation><!-- Assigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Assigned</masterLabel>
+            <translation><!-- Not Assigned --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- ADPS-DL - Assigned Date --></label>
+        <name>ADPS_DL_Assigned_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- ADPS-DL - Completed Date --></label>
+        <name>ADPS_DL_Completed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- ADPS-DL - DOS Leadership - TOP10 Mantras --></label>
+        <name>ADPS_DL_DOS_Leadership_TOP10_Mantras__c</name>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation><!-- Assigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Assigned</masterLabel>
+            <translation><!-- Not Assigned --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- ADPS-NH - Assigned Date --></label>
+        <name>ADPS_NH_Assigned_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- ADPS-NH - Completed Date --></label>
+        <name>ADPS_NH_Completed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- ADPS-NH - New Hire --></label>
+        <name>ADPS_NH_New_Hire__c</name>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation><!-- Assigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Assigned</masterLabel>
+            <translation><!-- Not Assigned --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- ADP Hire Date --></label>
+        <name>ADP_Hire_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address --></label>
+        <name>Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approval Email --></label>
+        <name>Approval_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approved By --></label>
+        <name>Approved_By__c</name>
+    </fields>
+    <fields>
+        <label><!-- Birthday --></label>
+        <name>Birthday__c</name>
+    </fields>
+    <fields>
+        <help><!-- Cost Center # is one that finance will cross charge. --></help>
+        <label><!-- CC Finance Cross Charged --></label>
+        <name>CC_Finance_Cross_Charged__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check if this is not a sales or service SF license, but a (free) chatter free license --></help>
+        <label><!-- Chatter Free License --></label>
+        <name>Chatter_Free_License__c</name>
+    </fields>
+    <fields>
+        <help><!-- Chatter Plus/Content Only Licenses $2.76/year/user. --></help>
+        <label><!-- Chatter Plus/Content Only --></label>
+        <name>Chatter_Plus_License_Only__c</name>
+    </fields>
+    <fields>
+        <label><!-- City --></label>
+        <name>City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Class Start Date --></label>
+        <name>Class_Grad_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cost Center Number --></label>
+        <name>Cost_Center_Number__c</name>
+        <relationshipLabel><!-- Employee Information --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country__c</name>
+        <picklistValues>
+            <masterLabel>Canada</masterLabel>
+            <translation><!-- Canada --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Puerto Rico</masterLabel>
+            <translation><!-- Puerto Rico --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USA</masterLabel>
+            <translation><!-- USA --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- DESS-AM - ADP Menu --></label>
+        <name>DESS_AM_ADP_Menu__c</name>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation><!-- Assigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Assigned</masterLabel>
+            <translation><!-- Not Assigned --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- DESS-AM - Assigned Date --></label>
+        <name>DESS_AM_Assigned_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DESS-AM - Completed Date --></label>
+        <name>DESS_AM_Completed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DESS-AT - ADP Teleph in the Cloud (ATC) --></label>
+        <name>DESS_AT_ADP_Telephony_in_the_Cloud_ATC__c</name>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation><!-- Assigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Assigned</masterLabel>
+            <translation><!-- Not Assigned --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- DESS-AT - Assigned Date --></label>
+        <name>DESS_AT_Assigned_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DESS-AT - Completed Date --></label>
+        <name>DESS_AT_Completed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DESS-DF - Assigned Date --></label>
+        <name>DESS_DF_Assigned_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DESS-DF - Completed Date --></label>
+        <name>DESS_DF_Completed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DESS-DF - Deal Flow --></label>
+        <name>DESS_DF_Deal_Flow__c</name>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation><!-- Assigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Assigned</masterLabel>
+            <translation><!-- Not Assigned --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- DESS-DR - Assigned Date --></label>
+        <name>DESS_DR_Assigned_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DESS-DR - Completed Date --></label>
+        <name>DESS_DR_Completed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DESS-DR - Drive --></label>
+        <name>DESS_DR_Drive__c</name>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation><!-- Assigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Assigned</masterLabel>
+            <translation><!-- Not Assigned --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- DESS-FO - Assigned Date --></label>
+        <name>DESS_FO_Assigned_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DESS-FO - Completed Date --></label>
+        <name>DESS_FO_Completed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DESS-FO - Front Office Edge --></label>
+        <name>DESS_FO_Front_Office_Edge__c</name>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation><!-- Assigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Assigned</masterLabel>
+            <translation><!-- Not Assigned --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- DESS-IP - Assigned Date --></label>
+        <name>DESS_IP_Assigned_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DESS-IP - Completed Date --></label>
+        <name>DESS_IP_Completed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DESS-IP - IPNS --></label>
+        <name>DESS_IP_IPNS__c</name>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation><!-- Assigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Assigned</masterLabel>
+            <translation><!-- Not Assigned --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- DESS-LM - Assigned Date --></label>
+        <name>DESS_LM_Assigned_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DESS-LM - Completed Date --></label>
+        <name>DESS_LM_Completed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DESS-LM - Lot Management --></label>
+        <name>DESS_LM_Lot_Management__c</name>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation><!-- Assigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Assigned</masterLabel>
+            <translation><!-- Not Assigned --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- DESS-NW - Assigned Date --></label>
+        <name>DESS_NW_Assigned_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DESS-NW - Completed Date --></label>
+        <name>DESS_NW_Completed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DESS-NW - Networking 101 --></label>
+        <name>DESS_NW_Nertworking_101__c</name>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation><!-- Assigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Assigned</masterLabel>
+            <translation><!-- Not Assigned --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- DESS-SE - Assigned Date --></label>
+        <name>DESS_SE_Assigned_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DESS-SE - Completed Date --></label>
+        <name>DESS_SE_Completed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DESS-SE - ServiceEdge --></label>
+        <name>DESS_SE_ServiceEdge__c</name>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation><!-- Assigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Assigned</masterLabel>
+            <translation><!-- Not Assigned --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- DESS-WS - Assigned Date --></label>
+        <name>DESS_WS_Assigned_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DESS-WS - Completed Date --></label>
+        <name>DESS_WS_Completed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DESS-WS - Wireless Solutions --></label>
+        <name>DESS_WS_Wireless_Solutions__c</name>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation><!-- Assigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Assigned</masterLabel>
+            <translation><!-- Not Assigned --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- DISS-HO-Q2 - HOA Level 1 - FY14 Q2 --></label>
+        <name>DISS_HOQ2_HOA_Level1_FY14_Q2__c</name>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation><!-- Assigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Assigned</masterLabel>
+            <translation><!-- Not Assigned --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- DISS-HO-Q3 - HOA Level 1 - FY14 Q3 --></label>
+        <name>DISS_HOQ3_HOA_Level1_FY14_Q3__c</name>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation><!-- Assigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Assigned</masterLabel>
+            <translation><!-- Not Assigned --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- DISS-HO Q2 - Assigned Date --></label>
+        <name>DISS_HO_Q2_Assigned_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DISS-HO Q2 - Completed Date --></label>
+        <name>DISS_HO_Q2_Completed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DISS-HO Q3 - Assigned Date --></label>
+        <name>DISS_HO_Q3_Assigned_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DISS-HO Q3 - Completed Date --></label>
+        <name>DISS_HO_Q3_Completed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DOS Region # --></label>
+        <name>DOS_Region__c</name>
+    </fields>
+    <fields>
+        <label><!-- DRVR-BP - Assigned Date --></label>
+        <name>DRVR_BP_Assigned_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DRVR-BP - Buying Process --></label>
+        <name>DRVR_BP_Buying_Process__c</name>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation><!-- Assigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Assigned</masterLabel>
+            <translation><!-- Not Assigned --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- DRVR-BP - Completed Date --></label>
+        <name>DRVR_BP_Completed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DRVR-CT - Assigned Date --></label>
+        <name>DRVR_CT_Assigned_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DRVR-CT - Commercial Teaching --></label>
+        <name>DRVR_CT_Commercial_Teaching__c</name>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation><!-- Assigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Assigned</masterLabel>
+            <translation><!-- Not Assigned --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- DRVR-CT - Completed Date --></label>
+        <name>DRVR_CT_Completed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DRVR-DI - Assigned Date --></label>
+        <name>DRVR_DI_Assigned_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DRVR-DI - Completed Date --></label>
+        <name>DRVR_DI_Completed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DRVR-DI - Discovery --></label>
+        <name>DRVR_DI_Discovery__c</name>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation><!-- Assigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Assigned</masterLabel>
+            <translation><!-- Not Assigned --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- DRVR-DR - Assigned Date --></label>
+        <name>DRVR_DR_Assigned_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DRVR-DR - Completed Date --></label>
+        <name>DRVR_DR_Completed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DRVR-DR - Driver --></label>
+        <name>DRVR_DR_Driver__c</name>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation><!-- Assigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Assigned</masterLabel>
+            <translation><!-- Not Assigned --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- DRVR-IK - Assigned Date --></label>
+        <name>DRVR_IK_Assigned_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DRVR-IK - Completed Date --></label>
+        <name>DRVR_IK_Completed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DRVR-IK - Industry Knowledge --></label>
+        <name>DRVR_IK_Industry_Knowledge__c</name>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation><!-- Assigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Assigned</masterLabel>
+            <translation><!-- Not Assigned --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- DRVR-MO - Assigned Date --></label>
+        <name>DRVR_MO_Assigned_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DRVR-MO - Completed Date --></label>
+        <name>DRVR_MO_Completed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DRVR-MO - Mobilizers --></label>
+        <name>DRVR_MO_Mobilizers__c</name>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation><!-- Assigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Assigned</masterLabel>
+            <translation><!-- Not Assigned --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- DRVR-RL - Assigned Date --></label>
+        <name>DRVR_RL_Assigned_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DRVR-RL - Completed Date --></label>
+        <name>DRVR_RL_Completed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- DRVR-RL - Relationships --></label>
+        <name>DRVR_RL_Relationships__c</name>
+        <picklistValues>
+            <masterLabel>Assigned</masterLabel>
+            <translation><!-- Assigned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Assigned</masterLabel>
+            <translation><!-- Not Assigned --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Optional, except for Sales users --></help>
+        <label><!-- Department --></label>
+        <name>Department__c</name>
+        <picklistValues>
+            <masterLabel>BDC</masterLabel>
+            <translation><!-- BDC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BZ ISR</masterLabel>
+            <translation><!-- BZ ISR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CAM</masterLabel>
+            <translation><!-- CAM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Client Retention</masterLabel>
+            <translation><!-- Client Retention --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Corp</masterLabel>
+            <translation><!-- Credit Corp --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Development</masterLabel>
+            <translation><!-- Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Digital Enterprise Sales</masterLabel>
+            <translation><!-- Digital Enterprise Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance</masterLabel>
+            <translation><!-- Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Global Strategy</masterLabel>
+            <translation><!-- Global Strategy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IFS</masterLabel>
+            <translation><!-- IFS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Implementation</masterLabel>
+            <translation><!-- Implementation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Laser Artwork</masterLabel>
+            <translation><!-- Laser Artwork --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Laser Billing</masterLabel>
+            <translation><!-- Laser Billing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Laser Forms Builder</masterLabel>
+            <translation><!-- Laser Forms Builder --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Laser Forms Design</masterLabel>
+            <translation><!-- Laser Forms Design --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Laser Install Support</masterLabel>
+            <translation><!-- Laser Install Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legal</masterLabel>
+            <translation><!-- Legal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lightspeed Implementation</masterLabel>
+            <translation><!-- Lightspeed Implementation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manufacturer Solutions</masterLabel>
+            <translation><!-- Manufacturer Solutions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing</masterLabel>
+            <translation><!-- Marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PSE</masterLabel>
+            <translation><!-- PSE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pre-Sales Engineering</masterLabel>
+            <translation><!-- Pre-Sales Engineering --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Info Development</masterLabel>
+            <translation><!-- Product Info Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Marketing</masterLabel>
+            <translation><!-- Product Marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales</masterLabel>
+            <translation><!-- Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales - CDP</masterLabel>
+            <translation><!-- Sales - CDP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales - Digital Solutions</masterLabel>
+            <translation><!-- Sales - Digital Solutions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales - Hoffman Inside</masterLabel>
+            <translation><!-- Sales - Hoffman Inside --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales - PFW</masterLabel>
+            <translation><!-- Sales - PFW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales - Retail Solutions</masterLabel>
+            <translation><!-- Sales - Retail Solutions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales - Telephony Solutions</masterLabel>
+            <translation><!-- Sales - Telephony Solutions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales - Traver</masterLabel>
+            <translation><!-- Sales - Traver --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Automation</masterLabel>
+            <translation><!-- Sales Automation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Ops</masterLabel>
+            <translation><!-- Sales Ops --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Presentations</masterLabel>
+            <translation><!-- Sales Presentations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Resource Center</masterLabel>
+            <translation><!-- Sales Resource Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service</masterLabel>
+            <translation><!-- Service --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- E-Mail --></label>
+        <name>E_Mail__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ext --></label>
+        <name>Ext__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fax --></label>
+        <name>Fax__c</name>
+    </fields>
+    <fields>
+        <label><!-- Manager (HR) --></label>
+        <name>HR_Manager__c</name>
+    </fields>
+    <fields>
+        <label><!-- Home --></label>
+        <name>Home__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Club Qualified --></label>
+        <name>Last_Club_Qualified__c</name>
+    </fields>
+    <fields>
+        <label><!-- License Notes --></label>
+        <name>License_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- License Status_Del --></label>
+        <name>License_Status_Del__c</name>
+        <picklistValues>
+            <masterLabel>In Use</masterLabel>
+            <translation><!-- In Use --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Released</masterLabel>
+            <translation><!-- Released --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- License Status --></label>
+        <name>License_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Manager --></label>
+        <name>Manager__c</name>
+        <relationshipLabel><!-- Employee Information --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Mobile --></label>
+        <name>Mobile__c</name>
+    </fields>
+    <fields>
+        <label><!-- New Hire Report --></label>
+        <name>New_Hire_Report__c</name>
+    </fields>
+    <fields>
+        <label><!-- Node --></label>
+        <name>Node__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notes --></label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ph. Email --></label>
+        <name>Ph_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ph. Vendor --></label>
+        <name>Ph_Vendor__c</name>
+        <picklistValues>
+            <masterLabel>AT&amp;T</masterLabel>
+            <translation><!-- AT&amp;T --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bell Canada</masterLabel>
+            <translation><!-- Bell Canada --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sprint</masterLabel>
+            <translation><!-- Sprint --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>U.S. Cellular</masterLabel>
+            <translation><!-- U.S. Cellular --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Verizon</masterLabel>
+            <translation><!-- Verizon --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Photo Notes --></label>
+        <name>Photo_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Position Start Date --></label>
+        <name>Position_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Postal --></label>
+        <name>Postal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Professional Photo --></label>
+        <name>Professional_Photo__c</name>
+    </fields>
+    <fields>
+        <label><!-- Region --></label>
+        <name>Region__c</name>
+        <picklistValues>
+            <masterLabel>ARG</masterLabel>
+            <translation><!-- ARG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDP</masterLabel>
+            <translation><!-- CDP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CVR</masterLabel>
+            <translation><!-- CVR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Canada</masterLabel>
+            <translation><!-- Canada --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Central</masterLabel>
+            <translation><!-- Central --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Client Retention</masterLabel>
+            <translation><!-- Client Retention --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DMI</masterLabel>
+            <translation><!-- DMI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOX</masterLabel>
+            <translation><!-- DOX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealix</masterLabel>
+            <translation><!-- Dealix --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Digital Solutions</masterLabel>
+            <translation><!-- Digital Solutions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Division</masterLabel>
+            <translation><!-- Division --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enterprise</masterLabel>
+            <translation><!-- Enterprise --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hoffman Sales</masterLabel>
+            <translation><!-- Hoffman Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inside Sales</masterLabel>
+            <translation><!-- Inside Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lightspeed</masterLabel>
+            <translation><!-- Lightspeed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NIADA</masterLabel>
+            <translation><!-- NIADA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>National</masterLabel>
+            <translation><!-- National --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Network Solutions</masterLabel>
+            <translation><!-- Network Solutions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>North</masterLabel>
+            <translation><!-- North --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PFW</masterLabel>
+            <translation><!-- PFW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Performance Inc</masterLabel>
+            <translation><!-- Performance Inc --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSP Solutions</masterLabel>
+            <translation><!-- RSP Solutions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>South</masterLabel>
+            <translation><!-- South --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Southwest</masterLabel>
+            <translation><!-- Southwest --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Truck</masterLabel>
+            <translation><!-- Truck --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>West</masterLabel>
+            <translation><!-- West --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Release Element Sheet --></label>
+        <name>Release_Element_Sheet__c</name>
+    </fields>
+    <fields>
+        <label><!-- SPX Contact CreateDate --></label>
+        <name>SPX_Contact_CreateDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- SPX Contact ID --></label>
+        <name>SPX_Contact_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sales Class --></label>
+        <name>Sales_Class__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sales Start Date --></label>
+        <name>Sales_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Segment --></label>
+        <name>Segment__c</name>
+        <picklistValues>
+            <masterLabel>Alliance</masterLabel>
+            <translation><!-- Alliance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Canada</masterLabel>
+            <translation><!-- Canada --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ELDM</masterLabel>
+            <translation><!-- ELDM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hayes-Ligon</masterLabel>
+            <translation><!-- Hayes-Ligon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Imaging</masterLabel>
+            <translation><!-- Imaging --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LeaseStar</masterLabel>
+            <translation><!-- LeaseStar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LightSpeed</masterLabel>
+            <translation><!-- LightSpeed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Major Markets</masterLabel>
+            <translation><!-- Major Markets --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>National/Strategic</masterLabel>
+            <translation><!-- National/Strategic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Truck</masterLabel>
+            <translation><!-- Truck --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Check this if you want the current text/subject to be sent to the users phone --></help>
+        <label><!-- Send Current Message --></label>
+        <name>Send_Current_Message__c</name>
+    </fields>
+    <fields>
+        <label><!-- Spouse --></label>
+        <name>Spouse__c</name>
+    </fields>
+    <fields>
+        <label><!-- Wireless Card --></label>
+        <name>Sprint__c</name>
+    </fields>
+    <fields>
+        <label><!-- State --></label>
+        <name>State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status_Del --></label>
+        <name>Status_Del__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Duplicate</masterLabel>
+            <translation><!-- Duplicate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Team --></label>
+        <name>Team_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Termination Date --></label>
+        <name>Termination_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Actual body of the text message to be sent out to rep (limit 255 characters) --></help>
+        <label><!-- Text Message Body --></label>
+        <name>Text_Message_Body__c</name>
+    </fields>
+    <fields>
+        <help><!-- Actual subject value to appear for the text message once sent --></help>
+        <label><!-- Text Message Subject --></label>
+        <name>Text_Message_Subject__c</name>
+    </fields>
+    <fields>
+        <label><!-- Title --></label>
+        <name>Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total # Clubs --></label>
+        <name>Total_Clubs__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Record --></label>
+        <name>User__c</name>
+        <relationshipLabel><!-- Employee Information --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Vendor ID --></label>
+        <name>Vendor_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Work --></label>
+        <name>Work__c</name>
+    </fields>
+    <layouts>
+        <layout>Employee Information Layout</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Address/Phone Information --></label>
+            <section>Address/Phone Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- General Notes --></label>
+            <section>General Notes</section>
+        </sections>
+        <sections>
+            <label><!-- Important Dates --></label>
+            <section>Important Dates</section>
+        </sections>
+        <sections>
+            <label><!-- Licensing Information --></label>
+            <section>Licensing Information</section>
+        </sections>
+        <sections>
+            <label><!-- Licensing Information Notes --></label>
+            <section>Licensing Information Notes</section>
+        </sections>
+        <sections>
+            <label><!-- Sales Education - ADP Sales Education --></label>
+            <section>Sales Education - ADP Sales Education</section>
+        </sections>
+        <sections>
+            <label><!-- Sales Education - Dealer Services Solution Certifications --></label>
+            <section>Sales Education - Dealer Services Solution Certifications</section>
+        </sections>
+        <sections>
+            <label><!-- Sales Education - Digital Services Solution Certifications --></label>
+            <section>Sales Education - Digital Services Solution Certifications</section>
+        </sections>
+        <sections>
+            <label><!-- Sales Education - Driver Certification --></label>
+            <section>Sales Education - Driver Certification</section>
+        </sections>
+        <sections>
+            <label><!-- Text Messages --></label>
+            <section>Text Messages</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- If Status = NULL or &apos;Not Assigned&apos;, No Date can be set.
+If Status = &apos;Assigned&apos;, &apos;Assigned Date&apos; cannot be left blank. 
+If Status = &apos;Completed&apos;, &apos;Assigned Date&apos; and &apos;Completed Date&apos; both required and Completed Date should be &gt;= Assigned Date --></errorMessage>
+        <name>ADPS_Acclivus_Negotiations</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Status = NULL or &apos;Not Assigned&apos;, No Date can be set.
+If Status = &apos;Assigned&apos;, &apos;Assigned Date&apos; cannot be left blank. 
+If Status = &apos;Completed&apos;, &apos;Assigned Date&apos; and &apos;Completed Date&apos; both required and Completed Date should be &gt;= Assigned Date --></errorMessage>
+        <name>ADPS_DOS_Leadership_TOP10_Mantras</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Status = NULL or &apos;Not Assigned&apos;, No Date can be set.
+If Status = &apos;Assigned&apos;, &apos;Assigned Date&apos; cannot be left blank. 
+If Status = &apos;Completed&apos;, &apos;Assigned Date&apos; and &apos;Completed Date&apos; both required and Completed Date should be &gt;= Assigned Date --></errorMessage>
+        <name>ADPS_New_Hire</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Status = NULL or &apos;Not Assigned&apos;, No Date can be set.
+If Status = &apos;Assigned&apos;, &apos;Assigned Date&apos; cannot be left blank. 
+If Status = &apos;Completed&apos;, &apos;Assigned Date&apos; and &apos;Completed Date&apos; both required and Completed Date should be &gt;= Assigned Date --></errorMessage>
+        <name>ADPS_New_Hire_Drivers_Ed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Status = NULL or &apos;Not Assigned&apos;, No Date can be set.
+If Status = &apos;Assigned&apos;, &apos;Assigned Date&apos; cannot be left blank. 
+If Status = &apos;Completed&apos;, &apos;Assigned Date&apos; and &apos;Completed Date&apos; both required and Completed Date should be &gt;= Assigned Date --></errorMessage>
+        <name>DESS_ADP_Menu</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Status = NULL or &apos;Not Assigned&apos;, No Date can be set.
+If Status = &apos;Assigned&apos;, &apos;Assigned Date&apos; cannot be left blank. 
+If Status = &apos;Completed&apos;, &apos;Assigned Date&apos; and &apos;Completed Date&apos; both required and Completed Date should be &gt;= Assigned Date --></errorMessage>
+        <name>DESS_ADP_Telephony_in_the_Cloud_ATC</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Status = NULL or &apos;Not Assigned&apos;, No Date can be set.
+If Status = &apos;Assigned&apos;, &apos;Assigned Date&apos; cannot be left blank. 
+If Status = &apos;Completed&apos;, &apos;Assigned Date&apos; and &apos;Completed Date&apos; both required and Completed Date should be &gt;= Assigned Date --></errorMessage>
+        <name>DESS_Deal_Flow</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Status = NULL or &apos;Not Assigned&apos;, No Date can be set.
+If Status = &apos;Assigned&apos;, &apos;Assigned Date&apos; cannot be left blank. 
+If Status = &apos;Completed&apos;, &apos;Assigned Date&apos; and &apos;Completed Date&apos; both required and Completed Date should be &gt;= Assigned Date --></errorMessage>
+        <name>DESS_Drive</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Status = NULL or &apos;Not Assigned&apos;, No Date can be set.
+If Status = &apos;Assigned&apos;, &apos;Assigned Date&apos; cannot be left blank. 
+If Status = &apos;Completed&apos;, &apos;Assigned Date&apos; and &apos;Completed Date&apos; both required and Completed Date should be &gt;= Assigned Date --></errorMessage>
+        <name>DESS_Front_Office_Edge</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Status = NULL or &apos;Not Assigned&apos;, No Date can be set.
+If Status = &apos;Assigned&apos;, &apos;Assigned Date&apos; cannot be left blank. 
+If Status = &apos;Completed&apos;, &apos;Assigned Date&apos; and &apos;Completed Date&apos; both required and Completed Date should be &gt;= Assigned Date --></errorMessage>
+        <name>DESS_IPNS</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Status = NULL or &apos;Not Assigned&apos;, No Date can be set.
+If Status = &apos;Assigned&apos;, &apos;Assigned Date&apos; cannot be left blank. 
+If Status = &apos;Completed&apos;, &apos;Assigned Date&apos; and &apos;Completed Date&apos; both required and Completed Date should be &gt;= Assigned Date --></errorMessage>
+        <name>DESS_Lot_Management</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Status = NULL or &apos;Not Assigned&apos;, No Date can be set.
+If Status = &apos;Assigned&apos;, &apos;Assigned Date&apos; cannot be left blank. 
+If Status = &apos;Completed&apos;, &apos;Assigned Date&apos; and &apos;Completed Date&apos; both required and Completed Date should be &gt;= Assigned Date --></errorMessage>
+        <name>DESS_Networking_101</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Status = NULL or &apos;Not Assigned&apos;, No Date can be set.
+If Status = &apos;Assigned&apos;, &apos;Assigned Date&apos; cannot be left blank. 
+If Status = &apos;Completed&apos;, &apos;Assigned Date&apos; and &apos;Completed Date&apos; both required and Completed Date should be &gt;= Assigned Date --></errorMessage>
+        <name>DESS_ServiceEdge</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Status = NULL or &apos;Not Assigned&apos;, No Date can be set.
+If Status = &apos;Assigned&apos;, &apos;Assigned Date&apos; cannot be left blank. 
+If Status = &apos;Completed&apos;, &apos;Assigned Date&apos; and &apos;Completed Date&apos; both required and Completed Date should be &gt;= Assigned Date --></errorMessage>
+        <name>DESS_Wireless_Solutions</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Status = NULL or &apos;Not Assigned&apos;, No Date can be set.
+If Status = &apos;Assigned&apos;, &apos;Assigned Date&apos; cannot be left blank. 
+If Status = &apos;Completed&apos;, &apos;Assigned Date&apos; and &apos;Completed Date&apos; both required and Completed Date should be &gt;= Assigned Date --></errorMessage>
+        <name>DISS_HOA_Level1_FY14_Q3</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Status = NULL or &apos;Not Assigned&apos;, No Date can be set.
+If Status = &apos;Assigned&apos;, &apos;Assigned Date&apos; cannot be left blank. 
+If Status = &apos;Completed&apos;, &apos;Assigned Date&apos; and &apos;Completed Date&apos; both required and Completed Date should be &gt;= Assigned Date --></errorMessage>
+        <name>DISS_HOA_Level_FY14_Q2</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Status = NULL or &apos;Not Assigned&apos;, No Date can be set.
+If Status = &apos;Assigned&apos;, &apos;Assigned Date&apos; cannot be left blank. 
+If Status = &apos;Completed&apos;, &apos;Assigned Date&apos; and &apos;Completed Date&apos; both required and Completed Date should be &gt;= Assigned Date --></errorMessage>
+        <name>DRVR_Buying_Process</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Status = NULL or &apos;Not Assigned&apos;, No Date can be set.
+If Status = &apos;Assigned&apos;, &apos;Assigned Date&apos; cannot be left blank. 
+If Status = &apos;Completed&apos;, &apos;Assigned Date&apos; and &apos;Completed Date&apos; both required and Completed Date should be &gt;= Assigned Date --></errorMessage>
+        <name>DRVR_Commercial_Teaching</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Status = NULL or &apos;Not Assigned&apos;, No Date can be set.
+If Status = &apos;Assigned&apos;, &apos;Assigned Date&apos; cannot be left blank. 
+If Status = &apos;Completed&apos;, &apos;Assigned Date&apos; and &apos;Completed Date&apos; both required and Completed Date should be &gt;= Assigned Date --></errorMessage>
+        <name>DRVR_Discovery</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Status = NULL or &apos;Not Assigned&apos;, No Date can be set.
+If Status = &apos;Assigned&apos;, &apos;Assigned Date&apos; cannot be left blank. 
+If Status = &apos;Completed&apos;, &apos;Assigned Date&apos; and &apos;Completed Date&apos; both required and Completed Date should be &gt;= Assigned Date --></errorMessage>
+        <name>DRVR_Driver</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Status = NULL or &apos;Not Assigned&apos;, No Date can be set.
+If Status = &apos;Assigned&apos;, &apos;Assigned Date&apos; cannot be left blank. 
+If Status = &apos;Completed&apos;, &apos;Assigned Date&apos; and &apos;Completed Date&apos; both required and Completed Date should be &gt;= Assigned Date --></errorMessage>
+        <name>DRVR_Industry_Knowledge</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Status = NULL or &apos;Not Assigned&apos;, No Date can be set.
+If Status = &apos;Assigned&apos;, &apos;Assigned Date&apos; cannot be left blank. 
+If Status = &apos;Completed&apos;, &apos;Assigned Date&apos; and &apos;Completed Date&apos; both required and Completed Date should be &gt;= Assigned Date --></errorMessage>
+        <name>DRVR_MO_Mobilizers</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Status = NULL or &apos;Not Assigned&apos;, No Date can be set.
+If Status = &apos;Assigned&apos;, &apos;Assigned Date&apos; cannot be left blank. 
+If Status = &apos;Completed&apos;, &apos;Assigned Date&apos; and &apos;Completed Date&apos; both required and Completed Date should be &gt;= Assigned Date --></errorMessage>
+        <name>DRVR_RL_Relationships</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Mobile phone required if Phone Vendor specified! --></errorMessage>
+        <name>Mobile_Required_if_Ph_Vendor_specified</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Unable to send text message since either the Phone Email or the Text Message Subject are not defined --></errorMessage>
+        <name>Send_Current_Msg_Reqd_Field_Check</name>
+    </validationRules>
+</CustomObjectTranslation>

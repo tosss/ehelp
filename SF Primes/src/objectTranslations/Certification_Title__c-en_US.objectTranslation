@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Certification Title</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Certification Title</value>
+    </caseValues>
+    <fields>
+        <label><!-- Certification --></label>
+        <name>Certification__c</name>
+        <relationshipLabel><!-- Certification Title --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Re-Take Every X Years --></label>
+        <name>Retake_Every_X_Years__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Title --></label>
+        <name>Title__c</name>
+        <picklistValues>
+            <masterLabel>ADE</masterLabel>
+            <translation><!-- ADE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ARG AM</masterLabel>
+            <translation><!-- ARG AM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ARM</masterLabel>
+            <translation><!-- ARM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ASE</masterLabel>
+            <translation><!-- ASE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AVP</masterLabel>
+            <translation><!-- AVP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AVP CVR</masterLabel>
+            <translation><!-- AVP CVR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDP DOS</masterLabel>
+            <translation><!-- CDP DOS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDP ISR</masterLabel>
+            <translation><!-- CDP ISR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Client Retention</masterLabel>
+            <translation><!-- Client Retention --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOS</masterLabel>
+            <translation><!-- DOS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DSM</masterLabel>
+            <translation><!-- DSM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DSM DOS</masterLabel>
+            <translation><!-- DSM DOS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DSM-ENT</masterLabel>
+            <translation><!-- DSM-ENT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DSR</masterLabel>
+            <translation><!-- DSR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DSR DOS</masterLabel>
+            <translation><!-- DSR DOS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DVP</masterLabel>
+            <translation><!-- DVP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Digital ISR</masterLabel>
+            <translation><!-- Digital ISR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EAD</masterLabel>
+            <translation><!-- EAD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EAS</masterLabel>
+            <translation><!-- EAS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EAVP</masterLabel>
+            <translation><!-- EAVP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EUM</masterLabel>
+            <translation><!-- EUM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IS-Supervisor</masterLabel>
+            <translation><!-- IS-Supervisor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IS-Supervisor Training</masterLabel>
+            <translation><!-- IS-Supervisor Training --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ISE</masterLabel>
+            <translation><!-- ISE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ISE AVP</masterLabel>
+            <translation><!-- ISE AVP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ISE DOS</masterLabel>
+            <translation><!-- ISE DOS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ISR</masterLabel>
+            <translation><!-- ISR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ISR-Laser</masterLabel>
+            <translation><!-- ISR-Laser --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Imaging DOS</masterLabel>
+            <translation><!-- Imaging DOS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manager - IS</masterLabel>
+            <translation><!-- Manager - IS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NAD</masterLabel>
+            <translation><!-- NAD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NADE</masterLabel>
+            <translation><!-- NADE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NAS</masterLabel>
+            <translation><!-- NAS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NAVP</masterLabel>
+            <translation><!-- NAVP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NRM</masterLabel>
+            <translation><!-- NRM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RAM</masterLabel>
+            <translation><!-- RAM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSE</masterLabel>
+            <translation><!-- RSE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSM</masterLabel>
+            <translation><!-- RSM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSM DOS</masterLabel>
+            <translation><!-- RSM DOS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SC</masterLabel>
+            <translation><!-- SC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SC DOS</masterLabel>
+            <translation><!-- SC DOS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TNAD</masterLabel>
+            <translation><!-- TNAD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TSE</masterLabel>
+            <translation><!-- TSE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TSM</masterLabel>
+            <translation><!-- TSM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TSM DOS</masterLabel>
+            <translation><!-- TSM DOS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VP</masterLabel>
+            <translation><!-- VP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iADE</masterLabel>
+            <translation><!-- iADE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iTSE</masterLabel>
+            <translation><!-- iTSE --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Certifications Title Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

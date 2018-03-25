@@ -1,0 +1,19 @@
+<!--
+/*------------------------------------------------------------
+Author: Kimiko Roberto
+Company: Cloud Sherpas
+Description: Page that connects to the NIS Mission and shows the referenced NIS Mission Name
+History
+09/25/14    Karl Simon      Created
+09/26/14    Kimiko Roberto    Added controller for passing NIS Mission Name
+------------------------------------------------------------*/
+-->
+<apex:page controller="IMP_DisplayMission_Controller" showHeader="true">
+    <!-- displays the canvass app
+    the parameter generateJsonParam1 that contains the Mission name is passed to the NIS Mission Env
+    a matching Mission record will be displayed or error msgs if your org is invalid or there is no matching mission record -->
+    
+    <apex:CanvasApp applicationName="IMP_Public_View_Canvas" parameters="{!generateJsonParam1}"
+                    height="1000px" width="1750px"
+                    border="2" scrolling="yes"/>
+</apex:page>

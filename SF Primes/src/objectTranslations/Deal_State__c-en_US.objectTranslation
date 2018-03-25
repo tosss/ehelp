@@ -1,0 +1,1054 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Deal State</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Deal State</value>
+    </caseValues>
+    <fields>
+        <label><!-- CDK Opportunity Owner Manager --></label>
+        <name>ADP_Opportunity_Owner_Manager__c</name>
+    </fields>
+    <fields>
+        <label><!-- CDK Opportunity Owner --></label>
+        <name>ADP_Opportunity_Owner__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Key Rep Email --></label>
+        <name>Account_Key_Rep_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Region --></label>
+        <name>Account_Region__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+    </fields>
+    <fields>
+        <label><!-- Alternate DocuSign Account --></label>
+        <name>Alternate_DocuSign_Account__c</name>
+        <relationshipLabel><!-- Deal State --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Sites Involved With Request --></label>
+        <name>Any_Other_Sites_Involved_With_Request__c</name>
+    </fields>
+    <fields>
+        <label><!-- Assigned PSE Engineer --></label>
+        <lookupFilter>
+            <errorMessage><!-- You can only add PSE user in Assigned PSE Engineer Field --></errorMessage>
+        </lookupFilter>
+        <name>Assigned_PSE_Engineer__c</name>
+        <relationshipLabel><!-- Deal State (Assigned PSE Engineer) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Billing Review Complete Date/Time --></label>
+        <name>Billing_Review_Complete_Date_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Billing Review Complete --></label>
+        <name>Billing_Review_Complete__c</name>
+    </fields>
+    <fields>
+        <help><!-- Central Time Zone (CST) --></help>
+        <label><!-- CA Approved Date --></label>
+        <name>CA_Approved_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- CA Approver Email --></label>
+        <name>CA_Approver_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- CA Approver --></label>
+        <name>CA_Approver__c</name>
+    </fields>
+    <fields>
+        <label><!-- CDK Opportunity Owner Email --></label>
+        <name>CDK_Opportunity_Owner_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- CMF --></label>
+        <name>CMF__c</name>
+    </fields>
+    <fields>
+        <help><!-- Central Time Zone (CST) --></help>
+        <label><!-- CRA Signed Date --></label>
+        <name>CRA_Signed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- CRA Signer --></label>
+        <name>CRA_Signer__c</name>
+    </fields>
+    <fields>
+        <help><!-- Sol. Design still required --></help>
+        <label><!-- CRM --></label>
+        <name>CRM__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cash/Credit --></label>
+        <name>Cash_Credit__c</name>
+        <picklistValues>
+            <masterLabel>Cash</masterLabel>
+            <translation><!-- Cash --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loan</masterLabel>
+            <translation><!-- Loan --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Cash Discovery --></label>
+        <name>Cash_Discovery__c</name>
+    </fields>
+    <fields>
+        <help><!-- Central Time Zone (CST) --></help>
+        <label><!-- Client 1 Delivered Date --></label>
+        <name>Client_1_Delivered_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client 1 Sign In Person --></label>
+        <name>Client_1_Sign_In_Person__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client 1 Signed - RTS --></label>
+        <name>Client_1_Signed_RTS__c</name>
+    </fields>
+    <fields>
+        <help><!-- Central Time Zone (CST) --></help>
+        <label><!-- Client 2 Delivered Date --></label>
+        <name>Client_2_Delivered_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client 2 Sign In Person --></label>
+        <name>Client_2_Sign_In_Person__c</name>
+    </fields>
+    <fields>
+        <help><!-- Central Time Zone (CST) --></help>
+        <label><!-- Client 2 Signed Date --></label>
+        <name>Client_2_Signed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client Data Exchange Products --></label>
+        <name>Client_Data_Exchange_Products__c</name>
+    </fields>
+    <fields>
+        <help><!-- Central Time Zone (CST) --></help>
+        <label><!-- Client 1 Signed Date --></label>
+        <name>Client_Signed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client Signer 1 --></label>
+        <name>Client_Signer_1_Del__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client Signer 1 Role --></label>
+        <name>Client_Signer_1_Role__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client Signer 1 --></label>
+        <name>Client_Signer_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client Signer 2 --></label>
+        <name>Client_Signer_2_Del__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client Signer 2 Role --></label>
+        <name>Client_Signer_2_Role__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client Signer 2 --></label>
+        <name>Client_Signer_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Needed By Date --></label>
+        <name>Contract_Needed_By_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Number(s) --></label>
+        <name>Contract_Number_s__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract term (in months) --></label>
+        <name>Contract_term_in_months__c</name>
+    </fields>
+    <fields>
+        <label><!-- Controller Email --></label>
+        <name>Controller_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Core CMF Number --></label>
+        <name>Core_CMF_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Count of Shared System Addendum --></label>
+        <name>Count_of_Shared_System_Addendum__c</name>
+    </fields>
+    <fields>
+        <label><!-- Created By Chatter Action --></label>
+        <name>Created_By_Chatter_Action__c</name>
+    </fields>
+    <fields>
+        <label><!-- Created By --></label>
+        <name>Created_By__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credit Check --></label>
+        <name>Credit_Check__c</name>
+    </fields>
+    <fields>
+        <label><!-- DCS --></label>
+        <name>DCS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dash Only --></label>
+        <name>Dash_Only__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deal Approver --></label>
+        <name>Deal_Approver__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deal Description --></label>
+        <name>Deal_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deal From Solution Design --></label>
+        <name>Deal_From_Solution_Design__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deal Requested Date --></label>
+        <name>Deal_Requested_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deal State Link --></label>
+        <name>Deal_State_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deal State Secured Id --></label>
+        <name>Deal_State_Secured_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deal State Secured Link --></label>
+        <name>Deal_State_Secured_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deal Status --></label>
+        <name>Deal_Status__c</name>
+        <picklistValues>
+            <masterLabel>Assigned - SCS</masterLabel>
+            <translation><!-- Assigned - SCS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Client Declined</masterLabel>
+            <translation><!-- Client Declined --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Client Signed</masterLabel>
+            <translation><!-- Client Signed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Envelope Voided</masterLabel>
+            <translation><!-- Envelope Voided --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finalized Deal</masterLabel>
+            <translation><!-- Finalized Deal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Networking Quote Uploaded</masterLabel>
+            <translation><!-- Networking Quote Uploaded --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Deal Arrived</masterLabel>
+            <translation><!-- New Deal Arrived --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending Approval in SQT</masterLabel>
+            <translation><!-- Pending Approval in SQT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending Networking Response</masterLabel>
+            <translation><!-- Pending Networking Response --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending SOW Approval</masterLabel>
+            <translation><!-- Pending SOW Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending Sales Response</masterLabel>
+            <translation><!-- Pending Sales Response --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Released To Sales</masterLabel>
+            <translation><!-- Released To Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rep Created SQT Deal</masterLabel>
+            <translation><!-- Rep Created SQT Deal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SOW Deal Change Needed</masterLabel>
+            <translation><!-- SOW Deal Change Needed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Deal Change Needed</masterLabel>
+            <translation><!-- Sales Deal Change Needed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Send To CA</masterLabel>
+            <translation><!-- Send To CA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Send To CRA</masterLabel>
+            <translation><!-- Send To CRA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Send To Countersign</masterLabel>
+            <translation><!-- Send To Countersign --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent To Client</masterLabel>
+            <translation><!-- Sent To Client --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent To Sales</masterLabel>
+            <translation><!-- Sent To Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Signed by All Parties</masterLabel>
+            <translation><!-- Signed by All Parties --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Deal Type --></label>
+        <name>Deal_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealer Group --></label>
+        <name>Dealer_Group__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description of Item(s) Needed --></label>
+        <name>Description_of_Need__c</name>
+    </fields>
+    <fields>
+        <label><!-- Discount % Monthlies --></label>
+        <name>Discount_Monthlies__c</name>
+    </fields>
+    <fields>
+        <label><!-- Discount % One-Times --></label>
+        <name>Discount_One_Times__c</name>
+    </fields>
+    <fields>
+        <help><!-- Last Time SQT Docs were pushed to SalesForce --></help>
+        <label><!-- Docs Pushed from SQT --></label>
+        <name>Docs_Pushed_from_SQT__c</name>
+    </fields>
+    <fields>
+        <label><!-- Docusign Create Envelope URL --></label>
+        <name>Docusign_Create_Envelope_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Docusign Envelope Status --></label>
+        <name>Docusign_Envelope_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Envelope Sender Email --></label>
+        <name>Envelope_Sender_Email__c</name>
+    </fields>
+    <fields>
+        <help><!-- Initials to be Filled by CA when filling Contract#&apos;s AFTER Signing the envelope only. --></help>
+        <label><!-- Exception Contract # Push --></label>
+        <name>Exception_Contract_Push__c</name>
+    </fields>
+    <fields>
+        <label><!-- Existing Item(s) this is replacing? --></label>
+        <name>Existing_Item_s_this_is_replacing__c</name>
+    </fields>
+    <fields>
+        <label><!-- TSM DOS --></label>
+        <name>FRM_TSM_DOS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Finalized Deal - Deal Requested --></label>
+        <name>Finalized_Deal_Deal_Requested__c</name>
+    </fields>
+    <fields>
+        <label><!-- Finalized Deal --></label>
+        <name>Finalized_Deal__c</name>
+    </fields>
+    <fields>
+        <label><!-- First NW Quote Uploaded Date/Time --></label>
+        <name>First_NW_Quote_Uploaded_Date_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Flash Config # 2 --></label>
+        <name>Flash_Config_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Flash Config # --></label>
+        <name>Flash_Config__c</name>
+    </fields>
+    <fields>
+        <label><!-- French Wording --></label>
+        <name>French_Wording__c</name>
+    </fields>
+    <fields>
+        <label><!-- Front Office Edge Data Consent (Signer2) --></label>
+        <name>Front_Office_Edge_Data_Consent_Signer2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Front Office Edge Data Consent (Signer1) --></label>
+        <name>Front_Office_Edge_Data_Consent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fully Approved --></label>
+        <name>Fully_Approved__c</name>
+    </fields>
+    <fields>
+        <label><!-- IPNS CMF Number --></label>
+        <name>IPNS_CMF_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- IPNS Only --></label>
+        <name>IPNS_Only__c</name>
+    </fields>
+    <fields>
+        <label><!-- IPNS Site Address --></label>
+        <name>IPNS_Site_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- IPNS Site City --></label>
+        <name>IPNS_Site_City__c</name>
+    </fields>
+    <fields>
+        <label><!-- IPNS Site Name --></label>
+        <name>IPNS_Site_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- IPNS Site State --></label>
+        <name>IPNS_Site_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- IPNS Site Zip --></label>
+        <name>IPNS_Site_Zip__c</name>
+    </fields>
+    <fields>
+        <label><!-- Impact Project Number --></label>
+        <name>Impact_Project_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Install Contact Name/Number --></label>
+        <name>Install_Contact_Name_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Intravision Only --></label>
+        <name>Intravision_Only__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is product replacing an existing item? --></label>
+        <name>Is_product_replacing_an_existing_item__c</name>
+    </fields>
+    <fields>
+        <label><!-- Key DOS Email --></label>
+        <name>Key_DOS_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Key DOS --></label>
+        <name>Key_DOS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Key Rep --></label>
+        <name>Key_Rep__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Updated By --></label>
+        <name>Last_Updated_By__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Updated Date/Time --></label>
+        <name>Last_Updated_Date_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lease Type --></label>
+        <name>Lease_Type__c</name>
+        <picklistValues>
+            <masterLabel>Cash</masterLabel>
+            <translation><!-- Cash --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lease</masterLabel>
+            <translation><!-- Lease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loan</masterLabel>
+            <translation><!-- Loan --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Legal Counter Signed - RTS --></label>
+        <name>Legal_Counter_Signed_RTS__c</name>
+    </fields>
+    <fields>
+        <help><!-- Central Time Zone (CST) --></help>
+        <label><!-- Legal Counter Signer Date --></label>
+        <name>Legal_Counter_Signer_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Legal Counter Signer --></label>
+        <name>Legal_Counter_Signer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Main Site Address --></label>
+        <name>Main_Site_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Main Site City --></label>
+        <name>Main_Site_City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Main Site Name --></label>
+        <name>Main_Site_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Main Site State --></label>
+        <name>Main_Site_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Main Site Zip --></label>
+        <name>Main_Site_Zip__c</name>
+    </fields>
+    <fields>
+        <label><!-- Menu Data Consent (Signer2) --></label>
+        <name>Menu_Data_Consent_Signer2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Menu Data Consent (Signer1) --></label>
+        <name>Menu_Data_Consent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Migration ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- NIADA Region Location --></label>
+        <name>NIADA_Region_Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- Network Needed --></label>
+        <name>Network_Needed__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Network/Telephony --></label>
+        <name>Network_Telephony__c</name>
+    </fields>
+    <fields>
+        <label><!-- New Car IQ Data Consent (Signer2) --></label>
+        <name>New_Car_IQ_Data_Consent_Signer2__c</name>
+    </fields>
+    <fields>
+        <label><!-- New Car IQ Data Consent (Signer1) --></label>
+        <name>New_Car_IQ_Data_Consent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Non-Refundable Deposit IPNS --></label>
+        <name>Non_Refundable_Deposit_IPNS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Non-Refundable Deposit Core --></label>
+        <name>Non_Refundable_Deposit__c</name>
+    </fields>
+    <fields>
+        <help><!-- Entered on behalf of a User --></help>
+        <label><!-- On Behalf Of --></label>
+        <name>On_Behalf_Of__c</name>
+        <relationshipLabel><!-- Deal State (On Behalf Of) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Close Date --></label>
+        <name>Opportunity_Close_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Link --></label>
+        <name>Opportunity_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Record Type --></label>
+        <name>Opportunity_Record_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Stage Name --></label>
+        <name>Opportunity_Stage_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Type --></label>
+        <name>Opportunity_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Deal State --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Owner Change Notes --></label>
+        <name>Owner_Change_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Owner --></label>
+        <name>Owner__c</name>
+    </fields>
+    <fields>
+        <label><!-- PSE Quote(s) Received Date --></label>
+        <name>PSE_Quote_s_Received_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- PSE Revision --></label>
+        <name>PSE_Revision__c</name>
+    </fields>
+    <fields>
+        <label><!-- PSE Status --></label>
+        <name>PSE_Status__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Network Changes Requested</masterLabel>
+            <translation><!-- Network Changes Requested --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- PartsVoice --></label>
+        <name>PartsVoice__c</name>
+    </fields>
+    <fields>
+        <label><!-- Process Core Deposit Check Using Chax? --></label>
+        <name>Process_Core_Deposit_Check_Using_Chax__c</name>
+    </fields>
+    <fields>
+        <label><!-- Process IPNS Deposit Check Using Chax? --></label>
+        <name>Process_IPNS_Deposit_Check_Using_Chax__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Highway Routing --></label>
+        <name>Project_Highway_Routing__c</name>
+        <picklistValues>
+            <masterLabel>FSO Region</masterLabel>
+            <translation><!-- FSO Region --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PSE Lane</masterLabel>
+            <translation><!-- PSE Lane --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SCS Lane</masterLabel>
+            <translation><!-- SCS Lane --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Number of Sites --></label>
+        <name>Quantity_of_Sites__c</name>
+    </fields>
+    <fields>
+        <label><!-- RTS - Deal Requested --></label>
+        <name>RTS_Deal_Requested__c</name>
+    </fields>
+    <fields>
+        <label><!-- Received ServiceEdge Doc Date --></label>
+        <name>Received_ServiceEdge_Doc_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Received ServiceEdge Doc --></label>
+        <name>Received_ServiceEdge_Doc__c</name>
+    </fields>
+    <fields>
+        <label><!-- Released to Sales --></label>
+        <name>Released_to_Sales__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reprioritized Needed By Date --></label>
+        <name>Reprioritized_Needed_By_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Roll Call Date --></label>
+        <name>Roll_Call_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rush Reasons --></label>
+        <name>Rush_Reasons__c</name>
+        <picklistValues>
+            <masterLabel>Client Needs ASAP</masterLabel>
+            <translation><!-- Client Needs ASAP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Client is Down</masterLabel>
+            <translation><!-- Client is Down --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Installers On Site</masterLabel>
+            <translation><!-- Installers On Site --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal Project</masterLabel>
+            <translation><!-- Internal Project --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NADA</masterLabel>
+            <translation><!-- NADA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Per VP/RGM</masterLabel>
+            <translation><!-- Per VP/RGM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales On Site</masterLabel>
+            <translation><!-- Sales On Site --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Rush --></label>
+        <name>Rush__c</name>
+    </fields>
+    <fields>
+        <help><!-- Central Time Zone (CST) --></help>
+        <label><!-- SCS Approved Date --></label>
+        <name>SCS_Approved_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- SCS Approver --></label>
+        <name>SCS_Approver__c</name>
+    </fields>
+    <fields>
+        <label><!-- SCS Envelope Sent --></label>
+        <name>SCS_Envelope_Sent__c</name>
+    </fields>
+    <fields>
+        <label><!-- SQT Created By --></label>
+        <name>SQT_Created_By__c</name>
+    </fields>
+    <fields>
+        <label><!-- SQT Created Date/Time --></label>
+        <name>SQT_Created_Date_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- SQT Deal ID --></label>
+        <name>SQT_Deal_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- SQT Deal Link --></label>
+        <name>SQT_Deal_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- SQT - Deal Requested --></label>
+        <name>SQT_Deal_Requested__c</name>
+    </fields>
+    <fields>
+        <label><!-- SQT Deal Version Number --></label>
+        <name>SQT_Deal_Version_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- SQT Status --></label>
+        <name>SQT_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sales Discovery --></label>
+        <name>Sales_Discovery__c</name>
+        <relationshipLabel><!-- Deal State --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Second SCS Notifications --></label>
+        <lookupFilter>
+            <errorMessage><!-- You can only add SCS user in Second SCS Notification Field --></errorMessage>
+        </lookupFilter>
+        <name>Second_SCS_Notifications__c</name>
+        <relationshipLabel><!-- Deal State (Second SCS Notifications) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Central Time Zone (CST) --></help>
+        <label><!-- Sent To Client Date --></label>
+        <name>Send_To_Client_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sent to Client - RTS --></label>
+        <name>Sent_to_Client_RTS__c</name>
+    </fields>
+    <fields>
+        <label><!-- ServiceEdge --></label>
+        <name>ServiceEdge__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shared System Addendum --></label>
+        <name>Shared_System_Addendum__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shared System Signer2 Name --></label>
+        <name>Shared_System_Signer2_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Central Time Zone (CST) --></help>
+        <label><!-- Shared System Signer2 Signed Date --></label>
+        <name>Shared_System_Signer2_Signed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shared System Signer2 Title --></label>
+        <name>Shared_System_Signer2_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shared System Signer Name --></label>
+        <name>Shared_System_Signer_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Central Time Zone (CST) --></help>
+        <label><!-- Shared System Signer Signed Date --></label>
+        <name>Shared_System_Signer_Signed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shared System Signer Title --></label>
+        <name>Shared_System_Signer_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client 1 Sign on Paper --></label>
+        <name>Signer1_Sign_on_Paper__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client 2 Sign on Paper --></label>
+        <name>Signer2_Sign_on_Paper__c</name>
+    </fields>
+    <fields>
+        <label><!-- Solution Design E-Mailed to PSE --></label>
+        <name>Solution_Design_E_Mailed_to_PSE__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please specify dealership area for install, i.e., Business Office, Parts Front Counter, Service Advisor Write Up Station, etc. --></help>
+        <label><!-- Specific Dealership Install Location --></label>
+        <name>Specific_Dealership_Install_Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- TSM Email --></label>
+        <name>TSM_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Technology Solutions Manager --></label>
+        <name>Technology_Solutions_Manager__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Monthlies --></label>
+        <name>Total_Monthlies__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total One-Times --></label>
+        <name>Total_One_Times__c</name>
+    </fields>
+    <fields>
+        <label><!-- Uncompleted Changes --></label>
+        <name>Uncompleted_Changes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Uncompleted Network Deal Changes --></label>
+        <name>Uncompleted_Network_Deal_Changes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Uncompleted Rush Changes --></label>
+        <name>Uncompleted_Rush_Changes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Uncompleted SOW Deal Changes --></label>
+        <name>Uncompleted_SOW_Deal_Changes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Uncompleted Sales Deal Changes --></label>
+        <name>Uncompleted_Sales_Deal_Changes__c</name>
+    </fields>
+    <fields>
+        <label><!-- VP Email --></label>
+        <name>VP_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vehicle Xchange Data Consent (Signer2) --></label>
+        <name>Vehicle_Xchange_Data_Consent_Signer2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vehicle Xchange Data Consent (Signer1) --></label>
+        <name>Vehicle_Xchange_Data_Consent__c</name>
+    </fields>
+    <fields>
+        <label><!-- 3PA --></label>
+        <name>X3PA__c</name>
+    </fields>
+    <layouts>
+        <layout>Deal State Layout</layout>
+        <sections>
+            <label><!-- Client Data Consent --></label>
+            <section>Client Data Consent</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Debugging --></label>
+            <section>Debugging</section>
+        </sections>
+        <sections>
+            <label><!-- Docusign Signers --></label>
+            <section>Docusign Signers</section>
+        </sections>
+        <sections>
+            <label><!-- E-Signature Info --></label>
+            <section>E-Signature Info</section>
+        </sections>
+        <sections>
+            <label><!-- New Deal --></label>
+            <section>New Deal</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Opportunity Information --></label>
+            <section>Opportunity Information</section>
+        </sections>
+        <sections>
+            <label><!-- PSE --></label>
+            <section>PSE</section>
+        </sections>
+        <sections>
+            <label><!-- SQT Status Info --></label>
+            <section>SQT Status Info</section>
+        </sections>
+        <sections>
+            <label><!-- Uncompleted Items --></label>
+            <section>Uncompleted Items</section>
+        </sections>
+        <sections>
+            <label><!-- Uploads --></label>
+            <section>Uploads</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Deal State Layout BDC</layout>
+        <sections>
+            <label><!-- Client Data Consent --></label>
+            <section>Client Data Consent</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Debugging --></label>
+            <section>Debugging</section>
+        </sections>
+        <sections>
+            <label><!-- Docusign Signers --></label>
+            <section>Docusign Signers</section>
+        </sections>
+        <sections>
+            <label><!-- E-Signature Info --></label>
+            <section>E-Signature Info</section>
+        </sections>
+        <sections>
+            <label><!-- New Deal --></label>
+            <section>New Deal</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Opportunity Information --></label>
+            <section>Opportunity Information</section>
+        </sections>
+        <sections>
+            <label><!-- PSE --></label>
+            <section>PSE</section>
+        </sections>
+        <sections>
+            <label><!-- SQT Status Info --></label>
+            <section>SQT Status Info</section>
+        </sections>
+        <sections>
+            <label><!-- Uncompleted Items --></label>
+            <section>Uncompleted Items</section>
+        </sections>
+        <sections>
+            <label><!-- Uploads --></label>
+            <section>Uploads</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Deal Change Request --></label>
+        <name>BDC_Deal_Change_Request</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Deal Change Request --></label>
+        <name>Implementation_Deal_Change_Request</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Deal Change Request --></label>
+        <name>Sales_Deal_Change_Request</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Show Notes and Attachments --></label>
+        <name>ShowNotesandAttachments</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- Contract Sigining --></label>
+        <name>Contract_Sigining</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You can not change the Opportunity once selected --></errorMessage>
+        <name>DS_BDC_Check_Opportunity_Change</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Contract Needed By Date should be greater then or equal to today&apos;s date. --></errorMessage>
+        <name>DS_BDC_ContractNeededByDate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please Provide a Reason for Rush --></errorMessage>
+        <name>DS_BDC_Rush_Reason_Req</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please select Rush as Rush Reason is selected --></errorMessage>
+        <name>DS_BDC_Rush_Req</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter a value in Exception Contract # Push --></errorMessage>
+        <name>DS_ExceptionContractPush_Validation</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- BDC_DocuSign --></label>
+        <name>BDC_DocuSign</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Create_Deal --></label>
+        <name>Create_Deal</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- View_Attachments --></label>
+        <name>View_Attachments</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>eCas History</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>eCas History</value>
+    </caseValues>
+    <fields>
+        <label><!-- Call Duration in Minutes --></label>
+        <name>Call_Duration_in_Minutes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dials --></label>
+        <name>Dials__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead Gen Rep --></label>
+        <name>Lead_Gen_Rep__c</name>
+        <relationshipLabel><!-- eCas History --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>eCas History Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

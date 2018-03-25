@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Discovery Answer</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Discovery Answers</value>
+    </caseValues>
+    <fields>
+        <label><!-- Answer_Type --></label>
+        <name>Answer_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Any Answer --></label>
+        <name>Any_Answer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Checkbox Answer --></label>
+        <name>Checkbox_Answer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cloneable? --></label>
+        <name>Cloneable__c</name>
+    </fields>
+    <fields>
+        <label><!-- Currency Answer --></label>
+        <name>Currency_Answer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Answer --></label>
+        <name>Date_Answer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Discovery Site Workbook --></label>
+        <name>Discovery_Site_Workbook__c</name>
+        <relationshipLabel><!-- Discovery Answers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Migration_ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- MultiSelect Picklist Answer --></label>
+        <name>MultiSelect_Picklist_Answer__c</name>
+    </fields>
+    <fields>
+        <label><!-- N/A --></label>
+        <name>N_A__c</name>
+    </fields>
+    <fields>
+        <label><!-- No of Discovery Answer Wkbk Categories --></label>
+        <name>No_of_Discovery_Answer_Wkbk_Categories__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number Answer --></label>
+        <name>Number_Answer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Questions (In Category) --></label>
+        <name>Number_of_Questions_In_Category__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone Answer --></label>
+        <name>Phone_Answer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Picklist Answer --></label>
+        <name>Picklist_Answer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question Category --></label>
+        <name>Question_Category__c</name>
+    </fields>
+    <fields>
+        <label><!-- Question --></label>
+        <name>Question__c</name>
+        <relationshipLabel><!-- Discovery Answers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Text Answer --></label>
+        <name>Text_Answer__c</name>
+    </fields>
+    <fields>
+        <label><!-- URL Answer --></label>
+        <name>URL_Answer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Yes/No Answer --></label>
+        <name>YesNo_Answer__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Discovery Answer Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

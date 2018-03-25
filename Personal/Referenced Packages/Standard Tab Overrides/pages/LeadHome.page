@@ -1,0 +1,3 @@
+<apex:page standardController="Lead" extensions="SA_TABOVER.TabHomeController" recordSetVar="leads" action="{!initLeadPage}">
+	<apex:pageMessages />
+</apex:page>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Offer</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Offers</value>
+    </caseValues>
+    <fields>
+        <label><!-- Actual Salary --></label>
+        <name>Actual_Salary__c</name>
+    </fields>
+    <fields>
+        <label><!-- Additional Instructions --></label>
+        <name>Additional_Instructions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bonus Percentage --></label>
+        <name>Bonus_Percentage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Candidate Name --></label>
+        <name>Candidate_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job Application --></label>
+        <name>Job_Application__c</name>
+        <relationshipLabel><!-- Offers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Number of Offers --></label>
+        <name>Number_of_Offers__c</name>
+    </fields>
+    <fields>
+        <label><!-- Offer Date --></label>
+        <name>Offer_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Offer Expiration Date --></label>
+        <name>Offer_Expiration_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Position Name --></label>
+        <name>Position_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Accepted</masterLabel>
+            <translation><!-- Accepted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Declined</masterLabel>
+            <translation><!-- Declined --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Received</masterLabel>
+            <translation><!-- Received --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent</masterLabel>
+            <translation><!-- Sent --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Stock Options --></label>
+        <name>Stock_Options__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

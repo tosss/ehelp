@@ -1,0 +1,68 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false">
+    <!--Author: Anirudh Singh-->
+    <!--Description: This page is used to display CDK Stock Price.-->
+    <!--Created Date: 2015-08-17-->
+    
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.FontAwesome, '4.3.0/css/font-awesome.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.EMP_StockTicker_CSS)}"/>
+    
+    <script type="text/javascript">
+        jQuery(document).ready(
+            function()
+            {
+                fetchStockData();
+                setInterval(function()
+                {
+                    fetchStockData();
+                }, 300000);
+            }
+        );
+        
+        function fetchStockData()
+        {
+            jQuery.ajax({
+                url: 'https://finance.google.com/finance/info?client=ig&q=NASDAQ:CDK', 
+                success: function(response) 
+                {
+                    var processedResponse=response;
+                    
+                    jQuery('.company-name').html("CDK Global Inc.");
+                    jQuery('.header-price').html(processedResponse[0].l_cur + " USD");
+                    jQuery('.time').html("Last updated at " + processedResponse[0].lt);
+                    jQuery('.priceUpOrDown').html(processedResponse[0].c);
+                    
+                    var resultIsPositive = (processedResponse[0].c.indexOf("+")>-1) ? true : false;
+                    var previousValueIsPositive = (jQuery('.priceUpOrDown').html().indexOf("+")>-1) ? true : false;
+                    
+                    if(resultIsPositive)
+                    {
+                        jQuery('.priceUpOrDownPercentage').html('(+'+processedResponse[0].cp+'%)');
+                        jQuery('.arrow').removeClass('negative fa-arrow-down');
+                        jQuery('.arrow').addClass('positive fa-arrow-up');
+                        jQuery('.priceUpOrDown').addClass('positive');
+                        jQuery('.priceUpOrDownPercentage').addClass('positive');
+                    }
+                    else
+                    {
+                        jQuery('.priceUpOrDownPercentage').html('('+processedResponse[0].cp+'%)');
+                        jQuery('.arrow').removeClass('positive fa-arrow-up');
+                        jQuery('.arrow').addClass('negative fa-arrow-down');
+                        jQuery('.priceUpOrDown').addClass('negative');
+                        jQuery('.priceUpOrDownPercentage').addClass('negative');
+                    }
+                },
+                error: function(){ },
+                dataType: 'jsonp'
+            });
+        }
+    </script>
+
+        <div class="stockTickerContainer">
+            <i class="fa arrow"></i>
+            <a href="http://www.nasdaq.com/symbol/cdk" target="_blank"><span class="company-name" ></span></a>
+            <span class="header-price"></span>&nbsp;<span class="priceUpOrDown bold-text"></span>&nbsp;<span class="priceUpOrDownPercentage bold-text"></span><br/>
+            <span class="time"></span>
+        </div>
+
+</apex:page>

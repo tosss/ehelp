@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Used by Laser group to log billing for clients</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>ACT_Create_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>ACT Create Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ACT_Modified_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>ACT Modified Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>C__c</fullName>
+        <externalId>false</externalId>
+        <label>C#</label>
+        <length>7</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case__c</fullName>
+        <externalId>false</externalId>
+        <label>Case</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Client_Notified_ADP__c</fullName>
+        <externalId>false</externalId>
+        <label>Client Notified ADP</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Lines_Called_a_Loss__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Lines Called a Loss</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DMS_not_Available__c</fullName>
+        <externalId>false</externalId>
+        <label>DMS not Available</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>LBT_Notified__c</fullName>
+        <externalId>false</externalId>
+        <label>LBT Notified</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Loss_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Loss Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Loss_Reason__c</fullName>
+        <description>Loss Reason</description>
+        <externalId>false</externalId>
+        <label>Loss Reason</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Competitive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Out of Business</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Loss_Type__c</fullName>
+        <description>Loss Type</description>
+        <externalId>false</externalId>
+        <label>Loss Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Maintenance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Site</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>System</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Migration_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Migration ID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Modifier_Table__c</fullName>
+        <description>The purpose is to indicate which Oracle table a given Ship-to CMF is tied to due to “exceptions” in certain billing models.</description>
+        <externalId>false</externalId>
+        <label>Modifier Table</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Printers_Contracted__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Printers Contracted</label>
+        <length>5</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Printers_Returned__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Printers Returned</label>
+        <length>5</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Printers_to_be_Returned__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Printers to be Returned</label>
+        <length>5</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Paper_Toner_Notified__c</fullName>
+        <description>Paper/Toner Notified</description>
+        <externalId>false</externalId>
+        <label>Paper/Toner Notified</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Pick_up_ETA__c</fullName>
+        <externalId>false</externalId>
+        <label>Pick-up ETA</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Poller_CMF__c</fullName>
+        <externalId>false</externalId>
+        <label>Poller CMF#</label>
+        <length>8</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Poller_Profiles_Deleted__c</fullName>
+        <externalId>false</externalId>
+        <label>Poller Profiles Deleted</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Poller_Records_Updated_Verified__c</fullName>
+        <description>Poller Records Updated/Verified</description>
+        <externalId>false</externalId>
+        <label>Poller Records Updated/Verified</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>RMA_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>RMA Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>RMA__c</fullName>
+        <externalId>false</externalId>
+        <label>RMA#</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Returned_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Returned Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SLF_Deleted__c</fullName>
+        <externalId>false</externalId>
+        <label>SLF Deleted</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Ship_To_CMF_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Ship-To CMF Name</description>
+        <externalId>false</externalId>
+        <label>Ship-To CMF Name</label>
+        <referenceTo>CMF_Info__c</referenceTo>
+        <relationshipLabel>Laser Billing Info</relationshipLabel>
+        <relationshipName>R00N40000001m7zIEAQ</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Ship_To_CMF__c</fullName>
+        <description>Ship-To CMF</description>
+        <externalId>false</externalId>
+        <formula>Ship_To_CMF_Name__r.Ship_CMF__c</formula>
+        <label>Ship-To CMF</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Need to review</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending Contract Loss</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending SSM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pick Up Requested</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pick Up Scheduled/RMA Issued</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Waiting on AR Specialist</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Waiting on Client</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Updated_Verified_by__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>LBT users only</description>
+        <externalId>false</externalId>
+        <inlineHelpText>You can only search for LBT users.</inlineHelpText>
+        <label>Updated/Verified by</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 OR 2</booleanFilter>
+            <errorMessage>You can only search for LBT users.</errorMessage>
+            <filterItems>
+                <field>User.Profile.Name</field>
+                <operation>equals</operation>
+                <value>ADPDS - Laser - LBT</value>
+            </filterItems>
+            <filterItems>
+                <field>User.Profile.Name</field>
+                <operation>equals</operation>
+                <value>ADPDS - Laser Admn</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Laser_Billing_Info</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Laser Billing Info</label>
+    <listViews>
+        <fullName>All_Laser_Billing_Info</fullName>
+        <columns>NAME</columns>
+        <columns>Ship_To_CMF_Name__c</columns>
+        <columns>C__c</columns>
+        <columns>Poller_CMF__c</columns>
+        <columns>Poller_Records_Updated_Verified__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Laser Billing Info</label>
+    </listViews>
+    <nameField>
+        <displayFormat>LBI -{00000}</displayFormat>
+        <label>Billing Info</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Laser Billing Info</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Poller_CMF__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>C__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Poller_Records_Updated_Verified__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Poller_CMF__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>C__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Poller_Records_Updated_Verified__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Poller_CMF__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>C__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Poller_Records_Updated_Verified__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Poller_CMF__c</searchFilterFields>
+        <searchFilterFields>C__c</searchFilterFields>
+        <searchFilterFields>Poller_Records_Updated_Verified__c</searchFilterFields>
+        <searchResultsAdditionalFields>Poller_CMF__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>C__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Poller_Records_Updated_Verified__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Append_a_C</fullName>
+        <active>false</active>
+        <description>C# must start with a &quot;C&quot;</description>
+        <errorConditionFormula>NOT(  OR( REGEX( C__c , &quot;[C]{1}[0-9]{6}&quot; ), 
+REGEX(C__c , &quot;[c]{1}[0-9]{6}&quot;),
+REGEX(C__c , &quot;[C]{1}[0-9]{5}&quot;),
+REGEX(C__c , &quot;[c]{1}[0-9]{5}&quot;),
+REGEX(C__c , &quot;[C]{1}[0-9]{4}&quot;),
+REGEX(C__c , &quot;[c]{1}[0-9]{4}&quot;),
+REGEX(C__c , &quot;[c]{1}[0-9]{3}&quot;),
+REGEX(C__c , &quot;[C]{1}[0-9]{3}&quot;),
+REGEX(C__c , &quot;[c]{1}[0-9]{2}&quot;),
+REGEX(C__c , &quot;[C]{1}[0-9]{2}&quot;),
+REGEX(C__c , &quot;[c]{1}[0-9]{1}&quot;),
+REGEX(C__c , &quot;[C]{1}[0-9]{1}&quot;)))</errorConditionFormula>
+        <errorDisplayField>C__c</errorDisplayField>
+        <errorMessage>The entry must start with the letter C</errorMessage>
+    </validationRules>
+</CustomObject>

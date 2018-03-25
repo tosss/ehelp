@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>OEM District Member</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>OEM District Members</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account Plan --></label>
+        <lookupFilter>
+            <errorMessage><!-- Please select an Account Plan that is associated to the listed WebId --></errorMessage>
+        </lookupFilter>
+        <name>CB_Account_Plan__c</name>
+        <relationshipLabel><!-- OEM District Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Account --></label>
+        <name>CB_Account__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealer Group Name --></label>
+        <name>CB_Dealer_Group_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- District Manager After Sales --></label>
+        <name>CB_District_Manager_After_Sales__c</name>
+    </fields>
+    <fields>
+        <label><!-- District Manager --></label>
+        <name>CB_District_Manager__c</name>
+    </fields>
+    <fields>
+        <label><!-- District Owner --></label>
+        <name>CB_District_Owner__c</name>
+    </fields>
+    <fields>
+        <label><!-- OEM District Name --></label>
+        <name>CB_OEM_District_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- OEM District --></label>
+        <name>CB_OEM_District__c</name>
+        <relationshipLabel><!-- OEM District Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- If checked then this is the primary district for the listed account. --></help>
+        <label><!-- Primary District --></label>
+        <name>CB_Primary_District__c</name>
+    </fields>
+    <fields>
+        <label><!-- AP Owner --></label>
+        <name>CB_SVC_AP_Owner__c</name>
+    </fields>
+    <fields>
+        <label><!-- WebID --></label>
+        <name>CB_WebId__c</name>
+        <relationshipLabel><!-- OEM District Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Zone Manager After Sales --></label>
+        <name>CB_Zone_Manager_After_Sales__c</name>
+    </fields>
+    <fields>
+        <label><!-- Zone Manager --></label>
+        <name>CB_Zone_Manager__c</name>
+    </fields>
+    <layouts>
+        <layout>OEM District Member Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

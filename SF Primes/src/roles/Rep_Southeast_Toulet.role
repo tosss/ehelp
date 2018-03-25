@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Read</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>Rep - SOUTH - Toulet</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Rep - SOUTH - Toulet</name>
+    <opportunityAccessLevel>Read</opportunityAccessLevel>
+    <parentRole>DOS_Southeast_Christian_Toulet</parentRole>
+</Role>

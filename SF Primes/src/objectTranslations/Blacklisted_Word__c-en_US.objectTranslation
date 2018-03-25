@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Blacklisted Word</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Blacklisted Words</value>
+    </caseValues>
+    <fields>
+        <label><!-- Add to Compliance Audit --></label>
+        <name>Add_to_Compliance_Audit__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter your own regular expression here. Setting this value to blank out the word field.
+Don&apos;t forget to add \b at the start and end if you want to match on a whole word! --></help>
+        <label><!-- Custom Expression --></label>
+        <name>Custom_Expression__c</name>
+    </fields>
+    <fields>
+        <label><!-- Match Whole Words Only --></label>
+        <name>Match_Whole_Words_Only__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prevent Post on Breach --></label>
+        <name>Prevent_Post_on_Breach__c</name>
+    </fields>
+    <fields>
+        <label><!-- RegexValue --></label>
+        <name>RegexValue__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter a short description of the blacklist word, phrase or expression. Particularly useful add when describing a custom expression. --></help>
+        <label><!-- Short Description --></label>
+        <name>Short_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Short Notes --></label>
+        <name>Short_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Substitution --></label>
+        <name>Substitution__c</name>
+    </fields>
+    <fields>
+        <label><!-- Word or Phrase --></label>
+        <name>Word_or_Phrase__c</name>
+    </fields>
+    <fields>
+        <label><!-- is Active --></label>
+        <name>is_Active__c</name>
+    </fields>
+    <layouts>
+        <layout>Blacklisted Word Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Calculator</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Calculators</value>
+    </caseValues>
+    <fields>
+        <label><!-- First Number --></label>
+        <name>First_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- MultiSample --></label>
+        <name>MultiSample__c</name>
+        <picklistValues>
+            <masterLabel>Abc</masterLabel>
+            <translation><!-- Abc --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Def</masterLabel>
+            <translation><!-- Def --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ghi</masterLabel>
+            <translation><!-- Ghi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jkl</masterLabel>
+            <translation><!-- Jkl --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mno</masterLabel>
+            <translation><!-- Mno --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pqr</masterLabel>
+            <translation><!-- Pqr --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stu</masterLabel>
+            <translation><!-- Stu --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Result --></label>
+        <name>Result__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sample --></label>
+        <name>Sample__c</name>
+    </fields>
+    <fields>
+        <label><!-- Second Number --></label>
+        <name>Second_Number__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

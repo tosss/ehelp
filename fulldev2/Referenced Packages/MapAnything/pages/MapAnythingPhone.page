@@ -1,0 +1,1602 @@
+<apex:page docType="html-5.0" controller="sma.MapAnythingPhone" standardStylesheets="false" showHeader="false" sidebar="false">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+        <title></title>
+
+        <apex:stylesheet value="{!URLFOR($Resource.sma__MAPhone, 'lib/ionic/css/ionic.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.sma__MAPhone, 'css/style.css')}"/>
+
+
+        <!-- ionic/angularjs js -->
+        <apex:includeScript value="{!URLFOR($Resource.sma__MAPhone, 'lib/ionic/js/ionic.bundle.js')}"/>
+
+        <!-- Google Maps -->
+        <script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?client=gme-cloudbiltinc&libraries=places,visualization,drawing,geometry'></script>
+
+        <!-- Google Maps - Spiderfy (https://github.com/jawj/OverlappingMarkerSpiderfier) -->
+        <script type='text/javascript' src="{!URLFOR($Resource.MapAnything, 'js/google/overlappingmarkerspiderfier/oms.min.js')}"></script>
+
+        <!-- JQUERY -->
+        <apex:includeScript value="{!URLFOR($Resource.sma__MAPhone, 'js/jquery-2.1.4.min.js')}"/>
+
+        <!-- Moment (date parsing) -->
+        <script src="{!URLFOR($Resource.MapAnything, 'js/moment.js')}" type="text/javascript"></script>
+
+        <!-- CryptoJS (https://code.google.com/p/crypto-js/) -->
+        <script type='text/javascript' src="{!URLFOR($Resource.MapAnything, 'js/google/cryptojs/core-min.js')}"></script>
+        <script type='text/javascript' src="{!URLFOR($Resource.MapAnything, 'js/google/cryptojs/enc-utf16-min.js')}"></script>
+        <script type='text/javascript' src="{!URLFOR($Resource.MapAnything, 'js/google/cryptojs/enc-base64-min.js')}"></script>
+
+    </head>
+
+
+    <apex:includeScript value="{!URLFOR($Resource.sma__MAPhone, 'js/MA.js')}"/>
+
+    <!-- IOS Salesfoce fix  https://success.salesforce.com/issues_view?id=a1p300000008Y6nAAE -->
+    <script> 
+    (function(){
+        try{
+            var a=navigator.userAgent; 
+            if((a.indexOf('Salesforce')!=-1)&&(a.indexOf('iPhone')!=-1||a.indexOf('iPad')!=-1)&&(a.indexOf('OS/8')!=-1||a.indexOf('OS 8')!=-1)&&(a.indexOf('Safari')==-1)){ 
+                var s=document.createElement('style'); 
+                s.innerHTML="html,html body{overflow: auto;-webkit-overflow-scrolling:touch;}body{position:absolute;left:0;right:0;top:0;bottom:0;}"; 
+                document.getElementsByTagName('head')[0].appendChild(s);
+            }
+            if((a.indexOf('Salesforce')!=-1)&&(a.indexOf('iPhone')!=-1||a.indexOf('iPad')!=-1)&&(a.indexOf('OS/9')!=-1||a.indexOf('OS 9')!=-1)&&(a.indexOf('Safari')==-1)){ 
+                var s=document.createElement('style'); 
+                s.innerHTML="html,html body{overflow: auto;-webkit-overflow-scrolling:touch;}body{position:absolute;left:0;right:0;top:0;bottom:0;}"; 
+                document.getElementsByTagName('head')[0].appendChild(s);
+            }
+        }catch(e){}})(); 
+    </script>
+
+    <script>
+        var $j = jQuery.noConflict();
+        var pageSuffix = '';
+        var userSettings = {};
+        var sitePrefix = '{!$Site.CurrentSiteUrl}'.substring(0, '{!$Site.CurrentSiteUrl}'.length - 1);
+        var namespace = '{!namespace}' == '' ? '' : '{!namespace}__';
+        var sforce = sforce || {};
+        MA.platform = ionic.Platform.platform();
+        //examples = ios,android,win32
+        MA.VisibleAreaEnabledMobileDefault = '{!VisibleAreaEnabledMobileDefault}' == 'false' ? false : true;
+        //assorted useful merge fields
+        MA.CurrentUser = { Id: '{!$User.Id}', Name: '{!JSENCODE($User.FirstName)} {!JSENCODE($User.LastName)}' };
+        MA.IsMobile = true;
+        MA.Namespace = '{!namespace}';
+        MA.comCurrency = '{!userCurrency}';
+        MA.SessionId = '{!$Api.Session_ID}';
+        MA.SecurityToken = '{!securityToken}';
+        MA.SitePrefix = sitePrefix;
+        //MA.SitePrefix: options.sitePrefix;
+
+        //used for client-specific access to the MA API
+        MA.APIKey = '{!APIKey}';
+
+        //formatting
+        MA.userLocale = '{!UserLocale}';
+        MA.dateFormat = '{!dateFormat}';
+        MA.timeFormat = '{!timeFormat}';
+        MA.dateTimeFormat = '{!dateTimeFormat}';
+
+        MA.images = {
+            staticQuery : "{!URLFOR($Resource.sma__MapAnything, 'images/nearby/static-legend-white.png')}",
+            dynamicQuery : "{!URLFOR($Resource.sma__MapAnything, 'images/nearby/dymanic-legend.png')}",
+            selectedMarker : "{!URLFOR($Resource.sma__MapAnything, '/images/nearby/pin_checked.png')}",
+            startFlag : "{!URLFOR($Resource.sma__Leaflet, 'images/route_start_angle.png')}",
+            endFlag : "{!URLFOR($Resource.sma__Leaflet, 'images/route_finish_angle.png')}",
+            myLocation : "{!URLFOR($Resource.sma__MapAnything, 'images/myLocation3.png')}"
+        };
+
+        MA.enabledFeatures = {
+            autoCheckOut : {!AutoCheckOutEnabled},
+            nearbyCheckin : {!nearbyCheckinEnabled}
+        };
+
+        MA.resources = {
+            'Admin'                 : sitePrefix + '/apex/'+namespace+'MAAdminAJAXResources',
+            'Analytics'             : sitePrefix + '/apex/'+namespace+'MAAnalyticsAJAXResources',
+            'BaseObjects'           : sitePrefix + '/apex/'+namespace+'MapAnythingBaseObjects',
+            'ChatterFeed'           : sitePrefix + '/apex/'+namespace+'ChatterFeed',
+            'DownloadRoute'         : sitePrefix + '/apex/'+namespace+'DownloadRoute',
+            'Email'                 : sitePrefix + '/apex/'+namespace+'MAEmailAJAXResources',
+            'Export'                : sitePrefix + '/apex/'+namespace+'MAExportAJAXResources',
+            'FavoriteLocations'     : sitePrefix + '/apex/'+namespace+'MAFavoriteLocationsAJAXResources',
+            'Click2Create'          : sitePrefix + '/apex/'+namespace+'ClickToCreateForm',
+            'CustomDisposition'     : sitePrefix + '/apex/'+namespace+'CustomDispositionForm',
+            'Geocode'               : sitePrefix + '/apex/'+namespace+'MAGeoCodeAJAXResources',
+            'GeocoderFrame'         : sitePrefix + '/apex/'+namespace+'GeocoderFrame',
+            'MA'                    : sitePrefix + '/apex/'+namespace+'MA',
+            'MapActions'            : sitePrefix + '/apex/'+namespace+'MapActions',
+            'MapAnything'           : sitePrefix + '/apex/'+namespace+'MapAnything',
+            'MissingAddressExport'  : sitePrefix + '/apex/'+namespace+'MapAnythingExportMissingAddresses',
+            'Nearby'                : sitePrefix + '/apex/'+namespace+'MANearbyAJAXResources',
+            'PrintEmailRoute'       : sitePrefix + '/apex/'+namespace+'PrintEmailRoute',
+            'Query'                 : sitePrefix + '/apex/'+namespace+'MASavedQueryAJAXResources',
+            'QueryBuilder'          : sitePrefix + '/apex/'+namespace+'EditQuery',
+            'QueryBuilderAPI'       : sitePrefix + '/apex/'+namespace+'QueryBuilderAPI',
+            'RelatedLists'          : sitePrefix + '/apex/'+namespace+'MAPopupRelatedListInformation',
+            'RouteCalendar'         : sitePrefix + '/apex/'+namespace+'RouteCalendar',
+            'RouteCalendarAPI'      : sitePrefix + '/apex/'+namespace+'RouteCalendarAJAXResources',
+            'Settings'              : sitePrefix + '/apex/'+namespace+'MapAnythingSettings',
+            'SFDCHome'              : sitePrefix + '/home/home.jsp',
+            'Territory'             : sitePrefix + '/apex/'+namespace+'MATerritoryAJAXResources',
+            'Tooltip'               : sitePrefix + '/apex/'+namespace+'MATooltipAJAXResources',
+            'Tree'                  : sitePrefix + '/apex/'+namespace+'MATreeAJAXResources',
+            'TreeXML'               : sitePrefix + '/apex/'+namespace+'MapAnythingTree2',
+            'TreeFolders'           : sitePrefix + '/apex/'+namespace+'MapAnythingTreeFolders',
+            'User'                  : sitePrefix + '/apex/'+namespace+'MAUserAJAXResources',
+            'VFPageProxy'           : sitePrefix + '/apex/'+namespace+'VFPageProxy',
+            'Waypoint'              : sitePrefix + '/apex/'+namespace+'MAWaypointAJAXResources',
+            'Weather'               : sitePrefix + '/apex/'+namespace+'WeatherAJAXResource',
+            'XMLDoc'                : sitePrefix + '/apex/'+namespace+'XMLDocumentAJAXResources'
+        };
+    
+        //static resources
+        MA.staticResources = {
+            'MapAnything' : sitePrefix + '/resource/'+namespace+'MapAnything'
+        };
+
+        MA.Analytics = {
+
+            track: function (type, options) {
+                //defaults
+                options = jQuery.extend({
+                    params: {},
+                    success: function () {}
+                }, options);
+                
+                //Add coded
+                if (type == 'queryrun' && '{!TotangoEnabled}' == 'true')
+                {
+                    try { totango.track("Plotted query", "MapAnything"); } catch(err) { }
+                }
+                //send request
+                jQuery.getJSON(MA.resources.Analytics, jQuery.extend(options.params || {}, { securityToken: '{!securityToken}', action: 'track', type: type, url: window.location.href }), function(response) {
+                    options.success(response);
+                });
+            }
+        }
+
+        $j(function () {
+            jQuery.browser = {};
+            jQuery.browser.mozilla = /mozilla/.test(navigator.userAgent.toLowerCase()) && !/webkit/.test(navigator.userAgent.toLowerCase());
+            jQuery.browser.webkit = /webkit/.test(navigator.userAgent.toLowerCase());
+            jQuery.browser.opera = /opera/.test(navigator.userAgent.toLowerCase());
+            jQuery.browser.msie = /msie/.test(navigator.userAgent.toLowerCase());
+
+            jQuery('#cancelFavorite').on('click',function() {
+                jQuery('#createFavPopup').hide();
+                jQuery('#createFavPopup .fav-name-input').val('')
+            });
+            jQuery('#positionErrorBtn').on('click',function() {
+                jQuery('#positionErr').hide();
+            });
+
+            //get checkin data
+            MA.CheckIn.getFields().then(function(res) {
+                //overwrite with options
+                MA.CheckIn.general = res.data;
+            });
+
+            /* Shape Manager */
+            MA.Map.ShapeManager = function () {
+                this.shapes = [];
+                this.latLngs = [];
+            };
+            jQuery.extend(MA.Map.ShapeManager.prototype, {
+                addLayer: function (layer) {
+                    if (layer instanceof google.maps.Data || layer instanceof google.maps.Data.Feature) {
+                        var me = this;
+                        function addGeometry (geometry) {
+                            switch (geometry.getType()) {
+                                case 'Polygon':
+                                    var shape = {
+                                        type: 'data',
+                                        boundary: new google.maps.Polygon({ paths: geometry.getAt(0).getArray() }),
+                                        holes: []
+                                    };
+                                    for (var i = 1; i < geometry.getLength(); i++) {
+                                        shape.holes.push(new google.maps.Polygon({ paths: geometry.getAt(i).getArray() }));
+                                    }
+                                    me.shapes.push(shape);
+
+                                break;
+                                case 'MultiPolygon':
+                                    geometry.getArray().forEach(function (g) { addGeometry(g); });
+                                break;
+                            }
+                        }
+
+                        //add the geometry for this feature (or each feature if this is a data layer)
+                        if (layer instanceof google.maps.Data) {
+                            layer.forEach(function (feature) {
+                                addGeometry(feature.getGeometry());
+                            });
+                        }
+                        else {
+                            addGeometry(layer.getGeometry());
+                        }
+                    }
+                    else if (layer instanceof google.maps.Circle) {
+                        this.shapes.push({ type: 'circle', boundary: layer });
+                    }
+                    else if (layer instanceof google.maps.Polygon) {
+                        this.shapes.push({ type: 'polygon', boundary: layer });
+                    }
+                    else if (layer instanceof google.maps.Rectangle) {
+                        this.shapes.push({ type: 'rectangle', boundary: layer });
+                    }
+                    else if (layer instanceof google.maps.LatLng) {
+                        this.latLngs.push(layer);
+                    }
+                    else {
+                        MA.log('Invalid layer type');
+                    }
+                    return this;
+                },
+                containsLatLng: function (latLng) {
+                    var inShapes = false;
+                    jQuery.each(this.shapes, function (i, shape) 
+                    {
+                        //check if the record falls within this boundary
+                        switch (shape.type) {
+                            case 'data':
+
+                                if (google.maps.geometry.poly.containsLocation(latLng, shape.boundary)) 
+                                {
+                                    //it does, so now check to make sure it doesn't fall within any of the holes
+                                    var inHole = false;
+                                    jQuery.each(shape.holes, function (i, hole) {
+                                        if (google.maps.geometry.poly.containsLocation(latLng, hole)) {
+                                            inHole = true;
+                                            return false;
+                                        }
+                                    });
+
+                                    //if it's not in a hole then this is a hit and we can include this record and move on
+                                    if (!inHole) {
+                                        inShapes = true;
+                                        return false;
+                                    }
+                                }
+
+                            break;
+                            case 'polygon':
+
+                                if (google.maps.geometry.poly.containsLocation(latLng, shape.boundary)) {
+                                    inShapes = true;
+                                }
+
+                            break;
+                            case 'rectangle':
+
+                                if (shape.boundary.getBounds().contains(latLng)) {
+                                    inShapes = true;
+                                }
+
+                            break;
+                            case 'circle':
+
+                                if (google.maps.geometry.spherical.computeDistanceBetween(latLng, shape.boundary.getCenter()) <= shape.boundary.getRadius()) {
+                                    inShapes = true;
+                                }
+
+                            break; 
+                        }
+                    });
+
+                    return inShapes;
+                },
+                hasShapes: function () {
+                    return this.shapes.length > 0;
+                },
+                getDistant: function (cpt, bl) {
+                    var vY = bl[1].lat() - bl[0].lat(), vX = bl[0].lng() - bl[1].lng();
+                    return (vX * (cpt.lat() - bl[0].lat()) + vY * (cpt.lng() - bl[0].lng()));
+                },
+                findMostDistantPointFromBaseLine: function (baseLine) {
+                    var maxD = 0, maxPt = null, newPoints = [], i, pt, d;
+                    for (i = this.latLngs.length - 1; i >= 0; i--) {
+                        pt = this.latLngs[i];
+                        d = this.getDistant(pt, baseLine);
+                        if (d > 0) {
+                            newPoints.push(pt);
+                        } else {
+                            continue;
+                        }
+
+                        if (d > maxD) {
+                            maxD = d;
+                            maxPt = pt;
+                        }
+                    }
+
+                    return { maxPoint: maxPt, newPoints: newPoints };
+                },
+                buildConvexHull: function (baseLine) {
+                    var convexHullBaseLines = [];
+                    var t = this.findMostDistantPointFromBaseLine(baseLine, this.latLngs);
+                    if (t.maxPoint) {
+                        convexHullBaseLines = convexHullBaseLines.concat(this.buildConvexHull([baseLine[0], t.maxPoint], t.newPoints));
+                        convexHullBaseLines = convexHullBaseLines.concat(this.buildConvexHull([t.maxPoint, baseLine[1]], t.newPoints));
+                        return convexHullBaseLines;
+                    }
+                    else {
+                        return [baseLine[0]];
+                    }
+                },
+                getConvexHull: function () {
+                    var maxLat = false, minLat = false, maxPt = null, minPt = null, i;
+                    for (i = this.latLngs.length - 1; i >= 0; i--) {
+                        var pt = this.latLngs[i];
+                        if (maxLat === false || pt.lat() > maxLat) {
+                            maxPt = pt;
+                            maxLat = pt.lat();
+                        }
+                        if (minLat === false || pt.lat() < minLat) {
+                            minPt = pt;
+                            minLat = pt.lat();
+                        }
+                    }
+                    return [].concat(this.buildConvexHull([minPt, maxPt]), this.buildConvexHull([maxPt, minPt]));
+                }
+            });
+            MA.Map.hitTestShapeMgr = new MA.Map.ShapeManager();
+
+            /* Label */
+            MA.Map.Label = function (options) {
+                this.setValues(options);
+
+                var span = this.span_ = document.createElement('span');
+                span.style.cssText = 'position: relative; left: 0%; top: 0px; white-space: nowrap; border: 0px; border-radius: 6px; color: #FFF; font-family:arial; font-weight:bold; padding: 5px 8px; background-color: #000; opacity: .75; filter: alpha(opacity=75); -ms-filter: "alpha(opacity=75)"; -khtml-opacity: .75; -moz-opacity: .75;';
+
+                var div = this.div_ = document.createElement('div');
+                div.appendChild(span);
+                div.style.cssText = 'position: absolute; z-index: 30; display: none; -webkit-transform: translateZ(0px);';
+
+                this.bindTo('position', options.bindPositionTo, 'position');
+            };
+            MA.Map.Label.prototype = jQuery.extend(new google.maps.OverlayView, {
+                onAdd: function () {
+                    var pane = this.getPanes().overlayLayer;
+                    pane.appendChild(this.div_);
+                    
+                    // Ensures the label is redrawn if the text or position is changed.
+                    var me = this;
+                    this.listeners_ = [
+                        google.maps.event.addListener(this, 'position_changed', function() { me.draw(); }),
+                        google.maps.event.addListener(this, 'text_changed', function() { me.draw(); })
+                    ];
+                },
+                onRemove: function () {
+                    this.div_.parentNode.removeChild(this.div_ );
+
+                    // Label is removed from the map, stop updating its position/text.
+                    for (var i = 0, I = this.listeners_.length; i < I; ++i) {
+                        google.maps.event.removeListener(this.listeners_[i]);
+                    }
+                },
+                draw: function () {
+                    var position = this.getProjection().fromLatLngToDivPixel(this.get('position'));
+
+                    var div = this.div_;
+                    div.style.left = position.x + 'px';
+                    div.style.top = position.y + 'px';
+                    div.style.display = 'block';
+
+                    this.span_.innerHTML = this.get('text').toString();
+                }
+            });
+
+            //track this page view
+            jQuery(function () {
+                MA.Analytics.track('pageview', {
+                    success: function (response) {
+                        try {
+                            var analyticsResponse = JSON.parse(response.message);
+                            if (parseFloat(analyticsResponse.currentVersion.number) > parseFloat(analyticsResponse.previousVersion.number)) {
+                                if (analyticsResponse.currentVersion.blog_url) {
+                                    jQuery('#notifications-topbanner-description').text(analyticsResponse.currentVersion.description || '');
+                                    jQuery('#notifications-topbanner-blogurl').attr('href', analyticsResponse.currentVersion.blog_url);
+                                    jQuery('#notifications-topbanner').slideDown();  
+                                }
+                            }
+                        }
+                        catch (err) {}
+                    }
+                });
+            });
+        });
+
+
+    </script>
+
+    <!-- NearBy -->
+    <apex:includeScript value="{!URLFOR($Resource.sma__MAPhone, 'js/app.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.sma__MAPhone, 'js/controllers.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.sma__MAPhone, 'js/services.js')}"/>
+
+    <!-- your app's js -->
+    <c:JSActionFramework />
+
+    <!-- Clusters -->
+    <script>var clusterPrefix = MA.SitePrefix;</script>
+    <script type='text/javascript' src="{!URLFOR($Resource.MapAnything, 'js/google/markerclustererplus/markerclusterer.js')}"></script>
+    <script type='text/javascript' src="{!URLFOR($Resource.MAPhone, 'js/styledIcons.js')}"></script>
+
+    <body ng-app="MapAnythingPhone">
+        
+        <ion-nav-view>
+            <div id="splashScreen">
+                <span style="display: inline-block; height: 100%; vertical-align: middle;"></span>
+                <img class='loading-img' src="{! URLFOR($Resource.MapAnything, 'MapAnything_logo_large.png') }" />
+            </div>
+        </ion-nav-view>
+
+        <!-- TEMPLATES -->
+
+        <!-- SIDEBAR -->
+        <script id="templates/menu.html" type="text/ng-template">
+            <ion-side-menus enable-menu-with-back-views="true">
+              <ion-side-menu-content>
+                <ion-nav-bar align-title="left" class="bar-positive">
+
+                  <ion-nav-buttons side="left">
+                    <button ng-click="goBack()" id="folder-back-button" class="button button-icon button-clear no-animation ion-android-arrow-back">
+                    </button>
+                  </ion-nav-buttons>
+
+                </ion-nav-bar>
+                <ion-nav-view name="menuContent"></ion-nav-view>
+              </ion-side-menu-content>
+
+              <ion-side-menu side="left" id="ma-menu">
+                <ion-header-bar class="bar-positive ma-header">
+                  <div id="mapanything-logo">
+                    <img src="{! URLFOR($Resource.MapAnything, 'mapAnythingSettingsLogo.png') }" />
+                  </div>
+                </ion-header-bar>
+                <ion-content class='side-menu-content' style="border-bottom: none;">
+                  <ion-list>
+                    <ion-item nav-clear menu-close class="sideMenuSelect map item-icon-left" ng-click="navigateSideBar('map')">
+                      <i class="icon icon-med icon-gray ion-map"></i>
+                      Map
+                    </ion-item>
+                    <ion-item nav-clear menu-close class="sideMenuSelect selectQuery item-icon-left" ng-click="navigateSideBar('selectQuery')">
+                      <i class="icon icon-med icon-gray ion-social-buffer"></i>
+                      Layers
+                    </ion-item>
+                    <ion-item nav-clear menu-close class="sideMenuSelect routesView item-icon-left" ng-click="navigateSideBar('routesView')">
+                      <i class="icon icon-med icon-gray ion-android-car"></i>
+                      Routes
+                    </ion-item>
+                    <ion-item nav-clear menu-close class="sideMenuSelect listView item-icon-left" ng-click="navigateSideBar('listView')">
+                      <i class="icon icon-med icon-gray ion-android-list"></i>
+                      List Results
+                    </ion-item>
+                    <ion-item nav-clear class="item-divider">
+                      More Options
+                    </ion-item>
+                    <ion-item ng-show="true" ng-click="zoomToFit()" nav-clear menu-close class="more-info-item">
+                        Zoom To Fit
+                    </ion-item>
+                    <ion-item ng-show="true" ng-click="navigateSideBar('legendView')" nav-clear menu-close class="more-info-item">
+                        Show Legend
+                    </ion-item>
+                    <ion-item ng-click="navigateSideBar('proxOptions')" nav-clear menu-close class="more-info-item">
+                        Proximity Options
+                        <span class="item-note">
+                          <i ng-show="proxEnabled" style="color: #387EF5;" class="icon ion-android-done"></i>
+                        </span>
+                    </ion-item>
+                    <ion-item ng-show="true" ng-click="navigateSideBar('plottedLayersView')" nav-clear menu-close class="more-info-item">
+                        Selected Layers
+                        <span style="color: #387EF5;" id="queryTotals" class="item-note">
+                            {{totalSelections}}
+                        </span>
+                    </ion-item>
+                    <ion-item ng-show="true" ng-click="viewCurrentRoute()" nav-clear menu-close class="more-info-item">
+                        Current Route
+                    </ion-item>
+                  </ion-list>
+                </ion-content>
+                <ion-footer-bar style="border-top-width: 0px;">
+                    <button style="padding: 2px 25px;" nav-clear ng-click="navigateSideBar('settingsTabs')" menu-close class="button pull-right button-dark button-clear">
+                        Settings
+                    </button>
+                </ion-footer-bar>
+              </ion-side-menu>
+            </ion-side-menus>
+        </script>
+
+        <!-- Custom Disposition -->
+        <script id="templates/customDispostion.html" type="text/ng-template">
+            <ion-view cache-view="false" align-title="left" view-title="Custom Disposition" id="customDis-wrapper" class="fsWrapper">
+                <ion-content has-bouncing="true">
+                    <div class="fSetOverWrite">
+                        <div style="padding:10px;"><label>Fill in the fields below</label></div>
+                        <ul id='customDis-fieldset-errors'></ul>
+                        <div id='customDis-fieldset'></div>
+                    </div>
+
+                    <div class="bar" style="margin-top: 40px;border: none !important;border-bottom: 1px solid white !important;width: 90%;margin: 40px auto;">
+                        <button ng-click="cancelDisposition()" class="button button-stable" style="width: 40%;">Cancel</button>
+                        <button ng-click="saveDisposition()" class="button button-positive" style="width: 40%;">Finish</button>
+                    </div>
+                </ion-content>
+            </ion-view>
+        </script>
+
+        <!-- Click 2 Create -->
+        <script id="templates/click2Create.html" type="text/ng-template">
+            <ion-view cache-view="false" align-title="left" view-title="Click 2 Create" id="createRec-wrapper" class="fsWrapper">
+                <ion-content has-bouncing="true">
+                    <!-- Step 1 -->
+                    <div ng-hide="options.showStep2" id='createrecord-step1' class='createrecord-step list'>
+                        <div class="item item-divider testAfter">Step 1</div>
+                        <div class='createrecord-formitem item item-input item-select'>
+                            <div class="input-label item-text-wrap">
+                                What would you like to create?
+                            </div>
+                            <select style="width: 60%;max-width:60%;" ng-change="CreateRecord_Object_Change(options.recordType)" ng-options="opt as opt.label for opt in options.typeSelection" id="createrecord-object" ng-model="options.recordType"></select>
+                        </div>
+                        <div ng-show="options.showMore" class='createrecord-formitem item item-input item-select'>
+                            <div class="input-label item-text-wrap">
+                                Select a record type:
+                            </div>
+                            <select id="createrecord-recordtype" style="width: 60%;max-width:60%;" ng-options="opt as opt.label for opt in options.subSelection" ng-model="options.subSelect"></select>
+                        </div>
+                        <div class="bar" style="margin-top: 40px;border: none !important;border-bottom: 1px solid white !important;width: 90%;margin: 40px auto;">
+                            <button ng-click="cancelClick2Create()" class="button button-stable" style="width: 40%;">Cancel</button>
+                            <button ng-click="CreateRecord_Step1_Continue()" class="button button-positive" style="width: 40%;">Continue</button>
+                        </div>
+                    </div>
+                    <div ng-show="options.showStep2">
+                        <div id='createrecord-step2' class='createrecord-step list fSetOverWrite'>
+                            <div class="item item-divider testAfter">Step 2</div>
+                            <div>
+                                <div style="padding:10px;"><label>Fill in the fields below</label></div>
+                                <ul id='createrecord-fieldset-errors'></ul>
+                                <div id='createrecord-fieldset'></div>
+                            </div>
+                        </div>
+                        <div class="bar" style="margin-top: 40px;border: none !important;border-bottom: 1px solid white !important;width: 90%;margin: 40px auto;">
+                            <button ng-click="cancelClick2Create()" class="button button-stable" style="width: 40%;">Cancel</button>
+                            <button ng-click="CreateRecord_Step2_Continue()" class="button button-positive" style="width: 40%;">Finish</button>
+                        </div>
+                    </div>
+                </ion-content>
+            </ion-view>
+        </script>
+
+        <!-- Waypoint View -->
+        <script id="templates/waypointView.html" type="text/ng-template">
+            <ion-view cache-view="false" style="border-bottom: 1px solid #387EF5;" align-title="left" view-title="{{waypoint.Name}}" id="route-wrapper">
+                <ion-header-bar class="bar-subheader bar-positive">
+                    <div style="line-height:44px; padding: 0 20px;">Waypoint</div>
+                </ion-header-bar>
+                <ion-content class="has-subheader" has-bouncing="true">
+                    <div class="action-buttons-wrapper" style="display:block;">
+                        <div class="row">
+                            <div class="col route-nav" ng-click="navigateGPS(waypoint)">
+                                <div><div><i class="icon ion-android-navigate"></i></div><div class="action-text">NAVIGATE</div></div>
+                            </div>
+                            <div ng-class="{'checkIn-disabled' : !checkinSettings.nearbyCheckin}" class="col rec-checkin" ng-click="checkIn(waypoint)">
+                                <div><div><i class="icon ion-android-done"></i></div><div class="action-text">CHECK IN</div></div>
+                            </div>
+                            <div class="col rec-remove" ng-click="removeWaypoint(waypoint)">
+                                <div><div><i class="icon ion-android-close"></i></div><div class="action-text">REMOVE WAYPOINT</div></div>
+                            </div>
+                            <div ng-show="waypoint.sma__LinkId__c != null" class="col" ng-click="navigateToRecord(waypoint.sma__LinkId__c)">
+                                <div><div><i class="icon ion-android-document"></i></div><div class="action-text">VIEW RECORD</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="list general-info-wrapper" style="margin-bottom:0px;">
+                        <a class="item item-text-wrap item-icon-left" style="background: white; border-bottom: none;">
+                            <i class="icon icon-med icon-gray ion-android-pin"></i>
+                            {{waypoint.sma__Address__c}}
+                        </a>
+                        <a ng-show="waypoint.sma__LinkId__c == null" class="item item-text-wrap" style="background: white; border-bottom: none;">
+                            <p>***This is a manually entered waypoint. Click a waypoint that is tied to a record for more options.</p>
+                        </a>
+                    </ul>
+                    <ul ng-if="waypoint.timeBased" class="list no-margin tooltip-info">
+                        <li class="item item-divider">Time Based Options</li>
+                        <li class="item item-input item-select">
+                            <div class="input-label" style="width: 30%;">
+                                Start Time
+                            </div>
+                            <select style="width: 70%;max-width:70%;" ng-change="updateWaypoint({start:waypointStart})" class='wayStart' ng-options="opt as opt.label for opt in timeOptions" ng-model="waypointStart"></select>
+                        </li>
+                        <li class="item item-input item-select">
+                            <div class="input-label" style="width: 30%;">
+                                Duration
+                            </div>
+                            <select style="width: 70%;max-width:70%;" ng-change="updateWaypoint({duration:waypointDuration})" class='wayDuration' ng-options="opt as opt.label for opt in durationOptions" ng-model="waypointDuration"></select>
+                        </li>
+                    </ul>
+                    <ul class="list tooltip-info">
+                        <a class="item item-divider">More Info</a>
+                        <a ng-show="waypoint.sma__LinkId__c != null" class="item">
+                            <h2>Record Type</h2>
+                            <p>{{waypoint.sma__BaseObject__c | objectName}}</p>
+                        </a>
+                        <label class="item item-input item-stacked-label">
+                            <span class="input-label">Notes</span>
+                            <textarea rows="2" ng-model="waypoint.sma__Notes__c" value="{{waypoint.sma__Notes__c}}" placeholder="Notes"></textarea>
+                        </label>
+                        <a class="item" ng-repeat="tt in waypoint.tooltips">
+                            <h2>{{tt.label}}</h2>
+                            <p>{{tt.value}}</p>
+                        </a>
+                    </ul>
+                </ion-content>
+            </ion-view>
+        </script>
+
+        <!-- Current Route View -->
+        <script id="templates/currentRouteView.html" type="text/ng-template">
+            <ion-view hide-nav-bar="true" style="border-bottom: 1px solid #387EF5;" cache-view="false" align-title="left" view-title="{{currentRoute.Name}}" id="currentRoute-wrapper">
+                <ion-header-bar class="bar bar-header item-input-inset bar-positive">
+                    <a ng-click="goToMap()" style="margin-right:5px;" class="button icon-left button-icon icon ion-android-arrow-back"></a>
+                    <label class="item-input-wrapper">
+                        <input type="text" placeholder="Enter A Route Name..." id="currentRte-name" ng-model="currentRoute.Name" value="{{currentRoute.Name}}"/>
+                    </label>
+                </ion-header-bar>
+                <ion-header-bar class="bar-subheader bar-positive route-info route-date " ng-class="{'routePlotted' : currentRoute.plotted}" ng-class="{'timeBased' : currentRoute.timeBased}">
+                    <div style="width: 48%; float: left;" class="inline data-date" data-date="{{currentRoute.sma__Date__c}}">
+                        <label class="item blue-input item-input currentRte-input" style="padding: 0px; height: 38px;">
+                            <i class="icon ion-edit" style="margin-right: 5px;"></i>
+                            <input ng-change="updateDate(currentRoute.saveDate);" ng-model="currentRoute.saveDate" type="date" id="currentRte-date" class="blue-input" style="padding: 0px; height: 38px;line-height: 38px;">
+                        </label>
+                    </div>
+                    <div style="width: 48%; text-align: right;" class="float-right data-time inline" data-time="{{currentRoute.startTime}}" data-end="{{currentRoute.endTime}}"  ng-show="currentRoute.timeBased">{{currentRoute.startTime}} - {{currentRoute.endTime}}</div>
+                    <div style="width: 48%; text-align: right;" class="float-right" ng-show="currentRoute.plotted">{{currentRoute.routeSummary}}</div>
+                </ion-header-bar>
+                <ion-content class="has-subheader" has-bouncing="true">
+                    <div ng-show="currentRoute != null" class="action-buttons-wrapper" style="display:block;">
+                        <div class="row" ng-switch on="currentRoute.plotted">
+                            <div class="col route-nav" ng-class="{'active' : options.showReorder}" ng-show="currentRoute.sma__Waypoints__r.length > 0" ng-click="options.showReorder = !options.showReorder">
+                                <div><div><i class="icon ion-shuffle"></i></div><div class="action-text">REORDER</div></div>
+                            </div>
+                            <div class="col route-optimize" ng-hide="currentRoute.optimized || currentRoute.sma__Waypoints__r.length == 0" ng-click="optimizeRoute('current')">
+                                <div><div><i class="icon ion-android-stopwatch"></i></div><div class="action-text">OPTIMIZE</div></div>
+                            </div>
+                            <div class="col route-optimize" ng-show="currentRoute.optimized">
+                                <div><div><i class="icon ion-android-checkmark-circle"></i></div><div class="action-text">OPTIMIZED</div></div>
+                            </div>
+                            <div ng-switch-when="false" ng-show="currentRoute.sma__Waypoints__r.length > 0" class="col route-nav" ng-click="getDirections('current')">
+                                <div><div><i class="icon ion-map"></i></div><div class="action-text">MAP VIEW</div></div>
+                            </div>
+                            <div ng-switch-when="true" class="col route-nav" ng-click="clearDirections()">
+                                <div><div><i class="icon ion-trash-b"></i></div><div class="action-text">REMOVE</div></div>
+                            </div>
+                            <div class="col route-more" ng-click="routeMoreAct()">
+                                <div><div><i class="icon ion-android-more-horizontal"></i></div><div class="action-text">MORE ACTIONS</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <ion-list id="waypointList" class="list route-enable" show-reorder="options.showReorder">
+                        <ion-item ng-repeat="waypoint in currentRoute.sma__Waypoints__r" ng-switch="waypoint.lockType" ng-class="{'invalid' : waypoint.invalid}" data-unique="{{waypoint.unique}}" data-start="{{waypoint.Start}}" data-time="{{waypoint.Duration}}" data-index="{{waypoint.sma__SortOrder__c}}" data-id="{{waypoint.Id}}" ng-click="getWaypointInfo(waypoint)" data-lat="{{waypoint.sma__Latitude__c}}" data-lng="{{waypoint.sma__Longitude__c}}" class="item {{waypoint.lockType}} item-icon-left item-icon-right waypoint-row">
+                            <i ng-switch-when="start" class="icon float-icon-left icon-sm icon-gray ion-flag"></i>
+                            <i ng-switch-when="end" class="icon float-icon-left icon-sm icon-gray ion-flag"></i>
+                            <i ng-switch-when="startend" class="icon float-icon-left icon-sm icon-gray ion-flag"></i>
+                            <div style="margin-left:5px;" ng-switch-default class="icon waypoint-order float-icon-left icon-sm icon-gray">{{waypoint.orderNum}}</div>
+                            <div class="inline" style="vertical-align: middle; width: 85%;">
+                                <h2 class="name" ng-bind-html="waypoint.Name"></h2>
+                                <p class="small-font">{{waypoint.sma__Address__c}}</p>
+                                <p class="small-font" ng-show="currentRoute.timeBased">{{waypoint.Start}} - {{waypoint.Duration}}</p>
+                                <p class="small-font" ng-show="currentRoute.timeBased">{{waypoint.displayTime}}</p>
+                                <p class="small-font" ng-show="currentRoute.plotted">{{waypoint.displayDuration}}</p>
+                            </div>
+                            <i class="icon ion-chevron-right navigate-right-icon"></i>
+                            <ion-reorder-button class="ion-navicon" on-reorder="moveItem(waypoint, $fromIndex, $toIndex)"></ion-reorder-button>
+                        </ion-item>
+                        <ion-item ng-show="currentRoute.sma__Waypoints__r.length == 0" class="item item-icon-left">
+                            <i class="icon float-icon-left icon-med icon-gray ion-information-circled"></i>
+                            Please plot a route or add waypoints to continue...
+                        </ion-item>
+                    </ion-list>
+                </ion-content>
+            </ion-view>
+        </script>
+
+        <script id="moreActionsModal.html" type="text/ng-template">
+            <ion-modal-view>
+                <ion-header-bar class="bar-positive">
+                    <h1 class="title">More Actions</h1>
+                </ion-header-bar>
+                <ion-content>
+                    <ul id="markerMoreActions">
+                        <li ng-repeat="btn in actionButtons" ng-click="performAction(btn)" ng-class="{'item-divider' : btn.header}" data-type="{{btn.type}}" data-action="{{btn.action}}" class="item">
+                            <h2 class="name" ng-bind-html="btn.label"></h2>
+                        </li>
+                    </ul>
+                </ion-content>
+                <ion-footer-bar>
+                    <button ng-click="closeMoreActions()" style="margin: 0px;" class="button button-block button-positive">Close</button>
+                </ion-footer-bar>
+            </ion-modal-view>
+        </script>
+
+        <script id="templates/routeModal.html" type="text/ng-template">
+            <ion-modal-view>
+                <ion-header-bar class="bar-positive">
+                    <h1 class="title">More Actions</h1>
+                </ion-header-bar>
+                <ion-content>
+                    <ul>
+                        <li ng-click="clearCurrentRoute();" class="item item-icon-left">
+                            <i class="icon icon-med icon-gray ion-refresh"></i>
+                            New Route
+                        </li>
+                        <li class="item item-toggle item-icon-left">
+                            <i class="icon icon-med icon-gray ion-android-time"></i>
+                            Time Based Route
+                            <label class="toggle toggle-positive">
+                                <input ng-click="toggleTimeBased()" ng-model="timeBased.checked" ng-checked="timeBased.checked" type="checkbox"/>
+                                <div class="track">
+                                    <div class="handle"></div>
+                                </div>
+                            </label>
+                        </li>
+                        <li ng-click="saveRoute();" class="item item-icon-left">
+                            <i class="icon icon-med icon-gray ion-android-archive"></i>
+                            Save Route
+                        </li>
+                    </ul>
+                </ion-content>
+                <ion-footer-bar>
+                    <button ng-click="closeModal()" style="margin: 0px;" class="button button-block button-positive">Close</button>
+                </ion-footer-bar>
+            </ion-modal-view>
+        </script>
+
+        <!-- Route View -->
+        <script id="templates/routeView.html" type="text/ng-template">
+            <ion-view cache-view="false" style="border-bottom: 1px solid #387EF5;" align-title="left" view-title="{{route.Name}}" id="route-wrapper">
+                <ion-header-bar class="bar-subheader route-date bar-positive" ng-class="{'routePlotted' : route.plotted}" ng-class="{'timeBased' : route.timeBased}">
+                    <div style="width: 48%;" class="inline data-date" data-date="{{route.sma__Date__c}}">{{route.sma__Date__c | date:'longDate':'UTC'}}</div>
+                    <div style="width: 48%;text-align: right;" class="float-right data-time inline" data-time="{{route.startTime}}" data-end="{{route.endTime}}" ng-show="route.timeBased">{{route.startTime}} - {{route.endTime}}</div>
+                    <div ng-show="route.plotted">{{route.routeSummary}}</div>
+                </ion-header-bar>
+                <ion-content class="has-subheader" has-bouncing="true">
+                    <ion-refresher
+                        pulling-text="Pull to refresh..."
+                        on-refresh="doRefresh()">
+                    </ion-refresher>
+                    <div class="action-buttons-wrapper" style="display:block;">
+                        <div class="row" ng-switch on="route.plotted">
+                            <div class="col route-edit" ng-click="modRoute()">
+                                <div><div><i class="icon ion-edit"></i></div><div class="action-text">EDIT</div></div>
+                            </div>
+                            <div class="col route-optimize" ng-click="optimizeRoute()">
+                                <div><div><i class="icon ion-android-stopwatch"></i></div><div class="action-text">OPTIMIZE</div></div>
+                            </div>
+                            <div class="col route-nav" ng-click="getDirections()">
+                                <div><div><i class="icon ion-map"></i></div><div class="action-text">DISPLAY</div></div>
+                            </div>
+                            <div style="display:none;" class="col route-nav" ng-click="clearDirections()">
+                                <div><div><i class="icon ion-trash-b"></i></div><div class="action-text">REMOVE</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <ion-list class="list route-enable" show-reorder="options.showReorder">
+                        <ion-item ng-repeat="waypoint in route.sma__Waypoints__r" ng-class="{'invalid' : waypoint.invalid}" ng-switch="waypoint.lockType" data-unique="{{waypoint.unique}}" data-start="{{waypoint.Start}}" data-time="{{waypoint.Duration}}" data-index="{{waypoint.sma__SortOrder__c}}" data-id="{{waypoint.Id}}" ng-click="getWaypointInfo(waypoint)" data-lat="{{waypoint.sma__Latitude__c}}" data-lng="{{waypoint.sma__Longitude__c}}" class="item {{waypoint.lockType}} item-icon-left item-icon-right waypoint-row">
+                            <i ng-switch-when="start" class="icon float-icon-left icon-sm icon-gray ion-flag"></i>
+                            <i ng-switch-when="end" class="icon float-icon-left icon-sm icon-gray ion-flag"></i>
+                            <i ng-switch-when="startend" class="icon float-icon-left icon-sm icon-gray ion-flag"></i>
+                            <i style="margin-left:5px;" ng-switch-default class="icon float-icon-left icon-sm icon-gray">{{waypoint.orderNum}}</i>
+                            <div class="inline" style="vertical-align: middle; width: 85%;">
+                                <h2 class="name">{{waypoint.Name}}</h2>
+                                <p class="small-font">{{waypoint.sma__Address__c}}</p>
+                                <p class="small-font" ng-show="route.timeBased">{{waypoint.Start}} - {{waypoint.Duration}}</p>
+                                <p class="small-font" ng-show="route.timeBased">{{waypoint.displayTime}}</p>
+                                <p class="small-font">{{waypoint.displayDuration}}</p>
+                            </div>
+                            <i class="icon ion-chevron-right navigate-right-icon"></i>
+                            <ion-reorder-button class="ion-navicon" on-reorder="moveItem(waypoint, $fromIndex, $toIndex)"></ion-reorder-button>
+                        </ion-item>
+                    </ion-list>
+                </ion-content>
+            </ion-view>
+        </script>
+
+        <!-- Prox Options -->
+        <script id="templates/proxOptions.html" type="text/ng-template">
+            <ion-view cache-view="false" style="border-bottom: 1px solid #387EF5;" align-title="left" view-title="Proximity Options" id="prox-wrapper">
+                <ion-content has-bouncing="true">
+                    <ul class="list">
+                        <ion-toggle toggle-class="toggle-positive" ng-click="toggleProximity(proxEnabled.checked);" ng-model="proxEnabled.checked" ng-checked="proxEnabled.checked">
+                            <h2>Proximity Enabled</h2>
+                        </ion-toggle>
+                        <label class="item item-input item-select">
+                            <div class="input-label">
+                              Unit
+                            </div>
+                            <select style="width: 80%;max-width:80%;" ng-change="updateUnit(proxEnabled.unit)" ng-options="opt as opt.label for opt in proxUnits" ng-model="proxEnabled.unit"></select>
+                        </label>
+                        <label class="item item-input item-stacked-label">
+                            <span class="input-label">Radius</span>
+                            <input ng-change="updateRadius(proxEnabled.radius)" ng-model="proxEnabled.radius" type="text"/>
+                        </label>
+                        <label class="item item-input item-stacked-label">
+                            <span class="input-label">Address</span>
+                            <textarea ng-change="updateAddress(proxEnabled.address)" ng-model="proxEnabled.address" rows="2"></textarea>
+                        </label>
+                    </ul>
+                    <div class="bar" style="border:none;">
+                        <div class="buttons" style="width: 80%; margin: 0 10%;">
+                            <button style="width: 100%;" ng-click="createProxObject()" class="button button-positive">Create Proximity Circle</button>
+                        </div>
+                    </div>
+                </ion-content>
+            </ion-view>
+        </script>
+
+        <!-- Routes View -->
+        <script id="templates/routesView.html" type="text/ng-template">
+            <ion-view view-title="Routes" id="routes-wrapper">
+                <ion-content has-bouncing="true">
+                    <ion-list class="list no-margin">
+                        <ion-item class="item item-input item-select">
+                            <div class="input-label" style="width: 20%;">
+                                Month
+                            </div>
+                            <select style="width: 80%;max-width:80%;" ng-change="getRoutes(routeMonth,routeYear)" id='routeMonth' ng-options="opt as opt.label for opt in monthOptions" ng-model="routeMonth"></select>
+                        </ion-item>
+                        <ion-item class="item item-input item-select">
+                            <div class="input-label" style="width: 20%;">
+                                Year
+                            </div>
+                            <select style="width: 80%;max-width:80%;" ng-change="getRoutes(routeMonth,routeYear)" id='routeYear' ng-options="opt as opt.label for opt in yearOptions" ng-model="routeYear"></select>
+                        </ion-item>
+                        <ion-item ng-click="opt.shouldShowDelete = !opt.shouldShowDelete" class="item item-icon-left item-divider" style="border-bottom: none;">
+                            <i ng-if="!opt.shouldShowDelete" class="icon icon-med ion-ios-minus-outline"></i>
+                            <i ng-if="opt.shouldShowDelete" class="icon icon-med ion-ios-minus"></i>
+                            Available Routes
+                        </ion-item>
+                    </ion-list >
+                    <ion-list class="list route-list" show-delete="opt.shouldShowDelete">
+                        <ion-item ng-repeat="rr in routes" data-id="{{rr.Id}}" class="item item-icon-right route-item">
+                            <ion-delete-button ng-click="deleteRoute(rr.Id)" class="ion-android-remove-circle"></ion-delete-button>
+                            <div ng-click="getRoute(rr.Id)">
+                                <h2>{{rr.Name}}</h2>
+                                <p>{{rr.sma__Date__c | date:'longDate':'UTC'}}</p>
+                                <i class="icon ion-chevron-right navigate-right-icon"></i>
+                            </div>
+                        </ion-item>
+                        <ion-item ng-show="routes.length == 0" class="item">
+                            No Routes Available
+                        </ion-item>
+                    </ion-list>
+                </ion-content>
+            </ion-view>
+        </script>
+
+        <!-- Plotted Layers View -->
+        <script id="templates/plottedLayersView.html" type="text/ng-template">
+            <ion-view view-title="Selected Layers" id="routes-wrapper">
+                <ion-content cache-view="false" has-bouncing="true" has-header="true" padding="false">
+                    <ul id="selectedLayers" class="list recentQuery-list">
+                        <li class="item item-divider">
+                            Queries
+                        </li>
+                        <li ng-show="SelectedQueries.length == 0" class="item item-icon-left">
+                            <i class="icon float-icon-left icon-med icon-gray ion-information-circled"></i>
+                            No queries have been selected...
+                        </li>
+                        <li ng-repeat="rq in SelectedQueries track by $index" data-id="{{rq.Id}}" class="item selected-query item-checkbox query-item">
+                            <div class="legend-img">
+                                <img src="{{rq.icon}}"></img>
+                            </div>
+                                <h2>{{rq.Name}}</h2>
+                                <p>{{rq.sma__BaseObject__r.sma__Name__c}}</p>
+                                <p>{{rq.numMarkers}} record(s) visible</p>
+                                <p class="query-count"></p>
+                            <label ng-click="modifySelected(rq.Id,rq)" class="checkbox query-checkbox">
+                                <input ng-model="rq.checked" type="checkbox">
+                            </label>
+                        </li>
+                        <li class="item item-divider">
+                            Favorites
+                        </li>
+                        <li ng-show="SelectedFavorites.length == 0" class="item item-icon-left">
+                            <i class="icon float-icon-left icon-med icon-gray ion-information-circled"></i>
+                            No favorites have been plotted...
+                        </li>
+                        <ion-toggle ng-repeat="fa in SelectedFavorites track by $index" ng-model="fa.checked" ng-checked="fa.checked" ng-click="plotFavorite(fa)" toggle-class="toggle-positive" class="item-icon-left">
+                            <i class="icon ion-android-star-half icon-med icon-gray float-icon-left"></i>
+                            <h2>{{fa.Name}}</h2>
+                        </ion-toggle>
+                    </ul>
+                </ion-content>
+                <button id="plotLayersButton2" ng-click="refreshQueries();" class="button button-positive map-view-button icon ion-map"></button>
+            </ion-view>
+        </script>
+
+        <script id="templates/settingsTabs2.html" type="text/ng-template">
+            <ion-view cache-view="false" view-title="Settings" id="settingsView">
+                <ion-header-bar style="border-color:#387ef5;" class="bar-subheader no-padding bar-positive">
+                    <div class="tabs-positive no-padding tabs-striped tabs-bottom tabs-standard">
+                        <div style="border-bottom:none; border-color:#387ef5;" class="tab-nav tabs">
+                            <a id="generalSetTab" ng-click="navigateTabs('general')" class="tab-style no-margin active tab-item"> <span class="tab-title">General</span></a>
+                            <a id="mapSetTab" ng-click="navigateTabs('map')" class="tab-style no-margin tab-item"> <span class="tab-title">Map</span></a>
+                            <a id="routesSetTab" ng-click="navigateTabs('routes')" class="tab-style no-margin tab-item"> <span class="tab-title">Routes</span></a>
+                        </div>
+                    </div>
+                </ion-header-bar>
+                <ion-content has-bouncing="true" class="has-subheader" padding="false">
+                    <div id="generalSettings" class="active settings-tab">
+                        <ul class="list">
+                            <li class="item item-divider">General Settings</li>
+                            <li class="item item-toggle">
+                                Plot Visible Area
+                                <label class="toggle toggle-positive">
+                                    <input id="plotVisibleArea" ng-click="toggleVisisbleArea(visibleArea.checked)" ng-model="visibleArea.checked" ng-checked="visibleArea.checked" type="checkbox"/>
+                                    <div class="track">
+                                        <div class="handle"></div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li class="item item-toggle">
+                                Cluster Markers
+                                <label class="toggle toggle-positive">
+                                    <input id="clusterMarkers" ng-click="clusterMarkers(cluster.checked)" ng-model="cluster.checked" ng-checked="cluster.checked" type="checkbox"/>
+                                    <div class="track">
+                                        <div class="handle"></div>
+                                    </div>
+                                </label>
+                            </li>
+                            <label class="item item-input">
+                                <span style="width: 160px;" class="input-label">Max Visible Records</span>
+                                <input style="text-align: right;" id="query-limit" ng-change="validateNumber(queryInfo.limit)" ng-model="queryInfo.limit" type="number"/>
+                            </label>
+                        </ul>
+                    </div>
+                    <div id="mapSettings" class="settings-tab">
+                        <ul class="list">
+                            <li class="item item-divider">Map Settings</li>
+                            <li class="item item-input item-select">
+                                <div class="input-label" style="width: 20%;">
+                                    Map Type
+                                </div>
+                                <select ng-change="updateMapType(mapTypeSelection)" style="width: 60%;max-width:60%;" id="mapType" ng-options="opt as opt.label for opt in mapTypes" ng-model="mapTypeSelection"></select>
+                            </li>
+                            <li class="item item-toggle">
+                                Enable Traffic
+                                <label class="toggle toggle-positive">
+                                    <input id="trafficToggle" ng-click="toggleTraffic(enableTraffic.checked)" ng-model="enableTraffic.checked" ng-checked="enableTraffic.checked" type="checkbox"/>
+                                    <div class="track">
+                                        <div class="handle"></div>
+                                    </div>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="routeSettings" class="settings-tab">
+                        <ul class="list">
+                            <li class="item item-divider">Route Settings</li>
+                            <li class="item item-input item-select">
+                                <div class="input-label" style="width: 20%;">
+                                    Units
+                                </div>
+                                <select ng-change="updateSettings({id:'unit',val:distanceUnits.id})" style="width: 60%;max-width:60%;" class='distanceUnits' ng-options="opt as opt.label for opt in unitOptions" ng-model="distanceUnits"></select>
+                            </li>
+                            <li class="item item-input item-select">
+                                <div class="input-label" style="width: 20%;">
+                                    Directions Defaults
+                                </div>
+                                <select ng-change="updateSettings({id:'mode',val:directionDefaults.id})" style="width: 45%;max-width:45%;" class='directionDefaults' ng-options="opt as opt.label for opt in directionOptions" ng-model="directionDefaults"></select>
+                            </li>
+                            <li class="item item-input item-select">
+                                <div class="input-label" style="width: 20%;">
+                                    Route Type
+                                </div>
+                                <select ng-change="updateSettings({id:'type',val:routeType.id})" style="width: 60%;max-width:60%;" class='routeType' ng-options="opt as opt.label for opt in routeTypeOptions" ng-model="routeType"></select>
+                            </li>
+                            <li class="item item-input item-select">
+                                <div class="input-label" style="width: 20%;">
+                                    Start Time
+                                </div>
+                                <select ng-change="updateSettings({id:'start',val:routeStartTime.id})" style="width: 60%;max-width:60%;" class='routeStartTime' ng-options="opt as opt.label for opt in timeOptions" ng-model="routeStartTime"></select>
+                            </li>
+                            <li class="item item-input item-select">
+                                <div class="input-label" style="width: 20%;">
+                                    End Time
+                                </div>
+                                <select ng-change="updateSettings({id:'end',val:routeEndTime.id})" style="width: 60%;max-width:60%;" class='routeEndTime' ng-options="opt as opt.label for opt in timeOptions" ng-model="routeEndTime"></select>
+                            </li>
+                            <li class="item item-input item-select">
+                                <div class="input-label" style="width: 20%;">
+                                    Appointment Duration
+                                </div>
+                                <select ng-change="updateSettings({id:'duration',val:routeDuration.id})" style="width: 45%;max-width:45%;" class='routeDuration' ng-options="opt as opt.label for opt in durationOptions" ng-model="routeDuration"></select>
+                            </li>
+                        </ul>
+                        <div class="bar" style="border:none;">
+                            <div class="buttons" style="width: 80%; margin: 0 10%;">
+                                <button style="width: 100%;" ng-click="saveSettings()" class="button button-positive">Save Route Settings</button>
+                            </div>
+                        </div>
+                    </div>
+                </ion-content>
+            </ion-view>
+        </script>
+
+        <script id="templates/settingsTabs.html" type="text/ng-template">
+            <ion-view cache-view="false" view-title="Settings" id="search-options-modal">
+                <div class="tabs-positive tabs-top tabs-striped">
+                    <ion-tab href="#/ma/settingsTabs/General" class="tab-style" title="General" ng-click="navigateTabs('General')">
+                        <ion-content has-bouncing="true" class="has-subheader" padding="false">
+                            <ul class="list">
+                                <li class="item item-divider">General Settings</li>
+                                <li class="item item-toggle">
+                                    Plot Visible Area
+                                    <label class="toggle toggle-positive">
+                                        <input id="plotVisibleArea" ng-click="toggleVisisbleArea(visibleArea.checked)" ng-model="visibleArea.checked" ng-checked="visibleArea.checked" type="checkbox"/>
+                                        <div class="track">
+                                            <div class="handle"></div>
+                                        </div>
+                                    </label>
+                                </li>
+                                <label class="item item-input">
+                                    <span style="width: 160px;" class="input-label">Max Visible Records</span>
+                                    <input style="text-align: right;" id="query-limit" ng-change="validateNumber(queryInfo.limit)" ng-model="queryInfo.limit" type="number"/>
+                                </label>
+                            </ul>
+                        </ion-content>
+                    </ion-tab>
+                    <ion-tab href="#/ma/settingsTabs/Map" class="tab-style" title="Map" ng-click="navigateTabs('Map')">
+                        <ion-content has-bouncing="true" class="has-subheader" padding="false">
+                            <ul class="list">
+                                <li class="item item-divider">Map Settings</li>
+                                <li class="item item-input item-select">
+                                    <div class="input-label" style="width: 20%;">
+                                        Map Type
+                                    </div>
+                                    <select ng-change="updateMapType(mapTypeSelection)" style="width: 60%;max-width:60%;" id="mapType" ng-options="opt as opt.label for opt in mapTypes" ng-model="mapTypeSelection"></select>
+                                </li>
+                                <li class="item item-toggle">
+                                    Enable Traffic
+                                    <label class="toggle toggle-positive">
+                                        <input id="trafficToggle" ng-click="toggleTraffic(enableTraffic.checked)" ng-model="enableTraffic.checked" ng-checked="enableTraffic.checked" type="checkbox"/>
+                                        <div class="track">
+                                            <div class="handle"></div>
+                                        </div>
+                                    </label>
+                                </li>
+                            </ul>
+                        </ion-content>
+                    </ion-tab>
+                    <ion-tab href="#/ma/settingsTabs/Routes" class="tab-style" title="Routes" ng-click="navigateTabs('Routes')">
+                        <ion-content has-bouncing="true" class="has-subheader" padding="false">
+                            <ul class="list">
+                                <li class="item item-divider">Route Settings</li>
+                                <li class="item item-input item-select">
+                                    <div class="input-label" style="width: 20%;">
+                                        Units
+                                    </div>
+                                    <select ng-change="updateSettings({id:'unit',val:distanceUnits.id})" style="width: 60%;max-width:60%;" class='distanceUnits' ng-options="opt as opt.label for opt in unitOptions" ng-model="distanceUnits"></select>
+                                </li>
+                                <li class="item item-input item-select">
+                                    <div class="input-label" style="width: 20%;">
+                                        Directions Defaults
+                                    </div>
+                                    <select ng-change="updateSettings({id:'mode',val:directionDefaults.id})" style="width: 45%;max-width:45%;" class='directionDefaults' ng-options="opt as opt.label for opt in directionOptions" ng-model="directionDefaults"></select>
+                                </li>
+                                <li class="item item-input item-select">
+                                    <div class="input-label" style="width: 20%;">
+                                        Route Type
+                                    </div>
+                                    <select ng-change="updateSettings({id:'type',val:routeType.id})" style="width: 60%;max-width:60%;" class='routeType' ng-options="opt as opt.label for opt in routeTypeOptions" ng-model="routeType"></select>
+                                </li>
+                                <li class="item item-input item-select">
+                                    <div class="input-label" style="width: 20%;">
+                                        Start Time
+                                    </div>
+                                    <select ng-change="updateSettings({id:'start',val:routeStartTime.id})" style="width: 60%;max-width:60%;" class='routeStartTime' ng-options="opt as opt.label for opt in timeOptions" ng-model="routeStartTime"></select>
+                                </li>
+                                <li class="item item-input item-select">
+                                    <div class="input-label" style="width: 20%;">
+                                        End Time
+                                    </div>
+                                    <select ng-change="updateSettings({id:'end',val:routeEndTime.id})" style="width: 60%;max-width:60%;" class='routeEndTime' ng-options="opt as opt.label for opt in timeOptions" ng-model="routeEndTime"></select>
+                                </li>
+                                <li class="item item-input item-select">
+                                    <div class="input-label" style="width: 20%;">
+                                        Appointment Duration
+                                    </div>
+                                    <select ng-change="updateSettings({id:'duration',val:routeDuration.id})" style="width: 45%;max-width:45%;" class='routeDuration' ng-options="opt as opt.label for opt in durationOptions" ng-model="routeDuration"></select>
+                                </li>
+                            </ul>
+                        </ion-content>
+                        <ion-footer-bar style="width: 100%;" class='bar-positive'>
+                            <div class="buttons" style="width: 100%;">
+                                <button style="width: 100%;" ng-click="saveSettings()" class="button button-clear">Save Route Settings</button>
+                            </div>
+                        </ion-footer-bar>
+                    </ion-tab>
+                </ion-tabs>
+            </ion-view>
+        </script>
+
+        <!-- BROWSE -->
+        <script id="templates/selectQuery.html" type="text/ng-template">
+            <ion-view view-title="Layers" id="query-wrapper">
+                <ion-tabs class="tabs-positive tabs-top tabs-striped">
+                    <ion-tab href="#/ma/selectQuery/recent" class="tab-style" ng-click="navigateTabs('recent')" title="Recent" on-select="findSelected()">
+                        <ion-content has-bouncing="true" class="has-subheader" padding="false">
+                            <ul class="list recentQuery-list">
+                                <li ng-repeat="rq in RecentQueries track by $index" data-id="{{rq.Id}}" ng-class="{'dynamicQuery' : rq.disabled}" class="item item-checkbox query-item">
+                                    <div class="legend-img">
+                                        <img src="{{rq.icon}}"></img>
+                                    </div>
+                                        <h2>{{rq.Name}}</h2>
+                                        <p>{{rq.sma__BaseObject__r.sma__Name__c}}</p>
+                                    <label ng-click="modifySelected(rq.Id,rq)" class="checkbox query-checkbox">
+                                        <input ng-model="rq.checked" type="checkbox">
+                                    </label>
+                                </li>
+                            </ul>
+                        </ion-content>
+                    
+                    </ion-tab>
+
+                    <ion-tab href="#/ma/selectQuery/personal" class="tab-style" ng-click="navigateTabs('personal')" title="Personal" on-select="findSelected()">
+                        <ion-content has-bouncing="true" class="has-subheader" padding="false">
+                            <ion-list class="list">
+                                <ion-item ng-if="Folders.length > 0" class="item item-divider">
+                                    Folders
+                                </ion-item>
+                                <ion-item ng-click="getFolders(f.Id)" ng-repeat="f in Folders" data-id="{{f.Id}}" class="item query-item">
+                                    <i class="icon ion-android-folder icon-med icon-gray float-icon-left"></i>
+                                    <h2>{{f.Name}}</h2>
+                                </ion-item>
+                                <ion-item ng-if="Favorites.length > 0" class="item item-divider">
+                                    Favorites
+                                </ion-item>
+                                <ion-toggle ng-repeat="fa in Favorites" ng-model="fa.checked" ng-checked="fa.checked" ng-click="plotFavorite(fa)" toggle-class="toggle-positive" class="item-icon-left">
+                                    <i class="icon ion-android-star-half icon-med icon-gray float-icon-left"></i>
+                                    <h2>{{fa.Name}}</h2>
+                                </ion-toggle>
+                                <ion-item ng-if="Queries.length > 0" class="item item-divider">
+                                    Queries
+                                </ion-item>
+                                <ion-item ng-repeat="rq in Queries" data-id="{{rq.Id}}" ng-class="{'dynamicQuery' : rq.disabled}" class="item item-checkbox query-item">
+                                    <div class="legend-img">
+                                        <img src="{{rq.icon}}"></img>
+                                    </div>
+                                        <h2>{{rq.Name}}</h2>
+                                        <p>{{rq.sma__BaseObject__r.sma__Name__c}}</p>
+                                    <label ng-click="modifySelected(rq.Id,rq)" class="checkbox query-checkbox">
+                                        <input ng-model="rq.checked" type="checkbox">
+                                    </label>
+                                </ion-item>
+                            </ion-list>
+                        </ion-content>
+                    </ion-tab>
+
+                    <ion-tab href="#/ma/selectQuery/corporate" class="tab-style" ng-click="navigateTabs('corporate')" title="Corporate" on-select="findSelected()">
+                        <ion-content has-bouncing="true" class="has-subheader" padding="false">
+                            <ul class="list">
+                                <li ng-if="CorpFolders.length > 0" class="item item-divider">
+                                    Folders
+                                </li>
+                                <li ng-click="getCorporateFolder(f.Id)" ng-repeat="f in CorpFolders" data-id="{{f.Id}}" class="item query-item">
+                                    <i class="icon ion-android-folder icon-med icon-gray float-icon-left"></i>
+                                    <h2>{{f.Name}}</h2>
+                                </li>
+                                <li ng-if="CorpFavorites.length > 0" class="item item-divider">
+                                    Favorites
+                                </li>
+                                <ion-toggle ng-repeat="fa in CorpFavorites" ng-model="fa.checked" ng-checked="fa.checked" ng-click="plotFavorite(fa)" toggle-class="toggle-positive" class="item-icon-left">
+                                    <i class="icon ion-android-star-half icon-med icon-gray float-icon-left"></i>
+                                    <h2>{{fa.Name}}</h2>
+                                </ion-toggle>
+                                <li ng-if="CorpQueries.length > 0" class="item item-divider">
+                                    Queries
+                                </li>
+                                <li ng-repeat="rq in CorpQueries" data-id="{{rq.Id}}" ng-class="{'dynamicQuery' : rq.disabled}" class="item item-checkbox query-item">
+                                    <div class="legend-img">
+                                        <img src="{{rq.icon}}"></img>
+                                    </div>
+                                        <h2>{{rq.Name}}</h2>
+                                        <p>{{rq.sma__BaseObject__r.sma__Name__c}}</p>
+                                    <label ng-click="modifySelected(rq.Id,rq)" class="checkbox query-checkbox">
+                                        <input ng-model="rq.checked" type="checkbox">
+                                    </label>
+                                </li>
+                            </ul>
+                        </ion-content>
+                    </ion-tab>
+                    
+                </ion-tabs>
+                <button id="plotLayersButton" ng-click="refreshQueries();" class="button button-positive map-view-button icon ion-map"></button>
+            </ion-view>
+        </script>
+
+        <!-- Legend View -->
+        <script id="templates/legendView.html" type="text/ng-template">
+            <ion-view hide-nav-bar="true" view-title="Legend" id="legend-view">
+                <ion-header-bar align-title="left" class="bar item-input-inset bar-header bar-positive">
+                    <a ui-sref="ma.map" style="margin-right:5px;" class="button button-icon icon ion-android-arrow-back"></a>
+                    <div class="h1 title">Legend Info</div>
+                    <button class="button button-clear button-positive legend-showHide" ng-click="ShowHide()">Show All</button>
+                </ion-header-bar>
+                <ion-content>
+                    <div class="list">
+                        <label class="item item-input item-select">
+                            <div class="input-label">
+                                Query Selection
+                            </div>
+                            <select ng-change="changeLegend(options.queryId)" ng-options="opt as opt.label for opt in options.querySelection" ng-model="options.queryId"></select>
+                        </label>
+                        <ion-item>
+                            <button class="legend-showHide" ng-click="ShowHide()">Show All</button>
+                        </ion-item>
+                        <ion-item ng-repeat="legendRow in options.legendData" class="{{legendRow.class}} item item-checkbox" ng-class="{'empty' : legendRow.empty}">
+                            <label class="checkbox">
+                                <input ng-model="legendRow.checked" type="checkbox">
+                            </label>
+                            <span class="legend-name">{{legendRow.AssignmentValue}}</span>
+                            <span class="legend-count">{{legendRow.total}} of {{legendRow.total}}</span>
+                            <span><img class="legend-img" src="{{legendRow.icon}}" /></span>
+                        </ion-item>
+                    </div>
+                </ion-content>
+            </ion-view>
+        </script>
+
+        <script id="searchoptions.html" type="text/ng-template">
+            <ion-modal-view id="search-options-modal">
+                <ion-content>
+                    <div class="bar bar-header search-header has-tabs-top bar-positive">
+                        <button style="margin-right: 10px;" ng-click="hideSearchOptions()" class="button button-clear button-light button-icon ion-android-arrow-back seach-back-button"></button>
+                        <label class="item-input-wrapper blue-input white-input" data-searchtype="markers" id="search-wrapper">
+                            <input ng-model="poiText.value" ng-model-options="{debounce:500}" ng-change="autoCompleteSearch(poiText.value)" id="search-autocomplete" type="search" placeholder="Search POI..." class='search-input blue-input white-input'/>
+                            <input ng-model="markerText.value" ng-change="searchMarkers(markerText.value)" id="search-markers" type="search" placeholder="Search Markers..." class='search-input blue-input white-input'/>
+                        </label>
+                        <button ng-click="cancelSearch()" class="button button-clear button-light search-cancel-button">Cancel</button>
+                    </div>
+                    <div class="tabs-striped tabs-top search-nav-tabs tabs-background-positive tabs-color-light">
+                        <div class="tabs">
+                            <a style="border-width: 0px 0px 4px 0px !important;" class="tab-item active salesforce-tab" ng-click="navigateTabs('Salesforce')">
+                                Markers
+                            </a>
+                            <a style="border-width: 0px 0px 4px 0px !important;" class="tab-item poi-tab" ng-click="navigateTabs('POI/Address')">
+                                Address/POI
+                            </a>
+                        </div>
+                    </div>
+                    <div ng-show="visibleTab == 'Salesforce'" class="content has-subheader">
+                        <div id="markers-list" class="list active search-list">
+                            <a ng-show="QueryCount == 0" class="item item-icon-left">
+                                <i class="icon icon-med icon-gray ion-information-circled"></i>
+                                Please search above...
+                            </a>
+                            <a ng-if="markerText.value == '' && QueryCount > 0" class="item item-icon-left">
+                                <i class="icon icon-med icon-gray ion-information-circled"></i>
+                                No Results. Please search above...
+                            </a>
+                            <a ng-if="markerText.value != '' && QueryCount > 0" ng-click="rowMarkerClick(sR)" ng-repeat="sR in searchResults" class="item item-icon-left">
+                                <i class="icon icon-med icon-gray ion-android-pin"></i>
+                                <h2>{{sR.Name}}</h2>
+                                <p>{{sR.baseObjectLabel}}</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div ng-show="visibleTab == 'POI/Address'" class="content has-subheader">
+                        <div id="poi-list" class="list no-margin search-list">
+                            <a ng-show="poiText.value == ''" class="item item-icon-left">
+                                <i class="icon icon-med icon-gray ion-information-circled"></i>
+                                No results. Please search above...
+                            </a>
+                            <a ng-click="poiSearch({searchText:poiText.value,type:'global'})" ng-show="poiText.value.length > 0" class="item item-icon-left">
+                                <i class="icon icon-med icon-gray ion-android-search"></i>
+                                <h2>{{poiText.value}}</h2>
+                            </a>
+                            <a ng-click="poiSearch({placeId:{placeId: pR.place_id},type:'single'})" ng-repeat="pR in autoComplete" class="item item-icon-left">
+                                <i class="icon icon-med icon-gray ion-android-pin"></i>
+                                <h2>{{pR.description}}</h2>
+                            </a>
+                            <a class="item" style="border-bottom: none;">
+                                <img style="height:16px;" class='float-right' src="{! URLFOR($Resource.MAPhone, '/img/powered-by-google.png') }" />
+                            </a>
+                        </div>
+                        <div class="button-bar" ng-show="showFooter">
+                            <button ng-click="removePOI()" class="button button-clear button-stable">Clear POI Results</button>
+                        </div>
+                    </div>
+                </ion-content>
+            </ion-modal-view>
+        </script>
+
+        <!-- MAP -->
+        <script id="templates/map.html" type="text/ng-template">
+            <ion-view view-title="Map"  hide-nav-bar="true" id="map-view">
+                <ion-content scroll="false">
+                    <div id="search-header"  class="bar bar-header bar-light search-header">
+                        <button style="margin-right: 10px; margin-top: 5px;" ng-click="toggleLeftSideMenu()" class="button button-clear button-dark button-icon icon-med icon-gray ion-android-menu menu-button"></button>
+                        <div ng-class="{'placeHolder' : searchText.placeHolder}" ng-click="showSearchOptions()" class="search-wrapper">{{searchText.value}}</div>
+                        <button ng-click="findMe()" style="margin-top: 5px; padding-right: 5px;" class="button button-clear button-dark button-icon ion-android-locate icon-med icon-gray locate-button"></button>
+                    </div>
+                    <div id="map-shadow-header" ng-click="showHideInfo()">
+                        <i class="icon icon-lg ion-android-arrow-back" style="color: white;font-size: 30px;position: relative;top: 10px;left: 15px;"></i>
+                    </div>
+                    <div class="beta_banner" style="position: absolute;height: 25px;width: 100%;top: 65px;background: #FF5050;text-align: center;z-index: 1000;line-height: 25px;color: white;font-weight: bold;font-size: 20px;">BETA</div>
+                    <div data-tap-disabled="true" id="map_canvas"></div>
+                    <div id="map-legend"></div>
+                    <div class="marker-info-wrapper bar bar-light">
+                        <div class='marker-info'>
+                            <div class='marker-info-header'>
+                                <div class='record-name' ng-click="showHideInfo()"></div>
+                                <div class='record-info' ng-click="showHideInfo()">
+                                    <div class='record-object inline' style="width:50%; font-size: 12px;"></div>
+                                    <div class='record-distance inline'>Loading...</div>
+                                </div>
+                                <button ng-click="navigateUrl('GPS')" class="button icon navigate-button button-positive ion-android-navigate"></button>
+                            </div>
+                            <div class="action-buttons-wrapper">
+                                <div class="row">
+                                    <div ng-class="{'checkIn-disabled' : !checkinSettings.nearbyCheckin}" class="col rec-checkin" ng-click="checkIn()">
+                                        <div><div><i class="icon ion-android-done"></i></div><div class="action-text">CHECK IN</div></div>
+                                    </div>
+                                    <div class="col rec-addtoroute" ng-click="addToRoute()">
+                                        <div><div><i class="icon ion-android-car"></i></div><div class="action-text">ADD TO ROUTE</div></div>
+                                    </div>
+                                    <div class="col rec-view" ng-click="navigateToRecord()">
+                                        <div><div><i class="icon ion-android-document"></i></div><div class="action-text">VIEW RECORD</div></div>
+                                    </div>
+                                    <div class="col rec-moreAct" ng-click="showMoreActions()">
+                                        <div><div><i class="icon ion-android-more-horizontal"></i></div><div class="action-text">MORE ACTIONS</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="scroll-list list">
+                                <div class="general-info-wrapper list" style="margin-bottom:0px;">
+                                    <a class="item item-icon-left" style="padding: 10px 5px 10px 54px;">
+                                        <i class="icon icon-med icon-gray ion-android-pin"></i>
+                                        <span class="record-address item-text-wrap"></span>
+                                    </a>
+                                </div>
+                                <div class='tooltips list' style="margin-bottom: 0px;">
+                                </div>
+                                <div class="checkin-info list">
+                                    <label class="item item-input item-stacked-label">
+                                        <span class="checkin-label">Last check in</span>
+                                        <div class="checkin-value">Never</div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bar bar-footer bar-positive" id="map-footer">
+                        <div class="query-status">Gathering Info...</div>
+                    </div>
+                    <img src="{!URLFOR($Resource.MapAnything, 'mapAnythingSettingsLogo.png')}" style='position: absolute; left: 50%; bottom: 10px; z-index: 2; margin-left: -64px; height: 20px;' />
+                </ion-content>
+                <button id="refreshLayersButton" ng-click="refreshQueries();" class="refresh-query-btn button button-positive map-view-button icon ion-android-refresh"></button>
+            </ion-view>
+        </script>
+
+        <!-- Settings -->
+        <script id="templates/settings.html" type="text/ng-template">
+            <ion-view cache-view="false" view-title="Settings">
+                <ion-content has-bouncing="true">
+                    <ul class="list">
+                        <li class="item item-divider">General Settings</li>
+                        <li class="item item-toggle">
+                            Plot Visible Area
+                            <label class="toggle toggle-positive">
+                                <input id="plotVisibleArea" ng-click="toggleVisisbleArea(visibleArea.checked)" ng-model="visibleArea.checked" ng-checked="visibleArea.checked" type="checkbox"/>
+                                <div class="track">
+                                    <div class="handle"></div>
+                                </div>
+                            </label>
+                        </li>
+                        <label class="item item-input">
+                            <span style="width: 160px;" class="input-label">Max Visible Records</span>
+                            <input style="text-align: right;" id="query-limit" ng-change="validateNumber(queryInfo.limit)" ng-model="queryInfo.limit" type="number"/>
+                        </label>
+                        <li class="item item-divider">Route Settings</li>
+                        <li class="item item-input item-select">
+                            <div class="input-label" style="width: 20%;">
+                                Units
+                            </div>
+                            <select ng-change="updateSettings({id:'unit',val:distanceUnits.id})" style="width: 60%;max-width:60%;" class='distanceUnits' ng-options="opt as opt.label for opt in unitOptions" ng-model="distanceUnits"></select>
+                        </li>
+                        <li class="item item-input item-select">
+                            <div class="input-label" style="width: 20%;">
+                                Directions Defaults
+                            </div>
+                            <select ng-change="updateSettings({id:'mode',val:directionDefaults.id})" style="width: 45%;max-width:45%;" class='directionDefaults' ng-options="opt as opt.label for opt in directionOptions" ng-model="directionDefaults"></select>
+                        </li>
+                        <li class="item item-input item-select">
+                            <div class="input-label" style="width: 20%;">
+                                Route Type
+                            </div>
+                            <select ng-change="updateSettings({id:'type',val:routeType.id})" style="width: 60%;max-width:60%;" class='routeType' ng-options="opt as opt.label for opt in routeTypeOptions" ng-model="routeType"></select>
+                        </li>
+                        <li class="item item-input item-select">
+                            <div class="input-label" style="width: 20%;">
+                                Start Time
+                            </div>
+                            <select ng-change="updateSettings({id:'start',val:routeStartTime.id})" style="width: 60%;max-width:60%;" class='routeStartTime' ng-options="opt as opt.label for opt in timeOptions" ng-model="routeStartTime"></select>
+                        </li>
+                        <li class="item item-input item-select">
+                            <div class="input-label" style="width: 20%;">
+                                End Time
+                            </div>
+                            <select ng-change="updateSettings({id:'end',val:routeEndTime.id})" style="width: 60%;max-width:60%;" class='routeEndTime' ng-options="opt as opt.label for opt in timeOptions" ng-model="routeEndTime"></select>
+                        </li>
+                        <li class="item item-input item-select">
+                            <div class="input-label" style="width: 20%;">
+                                Appointment Duration
+                            </div>
+                            <select ng-change="updateSettings({id:'duration',val:routeDuration.id})" style="width: 45%;max-width:45%;" class='routeDuration' ng-options="opt as opt.label for opt in durationOptions" ng-model="routeDuration"></select>
+                        </li>
+                    </ul>
+                </ion-content>
+                <ion-footer-bar style="width: 100%;" class='bar-positive'>
+                    <div class="buttons" style="width: 100%;">
+                        <button style="width: 100%;" ng-click="saveSettings()" class="button button-clear">Save Settings</button>
+                    </div>
+                </ion-footer-bar>
+            </ion-view>
+        </script>
+
+        <!-- listView -->
+        <script id="templates/listView.html" type="text/ng-template">
+            <ion-view hide-nav-bar="true" view-title="List View">
+                <ion-header-bar align-title="left" class="bar item-input-inset bar-header bar-positive">
+                    <a ui-sref="ma.map" style="margin-right:5px;" class="button button-icon icon ion-android-arrow-back"></a>
+                    <label style="margin-right: 10px;" class="item-input-wrapper">
+                        <input ng-change="searchList(listViewOpt.searchText)" type="text" placeholder="Search..." id="listView-Search" ng-model="listViewOpt.searchText" value="{{listViewOpt.searchText}}"/>
+                    </label>
+                    <div ng-hide="showHelpText" ng-click="showActions()" class="buttons">
+                        <button class="button button-clear">Sort</button>
+                    </div>
+                </ion-header-bar>
+                <ion-content has-bouncing="true">
+                    <ion-list class="list listView-list">
+                        <ion-item ng-show="showHelpText" class="item item-icon-left item-text-wrap">
+                            <i class="icon icon-med icon-gray ion-information-circled"></i>
+                            Records will appear here once a query has been selected.
+                        </ion-item>
+                        <ion-item ng-repeat="rq in listViewOpt.list" data-id="{{rq.Id}}" data-key="{{rq.record.contentKey}}" class="item list-item no-padding" style="position: relative">
+                            <div ng-switch on="rq.moreInfoVisible">
+                                <i ng-switch-when="false" ng-click="rq.moreInfoVisible = true" class="icon ion-android-add moreinfo-button"></i>
+                                <i ng-switch-when="true" ng-click="rq.moreInfoVisible = false" class="icon ion-android-remove moreinfo-button"></i>
+                            </div>
+                            <div class="info-wrapper more-info-{{rq.moreInfoVisible}}">
+                                <div class="record-name inline">{{rq.Name}}</div>
+                                <div class="record-info record-distance inline">{{rq.Distance}}</div>
+                                <div class="record-address record-info">{{rq.Address}}</div>
+                            </div>
+                            <div class="more-info-wrapper" ng-show="rq.moreInfoVisible">
+                                <div class="action-buttons-wrapper" style="display:block;">
+                                    <div class="row">
+                                        <div ng-class="{'checkIn-disabled' : !checkinSettings.nearbyCheckin}" class="col rec-checkin {{rq.checkInStatus}}" ng-click="checkIn(rq)">
+                                            <div><div><i class="icon ion-android-done"></i></div><div class="action-text">CHECK IN</div></div>
+                                        </div>
+                                        <div class="col route-nav" style="display:none;" ng-click="navigateGPS(rq)">
+                                            <div><div><i class="icon ion-android-navigate"></i></div><div class="action-text">NAVIGATE</div></div>
+                                        </div>
+                                        <div class="col rec-addtoroute" ng-click="addToRoute(rq)">
+                                            <div><div><i class="icon ion-android-car"></i></div><div class="action-text">ADD TO ROUTE</div></div>
+                                        </div>
+                                        <div class="col" ng-click="navigateToRecord(rq.Id)">
+                                            <div><div><i class="icon ion-android-document"></i></div><div class="action-text">VIEW RECORD</div></div>
+                                        </div>
+                                        <div class="col route-more" ng-click="ListMoreAct(rq)">
+                                            <div><div><i class="icon ion-android-more-horizontal"></i></div><div class="action-text">MORE ACTIONS</div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="record-checkin record-info">
+                                    <div class="inline">Last Check-In:</div>
+                                    <div class="record-checkinDate inline">{{rq.checkInDate}}</div>
+                                </div>
+                                <div class="record-tooltips record-info" ng-bind-html="rq.Tooltips"></div>
+                            </div>
+                        </ion-item>
+                    </ion-list>
+                    <ion-infinite-scroll ng-if="hasMoreData" spinner="android" on-infinite="loadMoreData()"></ion-infinite-scroll>
+                </ion-content>
+            </ion-view>
+        </script>
+
+        <!-- Invisible Playground (used for measuring markers) -->
+        <div id='invisible' style='opacity: 0; position: absolute; z-index: -9999999999; top: -999999px; left: -99999999px;'></div>
+
+        <div id="debug" style="overflow-y: scroll;height: 100vh;display:none;width: 100%;position: fixed;z-index: 10000;background-color: white;">
+            <button onclick="jQuery('#debug').hide();">close</button>
+        </div>
+
+        <div id="createFavPopup" class="popup-container popup-showing active" style="background-color: rgba(0, 0, 0, 0.4); display:none;">
+            <div class="popup">
+                <div class="popup-head">
+                    <h3 class="popup-title">Enter a name for this location</h3>
+                    <h5 class="popup-sub-title">name may not be blank</h5>
+                </div>
+                <div class="popup-body">
+                    <input type="text" class="fav-name-input"/>
+                </div>
+                <div class="popup-buttons">
+                    <button id="cancelFavorite" class="button button-default">Cancel</button>
+                    <button onclick="saveFavorite()" class="button save-btn button-positive"><b>Save</b></button>
+                </div>
+            </div>
+        </div>
+
+        <div id="dynamicFilterPopup" class="modal slide-in-up ng-leave ng-leave-active" style="display:none;">
+            <ion-header class="bar bar-header bar-positive">
+                <h1 class="title">Dynamic Filters</h1>
+            </ion-header>
+            <ion-content class="scroll-content ionic-scroll">
+                <div class="content has-header">
+                    <div class="scroll">
+                        <div class="list" style="margin-bottom: -1px;">
+                            <div style="font-size: 12px;padding: 5px;" class="item item-text-wrap">This query <span class="queryName" style="color:#FF7979; font-weight:bold;"></span> contains dynamic filters. Please enter values for the fields below and click continue.</div>
+                            <label class="item item-input">
+                                <span class="input-label" id='DynamicFilterPopup-FieldLabel'>User</span>
+                                <input type='text' id='DynamicFilterPopup-FieldValue' />
+                            </label>
+                        </div>
+
+                        <div class="list" id="dynamicFilterResults" style="height:270px;">
+
+                        </div>
+                    </div>
+                </div>
+            </ion-content>
+            <ion-footer class="bar bar-footer">
+                <button id='DynamicFilterPopup-Continue' style="width: 40%; margin-left: 5%;" class="button button-positive">Continue</button>
+                <button id='DynamicFilterPopup-Cancel' style="width: 40%;margin-right: 5%;" class="button button-light pull-right">Cancel</button>
+            </ion-footer>
+        </div>
+
+        <div id="positionErr" class="popup-container popup-showing active" style="background-color: rgba(0, 0, 0, 0.4); display:none;">
+            <div class="popup">
+                <div class="popup-head">
+                    <h3 class="popup-title">Error Getting Position</h3>
+                </div>
+                <div class="popup-body">
+                    <span>Location could not be determined.</span>
+                </div>
+                <div class="popup-buttons">
+                    <button id="positionErrorBtn" class="button button-positive">OK</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="templates" style="display:none;">
+            <!-- SVG Marker - Waypoint -->
+            <svg class='svg-marker-waypoint' width="28" height="42" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                <g>
+                    <title></title>
+                    <path stroke="#1d649b" d="m6.300003,37.5c-4.300003,-3.399994 -5.900002,-8.5 -4.300003,-13.699997c1.700005,-5.800003 11.100006,-23.100006 12,-22.100006c1.400009,1.5 10.800003,20.800003 11.5,23.5c1,3.800003 -1.099991,9.300003 -4.599991,12.300003c-4.100006,3.400009 -10.200012,3.400009 -14.600006,0z" fill="#4597d0" transform="rotate(180 13.5708 20.8542)"/>
+                    <text fill="#ffffff" stroke="#1d649b" stroke-width="0.2" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x="13" y="19" id="svg_1" font-size="16" font-family="Monospace" text-anchor="middle" xml:space="preserve" font-weight="normal">__TEXT__</text>
+                </g>
+            </svg>
+
+            <!-- SVG Marker - Favorite -->
+            <svg class='svg-marker-favorite' width="28" height="42" xmlns="http://www.w3.org/2000/svg">
+                <g>
+                    <path transform="rotate(180 13.5708 20.8542)" fill="__GRADIENT_ONE__" d="m6.300003,37.5c-4.300003,-3.399994 -5.900002,-8.5 -4.300003,-13.699997c1.700005,-5.800003 11.100006,-23.100006 12,-22.100006c1.400009,1.5 10.800003,20.800003 11.5,23.5c1,3.800003 -1.099991,9.300003 -4.599991,12.300003c-4.100006,3.400009 -10.200012,3.400009 -14.600006,0z" stroke="__CIRCLE_STROKE__"/>
+                    <path stroke="__CIRCLE_FILL__" fill="__CIRCLE_FILL__" stroke-width="5" d="m13.47797,15.01411l-0.28443,0.20129l0.10872,-0.32559l-0.28433,-0.20126l0.35149,0.00003l0.09341,-0.27995l0.01524,-0.04546l0.10853,0.32538l0.35161,0l-0.28449,0.20127l0.10874,0.32569l-0.28449,-0.20136l0,0l0,-0.00003l0,0l0,0.00001z"/>
+                </g>
+            </svg>
+
+            <!-- breifly stores route data for optimizaiton using jquery -->
+            <div class="route-data"></div>
+
+        </div>
+
+    </body>
+
+</apex:page>

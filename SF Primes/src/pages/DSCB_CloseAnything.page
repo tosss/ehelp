@@ -1,0 +1,75 @@
+<apex:page controller="DSCB_CloseAnything" docType="html-5.0" id="page">
+    
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.7.2.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.8.20.custom.min.js')}" />
+    
+    <apex:includeScript value="{!URLFOR($Resource.jQueryDataTables_v194, 'media/js/jquery.dataTables.js')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.jQueryDataTables_v194, 'media/css/demo_table_jui.css')}" />
+    
+    <apex:stylesheet value="{!URLFOR($Resource.jQuery, 'css/redmond/jquery-ui-1.8.20.custom.css')}" />
+    
+    <!-- Visualforce variables used by custom scripts -->
+    <script type="text/javascript">
+    var __InputBoxLoadingIcon = "{!URLFOR($Resource.InputBoxLoadingIcon)}";
+    var __InputBoxLoadingIconSmall = "{!URLFOR($Resource.InputBoxLoadingIconSmall)}";
+    var __ProcessingBarLoadingIcon = "{!URLFOR($Resource.blue_bar_loading_icon)}";            
+    var __sId = "{!sId}";
+    </script>
+    
+    <apex:includeScript value="{!URLFOR($Resource.DSCB_CloseAnything_JS)}" />
+    <apex:stylesheet value="{!URLFOR($Resource.DSCB_CloneAnything_CSS)}" />
+    
+    <apex:sectionheader title="Comment and Close all the Cases" subtitle="Close Records" /> 
+    
+    <apex:pageBlock id="ResultSumBlock" >         
+        <div id="ResultMsgTotal" style="color:green;font-weight: bold;font-size: 10pt" ></div> 
+        <div id="ResultMsgSuccess" style="color:green;font-weight: bold;font-size: 10pt" ></div> 
+        <div id="ResultMsgErrors" style="color:red;font-weight: bold;font-size: 10pt" ></div> 
+    </apex:pageBlock>
+    
+    <div style="display:none;" id="ErrorRecordsContainer">
+        <apex:pageblock title="Error Records">
+            <div id="ErrorRecordsTableContainer">
+                <table id="ErrorRecordsTable" > </table>
+            </div>                
+        </apex:pageblock>
+    </div> 
+      
+    
+    <apex:pageblock title="All Related Cases" id="DestinationRecords">  
+        <apex:form > 
+          <apex:pageblocksection columns="1" id="InputComments">            
+                <apex:pageblocksectionitem >
+                    <apex:outputlabel value="Comment" for="InputComment"  /> 
+                    <apex:inputTextarea cols="100" rows="6" id="InputComment" required="true" value="{!CloseCaseComments}"
+                        onchange="ShowCharCount(this, 4000, '{!$Component.myTASize}');"
+                        onmousedown="ShowCharCount(this, 4000, '{!$Component.myTASize}');"
+                        onkeyup="ShowCharCount(this, 4000, '{!$Component.myTASize}');"
+                        onkeydown="ShowCharCount(this, 4000, '{!$Component.myTASize}');"
+                        onclick="ShowCharCount(this, 4000, '{!$Component.myTASize}');" />                
+                </apex:pageblocksectionitem>
+                <apex:outputPanel id="myTASize">4000 chars left</apex:outputPanel>
+            </apex:pageblocksection>            
+        </apex:form> 
+            <apex:form >
+                <apex:actionFunction action="{!DestinationObjectsToClose}" name="methodOneInJavascript" reRender="thePanel,script1,script2,script3,script4,script5,script6,script7">
+        </apex:actionFunction>
+    
+            </apex:form>
+        <script>
+            function ShowCharCount(myTA, maxSize, SizeLabel) {
+                document.getElementById(SizeLabel).innerHTML = (maxSize - myTA.value.length) + ' chars left';
+            }
+        </script>
+        <apex:pageblockbuttons >            
+            <button class="btn" id="UpdateComments" onclick="UpdateSelected();">Update Selected</button>
+            <button class="btn" id="CloseToSelected" onclick="CloseSelected();">Close Selected</button>
+            <button class="btn" id="Cancel" onclick="Cancel();">Cancel</button>            
+        </apex:pageblockbuttons>
+        <apex:outputPanel id="thePanel">
+            <c:DataTable id="CloseRecordsTable" data="{!DestinationObjectsToClose}" columns="{!DestinationDisplayFieldsInCase}" idField="Id" nameField="CaseNumber" checkboxes="true" /> 
+        </apex:outputPanel>
+    </apex:pageblock> 
+    
+    
+</apex:page>

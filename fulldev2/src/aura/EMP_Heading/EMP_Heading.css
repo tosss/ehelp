@@ -1,0 +1,14 @@
+.THIS {
+    
+}
+
+.THIS .Title {
+    text-transform: capitalize;
+}
+
+.THIS .Subtitle {
+    color: #999;
+    filter: alpha(opacity=80); /* IE */
+    -moz-opacity: 0.8; /* Mozilla */
+    opacity: 0.8; /* Others */
+}

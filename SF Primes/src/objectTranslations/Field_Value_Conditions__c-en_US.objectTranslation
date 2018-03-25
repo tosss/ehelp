@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Field Value Conditions</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Field Value Conditions</value>
+    </caseValues>
+    <fields>
+        <label><!-- Contains --></label>
+        <name>Contains__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- EqualsTo --></label>
+        <name>EqualsTo__c</name>
+    </fields>
+    <fields>
+        <label><!-- Field Name --></label>
+        <name>Field_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Field Value --></label>
+        <name>Field_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Identifier --></label>
+        <name>Identifier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Not EqualsTo --></label>
+        <name>Not_EqualsTo__c</name>
+    </fields>
+    <fields>
+        <label><!-- isBoolean --></label>
+        <name>isBoolean__c</name>
+    </fields>
+    <fields>
+        <label><!-- isInsert --></label>
+        <name>isInsert__c</name>
+    </fields>
+    <fields>
+        <label><!-- isTrue --></label>
+        <name>isTrue__c</name>
+    </fields>
+    <fields>
+        <label><!-- isUpdate --></label>
+        <name>isUpdate__c</name>
+    </fields>
+    <fields>
+        <label><!-- sObject --></label>
+        <name>sObject__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

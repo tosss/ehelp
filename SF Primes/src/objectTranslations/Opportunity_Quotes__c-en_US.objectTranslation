@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Opportunity Quotes</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Opportunity Quotes</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Opportunity Quotes --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Binder --></label>
+        <name>Binder__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client Data Exchange Products --></label>
+        <name>Client_Data_Exchange_Products__c</name>
+    </fields>
+    <fields>
+        <label><!-- Core CMF Number --></label>
+        <name>Core_CMF_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credit Check --></label>
+        <name>Credit_Check__c</name>
+    </fields>
+    <fields>
+        <label><!-- DCS --></label>
+        <name>DCS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dash Only --></label>
+        <name>Dash_Only__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deal Approver --></label>
+        <name>Deal_Approver__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deal Description --></label>
+        <name>Deal_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deal Edit --></label>
+        <name>Deal_Edit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deal ID --></label>
+        <name>Deal_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deal Type --></label>
+        <name>Deal_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Docs Pushed from SQT --></label>
+        <name>Docs_Pushed_from_SQT__c</name>
+    </fields>
+    <fields>
+        <label><!-- Filename --></label>
+        <name>Filename__c</name>
+    </fields>
+    <fields>
+        <label><!-- Finalized Deal --></label>
+        <name>Finalized_Deal__c</name>
+    </fields>
+    <fields>
+        <label><!-- French Wording --></label>
+        <name>French_Wording__c</name>
+    </fields>
+    <fields>
+        <label><!-- IPNS CMF Number --></label>
+        <name>IPNS_CMF_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- IPNS Only --></label>
+        <name>IPNS_Only__c</name>
+    </fields>
+    <fields>
+        <label><!-- IPNS Site Address --></label>
+        <name>IPNS_Site_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- IPNS Site City --></label>
+        <name>IPNS_Site_City__c</name>
+    </fields>
+    <fields>
+        <label><!-- IPNS Site Name --></label>
+        <name>IPNS_Site_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- IPNS Site State --></label>
+        <name>IPNS_Site_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- IPNS Site Zip --></label>
+        <name>IPNS_Site_Zip__c</name>
+    </fields>
+    <fields>
+        <label><!-- Intravision Only --></label>
+        <name>Intravision_Only__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lease Type --></label>
+        <name>Lease_Type__c</name>
+        <picklistValues>
+            <masterLabel>Cash</masterLabel>
+            <translation><!-- Cash --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lease</masterLabel>
+            <translation><!-- Lease --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loan</masterLabel>
+            <translation><!-- Loan --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Main Site Address --></label>
+        <name>Main_Site_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Main Site City --></label>
+        <name>Main_Site_City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Main Site Name --></label>
+        <name>Main_Site_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Main Site State --></label>
+        <name>Main_Site_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Main Site Zip --></label>
+        <name>Main_Site_Zip__c</name>
+    </fields>
+    <fields>
+        <label><!-- Migration ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- NIADA Region Location --></label>
+        <name>NIADA_Region_Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- Network/Telephony --></label>
+        <name>Network_Telephony__c</name>
+    </fields>
+    <fields>
+        <label><!-- Non-Refundable Deposit IPNS --></label>
+        <name>Non_Refundable_Deposit_IPNS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Non-Refundable Deposit Core --></label>
+        <name>Non_Refundable_Deposit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opp Quotes CreateDate --></label>
+        <name>Opp_Quotes_CreateDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opp Quotes LastUpdated --></label>
+        <name>Opp_Quotes_LastUpdated__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Opportunity Quotes --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Released To Sales --></label>
+        <name>Released_To_Sales__c</name>
+    </fields>
+    <fields>
+        <label><!-- SQT Created by --></label>
+        <name>SQT_Created_by__c</name>
+    </fields>
+    <fields>
+        <label><!-- SQT Deal ID --></label>
+        <name>SQT_Deal_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- SQT Deal Version Number --></label>
+        <name>SQT_Deal_Version_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- SQT Status --></label>
+        <name>SQT_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Monthlies --></label>
+        <name>Total_Monthlies__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total One- Times --></label>
+        <name>Total_One_Times__c</name>
+    </fields>
+    <fields>
+        <label><!-- 3PA --></label>
+        <name>X3PA__c</name>
+    </fields>
+    <layouts>
+        <layout>Opportunity Quotes Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- E-Signature Info --></label>
+            <section>E-Signature Info</section>
+        </sections>
+        <sections>
+            <label><!-- SQT Status Info --></label>
+            <section>SQT Status Info</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Create_Deal --></label>
+        <name>Create_Deal</name>
+    </webLinks>
+</CustomObjectTranslation>

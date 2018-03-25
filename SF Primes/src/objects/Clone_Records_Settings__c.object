@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>General settings for the Clone Anything app. Determines which objects can be cloned.</description>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Clone_Profile_Access_Permission_Field__c</fullName>
+        <description>The Name of the Clone Profile Access boolean field which determines Profile access.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Name of the Clone Profile Access boolean field which determines Profile access.</inlineHelpText>
+        <label>Clone Profile Access Permission Field</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Destination_Conditions__c</fullName>
+        <description>This field is could be null or a simple equation like &apos;Status__c = &apos;Active&apos; &apos; or &apos;Dynamically&apos;. If this is &apos;Dynamically&apos; then the value is returned by a method.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field is could be null or a simple equation like &apos;Status__c = &apos;Active&apos; &apos; or &apos;Dynamically&apos;. If this is &apos;Dynamically&apos; then the value is returned by a method.</inlineHelpText>
+        <label>Destination Conditions</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Destination_Display_Fields__c</fullName>
+        <description>Fields to be displayed in a table that holds the destination parent sObjects.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Fields to be displayed in a table that holds the destination parent sObjects.</inlineHelpText>
+        <label>Destination Display Fields</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Destination_sObject_API_Name__c</fullName>
+        <description>The API Name of the destination object. The destination sObject must be related to an Account (have an Account lookup or master-detail field).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The API Name of the destination object. The destination sObject must be related to an Account (have an Account lookup or master-detail field).</inlineHelpText>
+        <label>Destination sObject API Name</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Destination_sObject_Account_Field__c</fullName>
+        <description>The Account field for the destination sObject.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Account field for the destination sObject.</inlineHelpText>
+        <label>Destination sObject Account Field</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Destination_sObject_Relationship_Field__c</fullName>
+        <description>This field would help to get the DestinationRecord from the SourceRecord with just a getSobject() method. Added when the SEO cases clone requirement needed to get Account Plan resource fields into the picklist field</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field would help to get the DestinationRecord from the SourceRecord with just a getSobject() method. Added when the SEO cases clone requirement needed to get Account Plan resource fields into the picklist field</inlineHelpText>
+        <label>Destination sObject Relationship Field</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Evaluate_Account_Hierarchy__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This check box field is used to know if a given record clone goes through account hierarchy logic to select destination records that are associated with accounts related to source record account in the hierarchy. Else this will have to have the Destination conditions field filled in.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This check box field is used to know if a given record clone goes through account hierarchy logic to select destination records that are associated with accounts related to source record account in the hierarchy. Else this will have to have the Destinatio</inlineHelpText>
+        <label>Evaluate Account Hierarchy ?</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Query_Conditional_Expression__c</fullName>
+        <description>This expression represents how the query has to be constructed. needs to give space between each character except if it is OR or AND
+example: ( 1 OR 2 OR 3 ) - space between &apos;(&apos; and &apos;1&apos;</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This expression represents how the query has to be constructed. needs to give space between each character except if it is OR or AND
+example: ( 1 OR 2 OR 3 ) - space between &apos;(&apos; and &apos;1&apos;</inlineHelpText>
+        <label>Query Conditional Expression</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Source_Autocomplete_Account_Field__c</fullName>
+        <externalId>false</externalId>
+        <label>Source Autocomplete Account Field</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Source_Autocomplete_Conditions__c</fullName>
+        <externalId>false</externalId>
+        <label>Source Autocomplete Conditions</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Source_Autocomplete_Fields__c</fullName>
+        <externalId>false</externalId>
+        <label>Source Autocomplete Fields</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Source_Autocomplete_Search_Fields__c</fullName>
+        <externalId>false</externalId>
+        <label>Source Autocomplete Search Fields</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Source_Display_Fields__c</fullName>
+        <description>The fields which will be displayed after a source sObject has been selected.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The fields which will be displayed after a source sObject has been selected.</inlineHelpText>
+        <label>Source Display Fields</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Source_Key_Field__c</fullName>
+        <description>This is the field on the Source object that matches the Destination object ID.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the field on the Source object that matches the Destination object ID.</inlineHelpText>
+        <label>Source Key Field</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Source_Name_Field__c</fullName>
+        <description>The name field for the source object. Usually this is simply &quot;Name&quot;, but for some select sObjects, it can different (like &quot;CaseNumber&quot; for Cases).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The name field for the source object. Usually this is simply &quot;Name&quot;, but for some select sObjects, it can different (like &quot;CaseNumber&quot; for Cases).</inlineHelpText>
+        <label>Source Name Field</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Source_Relationship_to_Destination__c</fullName>
+        <description>This is the field (lookup or master-detail) that determines the relationship between the source and destination. If left blank, the source&apos;s destination record might not be filtered from the results.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the field (lookup or master-detail) that determines the relationship between the source and destination. If left blank, the source&apos;s destination record might not be filtered from the results.</inlineHelpText>
+        <label>Source Relationship to Destination</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SubType__c</fullName>
+        <externalId>false</externalId>
+        <label>SubType</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Unsearchable__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Determines whether or not the field is searchable in the Clone Anything find sObject section.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Determines whether or not the field is searchable in the Clone Anything find sObject section.</inlineHelpText>
+        <label>Unsearchable</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>sObject_API_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>sObject API Name</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Clone Records Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

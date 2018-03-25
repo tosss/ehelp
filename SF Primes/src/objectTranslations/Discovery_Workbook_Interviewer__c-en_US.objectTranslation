@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Discovery Workbook Interviewer</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Discovery Workbook Interviewers</value>
+    </caseValues>
+    <fields>
+        <label><!-- Discovery Workbook Category --></label>
+        <name>Discovery_Workbook_Category__c</name>
+        <relationshipLabel><!-- Discovery Workbook Interviewers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Interviewer --></label>
+        <name>Interviewer__c</name>
+        <relationshipLabel><!-- Discovery Workbook Interviewers --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

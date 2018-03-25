@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>SubProject URL values used by the Related External Entities and References(Impact Number, CMF, RMS Number, Contract, NIS and Opportunity Solution designs)</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>HasFieldonProject__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>HasFieldonProject</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>HasFieldonSubproject__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>HasFieldonSubproject</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ProjectFieldName__c</fullName>
+        <description>field name of this entity inside Project__c</description>
+        <externalId>false</externalId>
+        <label>ProjectFieldName</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SubProjectFieldName__c</fullName>
+        <description>field name of this entity inside SubProject__c</description>
+        <externalId>false</externalId>
+        <label>SubProjectFieldName</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>URL_Value__c</fullName>
+        <externalId>false</externalId>
+        <label>URL Value</label>
+        <length>200</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>IMP_ProjectLinksUrls</label>
+    <visibility>Public</visibility>
+</CustomObject>

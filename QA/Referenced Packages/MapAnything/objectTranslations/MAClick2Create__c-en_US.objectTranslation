@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>MapAnything Click-2-Create Setting</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>MapAnything Click-2-Create Settings</value>
+    </caseValues>
+    <fields>
+        <label><!-- Default Field --></label>
+        <name>DefaultField__c</name>
+    </fields>
+    <fields>
+        <label><!-- Field Set Options --></label>
+        <name>FieldSetOptions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Map Click City --></label>
+        <name>MapClickCity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Map Click Country --></label>
+        <name>MapClickCountry__c</name>
+    </fields>
+    <fields>
+        <label><!-- Map Click Default Value --></label>
+        <name>MapClickDefaultValue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Map Click Enabled --></label>
+        <name>MapClickEnabled__c</name>
+    </fields>
+    <fields>
+        <help><!-- Developer/API Name of Field Set --></help>
+        <label><!-- Map Click Field Set --></label>
+        <name>MapClickFieldSet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Map Click Latitude --></label>
+        <name>MapClickLatitude__c</name>
+    </fields>
+    <fields>
+        <label><!-- Map Click Longitude --></label>
+        <name>MapClickLongitude__c</name>
+    </fields>
+    <fields>
+        <label><!-- Map Click Name --></label>
+        <name>MapClickName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Map Click Postal Code --></label>
+        <name>MapClickPostalCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Map Click State --></label>
+        <name>MapClickState__c</name>
+    </fields>
+    <fields>
+        <label><!-- Map Click Street --></label>
+        <name>MapClickStreet__c</name>
+    </fields>
+    <fields>
+        <label><!-- My Position City --></label>
+        <name>MyPositionCity__c</name>
+    </fields>
+    <fields>
+        <label><!-- My Position Country --></label>
+        <name>MyPositionCountry__c</name>
+    </fields>
+    <fields>
+        <label><!-- My Position Default Value --></label>
+        <name>MyPositionDefaultValue__c</name>
+    </fields>
+    <fields>
+        <label><!-- My Position Enabled --></label>
+        <name>MyPositionEnabled__c</name>
+    </fields>
+    <fields>
+        <help><!-- Developer/API Name of Field Set --></help>
+        <label><!-- My Position Field Set --></label>
+        <name>MyPositionFieldSet__c</name>
+    </fields>
+    <fields>
+        <label><!-- My Position Latitude --></label>
+        <name>MyPositionLatitude__c</name>
+    </fields>
+    <fields>
+        <label><!-- My Position Longitude --></label>
+        <name>MyPositionLongitude__c</name>
+    </fields>
+    <fields>
+        <label><!-- My Position Name --></label>
+        <name>MyPositionName__c</name>
+    </fields>
+    <fields>
+        <label><!-- My Position Postal Code --></label>
+        <name>MyPositionPostalCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- My Position State --></label>
+        <name>MyPositionState__c</name>
+    </fields>
+    <fields>
+        <label><!-- My Position Street --></label>
+        <name>MyPositionStreet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Object API Name --></label>
+        <name>ObjectAPIName__c</name>
+    </fields>
+    <fields>
+        <label><!-- POI City --></label>
+        <name>POICity__c</name>
+    </fields>
+    <fields>
+        <label><!-- POI Country --></label>
+        <name>POICountry__c</name>
+    </fields>
+    <fields>
+        <label><!-- POI Default Value --></label>
+        <name>POIDefaultValue__c</name>
+    </fields>
+    <fields>
+        <label><!-- POI Enabled --></label>
+        <name>POIEnabled__c</name>
+    </fields>
+    <fields>
+        <help><!-- Developer/API Name of Field Set --></help>
+        <label><!-- POI Field Set --></label>
+        <name>POIFieldSet__c</name>
+    </fields>
+    <fields>
+        <label><!-- POI Latitude --></label>
+        <name>POILatitude__c</name>
+    </fields>
+    <fields>
+        <label><!-- POI Longitude --></label>
+        <name>POILongitude__c</name>
+    </fields>
+    <fields>
+        <label><!-- POI Name --></label>
+        <name>POIName__c</name>
+    </fields>
+    <fields>
+        <label><!-- POI Phone --></label>
+        <name>POIPhone__c</name>
+    </fields>
+    <fields>
+        <label><!-- POI Postal Code --></label>
+        <name>POIPostalCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- POI State --></label>
+        <name>POIState__c</name>
+    </fields>
+    <fields>
+        <label><!-- POI Street --></label>
+        <name>POIStreet__c</name>
+    </fields>
+    <fields>
+        <label><!-- POI Website --></label>
+        <name>POIWebsite__c</name>
+    </fields>
+    <layouts>
+        <layout>MapAnything Click-2-Create Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Defaults --></label>
+            <section>Defaults</section>
+        </sections>
+        <sections>
+            <label><!-- Map Click --></label>
+            <section>Map Click</section>
+        </sections>
+        <sections>
+            <label><!-- My Position --></label>
+            <section>My Position</section>
+        </sections>
+        <sections>
+            <label><!-- POI --></label>
+            <section>POI</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

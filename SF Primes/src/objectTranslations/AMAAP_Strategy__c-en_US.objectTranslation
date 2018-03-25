@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>AMAAP Strategy</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>AMAAP Strategies</value>
+    </caseValues>
+    <fields>
+        <label><!-- AMA Funded Budget --></label>
+        <name>AMA_Funded_Budget__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Plan --></label>
+        <name>Account_Plan__c</name>
+        <relationshipLabel><!-- AMAAP Strategies --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- AMAAP Strategies --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Brand --></label>
+        <name>Brand__c</name>
+        <picklistValues>
+            <masterLabel>BMW</masterLabel>
+            <translation><!-- BMW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Buick/GMC</masterLabel>
+            <translation><!-- Buick/GMC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cadillac</masterLabel>
+            <translation><!-- Cadillac --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chevrolet</masterLabel>
+            <translation><!-- Chevrolet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Holden</masterLabel>
+            <translation><!-- Holden --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hyundai</masterLabel>
+            <translation><!-- Hyundai --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kia</masterLabel>
+            <translation><!-- Kia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lexus</masterLabel>
+            <translation><!-- Lexus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MINI</masterLabel>
+            <translation><!-- MINI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toyota</masterLabel>
+            <translation><!-- Toyota --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Volkswagen</masterLabel>
+            <translation><!-- Volkswagen --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- AMAAP Strategies --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Conquest Target --></label>
+        <name>Conquest_Target__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Date --></label>
+        <name>End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- LMA Analyst 2 Email --></label>
+        <name>LMA_Analyst_2_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- LMA Analyst Email --></label>
+        <name>LMA_Analyst_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Media Planned Date --></label>
+        <name>Media_Planned_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Migration_ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Model --></label>
+        <name>Model__c</name>
+        <picklistValues>
+            <masterLabel>ATS Coupe</masterLabel>
+            <translation><!-- ATS Coupe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ATS Sedan</masterLabel>
+            <translation><!-- ATS Sedan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Acadia</masterLabel>
+            <translation><!-- Acadia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Acadia Denali</masterLabel>
+            <translation><!-- Acadia Denali --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Avalanche</masterLabel>
+            <translation><!-- Avalanche --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CTS Coupe</masterLabel>
+            <translation><!-- CTS Coupe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CTS Sedan</masterLabel>
+            <translation><!-- CTS Sedan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CTS-V Coupe</masterLabel>
+            <translation><!-- CTS-V Coupe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CTS-V Sedan</masterLabel>
+            <translation><!-- CTS-V Sedan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Camaro</masterLabel>
+            <translation><!-- Camaro --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Canyon</masterLabel>
+            <translation><!-- Canyon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Canyon Denali</masterLabel>
+            <translation><!-- Canyon Denali --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Colorado</masterLabel>
+            <translation><!-- Colorado --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corvette</masterLabel>
+            <translation><!-- Corvette --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cruze</masterLabel>
+            <translation><!-- Cruze --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ELR</masterLabel>
+            <translation><!-- ELR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enclave</masterLabel>
+            <translation><!-- Enclave --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Encore</masterLabel>
+            <translation><!-- Encore --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Equinox</masterLabel>
+            <translation><!-- Equinox --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Escalade</masterLabel>
+            <translation><!-- Escalade --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Impala</masterLabel>
+            <translation><!-- Impala --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lacrosse</masterLabel>
+            <translation><!-- Lacrosse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Malibu</masterLabel>
+            <translation><!-- Malibu --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regal</masterLabel>
+            <translation><!-- Regal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SRX</masterLabel>
+            <translation><!-- SRX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SS</masterLabel>
+            <translation><!-- SS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sierra 1500</masterLabel>
+            <translation><!-- Sierra 1500 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sierra 1500 Denali</masterLabel>
+            <translation><!-- Sierra 1500 Denali --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sierra 2500 Denali HD</masterLabel>
+            <translation><!-- Sierra 2500 Denali HD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sierra 2500HD</masterLabel>
+            <translation><!-- Sierra 2500HD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sierra 3500 Denali HD</masterLabel>
+            <translation><!-- Sierra 3500 Denali HD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sierra 3500HD</masterLabel>
+            <translation><!-- Sierra 3500HD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silverado</masterLabel>
+            <translation><!-- Silverado --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sonic</masterLabel>
+            <translation><!-- Sonic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spark</masterLabel>
+            <translation><!-- Spark --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suburban</masterLabel>
+            <translation><!-- Suburban --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tahoe</masterLabel>
+            <translation><!-- Tahoe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Terrain</masterLabel>
+            <translation><!-- Terrain --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Terrain Denali</masterLabel>
+            <translation><!-- Terrain Denali --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Traverse</masterLabel>
+            <translation><!-- Traverse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trax</masterLabel>
+            <translation><!-- Trax --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Verano</masterLabel>
+            <translation><!-- Verano --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Volt</masterLabel>
+            <translation><!-- Volt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>XTS</masterLabel>
+            <translation><!-- XTS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yukon</masterLabel>
+            <translation><!-- Yukon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yukon XL</masterLabel>
+            <translation><!-- Yukon XL --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Notes --></label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- PreRoll Budget --></label>
+        <name>PreRoll_Budget__c</name>
+    </fields>
+    <fields>
+        <label><!-- Regional Funded Budget --></label>
+        <name>Regional_Funded_Budget__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Date --></label>
+        <name>Start_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Set the Status to &quot;Future&quot; for Strategy totals to show in the &quot;Future&quot; budget fields on the Account Plan. Future Strategy records that have passed today&apos;s date will be automatically converted to &quot;Open&quot;. Strategies that are expired will be set to Closed. --></help>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Future</masterLabel>
+            <translation><!-- Future --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Strategy --></label>
+        <name>Strategy__c</name>
+        <picklistValues>
+            <masterLabel>Conquest</masterLabel>
+            <translation><!-- Conquest --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retention</masterLabel>
+            <translation><!-- Retention --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Total Budget --></label>
+        <name>Total_Budget__c</name>
+    </fields>
+    <fields>
+        <label><!-- WebID --></label>
+        <name>WebID__c</name>
+        <relationshipLabel><!-- AMAAP Strategies --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>AMAAP Strategy</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Budgets --></label>
+            <section>Budgets</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- New_Strategy_Detail --></label>
+        <name>New_Strategy_Detail</name>
+    </webLinks>
+</CustomObjectTranslation>

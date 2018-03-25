@@ -1,0 +1,13 @@
+.THIS .errPosition
+{
+    position: fixed !important;
+    top: 0 !important;
+    bottom: auto !important;
+    left: 0 !important;
+    width: 100%;
+}
+.THIS .errMessageAlignment
+{
+    text-align: center !important;
+    font-weight: bold !important;
+}

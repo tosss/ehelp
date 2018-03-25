@@ -1,0 +1,1552 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>AA - Inquiry</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>AA - Onboarding</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- DAP Onboarding Details --></label>
+            <section>DAP Onboarding Details</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+        <sections>
+            <label><!-- ProCare Onboarding Details --></label>
+            <section>ProCare Onboarding Details</section>
+        </sections>
+        <sections>
+            <label><!-- SEO Essentials Onboarding Details --></label>
+            <section>SEO Essentials Onboarding Details</section>
+        </sections>
+        <sections>
+            <label><!-- Teaming Resources --></label>
+            <section>Teaming Resources</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Ad Operations</layout>
+        <sections>
+            <label><!-- Bug Tracking --></label>
+            <section>Bug Tracking</section>
+        </sections>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Domain Troubleshooting --></label>
+            <section>Domain Troubleshooting</section>
+        </sections>
+        <sections>
+            <label><!-- Domain Wizard Content --></label>
+            <section>Domain Wizard Content</section>
+        </sections>
+        <sections>
+            <label><!-- ETS Resolution --></label>
+            <section>ETS Resolution</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+        <sections>
+            <label><!-- Escalation Support --></label>
+            <section>Escalation Support</section>
+        </sections>
+        <sections>
+            <label><!-- Inventory Troubleshooting --></label>
+            <section>Inventory Troubleshooting</section>
+        </sections>
+        <sections>
+            <label><!-- Pre-Roll Requests --></label>
+            <section>Pre-Roll Requests</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Cancellation Layout</layout>
+        <sections>
+            <label><!-- Cancellation Details --></label>
+            <section>Cancellation Details</section>
+        </sections>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Case Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Shipping Info --></label>
+            <section>Shipping Info</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Customer Data - Update Request</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Customer Facing Reporting Issues/Questions</layout>
+        <sections>
+            <label><!-- CMR and DAPr --></label>
+            <section>CMR and DAPr</section>
+        </sections>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Default Case Layout</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>EMS - Design</layout>
+        <sections>
+            <label><!-- Autocards --></label>
+            <section>Autocards</section>
+        </sections>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- EMS Conversion --></label>
+            <section>EMS Conversion</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>EMS Onboarding</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- DAP Email Specific Checklist --></label>
+            <section>DAP Email Specific Checklist</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+        <sections>
+            <label><!-- Email Marketing Specific Checklist --></label>
+            <section>Email Marketing Specific Checklist</section>
+        </sections>
+        <sections>
+            <label><!-- General Onboarding Checklist --></label>
+            <section>General Onboarding Checklist</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Finance Inquiry</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>GAM/CAM - Onboarding</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+        <sections>
+            <label><!-- Onboarding Tasks --></label>
+            <section>Onboarding Tasks</section>
+        </sections>
+        <sections>
+            <label><!-- Teaming Resources --></label>
+            <section>Teaming Resources</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>GM DMP Solution Change Request</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+        <sections>
+            <label><!-- Solution Change Reasons --></label>
+            <section>Solution Change Reasons</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>GM DMP Solution Close Layout</layout>
+        <layoutType>CaseClose</layoutType>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Solution Change Reasons --></label>
+            <section>Solution Change Reasons</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>HR</layout>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>IFS - Contract Administration</layout>
+        <sections>
+            <label><!-- Account Move Details --></label>
+            <section>Account Move Details</section>
+        </sections>
+        <sections>
+            <label><!-- Cancellation/Termination/Buy/Sell Details --></label>
+            <section>Cancellation/Termination/Buy/Sell Details</section>
+        </sections>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+        <sections>
+            <label><!-- Finance --></label>
+            <section>Finance</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>IFS - Custom Quote Request</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>IFS - Custom Quote Request Close Layout</layout>
+        <layoutType>CaseClose</layoutType>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>IFS - DI</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Data Integration Information --></label>
+            <section>Data Integration Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>IFS - Data Ops</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Data Issues --></label>
+            <section>Data Issues</section>
+        </sections>
+        <sections>
+            <label><!-- Data Mergers --></label>
+            <section>Data Mergers</section>
+        </sections>
+        <sections>
+            <label><!-- Deconstruct - DAP Email --></label>
+            <section>Deconstruct - DAP Email</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- EMS Conversion --></label>
+            <section>EMS Conversion</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+        <sections>
+            <label><!-- Email List Matches --></label>
+            <section>Email List Matches</section>
+        </sections>
+        <sections>
+            <label><!-- Email List Pulls --></label>
+            <section>Email List Pulls</section>
+        </sections>
+        <sections>
+            <label><!-- Product Issues --></label>
+            <section>Product Issues</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>IFS - Domains</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Domain Details --></label>
+            <section>Domain Details</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>IFS - Enhancements</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- DAP/PowerBrand/PowerBrand Fixed Ops --></label>
+            <section>DAP/PowerBrand/PowerBrand Fixed Ops</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Group Volume Pricing --></label>
+            <section>Dealer Group Volume Pricing</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+        <sections>
+            <label><!-- GM Franchise Requirements --></label>
+            <section>GM Franchise Requirements</section>
+        </sections>
+        <sections>
+            <label><!-- Search/Display/ReMarketing --></label>
+            <section>Search/Display/ReMarketing</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>IFS - Inventory</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+        <sections>
+            <label><!-- Inventory Details --></label>
+            <section>Inventory Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>IFS - OM &amp; Builders</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>IFS - Order Management</layout>
+        <layoutType>CaseClose</layoutType>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>IFS/Ops Close Case Layout</layout>
+        <layoutType>CaseClose</layoutType>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Inquiry - Agency Design</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Inquiry - Creative</layout>
+        <sections>
+            <label><!-- 911 Escalation --></label>
+            <section>911 Escalation</section>
+        </sections>
+        <sections>
+            <label><!-- Banner Ads --></label>
+            <section>Banner Ads</section>
+        </sections>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- DO NOT USE! --></label>
+            <section>DO NOT USE!</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Info --></label>
+            <section>Dealer Info</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+        <sections>
+            <label><!-- Entitlements --></label>
+            <section>Entitlements</section>
+        </sections>
+        <sections>
+            <label><!-- Landing Page --></label>
+            <section>Landing Page</section>
+        </sections>
+        <sections>
+            <label><!-- Project Details --></label>
+            <section>Project Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Inquiry - EMS</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- EMS Conversion --></label>
+            <section>EMS Conversion</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Inquiry - LMA</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+        <sections>
+            <label><!-- Online Marketing Details --></label>
+            <section>Online Marketing Details</section>
+        </sections>
+        <sections>
+            <label><!-- Provision / Cancel Steps --></label>
+            <section>Provision / Cancel Steps</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Inquiry - RMS</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Inquiry - Services Reports &amp; Applications</layout>
+        <sections>
+            <label><!-- 1 column header --></label>
+            <section>1 column header</section>
+        </sections>
+        <sections>
+            <label><!-- 2 column header --></label>
+            <section>2 column header</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Describe your Request - most fields are required --></label>
+            <section>Describe your Request - most fields are required</section>
+        </sections>
+        <sections>
+            <label><!-- For Admin Use:  Level of Effort and Status --></label>
+            <section>For Admin Use:  Level of Effort and Status</section>
+        </sections>
+        <sections>
+            <label><!-- For Admin Use: Collaboration --></label>
+            <section>For Admin Use: Collaboration</section>
+        </sections>
+        <sections>
+            <label><!-- Reporting, Salesforce, Cisco/CIM and/or SharePoint Change Requests --></label>
+            <section>Reporting, Salesforce, Cisco/CIM and/or SharePoint Change Requests</section>
+        </sections>
+        <sections>
+            <label><!-- Troubleshooting/Bug Details --></label>
+            <section>Troubleshooting/Bug Details</section>
+        </sections>
+        <sections>
+            <label><!-- Unused --></label>
+            <section>Unused</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Inquiry - Social</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Inquiry – Network RepMan</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>OMS Budget Change/Allocation</layout>
+        <sections>
+            <label><!-- Budget Change &amp; Allocation --></label>
+            <section>Budget Change &amp; Allocation</section>
+        </sections>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+        <sections>
+            <label><!-- Online Marketing Details --></label>
+            <section>Online Marketing Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>OMS Inquiry</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+        <sections>
+            <label><!-- Online Marketing Details --></label>
+            <section>Online Marketing Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>OMS Onboarding</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+        <sections>
+            <label><!-- OMS Onboarding --></label>
+            <section>OMS Onboarding</section>
+        </sections>
+        <sections>
+            <label><!-- Onboarding Notes --></label>
+            <section>Onboarding Notes</section>
+        </sections>
+        <sections>
+            <label><!-- Teaming Resources --></label>
+            <section>Teaming Resources</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Onboarding - AA Close Layout</layout>
+        <layoutType>CaseClose</layoutType>
+        <sections>
+            <label><!-- DAP Onboarding Details --></label>
+            <section>DAP Onboarding Details</section>
+        </sections>
+        <sections>
+            <label><!-- SEO Essentials Onboarding Details --></label>
+            <section>SEO Essentials Onboarding Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Onboarding - GAM/CAM Close Layout</layout>
+        <layoutType>CaseClose</layoutType>
+        <sections>
+            <label><!-- Onboarding Details --></label>
+            <section>Onboarding Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Onboarding - PowerSEO</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+        <sections>
+            <label><!-- MAP Call Topics and Activities --></label>
+            <section>MAP Call Topics and Activities</section>
+        </sections>
+        <sections>
+            <label><!-- Onboarding Contact Status --></label>
+            <section>Onboarding Contact Status</section>
+        </sections>
+        <sections>
+            <label><!-- SEO Onboarding --></label>
+            <section>SEO Onboarding</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Onboarding - RMS</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+        <sections>
+            <label><!-- MAP Call Prep Activities --></label>
+            <section>MAP Call Prep Activities</section>
+        </sections>
+        <sections>
+            <label><!-- MAP Call Topics and Activities --></label>
+            <section>MAP Call Topics and Activities</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Onboarding - Social</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+        <sections>
+            <label><!-- Social Onboarding Details --></label>
+            <section>Social Onboarding Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Program Question</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+        <sections>
+            <label><!-- Program Question Resolution - To Be Completed By L&amp;D Team --></label>
+            <section>Program Question Resolution - To Be Completed By L&amp;D Team</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>SEO - Internal Requests &amp; Projects</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>SEO Inquiry</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+        <sections>
+            <label><!-- SEO Details --></label>
+            <section>SEO Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>SEO Onboarding</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+        <sections>
+            <label><!-- SEO Essentials Onboarding Details --></label>
+            <section>SEO Essentials Onboarding Details</section>
+        </sections>
+        <sections>
+            <label><!-- SEO Onboarding --></label>
+            <section>SEO Onboarding</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Sales Ops</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Downgrade and GM Opt-In Details --></label>
+            <section>Downgrade and GM Opt-In Details</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Service Escalation</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Service Escalation Close Layout</layout>
+        <layoutType>CaseClose</layoutType>
+        <sections>
+            <label><!-- Case Details --></label>
+            <section>Case Details</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Service Ops Inquiry</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Services Reports &amp; Applications</layout>
+        <layoutType>CaseClose</layoutType>
+        <sections>
+            <label><!-- For Admin Use: Collaboration --></label>
+            <section>For Admin Use: Collaboration</section>
+        </sections>
+        <sections>
+            <label><!-- For Admin Use: Level of Effort, Prioritization and Status --></label>
+            <section>For Admin Use: Level of Effort, Prioritization and Status</section>
+        </sections>
+        <sections>
+            <label><!-- Invisible --></label>
+            <section>Invisible</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Special Project Support</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Content --></label>
+            <section>Content</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+        <sections>
+            <label><!-- Manage Specials Study --></label>
+            <section>Manage Specials Study</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Tier 1</layout>
+        <sections>
+            <label><!-- CSI Responses --></label>
+            <section>CSI Responses</section>
+        </sections>
+        <sections>
+            <label><!-- Case Resolution --></label>
+            <section>Case Resolution</section>
+        </sections>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+        <sections>
+            <label><!-- Entitlements --></label>
+            <section>Entitlements</section>
+        </sections>
+        <sections>
+            <label><!-- Manager Review --></label>
+            <section>Manager Review</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Tier 1 - Dealer Group</layout>
+        <sections>
+            <label><!-- CSI Responses --></label>
+            <section>CSI Responses</section>
+        </sections>
+        <sections>
+            <label><!-- Case Resolution --></label>
+            <section>Case Resolution</section>
+        </sections>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+        <sections>
+            <label><!-- Entitlements --></label>
+            <section>Entitlements</section>
+        </sections>
+        <sections>
+            <label><!-- Manager Review --></label>
+            <section>Manager Review</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Tier 2</layout>
+        <sections>
+            <label><!-- Bug Tracking --></label>
+            <section>Bug Tracking</section>
+        </sections>
+        <sections>
+            <label><!-- CSI Responses --></label>
+            <section>CSI Responses</section>
+        </sections>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Domain Information --></label>
+            <section>Domain Information</section>
+        </sections>
+        <sections>
+            <label><!-- Domain Wizard Content --></label>
+            <section>Domain Wizard Content</section>
+        </sections>
+        <sections>
+            <label><!-- ETS Resolution --></label>
+            <section>ETS Resolution</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+        <sections>
+            <label><!-- Entitlements --></label>
+            <section>Entitlements</section>
+        </sections>
+        <sections>
+            <label><!-- Escalation Support --></label>
+            <section>Escalation Support</section>
+        </sections>
+        <sections>
+            <label><!-- Inventory Troubleshooting --></label>
+            <section>Inventory Troubleshooting</section>
+        </sections>
+        <sections>
+            <label><!-- Manager Review --></label>
+            <section>Manager Review</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Tier 2 - Content</layout>
+        <sections>
+            <label><!-- Bug Tracking --></label>
+            <section>Bug Tracking</section>
+        </sections>
+        <sections>
+            <label><!-- CSI Responses --></label>
+            <section>CSI Responses</section>
+        </sections>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Content --></label>
+            <section>Content</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+        <sections>
+            <label><!-- Entitlements --></label>
+            <section>Entitlements</section>
+        </sections>
+        <sections>
+            <label><!-- Manager Review --></label>
+            <section>Manager Review</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Tier 2 - Content Close Case Layout</layout>
+        <layoutType>CaseClose</layoutType>
+        <sections>
+            <label><!-- Internal Survey (Help increase satisfaction with Content case results) --></label>
+            <section>Internal Survey (Help increase satisfaction with Content case results)</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Tier 2 – Dealix</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Dealix Contact Information --></label>
+            <section>Dealix Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+        <sections>
+            <label><!-- Inventory Details --></label>
+            <section>Inventory Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Transition - Account Assignment</layout>
+        <sections>
+            <label><!-- ... --></label>
+            <section>...</section>
+        </sections>
+        <sections>
+            <label><!-- Associate Transition Details - filled out by requesting Associate --></label>
+            <section>Associate Transition Details - filled out by requesting Associate</section>
+        </sections>
+        <sections>
+            <label><!-- Associate Transition Prerequisites - filled out by Transfering From Associate --></label>
+            <section>Associate Transition Prerequisites - filled out by Transfering From Associate</section>
+        </sections>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+        <sections>
+            <label><!-- Post-Transition Worksheet - filled out by New Account Assignee (Transfering To) --></label>
+            <section>Post-Transition Worksheet - filled out by New Account Assignee (Transfering To)</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Transition DAA - Account Assignment</layout>
+        <sections>
+            <label><!-- Case Stats --></label>
+            <section>Case Stats</section>
+        </sections>
+        <sections>
+            <label><!-- Case Timeline --></label>
+            <section>Case Timeline</section>
+        </sections>
+        <sections>
+            <label><!-- Customer Viewable Information --></label>
+            <section>Customer Viewable Information</section>
+        </sections>
+        <sections>
+            <label><!-- DAA Transition Prerequisites --></label>
+            <section>DAA Transition Prerequisites</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Echelon Information --></label>
+            <section>Echelon Information</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Traver - Case Close Layout</layout>
+        <layoutType>CaseClose</layoutType>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Traver Case Layout</layout>
+        <sections>
+            <label><!-- Colaborator --></label>
+            <section>Colaborator</section>
+        </sections>
+        <sections>
+            <label><!-- Contact --></label>
+            <section>Contact</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- NewChildCase --></label>
+        <name>NewChildCase</name>
+    </quickActions>
+    <workflowTasks>
+        <name>Budget_End_Date_for_case_is_today</name>
+        <subject><!-- Budget End Date for case is today. --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Budget_End_Date_for_case_is_today1</name>
+        <subject><!-- Budget End Date for case is today --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Budget_Start_Date_for_case_is_today</name>
+        <subject><!-- Budget Start Date for case is today. --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Budget_Start_Date_for_case_is_today1</name>
+        <subject><!-- Budget Start Date for case is today --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description><!-- Please contact this dealership and schedule a consultation appointment. --></description>
+        <name>Social_Consult_Needed</name>
+        <subject><!-- Social Consult Needed --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Social_Consult_Needed2</name>
+        <subject><!-- Social Consult Needed --></subject>
+    </workflowTasks>
+</CustomObjectTranslation>

@@ -1,0 +1,52 @@
+{
+  "textTabs": [
+    {
+      "isPaymentAmount": "false",
+      "shared": "false",
+      "requireInitialOnSharedChange": "false",
+      "name": "Contract Number(s)1",
+      "value": "5677454",
+      "required": "false",
+      "locked": "true",
+      "concealValueOnDocument": "false",
+      "disableAutoSize": "false",
+      "tabLabel": "Contract Number(s)_5",
+      "font": "arial",
+      "bold": "false",
+      "italic": "false",
+      "underline": "false",
+      "fontColor": "black",
+      "fontSize": "size7",
+      "documentId": "1",
+      "recipientId": "6",
+      "pageNumber": "19",
+      "xPosition": "200",
+      "yPosition": "74",
+      "tabId": "e40f27c5-f9bd-40e7-bf35-6fd786a49a04"
+    },
+    {
+      "isPaymentAmount": "false",
+      "shared": "false",
+      "requireInitialOnSharedChange": "false",
+      "name": "Contract Number(s)1",
+      "value": "5677454",
+      "required": "false",
+      "locked": "true",
+      "concealValueOnDocument": "false",
+      "disableAutoSize": "false",
+      "tabLabel": "Contract Number(s)_5",
+      "font": "arial",
+      "bold": "false",
+      "italic": "false",
+      "underline": "false",
+      "fontColor": "black",
+      "fontSize": "size7",
+      "documentId": "1",
+      "recipientId": "6",
+      "pageNumber": "36",
+      "xPosition": "128",
+      "yPosition": "298",
+      "tabId": "d4fb2ca5-f61c-4b86-b186-595c62f338e7"
+    }
+  ]
+}

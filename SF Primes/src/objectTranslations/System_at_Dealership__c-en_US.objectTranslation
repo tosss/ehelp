@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>System at Dealership</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Systems at Dealership</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- Systems at Dealership --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Age --></label>
+        <name>Age__c</name>
+    </fields>
+    <fields>
+        <label><!-- Box ID --></label>
+        <name>Box_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Site Name --></label>
+        <name>Box_Location__c</name>
+        <relationshipLabel><!-- Systems at Dealership (Box Location) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- In Request for Change/CCF this is referred to Primary Site (if checked) or Connected Site (if unchecked)” --></help>
+        <label><!-- Primary Site --></label>
+        <name>Box_Onsite__c</name>
+    </fields>
+    <fields>
+        <label><!-- CRM Base Version --></label>
+        <name>CRM_Base_Version__c</name>
+    </fields>
+    <fields>
+        <label><!-- CRM Client ID --></label>
+        <name>CRM_Client_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- CRM Install Type --></label>
+        <name>CRM_Install_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- CRM Version --></label>
+        <name>CRM_Version__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cash --></label>
+        <name>Cash__c</name>
+    </fields>
+    <fields>
+        <label><!-- CompositeExtID --></label>
+        <name>CompositeExtID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract/MSA Term --></label>
+        <name>Contract_MSA_Term__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Term Expiration Date --></label>
+        <name>Contract_Term_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current DMS Proposal ID --></label>
+        <name>Current_DMS_Proposal_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- DMS Device Code --></label>
+        <name>DMS_Device_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- DMS Software Level --></label>
+        <name>DMS_Software_Level__c</name>
+    </fields>
+    <fields>
+        <label><!-- DMS System Users --></label>
+        <name>DMS_System_User__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Install Date --></label>
+        <name>Install_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lease Expiration Date --></label>
+        <name>Lease_Expiration_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Loss Client Date --></label>
+        <name>Loss_Client_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Specify Months --></help>
+        <label><!-- Contract Term (Mos.) --></label>
+        <name>MSA_Length__c</name>
+    </fields>
+    <fields>
+        <label><!-- MSA Signed Date --></label>
+        <name>MSA_Signed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- MSA Term. Date --></label>
+        <name>MSA_Term_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Migration ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Monthly Lease $ --></label>
+        <name>Monthly_Lease__c</name>
+    </fields>
+    <fields>
+        <label><!-- Monthly Support $ --></label>
+        <name>Monthly_Support__c</name>
+    </fields>
+    <fields>
+        <label><!-- Original Expiry Date --></label>
+        <name>Original_Expiry_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Original Install Date --></label>
+        <name>Original_Install_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary --></label>
+        <name>Primary__c</name>
+    </fields>
+    <fields>
+        <label><!-- R&amp;R iDMS --></label>
+        <name>Reynolds_iDMS__c</name>
+    </fields>
+    <fields>
+        <label><!-- SLX DealerSysRec CreateDate --></label>
+        <name>SLX_DealerSysRec_CreateDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- SLX DealerSysRec ID --></label>
+        <name>SLX_DealerSysRec_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- SLX Sys ID --></label>
+        <name>SLX_Sys_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- SLX Vendor ID --></label>
+        <name>SLX_Vendor_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- SYS Model --></label>
+        <name>SYS_Model__c</name>
+    </fields>
+    <fields>
+        <label><!-- Serial Number --></label>
+        <name>Serial_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold DMS Estimated Install Date --></label>
+        <name>Sold_DMS_Estimated_Install_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold DMS Proposal ID --></label>
+        <name>Sold_DMS_Proposal_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold DMS Vendor System --></label>
+        <name>Sold_DMS_Vendor__c</name>
+        <relationshipLabel><!-- Systems at Dealership (Sold DMS Vendor) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Sold Date --></label>
+        <name>Sold_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- System Software are: 9400 and 9500(Drive), 9200 and 9300 (w.e.b.Suite), 8800(Elite), R&amp;R-Adv-GS(ERA), R&amp;R-Adv-HP(ERA ES), R&amp;R-Adv-S(ERA XT), Mannheim (Mannheim Tracker), Infinity(Netfinity), Autocomplete(Profit Max), Serti(SDSWin), Toyota(TIME 2K) --></help>
+        <label><!-- System Software --></label>
+        <name>System_Software__c</name>
+    </fields>
+    <fields>
+        <label><!-- System Type --></label>
+        <name>System_Type__c</name>
+        <picklistValues>
+            <masterLabel>CRM</masterLabel>
+            <translation><!-- CRM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DMS</masterLabel>
+            <translation><!-- DMS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leasing</masterLabel>
+            <translation><!-- Leasing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phone</masterLabel>
+            <translation><!-- Phone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Previous CRM</masterLabel>
+            <translation><!-- Previous CRM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Previous DMS</masterLabel>
+            <translation><!-- Previous DMS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Previous Leasing</masterLabel>
+            <translation><!-- Previous Leasing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Previous Phone</masterLabel>
+            <translation><!-- Previous Phone --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Systems at Dealership --></label>
+        <name>Systems_at_Dealership__c</name>
+    </fields>
+    <fields>
+        <label><!-- # Users/Handsets --></label>
+        <name>Users_Handsets__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vendor System --></label>
+        <name>Vendor__c</name>
+        <relationshipLabel><!-- Systems at Dealership (Vendor) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- iDMS --></label>
+        <name>iDMS__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Ports --></label>
+        <name>of_Ports__c</name>
+    </fields>
+    <layouts>
+        <layout>Account -  Systems Phone System Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Phone System Information --></label>
+            <section>Phone System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Account - Systems CRM System Layout</layout>
+        <sections>
+            <label><!-- CRM System Information --></label>
+            <section>CRM System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Account - Systems DMS Layout</layout>
+        <sections>
+            <label><!-- Additional DMS Attributes --></label>
+            <section>Additional DMS Attributes</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- DMS System Information --></label>
+            <section>DMS System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Sold Vendor System --></label>
+            <section>Sold Vendor System</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Account - Systems Leasing Systems Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Leasing System Information --></label>
+            <section>Leasing System Information</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Account - Systems CRM System --></label>
+        <name>AccountSystemsCRMSystem</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Account - Systems DMS --></label>
+        <name>AccountSystemsDMS</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Account - Systems Leasing Systems --></label>
+        <name>AccountSystemsLeasingSystems</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Account - Systems Phone System --></label>
+        <name>AccountSystemsPhoneSystem</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Box Location is Required when the box is not onsite. --></errorMessage>
+        <name>Box_Location_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Composite external id cannot be null --></errorMessage>
+        <name>Composite_ID_field_required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Install Date year must be between 1970 and 2100 --></errorMessage>
+        <name>Install_Date_Validation_for_Year</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Credit_Corp_Data --></label>
+        <name>Credit_Corp_Data</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Credit_Corp_Info --></label>
+        <name>Credit_Corp_Info</name>
+    </webLinks>
+</CustomObjectTranslation>

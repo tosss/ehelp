@@ -1,0 +1,9 @@
+.THIS .invisible{
+    opacity :0 !important;
+}
+.THIS .hide{
+    display :none !important;
+}
+.THIS .fill-parent{
+    width : 100%;
+}

@@ -1,0 +1,15 @@
+<aura:component controller="SLS_CampaignLeadList_Controller" implements="force:appHostable">
+    <aura:attribute name="ObjectAPIName" type="String" default="Campaign" />
+    <aura:attribute name="SearchFieldAPIName" type="String" default="Name" />
+    <aura:attribute name="searchString" type="String" default="" />
+    <aura:attribute name="resultList" type="sobject[]" default="[]" />
+    <aura:attribute name="selectedName" type="String" default="" />
+    <aura:attribute name="label" type="String" default="" />
+    <aura:attribute name="selectedId" type="String" default="" />
+    <aura:attribute name="task" type="sobject" default="" />
+    <div class="slds-grid slds-container--center slds-container--large" style="margin-top: 0.5%;max-width:100%;">
+        
+            <button class="slds-button slds-button--neutral slds-not-selected" onclick="{!c.saveTaskC}" style="width:100%">Save Task</button>
+    </div>
+    
+</aura:component>

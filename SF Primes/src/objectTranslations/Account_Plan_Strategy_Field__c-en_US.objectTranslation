@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Account Plan Strategy Field</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Account Plan Strategy Field</value>
+    </caseValues>
+    <fields>
+        <label><!-- Field API Name --></label>
+        <name>Field_API_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the primitive type (&apos;string&apos;, &apos;numeric&apos;, &apos;date&apos; or &apos;html&apos;, etc.) of the field to be displayed in a DataTable. --></help>
+        <label><!-- Field DataTable Type --></label>
+        <name>Field_DataTable_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Field Label --></label>
+        <name>Field_Label__c</name>
+    </fields>
+    <fields>
+        <label><!-- Record Type Name --></label>
+        <name>Record_Type_Name__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

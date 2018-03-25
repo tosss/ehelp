@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>EFD Lasers</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>EFD Lasers</value>
+    </caseValues>
+    <fields>
+        <label><!-- Installed Date --></label>
+        <name>Installed_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Installed EFD Lasers Type --></label>
+        <name>Installed_EFD_Lasers_Type__c</name>
+        <picklistValues>
+            <masterLabel>1400</masterLabel>
+            <translation><!-- 1400 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1920</masterLabel>
+            <translation><!-- 1920 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1940</masterLabel>
+            <translation><!-- 1940 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6000</masterLabel>
+            <translation><!-- 6000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6100</masterLabel>
+            <translation><!-- 6100 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MFD8500</masterLabel>
+            <translation><!-- MFD8500 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MICR</masterLabel>
+            <translation><!-- MICR --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Installer Name --></label>
+        <name>Installer_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Laser Install --></label>
+        <name>Laser_Install__c</name>
+        <relationshipLabel><!-- EFD Lasers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Quantity --></label>
+        <name>Quantity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Serial # --></label>
+        <name>Serial__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>TBD</masterLabel>
+            <translation><!-- TBD --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>EFD Lasers Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

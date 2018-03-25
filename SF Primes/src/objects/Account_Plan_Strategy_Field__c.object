@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Field_API_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Field API Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Field_DataTable_Type__c</fullName>
+        <description>This is the primitive type (&apos;string&apos;, &apos;numeric&apos;, &apos;date&apos; or &apos;html&apos;, etc.) of the field to be displayed in a DataTable.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the primitive type (&apos;string&apos;, &apos;numeric&apos;, &apos;date&apos; or &apos;html&apos;, etc.) of the field to be displayed in a DataTable.</inlineHelpText>
+        <label>Field DataTable Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Field_Label__c</fullName>
+        <externalId>false</externalId>
+        <label>Field Label</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Record_Type_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Record Type Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Account Plan Strategy Field</label>
+    <visibility>Public</visibility>
+</CustomObject>

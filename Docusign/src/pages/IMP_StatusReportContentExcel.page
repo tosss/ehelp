@@ -1,0 +1,1139 @@
+<!--
+/*------------------------------------------------------------
+Author:  Samuel Oberes
+Company: Cloud Sherpas
+Description: Generated status report (in excel spreadsheet format) from IMP_StatusReportGeneration
+History
+10/11/14    Samuel Oberes       Created
+10/29/14    Samuel Oberes       Market removed from Milestones, Issues, Risks, Change Requests, CDK Contacts, and Client Contacts. Market now remains only on project summary page, and is dynamic, depending on the region the subproject is in.
+                                Added subprojectMarkets
+                                Changed CMF_Numbers__c to CMF__c
+                                Changed Dealer_Group__r.Name to Main_Site__r.Name
+01/06/15    Samuel Oberes       Added sites section
+                                Cover pages section: 1) added Project Name, Project advocates
+                                                     2) changed CMF# source field to CMF_Numbers__c
+                                                     3) removed 'Dealership Name / Group', 'Address', 'City', 'State / Province', 'Zip Code / Postal Code', 'Phone #'
+01/14/15    Samuel Oberes       Relocated New_Server_URL_CDK_CRM__c from SP cover page to Sites worksheet
+01/22/15    Samuel Oberes       Removed the whole Main_Site__r.Name for Issue, Risk, and Change Control sheet
+04/09/15    Samuel Oberes       The subProjectCDKContactMap and subProjectClientContactMap's values are now being stored in a generic class type named IMP_Project_Utility.CDKClientContactsWrapper
+08/17/15    Samuel Oberes       Added Site column to Issue/Risk/Change Req tab
+                                Added Project task level to Project Milestones tab, along with site column and proper sorting.
+------------------------------------------------------------*/
+-->
+<apex:page controller="IMP_StatusReportGeneration_Controller" contentType="application/vnd.ms-excel#{!fileName}.xls" cache="true">
+    <apex:outputText value="{!xlsHeader}"/>
+    <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+              xmlns:o="urn:schemas-microsoft-com:office:office"
+              xmlns:x="urn:schemas-microsoft-com:office:excel"
+              xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+              xmlns:html="http://www.w3.org/TR/REC-html40">
+        
+        <Styles>
+            <Style ss:ID="Default" ss:Name="Normal">
+                <Alignment ss:Vertical="Top"/>
+                <Borders/>
+                <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="12" ss:Color="#000000"/>
+                <Interior/>
+                <NumberFormat/>
+                <Protection/>
+            </Style>
+            <Style ss:ID="BorderOutsideContinuous">
+                <Borders>
+                    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+                    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+                    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/> <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+                </Borders>
+                <Interior/>
+            </Style>
+            <Style ss:ID="Header" ss:Parent="BorderOutsideContinuous">
+                <Alignment ss:Vertical="Center" ss:WrapText="1"/>
+                <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="12" ss:Color="#FFFFFF" ss:Bold="1"/>
+                <Interior ss:Color="#76933C" ss:Pattern="Solid"/>
+            </Style>
+            <Style ss:ID="SubHeader" ss:Parent="BorderOutsideContinuous">
+                <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+                <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="12" ss:Color="#215967"/>
+                <Interior ss:Color="#D9D9D9" ss:Pattern="Solid"/>
+            </Style>
+            <Style ss:ID="CellData" ss:Parent="BorderOutsideContinuous">
+                <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+                <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+            </Style>
+            <Style ss:ID="CellDataIndented" ss:Parent="CellData">
+                <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:Indent="5" ss:WrapText="1"/>
+            </Style>
+            <Style ss:ID="CellDataIndentedTwice" ss:Parent="CellData">
+                <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:Indent="10" ss:WrapText="1"/>
+            </Style>
+            <Style ss:ID="CDKLogo_1of2">
+                <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" ss:Indent="4" ss:WrapText="1"/>
+                <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="20" ss:Bold="1"/>
+                <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+            </Style>
+            <Style ss:ID="CDKLogo_2of2" ss:Parent="CDKLogo_1of2">
+                <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:Indent="4" ss:WrapText="1"/>
+                <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="20"/>
+            </Style>
+            <Style ss:ID="ProjSummaryHeader">
+                <Alignment ss:Vertical="Center" />
+                <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="24" ss:Color="#82BC00" ss:Bold="1"/>
+            </Style>
+            <Style ss:ID="ProjSummarySubHeader">
+                <Alignment ss:Vertical="Center" ss:WrapText="1"/>
+                <Borders>
+                    <Border ss:Position="Bottom" ss:Color="#76933C" ss:LineStyle="Continuous" ss:Weight="1"/>
+                </Borders>
+                <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="12" ss:Color="#FFFFFF" ss:Bold="1"/>
+                <Interior ss:Color="#76933C" ss:Pattern="Solid"/>
+            </Style>
+            <Style ss:ID="ProjSummaryLabelBlue">
+                <Alignment ss:Vertical="Center" ss:WrapText="1"/>
+                <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="11" ss:Color="#FFFFFF" ss:Bold="1"/>
+                <Interior ss:Color="#587993" ss:Pattern="Solid"/>
+            </Style>
+            <Style ss:ID="ProjSummaryLabelBlueIndent1" ss:Parent="ProjSummaryLabelBlue">
+                <Alignment ss:Vertical="Center" ss:Indent="1" ss:WrapText="1"/>
+            </Style>
+            <Style ss:ID="ProjSummaryLabelBlueIndent3" ss:Parent="ProjSummaryLabelBlue">
+                <Alignment ss:Vertical="Center" ss:Indent="3" ss:WrapText="1"/>
+            </Style>
+            <Style ss:ID="ProjSummaryData">
+                <Alignment ss:Vertical="Center" ss:Indent="1" ss:WrapText="1"/>
+                <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+            </Style>
+            <Style ss:ID="ProjDescData">
+                <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+                <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+            </Style>
+            <Style ss:ID="ProjStatusData" ss:Parent="BorderOutsideContinuous">
+                <Alignment ss:Vertical="Center" ss:WrapText="1"/>
+            </Style>
+            <Style ss:ID="ProjStatusDataX" ss:Parent="ProjStatusData">
+                <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+                <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="16" ss:Bold="1"/>
+            </Style>
+            <Style ss:ID="ProjStatusDataGreen" ss:Parent="ProjStatusData">
+                <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+                <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="16" ss:Color="#008000" ss:Bold="1"/>
+            </Style>
+            <Style ss:ID="ProjStatusDataYellow" ss:Parent="ProjStatusData">
+                <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+                <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="16" ss:Color="#FFFF00" ss:Bold="1"/>
+            </Style>
+            <Style ss:ID="ProjStatusDataRed" ss:Parent="ProjStatusData">
+                <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+                <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="16" ss:Color="#FF0000" ss:Bold="1"/>
+            </Style>
+            <Style ss:ID="ProjStatusDataBlue" ss:Parent="ProjStatusData">
+                <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+                <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="16" ss:Color="#0070C0" ss:Bold="1"/>
+            </Style>
+            <Style ss:ID="ProjStatusDataAcknowledgment">
+                <Alignment ss:Vertical="Center" ss:Indent="1" ss:WrapText="1"/>
+                <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="16" ss:Color="#000000"/>
+            </Style>
+            <Style ss:ID="ClientSignature">
+                <Alignment ss:Horizontal="Left" ss:Vertical="Bottom" ss:Indent="2" ss:WrapText="1"/>
+                <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+            </Style>
+            <Style ss:ID="ClientSignatureLabel" ss:Parent="ClientSignature">
+                <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:Indent="0" ss:WrapText="1"/>
+            </Style>
+            <Style ss:ID="ClientSignatureDate" ss:Parent="ClientSignature">
+                <Alignment ss:Horizontal="Left" ss:Vertical="Center" ss:Indent="2" ss:WrapText="1"/>
+            </Style>
+            <Style ss:ID="ImportantNotice">
+                <Interior ss:Color="#F0EBDC" ss:Pattern="Solid" />
+            </Style>
+            <Style ss:ID="ImportantNoticeTitle" ss:Parent="ImportantNotice">
+                <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:Indent="0" ss:WrapText="1"/>
+                <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="18" ss:Color="#000000" ss:Bold="1"/>
+            </Style>
+            <Style ss:ID="ImportantNoticeMsg" ss:Parent="ImportantNotice">
+                <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:Indent="0" ss:WrapText="1"/>
+                <Font ss:FontName="Arial" x:Family="Swiss" ss:Size="18" ss:Color="#000000"/>
+            </Style>
+        </Styles>
+
+        <!--
+        //============================================================
+        //                 PROJECT SUMMARIES
+        //============================================================
+        -->
+        <apex:repeat value="{!subProjectList}" var="sp">
+            <Worksheet ss:Name="{!subprojectNames[sp]}">
+                <Table x:FullColumns="1" x:FullRows="1">
+                    <Column ss:AutoFitWidth="0" ss:Width="126.75"/>
+                    <Column ss:AutoFitWidth="0" ss:Width="101.25"/>
+                    <Column ss:AutoFitWidth="0" ss:Width="117.75"/>
+                    <Column ss:AutoFitWidth="0" ss:Width="112.5"/>
+                    <Column ss:AutoFitWidth="0" ss:Width="199.5"/>
+                    <Column ss:AutoFitWidth="0" ss:Width="226.5"/>
+                    <Column ss:AutoFitWidth="0" ss:Width="199.5"/>
+                    <Column ss:AutoFitWidth="0" ss:Width="226.5"/>
+                    <Column ss:AutoFitWidth="0" ss:Width="199.5"/>
+                    <Column ss:AutoFitWidth="0" ss:Width="226.5"/>
+
+                    <Row ss:AutoFitHeight="0">
+                        <Cell ss:MergeDown="1" ss:StyleID="CDKLogo_1of2"><Data ss:Type="String">CDK</Data></Cell>
+                        <Cell ss:MergeAcross="8" ss:MergeDown="3" ss:StyleID="ProjSummaryHeader"><Data ss:Type="String">{!subprojectMarkets[sp.Id]}         Project Status Report</Data></Cell>
+                    </Row>
+
+                    <Row ss:AutoFitHeight="0"/>
+                    <Row ss:AutoFitHeight="0">
+                        <Cell ss:MergeDown="1" ss:StyleID="CDKLogo_2of2"><Data ss:Type="String">Global</Data></Cell>
+                    </Row>
+                    <Row ss:AutoFitHeight="0" ss:Height="23.25"/>
+
+                    <Row ss:Height="30.9375">
+                        <Cell ss:MergeAcross="9" ss:StyleID="ProjSummarySubHeader"><Data ss:Type="String">Project Information</Data></Cell>
+                    </Row>
+                    <Row ss:AutoFitHeight="1" ss:Height="21.75">
+                        <Cell ss:MergeAcross="1" ss:StyleID="ProjSummaryLabelBlueIndent1"><Data ss:Type="String">Project #</Data></Cell>
+                        <Cell ss:MergeAcross="7" ss:StyleID="ProjSummaryData"><Data ss:Type="String">{!sp.Impact_Project_Numbers__c}</Data></Cell>
+                    </Row>
+                    <Row ss:AutoFitHeight="1" ss:Height="21.75">
+                        <Cell ss:MergeAcross="1" ss:StyleID="ProjSummaryLabelBlueIndent1"><Data ss:Type="String">Project Name</Data></Cell>
+                        <Cell ss:MergeAcross="7" ss:StyleID="ProjSummaryData"><Data ss:Type="String">{!sp.SubProject_Name__c}</Data></Cell>
+                    </Row>
+                    <Row ss:AutoFitHeight="1" ss:Height="21.75">
+                        <Cell ss:MergeAcross="1" ss:StyleID="ProjSummaryLabelBlueIndent1"><Data ss:Type="String">CMF#</Data></Cell>
+                        <Cell ss:MergeAcross="7" ss:StyleID="ProjSummaryData"><Data ss:Type="String">{!sp.CMF_Numbers__c}</Data></Cell>
+                    </Row>
+                    <Row ss:AutoFitHeight="1" ss:Height="21.75">
+                        <Cell ss:MergeAcross="1" ss:StyleID="ProjSummaryLabelBlueIndent1"><Data ss:Type="String">Project Advocate(s)</Data></Cell>
+                        <Cell ss:MergeAcross="7" ss:StyleID="ProjSummaryData"><Data ss:Type="String">{!subProjectToProjectAdvocatesMap[sp]}</Data></Cell>
+                    </Row>
+                    <Row ss:AutoFitHeight="1" ss:Height="21.75">
+                        <Cell ss:MergeAcross="1" ss:StyleID="ProjSummaryLabelBlueIndent1"><Data ss:Type="String">CDK Project Manager</Data></Cell>
+                        <Cell ss:MergeAcross="7" ss:StyleID="ProjSummaryData"><Data ss:Type="String">{!sp.Project_Manager__r.Name}</Data></Cell>
+                    </Row>
+                    <Row ss:AutoFitHeight="1" ss:Height="21.75">
+                        <Cell ss:MergeAcross="1" ss:StyleID="ProjSummaryLabelBlueIndent1"><Data ss:Type="String">Phone #</Data></Cell>
+                        <Cell ss:MergeAcross="7" ss:StyleID="ProjSummaryData"><Data ss:Type="String">{!sp.PM_Phone__c}</Data></Cell>
+                    </Row>
+                    <Row ss:AutoFitHeight="0" ss:Height="30.9375">
+                        <Cell ss:MergeAcross="9" ss:StyleID="ProjSummarySubHeader"><Data ss:Type="String">Project Overview</Data></Cell>
+                    </Row>
+                    <Row ss:AutoFitHeight="1" ss:Height="185.25">
+                        <Cell ss:MergeAcross="9" ss:StyleID="ProjDescData">
+                            <Data ss:Type="String">{!sp.SubProject_Overview__c}</Data>
+                        </Cell>
+                    </Row>
+                    <Row ss:AutoFitHeight="0" ss:Height="30.9375">
+                        <Cell ss:MergeAcross="9" ss:StyleID="ProjSummarySubHeader"><Data ss:Type="String">Project Status</Data></Cell>
+                    </Row>
+                    <Row ss:AutoFitHeight="0" ss:Height="33">
+                        <Cell ss:MergeAcross="1" ss:StyleID="ProjStatusDataX"><Data ss:Type="String">{!IF(sp.SubProject_Health_Indicator__c == 'Green', 'X', '')}</Data></Cell>
+                        <Cell ss:StyleID="ProjStatusDataGreen"><Data ss:Type="String">Green</Data></Cell>
+                        <Cell ss:MergeAcross="6" ss:StyleID="ProjStatusData"><Data ss:Type="String">Project (or project task) is proceeding on or ahead of the baselined project plan. If issues exist, actions are in place to contain them and keep on track. </Data></Cell>
+                    </Row>
+                    <Row ss:AutoFitHeight="0" ss:Height="33">
+                        <Cell ss:MergeAcross="1" ss:StyleID="ProjStatusDataX"><Data ss:Type="String">{!IF(sp.SubProject_Health_Indicator__c == 'Yellow', 'X', '')}</Data></Cell>
+                        <Cell ss:StyleID="ProjStatusDataYellow"><Data ss:Type="String">Yellow</Data></Cell>
+                        <Cell ss:MergeAcross="6" ss:StyleID="ProjStatusData"><Data ss:Type="String">Project (or project task) has issues that are impeding progress and/or could have a negative impact on the baselined delivery dates. The project will remain yellow until corrective action has been implemented or incorporated into the project plan. </Data></Cell>
+                    </Row>
+                    <Row ss:AutoFitHeight="0" ss:Height="33">
+                        <Cell ss:MergeAcross="1" ss:StyleID="ProjStatusDataX"><Data ss:Type="String">{!IF(sp.SubProject_Health_Indicator__c == 'Red', 'X', '')}</Data></Cell>
+                        <Cell ss:StyleID="ProjStatusDataRed"><Data ss:Type="String">Red</Data></Cell>
+                        <Cell ss:MergeAcross="6" ss:StyleID="ProjStatusData"><Data ss:Type="String">Project (or project task) has issues that will have a negative impact on the baselined delivery dates. Escalation required. The project will remain red until change request or variance approval is received from the sponsor. </Data></Cell>
+                    </Row>
+                    <Row ss:AutoFitHeight="0" ss:Height="33">
+                        <Cell ss:MergeAcross="1" ss:StyleID="ProjStatusDataX"><Data ss:Type="String">{!IF(sp.SubProject_Health_Indicator__c == 'Blue', 'X', '')}</Data></Cell>
+                        <Cell ss:StyleID="ProjStatusDataBlue"><Data ss:Type="String">Blue</Data></Cell>
+                        <Cell ss:MergeAcross="6" ss:StyleID="ProjStatusData"><Data ss:Type="String">Project (or project task) is complete. </Data></Cell>
+                    </Row>
+                    <Row ss:AutoFitHeight="0" ss:Height="30.9375">
+                        <Cell ss:MergeAcross="9" ss:StyleID="ProjSummarySubHeader"><Data ss:Type="String">Acknowledgement (Final PSR only):</Data></Cell>
+                    </Row>
+                    <Row ss:Height="37.5">
+                        <Cell ss:MergeAcross="3" ss:StyleID="ProjStatusDataAcknowledgment"><Data ss:Type="String">I have received and reviewed this Project Status Report:</Data></Cell>
+                        <Cell ss:MergeAcross="5" ss:StyleID="ImportantNotice" />
+                    </Row>
+                    <Row ss:AutoFitHeight="0" ss:Height="53.25">
+                        <Cell ss:MergeAcross="3" ss:StyleID="ClientSignature"><Data ss:Type="String">x_______________________________________________________</Data></Cell>
+                        <Cell ss:MergeAcross="5" ss:StyleID="ImportantNoticeTitle"><Data ss:Type="String">IMPORTANT NOTICE</Data></Cell>
+                    </Row>
+                    <Row ss:AutoFitHeight="0" ss:Height="45">
+                        <Cell ss:MergeAcross="3" ss:StyleID="ClientSignatureLabel"><Data ss:Type="String">Client Signature </Data></Cell>
+                        <Cell ss:MergeAcross="5" ss:StyleID="ImportantNoticeMsg">
+                            <Data ss:Type="String">By signing and submitting this form you agree that you have received and reviewed the issues, risks, change control and associated status - as defined in this document.</Data>
+                        </Cell>
+                    </Row>
+                    <Row ss:AutoFitHeight="0" ss:Height="73.5">
+                        <Cell ss:MergeAcross="3" ss:StyleID="ClientSignatureDate"><Data ss:Type="String">Date:  _____________________________</Data></Cell>
+                        <Cell ss:MergeAcross="5" ss:StyleID="ImportantNotice" />
+                    </Row>
+                </Table>
+            </Worksheet>
+        </apex:repeat>
+        
+        <!--
+        //============================================================
+        //                 MILESTONE/ACTIVITY SECTION
+        //============================================================
+        -->
+        <Worksheet ss:Name="Project Milestones">
+            <Names>
+                <NamedRange ss:Name="Print_Titles" ss:RefersTo="='Project Milestones'!R5:R6"/>
+            </Names>
+            <Table x:FullColumns="1" x:FullRows="1">
+                <Column ss:AutoFitWidth="0" ss:Width="99.75"/>             <!-- Row 1 -->
+                <Column ss:AutoFitWidth="0" ss:Width="105"/>               <!-- Row 2 -->
+                <Column ss:AutoFitWidth="0" ss:Width="103.5"/>             <!-- Row 3 -->
+                <Column ss:AutoFitWidth="0" ss:Width="370.5"/>             <!-- Row 4 -->
+                <Column ss:AutoFitWidth="0" ss:Width="110" ss:Span="3"/>   <!-- Row 5, 6, 7, and 8 -->
+                <Column ss:Index="9" ss:Width="58.5"/>                     <!-- Row 9 -->
+                <Column ss:AutoFitWidth="0" ss:Width="115" ss:Span="2"/>  <!-- Row 10, 11, and 12 -->
+                <Column ss:Index="13" ss:AutoFitWidth="0" ss:Width="230"/> <!-- Row 13 -->
+                <Row ss:AutoFitHeight="0">
+                    <Cell ss:MergeDown="1" ss:StyleID="CDKLogo_1of2"><Data ss:Type="String">CDK</Data></Cell>
+                    <Cell ss:MergeAcross="11" ss:MergeDown="3" ss:StyleID="ProjSummaryHeader"><Data ss:Type="String">            Project Status Report</Data></Cell>
+                </Row>
+
+                <Row ss:AutoFitHeight="0"/>
+                <Row ss:AutoFitHeight="0">
+                    <Cell ss:MergeDown="1" ss:StyleID="CDKLogo_2of2"><Data ss:Type="String">Global</Data></Cell>
+                </Row>
+                <Row ss:AutoFitHeight="0" ss:Height="23.25"/>
+
+                <Row ss:Height="24.9375">
+                    <Cell ss:MergeAcross="3" ss:StyleID="Header"><Data ss:Type="String">Project Milestones</Data><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                </Row>
+                <Row ss:AutoFitHeight="1">
+                    <Cell ss:MergeAcross="1" ss:StyleID="SubHeader"><Data ss:Type="String">SubProject Name</Data><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Site</Data><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Milestone</Data><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Planned Start Date</Data><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Planned End Date</Data><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Actual Start Date</Data><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Actual End Date</Data><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Status</Data><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">CDK Assignee</Data><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">CDK Assignee Role</Data><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Client Assignee</Data><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Comments</Data><NamedCell ss:Name="Print_Titles"/></Cell>
+                </Row>
+
+                <apex:variable value="{!'_NOTHING'}" var="previousSubProjectName"/>
+                <apex:variable value="{!'_NOTHING'}" var="previousSiteName"/>
+
+                <apex:repeat value="{!subProjectList}" var="sp">
+
+                    <!-- start of project milestone iteration -->
+                    <apex:repeat value="{!subProjectMilestoneMap[sp]}" var="outerKey">
+                        <apex:repeat value="{!subProjectMilestoneMap[sp][outerKey]}" rendered="{!outerKey}" var="mile">
+
+                            <apex:variable value="{!IF(sp.SubProject_Name__c == previousSubProjectName, '', sp.SubProject_Name__c)}" var="currentSubProjectName"/>
+                            <apex:variable value="{!IF(mile.Site_Name__c == previousSiteName, '', mile.Site_Name__c)}" var="currentSiteName"/>
+
+                            <Row ss:AutoFitHeight="1">
+                                <Cell ss:MergeAcross="1" ss:StyleID="CellData"><Data ss:Type="String">{!currentSubProjectName}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!currentSiteName}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!mile.Description__c}</Data></Cell>
+                                <Cell ss:StyleID="CellData">
+                                    <Data ss:Type="String">
+                                        <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> 
+                                            <apex:param value="{!mile.Planned_Start_Date__c}" />
+                                        </apex:outputText>
+                                    </Data>
+                                </Cell>
+                                <Cell ss:StyleID="CellData">
+                                    <Data ss:Type="String">
+                                        <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> 
+                                            <apex:param value="{!mile.Planned_End_Date__c}"/> 
+                                        </apex:outputText>
+                                    </Data>
+                                </Cell>
+                                <Cell ss:StyleID="CellData">
+                                    <Data ss:Type="String">
+                                        <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> 
+                                            <apex:param value="{!mile.Actual_Start_Date__c}" />
+                                        </apex:outputText>
+                                    </Data>
+                                </Cell>
+                                <Cell ss:StyleID="CellData">
+                                    <Data ss:Type="String">
+                                        <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> 
+                                            <apex:param value="{!mile.Actual_End_Date_Final__c}"/> 
+                                        </apex:outputText>
+                                    </Data>
+                                </Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!mile.Status__c}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String"></Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String"></Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String"></Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!mile.Comments__c}</Data></Cell>
+                            </Row>
+
+                            <apex:variable var="previousSubProjectName" value="{!sp.SubProject_Name__c}"/>
+                            <apex:variable var="previousSiteName" value="{!mile.Site_Name__c}"/>
+
+                            <!-- start of project activity iteration -->
+                            <apex:repeat value="{!milestoneActivityMap[mile]}" var="outerKey">
+                                <apex:repeat value="{!milestoneActivityMap[mile][outerKey]}" rendered="{!outerKey}" var="act">      
+
+                                    <apex:variable value="{!IF(sp.SubProject_Name__c == previousSubProjectName, '', sp.SubProject_Name__c)}" var="currentSubProjectName"/>
+                                    <apex:variable value="{!IF(act.Site_Name__c == previousSiteName, '', act.Site_Name__c)}" var="currentSiteName"/>
+
+                                    <Row ss:AutoFitHeight="1">
+                                        <Cell ss:MergeAcross="1" ss:StyleID="CellData"><Data ss:Type="String">{!currentSubProjectName}</Data></Cell>
+                                        <Cell ss:StyleID="CellData"><Data ss:Type="String">{!currentSiteName}</Data></Cell>
+                                        <Cell ss:StyleID="CellDataIndented"><Data ss:Type="String">{!act.Description__c}</Data></Cell>
+                                        <Cell ss:StyleID="CellData">
+                                            <Data ss:Type="String">
+                                                <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> 
+                                                    <apex:param value="{!act.Planned_Start_Date__c}"/> 
+                                                </apex:outputText>
+                                            </Data>
+                                        </Cell>
+                                        <Cell ss:StyleID="CellData">
+                                            <Data ss:Type="String">
+                                                <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> 
+                                                    <apex:param value="{!act.Planned_End_Date__c}"/> 
+                                                </apex:outputText>
+                                            </Data>
+                                        </Cell>
+                                        <Cell ss:StyleID="CellData">
+                                            <Data ss:Type="String">
+                                                <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> 
+                                                    <apex:param value="{!act.Actual_Start_Date__c}"/> 
+                                                </apex:outputText>
+                                            </Data>
+                                        </Cell>
+                                        <Cell ss:StyleID="CellData">
+                                            <Data ss:Type="String">
+                                                <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> 
+                                                    <apex:param value="{!act.Actual_End_Date_Final__c}"/> 
+                                                </apex:outputText>
+                                            </Data>
+                                        </Cell>
+                                        <Cell ss:StyleID="CellData"><Data ss:Type="String">{!act.Status__c}</Data></Cell>
+                                        <Cell ss:StyleID="CellData"><Data ss:Type="String">{!act.CDK_Assignee__r.Name}</Data></Cell>
+                                        <Cell ss:StyleID="CellData"><Data ss:Type="String">{!act.CDK_Assignee_Role__c}</Data></Cell>
+                                        <Cell ss:StyleID="CellData"><Data ss:Type="String">{!act.Client_Assignee__r.Name}</Data></Cell>
+                                        <Cell ss:StyleID="CellData"><Data ss:Type="String">{!act.Comments__c}</Data></Cell>
+                                    </Row>
+
+                                    <apex:variable var="previousSubProjectName" value="{!sp.SubProject_Name__c}"/>
+                                    <apex:variable var="previousSiteName" value="{!act.Site_Name__c}"/>
+
+                                    <!-- start of project task iteration -->
+                                    <apex:repeat value="{!activityTaskMap[act]}" var="outerKey">
+                                        <apex:repeat value="{!activityTaskMap[act][outerKey]}" rendered="{!outerKey}" var="task">
+
+                                            <apex:variable value="{!IF(sp.SubProject_Name__c == previousSubProjectName, '', sp.SubProject_Name__c)}" var="currentSubProjectName"/>
+                                            <apex:variable value="{!IF(task.Site_Name__c == previousSiteName, '', task.Site_Name__c)}" var="currentSiteName"/>
+
+                                            <Row ss:AutoFitHeight="1">
+                                                <Cell ss:MergeAcross="1" ss:StyleID="CellData"><Data ss:Type="String">{!currentSubProjectName}</Data></Cell>
+                                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!currentSiteName}</Data></Cell>
+                                                <Cell ss:StyleID="CellDataIndentedTwice"><Data ss:Type="String">{!task.Description__c}</Data></Cell>
+                                                <Cell ss:StyleID="CellData">
+                                                    <Data ss:Type="String">
+                                                        <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> 
+                                                            <apex:param value="{!task.Planned_Start_Date__c}"/> 
+                                                        </apex:outputText>
+                                                    </Data>
+                                                </Cell>
+                                                <Cell ss:StyleID="CellData">
+                                                    <Data ss:Type="String">
+                                                        <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> 
+                                                            <apex:param value="{!task.Planned_End_Date__c}"/> 
+                                                        </apex:outputText>
+                                                    </Data>
+                                                </Cell>
+                                                <Cell ss:StyleID="CellData">
+                                                    <Data ss:Type="String">
+                                                        <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> 
+                                                            <apex:param value="{!task.Actual_Start_Date__c}"/> 
+                                                        </apex:outputText>
+                                                    </Data>
+                                                </Cell>
+                                                <Cell ss:StyleID="CellData">
+                                                    <Data ss:Type="String">
+                                                        <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> 
+                                                            <apex:param value="{!task.Actual_End_Date__c}"/> 
+                                                        </apex:outputText>
+                                                    </Data>
+                                                </Cell>
+                                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!task.Status__c}</Data></Cell>
+                                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!task.CDK_Assignee__r.Name}</Data></Cell>
+                                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!task.CDK_Assignee_Role__c}</Data></Cell>
+                                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!task.Client_Assignee__r.Name}</Data></Cell>
+                                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!task.Comments__c}</Data></Cell>
+                                            </Row>
+
+                                            <apex:variable var="previousSubProjectName" value="{!sp.SubProject_Name__c}"/>
+                                            <apex:variable var="previousSiteName" value="{!task.Site_Name__c}"/>
+
+                                        </apex:repeat>
+                                    </apex:repeat>
+                                    <!-- end of project task iteration -->
+
+                                </apex:repeat>
+                            </apex:repeat>
+                            <!-- end of project activity iteration -->
+
+                        </apex:repeat>
+                    </apex:repeat>
+                    <!-- end of project milestone iteration -->
+
+                </apex:repeat>
+
+
+
+
+
+
+<!-- 
+                <apex:repeat value="{!psrMilestoneTabRecordsMap}" var="parentMilestoneKey">
+                    <Row ss:AutoFitHeight="1">
+                        <Cell ss:MergeAcross="1" ss:StyleID="CellData"><Data ss:Type="String">{!psrMilestoneTabRecordsMap[parentMilestoneKey].subProjectName}</Data></Cell>
+                        <Cell ss:StyleID="CellData"><Data ss:Type="String">{!psrMilestoneTabRecordsMap[parentMilestoneKey].siteName}</Data></Cell>
+                        <Cell ss:StyleID="CellData"><Data ss:Type="String">{!psrMilestoneTabRecordsMap[parentMilestoneKey].recordDescription}</Data></Cell>
+                        <Cell ss:StyleID="CellData">
+                            <Data ss:Type="String">
+                                <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> 
+                                    <apex:param value="{!psrMilestoneTabRecordsMap[parentMilestoneKey].plannedStartDate}" />
+                                </apex:outputText>
+                            </Data>
+                        </Cell>
+                        <Cell ss:StyleID="CellData">
+                            <Data ss:Type="String">
+                                <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> 
+                                    <apex:param value="{!psrMilestoneTabRecordsMap[parentMilestoneKey].plannedEndDate}"/> 
+                                </apex:outputText>
+                            </Data>
+                        </Cell>
+                        <Cell ss:StyleID="CellData">
+                            <Data ss:Type="String">
+                                <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> 
+                                    <apex:param value="{!psrMilestoneTabRecordsMap[parentMilestoneKey].actualStartDate}" />
+                                </apex:outputText>
+                            </Data>
+                        </Cell>
+                        <Cell ss:StyleID="CellData">
+                            <Data ss:Type="String">
+                                <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> 
+                                    <apex:param value="{!psrMilestoneTabRecordsMap[parentMilestoneKey].actualEndDate}"/> 
+                                </apex:outputText>
+                            </Data>
+                        </Cell>
+                        <Cell ss:StyleID="CellData"><Data ss:Type="String">{!psrMilestoneTabRecordsMap[parentMilestoneKey].status}</Data></Cell>
+                        <Cell ss:StyleID="CellData"><Data ss:Type="String">{!psrMilestoneTabRecordsMap[parentMilestoneKey].cDKAssigneeName}</Data></Cell>
+                        <Cell ss:StyleID="CellData"><Data ss:Type="String">{!psrMilestoneTabRecordsMap[parentMilestoneKey].cDKAssigneeRole}</Data></Cell>
+                        <Cell ss:StyleID="CellData"><Data ss:Type="String">{!psrMilestoneTabRecordsMap[parentMilestoneKey].status}</Data></Cell>
+                        <Cell ss:StyleID="CellData"><Data ss:Type="String">{!psrMilestoneTabRecordsMap[parentMilestoneKey].clientAssigneeName}</Data></Cell>
+                    </Row>
+                    <apex:repeat value="{!psrMilestoneTabRecordsMap[parentMilestoneKey].childrenMap}" rendered="{!IF(psrMilestoneTabRecordsMap[parentMilestoneKey].childrenMap == null, false, true)}" var="childActivityKey">
+                        <Row ss:AutoFitHeight="1">
+                            <Cell ss:MergeAcross="1" ss:StyleID="CellData"><Data ss:Type="String">{!psrMilestoneTabRecordsMap[parentMilestoneKey].childrenMap[childActivityKey].subProjectName}</Data></Cell>
+                            <Cell ss:StyleID="CellData"><Data ss:Type="String">{!psrMilestoneTabRecordsMap[parentMilestoneKey].childrenMap[childActivityKey].siteName}</Data></Cell>
+                            <Cell ss:StyleID="CellDataIndented"><Data ss:Type="String">{!psrMilestoneTabRecordsMap[parentMilestoneKey].childrenMap[childActivityKey].recordDescription}</Data></Cell>
+                            <Cell ss:StyleID="CellData">
+                                <Data ss:Type="String">
+                                    <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> 
+                                        <apex:param value="{!psrMilestoneTabRecordsMap[parentMilestoneKey].childrenMap[childActivityKey].plannedStartDate}" />
+                                    </apex:outputText>
+                                </Data>
+                            </Cell>
+                            <Cell ss:StyleID="CellData">
+                                <Data ss:Type="String">
+                                    <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> 
+                                        <apex:param value="{!psrMilestoneTabRecordsMap[parentMilestoneKey].childrenMap[childActivityKey].plannedEndDate}"/> 
+                                    </apex:outputText>
+                                </Data>
+                            </Cell>
+                            <Cell ss:StyleID="CellData">
+                                <Data ss:Type="String">
+                                    <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> 
+                                        <apex:param value="{!psrMilestoneTabRecordsMap[parentMilestoneKey].childrenMap[childActivityKey].actualStartDate}" />
+                                    </apex:outputText>
+                                </Data>
+                            </Cell>
+                            <Cell ss:StyleID="CellData">
+                                <Data ss:Type="String">
+                                    <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> 
+                                        <apex:param value="{!psrMilestoneTabRecordsMap[parentMilestoneKey].childrenMap[childActivityKey].actualEndDate}"/> 
+                                    </apex:outputText>
+                                </Data>
+                            </Cell>
+                            <Cell ss:StyleID="CellData"><Data ss:Type="String">{!psrMilestoneTabRecordsMap[parentMilestoneKey].childrenMap[childActivityKey].status}</Data></Cell>
+                            <Cell ss:StyleID="CellData"><Data ss:Type="String">{!psrMilestoneTabRecordsMap[parentMilestoneKey].childrenMap[childActivityKey].cDKAssigneeName}</Data></Cell>
+                            <Cell ss:StyleID="CellData"><Data ss:Type="String">{!psrMilestoneTabRecordsMap[parentMilestoneKey].childrenMap[childActivityKey].cDKAssigneeRole}</Data></Cell>
+                            <Cell ss:StyleID="CellData"><Data ss:Type="String">{!psrMilestoneTabRecordsMap[parentMilestoneKey].childrenMap[childActivityKey].status}</Data></Cell>
+                            <Cell ss:StyleID="CellData"><Data ss:Type="String">{!psrMilestoneTabRecordsMap[parentMilestoneKey].childrenMap[childActivityKey].clientAssigneeName}</Data></Cell>
+                        </Row>
+
+                        <apex:repeat value="{!psrMilestoneTabRecordsMap[parentMilestoneKey].childrenMap[childActivityKey].childrenMap}" rendered="{!IF(psrMilestoneTabRecordsMap[parentMilestoneKey].childrenMap[childActivityKey].childrenMap == null, false, true)}" var="childTaskKey">
+                            <Row ss:AutoFitHeight="1">
+                                <Cell ss:MergeAcross="1" ss:StyleID="CellData"><Data ss:Type="String">{!psrMilestoneTabRecordsMap[parentMilestoneKey].childrenMap[childActivityKey].childrenMap[childTaskKey].subProjectName}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!psrMilestoneTabRecordsMap[parentMilestoneKey].childrenMap[childActivityKey].childrenMap[childTaskKey].siteName}</Data></Cell>
+                                <Cell ss:StyleID="CellDataIndentedTwice"><Data ss:Type="String">{!psrMilestoneTabRecordsMap[parentMilestoneKey].childrenMap[childActivityKey].childrenMap[childTaskKey].recordDescription}</Data></Cell>
+                                <Cell ss:StyleID="CellData">
+                                    <Data ss:Type="String">
+                                        <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> 
+                                            <apex:param value="{!psrMilestoneTabRecordsMap[parentMilestoneKey].childrenMap[childActivityKey].childrenMap[childTaskKey].plannedStartDate}" />
+                                        </apex:outputText>
+                                    </Data>
+                                </Cell>
+                                <Cell ss:StyleID="CellData">
+                                    <Data ss:Type="String">
+                                        <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> 
+                                            <apex:param value="{!psrMilestoneTabRecordsMap[parentMilestoneKey].childrenMap[childActivityKey].childrenMap[childTaskKey].plannedEndDate}"/> 
+                                        </apex:outputText>
+                                    </Data>
+                                </Cell>
+                                <Cell ss:StyleID="CellData">
+                                    <Data ss:Type="String">
+                                        <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> 
+                                            <apex:param value="{!psrMilestoneTabRecordsMap[parentMilestoneKey].childrenMap[childActivityKey].childrenMap[childTaskKey].actualStartDate}" />
+                                        </apex:outputText>
+                                    </Data>
+                                </Cell>
+                                <Cell ss:StyleID="CellData">
+                                    <Data ss:Type="String">
+                                        <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> 
+                                            <apex:param value="{!psrMilestoneTabRecordsMap[parentMilestoneKey].childrenMap[childActivityKey].childrenMap[childTaskKey].actualEndDate}"/> 
+                                        </apex:outputText>
+                                    </Data>
+                                </Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!psrMilestoneTabRecordsMap[parentMilestoneKey].childrenMap[childActivityKey].childrenMap[childTaskKey].status}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!psrMilestoneTabRecordsMap[parentMilestoneKey].childrenMap[childActivityKey].childrenMap[childTaskKey].cDKAssigneeName}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!psrMilestoneTabRecordsMap[parentMilestoneKey].childrenMap[childActivityKey].childrenMap[childTaskKey].cDKAssigneeRole}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!psrMilestoneTabRecordsMap[parentMilestoneKey].childrenMap[childActivityKey].childrenMap[childTaskKey].status}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!psrMilestoneTabRecordsMap[parentMilestoneKey].childrenMap[childActivityKey].childrenMap[childTaskKey].clientAssigneeName}</Data></Cell>
+                            </Row>
+                        </apex:repeat>
+
+                    </apex:repeat>
+                </apex:repeat>
+ -->
+
+
+
+
+            </Table>
+        </Worksheet>
+        <!--
+        //============================================================
+        //                 SITES SECTION              
+        //============================================================
+        -->
+        <Worksheet ss:Name="Sites">
+            <Names>
+                <NamedRange ss:Name="Print_Titles" ss:RefersTo="='Sites'!R4:R5"/>
+            </Names>
+            <Table x:FullColumns="1" x:FullRows="1">
+                <Column ss:AutoFitWidth="0" ss:Width="99.75"/>            <!-- Row 1 -->
+                <Column ss:AutoFitWidth="0" ss:Width="105"/>              <!-- Row 2 -->
+                <Column ss:AutoFitWidth="0" ss:Width="200"/>              <!-- Row 3 -->
+                <Column ss:AutoFitWidth="0" ss:Width="196.5"/>            <!-- Row 4 -->
+                <Column ss:AutoFitWidth="0" ss:Width="182"/>              <!-- Row 5 -->
+                <Column ss:AutoFitWidth="0" ss:Width="76.5" ss:Span="2"/> <!-- Row 6, 7, and 8 -->
+                <Column ss:Index="9" ss:AutoFitWidth="0" ss:Width="100"/> <!-- Row 9 -->
+                <Column ss:AutoFitWidth="0" ss:Width="100"/>              <!-- Row 10 -->
+                <Row ss:AutoFitHeight="0">
+                    <Cell ss:MergeDown="1" ss:StyleID="CDKLogo_1of2"><Data ss:Type="String">CDK</Data></Cell>
+                    <Cell ss:MergeAcross="8" ss:MergeDown="3" ss:StyleID="ProjSummaryHeader"><Data ss:Type="String">            Project Status Report</Data></Cell>
+                </Row>
+
+                <Row ss:AutoFitHeight="0"/>
+                <Row ss:AutoFitHeight="0">
+                    <Cell ss:MergeDown="1" ss:StyleID="CDKLogo_2of2"><Data ss:Type="String">Global</Data></Cell>
+                </Row>
+                <Row ss:AutoFitHeight="0" ss:Height="23.25"/>
+
+                <Row ss:Height="24.9375">
+                    <Cell ss:MergeAcross="1" ss:StyleID="Header"><Data ss:Type="String">Sites</Data><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                </Row>
+                <Row ss:AutoFitHeight="1">
+                    <Cell ss:MergeAcross="1" ss:StyleID="SubHeader"><Data ss:Type="String">SubProject Name</Data><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">CMF Name</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Ship CMF#</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Dealership Name / Group</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Street</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">City</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">State</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Phone</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">CRM URL</Data></Cell>
+                </Row>
+                <apex:repeat value="{!subProjectList}" var="sp">
+                    <apex:repeat value="{!subProjectSiteMap[sp]}" var="outerKey">
+                        <apex:repeat value="{!subProjectSiteMap[sp][outerKey]}" rendered="{!outerKey}" var="site">
+                            <Row ss:AutoFitHeight="1">
+                                <Cell ss:MergeAcross="1" ss:StyleID="CellData"><Data ss:Type="String">{!sp.SubProject_Name__c}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!site.CMF_Name__r.Name}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!site.Ship_CMF__c}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!site.Dealer_Group__r.Name}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!site.Street_Address__c}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!site.City__c}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!site.State_Province__c}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!site.Phone__c}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!site.New_Server_URL_CDK_CRM__c}</Data></Cell>
+                            </Row>                            
+                        </apex:repeat>
+                    </apex:repeat>
+                </apex:repeat>
+            </Table>
+        </Worksheet>
+        <!--
+        //============================================================
+        //                      ISSUE LOG SECTION
+        //============================================================
+        -->
+        <Worksheet ss:Name="Issues">
+            <Names>
+                <NamedRange ss:Name="Print_Titles" ss:RefersTo="='Issues'!R4:R5"/>
+            </Names>
+            <Table x:FullColumns="1" x:FullRows="1">
+                <Column ss:AutoFitWidth="0" ss:Width="99.75"/>               <!-- Row 1 -->
+                <Column ss:AutoFitWidth="0" ss:Width="105"/>                 <!-- Row 2 -->
+                <Column ss:AutoFitWidth="0" ss:Width="153"/>                 <!-- Row 3 -->
+                <Column ss:AutoFitWidth="0" ss:Width="230"/>                 <!-- Row 4 -->
+                <Column ss:AutoFitWidth="0" ss:Width="68.25"/>               <!-- Row 5 -->
+                
+                <Column ss:AutoFitWidth="0" ss:Width="104"/>                 <!-- Row 7 -->
+                <Column ss:AutoFitWidth="0" ss:Width="69"/>                  <!-- Row 8 -->
+                <Column ss:AutoFitWidth="0" ss:Width="69"/>                  <!-- Row 9 -->
+                <Column ss:AutoFitWidth="0" ss:Width="89.25"/>               <!-- Row 10 -->
+                <Column ss:AutoFitWidth="0" ss:Width="69"/>                  <!-- Row 11 -->
+                <Column ss:AutoFitWidth="0" ss:Width="230" ss:Span="1"/>     <!-- Row 12 and 13 -->
+                <Column ss:Index="13" ss:AutoFitWidth="0" ss:Width="63.75"/> <!-- Row 14 -->
+                <Column ss:AutoFitWidth="0" ss:Width="174.75"/>              <!-- Row 6 -->
+                <Column ss:AutoFitWidth="0" ss:Width="72.75"/>               <!-- Row 15 -->
+                <Column ss:AutoFitWidth="0" ss:Width="72.75"/>               <!-- Row 16 -->
+                <Row ss:AutoFitHeight="0">
+                    <Cell ss:MergeDown="1" ss:StyleID="CDKLogo_1of2"><Data ss:Type="String">CDK</Data></Cell>
+                    <Cell ss:MergeAcross="14" ss:MergeDown="3" ss:StyleID="ProjSummaryHeader"><Data ss:Type="String">            Project Status Report</Data></Cell>
+                </Row>
+
+                <Row ss:AutoFitHeight="0"/>
+                <Row ss:AutoFitHeight="0">
+                    <Cell ss:MergeDown="1" ss:StyleID="CDKLogo_2of2"><Data ss:Type="String">Global</Data></Cell>
+                </Row>
+                <Row ss:AutoFitHeight="0" ss:Height="23.25"/>
+
+                <Row ss:Height="24.9375">
+                    <Cell ss:MergeAcross="2" ss:StyleID="Header"><Data ss:Type="String">Issues</Data><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                </Row>
+                <Row ss:AutoFitHeight="1">
+                    <Cell ss:MergeAcross="1" ss:StyleID="SubHeader"><Data ss:Type="String">SubProject Name</Data><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Site</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Issue Description</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Department</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Issue Type</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Date</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">CDK Owner</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Client Owner</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Target Date</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Discussion</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Resolution</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Status</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">CDK Assigned To</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Case#</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Category</Data></Cell>
+                </Row>
+
+                <apex:variable value="{!'_NOTHING'}" var="previousSubProjectName"/>
+                <apex:variable value="{!'_NOTHING'}" var="previousSiteName"/>
+
+                <apex:repeat value="{!subProjectList}" var="sp">
+                    <apex:repeat value="{!subProjectIssueMap[sp]}" var="outerKey">
+                        <apex:repeat value="{!subProjectIssueMap[sp][outerKey]}" rendered="{!outerKey}" var="iss">
+
+                            <apex:variable value="{!IF(sp.SubProject_Name__c == previousSubProjectName, '', sp.SubProject_Name__c)}" var="currentSubProjectName"/>
+                            <apex:variable value="{!IF(AND(currentSubProjectName == '', iss.Site__r.Name == previousSiteName), '', iss.Site__r.Name)}" var="currentSiteName"/>
+
+                            <Row ss:AutoFitHeight="1">
+                                <Cell ss:MergeAcross="1" ss:StyleID="CellData"><Data ss:Type="String">{!currentSubProjectName}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!currentSiteName}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!iss.Description__c}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!iss.Department__c}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!iss.Type__c}</Data></Cell>
+                                <Cell ss:StyleID="CellData">
+                                    <Data ss:Type="String">
+                                        <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> 
+                                            <apex:param value="{!iss.CreatedDate}"/> 
+                                        </apex:outputText>
+                                    </Data>
+                                </Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!iss.CDK_Issue_Owner__r.Name}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!iss.Client_Issue_Owner__r.Name}</Data></Cell>
+                                <Cell ss:StyleID="CellData">
+                                    <Data ss:Type="String">
+                                        <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> 
+                                            <apex:param value="{!iss.Target_Date__c}"/> 
+                                        </apex:outputText>
+                                    </Data>
+                                </Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!iss.Discussion__c}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!iss.Resolution_Response__c}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!iss.Status__c}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!iss.CDK_Assignee__r.Name}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!iss.Case__c}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!iss.Category__c}</Data></Cell>
+                            </Row>
+
+                            <apex:variable var="previousSubProjectName" value="{!sp.SubProject_Name__c}"/>
+                            <apex:variable var="previousSiteName" value="{!iss.Site__r.Name}"/>
+
+                        </apex:repeat>
+                    </apex:repeat>
+                </apex:repeat>
+            </Table>
+        </Worksheet>
+        <!--
+        //============================================================
+        //                      RISK LOG SECTION
+        //============================================================
+        -->
+        <Worksheet ss:Name="Risks">
+            <Names>
+                <NamedRange ss:Name="Print_Titles" ss:RefersTo="='Risks'!R4:R5"/>
+            </Names>
+            <Table x:FullColumns="1" x:FullRows="1">
+                <Column ss:AutoFitWidth="0" ss:Width="99.75"/>            <!-- Row 1 -->
+                <Column ss:AutoFitWidth="0" ss:Width="105"/>              <!-- Row 2 -->
+                <Column ss:AutoFitWidth="0" ss:Width="105"/>              <!-- Row 3 -->
+                <Column ss:AutoFitWidth="0" ss:Width="230"/>              <!-- Row 4 -->
+                <Column ss:AutoFitWidth="0" ss:Width="142"/>              <!-- Row 5 -->
+                <Column ss:AutoFitWidth="0" ss:Width="76.5" ss:Span="2"/> <!-- Row 6, 7, and 8 -->
+                <Column ss:Index="9" ss:AutoFitWidth="0" ss:Width="230"/> <!-- Row 9 -->
+                <Column ss:AutoFitWidth="0" ss:Width="72.75"/>            <!-- Row 10 -->
+                <Row ss:AutoFitHeight="0">
+                    <Cell ss:MergeDown="1" ss:StyleID="CDKLogo_1of2"><Data ss:Type="String">CDK</Data></Cell>
+                    <Cell ss:MergeAcross="8" ss:MergeDown="3" ss:StyleID="ProjSummaryHeader"><Data ss:Type="String">            Project Status Report</Data></Cell>
+                </Row>
+
+                <Row ss:AutoFitHeight="0"/>
+                <Row ss:AutoFitHeight="0">
+                    <Cell ss:MergeDown="1" ss:StyleID="CDKLogo_2of2"><Data ss:Type="String">Global</Data></Cell>
+                </Row>
+                <Row ss:AutoFitHeight="0" ss:Height="23.25"/>
+
+                <Row ss:Height="24.9375">
+                    <Cell ss:MergeAcross="1" ss:StyleID="Header"><Data ss:Type="String">Risks</Data><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                </Row>
+                <Row ss:AutoFitHeight="1">
+                    <Cell ss:MergeAcross="1" ss:StyleID="SubHeader"><Data ss:Type="String">SubProject Name</Data><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Site</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Description of Risk</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Risk Status</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Risk Impact</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Probability</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Approach</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Risk Response</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Category</Data></Cell>
+                </Row>
+
+                <apex:variable value="{!'_NOTHING'}" var="previousSubProjectName"/>
+                <apex:variable value="{!'_NOTHING'}" var="previousSiteName"/>
+
+                <apex:repeat value="{!subProjectList}" var="sp">
+                    <apex:repeat value="{!subProjectRiskMap[sp]}" var="outerKey">
+                        <apex:repeat value="{!subProjectRiskMap[sp][outerKey]}" rendered="{!outerKey}" var="risk">
+
+                            <apex:variable value="{!IF(sp.SubProject_Name__c == previousSubProjectName, '', sp.SubProject_Name__c)}" var="currentSubProjectName"/>
+                            <apex:variable value="{!IF(AND(currentSubProjectName == '', risk.Site__r.Name == previousSiteName), '', risk.Site__r.Name)}" var="currentSiteName"/>
+
+                            <Row ss:AutoFitHeight="1">
+                                <Cell ss:MergeAcross="1" ss:StyleID="CellData"><Data ss:Type="String">{!currentSubProjectName}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!currentSiteName}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!risk.Description__c}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!risk.Status__c}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!risk.Priority_Impact__c}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!risk.Probability__c}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!risk.Approach__c}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!risk.Resolution_Response__c}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!risk.Category__c}</Data></Cell>
+                            </Row>
+
+                            <apex:variable var="previousSubProjectName" value="{!sp.SubProject_Name__c}"/>
+                            <apex:variable var="previousSiteName" value="{!risk.Site__r.Name}"/>
+
+                        </apex:repeat>
+                    </apex:repeat>
+                </apex:repeat>
+            </Table>
+        </Worksheet>
+        <!--
+        //============================================================
+        //                  CHANGE REQUEST LOG SECTION
+        //============================================================
+        -->
+        <Worksheet ss:Name="Change Control Log">
+            <Names>
+                <NamedRange ss:Name="Print_Titles" ss:RefersTo="='Change Control Log'!R4:R5"/>
+            </Names>
+            <Table x:FullColumns="1" x:FullRows="1">
+                <Column ss:AutoFitWidth="0" ss:Width="99.75"/> <!-- Row 1 -->
+                <Column ss:AutoFitWidth="0" ss:Width="105"/>   <!-- Row 2 -->
+                <Column ss:AutoFitWidth="0" ss:Width="153"/>   <!-- Row 3 -->
+                <Column ss:AutoFitWidth="0" ss:Width="78.75"/> <!-- Row 4 -->
+                <Column ss:AutoFitWidth="0" ss:Width="66"/>    <!-- Row 5 -->
+                <Column ss:AutoFitWidth="0" ss:Width="94.5"/>  <!-- Row 6 -->
+                <Column ss:AutoFitWidth="0" ss:Width="94.5"/>  <!-- Row 7 -->
+                <Column ss:AutoFitWidth="0" ss:Width="230"/>   <!-- Row 8 -->
+                <Column ss:AutoFitWidth="0" ss:Width="87"/>    <!-- Row 9 -->
+                <Column ss:AutoFitWidth="0" ss:Width="230"/>   <!-- Row 10 -->
+                <Column ss:AutoFitWidth="0" ss:Width="94.5"/>  <!-- Row 11 -->
+                <Column ss:AutoFitWidth="0" ss:Width="94.5"/>  <!-- Row 12 -->
+                <Row ss:AutoFitHeight="0">
+                    <Cell ss:MergeDown="1" ss:StyleID="CDKLogo_1of2"><Data ss:Type="String">CDK</Data></Cell>
+                    <Cell ss:MergeAcross="10" ss:MergeDown="3" ss:StyleID="ProjSummaryHeader"><Data ss:Type="String">            Project Status Report</Data></Cell>
+                </Row>
+
+                <Row ss:AutoFitHeight="0"/>
+                <Row ss:AutoFitHeight="0">
+                    <Cell ss:MergeDown="1" ss:StyleID="CDKLogo_2of2"><Data ss:Type="String">Global</Data></Cell>
+                </Row>
+                <Row ss:AutoFitHeight="0" ss:Height="23.25"/>
+
+                <Row ss:Height="24.9375">
+                    <Cell ss:MergeAcross="3" ss:StyleID="Header"><Data ss:Type="String">Change Control Log</Data><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                </Row>
+                <Row ss:AutoFitHeight="1">
+                    <Cell ss:MergeAcross="1" ss:StyleID="SubHeader"><Data ss:Type="String">SubProject Name</Data><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Site</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Request Date</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Status</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">CDK Requestor</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Client Requestor</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Description</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Priority / Impact</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Impact of Change</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">CDK Approver</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Client Approver</Data></Cell>
+                </Row>
+
+                <apex:variable value="{!'_NOTHING'}" var="previousSubProjectName"/>
+                <apex:variable value="{!'_NOTHING'}" var="previousSiteName"/>
+
+                <apex:repeat value="{!subProjectList}" var="sp">
+                    <apex:repeat value="{!subProjectChangeRequestMap[sp]}" var="outerKey">
+                        <apex:repeat value="{!subProjectChangeRequestMap[sp][outerKey]}" rendered="{!outerKey}" var="cr">
+
+                            <apex:variable value="{!IF(sp.SubProject_Name__c == previousSubProjectName, '', sp.SubProject_Name__c)}" var="currentSubProjectName"/>
+                            <apex:variable value="{!IF(AND(currentSubProjectName == '', cr.Site__r.Name == previousSiteName), '', cr.Site__r.Name)}" var="currentSiteName"/>
+
+                            <Row ss:AutoFitHeight="1">
+                                <Cell ss:MergeAcross="1" ss:StyleID="CellData"><Data ss:Type="String">{!currentSubProjectName}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!currentSiteName}</Data></Cell>
+                                <Cell ss:StyleID="CellData">
+                                    <Data ss:Type="String">
+                                        <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"> 
+                                            <apex:param value="{!cr.Request_Date__c}"/> 
+                                        </apex:outputText>
+                                    </Data>
+                                </Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!cr.Status__c}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!cr.CDK_Requestor__r.Name}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!cr.Client_Requestor__r.Name}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!cr.Description__c}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!cr.Priority_Impact__c}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!cr.Impact_of_Change__c}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!cr.CDK_Approver__r.Name}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!cr.Client_Approver__r.Name}</Data></Cell>
+                            </Row>
+
+                            <apex:variable var="previousSubProjectName" value="{!sp.SubProject_Name__c}"/>
+                            <apex:variable var="previousSiteName" value="{!cr.Site__r.Name}"/>
+
+                        </apex:repeat>
+                    </apex:repeat>
+                </apex:repeat>
+            </Table>
+        </Worksheet>
+        <!--
+        //============================================================
+        //                     CDK CONTACT SECTION
+        //============================================================
+        -->
+        <Worksheet ss:Name="CDK Contacts">
+            <Names>
+                <NamedRange ss:Name="Print_Titles" ss:RefersTo="='CDK Contacts'!R4:R5"/>
+            </Names>
+            <Table x:FullColumns="1" x:FullRows="1">
+                <Column ss:AutoFitWidth="0" ss:Width="99.75"/>               <!-- Row 1 -->
+                <Column ss:AutoFitWidth="0" ss:Width="105"/>                 <!-- Row 2 -->
+                <Column ss:AutoFitWidth="0" ss:Width="105.75"/>              <!-- Row 3 -->
+                <Column ss:AutoFitWidth="0" ss:Width="153"/>                 <!-- Row 4 -->
+                <Column ss:AutoFitWidth="0" ss:Width="160.5" ss:Span="1"/>   <!-- Row 5 and 6 -->
+                <Column ss:Index="7" ss:AutoFitWidth="0" ss:Width="105.75"/> <!-- Row 7 -->
+                <Column ss:AutoFitWidth="0" ss:Width="160.5"/>               <!-- Row 8 -->
+                <Column ss:AutoFitWidth="0" ss:Width="105.75"/>              <!-- Row 9 -->
+                <Column ss:AutoFitWidth="0" ss:Width="147.75"/>              <!-- Row 10 -->
+                <Row ss:AutoFitHeight="0">
+                    <Cell ss:MergeDown="1" ss:StyleID="CDKLogo_1of2"><Data ss:Type="String">CDK</Data></Cell>
+                    <Cell ss:MergeAcross="8" ss:MergeDown="3" ss:StyleID="ProjSummaryHeader"><Data ss:Type="String">            Project Status Report</Data></Cell>
+                </Row>
+
+                <Row ss:AutoFitHeight="0"/>
+                <Row ss:AutoFitHeight="0">
+                    <Cell ss:MergeDown="1" ss:StyleID="CDKLogo_2of2"><Data ss:Type="String">Global</Data></Cell>
+                </Row>
+                <Row ss:AutoFitHeight="0" ss:Height="23.25"/>
+
+                <Row ss:Height="24.9375">
+                    <Cell ss:MergeAcross="2" ss:StyleID="Header"><Data ss:Type="String">CDK Contacts</Data><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                </Row>
+                <Row ss:AutoFitHeight="1">
+                    <Cell ss:MergeAcross="1" ss:StyleID="SubHeader"><Data ss:Type="String">SubProject Name</Data><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Company</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Name</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Role</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Job Title</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Contact Phone</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">eMail</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Mobile Phone</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Notes</Data></Cell>
+                </Row>
+                <apex:repeat value="{!subProjectList}" var="sp">
+                    <apex:repeat value="{!subProjectCDKContactMap[sp]}" var="outerKey">
+                        <apex:repeat value="{!subProjectCDKContactMap[sp][outerKey]}" rendered="{!outerKey}" var="cdk">
+                            <Row ss:AutoFitHeight="1">
+                                <Cell ss:MergeAcross="1" ss:StyleID="CellData"><Data ss:Type="String">{!sp.SubProject_Name__c}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!cdk.companyName}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!cdk.clientName}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!cdk.projectRole}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!cdk.clientTitle}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!cdk.clientPhone}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!cdk.clientEmail}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!cdk.clientMobile}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!cdk.notes}</Data></Cell>
+                            </Row>
+                        </apex:repeat>
+                    </apex:repeat>
+                </apex:repeat>
+            </Table>
+        </Worksheet>
+        <!--
+        //============================================================
+        //                     CLIENT CONTACT SECTION
+        //============================================================
+        -->
+        <Worksheet ss:Name="Client Contacts">
+            <Names>
+                <NamedRange ss:Name="Print_Titles" ss:RefersTo="='Client Contacts'!R4:R5"/>
+            </Names>
+            <Table x:FullColumns="1" x:FullRows="1">
+                <Column ss:AutoFitWidth="0" ss:Width="99.75"/>               <!-- Row 1 -->
+                <Column ss:AutoFitWidth="0" ss:Width="105"/>                 <!-- Row 2 -->
+                <Column ss:AutoFitWidth="0" ss:Width="105.75"/>              <!-- Row 3 -->
+                <Column ss:AutoFitWidth="0" ss:Width="153"/>                 <!-- Row 4 -->
+                <Column ss:AutoFitWidth="0" ss:Width="160.5" ss:Span="1"/>   <!-- Row 5 and 6 -->
+                <Column ss:Index="7" ss:AutoFitWidth="0" ss:Width="105.75"/> <!-- Row 7 -->
+                <Column ss:AutoFitWidth="0" ss:Width="160.5"/>               <!-- Row 8 -->
+                <Column ss:AutoFitWidth="0" ss:Width="105.75"/>              <!-- Row 9 -->
+                <Column ss:AutoFitWidth="0" ss:Width="147.75"/>              <!-- Row 10 -->
+                <Row ss:AutoFitHeight="0">
+                    <Cell ss:MergeDown="1" ss:StyleID="CDKLogo_1of2"><Data ss:Type="String">CDK</Data></Cell>
+                    <Cell ss:MergeAcross="8" ss:MergeDown="3" ss:StyleID="ProjSummaryHeader"><Data ss:Type="String">            Project Status Report</Data></Cell>
+                </Row>
+
+                <Row ss:AutoFitHeight="0"/>
+                <Row ss:AutoFitHeight="0">
+                    <Cell ss:MergeDown="1" ss:StyleID="CDKLogo_2of2"><Data ss:Type="String">Global</Data></Cell>
+                </Row>
+                <Row ss:AutoFitHeight="0" ss:Height="23.25"/>
+
+                <Row ss:Height="24.9375">
+                    <Cell ss:MergeAcross="2" ss:StyleID="Header"><Data ss:Type="String">Client Contacts</Data><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="Header"><NamedCell ss:Name="Print_Titles"/></Cell>
+                </Row>
+                <Row ss:AutoFitHeight="1">
+                    <Cell ss:MergeAcross="1" ss:StyleID="SubHeader"><Data ss:Type="String">SubProject Name</Data><NamedCell ss:Name="Print_Titles"/></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Company</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Name</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Role</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Job Title</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Contact Phone</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">eMail</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Mobile Phone</Data></Cell>
+                    <Cell ss:StyleID="SubHeader"><Data ss:Type="String">Notes</Data></Cell>
+                </Row>
+                <apex:repeat value="{!subProjectList}" var="sp">
+                    <apex:repeat value="{!subProjectClientContactMap[sp]}" var="outerKey">
+                        <apex:repeat value="{!subProjectClientContactMap[sp][outerKey]}" rendered="{!outerKey}" var="cc">
+                            <Row ss:AutoFitHeight="1">
+                                <Cell ss:MergeAcross="1" ss:StyleID="CellData"><Data ss:Type="String">{!sp.SubProject_Name__c}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!cc.companyName}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!cc.clientName}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!cc.projectRole}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!cc.clientTitle}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!cc.clientPhone}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!cc.clientEmail}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!cc.clientMobile}</Data></Cell>
+                                <Cell ss:StyleID="CellData"><Data ss:Type="String">{!cc.notes}</Data></Cell>
+                            </Row>
+                        </apex:repeat>
+                    </apex:repeat>
+                </apex:repeat>
+            </Table>
+        </Worksheet>
+        <!--
+        //============================================================
+        -->
+    </Workbook>
+</apex:page>

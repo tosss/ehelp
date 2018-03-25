@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>B4B Coaching</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>B4B Coaching</value>
+    </caseValues>
+    <fields>
+        <help><!-- Action Plan #1 (What are the steps necessary to make that happen)? --></help>
+        <label><!-- Action Plan 1 --></label>
+        <name>Action_Plan_1__c</name>
+    </fields>
+    <fields>
+        <help><!-- Action Plan #2 (What are the steps necessary to make that happen)? --></help>
+        <label><!-- Action Plan 2 --></label>
+        <name>Action_Plan_2__c</name>
+    </fields>
+    <fields>
+        <help><!-- Action Plan #3 (What are the steps necessary to make that happen)? --></help>
+        <label><!-- Action Plan 3 --></label>
+        <name>Action_Plan_3__c</name>
+    </fields>
+    <fields>
+        <help><!-- How many appointments did the dealership set during your visit? --></help>
+        <label><!-- Appointments Set --></label>
+        <name>Appointments_Set__c</name>
+    </fields>
+    <fields>
+        <help><!-- Are they updating Business Development Intelligence (Tool)?. --></help>
+        <label><!-- BDI Updated --></label>
+        <name>BDI_Updated__c</name>
+    </fields>
+    <fields>
+        <help><!-- Add any comments about BD Boot Camp here. --></help>
+        <label><!-- BD Boot Camp Comments --></label>
+        <name>BD__c</name>
+    </fields>
+    <fields>
+        <help><!-- Is the store effectively applying the skills and utilizing the tools from BOU? --></help>
+        <label><!-- BOU Utilization --></label>
+        <name>BOU_Utilization__c</name>
+    </fields>
+    <fields>
+        <help><!-- Are they scheduled or have they already attended boot camp? --></help>
+        <label><!-- Boot Camp --></label>
+        <name>Boot_Camp__c</name>
+    </fields>
+    <fields>
+        <label><!-- Completed By --></label>
+        <name>Completed_By__c</name>
+        <relationshipLabel><!-- B4B Coaching --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Check only if Confirmation is created --></help>
+        <label><!-- Confirmation Created --></label>
+        <name>Confirmation_Created__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Date --></label>
+        <name>Contact_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days Per Month Number --></label>
+        <name>Days_Per_Month_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Declined Service Calls --></label>
+        <name>Declined_Service_Calls__c</name>
+        <picklistValues>
+            <masterLabel>Have It</masterLabel>
+            <translation><!-- Have It --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Have and Using</masterLabel>
+            <translation><!-- Have and Using --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Have, Using and Getting Results</masterLabel>
+            <translation><!-- Have, Using and Getting Results --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Defection --></label>
+        <name>Defection__c</name>
+        <picklistValues>
+            <masterLabel>Have It</masterLabel>
+            <translation><!-- Have It --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Have and Using</masterLabel>
+            <translation><!-- Have and Using --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Have, Using and Getting Results</masterLabel>
+            <translation><!-- Have, Using and Getting Results --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Delivery Location --></label>
+        <name>Delivery_Location__c</name>
+        <relationshipLabel><!-- B4B Coaching --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Equity Mining --></label>
+        <name>Equity_Mining__c</name>
+        <picklistValues>
+            <masterLabel>Have It</masterLabel>
+            <translation><!-- Have It --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Have and Using</masterLabel>
+            <translation><!-- Have and Using --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Have, Using and Getting Results</masterLabel>
+            <translation><!-- Have, Using and Getting Results --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Expense Submitted --></label>
+        <name>Expense_Submitted__c</name>
+    </fields>
+    <fields>
+        <help><!-- Goal #1 (Goal or accomplishment to be done prior to next visit)? --></help>
+        <label><!-- Goal 1 --></label>
+        <name>Goal_1__c</name>
+    </fields>
+    <fields>
+        <help><!-- Goal #2 (Goal or accomplishment to be done prior to next visit)? --></help>
+        <label><!-- Goal 2 --></label>
+        <name>Goal_2__c</name>
+    </fields>
+    <fields>
+        <help><!-- Goal #3 (Goal or accomplishment to be done prior to next visit)? --></help>
+        <label><!-- Goal 3 --></label>
+        <name>Goal_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Incoming Sales Calls --></label>
+        <name>Incoming_Sales_Calls__c</name>
+        <picklistValues>
+            <masterLabel>Have It</masterLabel>
+            <translation><!-- Have It --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Have and Using</masterLabel>
+            <translation><!-- Have and Using --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Have, Using and Getting Results</masterLabel>
+            <translation><!-- Have, Using and Getting Results --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Incoming Service Calls --></label>
+        <name>Incoming_Service_Calls__c</name>
+        <picklistValues>
+            <masterLabel>Have It</masterLabel>
+            <translation><!-- Have It --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Have and Using</masterLabel>
+            <translation><!-- Have and Using --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Have, Using and Getting Results</masterLabel>
+            <translation><!-- Have, Using and Getting Results --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Internet --></label>
+        <name>Internet__c</name>
+        <picklistValues>
+            <masterLabel>Have It</masterLabel>
+            <translation><!-- Have It --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Have and Using</masterLabel>
+            <translation><!-- Have and Using --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Have, Using and Getting Results</masterLabel>
+            <translation><!-- Have, Using and Getting Results --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Infrastructure - Key Observations --></help>
+        <label><!-- Key Observations --></label>
+        <name>Key_Observations_1__c</name>
+    </fields>
+    <fields>
+        <help><!-- How are we going to measure this Goal (Tools, reports, etc)? TAKE A PICTURE OF THE
+TOOL/REPORT THAT IS GOING TO BE USED --></help>
+        <label><!-- Measurement 1 --></label>
+        <name>Measurement_1__c</name>
+    </fields>
+    <fields>
+        <help><!-- How are we going to measure this Goal (Tools, reports, etc)? TAKE A PICTURE OF THE
+TOOL/REPORT THAT IS GOING TO BE USED --></help>
+        <label><!-- Measurement 2 --></label>
+        <name>Measurement_2__c</name>
+    </fields>
+    <fields>
+        <help><!-- How many new managers since last visit? (If Any) --></help>
+        <label><!-- New Mgr&apos;s --></label>
+        <name>New_Mgr__c</name>
+        <picklistValues>
+            <masterLabel>1</masterLabel>
+            <translation><!-- 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3</masterLabel>
+            <translation><!-- 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4</masterLabel>
+            <translation><!-- 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5</masterLabel>
+            <translation><!-- 5 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6</masterLabel>
+            <translation><!-- 6 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Next Coaching Call --></label>
+        <name>Next_Coaching_Call__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Visit Date --></label>
+        <name>Next_Visit_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Visit Strategy --></label>
+        <name>Next_Visit_Strategy__c</name>
+    </fields>
+    <fields>
+        <label><!-- No Show Appointments --></label>
+        <name>No_Show_Appointments__c</name>
+        <picklistValues>
+            <masterLabel>Have It</masterLabel>
+            <translation><!-- Have It --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Have and Using</masterLabel>
+            <translation><!-- Have and Using --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Have, Using and Getting Results</masterLabel>
+            <translation><!-- Have, Using and Getting Results --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Notes --></label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Days - PSG --></label>
+        <name>Number_of_Days_PSG__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of Days --></help>
+        <label><!-- Number of Days - Traver --></label>
+        <name>Number_of_Days_Traver__c</name>
+    </fields>
+    <fields>
+        <label><!-- Onsite Days Purchased --></label>
+        <name>Onsite_Days_Purchased__c</name>
+    </fields>
+    <fields>
+        <label><!-- Owner Base --></label>
+        <name>Owner_Base__c</name>
+        <picklistValues>
+            <masterLabel>Have It</masterLabel>
+            <translation><!-- Have It --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Have and Using</masterLabel>
+            <translation><!-- Have and Using --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Have, Using and Getting Results</masterLabel>
+            <translation><!-- Have, Using and Getting Results --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- PartyID --></label>
+        <name>PartyID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Client Contacts --></label>
+        <name>Primary_Client_Contacts__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Client Email --></label>
+        <name>Primary_Client_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Client Phone --></label>
+        <name>Primary_Client_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Progress Since Last Session --></label>
+        <name>Progress_Since_Last_Session__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Account --></label>
+        <name>Project_Account__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recalls --></label>
+        <name>Recalls__c</name>
+        <picklistValues>
+            <masterLabel>Have It</masterLabel>
+            <translation><!-- Have It --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Have and Using</masterLabel>
+            <translation><!-- Have and Using --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Have, Using and Getting Results</masterLabel>
+            <translation><!-- Have, Using and Getting Results --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Recommended Service --></label>
+        <name>Recommended_Service__c</name>
+        <picklistValues>
+            <masterLabel>Have It</masterLabel>
+            <translation><!-- Have It --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Have and Using</masterLabel>
+            <translation><!-- Have and Using --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Have, Using and Getting Results</masterLabel>
+            <translation><!-- Have, Using and Getting Results --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Review BDI Progress --></label>
+        <name>Review_BDI_Progress__c</name>
+    </fields>
+    <fields>
+        <help><!-- Premium Packages Only --></help>
+        <label><!-- Review Recent In-store Visit --></label>
+        <name>Review_Recent_Visit__c</name>
+    </fields>
+    <fields>
+        <help><!-- Staff with most Appointments – (Name, phone, email) --></help>
+        <label><!-- Staff with Most Appointments --></label>
+        <name>Staff_with_Most_Appointments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status Update Calls --></label>
+        <name>Status_Update_Calls__c</name>
+        <picklistValues>
+            <masterLabel>Have It</masterLabel>
+            <translation><!-- Have It --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Have and Using</masterLabel>
+            <translation><!-- Have and Using --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Have, Using and Getting Results</masterLabel>
+            <translation><!-- Have, Using and Getting Results --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Agenda Set</masterLabel>
+            <translation><!-- Agenda Set --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scheduled</masterLabel>
+            <translation><!-- Scheduled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tentative</masterLabel>
+            <translation><!-- Tentative --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Cancelled By --></label>
+        <name>TRV_Cancelled_By__c</name>
+        <picklistValues>
+            <masterLabel>Client</masterLabel>
+            <translation><!-- Client --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal</masterLabel>
+            <translation><!-- Internal --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Cancelled Reason --></label>
+        <name>TRV_Cancelled_Reason__c</name>
+        <picklistValues>
+            <masterLabel>CDK Request</masterLabel>
+            <translation><!-- CDK Request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Client Request</masterLabel>
+            <translation><!-- Client Request --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Completed By --></label>
+        <name>TRV_Completed_By__c</name>
+        <relationshipLabel><!-- B4B Coaching (Completed By) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Account Name --></label>
+        <name>TRV_FRM_Account_Name_onProjectAccount__c</name>
+    </fields>
+    <fields>
+        <label><!-- City --></label>
+        <name>TRV_FRM_City_onAccount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Email --></label>
+        <name>TRV_FRM_ContactEmail_onConsultingProject__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Id --></label>
+        <name>TRV_FRM_Contact_Id_onConsultingProject__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Name --></label>
+        <name>TRV_FRM_Contact_Name_onProjectContact__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Phone --></label>
+        <name>TRV_FRM_Contact_Phone_onProjectContact__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>TRV_FRM_Contact_onConsultingProject__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Date Of B4B --></label>
+        <name>TRV_FRM_End_Date_Of_B4B__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Onsite Days --></label>
+        <name>TRV_FRM_Is_Onsite_Days_onRecordType__c</name>
+    </fields>
+    <fields>
+        <label><!-- Resource Name --></label>
+        <name>TRV_FRM_Resource_Name_onResource__c</name>
+    </fields>
+    <fields>
+        <label><!-- Resource User Id --></label>
+        <name>TRV_FRM_Resource_User_Id_onResource__c</name>
+    </fields>
+    <fields>
+        <label><!-- State --></label>
+        <name>TRV_FRM_State_onAccount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Multi-Country Paperwork --></label>
+        <name>TRV_Multi_Country_Paperwork__c</name>
+    </fields>
+    <fields>
+        <label><!-- Non-Billable Reason --></label>
+        <name>TRV_NonBillable_Reason__c</name>
+        <picklistValues>
+            <masterLabel>PTO - Holiday</masterLabel>
+            <translation><!-- PTO - Holiday --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PTO - Sick</masterLabel>
+            <translation><!-- PTO - Sick --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PTO - Vacation</masterLabel>
+            <translation><!-- PTO - Vacation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Training - Classroom/Virtual</masterLabel>
+            <translation><!-- Training - Classroom/Virtual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Training - Field/Shadowing</masterLabel>
+            <translation><!-- Training - Field/Shadowing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekday Travel</masterLabel>
+            <translation><!-- Weekday Travel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekend Travel</masterLabel>
+            <translation><!-- Weekend Travel --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Number Of Days - NonBillable --></label>
+        <name>TRV_Number_Of_Days_NonBillable__c</name>
+    </fields>
+    <fields>
+        <label><!-- Push Reason --></label>
+        <name>TRV_Push_Reason__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pushed By --></label>
+        <name>TRV_Pushed_By__c</name>
+        <picklistValues>
+            <masterLabel>By CDK</masterLabel>
+            <translation><!-- By CDK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>By Client</masterLabel>
+            <translation><!-- By Client --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- # Pushes --></label>
+        <name>TRV_Pushes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Resource Email --></label>
+        <name>TRV_Resource_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- T&amp;E Billed to Client - PSG --></label>
+        <name>T_E_Billed_to_Client_PSG__c</name>
+    </fields>
+    <fields>
+        <label><!-- T&amp;E Billed to Client - Traver --></label>
+        <name>T_E_Billed_to_Client_Traver__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Billable Expenses --></label>
+        <name>Total_Billable_Expenses__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consulting Project --></label>
+        <name>Traver_Project__c</name>
+        <relationshipLabel><!-- B4B Coaching --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Unsold Follow Up --></label>
+        <name>Unsold_Follow_Up__c</name>
+        <picklistValues>
+            <masterLabel>Have It</masterLabel>
+            <translation><!-- Have It --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Have and Using</masterLabel>
+            <translation><!-- Have and Using --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Have, Using and Getting Results</masterLabel>
+            <translation><!-- Have, Using and Getting Results --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- How are we going to measure this Goal (Tools, reports, etc)? TAKE A PICTURE OF THE
+TOOL/REPORT THAT IS GOING TO BE USED --></help>
+        <label><!-- Upload 3 --></label>
+        <name>Upload_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Visit Start Date --></label>
+        <name>Visit_Start_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Did the dealership exceed a 1:1 Appointment Ratio the day(s) of your visit? Submit a
+picture of the Appointment Board to document their Appointment Ratio. --></help>
+        <label><!-- 1:1 Appt Ratio --></label>
+        <name>X1_1_Appt_Ratio__c</name>
+    </fields>
+    <fields>
+        <label><!-- 5 Star Guarantee --></label>
+        <name>X5_Star_Guarantee__c</name>
+    </fields>
+    <layouts>
+        <layout>EPC Coach Layout</layout>
+        <sections>
+            <label><!-- COACHING CONTACTS --></label>
+            <section>COACHING CONTACTS</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- EPC COACHING --></label>
+            <section>EPC COACHING</section>
+        </sections>
+        <sections>
+            <label><!-- IMPACT GOALS - 1 --></label>
+            <section>IMPACT GOALS - 1</section>
+        </sections>
+        <sections>
+            <label><!-- IMPACT GOALS - 2 --></label>
+            <section>IMPACT GOALS - 2</section>
+        </sections>
+        <sections>
+            <label><!-- NEXT COACHING CALL --></label>
+            <section>NEXT COACHING CALL</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Forfeiture</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Non-Billable</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>PSC Visit Layout</layout>
+        <sections>
+            <label><!-- COACHING CONTACTS --></label>
+            <section>COACHING CONTACTS</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- OBJECTIVES --></label>
+            <section>OBJECTIVES</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Process Coach Layout</layout>
+        <sections>
+            <label><!-- APPOINTMENTS --></label>
+            <section>APPOINTMENTS</section>
+        </sections>
+        <sections>
+            <label><!-- COACHING CONTACTS --></label>
+            <section>COACHING CONTACTS</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- IMPACT GOALS - 1 --></label>
+            <section>IMPACT GOALS - 1</section>
+        </sections>
+        <sections>
+            <label><!-- IMPACT GOALS - 2 --></label>
+            <section>IMPACT GOALS - 2</section>
+        </sections>
+        <sections>
+            <label><!-- INFRASTRUCTURE --></label>
+            <section>INFRASTRUCTURE</section>
+        </sections>
+        <sections>
+            <label><!-- SALES IMPLEMENTATION --></label>
+            <section>SALES IMPLEMENTATION</section>
+        </sections>
+        <sections>
+            <label><!-- SERVICE IMPLEMENTATION --></label>
+            <section>SERVICE IMPLEMENTATION</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- EPC Coaching Log --></label>
+        <name>EPC_Coaching_Log</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Forfeiture --></label>
+        <name>Forfeiture</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Non-Billable --></label>
+        <name>Non_Billable</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- PSC Visit --></label>
+        <name>PSC_Visit</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Process Coach Visit --></label>
+        <name>Process_Coach_Visit</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please enter value for Primary Client Contacts --></errorMessage>
+        <name>DS_PSC_Req_PrimaryClientContact</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter the Push Reason and Pushed By. --></errorMessage>
+        <name>TRV_PushReason_Pushed_By_Required_Status</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Visit Start Date plus No of days visit cannot be same or greater than the User Termination Date. --></errorMessage>
+        <name>TRV_TerminationDateGreaterThanB4BEndDate</name>
+    </validationRules>
+</CustomObjectTranslation>

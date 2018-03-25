@@ -1,0 +1,98 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="false" controller="EMP_HRInvoluntaryController" docType="html-5.0" >
+
+    <script type="text/javascript">
+        var __BackgroundURL = "{!URLFOR($Resource.InputBoxLoadingIcon)}";
+        var j$ = jQuery.noConflict();
+        j$(document).ready(function() {
+            j$('#SelectedDate').datepicker();});
+    </script>
+    
+    <apex:form styleclass="pageForm" id="InvoluntaryTermForm">
+       <!-- <apex:pageMessages id="pgMessages" /> -->
+        <apex:pageBlock title="IT Notification of Involuntary Termination" id="pb" rendered="{!IF(hidepage, false, True)}">
+            <apex:pageBlockSection title="Associate Information" columns="1"> 
+                <apex:outputText value="{!AccountName}" label="Account "/><br/>  
+                <apex:pageBlockSectionItem >
+                    <apex:outputPanel layout="block">
+                        <div class="tooltip" title="Please type a Name or Vendor ID to find an Associate. Then, make sure to make a selection from the list that appears. Note that it may take a few moments for the list of names to appear. ">
+                            <span>  Associate Name or Vendor ID</span><i style="color:orange;" class="icon-question-sign"></i>
+                        </div> 
+                        Associate Name or Vendor ID
+                    </apex:outputPanel>
+                    <apex:outputPanel layout="block">
+                        <input type="text" id="SelectContact" class="searchbox" />
+                        <span id="SelectContactMessage" class="redText"></span>
+                        <input type="hidden" id="ContactId" />
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem><br/>
+                <apex:pageblocksectionitem >
+                    <apex:outputPanel >
+                        <div class="tooltip" title="{!$ObjectType.Contact.fields.Associates_Last_Date_Time__c.InlineHelpText}" >
+                            <i style="color:orange;" class="icon-question-sign"></i>
+                        </div>
+                        <br/>
+                        Associates Last Worked Date Time 
+                    </apex:outputPanel>
+                    <apex:outputPanel >
+                        <apex:outputPanel styleClass="date">
+                            Date:
+                            <br/>
+                            <input type="text" id="SelectedDate" class="datepicker"/>
+                            <!-- <apex:inputField value="{!Associate.Associates_Last_Date_Time__c}" required="true" id="SelectedDate" /> -->
+                            <!--<apex:input type="date" id="SelectedDate" value="{!myDate}" />-->
+                        </apex:outputPanel>
+                        <apex:outputPanel layout="block" styleClass="hours">
+                            Hours:<br/>
+                            <apex:selectList multiselect="false" size="1" id="Hours" >
+                                <apex:selectOption itemValue="" itemLabel="--" />
+                                <apex:selectOption itemValue="01" itemLabel="01" />
+                                <apex:selectOption itemValue="02" itemLabel="02" />
+                                <apex:selectOption itemValue="03" itemLabel="03" />
+                                <apex:selectOption itemValue="04" itemLabel="04" />
+                                <apex:selectOption itemValue="05" itemLabel="05" />
+                                <apex:selectOption itemValue="06" itemLabel="06" />
+                                <apex:selectOption itemValue="07" itemLabel="07" />
+                                <apex:selectOption itemValue="08" itemLabel="08" />
+                                <apex:selectOption itemValue="09" itemLabel="09" />
+                                <apex:selectOption itemValue="10" itemLabel="10" />
+                                <apex:selectOption itemValue="11" itemLabel="11" />
+                                <apex:selectOption itemValue="12" itemLabel="12" />
+                            </apex:selectList>
+                        </apex:outputPanel>
+                        <apex:outputPanel layout="block" styleclass="Mins">
+                            Minute:<br/> 
+                            <apex:selectList multiselect="false" size="1" id="Mins" >
+                                <!--<apex:selectOption itemValue="00" itemLabel="--" />-->
+                                <apex:selectOption itemValue="00" itemLabel="00" />
+                                <apex:selectOption itemValue="15" itemLabel="15" />
+                                <apex:selectOption itemValue="30" itemLabel="30" />
+                                <apex:selectOption itemValue="45" itemLabel="45" />
+                            </apex:selectList>
+                        </apex:outputPanel>
+                        <apex:outputPanel layout="block" styleClass="Mins">
+                            AM/PM:<br/>
+                            <apex:selectList multiselect="false" size="1" id="AMPM">
+                                <!--<apex:selectOption itemValue="AM" itemLabel="--" />-->
+                                <apex:selectOption itemValue="AM" itemLabel="AM" />
+                                <apex:selectOption itemValue="PM" itemLabel="PM" />
+                            </apex:selectList>
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+                </apex:pageblocksectionitem><br/>
+                <apex:pageblocksectionitem >
+                    <apex:outputLabel value="Title" for="AssociateTitle"></apex:outputLabel>
+                    <apex:outputText id="AssociateTitle"></apex:outputText>
+                </apex:pageblocksectionitem><br/>
+                <apex:pageblocksectionitem >
+                    <apex:outputLabel value="Manager" for="AssociateManager"></apex:outputLabel>
+                    <apex:outputText id="AssociateManager"></apex:outputText>
+                </apex:pageblocksectionitem>
+            </apex:pageBlockSection>
+            <div align="center">
+                <button id="Submit" class="btn btn-primary" onclick="event.preventDefault(); submitInvoluntaryTerm(); return false;">Submit</button>
+                <button id="Cancel" class="btn btn-default" onclick="event.preventDefault(); cancel(); return false;">Cancel</button>
+            </div>
+        </apex:pageBlock>
+        <apex:actionFunction action="{!doCancel}" immediate="true" name="cancel" />
+    </apex:form>
+</apex:page>

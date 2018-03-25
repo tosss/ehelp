@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Site Optimization Focus Areas</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Site Optimization Focus Areas</value>
+    </caseValues>
+    <fields>
+        <help><!-- The Category field will update the Focus Area Name. --></help>
+        <label><!-- Category --></label>
+        <name>Category__c</name>
+        <picklistValues>
+            <masterLabel>Advertising Optimization</masterLabel>
+            <translation><!-- Advertising Optimization --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Education</masterLabel>
+            <translation><!-- Product Education --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Setting Expectations</masterLabel>
+            <translation><!-- Setting Expectations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Understanding Dealer Goals</masterLabel>
+            <translation><!-- Understanding Dealer Goals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Website Optimization</masterLabel>
+            <translation><!-- Website Optimization --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Why Cobalt?</masterLabel>
+            <translation><!-- Why Cobalt? --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Each item listed should be reviewed by the Account team. --></help>
+        <label><!-- Focus Area --></label>
+        <name>Focus_Area__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the objective of the Focus Area.  For example:  We need to set up the dealer up for a successful launch of their Digital Advertising Package. --></help>
+        <label><!-- Objective --></label>
+        <name>Objective__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please choose which call this focus area should be used on. --></help>
+        <label><!-- Recommended Timing --></label>
+        <name>Recommended_Timing__c</name>
+        <picklistValues>
+            <masterLabel>1st Call</masterLabel>
+            <translation><!-- 1st Call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2nd Call</masterLabel>
+            <translation><!-- 2nd Call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3rd Call</masterLabel>
+            <translation><!-- 3rd Call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4th Call</masterLabel>
+            <translation><!-- 4th Call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5th Call</masterLabel>
+            <translation><!-- 5th Call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Onboarding</masterLabel>
+            <translation><!-- Onboarding --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ongoing</masterLabel>
+            <translation><!-- Ongoing --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Site Optimization Focus Areas Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Focus Details --></label>
+            <section>Focus Details</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- DAP Focus Areas --></label>
+        <name>DAP_Focus_Areas</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please change the Category field in order to update the Focus Area Name. --></errorMessage>
+        <name>CB_DAPFA_CategoryAndNameMustMatch</name>
+    </validationRules>
+</CustomObjectTranslation>

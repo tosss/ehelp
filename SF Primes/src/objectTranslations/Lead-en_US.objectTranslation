@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Role</value>
+        </caseValues>
+        <name>title_lead</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <layouts>
+        <layout>Digital Marketing Created</layout>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Form Data --></label>
+            <section>Form Data</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- Product Interests --></label>
+            <section>Product Interests</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Digital Services Created</layout>
+        <sections>
+            <label><!-- Contact and Address Information --></label>
+            <section>Contact and Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Hidden Header --></label>
+            <section>Hidden Header</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Notes --></label>
+            <section>Lead Notes</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Digital Services Created - Sales Ops Admin</layout>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Notes --></label>
+            <section>Lead Notes</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Inside Sales Created</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Contact and Account Fields --></label>
+            <section>Lead Contact and Account Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Marketing Layout</layout>
+        <sections>
+            <label><!-- Account &amp; Contact Information --></label>
+            <section>Account &amp; Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Interests --></label>
+            <section>Interests</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- Marketing Activities --></label>
+            <section>Marketing Activities</section>
+        </sections>
+        <sections>
+            <label><!-- Marketing Information --></label>
+            <section>Marketing Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Marketing Lead Gen Layout</layout>
+        <sections>
+            <label><!-- Account &amp; Contact Information --></label>
+            <section>Account &amp; Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Interests --></label>
+            <section>Interests</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- Marketing Activities --></label>
+            <section>Marketing Activities</section>
+        </sections>
+        <sections>
+            <label><!-- Marketing Information --></label>
+            <section>Marketing Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>NADA FY06 Layout</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- MSR Notes --></label>
+            <section>MSR Notes</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>NADA FY07 Layout</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- MSR Notes --></label>
+            <section>MSR Notes</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>NADA FY08 Layout</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Demo/Sales Information --></label>
+            <section>Demo/Sales Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- NADA Information --></label>
+            <section>NADA Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>NADA FY09 Layout</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Demo/Sales Information --></label>
+            <section>Demo/Sales Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- NADA Information --></label>
+            <section>NADA Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>NADA FY10 Layout</layout>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Demo Information --></label>
+            <section>Demo Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Interests --></label>
+            <section>Interests</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- NADA DMS Information --></label>
+            <section>NADA DMS Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>NADA FY11 Layout</layout>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Demo Information --></label>
+            <section>Demo Information</section>
+        </sections>
+        <sections>
+            <label><!-- Description Information --></label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label><!-- Interests --></label>
+            <section>Interests</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- NADA DMS Information --></label>
+            <section>NADA DMS Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>NADA FY12 Layout</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Demo Information --></label>
+            <section>Demo Information</section>
+        </sections>
+        <sections>
+            <label><!-- Interests --></label>
+            <section>Interests</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- NADA DMS Information --></label>
+            <section>NADA DMS Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>NADA FY13 Layout</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Current DMS --></label>
+            <section>Current DMS</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Interests --></label>
+            <section>Interests</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Rep Created</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Contact and Account Fields --></label>
+            <section>Lead Contact and Account Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Lead Information --></label>
+            <section>Lead Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

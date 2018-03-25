@@ -1,0 +1,1501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>SubProject</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>SubProjects</value>
+    </caseValues>
+    <fields>
+        <label><!-- Age in Days --></label>
+        <name>Age_in_Days__c</name>
+    </fields>
+    <fields>
+        <help><!-- None needed - not on page layout --></help>
+        <label><!-- BU Convert --></label>
+        <name>BU_Convert__c</name>
+    </fields>
+    <fields>
+        <label><!-- BU-PMC --></label>
+        <name>BU_PMC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Business Alignment Workshop Date --></label>
+        <name>Business_Alignment_Workshop_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Business Unit Changed --></label>
+        <name>Business_Unit_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Buy-Sell Clone Type --></label>
+        <name>Buy_Sell_Clone_Type__c</name>
+        <picklistValues>
+            <masterLabel>Clone - Multi-Company to Single Company Split</masterLabel>
+            <translation><!-- Clone - Multi-Company to Single Company Split --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clone - Q-Pointer Body Shop</masterLabel>
+            <translation><!-- Clone - Q-Pointer Body Shop --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clone - Single Company to Multi-Company</masterLabel>
+            <translation><!-- Clone - Single Company to Multi-Company --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clone - Standard</masterLabel>
+            <translation><!-- Clone - Standard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Company Renumber</masterLabel>
+            <translation><!-- Company Renumber --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Merge</masterLabel>
+            <translation><!-- Data Merge --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Logon Rename</masterLabel>
+            <translation><!-- Logon Rename --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other - see Special Instructions</masterLabel>
+            <translation><!-- Other - see Special Instructions --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- CMF Number(s) --></label>
+        <name>CMF_Numbers__c</name>
+    </fields>
+    <fields>
+        <label><!-- CSI Survey % --></label>
+        <name>CSI_Survey__c</name>
+    </fields>
+    <fields>
+        <label><!-- CTI Desktop --></label>
+        <name>CTI_Desktop__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Client Intro Call (&lt;=15) --></label>
+        <name>Client_Intro_Call_15__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client Intro Call Conducted --></label>
+        <name>Client_Intro_Call_Conducted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Confidential --></label>
+        <name>Confidential__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Details --></label>
+        <name>Contract_Details__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Review Call (&lt;=10) --></label>
+        <name>Contract_Review_Call_10__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Review Call Conducted --></label>
+        <name>Contract_Review_Call_Conducted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Roll Called --></label>
+        <name>Contract_Roll_Called__c</name>
+    </fields>
+    <fields>
+        <label><!-- Count of Activities on SubProject --></label>
+        <name>Count_of_Activities_on_SubProject__c</name>
+    </fields>
+    <fields>
+        <label><!-- Count of Discovery Wbks on SubProject --></label>
+        <name>Count_of_Discovery_Wbks_on_SubProject__c</name>
+    </fields>
+    <fields>
+        <label><!-- Count of MAT on SubProject --></label>
+        <name>Count_of_MAT_on_SubProject__c</name>
+    </fields>
+    <fields>
+        <label><!-- Count of Milestones on SubProject --></label>
+        <name>Count_of_Milestones_on_SubProject__c</name>
+    </fields>
+    <fields>
+        <label><!-- Count of SubProject Sites --></label>
+        <name>Count_of_SubProject_Sites__c</name>
+    </fields>
+    <fields>
+        <label><!-- Count of Tasks on SubProject --></label>
+        <name>Count_of_Tasks_on_SubProject__c</name>
+    </fields>
+    <fields>
+        <label><!-- D&amp;A Status --></label>
+        <name>D_A_Status__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Received</masterLabel>
+            <translation><!-- Received --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent</masterLabel>
+            <translation><!-- Sent --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This field is read-only but updated when the PMC field is changes from Region to any other value --></help>
+        <label><!-- Date PMC Assigned --></label>
+        <name>Date_PMC_Assigned__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days Sold --></label>
+        <name>Days_Sold__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days Used --></label>
+        <name>Days_Used__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deal Id --></label>
+        <name>Deal_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealership Phone --></label>
+        <name>Dealership_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Does Report To Me? --></label>
+        <name>Does_Report_To_Me__c</name>
+    </fields>
+    <fields>
+        <label><!-- ER Status --></label>
+        <name>ER_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estimated Install Date (EID) --></label>
+        <name>Estimated_Install_Date_EID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Final PSR sent to Client --></label>
+        <name>Final_PSR_sent_to_Client__c</name>
+    </fields>
+    <fields>
+        <label><!-- Forms (&gt;=45) --></label>
+        <name>Forms_45__c</name>
+    </fields>
+    <fields>
+        <label><!-- Forms Received --></label>
+        <name>Forms_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Go-Live Date --></label>
+        <name>Go_Live_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- HW/NW Installed --></label>
+        <name>HW_NW_Installed__c</name>
+    </fields>
+    <fields>
+        <label><!-- H/W (&gt;=20) --></label>
+        <name>H_W_20__c</name>
+    </fields>
+    <fields>
+        <label><!-- H/W Specialist (PFW) --></label>
+        <name>H_W_Specialist_PFW__c</name>
+        <relationshipLabel><!-- SubProjects (H/W Specialist (PFW)) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Heavy Equipment Manufacturer/Franchise --></label>
+        <name>Heavy_Equipment_Manufacturer_Franchise__c</name>
+    </fields>
+    <fields>
+        <label><!-- IPP (&gt;=90) --></label>
+        <name>IPP_90__c</name>
+    </fields>
+    <fields>
+        <label><!-- Impact Folders Link --></label>
+        <name>Impact_Folders__c</name>
+    </fields>
+    <fields>
+        <label><!-- Impact Project Number(s) --></label>
+        <name>Impact_Project_Numbers__c</name>
+    </fields>
+    <fields>
+        <label><!-- Install Start Date / Migration Date --></label>
+        <name>Install_Start_Date_Migration_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Project Managed By Me? --></label>
+        <name>Is_Project_Managed_By_Me__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lag Time to Install --></label>
+        <name>Lag_Time_to_Install__c</name>
+    </fields>
+    <fields>
+        <label><!-- Language --></label>
+        <name>Language__c</name>
+        <picklistValues>
+            <masterLabel>English</masterLabel>
+            <translation><!-- English --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>French</masterLabel>
+            <translation><!-- French --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spanish</masterLabel>
+            <translation><!-- Spanish --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- MS Project Workspace Link --></label>
+        <name>MS_Project_Workspace__c</name>
+    </fields>
+    <fields>
+        <label><!-- Manager Id Of Manager --></label>
+        <name>Manager_Id_Of_Manager__c</name>
+    </fields>
+    <fields>
+        <label><!-- Manager Id Of Project Manager --></label>
+        <name>Manager_Id_Of_Project_Manager__c</name>
+    </fields>
+    <fields>
+        <label><!-- Market --></label>
+        <name>Market__c</name>
+        <picklistValues>
+            <masterLabel>Dash - Small Auto</masterLabel>
+            <translation><!-- Dash - Small Auto --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Drive - Baseline</masterLabel>
+            <translation><!-- Drive - Baseline --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lightspeed - Powersports</masterLabel>
+            <translation><!-- Lightspeed - Powersports --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PFW - Heavy Equipment</masterLabel>
+            <translation><!-- PFW - Heavy Equipment --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Max Tot Rec Threshold Override --></label>
+        <name>Max_Tot_Rec_Threshold_Override__c</name>
+    </fields>
+    <fields>
+        <label><!-- Migration_ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Milestones Auto Generated Flag --></label>
+        <name>Milestones_Auto_Generated_Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- Network Certified --></label>
+        <name>Network_Certified__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Number of Rooftops --></label>
+        <name>Number_of_Rooftops__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of User Connections --></label>
+        <name>Number_of_User_Connections__c</name>
+    </fields>
+    <fields>
+        <label><!-- PFW Verification Meeting Conducted --></label>
+        <name>PFW_Verification_Meeting_Conducted__c</name>
+    </fields>
+    <fields>
+        <help><!-- None won&apos;t be on page --></help>
+        <label><!-- PMC Convert --></label>
+        <name>PMC_Convert__c</name>
+    </fields>
+    <fields>
+        <label><!-- PM Email --></label>
+        <name>PM_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- PM Phone --></label>
+        <name>PM_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pre-GoLive Mtg (Client) (&lt;=10) --></label>
+        <name>Pre_GoLive_Mtg_Client_10__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pre-GoLive Mtg (Client) Conducted --></label>
+        <name>Pre_GoLive_Mtg_Client_Conducted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pre-GoLive Mtg (Internal) (&gt;=20) --></label>
+        <name>Pre_GoLive_Mtg_Internal_20__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pre-GoLive Mtg (Internal) Conducted --></label>
+        <name>Pre_GoLive_Mtg_Internal_Conducted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pre-Install Training (&gt;=80%) --></label>
+        <name>Pre_Install_Training_80__c</name>
+    </fields>
+    <fields>
+        <help><!-- Previous system for the client.  Use this field to indicate the client&apos;s previous system - whether a CDK system and/or a competitor --></help>
+        <label><!-- Previous System --></label>
+        <name>Previous_System__c</name>
+    </fields>
+    <fields>
+        <label><!-- Process Discovery Meeting (&lt;=30) --></label>
+        <name>Process_Discovery_Meeting_30__c</name>
+    </fields>
+    <fields>
+        <label><!-- Process Discovery Mtg Conducted --></label>
+        <name>Process_Discovery_Mtg_Conducted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Process Overview Meeting Conducted --></label>
+        <name>Process_Overview_Meeting_Conducted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Assigned to PM/PS --></label>
+        <name>Project_Assigned_to_PM_PS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Close (&lt;=20) --></label>
+        <name>Project_Close_20__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Kick-Off Mtg (Internal) (&gt;=90) --></label>
+        <name>Project_Kick_Off_Mtg_Internal_90__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Kick-Off Mtg (Internal) --></label>
+        <name>Project_Kick_Off_Mtg_Internal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Management Center --></label>
+        <name>Project_Management_Center__c</name>
+        <picklistValues>
+            <masterLabel>ACE</masterLabel>
+            <translation><!-- ACE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Augusta</masterLabel>
+            <translation><!-- Augusta --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ford SMARTT</masterLabel>
+            <translation><!-- Ford SMARTT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Region</masterLabel>
+            <translation><!-- Region --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Project Manager --></label>
+        <name>Project_Manager__c</name>
+        <relationshipLabel><!-- SubProjects (Project Manager) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- This is an automated field that displays the assigned Project Manager&apos;s Manager&apos;s Name --></help>
+        <label><!-- Project Manager&apos;s Manager --></label>
+        <name>Project_Manager_s_Manager__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Phase --></label>
+        <name>Project_Phase__c</name>
+        <picklistValues>
+            <masterLabel>Step 1 - Discovery</masterLabel>
+            <translation><!-- Step 1 - Discovery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Step 1 - Discovery (Pre-Sales)</masterLabel>
+            <translation><!-- Step 1 - Discovery (Pre-Sales) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Step 2 - Project Mapping</masterLabel>
+            <translation><!-- Step 2 - Project Mapping --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Step 3 - Site Readiness</masterLabel>
+            <translation><!-- Step 3 - Site Readiness --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Step 4 - CDK GoLive</masterLabel>
+            <translation><!-- Step 4 - CDK GoLive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Step 5 - Transition Meeting</masterLabel>
+            <translation><!-- Step 5 - Transition Meeting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Step 6 - Ongoing Training (Closed)</masterLabel>
+            <translation><!-- Step 6 - Ongoing Training (Closed) --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Project Plan Delivered to Client --></label>
+        <name>Project_Plan_Delivered_to_Client__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project SubType --></label>
+        <name>Project_SubType__c</name>
+        <picklistValues>
+            <masterLabel>AAX</masterLabel>
+            <translation><!-- AAX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accounting</masterLabel>
+            <translation><!-- Accounting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accounts Payable</masterLabel>
+            <translation><!-- Accounts Payable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Advanced Rental</masterLabel>
+            <translation><!-- Advanced Rental --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business Office Consolidation</masterLabel>
+            <translation><!-- Business Office Consolidation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDK CRM</masterLabel>
+            <translation><!-- CDK CRM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDK CRM - Concurrent with DMS</masterLabel>
+            <translation><!-- CDK CRM - Concurrent with DMS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDK CRM Reverse Phone</masterLabel>
+            <translation><!-- CDK CRM Reverse Phone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDK CRM Stongmail</masterLabel>
+            <translation><!-- CDK CRM Stongmail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDK Credit</masterLabel>
+            <translation><!-- CDK Credit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDK Desking</masterLabel>
+            <translation><!-- CDK Desking --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDK Desking Licenses</masterLabel>
+            <translation><!-- CDK Desking Licenses --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDK Drive</masterLabel>
+            <translation><!-- CDK Drive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDK DriveXL</masterLabel>
+            <translation><!-- CDK DriveXL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDK F&amp;I (CA Only)</masterLabel>
+            <translation><!-- CDK F&amp;I (CA Only) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDK Menu</masterLabel>
+            <translation><!-- CDK Menu --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDK Vehicle</masterLabel>
+            <translation><!-- CDK Vehicle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDK Vehicle Migration</masterLabel>
+            <translation><!-- CDK Vehicle Migration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CRM Lead Integration</masterLabel>
+            <translation><!-- CRM Lead Integration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CRM Migration</masterLabel>
+            <translation><!-- CRM Migration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CT Wizard</masterLabel>
+            <translation><!-- CT Wizard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CT Wizard Front Office</masterLabel>
+            <translation><!-- CT Wizard Front Office --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Pencil</masterLabel>
+            <translation><!-- Custom Pencil --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Satisfaction Management (CSM)</masterLabel>
+            <translation><!-- Customer Satisfaction Management (CSM) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Touch</masterLabel>
+            <translation><!-- Customer Touch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DSDA Viewer</masterLabel>
+            <translation><!-- DSDA Viewer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DT Enhanced Integration</masterLabel>
+            <translation><!-- DT Enhanced Integration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deal Review</masterLabel>
+            <translation><!-- Deal Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Decision Support</masterLabel>
+            <translation><!-- Decision Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Digital Contracting</masterLabel>
+            <translation><!-- Digital Contracting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dispatching</masterLabel>
+            <translation><!-- Dispatching --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Document Archiving (DA)</masterLabel>
+            <translation><!-- Document Archiving (DA) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Document Storage (Scanning)</masterLabel>
+            <translation><!-- Document Storage (Scanning) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electronic Repair Order (ERO)</masterLabel>
+            <translation><!-- Electronic Repair Order (ERO) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electronic Time Clock (ETC)</masterLabel>
+            <translation><!-- Electronic Time Clock (ETC) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Express Scanning</masterLabel>
+            <translation><!-- Express Scanning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>F&amp;I</masterLabel>
+            <translation><!-- F&amp;I --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Financesource VW CA/CV</masterLabel>
+            <translation><!-- Financesource VW CA/CV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ford ACE</masterLabel>
+            <translation><!-- Ford ACE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ford SMARTT</masterLabel>
+            <translation><!-- Ford SMARTT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Front Office Edge</masterLabel>
+            <translation><!-- Front Office Edge --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Full Maintenance Lease &amp; Rental (Truck)</masterLabel>
+            <translation><!-- Full Maintenance Lease &amp; Rental (Truck) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Generic Accounting Interface</masterLabel>
+            <translation><!-- Generic Accounting Interface --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Historical DA</masterLabel>
+            <translation><!-- Historical DA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IP Telephony</masterLabel>
+            <translation><!-- IP Telephony --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IP Telephony - Concurrent with DMS</masterLabel>
+            <translation><!-- IP Telephony - Concurrent with DMS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Implementation Service Day</masterLabel>
+            <translation><!-- Implementation Service Day --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Implementation Service Day - Remote</masterLabel>
+            <translation><!-- Implementation Service Day - Remote --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Intellitech</masterLabel>
+            <translation><!-- Intellitech --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Laser F&amp;I</masterLabel>
+            <translation><!-- Laser F&amp;I --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lease &amp; Rental (Canada)</masterLabel>
+            <translation><!-- Lease &amp; Rental (Canada) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manufacturer Interfaces (Truck - PFW)</masterLabel>
+            <translation><!-- Manufacturer Interfaces (Truck - PFW) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mobile Tech</masterLabel>
+            <translation><!-- Mobile Tech --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OEM</masterLabel>
+            <translation><!-- OEM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ONE-EIGHTY</masterLabel>
+            <translation><!-- ONE-EIGHTY --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other (Specify own value)</masterLabel>
+            <translation><!-- Other (Specify own value) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PFW ASP Migration</masterLabel>
+            <translation><!-- PFW ASP Migration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PFW Structure Conversion</masterLabel>
+            <translation><!-- PFW Structure Conversion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PartScan</masterLabel>
+            <translation><!-- PartScan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parts</masterLabel>
+            <translation><!-- Parts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payment Credit Card Interface (PCI)</masterLabel>
+            <translation><!-- Payment Credit Card Interface (PCI) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payroll</masterLabel>
+            <translation><!-- Payroll --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payroll Plus</masterLabel>
+            <translation><!-- Payroll Plus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preventative Mtce</masterLabel>
+            <translation><!-- Preventative Mtce --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purchase Orders</masterLabel>
+            <translation><!-- Purchase Orders --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RT1 INTEGRATION FI LOG RPT</masterLabel>
+            <translation><!-- RT1 INTEGRATION FI LOG RPT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reports Archiving</masterLabel>
+            <translation><!-- Reports Archiving --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SPS Onboard New</masterLabel>
+            <translation><!-- SPS Onboard New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Contact Management (Truck)</masterLabel>
+            <translation><!-- Sales Contact Management (Truck) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Management</masterLabel>
+            <translation><!-- Sales Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Velocity</masterLabel>
+            <translation><!-- Sales Velocity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Velocity Plus</masterLabel>
+            <translation><!-- Sales Velocity Plus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Self Service Direct Deposit</masterLabel>
+            <translation><!-- Self Service Direct Deposit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service</masterLabel>
+            <translation><!-- Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Edge Appointments</masterLabel>
+            <translation><!-- Service Edge Appointments --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ServiceEdge Inspect</masterLabel>
+            <translation><!-- ServiceEdge Inspect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ServiceEdge Lane</masterLabel>
+            <translation><!-- ServiceEdge Lane --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Showroom Control</masterLabel>
+            <translation><!-- Showroom Control --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Signature Capture</masterLabel>
+            <translation><!-- Signature Capture --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technician Workbench</masterLabel>
+            <translation><!-- Technician Workbench --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Traffic</masterLabel>
+            <translation><!-- Traffic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Used Equip Eval</masterLabel>
+            <translation><!-- Used Equip Eval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VAuto</masterLabel>
+            <translation><!-- VAuto --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VCI</masterLabel>
+            <translation><!-- VCI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle Inspection Sheet (VIS)</masterLabel>
+            <translation><!-- Vehicle Inspection Sheet (VIS) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle Management (VMS)</masterLabel>
+            <translation><!-- Vehicle Management (VMS) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle Scan</masterLabel>
+            <translation><!-- Vehicle Scan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Virtual Biller</masterLabel>
+            <translation><!-- Virtual Biller --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>W1K(Canada) Document Archiving (DA)</masterLabel>
+            <translation><!-- W1K(Canada) Document Archiving (DA) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>W1K(Canada) Electronic Time Ticket (ETT)</masterLabel>
+            <translation><!-- W1K(Canada) Electronic Time Ticket (ETT) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>W1K(Canada) Purchase Orders (PO)</masterLabel>
+            <translation><!-- W1K(Canada) Purchase Orders (PO) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wireless Inventory</masterLabel>
+            <translation><!-- Wireless Inventory --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ePayments</masterLabel>
+            <translation><!-- ePayments --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eServices</masterLabel>
+            <translation><!-- eServices --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>w.e.b.Suite1000 (Canada)</masterLabel>
+            <translation><!-- w.e.b.Suite1000 (Canada) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>w.e.b.Suite1000 (US)</masterLabel>
+            <translation><!-- w.e.b.Suite1000 (US) --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Project Type --></label>
+        <name>Project_Type__c</name>
+        <picklistValues>
+            <masterLabel>Add-On</masterLabel>
+            <translation><!-- Add-On --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Buy / Sell</masterLabel>
+            <translation><!-- Buy / Sell --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Migration</masterLabel>
+            <translation><!-- Migration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Miscellaneous</masterLabel>
+            <translation><!-- Miscellaneous --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Structural Conversion</masterLabel>
+            <translation><!-- Structural Conversion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unhook</masterLabel>
+            <translation><!-- Unhook --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Upgrade</masterLabel>
+            <translation><!-- Upgrade --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Project --></label>
+        <name>Project__c</name>
+        <relationshipLabel><!-- SubProjects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RAR --></label>
+        <name>RAR__c</name>
+    </fields>
+    <fields>
+        <label><!-- Resource Request (RMS) Approved --></label>
+        <name>Resource_Request_RMS_Approved__c</name>
+    </fields>
+    <fields>
+        <label><!-- Resource Request (RMS) Submitted --></label>
+        <name>Resource_Request_RMS_Submitted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rush --></label>
+        <name>Rush__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scope --></label>
+        <name>Scope__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secondary Project Type --></label>
+        <name>Secondary_Project_Type__c</name>
+        <picklistValues>
+            <masterLabel>Box / Server</masterLabel>
+            <translation><!-- Box / Server --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Box w/Add On</masterLabel>
+            <translation><!-- Box w/Add On --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Branch Add</masterLabel>
+            <translation><!-- Branch Add --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Competitive Buy-Sell</masterLabel>
+            <translation><!-- Competitive Buy-Sell --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Core</masterLabel>
+            <translation><!-- Core --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Programming</masterLabel>
+            <translation><!-- Custom Programming --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DCS Only Server</masterLabel>
+            <translation><!-- DCS Only Server --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Merge</masterLabel>
+            <translation><!-- Data Merge --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Franchise Add</masterLabel>
+            <translation><!-- Franchise Add --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GL/Data Merge</masterLabel>
+            <translation><!-- GL/Data Merge --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interfaces/Module</masterLabel>
+            <translation><!-- Interfaces/Module --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Layered</masterLabel>
+            <translation><!-- Layered --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ownership Change</masterLabel>
+            <translation><!-- Ownership Change --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parts Copy</masterLabel>
+            <translation><!-- Parts Copy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Price Tapes</masterLabel>
+            <translation><!-- Price Tapes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Renewal</masterLabel>
+            <translation><!-- Renewal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Renewal with Add-On</masterLabel>
+            <translation><!-- Renewal with Add-On --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rush (&lt;30 Days)</masterLabel>
+            <translation><!-- Rush (&lt;30 Days) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Software Only</masterLabel>
+            <translation><!-- Software Only --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Software Only / Add On</masterLabel>
+            <translation><!-- Software Only / Add On --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standard</masterLabel>
+            <translation><!-- Standard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Structural Drop</masterLabel>
+            <translation><!-- Structural Drop --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Specify Other --></label>
+        <name>Specify_Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- SubProject Health Indicator --></label>
+        <name>SubProject_Health_Indicator__c</name>
+        <picklistValues>
+            <masterLabel>Blue</masterLabel>
+            <translation><!-- Blue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Green</masterLabel>
+            <translation><!-- Green --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Red</masterLabel>
+            <translation><!-- Red --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yellow</masterLabel>
+            <translation><!-- Yellow --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- SubProject Manager Id --></label>
+        <name>SubProject_Manager_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- SubProject Name --></label>
+        <name>SubProject_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- SubProject Overview --></label>
+        <name>SubProject_Overview__c</name>
+    </fields>
+    <fields>
+        <label><!-- Business Unit --></label>
+        <name>SubProject_Region__c</name>
+        <picklistValues>
+            <masterLabel>ALLIANCE-PC SOLUTIONS-ADMIN</masterLabel>
+            <translation><!-- ALLIANCE-PC SOLUTIONS-ADMIN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ALLIANCE-PC SOLUTIONS-CENTRAL</masterLabel>
+            <translation><!-- ALLIANCE-PC SOLUTIONS-CENTRAL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ALLIANCE-PC SOLUTIONS-NORTHEAST</masterLabel>
+            <translation><!-- ALLIANCE-PC SOLUTIONS-NORTHEAST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ALLIANCE-PC SOLUTIONS-SOUTHEAST</masterLabel>
+            <translation><!-- ALLIANCE-PC SOLUTIONS-SOUTHEAST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ALLIANCE-PC SOLUTIONS-WEST</masterLabel>
+            <translation><!-- ALLIANCE-PC SOLUTIONS-WEST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ASBURY ADMIN</masterLabel>
+            <translation><!-- ASBURY ADMIN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ASP-US/Toronto</masterLabel>
+            <translation><!-- ASP-US/Toronto --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ASP-US/Vancouver</masterLabel>
+            <translation><!-- ASP-US/Vancouver --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AUTONATION-ADMINISTRATION</masterLabel>
+            <translation><!-- AUTONATION-ADMINISTRATION --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AUTONATION-CENTRAL</masterLabel>
+            <translation><!-- AUTONATION-CENTRAL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AUTONATION-NORTHEAST</masterLabel>
+            <translation><!-- AUTONATION-NORTHEAST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AUTONATION-SOUTHEAST</masterLabel>
+            <translation><!-- AUTONATION-SOUTHEAST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AUTONATION-WEST</masterLabel>
+            <translation><!-- AUTONATION-WEST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CANADA-EAST</masterLabel>
+            <translation><!-- CANADA-EAST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CANADA-WEST</masterLabel>
+            <translation><!-- CANADA-WEST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ENTERPRISE - ADMINISTRATION</masterLabel>
+            <translation><!-- ENTERPRISE - ADMINISTRATION --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ENTERPRISE - CENTRAL</masterLabel>
+            <translation><!-- ENTERPRISE - CENTRAL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ENTERPRISE - NORTHEAST</masterLabel>
+            <translation><!-- ENTERPRISE - NORTHEAST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ENTERPRISE - SOUTHEAST</masterLabel>
+            <translation><!-- ENTERPRISE - SOUTHEAST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ENTERPRISE - WEST</masterLabel>
+            <translation><!-- ENTERPRISE - WEST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Group 1 - Administration</masterLabel>
+            <translation><!-- Group 1 - Administration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Group 1 - Central</masterLabel>
+            <translation><!-- Group 1 - Central --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Group 1 - Northeast</masterLabel>
+            <translation><!-- Group 1 - Northeast --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Group 1 - Southeast</masterLabel>
+            <translation><!-- Group 1 - Southeast --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Group 1 - West</masterLabel>
+            <translation><!-- Group 1 - West --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MAJOR CENTRAL</masterLabel>
+            <translation><!-- MAJOR CENTRAL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MAJOR-ADMIN</masterLabel>
+            <translation><!-- MAJOR-ADMIN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MAJOR-CENTRAL-FLORENCE</masterLabel>
+            <translation><!-- MAJOR-CENTRAL-FLORENCE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MAJOR-NORTHEAST</masterLabel>
+            <translation><!-- MAJOR-NORTHEAST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MAJOR-SOUTHEAST</masterLabel>
+            <translation><!-- MAJOR-SOUTHEAST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MAJOR-SOUTHWEST</masterLabel>
+            <translation><!-- MAJOR-SOUTHWEST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MAJOR-WEST-LAPALMA</masterLabel>
+            <translation><!-- MAJOR-WEST-LAPALMA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MAJOR-WEST-PORTLAND</masterLabel>
+            <translation><!-- MAJOR-WEST-PORTLAND --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NATIONAL NORTHEAST</masterLabel>
+            <translation><!-- NATIONAL NORTHEAST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NATIONAL-ADMIN</masterLabel>
+            <translation><!-- NATIONAL-ADMIN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NATIONAL-CENTRAL</masterLabel>
+            <translation><!-- NATIONAL-CENTRAL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NATIONAL-SOUTHEAST</masterLabel>
+            <translation><!-- NATIONAL-SOUTHEAST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NATIONAL-WEST</masterLabel>
+            <translation><!-- NATIONAL-WEST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ONE-EIGHTY CORP</masterLabel>
+            <translation><!-- ONE-EIGHTY CORP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PFW SYSTEMS-CANADA</masterLabel>
+            <translation><!-- PFW SYSTEMS-CANADA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PFW SYSTEMS-MAJOR-CENTRAL</masterLabel>
+            <translation><!-- PFW SYSTEMS-MAJOR-CENTRAL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PFW SYSTEMS-MAJOR-NORTHEAST</masterLabel>
+            <translation><!-- PFW SYSTEMS-MAJOR-NORTHEAST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PFW SYSTEMS-MAJOR-SOUTHEAST</masterLabel>
+            <translation><!-- PFW SYSTEMS-MAJOR-SOUTHEAST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PFW SYSTEMS-MAJOR-WEST</masterLabel>
+            <translation><!-- PFW SYSTEMS-MAJOR-WEST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SONIC-ADMINISTRATION</masterLabel>
+            <translation><!-- SONIC-ADMINISTRATION --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SONIC-CENTRAL</masterLabel>
+            <translation><!-- SONIC-CENTRAL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SONIC-NORTHEAST</masterLabel>
+            <translation><!-- SONIC-NORTHEAST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SONIC-SOUTHEAST</masterLabel>
+            <translation><!-- SONIC-SOUTHEAST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SONIC-WEST</masterLabel>
+            <translation><!-- SONIC-WEST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TRUCK-CANADA</masterLabel>
+            <translation><!-- TRUCK-CANADA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TRUCK-US</masterLabel>
+            <translation><!-- TRUCK-US --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- SubProject Status --></label>
+        <name>SubProject_Status__c</name>
+        <picklistValues>
+            <masterLabel>At Risk</masterLabel>
+            <translation><!-- At Risk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Caution</masterLabel>
+            <translation><!-- Caution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Follow-Up</masterLabel>
+            <translation><!-- Follow-Up --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hold Box</masterLabel>
+            <translation><!-- Hold Box --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hold Client</masterLabel>
+            <translation><!-- Hold Client --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hold Facility</masterLabel>
+            <translation><!-- Hold Facility --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hold Network</masterLabel>
+            <translation><!-- Hold Network --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hold No Start</masterLabel>
+            <translation><!-- Hold No Start --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hold Product</masterLabel>
+            <translation><!-- Hold Product --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hold Risk</masterLabel>
+            <translation><!-- Hold Risk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Scheduling</masterLabel>
+            <translation><!-- In Scheduling --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Request</masterLabel>
+            <translation><!-- New Request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Target</masterLabel>
+            <translation><!-- On Target --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- TC (&lt;=10) --></label>
+        <name>TC_10__c</name>
+    </fields>
+    <fields>
+        <label><!-- Training &amp; Implementation Client Mgr 2 --></label>
+        <name>Training_Implementation_Client_Mgr_2__c</name>
+        <relationshipLabel><!-- SubProjects (Training &amp; Implementation Client Mgr 2) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Training &amp; Implementation Client Mgr --></label>
+        <name>Training_Implementation_Client_Mgr__c</name>
+        <relationshipLabel><!-- SubProjects (Training &amp; Implementation Client Mgr) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Training (LMS) Logins Delivered --></label>
+        <name>Training_LMS_Logins_Delivered__c</name>
+    </fields>
+    <fields>
+        <label><!-- Training Request (&gt;=90) --></label>
+        <name>Training_Request_90__c</name>
+    </fields>
+    <fields>
+        <label><!-- Training Request Submitted --></label>
+        <name>Training_Request_Submitted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Transition Meeting Conducted --></label>
+        <name>Transition_Meeting_Conducted__c</name>
+    </fields>
+    <fields>
+        <label><!-- WFM (&lt;=10) --></label>
+        <name>WFM_10__c</name>
+    </fields>
+    <fields>
+        <label><!-- Workflow Manager 1 --></label>
+        <name>Workflow_Manager_1__c</name>
+        <relationshipLabel><!-- SubProjects (Workflow Manager 1) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Workflow Manager 2 --></label>
+        <name>Workflow_Manager_2__c</name>
+        <relationshipLabel><!-- SubProjects (Workflow Manager 2) --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>PM SubProject Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Key Dates --></label>
+            <section>Key Dates</section>
+        </sections>
+        <sections>
+            <label><!-- Key Indicators --></label>
+            <section>Key Indicators</section>
+        </sections>
+        <sections>
+            <label><!-- Project Information --></label>
+            <section>Project Information</section>
+        </sections>
+        <sections>
+            <label><!-- Project Links --></label>
+            <section>Project Links</section>
+        </sections>
+        <sections>
+            <label><!-- SubProject Buttons --></label>
+            <section>SubProject Buttons</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>SubProject Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Key Dates --></label>
+            <section>Key Dates</section>
+        </sections>
+        <sections>
+            <label><!-- Key Indicators --></label>
+            <section>Key Indicators</section>
+        </sections>
+        <sections>
+            <label><!-- Project Information --></label>
+            <section>Project Information</section>
+        </sections>
+        <sections>
+            <label><!-- Project Links --></label>
+            <section>Project Links</section>
+        </sections>
+        <sections>
+            <label><!-- SubProject Buttons --></label>
+            <section>SubProject Buttons</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>SubProject VIC Profile Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Key Dates --></label>
+            <section>Key Dates</section>
+        </sections>
+        <sections>
+            <label><!-- Key Indicators --></label>
+            <section>Key Indicators</section>
+        </sections>
+        <sections>
+            <label><!-- Project Information --></label>
+            <section>Project Information</section>
+        </sections>
+        <sections>
+            <label><!-- Project Links --></label>
+            <section>Project Links</section>
+        </sections>
+        <sections>
+            <label><!-- SubProject Buttons --></label>
+            <section>SubProject Buttons</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please select a value. --></errorMessage>
+        <name>Buy_Sell_Clone_Type_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Cannot be a date before today (i.e. in the past). --></errorMessage>
+        <name>EID_cannot_be_in_the_Past</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Add_SiteProducts --></label>
+        <name>Add_SiteProducts</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Clone_SubProject --></label>
+        <name>Clone_SubProject</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Copy_Contacts --></label>
+        <name>Copy_Contacts</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Discovery --></label>
+        <name>Discovery</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Generate_Milestones --></label>
+        <name>Generate_Milestones</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Generate_Status --></label>
+        <name>Generate_Status</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Action_Item --></label>
+        <name>New_Action_Item</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Change_Request --></label>
+        <name>New_Change_Request</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Issue --></label>
+        <name>New_Issue</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Lesson_Learned --></label>
+        <name>New_Lesson_Learned</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Risk --></label>
+        <name>New_Risk</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Subproject_Contacts --></label>
+        <name>Subproject_Contacts</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- X6_Step_Process --></label>
+        <name>X6_Step_Process</name>
+    </webLinks>
+</CustomObjectTranslation>

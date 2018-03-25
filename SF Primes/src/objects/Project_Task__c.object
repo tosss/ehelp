@@ -1,0 +1,2518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fieldSets>
+        <fullName>ProjectTaskDataTableFields</fullName>
+        <description>This will be used to control the table columns to be displayed on the DataTable Component</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SubProject_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Site_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Description__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Start_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_End_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Time_Spent__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Planned_Start_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Planned_End_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CDK_Assignee__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CDK_Assignee_Role__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Client_Assignee__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Migration_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Reason__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Reason_Missed_Planned_End_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>ProjectTaskDataTableFields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>ProjectTaskFilterFields</fullName>
+        <description>This will be used to control the filter fields to be displayed on the DataTable Component</description>
+        <displayedFields>
+            <field>Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CDK_Assignee__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Planned_Start_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Planned_End_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Start_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_End_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>ProjectTaskFilterFields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>ProjectTask_to_clone_fields</fullName>
+        <description>List of field to clone</description>
+        <displayedFields>
+            <field>Project_Activity__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CDK_Assignee__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CDK_Assignee_Role__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Client_Assignee__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Display_on_PSR__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Description__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Expected_Time_Spent__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>External_ID__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Planned_Start_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Planned_End_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Task_Definition__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Standard__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>ProjectTask to clone fields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>RMS_Owner_Disable_Fields_Set</fullName>
+        <description>This field set will contain the fields that need to be disabled when RMS Owned Flag is checked.</description>
+        <displayedFields>
+            <field>Description__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Expected_Time_Spent__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Planned_Start_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Planned_End_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Start_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_End_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Time_Spent__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Reason_Missed_Planned_End_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Migration_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Reason__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CDK_Assignee__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>RMS Owner Disable Fields Set</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Task_Commons</fullName>
+        <description>Query using field set</description>
+        <displayedFields>
+            <field>Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Client_Assignee__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Task_Definition__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Id</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Project_Activity__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Planned_End_Dt_Delayed_Count__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Planned_Start_Dt_Delayed_Count__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Planned_Start_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Planned_End_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Start_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_End_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Description__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CDK_Assignee_Role__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Comments__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CDK_Assignee__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SubProject_ID__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Sequence__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Display_on_PSR__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Milestone_Id__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CDK_Assignee__r.Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Client_Assignee__r.Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Site_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Task_Commons</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Task_Edit_Commons</fullName>
+        <description>To be used in the Milestone Edit Page</description>
+        <displayedFields>
+            <field>Description__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Planned_Start_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Planned_End_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Start_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_End_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Time_Spent__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Display_on_PSR__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CDK_Assignee__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CDK_Assignee_Role__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Client_Assignee__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Migration_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Reason__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Reason_Missed_Planned_End_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Expected_Time_Spent__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Comments__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Sequence__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Task Edit Commons</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Task_Prevent_Edit</fullName>
+        <description>These list of fields cannot be edit/change when the record is already has a status complete</description>
+        <displayedFields>
+            <field>Actual_Time_Spent__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_End_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Start_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CDK_Assignee__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CDK_Assignee_Role__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Client_Assignee__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Comments__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Expected_Time_Spent__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Hold_Code__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Migration_Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Reason__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Planned_End_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Planned_End_Dt_Delayed_Count__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Planned_Start_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Planned_Start_Dt_Delayed_Count__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Project_Activity__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Reason_Missed_Planned_End_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Sequence__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Standard__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Task_Definition__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Description__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Task Prevent Edit</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Task_Sort_Commons</fullName>
+        <description>This field set is used in all pages requiring sorted tasks.</description>
+        <displayedFields>
+            <field>Planned_End_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Sequence__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Task Sort Commons</label>
+    </fieldSets>
+    <fields>
+        <fullName>Account__c</fullName>
+        <externalId>false</externalId>
+        <formula>Project_Activity__r.Account__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Activity_Description__c</fullName>
+        <externalId>false</externalId>
+        <formula>Project_Activity__r.Description__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Activity Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Actual_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual End Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Start Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Time_Spent__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Days Spent</label>
+        <precision>7</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CDK_Assignee_Role__c</fullName>
+        <externalId>false</externalId>
+        <label>CDK Assignee Role</label>
+        <picklist>
+            <picklistValues>
+                <fullName>3PA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A/R Conversion Specialist</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business Solutions Consultant</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business Systems Analyst​​</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Car!nk</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Client Account Manager (CAM)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Conversion Specialist</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Conversion Specialist (Unhook)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Credit Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Custom Programming</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CVR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Digital Contracting Project Manager</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DMI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Field Service</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Forms Builder</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Forms Collector​</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Implementation Support</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Install Specialist (ICD)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Laser Artwork Specialist</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Laser Imaging</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Laser Installation Specialist</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Migration Follow-Up Specialist</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Migration Specialist</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Migration Specialist (Box Upgrade)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Network Project Manager (Network / IPT)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Payroll Tax Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Professional Services Consultants</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RSM IT Support Analyst</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Scheduling Coordinator</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Total Source Project Manager</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Training &amp; Implementation Client Manager</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Training Consultant (RPM)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Training Coordinator</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Utilization &amp; Training Project Manager​</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Virtual Implementation Consultant</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Conversion Data Specialist</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Software Application Engineer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Librarian</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>CDK_Assignee__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>CDK Assignee</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Project_Tasks</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Client_Assignee__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Client Assignee</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Project Tasks</relationshipLabel>
+        <relationshipName>Project_Tasks</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Confidential__c</fullName>
+        <externalId>false</externalId>
+        <formula>Project_Activity__r.Confidential__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Confidential</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Dealer_Group__c</fullName>
+        <externalId>false</externalId>
+        <formula>Project_Activity__r.Dealer_Group__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Dealer Group</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Task Description</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Display_on_PSR__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Display on PSR</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Do_Not_Physically_Delete__c</fullName>
+        <description>A Boolean Flag deriving whether the record is eligible to delete.  The value is true if the record has already begun to be processed.  For Project Tasks, the presence of an Actual Start Date would provide evidence that the record has indeed begun to be processed.</description>
+        <externalId>false</externalId>
+        <formula>NOT(ISNULL(Actual_Start_Date__c) || ISBLANK(Actual_Start_Date__c))</formula>
+        <label>Do Not Physically Delete</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Does_Report_to_Me__c</fullName>
+        <externalId>false</externalId>
+        <formula>(NOT(ISBLANK( Manager_Id_Of_Project_Manager__c )) &amp;&amp; ( Manager_Id_Of_Project_Manager__c == $User.Id)) || 
+(NOT(ISBLANK( CDK_Assignee__r.ManagerId )) &amp;&amp; ( CDK_Assignee__r.ManagerId == $User.Id)) ||
+(NOT(ISBLANK(  Manager_Id_Of_Manager__c  )) &amp;&amp; ( Manager_Id_Of_Manager__c == $User.Id))</formula>
+        <label>Does Report to Me?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Expected_Time_Spent__c</fullName>
+        <externalId>false</externalId>
+        <label>Expected Time Spent</label>
+        <precision>7</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>External_Activity_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Project_Activity__r.External_Activity_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>External Activity Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>External_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>External ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Force_Rollup__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>A system administrator field to support forced rollups via the logical rollup engine.</description>
+        <externalId>false</externalId>
+        <label>Force Rollup</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Hold_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Hold Code</label>
+        <picklist>
+            <picklistValues>
+                <fullName>HM - MANUFACTURER</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HF - FACILITY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HC - CLIENT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HP - PRODUCT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HN - NOSTART</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HB - NEW DMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HD - DATA/CONVERSION</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HX - NETWORK</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HL - LEGAL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HT - TELEPHONY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HR - RISK ON CONTRACT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Is_Assigned_To_Me__c</fullName>
+        <externalId>false</externalId>
+        <formula>NOT(ISBLANK( CDK_Assignee__c )) &amp;&amp; ( CDK_Assignee__c == $User.Id)</formula>
+        <label>Is Assigned To Me?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Project_Managed_By_Me__c</fullName>
+        <externalId>false</externalId>
+        <formula>NOT(ISBLANK( SubProject_Manager_Id__c )) &amp;&amp; ( SubProject_Manager_Id__c == $User.Id)</formula>
+        <label>Is Project Managed By Me?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Manager_Id_Of_Manager__c</fullName>
+        <externalId>false</externalId>
+        <formula>Project_Activity__r.Milestone__r.SubProject__r.Manager_Id_Of_Manager__c</formula>
+        <label>Manager Id Of Manager</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Manager_Id_Of_Project_Manager__c</fullName>
+        <externalId>false</externalId>
+        <formula>Project_Activity__r.Milestone__r.SubProject__r.Manager_Id_Of_Project_Manager__c</formula>
+        <label>Manager Id Of Project Manager</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Migration_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Migration_ID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Migration_Status__c</fullName>
+        <description>The result of the migration project task.  Please note: a status value indicating failure will drive the creation of a cloned project task to re-attempt the migration.</description>
+        <externalId>false</externalId>
+        <label>Migration Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Drive errors preventing test</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Failure - Account Transfer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Failure - Check Version</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Failure - Forward Migration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Failure - Networking issues</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Failure - Postgres - Extract</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Failure - Postgres - Load</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Failure - Postgres - Transfer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Failure - Postgres - Transform</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Failure - Software issues</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Test Performed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Success</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Milestone_Description__c</fullName>
+        <description>Used for Field set reference for Milestone description</description>
+        <externalId>false</externalId>
+        <formula>Project_Activity__r.Milestone__r.Description__c</formula>
+        <inlineHelpText>Used for Field set reference for Milestone description</inlineHelpText>
+        <label>Milestone Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Milestone_Id__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(Project_Activity__r.Milestone__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Milestone Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NotifyWhenComplete__c</fullName>
+        <externalId>false</externalId>
+        <formula>Task_Definition__r.NotifyWhenComplete__c</formula>
+        <label>NotifyWhenComplete</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Planned_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Planned End Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Planned_End_Dt_Delayed_Count__c</fullName>
+        <externalId>false</externalId>
+        <label>Planned End Dt Delayed Count</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Planned_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Planned Start Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Planned_Start_Dt_Delayed_Count__c</fullName>
+        <externalId>false</externalId>
+        <label>Planned Start Dt Delayed Count</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_Activity_Assignee_Role__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Project_Activity__r.CDK_Assignee_Role__c)</formula>
+        <label>Project Activity CDK Assignee Role</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_Activity_CDK_Assignee__c</fullName>
+        <description>A hidden field to provide the Project Task record immediate visibility to its parent’s CDK Assignee, and enable a workflow rule to fire to populate the just-created Project Task’s own CDK Assignee field with the same value.</description>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(Project_Activity__r.CDK_Assignee__c)</formula>
+        <label>Project Activity CDK Assignee</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_Activity_Client_Assignee__c</fullName>
+        <description>A hidden field to provide the Project Task record immediate visibility to its parent’s Client Assignee, and enable a workflow rule to fire to populate the just-created Project Task’s own Client Assignee field with the same value.</description>
+        <externalId>false</externalId>
+        <formula>Project_Activity__r.Client_Assignee__c</formula>
+        <label>Project Activity Client Assignee</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_Activity_Planned_End_Date__c</fullName>
+        <description>A hidden field to provide the Project Task record immediate visibility to its parent’s Planned End Date, and enable a workflow rule to fire to populate the just-created Project Task’s own Planned End Date field with the same value.</description>
+        <externalId>false</externalId>
+        <formula>Project_Activity__r.Planned_End_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Project Activity Planned End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Project_Activity_Planned_Start_Date__c</fullName>
+        <description>A hidden field to provide the Project Task record immediate visibility to its parent’s Planned Start Date, and enable a workflow rule to fire to populate the just-created Project Task’s own Planned Start Date field with the same value.</description>
+        <externalId>false</externalId>
+        <formula>Project_Activity__r.Planned_Start_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Project Activity Planned Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Project_Activity__c</fullName>
+        <deleteConstraint>Cascade</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Project Activity</label>
+        <referenceTo>Project_Activity__c</referenceTo>
+        <relationshipLabel>Project Tasks</relationshipLabel>
+        <relationshipName>Project_Tasks</relationshipName>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Project_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Project_Activity__r.Milestone__r.SubProject__r.Project__r.Id</formula>
+        <label>Project ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RMS_Deleted_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates whether the record has been logically (but not physically) deleted, as a result of having been deleted upstream in RMS.  The field is checked as having been deleted specifically for RMS-driven deletes, but, the record was already &apos;In Progress&quot; for some work (and therefore needed to be preserved).</description>
+        <externalId>false</externalId>
+        <label>RMS Deleted Flag</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RMS_Owned_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates whether the record originated (i.e. was originally created) from RMS.  If true, then the record can only allow certain fields to be updated from RMS.</description>
+        <externalId>false</externalId>
+        <label>RMS Owned Flag</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RMS_Task_Id__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>The unique identifier of the RMS-created Project Task, referenced here as an external Id for ongoing source-to-target record matching between RMS and Salesforce (to support subsequent record updates originating from RMS).</description>
+        <externalId>true</externalId>
+        <label>RMS Task Id</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Reason_Missed_Planned_End_Date__c</fullName>
+        <description>Reason why the Actual End Date is later than the Planned End Date</description>
+        <externalId>false</externalId>
+        <label>Reason Missed Planned End Date</label>
+        <picklist>
+            <picklistValues>
+                <fullName>BSC Missed Appointment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BSC Responsiveness</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bureau Code Not Received</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CDK Conversion Issues</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Client Cancelled Activity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Client Missed Appointment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Client Responsiveness</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Client Too Busy for Remote Training</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contract Rekeyed for Different/Additional Product</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Conversions Responsiveness</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DCS Issues</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Discovery inaccurate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Equifax Code Already Exists</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Facility/Regulatory/Contractual/Manufacturer Delays</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FI Forms Issues</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lack of client commitment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Laser Forms Issues</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Live Date Delayed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Need Bureau Compliance Items</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not Enough time scheduled originally</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Already Installed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Production Box Not Available</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Region Responsiveness</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Re-Scheduled at Client Request</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Resource Swap Request - Supervisor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Virtual Solutions Team Missed Deadline</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Not Applicable Reason</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Client Completed Task</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Client Declined Work</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Step Not Contracted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Step Not Required</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Sequence__c</fullName>
+        <externalId>false</externalId>
+        <label>Sequence</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Site_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Project_Activity__r.Site_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Site Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Standard__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Standard</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Status_Not_Applicable__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( !ISPICKVAL(Reason__c, &apos;&apos;) , True,
+IF( RMS_Deleted_Flag__c = true, True,
+False))</formula>
+        <label>Status Not Applicable</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Status_Not_Applicable__c = true,&apos;Not Applicable&apos;,
+IF(!ISBLANK(Actual_End_Date__c),&apos;Complete&apos;,
+IF(!ISBLANK(Actual_Start_Date__c) &amp;&amp; ISBLANK(Actual_End_Date__c),&apos;In Progress&apos;,
+IF(!ISBLANK( CDK_Assignee__c ),&apos;Assigned&apos;,
+IF(ISBLANK( CDK_Assignee__c ),&apos;Unassigned&apos;,
+null
+)))))</formula>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SubProject_Client_Manager__c</fullName>
+        <externalId>false</externalId>
+        <formula>Project_Activity__r.SubProject_Client_Manager__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>SubProject Client Manager</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SubProject_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Project_Activity__r.Milestone__r.SubProject__r.Id</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>SubProject ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SubProject_Manager_Id__c</fullName>
+        <externalId>false</externalId>
+        <formula>Project_Activity__r.Milestone__r.SubProject__r.Project_Manager__c</formula>
+        <label>SubProject Manager Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SubProject_Name__c</fullName>
+        <description>Used for fieldset reference for SubProject Name</description>
+        <externalId>false</externalId>
+        <formula>Project_Activity__r.SubProject_Name__c</formula>
+        <inlineHelpText>Used for fieldset reference for SubProject Name</inlineHelpText>
+        <label>SubProject Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Task_Assignee_s_Manager__c</fullName>
+        <description>Field to display the manager&apos;s name for the assigned resource</description>
+        <externalId>false</externalId>
+        <formula>CDK_Assignee__r.Manager.FirstName &amp; &quot; &quot; &amp; CDK_Assignee__r.Manager.LastName</formula>
+        <inlineHelpText>This is an automated field that displays the task assignee&apos;s manager</inlineHelpText>
+        <label>Task Assignee&apos;s Manager</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Task_Definition__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Task Definition</label>
+        <referenceTo>Task_Definition__c</referenceTo>
+        <relationshipLabel>Project Tasks</relationshipLabel>
+        <relationshipName>Project_Tasks</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Was_Cloned_to_New_Migration_Task__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Was Cloned to New Migration Task</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>isActive__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Status__c == &apos;Not Applicable&apos;,0,1)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>isActive</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>isStatusComplete__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Status__c = &apos;Complete&apos;, 1, 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>isStatusComplete</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Project Task</label>
+    <listViews>
+        <fullName>All_Assigned_Assigned_To_Me</fullName>
+        <columns>NAME</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Activity_Description__c</columns>
+        <columns>Description__c</columns>
+        <columns>Actual_Start_Date__c</columns>
+        <columns>Actual_Time_Spent__c</columns>
+        <columns>Actual_End_Date__c</columns>
+        <columns>Planned_Start_Date__c</columns>
+        <columns>Planned_End_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>CDK_Assignee__c</columns>
+        <columns>Reason__c</columns>
+        <columns>Reason_Missed_Planned_End_Date__c</columns>
+        <columns>Site_Name__c</columns>
+        <columns>Migration_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Is_Assigned_To_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Assigned</value>
+        </filters>
+        <filters>
+            <field>RMS_Owned_Flag__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>All Assigned - Assigned To Me</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_Assigned_Assigned_to_My_Associates</fullName>
+        <columns>NAME</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Activity_Description__c</columns>
+        <columns>Description__c</columns>
+        <columns>Actual_Start_Date__c</columns>
+        <columns>Actual_Time_Spent__c</columns>
+        <columns>Actual_End_Date__c</columns>
+        <columns>Planned_Start_Date__c</columns>
+        <columns>Planned_End_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>CDK_Assignee__c</columns>
+        <columns>Reason__c</columns>
+        <columns>Reason_Missed_Planned_End_Date__c</columns>
+        <columns>Site_Name__c</columns>
+        <columns>Migration_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Does_Report_to_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Assigned</value>
+        </filters>
+        <label>All Assigned - Assigned To My Associates</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_Complete</fullName>
+        <columns>NAME</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Activity_Description__c</columns>
+        <columns>Description__c</columns>
+        <columns>Actual_Start_Date__c</columns>
+        <columns>Actual_End_Date__c</columns>
+        <columns>Actual_Time_Spent__c</columns>
+        <columns>Planned_Start_Date__c</columns>
+        <columns>Planned_End_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>CDK_Assignee__c</columns>
+        <columns>Reason__c</columns>
+        <columns>Reason_Missed_Planned_End_Date__c</columns>
+        <columns>Site_Name__c</columns>
+        <columns>Migration_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Complete</value>
+        </filters>
+        <label>All Complete</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_Complete_Assigned_To_Me</fullName>
+        <columns>NAME</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Activity_Description__c</columns>
+        <columns>Description__c</columns>
+        <columns>Actual_Start_Date__c</columns>
+        <columns>Actual_End_Date__c</columns>
+        <columns>Actual_Time_Spent__c</columns>
+        <columns>Planned_Start_Date__c</columns>
+        <columns>Planned_End_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>CDK_Assignee__c</columns>
+        <columns>Reason__c</columns>
+        <columns>Reason_Missed_Planned_End_Date__c</columns>
+        <columns>Site_Name__c</columns>
+        <columns>Migration_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Is_Assigned_To_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Complete</value>
+        </filters>
+        <filters>
+            <field>RMS_Owned_Flag__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>All Complete - Assigned To Me</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_Complete_Assigned_to_My_Associates</fullName>
+        <columns>NAME</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Activity_Description__c</columns>
+        <columns>Description__c</columns>
+        <columns>Actual_Start_Date__c</columns>
+        <columns>Actual_End_Date__c</columns>
+        <columns>Actual_Time_Spent__c</columns>
+        <columns>Planned_Start_Date__c</columns>
+        <columns>Planned_End_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>CDK_Assignee__c</columns>
+        <columns>Reason__c</columns>
+        <columns>Reason_Missed_Planned_End_Date__c</columns>
+        <columns>Site_Name__c</columns>
+        <columns>Migration_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Does_Report_to_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Complete</value>
+        </filters>
+        <label>All Complete - Assigned To My Associates</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_Complete_Project_Managed_By_Me</fullName>
+        <columns>NAME</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Activity_Description__c</columns>
+        <columns>Description__c</columns>
+        <columns>Actual_Start_Date__c</columns>
+        <columns>Actual_End_Date__c</columns>
+        <columns>Actual_Time_Spent__c</columns>
+        <columns>Planned_Start_Date__c</columns>
+        <columns>Planned_End_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>CDK_Assignee__c</columns>
+        <columns>Reason__c</columns>
+        <columns>Reason_Missed_Planned_End_Date__c</columns>
+        <columns>Site_Name__c</columns>
+        <columns>Migration_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Is_Project_Managed_By_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Complete</value>
+        </filters>
+        <label>All Complete - Project Managed By Me</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_In_Progress</fullName>
+        <columns>NAME</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Activity_Description__c</columns>
+        <columns>Description__c</columns>
+        <columns>Actual_Start_Date__c</columns>
+        <columns>Actual_Time_Spent__c</columns>
+        <columns>Actual_End_Date__c</columns>
+        <columns>Planned_Start_Date__c</columns>
+        <columns>Planned_End_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>CDK_Assignee__c</columns>
+        <columns>Reason__c</columns>
+        <columns>Reason_Missed_Planned_End_Date__c</columns>
+        <columns>Site_Name__c</columns>
+        <columns>Migration_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>In Progress</value>
+        </filters>
+        <label>All In Progress</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_In_Progress_Assigned_To_Me</fullName>
+        <columns>NAME</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Activity_Description__c</columns>
+        <columns>Description__c</columns>
+        <columns>Actual_Start_Date__c</columns>
+        <columns>Actual_Time_Spent__c</columns>
+        <columns>Actual_End_Date__c</columns>
+        <columns>Planned_Start_Date__c</columns>
+        <columns>Planned_End_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>CDK_Assignee__c</columns>
+        <columns>Reason__c</columns>
+        <columns>Status_Not_Applicable__c</columns>
+        <columns>Reason_Missed_Planned_End_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Is_Assigned_To_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>In Progress</value>
+        </filters>
+        <filters>
+            <field>RMS_Owned_Flag__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>All In Progress - Assigned To Me</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_In_Progress_Assigned_to_My_Associates</fullName>
+        <columns>NAME</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Activity_Description__c</columns>
+        <columns>Description__c</columns>
+        <columns>Actual_Start_Date__c</columns>
+        <columns>Actual_Time_Spent__c</columns>
+        <columns>Actual_End_Date__c</columns>
+        <columns>Planned_Start_Date__c</columns>
+        <columns>Planned_End_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>CDK_Assignee__c</columns>
+        <columns>Reason__c</columns>
+        <columns>Reason_Missed_Planned_End_Date__c</columns>
+        <columns>Site_Name__c</columns>
+        <columns>Migration_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Does_Report_to_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>In Progress</value>
+        </filters>
+        <label>All In Progress - Assigned To My Assoc</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_In_Progress_Project_Managed_By_Me</fullName>
+        <columns>NAME</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Activity_Description__c</columns>
+        <columns>Description__c</columns>
+        <columns>Actual_Start_Date__c</columns>
+        <columns>Actual_Time_Spent__c</columns>
+        <columns>Actual_End_Date__c</columns>
+        <columns>Planned_Start_Date__c</columns>
+        <columns>Planned_End_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>CDK_Assignee__c</columns>
+        <columns>Reason__c</columns>
+        <columns>Reason_Missed_Planned_End_Date__c</columns>
+        <columns>Site_Name__c</columns>
+        <columns>Migration_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Is_Project_Managed_By_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>In Progress</value>
+        </filters>
+        <label>All In Progress - Project Managed By Me</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_Not_Applicable</fullName>
+        <columns>NAME</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Activity_Description__c</columns>
+        <columns>Description__c</columns>
+        <columns>Actual_Start_Date__c</columns>
+        <columns>Actual_End_Date__c</columns>
+        <columns>Actual_Time_Spent__c</columns>
+        <columns>Planned_Start_Date__c</columns>
+        <columns>Planned_End_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>CDK_Assignee__c</columns>
+        <columns>Reason__c</columns>
+        <columns>Reason_Missed_Planned_End_Date__c</columns>
+        <columns>Migration_Status__c</columns>
+        <columns>Site_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Not Applicable</value>
+        </filters>
+        <filters>
+            <field>LAST_UPDATE</field>
+            <operation>equals</operation>
+            <value>LAST_N_DAYS:30</value>
+        </filters>
+        <label>N/A in Last 30 Days</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_Not_Applicable_Assigned_To_Me</fullName>
+        <columns>NAME</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Activity_Description__c</columns>
+        <columns>Description__c</columns>
+        <columns>Actual_Start_Date__c</columns>
+        <columns>Actual_End_Date__c</columns>
+        <columns>Actual_Time_Spent__c</columns>
+        <columns>Planned_Start_Date__c</columns>
+        <columns>Planned_End_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>CDK_Assignee__c</columns>
+        <columns>Reason__c</columns>
+        <columns>Reason_Missed_Planned_End_Date__c</columns>
+        <columns>Site_Name__c</columns>
+        <columns>Migration_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Is_Assigned_To_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Not Applicable</value>
+        </filters>
+        <filters>
+            <field>RMS_Owned_Flag__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>LAST_UPDATE</field>
+            <operation>equals</operation>
+            <value>LAST_N_DAYS:30</value>
+        </filters>
+        <label>N/A Last 30 Days - Assigned to me</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_Not_Applicable_Assigned_to_My_Associates</fullName>
+        <columns>NAME</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Activity_Description__c</columns>
+        <columns>Description__c</columns>
+        <columns>Actual_Start_Date__c</columns>
+        <columns>Actual_End_Date__c</columns>
+        <columns>Actual_Time_Spent__c</columns>
+        <columns>Planned_Start_Date__c</columns>
+        <columns>Planned_End_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>CDK_Assignee__c</columns>
+        <columns>Reason__c</columns>
+        <columns>Reason_Missed_Planned_End_Date__c</columns>
+        <columns>Site_Name__c</columns>
+        <columns>Migration_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Does_Report_to_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Not Applicable</value>
+        </filters>
+        <filters>
+            <field>LAST_UPDATE</field>
+            <operation>equals</operation>
+            <value>LAST_N_DAYS:30</value>
+        </filters>
+        <label>N/A Last 30 Days - Assigned To My Assoc</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_Not_Applicable_Project_Managed_By_Me</fullName>
+        <columns>NAME</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Activity_Description__c</columns>
+        <columns>Description__c</columns>
+        <columns>Actual_Start_Date__c</columns>
+        <columns>Actual_End_Date__c</columns>
+        <columns>Actual_Time_Spent__c</columns>
+        <columns>Planned_Start_Date__c</columns>
+        <columns>Planned_End_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>CDK_Assignee__c</columns>
+        <columns>Reason__c</columns>
+        <columns>Reason_Missed_Planned_End_Date__c</columns>
+        <columns>Site_Name__c</columns>
+        <columns>Migration_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Is_Project_Managed_By_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Not Applicable</value>
+        </filters>
+        <filters>
+            <field>LAST_UPDATE</field>
+            <operation>equals</operation>
+            <value>LAST_N_DAYS:30</value>
+        </filters>
+        <label>N/A Last 30 Days - Project Managed By Me</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_Unassigned</fullName>
+        <columns>NAME</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Activity_Description__c</columns>
+        <columns>Description__c</columns>
+        <columns>Actual_Start_Date__c</columns>
+        <columns>Actual_Time_Spent__c</columns>
+        <columns>Actual_End_Date__c</columns>
+        <columns>Planned_Start_Date__c</columns>
+        <columns>Planned_End_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>CDK_Assignee__c</columns>
+        <columns>Reason__c</columns>
+        <columns>Reason_Missed_Planned_End_Date__c</columns>
+        <columns>Site_Name__c</columns>
+        <columns>Migration_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Unassigned</value>
+        </filters>
+        <label>All Unassigned</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_Unassigned_Project_Managed_by_Me</fullName>
+        <columns>NAME</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Activity_Description__c</columns>
+        <columns>Description__c</columns>
+        <columns>Actual_Start_Date__c</columns>
+        <columns>Actual_End_Date__c</columns>
+        <columns>Actual_Time_Spent__c</columns>
+        <columns>Planned_Start_Date__c</columns>
+        <columns>Planned_End_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>CDK_Assignee__c</columns>
+        <columns>Reason__c</columns>
+        <columns>Reason_Missed_Planned_End_Date__c</columns>
+        <columns>Site_Name__c</columns>
+        <columns>Migration_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Is_Project_Managed_By_Me__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Unassigned</value>
+        </filters>
+        <label>All Unassigned - Project Managed By Me</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>SH_PM_Tasks</fullName>
+        <columns>NAME</columns>
+        <columns>SubProject_Name__c</columns>
+        <columns>Activity_Description__c</columns>
+        <columns>Description__c</columns>
+        <columns>Actual_Start_Date__c</columns>
+        <columns>Actual_Time_Spent__c</columns>
+        <columns>Actual_End_Date__c</columns>
+        <columns>Planned_Start_Date__c</columns>
+        <columns>Planned_End_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>CDK_Assignee__c</columns>
+        <columns>CDK_Assignee_Role__c</columns>
+        <columns>Reason__c</columns>
+        <columns>Reason_Missed_Planned_End_Date__c</columns>
+        <columns>Site_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Actual_End_Date__c</field>
+            <operation>greaterOrEqual</operation>
+            <value>7/1/2015</value>
+        </filters>
+        <filters>
+            <field>CDK_Assignee_Role__c</field>
+            <operation>equals</operation>
+            <value>Utilization &amp; Training Project Manager​,Utilization &amp; Training Project Manager</value>
+        </filters>
+        <label>SH PM Tasks</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>SH_Test_Excel_Output</fullName>
+        <columns>SubProject_Name__c</columns>
+        <columns>Site_Name__c</columns>
+        <columns>Activity_Description__c</columns>
+        <columns>Description__c</columns>
+        <columns>Planned_Start_Date__c</columns>
+        <columns>Planned_End_Date__c</columns>
+        <columns>Expected_Time_Spent__c</columns>
+        <columns>Actual_Start_Date__c</columns>
+        <columns>Actual_End_Date__c</columns>
+        <columns>Actual_Time_Spent__c</columns>
+        <columns>CDK_Assignee__c</columns>
+        <columns>Task_Assignee_s_Manager__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Actual_End_Date__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>CDK_Assignee__c</field>
+            <operation>equals</operation>
+            <value>terry campbell</value>
+        </filters>
+        <label>SH Task Excel Output</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>TI-{000000000}</displayFormat>
+        <label>Project Task Id</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Project Tasks</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Site_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Activity_Description__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Description__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CDK_Assignee__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Planned_Start_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Planned_End_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Actual_Start_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Actual_End_Date__c</customTabListAdditionalFields>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <lookupDialogsAdditionalFields>Site_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Activity_Description__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Description__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CDK_Assignee__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Planned_Start_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Planned_End_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Actual_Start_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Actual_End_Date__c</lookupDialogsAdditionalFields>
+        <lookupFilterFields>Activity_Description__c</lookupFilterFields>
+        <lookupFilterFields>CDK_Assignee__c</lookupFilterFields>
+        <lookupFilterFields>Client_Assignee__c</lookupFilterFields>
+        <lookupFilterFields>Site_Name__c</lookupFilterFields>
+        <lookupFilterFields>Status__c</lookupFilterFields>
+        <lookupFilterFields>Description__c</lookupFilterFields>
+        <searchFilterFields>Activity_Description__c</searchFilterFields>
+        <searchFilterFields>CDK_Assignee__c</searchFilterFields>
+        <searchFilterFields>Client_Assignee__c</searchFilterFields>
+        <searchFilterFields>Dealer_Group__c</searchFilterFields>
+        <searchFilterFields>Milestone_Description__c</searchFilterFields>
+        <searchFilterFields>Site_Name__c</searchFilterFields>
+        <searchFilterFields>Status__c</searchFilterFields>
+        <searchFilterFields>Description__c</searchFilterFields>
+        <searchResultsAdditionalFields>Site_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Activity_Description__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Description__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CDK_Assignee__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Planned_Start_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Planned_End_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Actual_Start_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Actual_End_Date__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Actual_End_Date_48Hrs_After_Plan</fullName>
+        <active>true</active>
+        <description>Reason field must not be null if Actual End Date is 48 hours after Planned End Date</description>
+        <errorConditionFormula>AND(
+	NOT(
+		AND(
+			CONTAINS(
+				 $Setup.CustomSettings__c.Users_Excluded_from_Business_Rules__c,  $User.FirstName + &apos; &apos; + $User.LastName
+				 ),
+				 
+		    $Profile.Name != &apos;Cobalt Cast Iron Integration&apos;
+		    )
+		), 
+	(
+	Actual_End_Date__c &gt;  (Planned_End_Date__c + 2)
+	) &amp;&amp;   ISPICKVAL(Reason_Missed_Planned_End_Date__c, &quot;&quot;),(NOT(ISCHANGED(Status__c))), Status__c = &apos;Complete&apos;
+	)</errorConditionFormula>
+        <errorDisplayField>Reason_Missed_Planned_End_Date__c</errorDisplayField>
+        <errorMessage>Reason field must not be null if Actual End Date is 48 hours after Planned End Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Actual_End_Date_Before_Actual_Time_Spent</fullName>
+        <active>true</active>
+        <description>Actual Time Spent should have a value before entering an Actual End Date value.</description>
+        <errorConditionFormula>AND(
+	NOT(
+		AND(
+			CONTAINS(
+				 $Setup.CustomSettings__c.Users_Excluded_from_Business_Rules__c,  $User.FirstName + &apos; &apos; + $User.LastName
+				 ),
+				 
+		    $Profile.Name != &apos;Cobalt Cast Iron Integration&apos;
+		    )
+				 
+		),
+	
+	
+	ISBLANK(Actual_Time_Spent__c) &amp;&amp; (!ISBLANK(Actual_End_Date__c)) &amp;&amp; Status_Not_Applicable__c = false
+	)</errorConditionFormula>
+        <errorMessage>Actual End Date cannot be entered before you enter a value for Actual Days Spent.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Actual_End_Date_Before_Start</fullName>
+        <active>true</active>
+        <description>Actual End Date cannot occur before Actual Start Date.</description>
+        <errorConditionFormula>IF(( NOT(ISBLANK(Actual_End_Date__c)) &amp;&amp; NOT(ISBLANK(Actual_Start_Date__c)) ), ( Actual_End_Date__c &lt; Actual_Start_Date__c ), FALSE)</errorConditionFormula>
+        <errorMessage>Actual End Date cannot occur before Actual Start Date.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Actual_Time_Spent_Before_Actual_Start_Da</fullName>
+        <active>true</active>
+        <description>Actual Start Date should have a value before entering an Actual Time Spent.</description>
+        <errorConditionFormula>AND(
+	NOT(
+		AND(
+			CONTAINS(
+				 $Setup.CustomSettings__c.Users_Excluded_from_Business_Rules__c,  $User.FirstName + &apos; &apos; + $User.LastName
+				 ),
+				 
+		    $Profile.Name != &apos;Cobalt Cast Iron Integration&apos;
+		    )
+		), 
+	ISBLANK(Actual_Start_Date__c) &amp;&amp; (Actual_Time_Spent__c != 0 || !ISBLANK(Actual_Time_Spent__c)) &amp;&amp; Status_Not_Applicable__c = false
+	)</errorConditionFormula>
+        <errorDisplayField>Actual_Time_Spent__c</errorDisplayField>
+        <errorMessage>Actual Days Spent cannot be entered before you enter a value for Actual Start Date.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Actual_Time_Spent_Valid_Range</fullName>
+        <active>true</active>
+        <description>Actual Days Spent cannot be less than 0, and cannot match or exceed 100 days (i.e. it must be less than 100 days).</description>
+        <errorConditionFormula>OR( Actual_Time_Spent__c &lt; 0, Actual_Time_Spent__c &gt;= 100)</errorConditionFormula>
+        <errorDisplayField>Actual_Time_Spent__c</errorDisplayField>
+        <errorMessage>Actual Days Spent cannot be less than 0, and cannot match or exceed 100 days (i.e. it must be less than 100 days).</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Assign_Associate_before_Actual_Dates</fullName>
+        <active>true</active>
+        <description>An associate (CDK Assignee) needs to be entered prior to inputting Actual Dates.</description>
+        <errorConditionFormula>AND(NOT(CONTAINS($Setup.CustomSettings__c.Users_Excluded_from_Business_Rules__c, $User.FirstName + &apos; &apos; + $User.LastName)),ISBLANK(CDK_Assignee__c) &amp;&amp; NOT(ISBLANK(Actual_Start_Date__c)),
+OR($Profile.Name != &apos;ADPDS - Admin - Integration User&apos;, $Profile.Name != &apos;Cobalt Cast Iron Integration&apos;))</errorConditionFormula>
+        <errorMessage>A CDK Assignee needs to be filled-in prior to entering Actual Start or End Dates.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Assign_Associate_before_Actual_Dates_PA</fullName>
+        <active>true</active>
+        <description>An associate (CDK Assignee) needs to be entered prior to inputting Actual Dates at the Project Activity</description>
+        <errorConditionFormula>AND(NOT(CONTAINS($Setup.CustomSettings__c.Users_Excluded_from_Business_Rules__c, $User.FirstName + &apos; &apos; + $User.LastName)), ISBLANK(Project_Activity__r.CDK_Assignee__c) &amp;&amp; NOT( ISBLANK(Actual_Start_Date__c)),$Profile.Name != &apos;ADPDS - Admin - Integration User&apos; || $Profile.Name != &apos;Cobalt Cast Iron Integration&apos;)</errorConditionFormula>
+        <errorMessage>A CDK Assignee needs to be filled-in prior to entering Actual Start or End Dates at the Project Activity level</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Cannot_Create_Task_if_Activity_Complete</fullName>
+        <active>true</active>
+        <description>Cannot Create Project Task Record if Project Activity is Complete</description>
+        <errorConditionFormula>AND (
+        NOT( CONTAINS($Setup.CustomSettings__c.Users_Excluded_from_Business_Rules__c, $User.FirstName + &apos; &apos; + $User.LastName) ),
+        $Profile.Name != &apos;ADPDS - Admin - Integration User&apos; ||$Profile.Name != &apos;Cobalt Cast Iron Integration&apos;,
+        Project_Activity__r.Status__c = &apos;Complete&apos;, ISNEW()
+    )</errorConditionFormula>
+        <errorMessage>You cannot create a Project Task record if its parent Project Activity is already Complete.  Please remove the record that you’re trying to create.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Cannot_Edit_Referenced_Definition</fullName>
+        <active>true</active>
+        <description>An assigned definition cannot be modified.</description>
+        <errorConditionFormula>PRIORVALUE(Task_Definition__c ) != null &amp;&amp; ISCHANGED(Task_Definition__c )</errorConditionFormula>
+        <errorMessage>You cannot modify an existing record&apos;s referenced definition.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>End_Date_before_Start_Date</fullName>
+        <active>true</active>
+        <description>Cannot save a record with Planned/Actual End Date before setting Planned/Actual Start Date.</description>
+        <errorConditionFormula>( ISBLANK(Actual_Start_Date__c) &amp;&amp; NOT( ISBLANK(Actual_End_Date__c)) ) || ( ISBLANK(Planned_Start_Date__c) &amp;&amp; NOT( ISBLANK(Planned_End_Date__c)) )</errorConditionFormula>
+        <errorMessage>Planned / Actual Start Date needs to be specified before specifying a Planned / Actual End Date for the Task</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Expected_Time_Spent_is_Required</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+	NOT(
+		AND(
+			CONTAINS(
+				 $Setup.CustomSettings__c.Users_Excluded_from_Business_Rules__c,  $User.FirstName + &apos; &apos; + $User.LastName
+				 ),
+				 
+		    $Profile.Name != &apos;Cobalt Cast Iron Integration&apos;
+		    )
+				
+	    ),
+	 
+	OR (
+		ISBLANK(Expected_Time_Spent__c ), 
+		Expected_Time_Spent__c &lt; 0)
+	)</errorConditionFormula>
+        <errorMessage>Expected Days Spent is Required!</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>No_Future_Actual_Start_End_Dates</fullName>
+        <active>true</active>
+        <description>Does not allow Actual Start Date or Actual End Date to be in the future.</description>
+        <errorConditionFormula>( Actual_Start_Date__c &gt; TODAY() ) || ( Actual_End_Date__c &gt; TODAY() )</errorConditionFormula>
+        <errorMessage>Actual Start and End Dates cannot be in the future.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Planned_End_Date_Before_Start</fullName>
+        <active>true</active>
+        <description>Planned End Date cannot occur before Planned Start Date.</description>
+        <errorConditionFormula>IF( ( NOT(ISBLANK(Planned_End_Date__c)) &amp;&amp; NOT(ISBLANK(Planned_Start_Date__c)) ),( Planned_End_Date__c &lt; Planned_Start_Date__c ), FALSE )</errorConditionFormula>
+        <errorDisplayField>Task_Definition__c</errorDisplayField>
+        <errorMessage>Planned End Date cannot occur before Planned Start Date.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Prevent_Edit_RMSRecord_Task</fullName>
+        <active>true</active>
+        <description>Prevent specified fields for RMS-Owned Records (i.e. where RMS_Owned_Flag__c = true) from being updated unless updated by Integration User or a System Administrator</description>
+        <errorConditionFormula>AND 
+( 
+	RMS_Owned_Flag__c == true , 
+	OR(
+		ISCHANGED( Description__c ),
+		ISCHANGED( CDK_Assignee__c ), 
+		ISCHANGED( Planned_Start_Date__c ), 
+		ISCHANGED( Planned_End_Date__c ) ,
+		ISCHANGED( Expected_Time_Spent__c ) ,
+		ISCHANGED( Actual_Start_Date__c ) ,
+		ISCHANGED( Actual_End_Date__c ) ,
+		ISCHANGED( Actual_Time_Spent__c ) ,
+		ISCHANGED( Migration_Status__c ) ,
+		ISCHANGED( Reason_Missed_Planned_End_Date__c ),
+                ISCHANGED( Reason__c ) 		 		
+	), 
+	NOT($Profile.Name == &apos;ADPDS - Admin - System Administrator&apos;), 
+	NOT($Profile.Name == &apos;ADPDS - Admin - Integration User&apos;),
+        NOT($Profile.Name == &apos;Cobalt Cast Iron Integration&apos;)
+)</errorConditionFormula>
+        <errorMessage>This record is owned by RMS. Contact an RMS scheduler to change the CDK Assignee.  Other updates should be performed by the owner of the task via the My RMS Assignments tab in CDK Expressway.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Status_Not_Applicable</fullName>
+        <active>true</active>
+        <description>Reason field must have a value if status is Not Applicable</description>
+        <errorConditionFormula>Status__c != &quot;&quot; &amp;&amp; Status__c = &quot;Not Applicable&quot; &amp;&amp; ISPICKVAL( Reason__c , &quot;&quot;) &amp;&amp; (ISCHANGED(Status__c))</errorConditionFormula>
+        <errorDisplayField>Reason__c</errorDisplayField>
+        <errorMessage>Reason cannot be null if status is Not Applicable.</errorMessage>
+    </validationRules>
+</CustomObject>

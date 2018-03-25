@@ -1,0 +1,85 @@
+<!--
+/*------------------------------------------------------------
+Author: Michael Lasala
+Company: Cloud Sherpas
+Description: Popup page for Product Milestones
+History
+10/22/14    Michael Lasala      Created
+10/23/14    Michael Lasala      Added closeAndRefreshParent js method
+------------------------------------------------------------*/
+-->
+<apex:page controller="IMP_ProductMilestones_Controller" id="pageId" showHeader="false" sidebar="false">
+    
+    <apex:stylesheet value="{!URLFOR($Resource.IMP_Project_css)}"/>
+    
+    <!-- Loader actionStatus -->
+    <apex:outputPanel >
+        <apex:actionStatus id="loader">
+            <apex:facet name="start">
+                <div class="waitingSearchDiv outerGrayedPanel" id="casActionProcessing"> 
+                    <div class="waitingHolder innerProcessPanel">
+                        <br />
+                        <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />   
+                        <span class="waitingDescription">Loading...</span>
+                    </div>
+                </div>
+            </apex:facet>
+        </apex:actionStatus>
+    </apex:outputPanel>
+    
+    <apex:pageMessages id="messageId"/>
+    
+    <apex:form id="formId">
+        
+        <apex:inputHidden value="{!isValid}" id="isValidId"/>
+        
+        <apex:pageBlock id="pageBlockId">
+            
+            <apex:pageBlockButtons location="top">
+                
+                <!-- Create Project Milestone record/s based on selected Milestone Definition/s -->
+                <apex:commandButton value="Save" action="{!createProjectMilestones}" oncomplete="closeAndRefreshParent();" reRender="messageId, isValidId" status="loader"/>
+                
+                <!-- Close popup -->
+                <apex:commandButton value="Cancel" onclick="window.close();"/>
+                
+            </apex:pageBlockButtons>
+            
+            <!-- Wrapper list of Milestone Definiton records -->
+            <apex:pageBlockTable value="{!milestoneDefinitionWrapperList}" var="md" rendered="{!milestoneDefinitionWrapperList != null}" columnsWidth="1%, 99%">
+                
+                <!-- Checkbox -->
+                <apex:column headerValue="">
+                    <apex:inputCheckbox value="{!md.isSelected}"/>
+                </apex:column>
+                
+                <!-- Milestone Definition Description -->
+                <apex:column headerValue="Milestone Description">
+                    <apex:outputField value="{!md.milestoneDefinition.Description__c}"/>
+                </apex:column>
+                
+            </apex:pageBlockTable>
+            
+        </apex:pageBlock>
+        
+    </apex:form>
+    
+    <script>
+    /*------------------------------------------------------------
+    Author: Michael Lasala
+    Company: Cloud Sherpas
+    Description: Check validation flag. If true, close popup and refresh parent window
+    ------------------------------------------------------------*/
+    function closeAndRefreshParent(){
+        var validationflag = document.getElementById('pageId:formId:isValidId').value;
+        
+        if(validationflag == 'true'){
+            //window.opener.location.href="/apex/IMP_Milestones?id={!subProject.Id}";
+            //window.opener.location.href="/apex/IMP_SubProjectManagement?id={!subProject.Id}&tab=milestonesTab";
+            window.opener.afRenderPage();
+            window.top.close();
+        }
+    }
+    </script>
+    
+</apex:page>

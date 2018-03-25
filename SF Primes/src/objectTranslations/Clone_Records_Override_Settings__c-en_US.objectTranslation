@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Clone Records Override Settings</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Clone Records Override Settings</value>
+    </caseValues>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the Field API Name that is used to get the data from a Source or Destination sObject. For example, if overriding an Account field, the query would get the Account Id (Select Id From Account Where ...); the Query Field API Name would be &quot;Id&quot;. --></help>
+        <label><!-- Query Field API Name --></label>
+        <name>Query_Field_API_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Name of the queried sObject (for reference). --></help>
+        <label><!-- Query sObject --></label>
+        <name>Query_sObject__c</name>
+    </fields>
+    <fields>
+        <label><!-- Relationship Replacement Field --></label>
+        <name>Relationship_Replacement_Field__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the Field API Name that determines where to put the value obtained from the query. For example, if a Task is cloned, and the Account is to be overridden, this field would contain either &quot;WhatId&quot; or &quot;WhoId&quot;. --></help>
+        <label><!-- Replacement Field API Name --></label>
+        <name>Replacement_Field_API_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Replacewith Sobject --></label>
+        <name>Replacewith_Sobject__c</name>
+    </fields>
+    <fields>
+        <label><!-- SubType --></label>
+        <name>SubType__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check this box if the override value is coming from the Source Record instead of the Destination Record. --></help>
+        <label><!-- Use Source? --></label>
+        <name>Use_Source__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field is used to filter the settings and apply them to the object being cloned. For example, if the cloned sObject Type is Case, this field must also be Case so that the override settings are applied to Cases. --></help>
+        <label><!-- sObject API Name --></label>
+        <name>sObject_API_Name__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

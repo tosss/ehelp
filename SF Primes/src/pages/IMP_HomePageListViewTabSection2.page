@@ -1,0 +1,12 @@
+<!--
+/*------------------------------------------------------------
+Author:      Jerick Lauio   
+Company:     Cloud Sherpas
+Description: VF Page used as a homepage component that shows a component that contains a group of Standard List Views (solely used by the 'IMP VIC Only Home Page' home page layout)
+History
+09/15/15     Samuel Oberes          Created
+------------------------------------------------------------*/
+-->
+<apex:page >
+    <c:IMP_EnhanceListTabComponent2 />
+</apex:page>

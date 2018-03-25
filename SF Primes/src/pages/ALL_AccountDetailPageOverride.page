@@ -1,0 +1,10 @@
+<apex:page standardController="Account" tabStyle="Account">
+    <!--Author: Anirudh Singh-->
+    <!--Description: This page is used to override Account Detail Page and Account Hierarchy functionality.-->
+    <!--Created Date: 2015-07-28-->
+    <apex:includeScript value="{!URLFOR($Resource.ALL_AccountHierarchy_JS)}"/>
+    
+    <!--2015-11-05- anirudh.singh@cdk.com- Added this to show the edit page layout link on Account Detail visualforce page.-->
+    <apex:includeScript value="{!URLFOR($Resource.ALL_AccountEditPagelayout_JS)}"/>
+    <apex:detail inlineEdit="true" showChatter="true"/>
+</apex:page>

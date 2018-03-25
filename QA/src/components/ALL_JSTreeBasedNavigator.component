@@ -1,0 +1,67 @@
+<apex:component controller="ALL_JSTreeBasedNavigator_Controller">   
+    <apex:form >
+        <apex:actionFunction name="somethingSelected"  action="{!somethingSelected}"  oncomplete="showTreePanel(false);" reRender="dataTablePanel" status="loader">
+            <apex:param assignTo="{!checkedParentIds}" value="" name="checkedParentId"/>
+            <apex:param assignTo="{!checkedChildIds}" value="" name="checkedChildId"/>
+            <apex:param assignTo="{!openedIds}" value="" name="allOpenedNode" />
+            <apex:param assignTo="{!parentObjectName}" value="" name="parentName"/>
+            <apex:param assignTo="{!childObjectName}" value="" name="childName"/>
+        </apex:actionFunction>
+    </apex:form>
+    
+    <apex:attribute name="keyAttribute" 
+                    type="String" 
+                    assignTo="{!Key}" 
+                    description="The key given to this component so the page can easily get access to it" />
+    
+    <apex:attribute name="pageControllerAttribute" 
+                    type="ALL_PageBase_Controller" 
+                    assignTo="{!pageController}" 
+                    required="true" 
+                    description="The controller for the page." />
+    
+    <apex:attribute assignTo="{!triggerRefresh}" name="trigger" required="true" type="boolean" description="refresh"/>
+    
+    <!--15th May, 2015 Anirudh Singh-->
+    <!--<apex:includeScript value="{!$Resource.jQuery_Latest}" />-->
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}"/>
+    <!-- 2015-05-29 PH TIME Rey Austral - additional method added in the javascript file -->
+    <apex:includeScript value="{!$Resource.jsTreeNavigation}" /> <!-- 2015-05-19 MK JavaScript Static Resources need to end in _JS --> 
+    <!-- 2015-05-29 PH TIME Rey Austral - additional class added in the style sheet -->
+    <apex:stylesheet value="{!URLFOR($Resource.jsTreeNavigation_CSS)}" />
+    <apex:stylesheet value="{!URLFOR($Resource.ALL_JSTree, 'jstree/themes/default/style.min.css')}" />
+    <apex:includeScript value="{!URLFOR($Resource.ALL_JSTree, 'jstree/jstree.min.js')}" />
+    
+    <!-- 2015-05-20 matt.keefe@cdk.com - added the btn class -->
+    <input type="button" id="btnExpandTree" value="Expand All" onclick="jsTreeExpandAll('jstree_div');" class="btn tree_button"/>
+    <input type="button" id="btnCollapseTree" value="Collapse All" onclick="jsTreeCollapseAll('jstree_div');" class="btn tree_button"/>
+    <input type="button" id="btnRest" value="Reset" onclick="resetTree('jstree_div');" class="btn tree_button"/>
+    
+    <div id="jstree_div" class="tree_scroll">
+        
+    </div>
+    
+    <apex:repeat value="{!customRelationList}" var="edit">
+        <!-- 2015-05-20 matt.keefe@cdk.com - added the btn class -->
+        <!-- 2015-05-29 PH TIME Rey Austral - added the edit_button class -->
+        <!-- 2015-10-05 PH TIME Rey Austral - added new parameter in the input -->
+        <input type="button" class="btn action_button edit_button" id="btnEditSelected" value="Edit Selected {!edit.Parent_Description__c} and {!edit.Child_Description__c}" 
+               onclick="getAllCheckNodes('jstree_div','{!edit.Parent_Object__c}','{!edit.Child_Object__c}','{!edit.Parent_Description__c}','{!edit.Child_Description__c}',{!maxSelectedRecord});"/>
+        <br />
+    </apex:repeat>
+    
+    <apex:outputPanel id="opScript">
+        <script>
+        
+        $j = jQuery.noConflict();    
+        var jsonData = {!generatedJSON};  
+        
+        $j(function () {   
+            if (jsonData != '')
+            {                
+                loadTree(jsonData,'jstree_div');
+            }
+        });
+        </script>
+    </apex:outputPanel>
+</apex:component>

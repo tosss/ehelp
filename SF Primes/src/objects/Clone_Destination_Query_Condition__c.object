@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>This is for constructing the destination query condition</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Class_Name__c</fullName>
+        <description>This field has the name of the class which contains the method</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field has the name of the class which contains the method</inlineHelpText>
+        <label>Class Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cloning_Type_Identifier__c</fullName>
+        <description>This value exactly as the &apos;Name&apos; of the Clone_Records_Settings__c. All the records with the same Name value relate to the same cloning type.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This value exactly as the &apos;Name&apos; of the Clone_Records_Settings__c. All the records with the same Name value relate to the same cloning type.</inlineHelpText>
+        <label>Cloning Type Identifier</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Key__c</fullName>
+        <description>Example: key is &apos;OwnerId&apos; in &quot;OwnerId = CurrentUserId&quot;</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Example: key is &apos;OwnerId&apos; in &quot;OwnerId = CurrentUserId&quot;</inlineHelpText>
+        <label>Key</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Method_Name__c</fullName>
+        <description>Name of the method in the Class Name. This method returns the value for the key if value is &apos;Dynamic&apos;</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the method in the Class Name. This method returns the value for the key if value is &apos;Dynamic&apos;</inlineHelpText>
+        <label>Method Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Operator__c</fullName>
+        <description>This could be anything like &apos;=&apos;, &apos;!=&apos;, &apos;IN&apos; etc.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This could be anything like &apos;=&apos;, &apos;!=&apos;, &apos;IN&apos; etc.</inlineHelpText>
+        <label>Operator</label>
+        <length>15</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Order__c</fullName>
+        <description>This has to be integer value even though this field type is decimal</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This has to be integer value even though this field type is decimal</inlineHelpText>
+        <label>Order</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Value__c</fullName>
+        <description>Example: Value is &apos;CurrentUserId&apos; in &quot;OwnerId = :CurrentUserId&quot;. This could be any string value of the salesforce field. If this value is &apos;Dynamic&apos; then the value for this field is returned by a method.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Example: Value is &apos;CurrentUserId&apos; in &quot;OwnerId = :CurrentUserId&quot;. This could be any string value of the salesforce field. If this value is &apos;Dynamic&apos; then the value for this field is returned by a method.</inlineHelpText>
+        <label>Value</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Clone Destination Query Condition</label>
+    <visibility>Public</visibility>
+</CustomObject>

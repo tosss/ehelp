@@ -1,0 +1,54 @@
+<apex:page standardController="Laser_Artwork_Order__c" extensions="DS_LaserUpdateLockedRecord_Extension">
+    
+    <apex:form id="form"> 
+        
+        <apex:pageblock mode="inlineEdit" title="LAO Record Update" id="TheBlock1">
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!UpdateAndSave}" value="Save"/>
+                <apex:commandButton action="{!Cancel}" value="Cancel"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Edit Section" columns="2">
+                <apex:repeat value="{!$ObjectType.Laser_Artwork_Order__c.FieldSets.Unlock_and_Update}" var="sf" id="repeat1">
+                    <apex:Inputfield value="{!LaoRecord[sf]}" id="SourceRecordInput"/>
+                </apex:repeat>
+            </apex:pageBlockSection>
+        </apex:pageblock>
+        
+        <!--apex:actionFunction action="{!createNewLaserOrderedForms}" name="newButton" reRender="form"/-->
+        <apex:actionStatus startText="Please wait..." id="StatusDisplay"/>
+        <apex:pageblock rendered="{!createLaserOrderedForms}" mode="inlineEdit" title="New Laser Ordered Form" id="TheBlock3">
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!saveLaserOrderForm}" value="Save" reRender="form" status="StatusDisplay"/>
+                <apex:commandButton action="{!Cancel}" value="Cancel"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Information" columns="1" id="section1">
+                <apex:repeat value="{!$ObjectType.Laser_Ordered_Forms__c.FieldSets.Unlock_And_Update}" var="sf" id="repeat2">                    
+                    <apex:inputField value="{!newLofRecord[sf]}"/>                            
+                </apex:repeat>
+            </apex:pageBlockSection> 
+            <apex:pageBlockSection title="System Information" columns="1" id="section2">
+                <apex:outputField label="Laser Artwork Order" value="{!LaoRecord.Name}"/>  
+            </apex:pageBlockSection> 
+        </apex:pageblock>
+                
+        <apex:pageblock mode="inlineEdit" title="Laser Order Forms" id="TheBlock2">
+            <apex:pageMessages id="showmsg"></apex:pageMessages>            
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!createNewLaserOrderedForms}" reRender="form" value="New" status="StatusDisplay"/>                
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable value="{!ChildRecords}" var="rec" title="Edit Laser Ordered Forms" columns="6">
+                <apex:column headerValue="Action">
+                    <apex:outputLink value="/{!rec.Id}/e?retURL=%2F/{!rec.Id}">Edit</apex:outputLink> |
+                     <apex:outputLink value="/{!rec.Id}"> Delete</apex:outputLink>
+                </apex:column> 
+                <apex:column headerValue="Name">
+                    <apex:outputLink value="/{!rec.Id}">{!rec.Name}</apex:outputLink>
+                </apex:column> 
+                <apex:repeat value="{!$ObjectType.Laser_Ordered_Forms__c.FieldSets.Unlock_And_Update}" var="sf" id="repeat2">                    
+                    <apex:column value="{!rec[sf]}"/>                            
+                </apex:repeat>
+            </apex:pageBlockTable>
+        </apex:pageblock>  
+        
+    </apex:form>
+</apex:page>

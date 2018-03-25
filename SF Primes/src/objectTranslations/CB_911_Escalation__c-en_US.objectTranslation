@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>911 Escalation</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>911 Escalation</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- 911 Escalation --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- To be filled out by Services/IFS Management when the request is approved. --></help>
+        <label><!-- Approved By --></label>
+        <name>Approved_By__c</name>
+        <relationshipLabel><!-- 911 Escalation (Approved By) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Name --></label>
+        <name>CB_Opportunity_Name__c</name>
+        <relationshipLabel><!-- 911 Escalation --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Dealer Contact Email --></label>
+        <name>Dealer_Contact_Email__c</name>
+    </fields>
+    <fields>
+        <help><!-- Use this contact field if the contact for the 911 Escalation is a Dealer Group corporate contact. --></help>
+        <label><!-- Dealer Contact Name --></label>
+        <name>Dealer_Contact_Name__c</name>
+        <relationshipLabel><!-- 911 Escalation --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Dealer Contact Phone --></label>
+        <name>Dealer_Contact_Phone__c</name>
+    </fields>
+    <fields>
+        <help><!-- Include a list of products that are impacted by the 911. If the product is not specified, the request will be put on hold. --></help>
+        <label><!-- Impacted Products --></label>
+        <name>Impacted_Products__c</name>
+    </fields>
+    <fields>
+        <help><!-- Populated by Workflow based on Status. --></help>
+        <label><!-- IsClosed --></label>
+        <name>IsClosed__c</name>
+    </fields>
+    <fields>
+        <help><!-- These notes are only visible to manager profiles. --></help>
+        <label><!-- Manager Notes --></label>
+        <name>Manager_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Migration_ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter information about the escalation here. --></help>
+        <label><!-- Notes --></label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <help><!-- Has your order been booked? Check the WIP object on the Account. If your order is listed, check this box. --></help>
+        <label><!-- Order In WIP --></label>
+        <name>Order_In_WIP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Number --></label>
+        <name>Order_Number__c</name>
+    </fields>
+    <fields>
+        <help><!-- Used to give more information to people who initiated the request. --></help>
+        <label><!-- Other Information/Notes --></label>
+        <name>Other_Information_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reason --></label>
+        <name>Reason__c</name>
+        <picklistValues>
+            <masterLabel>Double Dipped</masterLabel>
+            <translation><!-- Double Dipped --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Incentives were incorrect or missing</masterLabel>
+            <translation><!-- Incentives were incorrect or missing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Takes too much time</masterLabel>
+            <translation><!-- Takes too much time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>User interface is difficult</masterLabel>
+            <translation><!-- User interface is difficult --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- If this is a 911 website order, please include a link to the Recap. --></help>
+        <label><!-- Recap --></label>
+        <lookupFilter>
+            <errorMessage><!-- Please choose a recap that is entered against this account. --></errorMessage>
+        </lookupFilter>
+        <name>Recap__c</name>
+        <relationshipLabel><!-- 911 Escalations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Requested By --></label>
+        <name>Requested_By__c</name>
+        <relationshipLabel><!-- 911 Escalation (Requested By) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Amended</masterLabel>
+            <translation><!-- Amended --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Denied</masterLabel>
+            <translation><!-- Denied --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Duplicate</masterLabel>
+            <translation><!-- Duplicate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Hold</masterLabel>
+            <translation><!-- On Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending Approval</masterLabel>
+            <translation><!-- Pending Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Requested</masterLabel>
+            <translation><!-- Requested --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Working</masterLabel>
+            <translation><!-- Working --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The date you are requesting the work to be done by. --></help>
+        <label><!-- Requested Go Live Date --></label>
+        <name>Target_Date_Requested__c</name>
+    </fields>
+    <fields>
+        <help><!-- The projected date that the item will be completed by. --></help>
+        <label><!-- Target Date to Complete --></label>
+        <name>Target_Date_to_Complete__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>GM Integrated Incentives</masterLabel>
+            <translation><!-- GM Integrated Incentives --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Services Issue</masterLabel>
+            <translation><!-- Other Services Issue --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- WebID --></label>
+        <lookupFilter>
+            <errorMessage><!-- The WebID must exist on the Account you have selected. --></errorMessage>
+        </lookupFilter>
+        <name>WebID__c</name>
+        <relationshipLabel><!-- 911 Escalation --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- What Product(s) need a 911? --></label>
+        <name>What_Product_s_need_a_911__c</name>
+        <picklistValues>
+            <masterLabel>Audience Tag</masterLabel>
+            <translation><!-- Audience Tag --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Core/New DAP</masterLabel>
+            <translation><!-- Core/New DAP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email Marketing</masterLabel>
+            <translation><!-- Email Marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fixed Ops PB</masterLabel>
+            <translation><!-- Fixed Ops PB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PowerBrand</masterLabel>
+            <translation><!-- PowerBrand --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PowerSEO</masterLabel>
+            <translation><!-- PowerSEO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PowerSearch</masterLabel>
+            <translation><!-- PowerSearch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Repman</masterLabel>
+            <translation><!-- Repman --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S&amp;P DAP</masterLabel>
+            <translation><!-- S&amp;P DAP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Social</masterLabel>
+            <translation><!-- Social --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Website</masterLabel>
+            <translation><!-- Website --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Please describe what needs to happen. This may help justify the timeline or describe the steps that need to be taken. --></help>
+        <label><!-- What needs to be done? --></label>
+        <name>What_needs_to_be_done__c</name>
+    </fields>
+    <fields>
+        <help><!-- Elaborate on why this 911 is being submitted if you selected &quot;Other&quot; for the Why? field. --></help>
+        <label><!-- Why Other? --></label>
+        <name>Why_Other__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter the reason why you are requesting a 911. --></help>
+        <label><!-- Why? --></label>
+        <name>Why__c</name>
+        <picklistValues>
+            <masterLabel>Buy/Sell - New Site</masterLabel>
+            <translation><!-- Buy/Sell - New Site --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Competitor Cancellation</masterLabel>
+            <translation><!-- Competitor Cancellation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DSM Request</masterLabel>
+            <translation><!-- DSM Request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer Request</masterLabel>
+            <translation><!-- Dealer Request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Web Presence</masterLabel>
+            <translation><!-- No Web Presence --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OEM Request</masterLabel>
+            <translation><!-- OEM Request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Primary Transition (FFF)</masterLabel>
+            <translation><!-- Primary Transition (FFF) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Dependencies</masterLabel>
+            <translation><!-- Product Dependencies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Swap</masterLabel>
+            <translation><!-- Product Swap --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>911 Escalation Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Order Escalation</layout>
+        <sections>
+            <label><!-- 911 Status --></label>
+            <section>911 Status</section>
+        </sections>
+        <sections>
+            <label><!-- Approval --></label>
+            <section>Approval</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Request Information --></label>
+            <section>Request Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Services Escalation</layout>
+        <sections>
+            <label><!-- 911 Status --></label>
+            <section>911 Status</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Order Escalation --></label>
+        <name>Order_Escalation</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Services Escalation --></label>
+        <name>Services_Escalation</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- If Why? is listed as &quot;Other&quot;, you must explain why this request is being submitted in &quot;Why Other?&quot; --></errorMessage>
+        <name>CB_Why_is_Other_Fill_Out_Why_Other</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- New_911_Request --></label>
+        <name>New_911_Request</name>
+    </webLinks>
+</CustomObjectTranslation>

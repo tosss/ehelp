@@ -1,0 +1,69 @@
+<apex:page standardController="Case">
+    
+    <apex:includeScript value="/soap/ajax/29.0/connection.js" />
+    
+    <script type="text/javascript">
+    
+    sforce.connection.sessionId = "{!GETSESSIONID()}";
+    
+    var __CaseRecordTypeId = "{!Case.RecordTypeId}";
+    var __CaseRecordTypeName = "{!Case.RecordType.Name}";
+    
+    var __CaseId = "{!Case.Id}";
+    if(!__CaseId) { __CaseId = "500"; }
+    
+    if(!__CaseRecordTypeName || __CaseRecordTypeName == "")
+    {
+        try {
+            var q = "Select Id, Name From RecordType Where Id = '" + __CaseRecordTypeId + "' limit 1";
+            var r = sforce.connection.query(q);
+            
+            if(r != null && r.records != null) { __CaseRecordTypeName = r.records.Name; }
+        } catch(e) { if(console) { console.log(e); } }
+    }
+    
+    var accountid = "";
+    var accountname = "";
+    
+    try {
+        var q = "Select Id, Name, CDK_Global_Account_Id__c From CustomSettings__c limit 1";
+        var r = sforce.connection.query(q);
+        
+        if(r != null && r.records != null) { accountid = r.records.CDK_Global_Account_Id__c; }
+        
+        if(accountid != "") {
+            var q = "Select Id, Name From Account Where Id = '" + accountid + "' limit 1";
+            var r = sforce.connection.query(q);
+            
+            if(r != null && r.records != null) { accountname = r.records.Name; }
+        }
+    } catch(e) { if(console) { console.log(e); } }
+    
+    var redirect = "/" + __CaseId;
+    if(__CaseRecordTypeName == "HR" && accountid != "" && accountname != "") { 
+        redirect += "/e?cas4=" + accountname + "&cas4_lkid=" + accountid + "&nooverride=1"; }
+    else { 
+        redirect += "/e?nooverride=1"; }
+    
+    var paramstring = window.location.search.replace("?","&");
+    var pairs = paramstring.split("&");
+    var paramlist = [];
+    
+    for(var i in pairs) 
+    {
+        if(pairs[i] && typeof pairs[i] == "string" && pairs[i].indexOf("=") >= 0) 
+        {
+            var namevalue = pairs[i].split("=");
+            if (namevalue[0] && 
+                namevalue[0] != "save_new" &&
+                namevalue[0] != "sfdc.override") 
+            { 
+                redirect += "&" + pairs[i]; 
+            }
+        } 
+    }
+    
+    window.location.href = redirect;
+    
+    </script>
+</apex:page>

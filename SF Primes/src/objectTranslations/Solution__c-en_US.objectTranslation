@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Solution</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Solutions</value>
+    </caseValues>
+    <fields>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealership Need Name --></label>
+        <name>Dealership_Need_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Migration ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Questions --></label>
+        <name>Number_of_Questions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealership Need --></label>
+        <lookupFilter>
+            <errorMessage><!-- Dealership Need is not active. --></errorMessage>
+        </lookupFilter>
+        <name>Question_Category__c</name>
+        <relationshipLabel><!-- Solutions --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Solution Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

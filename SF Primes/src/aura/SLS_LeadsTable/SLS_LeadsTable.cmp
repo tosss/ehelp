@@ -1,0 +1,263 @@
+<aura:component controller="SLS_CampaignLeadList_Controller" >
+    <!--
+	Author:        Vishal Bandari
+	Description:   Leads Table for Work My Leads Page
+	Created on:    05 March 2016
+ 	--> 
+    <aura:attribute type="sobject[]"  name="leadsList" default="[]" />
+    <aura:attribute type="sobject[]"  name="selectedLeads" default="[]" />
+    <aura:attribute type="String" name="hardware" default="{!$Browser.formFactor}" />
+    <aura:attribute type="String" name="searchString" default="" />
+    <aura:attribute type="Integer" name="PageNumber" default="" />
+    <aura:attribute type="Integer" name="RecordCount" default="" />
+    <aura:attribute type="Integer" name="TotalRecordCount" default="" />
+    <aura:attribute type="User" name="CurrentUser" default="" />
+    <aura:attribute type="Integer" name="TotalPages" default="" />
+    <aura:attribute type="Boolean" name="canFindMatch" default="false" />
+    <aura:attribute name="CurrentAccount" type="String" default="" />
+    <aura:attribute name="CurrentContact" type="String" default="" />
+    <aura:attribute name="CampaignId" type="String" default="" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    
+    <aura:registerEvent name="showLeads" type="c:SLS_showLeads"  />
+    <aura:registerEvent name="showAccountandContact" type="c:SLS_showAccountAndContactDetails"  />
+    <aura:registerEvent name="showFindMatch" type="c:SLS_showFindMatchComponent"  />
+    <aura:registerEvent name="convertToOpportunity" type="c:SLS_ConvertToOpportunity"  />
+    
+    <div class="slds-grid slds-container--center slds-container--large" style="margin-top: 0.5%;max-width:100%;">
+        <div class="slds-col--padded">
+            <div class="slds-card">
+                <div class="slds-card__header slds-grid">
+                    <div class="slds-media slds-media--center slds-has-flexi-truncate" style="{!v.hardware != 'DESKTOP' ? 'display:none':''}">
+                        <img class="slds-icon slds-icon--medium" src="/resource/slds100/assets/icons/standard/lead_120.png" style="background: #E6E5F1;" />
+                        <div class="slds-media__body">
+                            <h2 class="slds-text-heading--small slds-truncate" style="padding-left:1rem;">  Leads <span style="font-size:0.8rem;padding-left:1rem;">(Up to 2000 Leads)</span></h2> 
+                        </div>
+                    </div>
+                    <div class="slds-no-flex" style="{!v.hardware != 'DESKTOP' ? 'width:100%;':''}">
+                        <div class="slds-button-group" style="{!v.hardware != 'DESKTOP' ? 'width:100%;':''}">
+                            <div class="slds-form-element" style="{!v.hardware != 'DESKTOP' ? 'width:100%;':''}">
+                                <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon--right">
+                                    <img  class="slds-input__icon slds-icon-text-default" src="/resource/slds100/assets/icons/utility/filterList_60.png"  onclick="{!c.showLeads}" />
+                                    
+                                    <ui:inputText aura:id="searchString" updateOn="keyup"  class="slds-input" value="{!v.searchString}" placeholder="Filter Leads..." change="{!c.showSearchedLeads}"/>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-card__body">
+                    <table id="leadsTable" class="slds-table slds-scrollable--x slds-table--fixed-layout slds-table--bordered slds-max-medium-table--stacked-horizontal" aura:id="table">
+                        <thead aura:id="thead">
+                            <tr class="slds-text-heading--label">
+                                <th class="slds-cell-shrink" >
+                                    <label class="slds-checkbox">
+                                        <input type="checkbox" name="options" aura:id="SelectAll" id="SelectAll" onchange="{!c.selectAllRows}"/>
+                                        <span class="slds-checkbox--faux"></span>
+                                        <span class="slds-assistive-text">Select All</span>
+                                    </label>
+                                </th>
+                                <th class="slds-cell-shrink"></th>
+                                <th class="slds-is-sortable " scope="col" onclick="{!c.sort}" id="Name">
+                                    <div class="slds-truncate">Lead Name
+                                        <button class="slds-button slds-button--icon-bare">
+                                            <img src="/resource/slds100/assets/icons/utility/arrowdown_60.png" class="slds-button__icon slds-button__icon--small sortImage upImage" /> 
+                                            <img src="/resource/slds100/assets/icons/utility/arrowup_60.png" class="slds-button__icon slds-button__icon--small sortImage downImage"  style="display:none;"/>
+                                            <span class="slds-assistive-text">Sort</span>
+                                        </button>
+                                    </div>
+                                </th>
+                                <th class="slds-is-sortable" scope="col" onclick="{!c.sort}" id="Status">
+                                    <div class="slds-truncate">Status
+                                        <button class="slds-button ">
+                                            <img src="/resource/slds100/assets/icons/utility/arrowdown_60.png" class="slds-button__icon slds-button__icon--small sortImage upImage" /> 
+                                            <img src="/resource/slds100/assets/icons/utility/arrowup_60.png" class="slds-button__icon slds-button__icon--small sortImage downImage"  style="display:none;"/>
+                                            <span class="slds-assistive-text">Sort</span>
+                                        </button>
+                                    </div>
+                                </th>
+                                <th class="slds-is-sortable" scope="col" onclick="{!c.sort}" id="Company">
+                                    <div class="slds-truncate">Company
+                                        <button class="slds-button slds-button--icon-bare">
+                                            <img src="/resource/slds100/assets/icons/utility/arrowdown_60.png" class="slds-button__icon slds-button__icon--small sortImage upImage" /> 
+                                            <img src="/resource/slds100/assets/icons/utility/arrowup_60.png" class="slds-button__icon slds-button__icon--small sortImage downImage"  style="display:none;"/>
+                                            <span class="slds-assistive-text">Sort</span>
+                                        </button>
+                                    </div>
+                                </th>
+                                <th class="slds-is-sortable" scope="col" onclick="{!c.sort}" id="Phone">
+                                    <div class="slds-truncate">Phone
+                                        <button class="slds-button slds-button--icon-bare">
+                                            <img src="/resource/slds100/assets/icons/utility/arrowdown_60.png" class="slds-button__icon slds-button__icon--small sortImage upImage" /> 
+                                            <img src="/resource/slds100/assets/icons/utility/arrowup_60.png" class="slds-button__icon slds-button__icon--small sortImage downImage"  style="display:none;"/>
+                                            <span class="slds-assistive-text">Sort</span>
+                                        </button>
+                                    </div>
+                                </th>
+                                <th class="slds-is-sortable" scope="col" onclick="{!c.sort}" id="Email">
+                                    <div class="slds-truncate">Email
+                                        <button class="slds-button slds-button--icon-bare">
+                                            <img src="/resource/slds100/assets/icons/utility/arrowdown_60.png" class="slds-button__icon slds-button__icon--small sortImage upImage" /> 
+                                            <img src="/resource/slds100/assets/icons/utility/arrowup_60.png" class="slds-button__icon slds-button__icon--small sortImage downImage"  style="display:none;"/>
+                                            <span class="slds-assistive-text">Sort</span>
+                                        </button>
+                                    </div>
+                                </th>
+                                <th class="slds-is-sortable" scope="col" onclick="{!c.sort}" id="Products_of_Interest__c">
+                                    <div class="slds-truncate">Product of Interest
+                                        <button class="slds-button slds-button--icon-bare">
+                                            <img src="/resource/slds100/assets/icons/utility/arrowdown_60.png" class="slds-button__icon slds-button__icon--small sortImage upImage" /> 
+                                            <img src="/resource/slds100/assets/icons/utility/arrowup_60.png" class="slds-button__icon slds-button__icon--small sortImage downImage"  style="display:none;"/>
+                                            <span class="slds-assistive-text">Sort</span>
+                                        </button>
+                                    </div>
+                                </th>
+                                <th class="slds-is-sortable" scope="col" onclick="{!c.sort}" id="MSR_Notes__c">
+                                    <div class="slds-truncate">Description
+                                        <button class="slds-button slds-button--icon-bare">
+                                            <img src="/resource/slds100/assets/icons/utility/arrowdown_60.png" class="slds-button__icon slds-button__icon--small sortImage upImage" /> 
+                                            <img src="/resource/slds100/assets/icons/utility/arrowup_60.png" class="slds-button__icon slds-button__icon--small sortImage downImage"  style="display:none;"/>
+                                            <span class="slds-assistive-text">Sort</span>
+                                        </button>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody aura:id="tbody" id="tbody">
+                            <aura:iteration items="{!v.leadsList}" var="lead" >
+                                <tr class="slds-hint-parent">
+                                    <td class=" slds-cell-wrap " data-label="Select Row" >
+                                        <label class="slds-checkbox">
+                                            <input type="checkbox" name="{!lead.Name}" id="{!lead.Id}"  onchange="{!c.selectRow}" class="RowSelector"/>
+                                            <span class="slds-checkbox--faux"></span>
+                                            <span class="slds-assistive-text">Select Row</span>
+                                        </label>
+                                    </td>
+                                    <td class=" " data-label="Actions" >
+                                        <div class="slds-dropdown-trigger slds-dropdown-trigger--click slds-is-open" aria-expanded="true" >
+                                            
+                                            <button class="slds-button slds-button--icon-border-filled slds-button--icon-x-small" aria-haspopup="true" onclick="{!c.showActions}" >
+                                                <img src="/resource/slds100/assets/icons/utility/down_60.png" class="slds-button__icon slds-button__icon--small" /> 
+                                            </button>
+                                            <div id="actions" class="{!v.hardware=='DESKTOP'?'slds-dropdown slds-dropdown--left slds-dropdown--actions slds-nubbin--top-left':'slds-dropdown slds-dropdown--right slds-dropdown--actions'}" style="{!v.hardware=='DESKTOP'?'display:none;':'display:none;position:static;'}" onmouseleave="{!c.hideActions}">
+                                                <ul class="dropdown__list" role="menu">
+                                                    <li class="slds-dropdown__item"  onclick="{!c.findMatch}" style="{!v.canFindMatch &amp;&amp; lead.Contact__c == null ? '':'display:none;' }">
+                                                        <a role="menuitem" id="{!lead.Id}" >
+                                                            <p class="slds-truncate">Find Match</p>
+                                                        </a>
+                                                    </li>
+                                                    <li class="slds-dropdown__item" onclick="{!c.gotoURL}" style="{!lead.Contact__c!=null ? '':'display:none;'}">
+                                                        <a  role="menuitem" id="{!lead.Current_Account__c+'_'+lead.Contact__c+'_'+v.CampaignId+'_'+lead.Id}">
+                                                            <p class="slds-truncate">Log Activity</p>
+                                                        </a>
+                                                    </li>
+                                                    <li class="slds-dropdown__item" style="{! lead.Contact__c!=null ? '':'display:none;'}" onclick="{!c.viewAccountAndContactDetails}">
+                                                        <a  role="menuitem" id="{!lead.Current_Account__c+'_'+lead.Contact__c+'_'+lead.Id+'_'+lead.Name}" >
+                                                            <p class="slds-truncate">View Lead Details</p>
+                                                        </a>
+                                                    </li>
+                                                    <li class="slds-dropdown__item"  style="{!lead.Contact__c!=null &amp;&amp; lead.Status!='Converted to Opportunity' ? '':'display:none;'}" onclick="{!c.convertToOpportunity}">
+                                                        <a  role="menuitem" id="{!lead.Id}">
+                                                            <p class="slds-truncate">Convert to Opportunity </p>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="slds-truncate slds-cell-wrap " scope="row" data-label="Lead Name" title="{!lead.Name}"><a id="{!lead.Id}" onclick="{!c.recordDetail}" style="text-decoration:none;">{!lead.Name}</a></td>
+                                    <td class="slds-truncate slds-cell-wrap " data-label="Status" title="{!lead.Status}">{!lead.Status}</td>
+                                    <td class="slds-truncate slds-cell-wrap " data-label="Company" title="{!lead.Company}">{!lead.Company}</td>
+                                    <td class="slds-truncate slds-cell-wrap " data-label="Phone" title="{!lead.Phone}">{!lead.Phone}</td>
+                                    <td class="slds-truncate slds-cell-wrap " data-label="Email" title="{!lead.Email}">{!lead.Email}</td>
+                                    <td class="slds-truncate slds-cell-wrap " data-label="Product of Interest" style="white-space: pre-line;" title="{!lead.Products_of_Interest__c}">{!lead.Products_of_Interest__c}</td>
+                                    <td class="slds-truncate  " data-label="Description" title="{!lead.Description}">{!lead.Description}</td>
+                                </tr>
+                            </aura:iteration>
+                        </tbody>
+                        <tbody aura:id="loadTable" class="hide" id="loadTable">
+                            <tr >
+                                <td align="center"  height="50" colspan="9">
+                                    <div class="slds-spinner_container">
+                                        <div class="slds-spinner slds-spinner--small" aria-hidden="false" role="alert">
+                                            <div class="slds-spinner__dot-a"></div>
+                                            <div class="slds-spinner__dot-b"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="slds-card__footer slds-grid" >
+                    <div class="slds-dropdown-trigger slds-dropdown-trigger--click slds-is-open" aria-expanded="true" style="{!v.TotalRecordCount > 10 ? '' :'display:none;'}">
+                        <div class="slds-button-group">
+                            <button class="slds-button slds-button--neutral slds-button--small" id="displayEntries">{!v.RecordCount}</button>
+                            <button class="slds-button slds-button--icon-border-filled slds-toggle-visibility" onclick="{!c.showEntryOptions}">
+                                <img class="slds-button__icon slds-button__icon--medium" src="/resource/slds100/assets/icons/utility/down_120.png" />
+                                <span class="slds-assistive-text">Show More</span>
+                            </button>
+                            <div class="slds-dropdown slds-dropdown--right slds-dropdown--bottom" style="display:none;" aura:id="recordCount" id="recordCount" >
+                                <ul class="dropdown__list" role="menu">
+                                    <li class="slds-dropdown__item" onclick="{!c.selectEntryOption}" style="{!v.TotalRecordCount > 10 ? '' :'display:none;'}">
+                                        <a role="menuitem">
+                                            <p class="slds-truncate">10 Entries</p>
+                                        </a>
+                                    </li>
+                                    <li class="slds-dropdown__item" onclick="{!c.selectEntryOption}" style="{!v.TotalRecordCount > 15 ? '' :'display:none;'}">
+                                        <a role="menuitem">
+                                            <p class="slds-truncate">15 Entries</p>
+                                        </a>
+                                    </li>
+                                    <li class="slds-dropdown__item" onclick="{!c.selectEntryOption}" style="{!v.TotalRecordCount > 25 ? '' :'display:none;'}">
+                                        <a role="menuitem">
+                                            <p class="slds-truncate">25 Entries</p>
+                                        </a>
+                                    </li>
+                                    <li class="slds-dropdown__item " onclick="{!c.selectEntryOption}" style="{!v.TotalRecordCount > 50 ? '' :'display:none;'}">
+                                        <a role="menuitem">
+                                            <p class="slds-truncate">50 Entries</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="slds-dropdown-trigger slds-dropdown-trigger--click slds-is-open slds-col--bump-left slds-align-middle" style="{!(v.TotalRecordCount lt 10) ? 'display:none':''}">
+                        <div class="slds-grid">
+                            <div class="col-padded" style="{!v.hardware == 'DESKTOP' ? v.PageNumber != 1 ? '' :'display:none;':'display:none;'}">
+                                <button class="slds-button slds-button--neutral slds-button--small" id="paginationFirst" onclick="{!c.goToFirstPage}"> 
+                                    <img class="slds-button__icon slds-button__icon--medium"  src="/resource/slds100/assets/icons/utility/chevronleft_60.png" />
+                                    <img class="slds-button__icon slds-button__icon--medium"  src="/resource/slds100/assets/icons/utility/chevronleft_60.png" />
+                                </button>
+                            </div>
+                            <div class="col-padded" style="{!v.PageNumber != 1 ? '' :'display:none;'}" onclick="{!c.goToPrevPage}">
+                                <button class="slds-button slds-button--neutral slds-button--small" id="paginationPrev">
+                                    <img class="slds-button__icon slds-button__icon--medium"  src="/resource/slds100/assets/icons/utility/chevronleft_60.png" />
+                                </button>
+                            </div>
+                            <div class="col-padded">
+                                <button class="slds-button slds-button--neutral slds-button--small" >{!v.PageNumber}</button>
+                            </div>
+                            <div class="col-padded" style="{!v.PageNumber != v.TotalPages ? '' :'display:none;'}" onclick="{!c.goToNextPage}">
+                                <button class="slds-button slds-button--neutral slds-button--small" id="paginationNext">
+                                    <img class="slds-button__icon slds-button__icon--medium"  src="/resource/slds100/assets/icons/utility/chevronright_60.png" />
+                                </button>
+                            </div>
+                            <div class="col-padded" style="{!v.PageNumber != v.TotalPages ? '' :'display:none;'}" onclick="{!c.goToLastPage}">
+                                <button class="slds-button slds-button--neutral slds-button--small" id="paginationLast" style="{!v.hardware == 'DESKTOP'?'':'display:none;'}">
+                                    <img class="slds-button__icon slds-button__icon--medium"  src="/resource/slds100/assets/icons/utility/chevronright_60.png" />
+                                    <img class="slds-button__icon slds-button__icon--medium"  src="/resource/slds100/assets/icons/utility/chevronright_60.png" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+</aura:component>

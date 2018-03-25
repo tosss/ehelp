@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Centralized list of parameters to be modified when refreshing Training or FullDev sandboxes</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Blanes_Team_Chatter_Group_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Blane&apos;s Team Chatter Group ID</label>
+        <length>18</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CB_Contract_Admin_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>CB Contract Admin Email</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CDK_Global_Account_Id__c</fullName>
+        <description>Ignore Contact Duplicate Checking for this Account Id. Also, this Account Id is used to set the HR Default Case Account.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Ignore Contact Duplicate Checking for this Account Id. Also, this Account Id is used to set the HR Default Case Account.</inlineHelpText>
+        <label>CDK Global Account Id</label>
+        <length>18</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DS_ContactBeforeInsertUpdate_On__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Enables (checked) or Disables (unchecked) the Contact Before Insert or Update trigger. This trigger prevents duplicates on Contacts FirstName and LastName or Email.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enables (checked) or Disables (unchecked) the Contact Before Insert or Update trigger. This trigger prevents duplicates on Contacts FirstName and LastName or Email.</inlineHelpText>
+        <label>DS_ContactBeforeInsertUpdate On?</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DS_SalesTeamTrigger_On__c</fullName>
+        <defaultValue>true</defaultValue>
+        <externalId>false</externalId>
+        <label>DS Sales Team Trigger On?</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DocusignBaseURL__c</fullName>
+        <description>Docusign URL used for authentications</description>
+        <externalId>false</externalId>
+        <label>DocusignBaseURL</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Human_Resource_Community__c</fullName>
+        <externalId>false</externalId>
+        <label>Human Resource Community</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IT_Support_Chatter__c</fullName>
+        <externalId>false</externalId>
+        <label>IT Support Chatter</label>
+        <length>225</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ImpactServer__c</fullName>
+        <externalId>false</externalId>
+        <label>ImpactServer</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>KnowledgeLakeServer__c</fullName>
+        <externalId>false</externalId>
+        <label>KnowledgeLakeServer</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LAO_DMZ_Web_Service__c</fullName>
+        <description>PROD DMZ Web Service URL: https://dslasersync1he.ds.ad.adp.com/Orders/adp.asmx
+TEST DMZ Web Service URL: https://dslasersync1he.ds.ad.adp.com/Orders_Test/adp.asmx</description>
+        <externalId>false</externalId>
+        <inlineHelpText>PROD DMZ Web Service URL: https://dslasersync1he.ds.ad.adp.com/Orders/adp.asmx
+TEST DMZ Web Service URL: https://dslasersync1he.ds.ad.adp.com/Orders_Test/adp.asmx</inlineHelpText>
+        <label>LAO DMZ Web Service</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LMA_Any_Signer_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>LMA Any Signer Email</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LMA_Any_Signer_First_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>LMA Any Signer First Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LMA_Any_Signer_Last_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>LMA Any Signer Last Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Max_Milestone_Threshold__c</fullName>
+        <externalId>false</externalId>
+        <label>Max Milestone Threshold</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Max_Milestone_Tree_Threshold__c</fullName>
+        <description>This field specifically enables a configurable maximum number of milestone-level tree-node selections within the All_JSTreeBasedNavigator in support of the CDK Expressway Milestone Edit page.</description>
+        <externalId>false</externalId>
+        <label>Max Milestone Tree Threshold</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Max_Total_Rec_Count_Threshold__c</fullName>
+        <description>The total record count of Project Milestones, Project Activities, and Project Tasks in a given Subproject that can be displayed within a single page.  If the Subproject&apos;s count exceeds this threshold, it auto-initiates pagination.</description>
+        <externalId>false</externalId>
+        <label>Max Total Rec Count Threshold</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nondealership_Key_Rep_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Nondealership Key Rep ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Procurement_Community__c</fullName>
+        <externalId>false</externalId>
+        <label>Procurement Community</label>
+        <length>225</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RMS_Request_Link__c</fullName>
+        <externalId>false</externalId>
+        <label>RMS Request Link</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>SAPortal__c</fullName>
+        <externalId>false</externalId>
+        <label>SAPortal</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SAWebServer__c</fullName>
+        <externalId>false</externalId>
+        <label>SAWebServer</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SF_Instance_Identifier__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>3 character code identifier to tell what instance this record was originally created in.</inlineHelpText>
+        <label>SF Instance Identifier</label>
+        <length>5</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SF_Instance_Link__c</fullName>
+        <externalId>false</externalId>
+        <label>SF Instance Link</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>SQTServer__c</fullName>
+        <externalId>false</externalId>
+        <label>SQTServer</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Show_Debug__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Show Debug</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Users_Excluded_from_Business_Rules__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Users to exclude from select validation rules and trigger logic, delimited by semi-colon.</inlineHelpText>
+        <label>Users Excluded from Business Rules</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WebIDTriggers_On__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>WebID Triggers On?</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>CustomSettings</label>
+    <visibility>Protected</visibility>
+</CustomObject>

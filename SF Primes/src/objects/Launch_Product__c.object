@@ -1,0 +1,1418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Used by CB Services to add Launch Products to Launch</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Launch Products</relationshipLabel>
+        <relationshipName>Launch_Products1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Ad_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Ad Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>National</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Regional</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Brand__c</fullName>
+        <externalId>false</externalId>
+        <label>Brand</label>
+        <picklist>
+            <picklistValues>
+                <fullName>BMW</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Buick/GMC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cadillac</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chevrolet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Holden</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hyundai</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Kia</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lexus</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MINI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Toyota</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Volkswagen</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>CCO_Adjusted__c</fullName>
+        <externalId>false</externalId>
+        <label>CCO Adjusted</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Conquest_Targets__c</fullName>
+        <externalId>false</externalId>
+        <label>Conquest Targets</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Contract_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Default_Offer__c</fullName>
+        <externalId>false</externalId>
+        <label>Default Offer</label>
+        <picklist>
+            <picklistValues>
+                <fullName>APR Finance Credit Advertising w/o Trigger Term</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>APR Finance Offers w/ Trigger Terms</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cash Back</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Conquest Cash</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Conquest Lease</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Current Chevy Owners w/ Trade-In Eligible Vehicle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Regular Lease</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sign and Drive Lease</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Starting at MSRP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Total Value (Supplier Pricing)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Total Value (w/o Trade In)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Disclaimer__c</fullName>
+        <externalId>false</externalId>
+        <label>Disclaimer</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Display_Ad_RefID__c</fullName>
+        <externalId>false</externalId>
+        <label>Display Ad Reference ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Display_Ad_URL__c</fullName>
+        <externalId>false</externalId>
+        <label>Display Ad URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Display_Ads_Entered_Scheduled__c</fullName>
+        <externalId>false</externalId>
+        <label>Display Ads Entered/Scheduled</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Facebook__c</fullName>
+        <externalId>false</externalId>
+        <label>Facebook</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>In_Banner_Video_Ad_Ref_Order_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>In Banner Video Ad Ref Order ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>In_Banner_Video_Ad_URL__c</fullName>
+        <externalId>false</externalId>
+        <label>In Banner Video Ad URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Incentive_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Incentive Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>National</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Regional</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>LMA_Analyst2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>LMA Analyst 2</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Launch_Products6</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>LMA_Analyst__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>LMA Analyst</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Launch_Products1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>LMA_Setup_Complete__c</fullName>
+        <externalId>false</externalId>
+        <label>Setup Complete</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>LMA_Strategist__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>LMA Strategist</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Launch_Products</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Landing_Page_URL__c</fullName>
+        <externalId>false</externalId>
+        <label>Landing Page URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>LaunchID__c</fullName>
+        <externalId>false</externalId>
+        <label>Launch ID</label>
+        <referenceTo>Launch__c</referenceTo>
+        <relationshipLabel>Launch Products</relationshipLabel>
+        <relationshipName>Launch_Products</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Media_Budget_Entered__c</fullName>
+        <externalId>false</externalId>
+        <label>Media Budget Entered</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Media_Planned__c</fullName>
+        <externalId>false</externalId>
+        <label>Media Planned</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Media_Submitted__c</fullName>
+        <externalId>false</externalId>
+        <label>Media Submitted</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Migration_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Migration_ID</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Mock_Up_Approved_by_Client__c</fullName>
+        <externalId>false</externalId>
+        <label>Mock Up Approved by Client</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Mock_Up_Approved_by_Legal__c</fullName>
+        <externalId>false</externalId>
+        <label>Mock Up Approved by Legal</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Model_Year__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter YYYY</inlineHelpText>
+        <label>Model Year</label>
+        <length>4</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Model__c</fullName>
+        <externalId>false</externalId>
+        <label>Model</label>
+        <picklist>
+            <controllingField>Brand__c</controllingField>
+            <picklistValues>
+                <fullName>Acadia</fullName>
+                <controllingFieldValues>Buick/GMC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Acadia Denali</fullName>
+                <controllingFieldValues>Buick/GMC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ATS</fullName>
+                <controllingFieldValues>Cadillac</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ATS Couple</fullName>
+                <controllingFieldValues>Cadillac</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ATS Sedan</fullName>
+                <controllingFieldValues>Cadillac</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Avalanche</fullName>
+                <controllingFieldValues>Chevrolet</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Camaro</fullName>
+                <controllingFieldValues>Chevrolet</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Canyon</fullName>
+                <controllingFieldValues>Buick/GMC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Canyon Denali</fullName>
+                <controllingFieldValues>Buick/GMC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Colorado</fullName>
+                <controllingFieldValues>Chevrolet</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Corvette</fullName>
+                <controllingFieldValues>Chevrolet</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cruze</fullName>
+                <controllingFieldValues>Chevrolet</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CTS Coupe</fullName>
+                <controllingFieldValues>Cadillac</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CTS Sedan</fullName>
+                <controllingFieldValues>Cadillac</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CTS-V Coupe</fullName>
+                <controllingFieldValues>Cadillac</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CTS-V Sedan</fullName>
+                <controllingFieldValues>Cadillac</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ELR</fullName>
+                <controllingFieldValues>Cadillac</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Enclave</fullName>
+                <controllingFieldValues>Buick/GMC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Encore</fullName>
+                <controllingFieldValues>Buick/GMC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Equinox</fullName>
+                <controllingFieldValues>Chevrolet</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Escalade</fullName>
+                <controllingFieldValues>Cadillac</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Impala</fullName>
+                <controllingFieldValues>Chevrolet</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lacrosse</fullName>
+                <controllingFieldValues>Buick/GMC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Malibu</fullName>
+                <controllingFieldValues>Chevrolet</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Regal</fullName>
+                <controllingFieldValues>Buick/GMC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sierra 1500</fullName>
+                <controllingFieldValues>Buick/GMC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sierra 1500 Denali</fullName>
+                <controllingFieldValues>Buick/GMC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sierra 2500 Denali HD</fullName>
+                <controllingFieldValues>Buick/GMC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sierra 2500HD</fullName>
+                <controllingFieldValues>Buick/GMC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sierra 3500 Denali HD</fullName>
+                <controllingFieldValues>Buick/GMC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sierra 3500HD</fullName>
+                <controllingFieldValues>Buick/GMC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Silverado</fullName>
+                <controllingFieldValues>Chevrolet</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sonic</fullName>
+                <controllingFieldValues>Chevrolet</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Spark</fullName>
+                <controllingFieldValues>Chevrolet</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SRX</fullName>
+                <controllingFieldValues>Cadillac</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SS</fullName>
+                <controllingFieldValues>Chevrolet</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Suburban</fullName>
+                <controllingFieldValues>Chevrolet</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tahoe</fullName>
+                <controllingFieldValues>Chevrolet</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Terrain</fullName>
+                <controllingFieldValues>Buick/GMC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Terrain Denali</fullName>
+                <controllingFieldValues>Buick/GMC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Traverse</fullName>
+                <controllingFieldValues>Chevrolet</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trax</fullName>
+                <controllingFieldValues>Chevrolet</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Verano</fullName>
+                <controllingFieldValues>Buick/GMC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Volt</fullName>
+                <controllingFieldValues>Chevrolet</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yukon</fullName>
+                <controllingFieldValues>Buick/GMC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yukon XL</fullName>
+                <controllingFieldValues>Buick/GMC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Monthly_Budget__c</fullName>
+        <externalId>false</externalId>
+        <label>Monthly Budget</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Offer_Editor_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Offer Editor Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Offer_Editor_Model__c</fullName>
+        <externalId>false</externalId>
+        <label>Offer Editor Model</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Offer_Editor_Trim__c</fullName>
+        <externalId>false</externalId>
+        <label>Offer Editor Trim</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Offer_Editor_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Offer Editor Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Offer_Editor_URL__c</fullName>
+        <externalId>false</externalId>
+        <label>Offer Editor URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Offer_Editor_Year__c</fullName>
+        <externalId>false</externalId>
+        <label>Offer Editor Year</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Offer__c</fullName>
+        <externalId>false</externalId>
+        <label>Offer</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Package_Created_in_DAP_UI__c</fullName>
+        <externalId>false</externalId>
+        <label>Package Created in DAP UI</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Page_Title__c</fullName>
+        <externalId>false</externalId>
+        <label>Page Title</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Pre_Roll_Setup__c</fullName>
+        <externalId>false</externalId>
+        <label>Pre-Roll Setup</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Preferred_Regional_Offers__c</fullName>
+        <externalId>false</externalId>
+        <label>Preferred Regional Offers</label>
+        <picklist>
+            <picklistValues>
+                <fullName>APR Finance Credit Advertising w/o Trigger Term</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>APR Finance Offers w/ Trigger Terms</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cash Back</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Conquest Cash</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Conquest Lease</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Current Chevy Owners w/ Trade-In Eligible Vehicle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Regular Lease</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sign and Drive Lease</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Starting at MSRP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Total Value (Supplier Pricing)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Total Value (w/o Trade In)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Promo_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Promo Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Ready_for_UI_Setup__c</fullName>
+        <externalId>false</externalId>
+        <label>Ready for UI Setup</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Retargeting_Ads_Entered_Target_Selected__c</fullName>
+        <externalId>false</externalId>
+        <label>Retargeting Ads Entered/Target Selected</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Scrolling_Inventory_Ad_Ref_Order_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Scrolling Inventory Ad Ref Order ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Scrolling_Inventory_Ad_URL__c</fullName>
+        <externalId>false</externalId>
+        <label>Scrolling Inventory Ad URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Search_Ads_Entered_Scheduled__c</fullName>
+        <externalId>false</externalId>
+        <label>Search Ads Entered/Scheduled</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Strategy_Budget_Entered__c</fullName>
+        <externalId>false</externalId>
+        <label>Strategy Budget Entered</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Strategy__c</fullName>
+        <externalId>false</externalId>
+        <label>Strategy</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Conquest</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retention</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Total_Budget__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Budget</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Trim__c</fullName>
+        <externalId>false</externalId>
+        <label>Trim</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Twitter__c</fullName>
+        <externalId>false</externalId>
+        <label>Twitter</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>URLs_Entered__c</fullName>
+        <externalId>false</externalId>
+        <label>URLs Entered</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>WebID__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>WebID</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>WebID__c.Account__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Account__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>WebID__c</referenceTo>
+        <relationshipLabel>Launch Products</relationshipLabel>
+        <relationshipName>Launch_Products</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Launch Product</label>
+    <nameField>
+        <displayFormat>LP-{000000}</displayFormat>
+        <label>Launch Product Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Launch Products</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>LMA_Launch_Product</fullName>
+        <active>true</active>
+        <label>LMA Launch Product</label>
+        <picklistValues>
+            <picklist>Ad_Type__c</picklist>
+            <values>
+                <fullName>National</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Brand__c</picklist>
+            <values>
+                <fullName>BMW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Buick%2FGMC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cadillac</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chevrolet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Holden</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hyundai</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lexus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MINI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Toyota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Volkswagen</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Default_Offer__c</picklist>
+            <values>
+                <fullName>APR Finance Credit Advertising w%2Fo Trigger Term</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>APR Finance Offers w%2F Trigger Terms</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cash Back</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Conquest Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Conquest Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Current Chevy Owners w%2F Trade-In Eligible Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regular Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sign and Drive Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Starting at MSRP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Total Value %28Supplier Pricing%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Total Value %28w%2Fo Trade In%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Incentive_Type__c</picklist>
+            <values>
+                <fullName>National</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Model__c</picklist>
+            <values>
+                <fullName>ATS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ATS Couple</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ATS Sedan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Acadia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Acadia Denali</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Avalanche</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CTS Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CTS Sedan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CTS-V Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CTS-V Sedan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Camaro</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Canyon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Canyon Denali</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Colorado</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Corvette</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cruze</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ELR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Enclave</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Encore</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Equinox</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Escalade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Impala</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lacrosse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malibu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SRX</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sierra 1500</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sierra 1500 Denali</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sierra 2500 Denali HD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sierra 2500HD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sierra 3500 Denali HD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sierra 3500HD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Silverado</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sonic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spark</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suburban</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tahoe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Terrain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Terrain Denali</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Traverse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Verano</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Volt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yukon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yukon XL</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_Regional_Offers__c</picklist>
+            <values>
+                <fullName>APR Finance Credit Advertising w%2Fo Trigger Term</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>APR Finance Offers w%2F Trigger Terms</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cash Back</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Conquest Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Conquest Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Current Chevy Owners w%2F Trade-In Eligible Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regular Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sign and Drive Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Starting at MSRP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Total Value %28Supplier Pricing%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Total Value %28w%2Fo Trade In%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Strategy__c</picklist>
+            <values>
+                <fullName>Conquest</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retention</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <webLinks>
+        <fullName>New_Launch_Product</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Launch Product</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!URLFOR($Action.Launch_Product__c.New , null, 
+[saveURL=Launch_Product__c.Link, 
+retURL=Launch__c.Link, 
+CF00N40000002OzC0_lkid=Launch__c.AccountId__c,
+CF00N40000002OzC0=Launch__c.Account__c, 
+CF00N40000002OzCq=Launch__c.WebID__c, 
+CF00N40000002OzCq_lkid=Launch__c.WebIDId__c, 
+CF00N40000002OzCJ=Launch__c.LMA_Strategist__c, 
+CF00N40000002OzCJ_lkid=Launch__c.LMA_StrategistId__c, 
+CF00N40000002OzCH=Launch__c.LMA_Analyst__c, 
+CF00N40000002OzCH_lkid=Launch__c.LMA_AnalystId__c, 
+CF00N40000002OzCG=Launch__c.LMA_Analyst2__c, 
+CF00N40000002OzCG_lkid=Launch__c.LMA_Analyst2Id__c, 
+CF00N40000002OzBz=Launch__c.Name])}</url>
+    </webLinks>
+</CustomObject>

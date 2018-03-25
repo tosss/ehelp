@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>SubProject CDK Contact</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>SubProject CDK Contacts</value>
+    </caseValues>
+    <fields>
+        <label><!-- CDK Contact --></label>
+        <name>CDK_Contact__c</name>
+        <relationshipLabel><!-- SubProject CDK Contacts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Company --></label>
+        <name>Company__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email --></label>
+        <name>Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Migration_ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mobile --></label>
+        <name>Mobile__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notes --></label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone --></label>
+        <name>Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Role --></label>
+        <name>Role__c</name>
+        <picklistValues>
+            <masterLabel>3PA</masterLabel>
+            <translation><!-- 3PA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A/R Conversion Specialist</masterLabel>
+            <translation><!-- A/R Conversion Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business Solutions Consultant</masterLabel>
+            <translation><!-- Business Solutions Consultant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business Systems Analyst​​</masterLabel>
+            <translation><!-- Business Systems Analyst​​ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CVR</masterLabel>
+            <translation><!-- CVR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Car!nk</masterLabel>
+            <translation><!-- Car!nk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Client Account Manager (CAM)</masterLabel>
+            <translation><!-- Client Account Manager (CAM) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Conversion Specialist</masterLabel>
+            <translation><!-- Conversion Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Conversion Specialist (Unhook)</masterLabel>
+            <translation><!-- Conversion Specialist (Unhook) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Services</masterLabel>
+            <translation><!-- Credit Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Programming</masterLabel>
+            <translation><!-- Custom Programming --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DMI</masterLabel>
+            <translation><!-- DMI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Digital Contracting Project Manager</masterLabel>
+            <translation><!-- Digital Contracting Project Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Digital Contracting Solution Consultant</masterLabel>
+            <translation><!-- Digital Contracting Solution Consultant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Field Service</masterLabel>
+            <translation><!-- Field Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Field Service Engineer</masterLabel>
+            <translation><!-- Field Service Engineer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Field Service Manager</masterLabel>
+            <translation><!-- Field Service Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forms Builder</masterLabel>
+            <translation><!-- Forms Builder --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forms Collector​</masterLabel>
+            <translation><!-- Forms Collector​ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Heavy Equipment Data Specialist</masterLabel>
+            <translation><!-- Heavy Equipment Data Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Heavy Equipment Hardware Specialist</masterLabel>
+            <translation><!-- Heavy Equipment Hardware Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Implementation Director</masterLabel>
+            <translation><!-- Implementation Director --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Implementation Support</masterLabel>
+            <translation><!-- Implementation Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Install Specialist (ICD)</masterLabel>
+            <translation><!-- Install Specialist (ICD) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Laser Artwork Specialist</masterLabel>
+            <translation><!-- Laser Artwork Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Laser Imaging</masterLabel>
+            <translation><!-- Laser Imaging --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Laser Installation Specialist</masterLabel>
+            <translation><!-- Laser Installation Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Librarian</masterLabel>
+            <translation><!-- Librarian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Migration Follow-Up Specialist</masterLabel>
+            <translation><!-- Migration Follow-Up Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Migration Specialist</masterLabel>
+            <translation><!-- Migration Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Migration Specialist (Box Upgrade)</masterLabel>
+            <translation><!-- Migration Specialist (Box Upgrade) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Network Project Manager (Network / IPT)</masterLabel>
+            <translation><!-- Network Project Manager (Network / IPT) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payroll Tax Services</masterLabel>
+            <translation><!-- Payroll Tax Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Professional Services Consultants</masterLabel>
+            <translation><!-- Professional Services Consultants --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>QRT Virtual Solutions Consultant</masterLabel>
+            <translation><!-- QRT Virtual Solutions Consultant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSM IT Support Analyst</masterLabel>
+            <translation><!-- RSM IT Support Analyst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Red Bumper</masterLabel>
+            <translation><!-- Red Bumper --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales</masterLabel>
+            <translation><!-- Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scheduling Coordinator</masterLabel>
+            <translation><!-- Scheduling Coordinator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ServiceBook Pro</masterLabel>
+            <translation><!-- ServiceBook Pro --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Total Source Project Manager</masterLabel>
+            <translation><!-- Total Source Project Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Training &amp; Implementation Client Manager</masterLabel>
+            <translation><!-- Training &amp; Implementation Client Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Training Consultant (RPM)</masterLabel>
+            <translation><!-- Training Consultant (RPM) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Training Coordinator</masterLabel>
+            <translation><!-- Training Coordinator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Utilization &amp; Training Project Manager​</masterLabel>
+            <translation><!-- Utilization &amp; Training Project Manager​ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Virtual Implementation Consultant</masterLabel>
+            <translation><!-- Virtual Implementation Consultant --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- SubProject Confidential --></label>
+        <name>SubProject_Confidential__c</name>
+    </fields>
+    <fields>
+        <label><!-- SubProject --></label>
+        <name>SubProject__c</name>
+        <relationshipLabel><!-- SubProject CDK Contacts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Title --></label>
+        <name>Title__c</name>
+    </fields>
+    <layouts>
+        <layout>SubProject CDK Contact Layout</layout>
+        <sections>
+            <label><!-- Confidential --></label>
+            <section>Confidential</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

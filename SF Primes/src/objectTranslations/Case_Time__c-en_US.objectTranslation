@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Case Time</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Case Times</value>
+    </caseValues>
+    <fields>
+        <label><!-- Case Owner Id --></label>
+        <name>Case_Owner_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Owner --></label>
+        <name>Case_Owner__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Case Times --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Cobalt_Consolidation_ID --></label>
+        <name>Cobalt_Consolidation_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- External ID --></label>
+        <name>External_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Time on Case-Days --></label>
+        <name>Time_on_Case_Days__c</name>
+    </fields>
+    <fields>
+        <label><!-- Time on Case-Min --></label>
+        <name>Time_on_Case__c</name>
+    </fields>
+    <layouts>
+        <layout>Case Time Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

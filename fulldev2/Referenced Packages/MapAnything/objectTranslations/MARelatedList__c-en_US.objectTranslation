@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>MapAnything Related List</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>MapAnything Related Lists</value>
+    </caseValues>
+    <fields>
+        <label><!-- Column 1 --></label>
+        <name>Column1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Column 2 --></label>
+        <name>Column2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Column 3 --></label>
+        <name>Column3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Column 4 --></label>
+        <name>Column4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Column 5 --></label>
+        <name>Column5__c</name>
+    </fields>
+    <fields>
+        <label><!-- List Label --></label>
+        <name>ListLabel__c</name>
+    </fields>
+    <fields>
+        <label><!-- Num To Display --></label>
+        <name>NumToDisplay__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order --></label>
+        <name>Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reference Field --></label>
+        <name>ReferenceField__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sort Related List --></label>
+        <name>RelatedSort__c</name>
+    </fields>
+    <fields>
+        <label><!-- Saved Query --></label>
+        <name>SavedQuery__c</name>
+        <relationshipLabel><!-- MapAnything Related Lists --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

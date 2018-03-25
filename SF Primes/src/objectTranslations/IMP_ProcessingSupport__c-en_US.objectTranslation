@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>IMP_ProcessingSupport</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>IMP_ProcessingSupport</value>
+    </caseValues>
+    <fields>
+        <label><!-- Action Driven By --></label>
+        <name>Action_Driven_By__c</name>
+    </fields>
+    <fields>
+        <label><!-- Action In Progress --></label>
+        <name>Action_In_Progress__c</name>
+    </fields>
+    <fields>
+        <label><!-- Action --></label>
+        <name>Action__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

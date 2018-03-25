@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <frameHeight>600</frameHeight>
+    <hasSidebar>false</hasSidebar>
+    <label>Org Chart</label>
+    <mobileReady>false</mobileReady>
+    <motif>Custom38: Camera</motif>
+    <url>https://adpdsportal.ds.ad.adp.com/Pages/CDKOrgChart.aspx</url>
+    <urlEncodingKey>UTF-8</urlEncodingKey>
+</CustomTab>

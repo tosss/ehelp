@@ -1,0 +1,93 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="false" controller="IdeaDetailController">
+    <html>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <head>
+            
+            <style>
+                .top-aligned { vertical-align: top; }
+            </style>
+            
+        </head>
+        
+        <body>
+            
+            <table  width="100%" cellspacing="15px">
+                
+                <tbody>
+                    
+                    <tr>
+                        
+                        <td colspan="3" height="10%" style="font-family: sans-serif;font-stretch: ultra-expanded;font-size: 1.5em;border: solid 0.05em #B1AFAF;border-radius: 5px;background-color: #F3F2FB;padding:0.5%;padding-left:1%;">{!ideaObj.title}</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        
+                        <td rowspan="4" width="7%" style="text-align:center;line-height:2em;font-size:2em;vertical-align:top;"><br/><i class="fa fa-arrow-circle-o-up fa-2x"></i><br/>{!ideaObj.votetotal/10}<br/><i class="fa fa-arrow-circle-o-down fa-2x"></i></td>
+                        
+                        <td colspan="2" class="top-aligned" style="vertical-align: top;border:solid 0.1em #BCBCBC;background-color:#E7EFE8;padding:1%;" ><apex:outputText value="{!ideaObj.body}" escape="false" /></td>
+                        
+                    </tr>
+                    
+                    
+                    <tr height="10%">
+                        
+                        <td width="50%"></td>
+                        
+                        <td style="border:solid 0.1em #BCBCBC ;background-color:#E7EFE8;width:20%;">
+                            <table >
+                                <tr>
+                                    <td width="30%" style="vertical-align: top;"><img src="{!ideaObj.creatorsmallphotourl}" height="auto" width="100%" /></td>
+                                    <td style="line-height:1.5em;padding-left:8%;"><b>{!ideaObj.creatorname}</b><br/><apex:outputField value="{!ideaObj.lastmodifiedDate} " /></td>
+                                </tr>
+                            </table>
+                        </td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        
+                        <td colspan="2"><button class="btn">Comment</button></td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        
+                        <td colspan="2" style="vertical-align: top;">
+                            
+                            <table width="100%">
+                                
+                                <tbody>
+                                    
+                                    <tr>
+                                        
+                                        <td width="5%" style="vertical-align: top;" ><img src="https://c.ap1.content.force.com/profilephoto/72990000000RbqE/F" height="auto" width="100%" /></td>
+                                        
+                                        <td style="line-height:2em;vertical-align: top;background-color:#EFEFEF;border:solid 0.1em #8C8C8C;font-style:italic;">&nbsp;&nbsp;<b>Vishal</b>  <span style="font-size:0.75em;">commented  on <b>12/12/1992</b></span><br/><div style="font-style:normal;border:solid 0.1em #BCBCBC;margin:1%;margin-top:0px;padding-left:1%;">Comment Description</div></td>
+                                        
+                                    </tr>
+                                    
+                                    <tr>
+                                        
+                                        <td></td>
+                                        
+                                        <td>&nbsp;Like&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unlike</td>
+                                        
+                                    </tr>
+                                    
+                                </tbody>
+                                
+                            </table>
+                            
+                        </td>
+                        
+                    </tr>
+                    
+                </tbody>
+                
+            </table>
+            
+        </body>
+        
+    </html>
+</apex:page>

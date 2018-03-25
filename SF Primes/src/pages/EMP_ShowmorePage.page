@@ -1,0 +1,32 @@
+<apex:page standardstylesheets="false" controller="EMP_ShowmoreController">
+    <apex:outputpanel rendered="{!IF(AND(lstContentVersions.size>0,showleadership==FALSE),true,false)}">
+        <h2>
+            {!lstContentVersions[0].content_type__c}
+        </h2>
+        <ul >
+            <apex:repeat value="{!lstContentVersions}" var="cv" id="theRepeat">
+                <li>
+                    <apex:outputLink target="_blank" onclick="" value="/Employees/sfc/servlet.shepherd/version/download/{!cv.Id}">{!cv.Title}</apex:outputLink>
+                </li>
+            </apex:repeat>
+        </ul> 
+    </apex:outputpanel>
+    <apex:outputpanel rendered="{!showleadership}">
+        <h2>Leadership Corner</h2>
+        <apex:repeat value="{!contentSource}" var="news">
+            <div class="media">
+                <img class="media-left float-left small-photo" src="{!news.userUrl}"/>
+                <div class="media-body">
+                    <div class="">
+                        <apex:outputLink rendered="{!IF(news.content.Document_Type__c != 'Video',true,false)}" target="_blank" onclick="" value="/Employees/sfc/servlet.shepherd/version/download/{!news.content.Id}">{!news.content.Title}</apex:outputLink>
+                        <apex:outputLink rendered="{!IF(news.content.Document_Type__c == 'Video',true,false)}" target="_blank" onclick="" value="{!news.content.Video_File_Location__c}">{!news.content.Title}</apex:outputLink>
+                    </div>
+                    <apex:outputText value="{!news.userFullName}" /><br/>
+                    <apex:outputText value="{0,date,MM'/'dd'/'yyyy}" styleClass="leadership_date" >
+                        <apex:param value="{!news.content.Publish_Date__c}" /> 
+                    </apex:outputText>
+                </div>
+            </div>
+        </apex:repeat>
+    </apex:outputpanel>
+</apex:page>

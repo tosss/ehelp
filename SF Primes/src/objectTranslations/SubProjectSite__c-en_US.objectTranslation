@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>SubProjectSite</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>SubProjectSites</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- SubProject Sites --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Business Unit --></label>
+        <name>Business_Unit__c</name>
+    </fields>
+    <fields>
+        <label><!-- CMF Name --></label>
+        <name>CMF_Name__c</name>
+        <relationshipLabel><!-- SubProjectSites --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- CMF Number(s) --></label>
+        <name>CMF_Numbers__c</name>
+    </fields>
+    <fields>
+        <label><!-- CTI Desktop --></label>
+        <name>CTI_Desktop__c</name>
+    </fields>
+    <fields>
+        <label><!-- City --></label>
+        <name>City__c</name>
+    </fields>
+    <fields>
+        <label><!-- DTA --></label>
+        <name>DTA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dealer Group Do Not Use --></label>
+        <name>Dealer_Group_Do_Not_Use__c</name>
+        <relationshipLabel><!-- SubProjectSites (Dealer Group) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Dealer Group --></label>
+        <name>Dealer_Group__c</name>
+    </fields>
+    <fields>
+        <label><!-- FES Details --></label>
+        <name>FES_Details__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fax --></label>
+        <name>Fax__c</name>
+    </fields>
+    <fields>
+        <label><!-- IP Telephony --></label>
+        <name>IP_Telephony__c</name>
+    </fields>
+    <fields>
+        <label><!-- Logon Access --></label>
+        <name>Logon_Access__c</name>
+        <picklistValues>
+            <masterLabel>90-day free default</masterLabel>
+            <translation><!-- 90-day free default --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not needed for this project type</masterLabel>
+            <translation><!-- Not needed for this project type --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown at this time</masterLabel>
+            <translation><!-- Unknown at this time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unlimited Access Purchased</masterLabel>
+            <translation><!-- Unlimited Access Purchased --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Migration_ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- New CMF# --></label>
+        <name>New_CMF__c</name>
+    </fields>
+    <fields>
+        <label><!-- New C# --></label>
+        <name>New_C__c</name>
+    </fields>
+    <fields>
+        <label><!-- New Dealer Code --></label>
+        <name>New_Dealer_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- New GL CO# --></label>
+        <name>New_GL_CO__c</name>
+    </fields>
+    <fields>
+        <label><!-- New Hosting --></label>
+        <name>New_Hosting__c</name>
+        <picklistValues>
+            <masterLabel>ASP</masterLabel>
+            <translation><!-- ASP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Onsite</masterLabel>
+            <translation><!-- Onsite --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- New IP Address --></label>
+        <name>New_IP_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- New Location --></label>
+        <name>New_Location__c</name>
+        <picklistValues>
+            <masterLabel>Ann Arbor</masterLabel>
+            <translation><!-- Ann Arbor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DC1</masterLabel>
+            <translation><!-- DC1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DC2</masterLabel>
+            <translation><!-- DC2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Elk Grove</masterLabel>
+            <translation><!-- Elk Grove --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LAS</masterLabel>
+            <translation><!-- LAS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ORD</masterLabel>
+            <translation><!-- ORD --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- New Logons --></label>
+        <name>New_Logons__c</name>
+    </fields>
+    <fields>
+        <label><!-- New Manufacturer --></label>
+        <name>New_Manufacturer__c</name>
+    </fields>
+    <fields>
+        <label><!-- New Platform --></label>
+        <name>New_Platform__c</name>
+        <picklistValues>
+            <masterLabel>CDK CRM</masterLabel>
+            <translation><!-- CDK CRM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDK Drive</masterLabel>
+            <translation><!-- CDK Drive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDK DriveXL</masterLabel>
+            <translation><!-- CDK DriveXL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDK Vehicle</masterLabel>
+            <translation><!-- CDK Vehicle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PFW</masterLabel>
+            <translation><!-- PFW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>w.e.b.Suite 1000</masterLabel>
+            <translation><!-- w.e.b.Suite 1000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>w.e.b.Suite 200*</masterLabel>
+            <translation><!-- w.e.b.Suite 200* --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- New Server URL (CDK CRM) --></label>
+        <name>New_Server_URL_CDK_CRM__c</name>
+    </fields>
+    <fields>
+        <label><!-- New Server URL (CDK Vehicle) --></label>
+        <name>New_Server_URL_CDK_Vehicle__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of DL Scanners --></label>
+        <name>Number_of_DL_Scanners__c</name>
+    </fields>
+    <fields>
+        <label><!-- OEM Integration --></label>
+        <name>OEM_Integration__c</name>
+    </fields>
+    <fields>
+        <label><!-- Old CMF# --></label>
+        <name>Old_CMF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Old C# --></label>
+        <name>Old_C__c</name>
+    </fields>
+    <fields>
+        <label><!-- Old Dealer Code --></label>
+        <name>Old_Dealer_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Old GL CO# --></label>
+        <name>Old_GL_CO__c</name>
+    </fields>
+    <fields>
+        <label><!-- Old Hosting --></label>
+        <name>Old_Hosting__c</name>
+        <picklistValues>
+            <masterLabel>ASP</masterLabel>
+            <translation><!-- ASP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Onsite</masterLabel>
+            <translation><!-- Onsite --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Old IP Address --></label>
+        <name>Old_IP_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Old Location --></label>
+        <name>Old_Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- Old Logons --></label>
+        <name>Old_Logons__c</name>
+    </fields>
+    <fields>
+        <label><!-- Old Manufacturer --></label>
+        <name>Old_Manufacturer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Old Platform --></label>
+        <name>Old_Platform__c</name>
+        <picklistValues>
+            <masterLabel>CDK CRM</masterLabel>
+            <translation><!-- CDK CRM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDK Drive</masterLabel>
+            <translation><!-- CDK Drive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDK DriveXL</masterLabel>
+            <translation><!-- CDK DriveXL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDK Vehicle</masterLabel>
+            <translation><!-- CDK Vehicle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PFW</masterLabel>
+            <translation><!-- PFW --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>w.e.b.Suite 1000</masterLabel>
+            <translation><!-- w.e.b.Suite 1000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>w.e.b.Suite 200*</masterLabel>
+            <translation><!-- w.e.b.Suite 200* --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Premier Dealer flag value from the associated account --></help>
+        <label><!-- PD --></label>
+        <name>PD__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone --></label>
+        <name>Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project --></label>
+        <name>Project__c</name>
+        <relationshipLabel><!-- Sites --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RMS Request Ids --></label>
+        <name>RMS_Request_Ids__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ship CMF # --></label>
+        <name>Ship_CMF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Special Instructions --></label>
+        <name>Special_Instructions__c</name>
+    </fields>
+    <fields>
+        <label><!-- State/Province --></label>
+        <name>State_Province__c</name>
+    </fields>
+    <fields>
+        <label><!-- Street Address --></label>
+        <name>Street_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- SubProject Confidential --></label>
+        <name>SubProject_Confidential__c</name>
+    </fields>
+    <fields>
+        <label><!-- SubProject Name --></label>
+        <name>SubProject_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- SubProject Name from RMS --></label>
+        <name>SubProject_Name_from_RMS__c</name>
+    </fields>
+    <fields>
+        <label><!-- SubProject Status --></label>
+        <name>SubProject_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- SubProject --></label>
+        <name>SubProject__c</name>
+        <relationshipLabel><!-- Sites --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- SubProject for Filters --></label>
+        <name>SubProject_for_Filters__c</name>
+    </fields>
+    <fields>
+        <label><!-- Time Zone --></label>
+        <name>Time_Zone__c</name>
+        <picklistValues>
+            <masterLabel>ACST - Australian Central Std Time</masterLabel>
+            <translation><!-- ACST - Australian Central Std Time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AEST - Australian Eastern Std Time</masterLabel>
+            <translation><!-- AEST - Australian Eastern Std Time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AKST - Alaska Std Time</masterLabel>
+            <translation><!-- AKST - Alaska Std Time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ATL - Atlantic Std Time</masterLabel>
+            <translation><!-- ATL - Atlantic Std Time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AWST - Australian Western Std Time</masterLabel>
+            <translation><!-- AWST - Australian Western Std Time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CST - Central Standard Time</masterLabel>
+            <translation><!-- CST - Central Standard Time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ChST - Guam Std Time</masterLabel>
+            <translation><!-- ChST - Guam Std Time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EST - Eastern Std Time</masterLabel>
+            <translation><!-- EST - Eastern Std Time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HAST - Hawaii Std Time</masterLabel>
+            <translation><!-- HAST - Hawaii Std Time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MST - Mountain Standard Time</masterLabel>
+            <translation><!-- MST - Mountain Standard Time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NST - Nfld Std Time</masterLabel>
+            <translation><!-- NST - Nfld Std Time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PST - Pacific Standard Time</masterLabel>
+            <translation><!-- PST - Pacific Standard Time --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Website --></label>
+        <name>Website__c</name>
+    </fields>
+    <fields>
+        <label><!-- Zip --></label>
+        <name>Zip__c</name>
+    </fields>
+    <layouts>
+        <layout>SubProjectSite Layout</layout>
+        <sections>
+            <label><!-- Additional Buy-Sell/Clone Information --></label>
+            <section>Additional Buy-Sell/Clone Information</section>
+        </sections>
+        <sections>
+            <label><!-- Additional Site Information --></label>
+            <section>Additional Site Information</section>
+        </sections>
+        <sections>
+            <label><!-- Confidential --></label>
+            <section>Confidential</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- System / Logon Information --></label>
+            <section>System / Logon Information</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- New CMF# field should contain only numeric values. --></errorMessage>
+        <name>New_CMF_Number_Is_Numeric</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Old CMF# field should contain only numeric values. --></errorMessage>
+        <name>Old_CMF_Number_Is_Numeric</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Add_CMF_to_Existing_Site --></label>
+        <name>Add_CMF_to_Existing_Site</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Remove_CMF_from_Existing_Site --></label>
+        <name>Remove_CMF_from_Existing_Site</name>
+    </webLinks>
+</CustomObjectTranslation>

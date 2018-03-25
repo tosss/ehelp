@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Sales Team Member</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Sales Team Members</value>
+    </caseValues>
+    <fields>
+        <label><!-- Formula User Name --></label>
+        <name>Formula_User_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Migration ID --></label>
+        <name>Migration_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Access --></label>
+        <name>Opportunity_Access__c</name>
+        <picklistValues>
+            <masterLabel>Read Only</masterLabel>
+            <translation><!-- Read Only --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Read/Write</masterLabel>
+            <translation><!-- Read/Write --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Sales Team Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- SForce Sales Team Id --></label>
+        <name>SForce_Sales_Team_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Team Role --></label>
+        <name>Team_Role__c</name>
+        <picklistValues>
+            <masterLabel>Forecasting - Baseline Rep</masterLabel>
+            <translation><!-- Forecasting - Baseline Rep --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forecasting - CDP ISR Rep</masterLabel>
+            <translation><!-- Forecasting - CDP ISR Rep --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forecasting - Dealix Rep</masterLabel>
+            <translation><!-- Forecasting - Dealix Rep --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forecasting - Digital Solutions Rep</masterLabel>
+            <translation><!-- Forecasting - Digital Solutions Rep --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forecasting - Enterprise Rep</masterLabel>
+            <translation><!-- Forecasting - Enterprise Rep --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forecasting - Inside Sales Laser Rep</masterLabel>
+            <translation><!-- Forecasting - Inside Sales Laser Rep --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forecasting - Inside Sales Rep</masterLabel>
+            <translation><!-- Forecasting - Inside Sales Rep --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forecasting - NIADA Rep</masterLabel>
+            <translation><!-- Forecasting - NIADA Rep --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forecasting - National Sales Rep</masterLabel>
+            <translation><!-- Forecasting - National Sales Rep --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forecasting - Retail Solutions Rep</masterLabel>
+            <translation><!-- Forecasting - Retail Solutions Rep --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forecasting - Saturn Rep</masterLabel>
+            <translation><!-- Forecasting - Saturn Rep --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forecasting - Telephony Rep</masterLabel>
+            <translation><!-- Forecasting - Telephony Rep --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-Forecasting Rep</masterLabel>
+            <translation><!-- Non-Forecasting Rep --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>User__c</name>
+        <relationshipLabel><!-- Sales Team Members --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Sales Team Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

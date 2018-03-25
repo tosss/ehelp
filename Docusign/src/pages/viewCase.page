@@ -1,0 +1,103 @@
+<apex:page controller="viewCaseController">
+	<apex:form >
+		<div id="ep" class="bPageBlock bEditBlock secondaryPalette">
+			<div class="pbHeader">
+				<table cellspacing="0" cellpadding="0" border="0">
+					<tbody>
+						<tr>
+							<td class="pbTitle">
+								<img height="1" width="1" title="" class="minWidth" alt="" src="/s.gif"/>
+								<h2 class="mainTitle">Case Comment</h2>
+							</td>
+							<td id="topButtonRow" class="pbButton">
+								<apex:commandButton value="Return to Case" action="{!returnToCase}" styleClass="btn"></apex:commandButton> 
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			<div class="pbBody">
+				<div style="display: none;" id="errorDiv_ep" class="pbError">Error: Invalid Data. <br/>Review all error messages below to correct your data.</div>
+				<div id="head_1_ep" class="pbSubheader first tertiaryPalette">
+					<h3>Case Details<span class="titleSeparatingColon">:</span></h3>
+				</div>
+				<div class="pbSubsection">
+					<table cellspacing="0" cellpadding="0" border="0" class="detailList">
+						<tbody>
+							<tr>
+								<td class="labelCol">Subject</td>
+								<td class="dataCol col02">
+									<apex:outputText value="{!thisCase.Subject}" escape="false"/>
+								</td>
+								<td class="labelCol empty last"> </td><td class="dataCol empty last"> </td>
+							</tr>
+							<tr>
+								<td class="labelCol last">Description</td>
+								<td class="dataCol col02 last">
+									<apex:outputText value="{!thisCase.Description}" escape="false"/>
+								</td>
+								<td class="labelCol empty last"> </td><td class="dataCol empty last"> </td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div id="head_2_ep" class="pbSubheader tertiaryPalette">
+					<h3>Comment Details<span class="titleSeparatingColon">:</span></h3>
+				</div>
+				<div class="pbSubsection">
+					<table cellspacing="0" cellpadding="0" border="0" class="detailList">
+						<tbody>
+							<tr>
+								<td class="labelCol">
+									<label for="IsPublished">Public</label>
+								</td>
+								<td class="dataCol col02">
+									<apex:inputCheckbox disabled="true" value="{!thisComment.IsPublished}"/>
+								</td>
+								<td class="labelCol empty last"> </td>
+								<td class="dataCol empty last"> </td>
+							</tr>
+							<tr>
+								<td class="labelCol">
+									<label for="IsPublished">Comment ID</label>
+								</td>
+								<td class="dataCol col02">
+									<apex:outputText escape="false" value="{!thisCaseCommentId}" />
+								</td>
+								<td class="labelCol empty last"> </td>
+								<td class="dataCol empty last"> </td>
+							</tr>
+							<tr>
+								<td class="labelCol requiredInput last">
+									<label for="CommentBody"><span class="requiredMark">*</span>Comment</label>
+								</td>
+								<td colspan="3" class="data2Col last">
+									<div class="requiredBlock">
+										<apex:outputText escape="false" value="{!thisComment.CommentBody}" />
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="pbBottomButtons">
+				<table cellspacing="0" cellpadding="0" border="0">
+					<tbody>
+						<tr>
+							<td class="pbTitle">
+								<img height="1" width="1" title="" class="minWidth" alt="" src="/s.gif"/> 
+							</td>
+							<td id="bottomButtonRow" class="pbButtonb">
+								<apex:commandButton value="Return to Case" action="{!returnToCase}" styleClass="btn"></apex:commandButton>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="pbFooter secondaryPalette"><div class="bg"/>
+			</div>
+		</div>
+	</apex:form>
+</apex:page>

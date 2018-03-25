@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vidyard_prod_oauth_c4s</fullName>
+    <apiAccessLevel>Unrestricted</apiAccessLevel>
+    <modules>
+        <module>
+            <label>Vidyard_prod_oauth_c4s</label>
+            <moduleType>canvas</moduleType>
+            <name>Vidyard_prod_oauth_c4s</name>
+            <types>
+                <members>Vidyard_prod_oauth_c4sCanvas</members>
+                <name>CanvasMetadata</name>
+            </types>
+            <types>
+                <members>vidyard__Vidyard_prod_oauth_c4s</members>
+                <name>Module</name>
+            </types>
+            <version>25.0</version>
+        </module>
+    </modules>
+    <namespacePrefix>vidyard</namespacePrefix>
+    <version>35.0</version>
+</Package>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>MapAnything Territory Rollup Run</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>MapAnything Territory Rollup Runs</value>
+    </caseValues>
+    <fields>
+        <label><!-- Completion Date --></label>
+        <name>CompletionDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rollup --></label>
+        <name>Rollup__c</name>
+        <relationshipLabel><!-- Runs --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>
