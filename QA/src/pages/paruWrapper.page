@@ -1,5 +1,0 @@
-<apex:page standardController="WebID__c">
-	<apex:iframe src="http://garage.cobaltgroup.com/websiteInfo?webId={!WebID__c.Name}">
-		
-	</apex:iframe>
-</apex:page>

@@ -1,0 +1,11 @@
+.THIS {
+}
+
+.THIS img.primary-image{
+	height:100%;
+	width:100%;
+}
+
+.THIS .slds-image__crop{
+    padding-top:0px;
+}

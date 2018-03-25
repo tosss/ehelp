@@ -1,3 +1,0 @@
-<apex:page standardController="Campaign" extensions="SA_TABOVER.TabHomeController" recordSetVar="campaigns" action="{!initCampaignPage}">
-	<apex:pageMessages />
-</apex:page>

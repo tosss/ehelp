@@ -1,0 +1,15 @@
+<apex:page controller="JiraToSalesforce">
+    <script>
+    getRemoteAccount();
+    function getRemoteAccount() {
+
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.JiraToSalesforce.updateJira}',
+            'SFI-52', 
+            function(result, event){console.log(result);
+            }, 
+            {escape: true}
+        );
+    }
+    </script>
+</apex:page>

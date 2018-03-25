@@ -1,0 +1,7 @@
+<!-- *********************************************************************
+12/23/2016 created vijay.manimaran@cdk.com chattersearch for communities
+*********************************************************************** -->
+
+<design:component label="Search Chatter">
+    <design:attribute name="searchterm" label="Search Term" />
+</design:component>

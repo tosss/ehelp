@@ -1,3 +1,0 @@
-<apex:page sidebar="false" >
-     <analytics:reportChart ReportId="00O90000009AMZW" showRefreshButton="true" size="huge" cacheResults="false" />
-</apex:page>

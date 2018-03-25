@@ -1,0 +1,825 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fieldSets>
+        <fullName>Oracle_Site_Setup_Columns</fullName>
+        <availableFields>
+            <field>Association_to_Organization__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Currency_Preference__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Date_Time_Format__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Delegated_Approver__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Language_Preference__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>LastModifiedDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Number_Format__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Time_Zone__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Unit_System__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <description>Each CPQ Cloud Site (listed under that tab &quot;Oracle CPQ Cloud Site Setup) contains a table of Oracle Users.  The values in this Field Set constitute the colums in that table.</description>
+        <displayedFields>
+            <field>Salesforce_User__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Oracle_CPQ_Cloud_Login__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Bulk_Synchronization__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Provisioned__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Allow_Quote_Creation__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Partner_Organization__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>User_Groups__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Oracle Site Setup Columns</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Oracle_Site_Setup_Columns_Non_Primary</fullName>
+        <description>Each CPQ Cloud Site (listed under that tab &quot;Oracle CPQ Cloud Site Setup) contains a table of Oracle Users.  The values in this Field Set constitute the colums in that table for CPQ Cloud Sites that are not a primary commerce process.</description>
+        <displayedFields>
+            <field>Salesforce_User__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Allow_Quote_Creation__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Oracle Site Setup Columns Non-Primary</label>
+    </fieldSets>
+    <fields>
+        <fullName>Access_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This picklist contains the possible access types that are available to Oracle CPQ Cloud users. If you wish to restrict the values that users may select from this list, it is recommended that you create a validation rule. Modifying this list may break the user integration to Oracle CPQ Cloud.</description>
+        <externalId>false</externalId>
+        <label>Access Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>FullAccess</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SalesAgent</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>ChannelAgent</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BuyAccess</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RestrictedAccess</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Allow_Quote_Creation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>When checked, this Salesforce user can create Oracle CPQ Quotes for this Oracle CPQ Site.</inlineHelpText>
+        <label>Allow Quote Creation</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Association_to_Organization__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This picklist contains the possible associations that users can have to the primary organization. If you wish to restrict the values that users may select from this list, it is recommended that you create a validation rule. Modifying this list may break the user integration to Oracle CPQ Cloud.</description>
+        <externalId>false</externalId>
+        <label>Association to Organization</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Internal User</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Partner User</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Bulk_Synchronization__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Setting this field to True will suspend synchronization between Salesforce and Oracle CPQ Cloud for this user. This is useful when you want to update many users at once (via the Salesforce data loader for example). Instead of sending a separate SOAP call to Oracle CPQ Cloud for each user, Salesforce will send a single SOAP call for all users that have this flag set to True. To update many users at once, download the users using the data loader and then set this field to True for all the users that you want to sync. Be sure to update any other fields you wish on those users and upload the data back. Then go to Oracle CPQ Cloud Site Setup and click the &apos;Bulk Synchronize&apos; button. Users that have the &apos;Synchronize with Oracle CPQ Cloud&apos; flag set to True will be provisioned or updated and those that have it set to False will be de-provisioned.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If you want to update and synchronize many users at once, you can do so by using the Salesforce Data Loader and the CPQ Cloud Bulk Synchronize feature. Read this field&apos;s description or check the Oracle CPQ Cloud Implementation Guide for more information.</inlineHelpText>
+        <label>Suspend Oracle CPQ Cloud Synchronization</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Currency_Preference__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This picklist contains the possible currency preferences that are available to Oracle CPQ Cloud users. You will need to manually update this picklist with the possible options that are available in your Oracle CPQ Cloud instance.</description>
+        <externalId>false</externalId>
+        <label>Currency Preference</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>USD</fullName>
+                    <default>true</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Date_Time_Format__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This picklist contains the possible date/time format options that are available to Oracle CPQ Cloud users. Do not modify this list.</description>
+        <externalId>false</externalId>
+        <label>Date/Time Format</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>MM/dd/yyyy h:mm a</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>MM/dd/yyyy HH:mm</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>dd/MM/yyyy HH:mm</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>dd.MM.yyyy HH:mm</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>yyyy/MM/dd HH:mm</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Delegated_Approver__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>This field allows you to specify a delegated approver in Oracle CPQ Cloud. The delegated approver feature was introduced in Oracle CPQ Cloud 11.1. Therefore, this field should be left blank if you are using an earlier version of Oracle CPQ Cloud.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If you&apos;d like to have a delegated approver in Oracle CPQ Cloud, select that user here. Please note that the user you select must already be provisioned in Oracle CPQ Cloud.</inlineHelpText>
+        <label>Oracle CPQ Cloud Delegated Approver</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Oracle_Approval_Delegator</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Language_Preference__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This picklist contains the possible language preferences that are available to Oracle CPQ Cloud users. You will need to manually update this picklist with the possible options that are available in your Oracle CPQ Cloud instance.</description>
+        <externalId>false</externalId>
+        <label>Language Preference</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>English</fullName>
+                    <default>true</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Number_Format__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This picklist contains the possible number formats that are available to Oracle CPQ Cloud users. Do not modify this list.</description>
+        <externalId>false</externalId>
+        <label>Number Format</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>####.##</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>####,##</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Oracle_CPQ_Cloud_Login__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This is the value of the Oracle CPQ Cloud user login. It is derived by looking at the part of the Username field before the &apos;@&apos; symbol and removing all special characters. If the result is fewer than three characters, underscores &apos;_&apos; are added at the end to make it long enough.</description>
+        <externalId>false</externalId>
+        <formula>IF(LEN(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(LEFT( Salesforce_User__r.Username, FIND(&quot;@&quot;, Salesforce_User__r.Username)-1),&quot;~&quot;, &quot;&quot;),&quot;`&quot;, &quot;&quot;),&quot;!&quot;, &quot;&quot;),&quot;#&quot;, &quot;&quot;),&quot;$&quot;, &quot;&quot;),&quot;%&quot;, &quot;&quot;),&quot;^&quot;, &quot;&quot;),&quot;&amp;&quot;, &quot;&quot;),&quot;*&quot;, &quot;&quot;),&quot;(&quot;, &quot;&quot;),&quot;)&quot;, &quot;&quot;),&quot;-&quot;, &quot;&quot;),&quot;+&quot;, &quot;&quot;),&quot;=&quot;, &quot;&quot;),&quot;{&quot;, &quot;&quot;),&quot;[&quot;, &quot;&quot;),&quot;}&quot;, &quot;&quot;),&quot;]&quot;, &quot;&quot;),&quot;|&quot;, &quot;&quot;),&quot;&apos;&quot;, &quot;&quot;),&quot;.&quot;, &quot;&quot;),&quot;?&quot;, &quot;&quot;),&quot;/&quot;, &quot;&quot;)) &lt; 3,RPAD(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(LEFT(Salesforce_User__r.Username, FIND(&quot;@&quot;, Salesforce_User__r.Username)-1),&quot;~&quot;, &quot;&quot;),&quot;`&quot;, &quot;&quot;),&quot;!&quot;, &quot;&quot;),&quot;#&quot;, &quot;&quot;),&quot;$&quot;, &quot;&quot;),&quot;%&quot;, &quot;&quot;),&quot;^&quot;, &quot;&quot;),&quot;&amp;&quot;, &quot;&quot;),&quot;*&quot;, &quot;&quot;),&quot;(&quot;, &quot;&quot;),&quot;)&quot;, &quot;&quot;),&quot;-&quot;, &quot;&quot;),&quot;+&quot;, &quot;&quot;),&quot;=&quot;, &quot;&quot;),&quot;{&quot;, &quot;&quot;),&quot;[&quot;, &quot;&quot;),&quot;}&quot;, &quot;&quot;),&quot;]&quot;, &quot;&quot;),&quot;|&quot;, &quot;&quot;),&quot;&apos;&quot;, &quot;&quot;),&quot;.&quot;, &quot;&quot;),&quot;?&quot;, &quot;&quot;),&quot;/&quot;, &quot;&quot;),3, &quot;_&quot;),SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(LEFT(Salesforce_User__r.Username, FIND(&quot;@&quot;, Salesforce_User__r.Username)-1),&quot;~&quot;, &quot;&quot;),&quot;`&quot;, &quot;&quot;),&quot;!&quot;, &quot;&quot;),&quot;#&quot;, &quot;&quot;),&quot;$&quot;, &quot;&quot;),&quot;%&quot;, &quot;&quot;),&quot;^&quot;, &quot;&quot;),&quot;&amp;&quot;, &quot;&quot;),&quot;*&quot;, &quot;&quot;),&quot;(&quot;, &quot;&quot;),&quot;)&quot;, &quot;&quot;),&quot;-&quot;, &quot;&quot;),&quot;+&quot;, &quot;&quot;),&quot;=&quot;, &quot;&quot;),&quot;{&quot;, &quot;&quot;),&quot;[&quot;, &quot;&quot;),&quot;}&quot;, &quot;&quot;),&quot;]&quot;, &quot;&quot;),&quot;|&quot;, &quot;&quot;),&quot;&apos;&quot;, &quot;&quot;),&quot;.&quot;, &quot;&quot;),&quot;?&quot;, &quot;&quot;),&quot;/&quot;, &quot;&quot;))</formula>
+        <label>Oracle CPQ Cloud Login</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Oracle_CPQ_Cloud_Site__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Oracle CPQ Cloud Site</label>
+        <referenceTo>Configuration_Record__c</referenceTo>
+        <relationshipLabel>Oracle Users</relationshipLabel>
+        <relationshipName>Oracle_Users</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Partner_Organization__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field contains the variable name of the partner organization to which this partner user is associated in Oracle CPQ Cloud.</description>
+        <externalId>false</externalId>
+        <formula>IF((Text(Association_to_Organization__c) == &apos;Partner User&apos;), Salesforce_User__r.Contact.Account.Partner_Organization__c, &apos;&apos;)</formula>
+        <label>Partner Organization</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Provisioned__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This field indicates that there is a Oracle CPQ Cloud user that has been linked to this Salesforce user.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this box to establish a link between this Salesforce user and Oracle CPQ Cloud. Linked users will not be prompted to enter login credentials when accessing Oracle CPQ Cloud to create and edit quotes.</inlineHelpText>
+        <label>Synchronize with Oracle CPQ Cloud</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Salesforce_User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Salesforce User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Oracle_Users</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Time_Zone__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This picklist contains the possible time zones that are available to Oracle CPQ Cloud users. Do not modify this list.</description>
+        <externalId>false</externalId>
+        <label>Time Zone</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>(GMT-11:00 GMT-11:00) Samoa</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT-10:00 GMT-10:00) Hawaii</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT-10:00 GMT-9:00) Aleutian</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT-9:30 GMT-9:30) Marquesas</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT-9:00 GMT-9:00) Gambier</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT-9:00 GMT-8:00) Alaska</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT-8:00 GMT-8:00) Pitcairn</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT-8:00 GMT-7:00) US Pacific Time</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT-7:00 GMT-7:00) Arizona</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT-7:00 GMT-6:00) Mountain</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT-6:00 GMT-6:00) Saskatchewan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT-6:00 GMT-5:00) US Central Time</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>(GMT-5:00 GMT-5:00) Indianapolis</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT-5:00 GMT-4:00) US Eastern Time</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT-4:00 GMT-4:00) Puerto Rico</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT-3:00 GMT-4:00) Chile</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT-4:00 GMT-3:00) Canada Atlantic Time</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT-3:00 GMT-3:00) Buenos Aires</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT-3:30 GMT-2:30) Newfoundland</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT-2:00 GMT-3:00) Sao Paulo</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT-2:00 GMT-2:00) Brazil/DeNoronha</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT-1:00 GMT-1:00) Cape Verde</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT-1:00 GMT+0:00) Azores</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+0:00 GMT+0:00) GMT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+0:00 GMT+1:00) London</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+1:00 GMT+1:00) Algiers</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+2:00 GMT+1:00) Windhoek</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+1:00 GMT+2:00) Amsterdam</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+2:00 GMT+2:00) Tripoli</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+2:00 GMT+3:00) Israel</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+3:00 GMT+3:00) Nairobi</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+3:00 GMT+4:00) Moscow</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+3:30 GMT+4:30) Tehran</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+4:00 GMT+4:00) Dubai</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+4:00 GMT+5:00) Oral</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+4:30 GMT+4:30) Kabul</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+5:00 GMT+5:00) Karachi</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+5:00 GMT+6:00) Yekaterinburg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+5:30 GMT+5:30) Calcutta</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+5:45 GMT+5:45) Katmandu</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+6:00 GMT+6:00) Dhaka</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+6:00 GMT+7:00) Novosibirsk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+6:30 GMT+6:30) Rangoon</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+7:00 GMT+7:00) Bangkok</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+7:00 GMT+8:00) Krasnoyarsk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+8:00 GMT+8:00) Taipei</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+8:00 GMT+8:00) Perth</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+8:00 GMT+9:00) Irkutsk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+9:00 GMT+9:00) Seoul</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+9:00 GMT+10:00) Yakutsk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+9:30 GMT+9:30) Darwin</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+10:00 GMT+10:00) Queensland</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+10:30 GMT+9:30) Adelaide</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+11:00 GMT+10:00) Canberra</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>&gt;GMT+11:00 GMT+10:00) Melbourne</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+11:00 GMT+10:00) Sydney</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+10:00 GMT+11:00) Vladivostok</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+11:00 GMT+10:30) Lord Howe</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+11:00 GMT+11:00) Ponape</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+11:00 GMT+12:00) Magadan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+11:30 GMT+11:30) Norfolk</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+12:00 GMT+12:00) Fiji</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+13:00 GMT+12:00) Auckland</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+12:00 GMT+13:00) Kamchatka</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+13:00 GMT+13:00) Enderbury</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>(GMT+13:45 GMT+12:45) Chatham</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Unit_System__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This picklist contains the possible currency preferences that are available to Oracle CPQ Cloud users. Do not modify this list.</description>
+        <externalId>false</externalId>
+        <label>Unit System</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>System Default</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>English</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Metric</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>User_Groups__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This picklist contains the possible user groups to which Oracle CPQ Cloud users may belong. You will need to manually update this picklist with the possible options that are available in your Oracle CPQ Cloud instance. The values in this list should be the variable name, not the display name, of the Oracle CPQ Cloud user groups.</description>
+        <externalId>false</externalId>
+        <label>User Groups</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>a100kparts</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>bDC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>businssAdminstrator</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>controller</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>director</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>dM_Superusers </fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>doS_group</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>dSM </fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>eVPOfSales </fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>legal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>networkEngineer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>rGM_group</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>salesManagement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>salesUser</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Standard</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>technicalAdminstrator</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>vP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>vPOfDM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>vPOfDM   </fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <label>Oracle User</label>
+    <nameField>
+        <label>Oracle User Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Oracle Users</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>BigMachines_Partner_Users</fullName>
+        <active>true</active>
+        <description>In order to link Partner Users, the Salesforce Account must first be linked to a Oracle CPQ Cloud Partner Organization. To do this, enter the variable name of the partner organization in the &quot;Oracle CPQ Cloud Partner Organization&quot; field on the account.</description>
+        <errorConditionFormula>AND(ISPICKVAL( Association_to_Organization__c , &quot;Partner User&quot;), LEN( Salesforce_User__r.Contact.Account.Partner_Organization__c  ) = 0)</errorConditionFormula>
+        <errorDisplayField>Association_to_Organization__c</errorDisplayField>
+        <errorMessage>In order to link to a Oracle CPQ Cloud Partner User, this Salesforce User must be tied to an Account that is mapped to a Partner Organization in Oracle CPQ Cloud. Please consult with your System administrator for further details.</errorMessage>
+    </validationRules>
+</CustomObject>

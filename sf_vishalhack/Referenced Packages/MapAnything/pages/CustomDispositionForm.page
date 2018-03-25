@@ -1,0 +1,91 @@
+<apex:page controller="sma.CustomDispositionForm" showHeader="false" sidebar="false"  showChat="false">
+
+    <apex:variable var="RequestPlatform" value="{!IF($CurrentPage.parameters.platform == null || $CurrentPage.parameters.platform == 'null', 'tablet', LOWER($CurrentPage.parameters.platform))}" />
+
+
+    <apex:form >
+
+        <!--<table class="CustomDispositionFormTable fieldSetTable">-->
+        <!--    <apex:repeat value="{!fields}" var="f">-->
+        <!--        <apex:outputPanel rendered="{! IF(RequestPlatform == 'tablet' && f.Type == 'reference', false, true)}" layout="none">-->
+        <!--            <apex:outputPanel layout="none" rendered="{!f.Type == 'date'}">-->
+        <!--                <tr>-->
+        <!--                    <td class="fieldLabel dateLabel"><b>{!f.Label}<apex:outputText value="*" rendered="{!f.Required || f.DBRequired}"/></b></td>-->
+
+        <!--                    <td class="field::{!f.fieldPath}  fieldInput" data-type="{!f.Type}" data-field="{!f.fieldPath}">-->
+        <!--                        <apex:inputField value="{!obj[f.fieldPath]}" styleClass="get-input {!f.fieldPath} datePick" />-->
+        <!--                    </td>-->
+        <!--                </tr>-->
+        <!--            </apex:outputPanel>-->
+        <!--            <apex:outputPanel layout="none" rendered="{!f.Type != 'date'}">-->
+        <!--                <tr>-->
+        <!--                    <td class="fieldLabel type-{!f.Type}"><b>{!f.Label}<apex:outputText value="*" rendered="{!f.Required || f.DBRequired}"/></b></td>-->
+
+        <!--                    <td class="field::{!f.fieldPath} fieldInput" data-type="{!f.Type}" data-field="{!f.fieldPath}">-->
+        <!--                        <apex:inputField value="{!obj[f.fieldPath]}" styleClass="get-input {!f.fieldPath}" />-->
+        <!--                    </td>-->
+        <!--                </tr>-->
+        <!--            </apex:outputPanel>-->
+        <!--        </apex:outputPanel>-->
+
+        <!--    </apex:repeat>-->
+        <!--    <tr>-->
+        <!--        <td><span style="font-size:10px;">*=Required</span></td>-->
+        <!--    </tr>-->
+
+        <!--</table>-->
+
+        <div class="CustomDispositionFormTable fieldSetTable">
+
+            <apex:repeat value="{!fields}" var="f">
+                <apex:outputPanel rendered="{! IF(RequestPlatform == 'tablet' && f.Type == 'reference', false, true)}" layout="none">
+                    <apex:outputPanel layout="none" rendered="{!f.Type == 'date'}">
+                        <div class="slds-form-element slds-m-top_x-small">
+                            <label class="fieldLabel dateLabel slds-form-element__label">{!f.Label}<apex:outputText value="*" rendered="{!f.Required || f.DBRequired}"/></label>
+
+                            <div class="field::{!f.fieldPath} fieldInput slds-form-element__control" data-type="{!f.Type}" data-field="{!f.fieldPath}">
+                                <apex:inputField value="{!obj[f.fieldPath]}" styleClass="get-input {!f.fieldPath} datePick slds-input" />
+                            </div>
+                        </div>
+                    </apex:outputPanel>
+                    <apex:outputPanel layout="none" rendered="{!f.Type != 'date'}">
+                        <div class="fieldInput slds-form-element__control">
+                            <label class="fieldLabel type-{!f.Type} slds-form-element__label">
+                                <apex:outputText rendered="{!f.Required || f.DBRequired}">
+                                    <abbr class='slds-required' title='required'>*</abbr>
+                                </apex:outputText>
+                                {!f.Label}
+                            </label>
+
+                            <div class="field::{!f.fieldPath}  fieldInput slds-form-element__control" data-type="{!f.Type}" data-field="{!f.fieldPath}">
+                                <apex:inputField value="{!obj[f.fieldPath]}" styleClass="get-input {!f.fieldPath} slds-input" />
+                            </div>
+                        </div>
+                    </apex:outputPanel>
+                </apex:outputPanel>
+
+            </apex:repeat>
+
+        </div>
+
+
+    </apex:form>
+
+    <script>
+        jQuery(function () {
+            picklist.initialized = false;
+            picklist.initAll();
+            //init datepicker if desktop
+            if(MA.IsMobile == false) {
+                //format for jquery ui datepicker
+                var dateFormat = UserContext.dateFormat.replace(/M/g,'m').replace('yyyy','yy');
+                $('.datePick').datepicker({
+                    changeMonth: true,
+                    changeYear: true,
+                    dateFormat : dateFormat
+                });
+            }
+
+        });
+    </script>
+</apex:page>

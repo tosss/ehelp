@@ -1,0 +1,3 @@
+<design:component label="Search Links">
+	    <design:attribute name="searchTerm" label="Search Term" />
+</design:component>

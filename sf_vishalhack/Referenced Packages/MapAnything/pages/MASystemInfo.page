@@ -1,0 +1,12 @@
+<apex:page contentType="text/javascript">
+    /*
+    	----SForceTheme Cheat Sheet----
+        Theme1—Obsolete Salesforce theme
+		Theme2—Salesforce Classic 2005 user interface theme
+		Theme3—Salesforce Classic 2010 user interface theme
+		Theme4d—Modern “Lightning Experience” Salesforce theme
+		Theme4t—Salesforce1 mobile Salesforce theme
+		PortalDefault—Salesforce Customer Portal theme
+		Webstore—Salesforce AppExchange theme
+	*/
+</apex:page>

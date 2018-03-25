@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customObject>true</customObject>
-    <description>Used by Digital Solutions for various products to help determine the specifics for a product&apos;s build out. For example, the Recap provides build, inventory, and domain information for websites.</description>
-    <mobileReady>false</mobileReady>
-    <motif>Custom83: Pencil</motif>
-</CustomTab>

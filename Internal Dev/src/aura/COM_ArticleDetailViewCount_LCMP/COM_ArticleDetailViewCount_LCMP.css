@@ -1,0 +1,32 @@
+.THIS .article-header {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1rem;
+    padding-top: 10px;
+}
+.THIS .header-border-bottom {
+    border-bottom: solid 2px #00B2A9;
+}
+.THIS .icon-custom {
+    display: inline-block;
+    border-radius: .25rem;
+    padding-top: 4px;
+    margin-top: 2px;
+    padding-bottom: 5px;
+}
+
+.THIS .font-style {
+    vertical-align: middle;
+    font-family: Verdana;
+}
+
+.THIS .font-medium {
+    font-size: 9pt;
+}
+.THIS .slds-icon {
+    width: 1.2rem;
+}
+
+.THIS .font-large {
+    font-size: 18pt;
+}

@@ -1,0 +1,5 @@
+<design:component Label="Article Content">
+      <design:attribute name="dsg_knowledgeArticleID" label="Knowledge Article URL Name" />
+      <design:attribute name="articleType" label="Article Type" dataSource="Knowledge__kav,Employee_Community_Article,Customer_Community"
+       description="Type of the Article" required="true"  />
+</design:component>

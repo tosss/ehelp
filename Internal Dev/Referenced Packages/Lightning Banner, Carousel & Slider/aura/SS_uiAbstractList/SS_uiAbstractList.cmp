@@ -1,0 +1,6 @@
+<aura:component abstract="true">
+    <aura:attribute name="listItemTemplate" type="Aura.ComponentDefRef[]" required="false" description="A ComponentDefRef to use as the template for each generated option in the list." access="global"/>
+    <aura:attribute name="dataProvider" type="Aura.Component[]" required="false" description="A list of data provider components" access="global"/>
+    <aura:attribute name="items" type="List" description="items"/>
+    {!v.body}
+</aura:component>

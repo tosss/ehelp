@@ -1,0 +1,6 @@
+<!-- 2016-05-18 -venkata.shrivol@cdk.com  - Changed the confidential field to Confidentiality Status -RQ-05471 -->
+<apex:page standardController="SubProjectSite__c">
+     <c:IMP_ConfidentialText isConfidential="{!(SubProjectSite__c.SubProject_Confidentiality_Status__c == 'Confidential' || 
+    					SubProjectSite__c.SubProject_Confidentiality_Status__c == 'Restricted')}"
+    confidentialityStatus="{!SubProjectSite__c.SubProject_Confidentiality_Status__c}"></c:IMP_ConfidentialText>
+</apex:page>

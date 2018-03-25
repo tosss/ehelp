@@ -1,0 +1,55 @@
+<apex:page controller="sma.MAAutoAssignmentController" setup="true"  showHeader="true" sidebar="true">
+
+    <link type="text/css" rel="stylesheet" href="{!URLFOR($Resource.MapAnythingJS, 'styles/css/salesforce-lightning-design-system-vf-2.3.0.min.css')}" />
+    <link type="text/css" rel="stylesheet" href="{!resourceLocator.path}/styles.css" />
+
+    <!-- MapAnything Configuration Page Styling -->
+    <apex:stylesheet value="{!URLFOR($Resource.sma__MapAnythingJS, 'styles/css/ma-configuration-ui.css')}"/>
+
+    <div class="flex-column full-height">
+        <!-- Header -->
+        <div class="slds-scope">
+            <div class="slds-page-header">
+                <div class="slds-grid">
+                    <div class="slds-col slds-has-flexi-truncate">
+                        <div class="slds-media slds-no-space slds-grow">
+                            <div class="slds-media__figure ma-slds-media__figure">
+                                <span class="slds-icon ma-icon ma-icon-mapanything"></span>
+                            </div>
+                            <div class="slds-media__body">
+                                <p class="slds-text-title--caps slds-line-height--reset">MapAnything</p>
+                                <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate" title="Auto Assignment">Auto Assignment</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ma-select" id="dropdowns"></div>
+            <div id="tooltips"></div>
+        </div>
+
+        <div class="flex-grow-1 flex-row">
+            <div class="flex-shrink-0">
+                <c:MAAdminHeader />
+            </div>
+
+            <div class="flex-grow-1" style="padding: 15px;">
+                <div class="slds-scope">
+                    <div id="main"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{!resourceLocator.path}/dist/bundle.js"></script>
+
+    <script>
+        MA.Bootstrap({
+            "baseUrl": "{!resourceLocator.path}",
+            "planPermissions": {!planPermissionsJSON},
+            "rulePermissions": {!rulePermissionsJSON}
+        });
+    </script>
+
+</apex:page>

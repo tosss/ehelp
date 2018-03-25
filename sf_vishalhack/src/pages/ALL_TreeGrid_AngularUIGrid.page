@@ -1,0 +1,577 @@
+<apex:page controller="ALL_AngularInputFields_Controller" extensions="ALL_TreeGridController_UIGrid" showHeader="false" sidebar="false" standardStylesheets="false">
+    <!-- 2016-12-14  ragashalini.koka@cdk.com  commented the discovery references in the page-->
+    <html ng-app="treegridApp" >
+         <head>
+             <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <apex:stylesheet value="{!URLFOR($Resource.Bootstrap, 'css/bootstrap.min.css')}"/>
+            <apex:stylesheet value="{!URLFOR($Resource.FontAwesome, '4.3.0/css/font-awesome.css')}"/>    
+            <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}" />
+            <apex:includeScript value="{!URLFOR($Resource.angularJS, 'angularJS/bootstrap.min.js')}"/>  
+            <apex:includeScript value="{!URLFOR($Resource.angularJS, 'angularJS/moment.min.js')}"/> 
+            <apex:includeScript value="{!URLFOR($Resource.angularJS, 'angularJS/angular.min.js')}"/>        
+            <apex:includeScript value="{!URLFOR($Resource.angularJS, 'angularJS/angular-moment.min.js')}"/>     
+            <apex:includeScript value="{!URLFOR($Resource.angularJS, 'angularJS/angular-animate.min.js')}"/>
+            <apex:includeScript value="{!URLFOR($Resource.angularJS, 'angularJS/angular-touch.min.js')}"/>
+            <apex:includeScript value="{!URLFOR($Resource.angularJS15, 'angularJS/angular-sanitize.min.js')}"/>
+            <apex:includeScript value="{!URLFOR($Resource.angularJS15, 'angularJS/angular-route.min.js')}"/>
+            <apex:includeScript value="{!URLFOR($Resource.angularJS, 'angularJS/ui-bootstrap-tpls.min.js')}"/>
+           
+            <apex:includeScript value="{!URLFOR($Resource.UIGrid, 'csv.js')}"/>
+            <apex:includeScript value="{!URLFOR($Resource.UIGrid, 'pdfmake.js')}"/>
+            <apex:includeScript value="{!URLFOR($Resource.UIGrid, 'vfs_fonts.js')}"/>
+                 
+             <apex:stylesheet value="{!URLFOR($Resource.UIGrid_CSS)}" />
+             <apex:stylesheet value="{!URLFOR($Resource.UIGridCustom_CSS)}" />
+             <apex:includeScript value="{!URLFOR($Resource.UIGrid, 'UIGrid_JS.js')}"/>
+             
+             <apex:stylesheet value="{!URLFOR($Resource.ALL_AngularInputFields_CSS)}" />
+             
+             <apex:includeScript value="{!URLFOR($Resource.ALL_TreeGrid_JS_UIGrid)}"/>
+             <apex:includeScript value="{!URLFOR($Resource.ALL_TreeGrid_UIGrid_Angular)}" />
+             <apex:includeScript value="{!URLFOR($Resource.ALL_Angular_InputFields_UIGrid)}" />
+             <apex:stylesheet value="{!URLFOR($Resource.ALL_TreeGrid_CSS)}"/>
+             
+             
+             <script>
+             
+             var __sessionId = '{!$Api.Session_ID}';        
+             var totalColumns ;
+             var totalRecords;
+             var currentUserId = '{!$User.Id}';
+             //console.log('user configurations', JSON.parse(localStorage.getItem(currentUserId)));
+             var metadata = JSON.parse('{!objectMetadata}');
+             var searchOpts = JSON.parse('{!allObjects}');
+             var spsPrefix = '{!subprojectSitePrefix}';
+             var customizedFieldsMap = JSON.parse('{!customizedFieldsData}');
+             var contactPicklist = JSON.parse('{!newContactPicklistValues}');
+             var permission = {!hasPermission};
+             var addPermission = {!hasAddPermission};
+             var deletePermission = {!hasDeletePermission};
+             var treeIdentifier = '{!$CurrentPage.parameters.treeId}';                       
+             //var rowColorArr = ['#DAEFFC','#D5FADD','lightgoldenrodyellow'];
+             var isSubProj = ('{!rootParentName}' == 'subproject__c') ? true : false;
+                        
+             var rootId = '{!$CurrentPage.parameters.id}';
+             var zone = '{!timezone}';
+             var parentIdList = JSON.parse('{!levelOneIds}');
+             
+             </script>
+             
+              <script type="text/ng-template" id="selectFieldsMode">
+             <div ng-if="alertMsgForCombinationOfRMSAndNonRms.length>0" class="alert alert-info">
+                 
+                 <span ng-bind-html="alertMsgForCombinationOfRMSAndNonRms"/> 
+                 </div> 
+                            <table class="table" ng-if="selectedObjectForMassUpdate!=''" >
+                            
+                                    <tr ng-repeat="(key,value) in selectedObjectFields" ng-if="value['fieldType_c'] != 'ID' && (value['isUpdateable_c'])">
+                                        <th ng-class="$index==0 ? 'tab':'tab1'">
+                                            <input type="checkbox" id="{{key}}" ng-model="tempVar" ng-change="isUpdateEnabled()">
+                                            </th>
+                                            <th ng-class="$index==0 ? 'tab':'tab1'">{{getValue(key)}}</th>
+                                        </tr>
+                                 </table>
+                            </script>
+             
+               <script type="text/ng-template" id="massUpdateView">
+                               <table class="table" id="massUpdateRecords" style="table-layout:fixed;width:100%" ng-if="selectedObjectForMassUpdate!=''">
+                                  
+                                        <tr ng-repeat="(key,value) in selectedObjectFields" ng-if="massUpdateFieldsSelected.indexOf(key)!=-1">
+                                            <th class="tab">{{value['label_c']}}</th>
+                                            <th class="tab">
+                                              
+                                                <span ng-switch="value['fieldType_c']">
+                                                    <span ng-switch-when="STRING">
+                                                        <input type="text" class="form-control" id="{{key}}" ng-class="{'required':!value['isNillable_c']}" ng-model="massUpdateVal" />
+                                                        <span id="{{value['fieldAPIName_c']}}" class="upsert" dataType="{{value['fieldType_c']}}" style="display:none" >{{massUpdateVal}}</span>
+                                                    </span>
+                                                    <span ng-switch-when="PICKLIST">
+                                                        <input ctype="picklist" ng-Object="{{selectedObjectForMassUpdate}}"  ng-columnNames="{{key}}" id="{{key}}" is-required="{{value['isNillable_c']}}" ng-model="massUpdateVal" picklist-map="picklistValueMap" />
+                                                       
+                                                            <span id="{{value['fieldAPIName_c']}}" class="upsert" dataType="{{value['fieldType_c']}}" style="display:none">{{massUpdateVal}}</span>
+                                                    </span>
+                                                    <span ng-switch-when="PHONE">
+                                                        <input type="phone" class="form-control" id="{{key}}" ng-class="{'required':!value['isNillable_c']}" ng-model="massUpdateVal"/>
+                                                        <span id="{{value['fieldAPIName_c']}}" class="upsert" dataType="{{value['fieldType_c']}}" style="display:none">{{massUpdateVal}}</span>
+                                                    </span>
+                                                    <span ng-switch-when="EMAIL">
+                                                        <input type="email" class="form-control" id="{{key}}" ng-class="{'required':!value['isNillable_c']}" ng-model="massUpdateVal"/>
+                                                            
+                                                        <span id="{{value['fieldAPIName_c']}}" class="upsert"  dataType="{{value['fieldType_c']}}" style="display:none">{{massUpdateVal}}</span>
+                                                    </span>
+                                                    <span ng-switch-when="REFERENCE">
+                                                        <span ng-if="key!='Site__c'" >
+                                                            <input ctype="lookup" ng-Object="{{value['referenceTo_c']}}" ng-columnNames="Id,Name" ng-displayName="Name" is-required="{{value['isNillable_c']}}"  id="{{key}}" ng-model="massUpdateVal" app="TreeGrid"/>
+                                                            <span id="{{value['fieldAPIName_c']}}" class="upsert" dataType="{{value['fieldType_c']}}" style="display:none">{{massUpdateVal}}</span>
+                                                         </span>
+                                                          <span ng-if="key=='Site__c'">  
+                                                        <input ctype="picklist" ng-Object="SubProject"  ng-columnNames="Site"  is-required="{{value['isNillable_c']}}" ng-model="massUpdateVal" id="{{key}}" picklist-map="picklistValueMap"/>
+                                                            <span id="{{value['fieldAPIName_c']}}" class="upsert" dataType="{{value['fieldType_c']}}" style="display:none">{{massUpdateVal}}</span>
+                                                            </span>
+                                                            </span>
+                                                    <span ng-switch-when="CURRENCY"> 
+                                                        <input type="currency" class="form-control" id="{{key}}" ng-class="{'required':!value['isNillable_c']}" ng-model="massUpdateVal"/>
+                                                        <span id="{{value['fieldAPIName_c']}}" class="upsert" dataType="{{value['fieldType_c']}}" style="display:none">{{massUpdateVal}}</span>
+                                                    </span>
+                                                    <span ng-switch-when="MULTIPICKLIST">
+                                                         <input ctype="multipicklist"  ng-Object="{{selectedObjectForMassUpdate}}" class="form-control" ng-columnNames="{{key}}" is-required="{{value['isNillable_c']}}" id="{{key}}" ng-model="massUpdateVal"/>
+                                                         
+                                                            <span id="{{value['fieldAPIName_c']}}" class="upsert" dataType="{{value['fieldType_c']}}" style="display:none">{{massUpdateVal}}</span>
+                                                    </span> 
+                                                    <span ng-switch-when="BOOLEAN">  
+                                                        <input type="checkbox" class="" id="{{key}}" ng-class="{'required':!value['isNillable_c']}" ng-model="massUpdateVal"/>
+                                                        <span id="{{value['fieldAPIName_c']}}" class="upsert" dataType="{{value['fieldType_c']}}" style="display:none">{{massUpdateVal}}</span>
+                                                    </span>
+                                                    <span>
+                                                        <span ng-switch-when="DATE">
+                                                            <input ctype="customDate"  ng-model="massUpdateVal" mo-date-input="yyyy-dd-MM" min-view="day" is-required="{{value['isNillable_c']}}" date-value="{{massUpdateVal}}" time-zone="{{timezone}}"/>
+                                                            <span id="{{value['fieldAPIName_c']}}" class="upsert" dataType="{{value['fieldType_c']}}" style="display:none">{{massUpdateVal | date:"EEE MMM dd yyyy 'GMT 'Z" }}</span>
+                                                        </span>
+                                                        <span ng-switch-when="URL">
+                                                            <input type="url" class="form-control" id="{{key}}" ng-class="{'required':!value['isNillable_c']}" ng-model="massUpdateVal"/>
+                                                            <span id="{{value['fieldAPIName_c']}}" class="upsert" dataType="{{value['fieldType_c']}}" style="display:none">{{massUpdateVal}}</span>
+                                                        </span>
+                                                        <span ng-switch-when="TEXTAREA">
+                                                            <textarea class="form-control" id="{{key}}" ng-model="massUpdateVal" ng-class="{'required':!value['isNillable_c']}"/>
+                                                            <span id="{{value['fieldAPIName_c']}}" class="upsert" dataType="{{value['fieldType_c']}}" style="display:none">{{massUpdateVal}}</span>
+                                                        </span>
+                                                        <span ng-switch-when="ADDRESS">
+                                                            <textarea class="form-control" id="{{key}}" ng-model="massUpdateVal" ng-class="{'required':!value['isNillable_c']}"/>
+                                                            <span id="{{value['fieldAPIName_c']}}" class="upsert" dataType="{{value['fieldType_c']}}" style="display:none">{{massUpdateVal}}</span>
+                                                        </span>
+                                                        <span ng-switch-when="DOUBLE">
+                                                            <input type="text" class="form-control" ng-class="{'required':!value['isNillable_c']}" id="{{key}}" onkeyup="checkInput(this,event)" ng-model="massUpdateVal"/>
+                                                            <span id="{{value['fieldAPIName_c']}}" class="upsert" dataType="{{value['fieldType_c']}}" style="display:none">{{massUpdateVal}}</span>
+                                                        </span>
+                                                        <span ng-switch-when="DATETIME">
+                                                            <input ctype="customDate"  ng-model="massUpdateVal" mo-date-input="yyyy-dd-MM" is-required="{{value['isNillable_c']}}" min-view="hour" date-value="{{massUpdateVal}}" time-zone="{{timezone}}"/>
+                                                            <span id="{{value['fieldAPIName_c']}}" class="upsert" dataType="{{value['fieldType_c']}}" style="display:none">{{massUpdateVal | date:"EEE MMM dd yyyy HH:mm:ss 'GMT 'Z" }}</span>
+                                                        </span>
+                                                        <span ng-switch-default>
+                                                            <input type="text" class="form-control" ng-class="{'required':!value['isNillable_c']}" id="{{key}}" ng-model="massUpdateVal"/>
+                                                            <span id="{{value['fieldAPIName_c']}}" class="upsert" dataType="{{value['fieldType_c']}}" style="display:none">{{massUpdateVal}}</span>
+                                                        </span>
+                                                    </span>
+                                                </th>
+                                            </tr>
+                                           
+                                            </table>
+             </script>
+             
+              <script type="text/ng-template" id="contactView">
+         
+            <div class="alert alert-danger" id="contactError" ng-if="contactSavingError.length!=0 && !showSuccessMsg">
+                <strong> <span ng-bind-html="contactSavingError" ></span></strong>
+            </div>
+              
+                <div class="ng-hide" id="ctctSuccess" style="padding-left: 2%;padding-right: 2%;">
+                    <br/>
+                    <b>Contact Created Successfully!!</b>
+                    <br/>
+                        <br/>
+                  </div> 
+                   <br/>  
+            <table class="table" id="ctctTable">
+                <tr>
+                   <th class="tab" >First Name</th>
+                   <td class="tab"><input type="text" class="form-control required" ng-model="ctctFirstName"/>
+                      <span id="ctctFirstName" style="display:none">{{ctctFirstName}}</span>
+                    </td>
+                  
+                </tr>
+                 <tr>
+                   <th class="tab">Last Name</th>
+                   <td class="tab"><input type="text" class="form-control required" ng-model="ctctLastName"/>
+                       <span id="ctctLastName" style="display:none">{{ctctLastName}}</span>
+                    </td>
+                </tr>  
+                <tr>
+                   <th class="tab">E-mail</th>
+                   <td class="tab"><input type="email" class="form-control" ng-model="ctctEmail" />
+                    <span id="ctctEmail" style="display:none">{{ctctEmail}}</span>   
+                    </td>
+                </tr>
+                
+                    <tr>
+                   <th class="tab">Phone</th>
+                   <td class="tab"><input type="phone" class="form-control " ng-model="ctctPhone"/>
+                        <span id="ctctPhone" style="display:none">{{ctctPhone}}</span>   
+                    </td>
+                </tr>  
+                    <tr>
+                   <th class="tab">Account</th>
+                   <td class="tab">
+                     <input ctype="picklist" ng-Object="Account"  ng-columnNames="Site" id="ctctRole__c" is-required="false" ng-model="accSite" picklist-map="picklistValueMap"  />   
+                     <span id="accSite" style="display:none">{{accSite}}</span>   
+                   </td>
+                </tr>  
+                    <tr>
+                   <th class="tab">Contact Role</th>
+                   <td class="tab">
+                          <input ctype="multipicklist" ng-Object="Contact"  ng-columnNames="Role__c" id="ctctRole__c" is-required="false" ng-model="contactRole" picklist-map="picklistValueMap"  />
+                          <span id="contactRole" style="display:none">{{contactRole}}</span>   
+                   </td>
+                </tr>  
+                    <tr>
+                   <th class="tab">Project Role</th>
+                   <td class="tab">
+                       <input ctype="multipicklist" ng-Object="SubProject_Client_Contact__c"  ng-columnNames="Role__c" id="prjRole__c" is-required="false" ng-model="projectRole" picklist-map="picklistValueMap"  />
+                        <span id="projectRole" style="display:none">{{projectRole}}</span>   
+                </tr>  
+                 
+                </table>
+            
+            </script>
+             <title>{!subProjectName} Milestones ~ Salesforce - Unlimited Edition</title>
+        </head>
+        
+        <body onresize="setHeightOfGrid()">
+            <div ng-controller="treegridCtlr" >
+                <div class="waitingSearchDiv ng-hide" id="el_loading" style="background-color: #ffffff; height:100%;opacity:0.7;z-index: 50;width:100%;position: fixed;">
+                    <div class="waitingHolder" style="top: 100%;width: 100%;">
+                        <div class="popup" style="background-color: #fbfbfb;top:25%;width:auto;position: fixed;display:inline-block;margin-left: 45%;margin-top: 10%;">
+                            <img class="waitingImage" src="/img/loading.gif" title="Please Wait..."/>
+                            <span class="waitingDescription">
+                                <b>Loading...</b>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <nav class="navbar navbar-inverse ng-cloak" id="buttonContainer">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <span class="navbar-brand">{!levelOneParentName} &nbsp;- &nbsp;{!subProjectName}</span>
+                        </div><br/>
+                        
+                        <span class="nav navbar-nav navbar-left">
+                            <span>
+                                <img src="/servlet/servlet.FileDownload?file={!documentIdForLogo}" style="width:100px;height:60px;margin-top:-30px"/> 
+                                
+                                <a class="btn btn-default btn-sm "  title="Display Milestones"  ng-click="expandToLevel(1)" ng-disabled="disableForSave || disableForDelete || disableButtons"> M</a> 
+                                <a class="btn btn-default btn-sm " title="Display Milestones & Activities"  ng-click="expandToLevel(2)" ng-disabled="disableForSave || disableForDelete || disableButtons"> M A</a> 
+                                <a class="btn btn-default btn-sm " title="Display Milestones, Activities & Tasks"  ng-click="expandToLevel(3)" ng-disabled="disableForSave || disableForDelete || disableButtons"> M A T </a> 
+                                
+                                <a class="btn btn-default btn-sm"  ng-click="saveChanges('viewSave')" ng-show="!saveInEdit && saveInView" id="viewSave" title="Saves data without exiting" ng-disabled="disableForSave || disableForDelete || disableButtons">Save</a>
+                                <a class="btn btn-default btn-sm"  ng-click="onEditClicked()"  ng-hide="hideEdit || hideEditInView || !hasPermission" ng-disabled="disableForSave || disableForDelete || disableButtons || (selectedObjectForMassUpdate != '' && selectedObjectForMassUpdate.toLowerCase() != searchOptions[0].ObjectAPIName__c.toLowerCase() )" >Edit</a>
+                                <a class="btn btn-default btn-sm" ng-click="saveChanges('editQuickSave')" ng-show="saveInEdit" title="Saves data without exiting" ng-disabled="disableForSave || disableForDelete || disableButtons || !dataChanged">{{disableForSave ? 'Saving...':'Save'}}</a>
+                                
+                                <a class="btn btn-default btn-sm" ng-click="saveChanges('editSave')" ng-show="saveInEdit" title="Saves data and exits edit screen" ng-disabled="disableForSave || disableForDelete || disableButtons || !dataChanged">{{disableForSave ? 'Saving...':'Save &amp; Exit'}}</a>
+                                
+                                <a class="btn btn-default btn-sm" ng-show="saveInEdit" ng-click="onClearAllChanges()" title="Clears unsaved changes without exiting" ng-disabled="disableForSave || disableForDelete || disableButtons || disableButtonsWhenTasksDonotExist || !dataChanged">Clear All Changes</a>
+                                <a class="btn btn-default btn-sm" ng-show="saveInEdit || saveInView" ng-click="onCancel()" title="Clears unsaved changes and exits edit mode" ng-disabled="disableForSave || disableForDelete || disableButtons || disableButtonsWhenTasksDonotExist">Cancel</a>
+                                <a class="btn btn-default btn-sm" ng-click="onMassUpdate()" ng-show="hasPermission"  title="Change data in multiple fields on selected rows" ng-disabled="disableForSave || disableForDelete || disableButtons || disableButtonsWhenTasksDonotExist || dataChanged || (selectedObjectForMassUpdate == '')" data-toggle="modal" data-target="#fieldSelection">Mass Update</a>
+                                
+                                <span ng-show="saveInEdit && !saveInEdit">
+                                    <a class="btn btn-default btn-sm" ng-click="createNewParentRecord()" ng-disabled="paramId.length==0 || disableForSave || disableForDelete || disableButtons " >Create New {{searchOptions[0].DisplayName__c}}</a>
+                                    <!-- &nbsp;&nbsp;-->
+                                </span>
+                                
+                                
+                                <a class="btn btn-default btn-sm " title="Deletes selected row(s) and its child records" ng-show="hasDeletePermission" ng-click="deleteRecords()"  ng-disabled="disableForSave || disableForDelete || disableButtons || disableButtonsWhenTasksDonotExist || dataChanged || (selectedObjectForMassUpdate == '')">{{disableForDelete ? 'Deleting..':'Delete'}}</a>
+                                
+                                <div class="dropdown" style="display:inline" id="moreDropdown">
+                                    <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" ng-disabled="disableForSave || disableForDelete || disableButtons || disableButtonsWhenTasksDonotExist || dataChanged" >More
+                                        <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" style="min-width:240px !important">
+                                        <li  ng-hide="!hasPermission"><a ng-click="addNewContact=true;" data-toggle="modal" data-target="#addContact">Add Client Contact</a></li>
+                                        <li role="separator" class="divider" ng-show="hasAddPermission"></li>
+                                        <li class= "dropdown-header" ng-show="hasAddPermission">
+                                            <b> Manage PSR Display </b>
+                                        </li>
+                                        <li>
+                                            <a ng-click="displayPSR(true,'MAT')" data-toggle="modal" data-target="#displayPSRModal" ng-show="hasAddPermission"> 
+                                                Select Milestones, Activities and Tasks to Display
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a ng-click="displayPSR(true,'MA')" data-toggle="modal" data-target="#displayPSRModal" ng-show="hasAddPermission">
+                                                Select Milestones and Activities to Display
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a ng-click="displayPSR(false,'MAT')" data-toggle="modal" data-target="#displayPSRModal" ng-show="hasAddPermission" >
+                                                Don't Display(Deselect all records)
+                                            </a>
+                                        </li>
+                                        <li role="separator" class="divider" ng-show="hasAddPermission"></li>
+                                        <li class= "dropdown-header" ng-show="hasAddPermission">
+                                            <b> Add Milestones </b>
+                                        </li>
+                                        <li>
+                                            <a onclick="openAddMilestone('product','{!$CurrentPage.parameters.id}')" ng-show="hasAddPermission" >
+                                                Add Product Milestones
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a onclick="openAddMilestone('standard','{!$CurrentPage.parameters.id}')" ng-show="hasAddPermission">
+                                                Add Standard Milestones
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a onclick="openAddMilestone('standard=product','{!$CurrentPage.parameters.id}')" ng-show="hasAddPermission">
+                                                Add Non-Standard Milestones
+                                            </a>
+                                        </li>
+                                        <li role="separator" class="divider"  ng-show="hasAddPermission"></li>
+                                        <li class= "dropdown-header">
+                                            <b> User Configurations </b>
+                                        </li>
+                                        <li class="ng-hide">
+                                            <a>
+                                                <span style="width:60%">Save By Default</span> 
+                                                <span style="float:right">
+                                                    <div class="btn-group btn-toggle switch"> 
+                                                        <button class="btn btn-xs btn-default" id="on">ON</button>
+                                                        <button class="btn btn-xs btn-primary" id="off">OFF</button>
+                                                    </div>
+                                                </span>
+                                            </a>
+                                            
+                                        </li>
+                                        <li id="showSaveBtn" style="display:block" onclick="onSaveConfigClicked()">
+                                            <a>
+                                                Save 
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a title="Resets Page to System Default Configuration" data-toggle="modal" data-target="#resetConfigurationsModel">
+                                                Reset
+                                            </a>
+                                        </li>
+                                        
+                                        
+                                        
+                                        
+                                    </ul>
+                                </div>
+                                
+                                <a class="btn btn-default btn-sm" ng-show="!saveInEdit"  ng-click="onRefreshClicked()" title="Refreshes data without losing screen customization" ng-disabled="disableForSave || disableForDelete || disableButtons">Refresh</a>
+                                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                <select class="form-control input-sm" id="searchObject" style="width:130px;display:inline;position: relative;" ng-model="selectedObject" ng-disabled="disableForSave || disableForDelete || disableButtons" ng-change="filterModified()"  ng-options="option.ObjectAPIName__c as option.DisplayName__c for option in searchOptionsDuplicate">
+                                </select>
+                                
+                                <div class="input-group" style="top: 11px;display:inline-block;width:262px">
+                                    
+                                    <input aria-label="Search" placeholder="Search using at least 3 characters" id="searchTxt" ng-model="searchValue" ng-model-options="{ debounce: 1000 }" ng-disabled="disableForSave || disableForDelete || disableButtons" class="form-control ng-isolate-scope input-sm applyStyle" ng-change="filterModified()" style="display:inline;width:80%;float: left;" type="text" />
+                                    <span class="input-group-addon input-sm" style="display:inline;width: auto;float: left;"><i class="fa fa-search" style="padding:3px"></i></span>     
+                                </div>
+                                
+                            </span>
+                            <span ng-if="isSubProject" ng-class="!saveInEdit ? 'addMargin':'reduceMargin' ">
+                                <a  class="btn btn-default btn-sm" href="/apex/IMP_SubProjectManagement?id={{paramId}}" ng-disabled="disableForSave || disableForDelete || disableButtons || disableButtonsWhenTasksDonotExist">Details</a>
+                                
+                                <a   class="btn btn-default btn-sm" href="/apex/IMP_CDFLinesCanvasAppView?id={{paramId}}" ng-disabled="disableForSave || disableForDelete || disableButtons || disableButtonsWhenTasksDonotExist">Contract Lines</a>
+                                
+                               <!-- <a  class="btn btn-default btn-sm" ng-show="showDiscovery" href="/apex/IMP_DiscoveryView?id={{paramId}}" ng-disabled="disableForSave || disableForDelete || disableButtons || disableButtonsWhenTasksDonotExist">Discovery</a>-->
+                               
+                            </span>   
+                            
+                        </span>
+                        
+                    </div>
+                </nav>
+                
+                <div class="modal fade" id="fieldSelection" role="dialog" data-backdrop="static" data-keyboard="false" >
+                    <div class="modal-dialog"  style="width:30% !important">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header" ng-show="selectedObjectForMassUpdate!=''">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title" >Select Fields To Update</h4>
+                            </div>
+                            <div class="modal-body" style="padding-left:15px !important;padding-right:15px !important">
+                                <h4 ng-show="selectedObjectForMassUpdate=='' " >No records are selected</h4>
+                                <div class="showFieldsToUpdate" ng-include="'selectFieldsMode'" ng-if="selectedObjectForMassUpdate!=''"></div>
+                            </div>
+                            <div class="modal-footer">
+                                <div ng-show="selectedObjectForMassUpdate==''">
+                                    <input type="button" class="btn btn-default" value="Ok"  data-dismiss="modal" />
+                                </div> 
+                                <div ng-show="selectedObjectForMassUpdate!=''">
+                                    <input type="button" class="btn btn-default" value="Next" ng-click="getSelectedFields()" data-dismiss="modal" id="optionsOK" data-toggle="modal" data-target="#updateFieldsDisplay" ng-disabled="isDisabled"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    
+                                    <input type="button" class="btn btn-default" value="Cancel" ng-click="objectSelectedFields={};"  data-dismiss="modal" id="optionsCancel"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal fade" id="updateFieldsDisplay" role="dialog" data-backdrop="static" data-keyboard="false" >
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title" >Update Fields</h4>
+                                
+                            </div>
+                            <div class="modal-body" style="display:inline;padding-left:0px !important;padding-right:0px !important">
+                                <div class="massUpdateFields" ng-include="'massUpdateView'" style="padding-left: 2%;padding-right: 2%;"></div>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="button" class="btn btn-default"   value="Previous" ng-click="onMassUpdate()" data-dismiss="modal" data-toggle="modal" data-target="#fieldSelection"  id="previous"/>
+                                
+                                <input type="button" class="btn btn-default"   value="Update" ng-click="massUpdateFields()" data-dismiss="modal" id="updateOK"/>
+                                
+                                
+                                <input type="button" class="btn btn-default" value="Cancel"  data-dismiss="modal" id="updateCancel"/>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                
+                <!-- Modal to display the New Contact -->
+                <div class="modal fade" id="addContact" role="dialog" ng-if="addNewContact" style="z-index:15 !important"  data-backdrop="static" data-keyboard="false">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" ng-click="closeContactDialog();" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title" >Add Contact</h4>
+                            </div>
+                            <div class="modal-body" style="display:inline;padding-left:0px !important;padding-right:0px !important">
+                                
+                                <div ng-if="picklistValueMap['account-site'].length>0"  ng-include="'contactView'"  style="padding-left: 2%;padding-right: 2%;"></div> 
+                                
+                                
+                                <div ng-if="!picklistValueMap.hasOwnProperty('account-site') || picklistValueMap['account-site'].length<=0"  style="padding-left: 2%;padding-right: 2%;">
+                                    <br/>
+                                    <b>Please add at least one SubProject Site to this SubProject</b>
+                                    <br/><br/>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <span ng-if="picklistValueMap['account-site'].length>0 " >
+                                    <input type="button" class="btn btn-default" value="Save" ng-click="onContactSaved()"  data-toggle="modal"   id="contactSave"/>
+                                    <input type="button" class="btn btn-default" value="Close" ng-click="closeContactDialog();" data-dismiss="modal" id="contactCancel"/>
+                                    <input type="button" class="btn btn-default ng-hide" ng-click="closeContactDialog()"   value="Ok"  data-dismiss="modal" id="ctctSuccessBtn"/>
+                                </span>
+                                <span ng-if="!picklistValueMap.hasOwnProperty('account-site') || showSuccessMsg">
+                                    <input type="button" class="btn btn-default" ng-click="closeContactDialog()" value="Ok"  data-dismiss="modal" id="ctctOk"/>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>      
+                <!-- Modal to display the Manage PSR Display of Records -->
+                <div class="modal fade" id="displayPSRModal" role="dialog" style="z-index:15 !important"  data-backdrop="static" data-keyboard="false">
+                    
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button"  class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title" >Manage PSR Display of Records</h4>
+                                
+                            </div>
+                            <div class="modal-body" style="display:inline;padding-left:0px !important;padding-right:0px !important">
+                                <div style="padding-left: 2%;padding-right: 2%;">
+                                    <span ng-bind-html="PSRDisplayMsg"/>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <span ng-show="showActionButtonsforPSR">
+                                    <input type="button" class="btn btn-default" value="Ok" ng-click="confirmPSR()" data-dismiss="modal"/>
+                                    <input type="button" class="btn btn-default" value="Cancel" data-dismiss="modal"/>
+                                </span>
+                                <span ng-show="!showActionButtonsforPSR">
+                                    <input type="button" class="btn btn-default" value="Ok"  data-dismiss="modal"/>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal to display errors due to network failure-->
+                <div class="modal fade" id="reloadModal" style="z-index:70 !important"  data-backdrop="static" data-keyboard="false">
+                    <div class="modal-dialog" >
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                
+                                <h4 class="modal-title">OOPS!!</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Something went wrong. Please try to refresh the page.</p>
+                            </div>
+                            <div class="modal-footer">
+                                
+                                <button type="button" class="btn btn-primary" onclick="fetchAllRecords()">Refresh</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal fade" id="resetConfigurationsModel" style="z-index:70 !important"  data-backdrop="static" data-keyboard="false">
+                    <div class="modal-dialog" >
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button"  class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Reset Configurations</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Your page will be reset to the system default configuration.  
+                                    All saved user configurations (column width, order, etc.) will be lost and need to be redone.<br/> 
+                                    <b>Any edits to data that have not been saved will also be lost.</b><br/> <br/><b>Would you like to continue?</b></p>
+                            </div>
+                            <div class="modal-footer">
+                                
+                                <button type="button" class="btn btn-primary" onclick="resetConfig()" data-dismiss="modal">Yes</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             
+                       <div class="modal fade" id="editBtnWarning" style="z-index:70 !important"  data-backdrop="static" data-keyboard="false">
+                    <div class="modal-dialog" >
+                        <div class="modal-content">
+                             <div class="modal-header">
+                                   <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Confirm Edit</h4>
+                            </div>
+                          
+                            <div class="modal-body" style="line-height: 2em !important">
+                                <p>You have clicked on Edit without selecting any Milestones. If you continue, you may experience slowness. Please consider one of the following recommendations:
+                                    
+                                    <br/>1. If you want to edit several activities &amp; tasks under a milestone, do not continue. First select the milestone by clicking the checkbox on the row and then click edit in the header.
+                                    <br/>2. If you are entering the same data on multiple records, do not continue. First select the row of the milestones, activities or tasks you want to change and then click the Mass Update button in the header.
+                                    <br/>3. If you want to complete a task(s), do not continue. Instead use the edit button at the beginning of the row for that task. You will be able to easily tab through each editable field and enter the needed information to close out your task.
+                                    <br/>4. If you want to edit various fields on multiple milestones, activities and tasks do not continue. Consider using inline editing by just clicking in the field you want to change. You can make several changes on multiple rows. When done, just hit save in the header.
+                                    <br/> <br/><b>Would you like to continue?</b></p>
+                            </div>
+                            <div class="modal-footer">
+                                
+                                <button type="button" class="btn btn-primary" onclick="confirmEdit()" data-dismiss="modal">Yes</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+         
+                
+                <div id="container">
+                    <div class="alert ng-hide" id="alertMain" style="width:80%;margin:2px;height:50px">
+                        <a  class="close" ng-click="closeAlert()">&times;</a>
+                        <span id="alertMsg"> </span>
+                    </div>
+                    
+                    <div id="treeGrid" 
+                         ui-if="gridOptions.data.length>0"
+                         ui-grid="gridOptions" 
+                         ui-grid-tree-view="ui-grid-tree-view" 
+                         ui-grid-edit="ui-grid-edit" 
+                         ui-grid-selection="ui-grid-selection" 
+                         ui-grid-pinning="ui-grid-pinning" 
+                         ui-grid-row-edit="ui-grid-row-edit"
+                         ui-grid-move-columns="ui-grid-move-columns"
+                         ui-grid-exporter="ui-grid-exporter"
+                         ui-grid-resize-columns="ui-grid-resize-columns"
+                         class="grid">
+                    </div> 
+                </div>   
+                
+            </div>
+        </body>
+    </html>
+</apex:page>

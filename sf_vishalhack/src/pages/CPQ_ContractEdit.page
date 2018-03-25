@@ -1,0 +1,12 @@
+<!-- 2016-11-21 - vishal.bandari@cdk.com - created page  RQ-08198 -->
+<apex:page standardController="Contract"  >
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.11.2.min.js')}"/>
+    <script>
+    jQuery(document).ready(function(){
+        window.open('/'+jQuery('#Quote').val()+'/e','_self');
+    });
+    </script>
+    <body >
+        <input type="hidden" value="{!contract.Oracle_Quote__c}" id="Quote" />
+    </body>
+</apex:page>

@@ -1,0 +1,118 @@
+<apex:page standardController="BigMachines__Configuration_Record__c" extensions="BigMachines.BigMachinesViewSiteController" action="{!resetPassword}">
+    <apex:sectionHeader title="{!$ObjectType.BigMachines__Configuration_Record__c.Label}" subtitle="{!BigMachines__Configuration_Record__c.Name}" />
+    <div class="bPageTitle">
+        <div class="ptBody secondaryPalette">
+            <div class="links">
+                <a href="javascript:openPopupFocusEscapePounds(%27/help/doc/user_ed.jsp?loc=help&amp;target=co_edit.htm&amp;section=CustomObjects%27, %27Help%27, 700, 600, %27width=700,height=600,resizable=yes,toolbar=yes,status=no,scrollbars=yes,menubar=yes,directories=no,location=no,dependant=no%27, false, false);" title="Help for this Page (New Window)">
+                    <span class="helpLink">Help for this Page</span><img src="/s.gif" alt="Help" class="helpIcon" title="Help"/>
+                </a>
+            </div>
+        </div>
+        <div class="ptBreadcrumb">
+            &nbsp;&#171;&nbsp;<apex:outputLink value="{!breadcrumb}">Back to List: {!$ObjectType.BigMachines__Configuration_Record__c.LabelPlural}</apex:outputLink>
+        </div>
+    </div>
+    <apex:form id="site_view_form">
+        <apex:PageMessages id="messages" />
+        <apex:pageBlock title="Oracle CPQ Cloud Site Detail" mode="maindetail" id="site_view_page_block">
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value=" Edit " action="{!edit}" />
+                <apex:commandButton value="Delete" action="{!delete}" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection >
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__bm_site__c}"/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.Name}"/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__Connected_App_Name__c}"/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__Is_Active__c}"/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__process_id__c}"/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__Description__c}"/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__action_id_copy__c}"/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__Primary_Commerce_Process__c}"/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__action_id_open__c}"/>
+                <apex:outputText >&nbsp;</apex:outputText>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__document_id__c}"/>
+                <apex:outputText >&nbsp;</apex:outputText>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__version_id__c}"/>
+                <apex:outputText >&nbsp;</apex:outputText>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__process__c}"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Owner"/> 
+                    <apex:outputPanel >
+                        <apex:outputField value="{!BigMachines__Configuration_Record__c.OwnerId}"/>
+                        [<apex:outputLink value="{!changeOwner}">Change</apex:outputLink>]
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Created By"/> 
+                    <apex:outputPanel >
+                        <apex:outputField value="{!BigMachines__Configuration_Record__c.CreatedById}"/>,&nbsp;
+                        <apex:outputField value="{!BigMachines__Configuration_Record__c.CreatedDate}"/>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Last Modified By"/> 
+                    <apex:outputPanel >
+                        <apex:outputField value="{!BigMachines__Configuration_Record__c.LastModifiedById}"/>,&nbsp;
+                        <apex:outputField value="{!BigMachines__Configuration_Record__c.LastModifiedDate}"/>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection columns="2" collapsible="true" showHeader="true" title="Oracle CPQ Cloud API Administrator">
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__API_Login__c}" />
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Users to be Reconciled" rendered="{!BigMachines__Configuration_Record__c.BigMachines__Is_Active__c}" />
+                    <apex:outputText value="{!usersToSync}" rendered="{!BigMachines__Configuration_Record__c.BigMachines__Is_Active__c}" />
+                </apex:pageBlockSectionItem>                
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__API_Password__c}" rendered="{!canViewPassword}" />
+                <apex:pageBlockSectionItem rendered="{!cannotViewPassword}">
+                    <apex:outputLabel value="API Admin Password"/> 
+                    <apex:outputText >*****</apex:outputText>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Check Connection" action="{!checkAdmin}" disabled="{!hasMessages}" />
+                <apex:commandButton value="Bulk Reconcile Users" action="{!bulkReconcileUsers}" disabled="{!disableBulkReconcileButton}" rendered="{!BigMachines__Configuration_Record__c.BigMachines__Is_Active__c}" />
+                <apex:commandButton value="Clear Messages" action="{!clearMessages}" />
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection collapsible="true" showHeader="true" title="Oracle Users" id="oracle_users">
+                <c:CPQCustomRelatedList ctl="{!controller}" />
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection columns="2" collapsible="true" showHeader="true" title="New Oracle User Defaults" id="new_user_defaults">
+                <apex:outputLabel value="Use Default Value?"/>
+                <apex:outputText value="Default Values"/>
+                    
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__Use_Default_Bulk_Synchronization__c}" label="" rendered="{!BigMachines__Configuration_Record__c.BigMachines__Primary_Commerce_Process__c}"/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__Default_Bulk_Synchronization__c}" rendered="{!BigMachines__Configuration_Record__c.BigMachines__Primary_Commerce_Process__c}"/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__Use_Default_Provisioned__c}" label="" rendered="{!BigMachines__Configuration_Record__c.BigMachines__Primary_Commerce_Process__c}"/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__Default_Provisioned__c}" rendered="{!BigMachines__Configuration_Record__c.BigMachines__Primary_Commerce_Process__c}"/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__Use_Default_Allow_Quote_Creation__c}" label=""/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__Default_Allow_Quote_Creation__c}"/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__Use_Default_Number_Format__c}" label="" rendered="{!BigMachines__Configuration_Record__c.BigMachines__Primary_Commerce_Process__c}"/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__Default_Number_Format__c}" rendered="{!BigMachines__Configuration_Record__c.BigMachines__Primary_Commerce_Process__c}"/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__Use_Default_Date_Time_Format__c}" label="" rendered="{!BigMachines__Configuration_Record__c.BigMachines__Primary_Commerce_Process__c}"/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__Default_Date_Time_Format__c}" rendered="{!BigMachines__Configuration_Record__c.BigMachines__Primary_Commerce_Process__c}"/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__Use_Default_Language_Preference__c}" label="" rendered="{!BigMachines__Configuration_Record__c.BigMachines__Primary_Commerce_Process__c}"/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__Default_Language_Preference__c}" rendered="{!BigMachines__Configuration_Record__c.BigMachines__Primary_Commerce_Process__c}"/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__Use_Default_Association_to_Organization__c}" label="" rendered="{!BigMachines__Configuration_Record__c.BigMachines__Primary_Commerce_Process__c}"/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__Default_Association_to_Organization__c}" rendered="{!BigMachines__Configuration_Record__c.BigMachines__Primary_Commerce_Process__c}"/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__Use_Default_Access_Type__c}" label="" rendered="{!BigMachines__Configuration_Record__c.BigMachines__Primary_Commerce_Process__c}"/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__Default_Access_Type__c}" rendered="{!BigMachines__Configuration_Record__c.BigMachines__Primary_Commerce_Process__c}"/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__Use_Default_Currency_Preference__c}" label="" rendered="{!BigMachines__Configuration_Record__c.BigMachines__Primary_Commerce_Process__c}"/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__Default_Currency_Preference__c}" rendered="{!BigMachines__Configuration_Record__c.BigMachines__Primary_Commerce_Process__c}"/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__Use_Default_Unit_System__c}" label="" rendered="{!BigMachines__Configuration_Record__c.BigMachines__Primary_Commerce_Process__c}"/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__Default_Unit_System__c}" rendered="{!BigMachines__Configuration_Record__c.BigMachines__Primary_Commerce_Process__c}"/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__Use_Default_User_Groups__c}" label="" rendered="{!BigMachines__Configuration_Record__c.BigMachines__Primary_Commerce_Process__c}"/>
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__Default_User_Groups__c}" rendered="{!BigMachines__Configuration_Record__c.BigMachines__Primary_Commerce_Process__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    <apex:relatedList list="BigMachines_Field_Mappings__r"/>
+    
+    <script>
+        twistSection(document.getElementById('{!$Component.site_view_form.site_view_page_block.new_user_defaults}').getElementsByTagName('img')[0]);
+        twistSection(document.getElementById('{!$Component.site_view_form.site_view_page_block.oracle_users}').getElementsByTagName('img')[0]);
+    </script>
+</apex:page>

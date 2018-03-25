@@ -1,0 +1,24 @@
+<aura:component implements="forceCommunity:layout,forceCommunity:availableForAllPageTypes" description="4 columns with 1:1:1:1 ratio" access="global">
+    <aura:attribute name="column1" type="Aura.Component[]" required="false"></aura:attribute>
+    <aura:attribute name="column2" type="Aura.Component[]" required="false"></aura:attribute>
+    <aura:attribute name="column3" type="Aura.Component[]" required="false"></aura:attribute>
+    <aura:attribute name="column4" type="Aura.Component[]" required="false"></aura:attribute>
+
+    <div class="container">
+        <div class="contentPanel">
+            <div class="col1 colGutter">
+                {!v.column1}
+            </div>
+            <div class="col2 colGutter">
+                {!v.column2}
+            </div>
+            <div class="col3 colGutter">
+                {!v.column3}
+            </div>
+            <div class="col4 colGutter">
+                {!v.column4}
+            </div>
+        </div>
+        <div style="clear:both; width:100%;"></div>
+    </div>
+</aura:component>

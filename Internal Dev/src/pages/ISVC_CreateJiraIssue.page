@@ -1,0 +1,96 @@
+<apex:page id="ISVC_CreateJiraIssue" standardController="Case" extensions="ISVC_CreateJiraIssue_Extension" showHeader="false">
+    <script type='text/javascript' src='/canvas/sdk/js/publisher.js'/>
+    <script>
+        function startCreateJiraIssue(){
+            document.getElementById('save_btn').disabled = true;
+            createJiraIssue();
+        }
+        function finishCreateJiraIssue(){
+            document.getElementById('save_btn').disabled = false;
+            refreshFeed();
+        }
+        function refreshFeed() {
+            Sfdc.canvas.publisher.publish({name : 'publisher.refresh', payload : {feed:true, objectRelatedLists:{}}});
+        }
+    </script>
+    <style>
+        .requiredInput .requiredBlock, .requiredBlock {background-color: white;}
+        .block {
+            width: 100%;
+            clear: both;
+        }
+        .label {
+            font-size: 12px;
+            font-weight: bold;
+            padding: 7px;
+            float: left;
+        }
+        .textField {
+            margin: 5px;
+            padding: 2px;
+        }
+        .textArea {
+            width: 95%;
+            height: 125px;
+            margin: 7px;
+            margin: 5px;
+            padding: 2px;
+            resize: none;
+        }
+        .picklist {
+            border: none;
+            height: 30px;
+            padding-top: 6px;
+            padding-bottom: 6px;
+            padding: 7px;
+        }
+        .button {
+            position:fixed;
+            bottom:0px;
+            right:0px;
+            padding: 0 16px;
+            font-size: 12px;
+            font-weight: normal;
+            line-height: 27px;
+            border-color: #e0e5ee;
+            color: #fff;
+            background: #0070d2;
+        }
+    </style>
+    <apex:form >
+        <apex:actionFunction action="{!createJiraIssue}" name="createJiraIssue" status="status" oncomplete="finishCreateJiraIssue();" rerender="mainPanel"/>
+        <apex:actionStatus id="status">
+            <apex:facet name="start">
+                <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.25; z-index: 1000; background-color: black;">
+                    &nbsp;
+                </div>
+                <div style="position: fixed; left: 0; top: 0; bottom: 0; right: 0; z-index: 1001; margin: 15% 50%">
+                    <div style="display: inline-block; padding: 2px; background-color: #fff; width: 125px;">
+                        <img src="/img/loading.gif" style="float: left; margin: 8px;" />
+                        <span style="display: inline-block; padding: 10px 0px;">Please Wait...</span>
+                    </div>
+                </div>
+            </apex:facet>
+        </apex:actionStatus>
+        <apex:outputPanel id="mainPanel">
+            <apex:pageMessages />
+            <div class="block">
+                <div class="label"><apex:outputLabel value="{!$Label.ISVC_JiraProjects}"/></div>
+                <div>
+                <apex:selectList value="{!jiraProjectKey}" size="1" styleClass="picklist">
+                		<apex:selectOptions value="{!jiraProjects}"/>
+                	</apex:selectList>
+                </div>
+            </div>
+            <div class="block">
+                <apex:outputLabel value="{!$Label.ISVC_JiraIssueSummary}" styleClass="label"/>
+                <apex:inputField value="{!Case.Subject}" styleClass="textField"/>
+            </div>
+            <div class="block">
+                <apex:outputLabel value="{!$Label.ISVC_JiraIssueDescription}" styleClass="label"/>
+                <apex:inputField value="{!Case.Description}" styleClass="textArea"/>
+            </div>
+        </apex:outputPanel>
+    </apex:form>
+    <button id="save_btn" type="button" onclick="startCreateJiraIssue();" class="button">{!$Label.ISVC_CreateJIRAIssue}</button>
+</apex:page>

@@ -1,0 +1,11 @@
+<design:component label="Article List with Images">
+    <design:attribute name="dsg_topicName" label="Topic Name" />
+    <design:attribute name="dsg_headerName" label="Header Name" />
+    <design:attribute name="dsg_articleCounter" label="Article Count" />
+    <design:attribute name="color" label="Color" datasource="None,Green, Black, White, Dark-Green, Blue, Teal, Alt-Green, Light-Green, Yellow, Khaki, Purple, Burgundy, Soft-Black, Medium-Grey, Light-Grey, Beige" default="Blue" description="Which brand color should be used?" />
+    <design:attribute name="showPagination" label="Show Pagination" description="Checkbox(true or false)" datasource="Yes,No"/>
+    <design:attribute name="dsgn_sortBy"  label="Sort By" datasource="Name, Published Date" description="sort the article list by "/>
+    <design:attribute name="dsgn_showImage" label="View type" datasource="Normal view, Compact view"/>
+    <design:attribute name="dsgn_showViews" label="Show view count" datasource="Yes, No"/>
+
+</design:component>

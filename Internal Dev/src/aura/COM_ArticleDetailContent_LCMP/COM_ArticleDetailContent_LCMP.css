@@ -1,0 +1,43 @@
+.THIS .article-header {
+    text-align: center;
+    margin: auto;
+    text-transform: uppercase;
+    
+}
+
+.THIS p{
+    padding-bottom: 10px;
+}
+
+.THIS img{
+        margin-bottom:10px;
+}
+.THIS .hide-summary{
+    display: none;
+}
+.THIS .slds-avatar {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    color: #ffffff;
+}
+
+.THIS .style16 { 
+    border-top: 1px dashed #8c8b8b; 
+    text-align: center;
+    
+} 
+
+.THIS .style16 {
+    display: block;
+    margin: 0rem 0 !important;
+    height: 1px;
+    clear: both;
+}
+
+.THIS .Icon{
+    position: absolute;
+    
+    margin-top: -10px;
+}

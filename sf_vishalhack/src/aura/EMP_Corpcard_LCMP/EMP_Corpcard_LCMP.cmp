@@ -1,0 +1,453 @@
+<!--***************************************************************************************** 
+***** 03/28/2017 vijay.manimaran@cdk.com Created 
+*****
+********************************************************************************************* 
+-->
+
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" controller="EMP_Corpcard_Controller">
+    
+    <aura:attribute name="portalForm" type="Portal_Form__c" default="{ 'sobjectType': 'Portal_Form__c'}" />
+    <aura:attribute name="src" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="attachment" type="String" default="field=Attachment__Body__s" />
+    <aura:attribute name="modalBody" type="String" />
+    <aura:attribute name="modalHeader" type="String" default="Thank you " />
+    <aura:attribute name="clickedPolicy" type="String" />
+    <aura:attribute name="selectedLocation" type="String" />
+    <aura:attribute name="toggleSpinner" type="boolean" default="false" />
+    <aura:attribute name="portalForms" type="String" />
+    <aura:attribute name="fieldValidation" type="String" />
+    <aura:attribute name="validationMessage" type="String" />
+    <aura:attribute name="documentID" type="String" />
+    <aura:attribute name="pendingRequest" type="String" />
+    <aura:attribute name="policyModal" type="String" default="false"/>
+    <aura:method name="showSpinnerMethod" action="{!c.showSpinner}" description=""></aura:method>
+    <aura:method name="hideSpinnerMethod" action="{!c.hideSpinner}" description=""></aura:method>
+    
+    <ui:spinner aura:id="spinner" class="spinner-override" />
+    
+    
+    <div>
+        <!-- check status on the card -->
+        <div class="hide-form form-height" aura:id="validationMessage">
+            <div class="validation-custom">
+                
+                <ul class="slds-has-dividers--around-space">
+                    <li class="slds-item">
+                        <div class="slds-tile slds-tile--board">
+                            <h2>{!v.validationMessage}</h2>
+                            <div class="slds-tile__detail slds-text-body--small">
+                                <p>
+                                    Click here to send email to corporate card Administration for more questions.
+                                    <br/>
+                                    <lightning:icon iconName="utility:error" variant="error" size="large" />
+                                    <br/>
+                                    <aura:if isTrue="{!v.src =='PCard'}">
+                                        <a class="slds-button slds-button--success"
+                                           href="https://mycdk.force.com/intranet/s/corporate-credit-card-form?type=PCardEmail" style="margin-top:10px;">SEND EMAIL </a>
+                                    </aura:if>
+                                    <aura:if isTrue="{!v.src !='PCard'}">
+                                        <a class="slds-button slds-button--success" href="mailto:corpcardadmin@cdk.com" style="margin-top:10px;">SEND EMAIL </a>
+                                    </aura:if>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div aura:id="PCardEmail" class="hide-form">
+            <p>
+                Kindly send an email, which was opened in your email outlook.
+                
+            </p>
+            
+        </div>
+        <div aura:id="fullForm" class="hide-form form-height">
+            <h1 class="slds-text-heading--small">{!v.src}</h1>
+            
+            <hr/>
+            <div aura:id="location" class="">
+                <h3 class="slds-section-title--divider">Pick your Location</h3>
+                
+                <button class="slds-button slds-button--neutral button-country" onclick="{!c.pickLocation}" id="US" aura:id="US">United States</button>
+                <button class="slds-button slds-button--neutral button-country" onclick="{!c.pickLocation}" id="Canada" aura:id="Canada">Canada</button>
+                <button class="slds-button slds-button--neutral button-country" onclick="{!c.pickLocation}" id="French" aura:id="French">Canada French</button>
+                <hr/>
+            </div>
+            <div id="acknowledgmentsDiv" style="display:none">
+                <div id="acknowledgmentsDiv" class="hideFormDiv">
+                    <h3 class="slds-section-title--divider"> Click and acknowledge the buttons below. </h3>
+                    <button class="slds-button slds-button--primary " disabled="" onclick="{!c.showModal}" id="TEPolicy" aura:id="TEPolicy"> Travel and Expense Policy </button>
+                    <button class="slds-button slds-button--primary " disabled="" onclick="{!c.showModal}" id="TCPolicy" aura:id="TCPolicy"> Terms and Conditions </button>
+                    <button class="slds-button slds-button--primary " disabled="" onclick="{!c.showModal}" id="PCPolicy" aura:id="PCPolicy"> P-Card Policy</button>
+                    <button class="slds-button slds-button--primary " disabled="" onclick="{!c.showModal}" id="MEPolicy" aura:id="MEPolicy"> Meeting and Events Policy</button>
+
+                    <hr/>
+                </div>
+            </div>
+            <div aura:id="completeFormincreaselimit" class="hide-form">
+                <h3 class="slds-section-title--divider">Complete the Form</h3>
+                
+                <div class="slds-form--horizontal">
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label">Beginning Date</label>
+                        <div class="slds-form-element__control">
+                            <force:inputField aura:id="beginDate" value="{!v.portalForm.BOA_Beginning_Date__c}" />
+                        </div>
+                    </div>
+                    
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label">End Date </label>
+                        <div class="slds-form-element__control">
+                            <force:inputField aura:id="endDate" value="{!v.portalForm.BOA_End_Date__c}" />
+                        </div>
+                    </div>
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label">Justification </label>
+                        <div class="slds-form-element__control">
+                            <force:inputField aura:id="justification" value="{!v.portalForm.BOA_Increase_Justification__c}" />
+                        </div>
+                    </div>
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label">Amount </label>
+                        <div class="slds-form-element__control">
+                            <force:inputField aura:id="amount" value="{!v.portalForm.BOA_Currency_USD_CAD__c}" />
+                        </div>
+                    </div>
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label">Card Type </label>
+                        <div class="slds-form-element__control">
+                            <force:inputField aura:id="cardType" value="{!v.portalForm.BOA_Card_Type__c}" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="completeForm" style="display:none">
+                <h3 class="slds-section-title--divider">Complete the Form</h3>
+                
+                <div class="slds-form--horizontal">
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label">Name on the Card </label>
+                        <div class="slds-form-element__control">
+                            <force:inputField aura:id="nameOnCard" value="{!v.portalForm.BOA_NameOnCard__c}" />
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label">Mailing Address</label>
+                        <div class="slds-form-element__control">
+                            <force:inputField aura:id="mailingAddress" value="{!v.portalForm.BOA_Mailing_Address__c}" /> *CDK recommends using your home address to complete this form. This address is only used for the Bank of America card you are requesting. It will NOT update your CDK Address on file. Your new corporate card and corresponding
+                            PIN will be mailed to the address provided. Bank of America will validate to this address / zip code when purchases require zip code for validation, such as fuel purchases.
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label">Address Line 2 </label>
+                        <div class="slds-form-element__control">
+                            <force:inputField aura:id="addressLine2" value="{!v.portalForm.BOA_Address_Line_2__c}" />
+                        </div>
+                    </div>
+                    
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label">Address Line 3 </label>
+                        <div class="slds-form-element__control">
+                            <force:inputField aura:id="addressLine3" value="{!v.portalForm.BOA_Address_Line_3__c}" />
+                        </div>
+                    </div>
+                    
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label">Address Line 4</label>
+                        <div class="slds-form-element__control">
+                            <force:inputField aura:id="addressLine4" value="{!v.portalForm.BOA_Address_Line_4__c}" />
+                        </div>
+                    </div>
+                    
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label">City</label>
+                        <div class="slds-form-element__control">
+                            <force:inputField aura:id="city" value="{!v.portalForm.BOA_City__c}" />
+                        </div>
+                    </div>
+                    
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label">State / Province</label>
+                        <div class="slds-form-element__control">
+                            <force:inputField aura:id="state" value="{!v.portalForm.BOA_State_Province__c}" />
+                        </div>
+                    </div>
+                    
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label">Zipcode</label>
+                        <div class="slds-form-element__control">
+                            <force:inputField aura:id="zipcode" value="{!v.portalForm.BOA_ZipCode__c}" />
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label">Phone</label>
+                        <div class="slds-form-element__control">
+                            <ui:inputnumber aura:id="phone" value="{!v.portalForm.BOA_Phone__c}" format="#0000000000#" />
+                        </div>
+                    </div>
+                    
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label">Date of Birth</label>
+                        <div class="slds-form-element__control">
+                            <force:inputField aura:id="dateofBirth" value="{!v.portalForm.BOA_Date_of_Birth__c}" />
+                        </div>
+                    </div>
+                    
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label">Country</label>
+                        <div class="slds-form-element__control">
+                            <force:inputField aura:id="country" value="{!v.portalForm.BOA_Country__c}" />
+                        </div>
+                    </div>
+                    <hr/>
+                    
+                </div>
+            </div>
+            <div class="button-section hide-form" aura:id="buttonSection">
+                <button class="slds-button slds-button--success-custom slds-button--success" onclick="{!c.showModal}" id="submit" aura:id="submit">SUBMIT</button>
+                <button class="slds-button slds-button--neutral-custom slds-button--neutral" onclick="{!c.hideModal}">CANCEL</button>
+                <hr/>
+                
+            </div>
+            
+            <div id="newModalId" style="display:none;">
+                
+                <div aria-hidden="false" role="dialog" class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container slds-modal--large ">
+                        <div class="slds-modal__header">
+                            
+                            
+                            <h2 id="header43" class="slds-text-heading--medium">{!v.modalHeader}</h2>
+                        </div>
+                        <div class="slds-modal__content slds-p-around--medium modal-content" aura:id="modalcontent">
+                            <aura:if isTrue="{!v.clickedPolicy != 'submit'}">
+                             <!--   <iframe src="{!$Page+ '/intranet/servlet/fileField?entityId='+v.documentID+' &amp;'+ v.attachment}" width="100%" height="100%" /> -->
+                                <iframe width="100%" height="100%" src="{!'https://mycdk.force.com/Employees/apex/EMP_Content?DocumentId='+v.documentID}" id="Documentviewer" scrolling="no"></iframe>
+
+                            
+                            </aura:if>
+                            <aura:if isTrue="{!v.fieldValidation == 'success'}">
+                                
+                                <table class="slds-table slds-table--bordered slds-table--cell-buffer slds-table--striped ">
+                                    <thead>
+                                        <tr class="slds-text-title--caps">
+                                            <th scope="col" style="background: #659607;color: white;">
+                                                <div >Field Name</div>
+                                            </th>
+                                            <th scope="col" style="background: #659607;color: white;">
+                                                <div >Entered Value</div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <aura:if isTrue="{!v.src != 'Increase Limit on Travel or PCard'}">
+                                            <tr>
+                                                <th scope="row">
+                                                    <div >Name on Card</div>
+                                                </th>
+                                                <td>
+                                                    <div >
+                                                        <ui:outputText aura:id="" value="{!v.portalForms.BOA_NameOnCard__c}" class="custom-enteredValue" /> </div>
+                                                </td>
+                                            </tr>
+                                            
+                                            
+                                            <tr>
+                                                <th scope="row">
+                                                    <div >Mailing Address</div>
+                                                </th>
+                                                <td>
+                                                    <div >
+                                                        <ui:outputText aura:id="" value="{!v.portalForms.BOA_Mailing_Address__c}" class="custom-enteredValue" />
+                                                    </div>
+                                                </td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div >Address Line 2</div>
+                                                </th>
+                                                <td>
+                                                    <div >
+                                                        <ui:outputText aura:id="" value="{!v.portalForms.BOA_Address_Line_2__c}" class="custom-enteredValue" />
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div >Address Line 3</div>
+                                                </th>
+                                                <td>
+                                                    <div >
+                                                        <ui:outputText aura:id="" value="{!v.portalForms.BOA_Address_Line_3__c}" class="custom-enteredValue" />
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div >Address Line 4</div>
+                                                </th>
+                                                <td>
+                                                    <div >
+                                                        <ui:outputText aura:id="" value="{!v.portalForms.BOA_Address_Line_4__c}" class="custom-enteredValue" />
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div >City</div>
+                                                </th>
+                                                <td>
+                                                    <div >
+                                                        <ui:outputText aura:id="" value="{!v.portalForms.BOA_City__c}" class="custom-enteredValue" />
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div >State</div>
+                                                </th>
+                                                <td>
+                                                    <div >
+                                                        <ui:outputText aura:id="" value="{!v.portalForms.BOA_State_Province__c}" class="custom-enteredValue" />
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div >Zipcode</div>
+                                                </th>
+                                                <td>
+                                                    <div >
+                                                        <ui:outputText aura:id="" value="{!v.portalForms.BOA_ZipCode__c}" class="custom-enteredValue" /> </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div >Phone</div>
+                                                </th>
+                                                <td>
+                                                    <div >
+                                                        <ui:outputText aura:id="" value="{!v.portalForms.BOA_Phone__c}" class="custom-enteredValue" /> </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div >Date of Birth</div>
+                                                </th>
+                                                <td>
+                                                    <div >
+                                                        <ui:outputText aura:id="" value="{!v.portalForms.BOA_Date_of_Birth__c}" class="custom-enteredValue" /> </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div >Country</div>
+                                                </th>
+                                                <td>
+                                                    <div >
+                                                        <ui:outputText aura:id="" value="{!v.portalForms.BOA_Country__c}" class="custom-enteredValue" />
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.src =='Increase Limit on Travel or PCard'}">
+                                            <tr>
+                                                <th scope="row">
+                                                    <div >Beginning Date</div>
+                                                </th>
+                                                <td>
+                                                    <div>
+                                                        <ui:outputText aura:id="" value="{!v.portalForms.BOA_Beginning_Date__c}" class="custom-enteredValue" /> </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div >End Date</div>
+                                                </th>
+                                                <td>
+                                                    <div >
+                                                        <ui:outputText aura:id="" value="{!v.portalForms.BOA_End_Date__c}" class="custom-enteredValue" /> </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div >Justification</div>
+                                                </th>
+                                                <td>
+                                                    <div >
+                                                        <ui:outputText aura:id="" value="{!v.portalForms.BOA_Increase_Justification__c}" class="custom-enteredValue" /> </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div >Amount</div>
+                                                </th>
+                                                <td>
+                                                    <div >
+                                                        <ui:outputText aura:id="" value="{!v.portalForms.BOA_Currency_USD_CAD__c}" class="custom-enteredValue" /> </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <div >Card Type</div>
+                                                </th>
+                                                <td>
+                                                    <div >
+                                                        <ui:outputText aura:id="" value="{!v.portalForms.BOA_Card_Type__c}" class="custom-enteredValue" /> </div>
+                                                </td>
+                                            </tr>
+                                            
+                                            
+                                        </aura:if>
+                                        
+                                        
+                                    </tbody>
+                                </table>
+                                <p style="padding-top:10px; font-weight:bold;">
+                                    Please make sure all the values you have entered above is CORRECT and then click SUBMIT. click CANCEL to change the values and then click submit the form again. THANK YOU!!!!
+                                </p>
+                            </aura:if>
+                            <aura:if isTrue="{!v.fieldValidation == 'failure'}">
+                                You have successfully submitted your Request.
+                            </aura:if>
+                            
+                        </div>
+                        <div class="slds-modal__footer" >
+                            
+                            {!v.modalBody}
+                            <ui:spinner aura:id="spinner_modal" class="spinner-override" />
+                            <aura:if isTrue="{!v.clickedPolicy != 'submit'}">
+                                <button class="slds-button slds-button--success" onclick="{!c.policyAcknowledgement}">I ACKNOWLEDGE</button>
+                                <button class="slds-button slds-button--neutral" onclick="{!c.hideModal}">CANCEL</button>
+                            </aura:if>
+                            <aura:if isTrue="{!v.fieldValidation == 'success'}">
+                                <button class="slds-button slds-button--success" onclick="{!c.insertPortalForm}"> SUBMIT</button>
+                                <button class="slds-button slds-button--neutral" onclick="{!c.hideModal}">CANCEL</button>
+                            </aura:if>
+                            <aura:if isTrue="{!v.fieldValidation == 'failure'}">
+                                <button class="slds-button slds-button--neutral" onclick="{!c.gotoHomePage}">CLOSE</button>
+                            </aura:if>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-backdrop slds-backdrop--open slds-modal-backdrop--open"></div>
+                <!-- modal code ends -->
+            </div>
+        </div>
+        
+    </div>
+    
+    
+    
+</aura:component>

@@ -1,0 +1,102 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" controller="EMP_Corpcard_Controller">
+    
+    <aura:attribute name="portalForm" type="Portal_Form__c" default="{ 'sobjectType': 'Portal_Form__c'}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}" />
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}" />
+    <aura:attribute name="toggleSpinner" type="boolean" default="false" />
+    <aura:attribute name="portalForms" type="String" />
+    <aura:attribute name="validationMessage" type="String" />
+    <aura:attribute name="searchResults" type="String" />
+    <aura:attribute name="searchValue" type="String" />
+    <aura:attribute name="modalBody" type="String" />
+    <aura:attribute name="modalHeader" type="String" default="Thank you" />
+    
+    <aura:if isTrue="{!v.toggleSpinner}">
+        <div class="slds-spinner_container">
+            <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+                <span class="slds-assistive-text">Loading</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </aura:if>
+    
+    <div  style="mind-height:500px">
+        <div class="hide-form form-height" aura:id="validationMessage">
+            <div class="validation-custom">
+                
+                <ul class="slds-has-dividers--around-space">
+                    <li class="slds-item">
+                        <div class="slds-tile slds-tile--board">
+                            <h2>{!v.validationMessage}</h2>
+                            <div class="slds-tile__detail slds-text-body--small">
+                                <p>
+                                    Click here to send email to corporate card Administration for more questions.
+                                    <br/>
+                                    <lightning:icon iconName="utility:error" variant="error" size="large" />
+                                    <br/>
+                                    <a class="slds-button slds-button--success" href="mailto:corpcardadmin@cdk.com" style="margin-top:10px;">SEND EMAIL </a>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="hide-form " aura:id="approvalReject">
+                <div class="slds-card">
+                    <form class="slds-form--inline " style="text-align:center;margin:auto;">
+                        
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="name"> Employee Name on card</label>
+                            <div class="slds-form-element__control">
+                                {!v.portalForms.BOA_NameOnCard__c} 
+                            </div>
+                        </div>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="email">Employee Email</label>
+                            <div class="slds-form-element__control">
+                                {!v.portalForms.Contact__r.Email}
+                            </div>
+                        </div>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="email">Card type</label>
+                            <div class="slds-form-element__control">
+                                {!v.portalForms.BOA_Card_Type__c} 
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+            <div class="custom-button">
+                <button class="slds-button slds-button--success" onclick="{!c.managerDecision}" id="Approve">APPROVE</button>
+                <button class="slds-button slds-button--danger" onclick="{!c.managerDecision}" id="Reject">REJECT</button>
+            </div>
+        </div>
+        <div id="newModalId" aura:id="newModalId" class="hide-form">
+            <div aria-hidden="false" role="dialog" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container slds-modal--large ">
+                    <div class="slds-modal__header">
+                        <h2 id="header43" class="slds-text-heading--medium">{!v.modalHeader}</h2>
+                    </div>
+                    <div class="slds-modal__content slds-p-around--medium modal-content" aura:id="modalcontent">
+                        <p style="padding-top:10px; font-weight:bold;">
+                            {!v.modalBody}
+                        </p>
+                    </div>
+                    <div class="slds-modal__footer hide-form" aura:id="approvalPanel" >
+                        <button class="slds-button slds-button--neutral slds-not-selected" onclick="{!c.gotoHomePage}">CANCEL</button>
+                    </div>
+                    <div class="slds-modal__footer hide-form" aura:id="rejectionPanel" >
+                        <force:inputField aura:id="rejectionReason" value="{!v.portalForm.BOA_Rejection_Reason__c}"/>
+                        <button class="slds-button slds-button--success" id ="submitReject" onclick="{!c.updatePortalForm}"> SUBMIT</button>
+                        <button class="slds-button slds-button--neutral" onclick="{!c.gotoHomePage}">CANCEL</button>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-backdrop slds-backdrop--open slds-modal-backdrop--open"></div>
+            <!-- modal code ends -->
+        </div>
+    </div>
+</aura:component>

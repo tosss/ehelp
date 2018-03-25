@@ -1,0 +1,62 @@
+<apex:page standardController="Account" tabStyle="Account">
+    <!--Author: Anirudh Singh-->
+    <!--Description: This page is used to override Account Detail Page and Account Hierarchy functionality.-->
+    <!--Created Date: 2015-07-28-->
+    <apex:includeScript value="{!URLFOR($Resource.ALL_AccountHierarchy_JS)}"/>
+    
+    <!-- added 7/21/2016 - siva.pragada@cdk.com - workaround for broken functionality caused due to overrding account standard page-->
+    <apex:includeScript value="/support/console/37.0/integration.js"/>
+    <script type="text/javascript">
+    var accId = '{!account.ID}';
+    if (sforce.console.isInConsole()) 
+    {
+        window.location.href = '/' + accId + '?nooverride=1&isdtp=mn'; 
+    } 
+    </script>
+    
+    <!--2015-11-05- anirudh.singh@cdk.com- Added this to show the edit page layout link on Account Detail visualforce page.-->
+    <apex:includeScript value="{!URLFOR($Resource.ALL_AccountEditPagelayout_JS)}"/>
+    <apex:detail inlineEdit="true" showChatter="true"/>    
+    
+    <!--2016-07-28 - lalitha.adduru@cdk.com - added this to include show inactive CRs button in Related Contacts section - RQ-07242 -->
+    <style>
+    .progress-wrapper {
+    position: fixed;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, .8);
+    z-index: 99999;
+}
+
+.progress-wrapper .progress {
+    font-weight: 200;
+    position: relative;
+    top: 40%;
+    color: #fff;
+    margin: 0 auto;
+    width: 95px;
+    height: auto;
+    display: inline-block;
+    text-align: left;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-left: 50%;
+}
+
+    
+    </style>
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.10.4.custom.min.js')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.jQuery, 'css/redmond/jquery-ui-1.10.4.custom.css')}" />
+    <apex:includeScript value="{!URLFOR($Resource.ALL_AccountShowInactiveCRs_JS)}"></apex:includeScript>
+    <div class="progress-wrapper" style="display:none">
+	<div class="progress">
+        <img class="waitingImage" src="/img/loading32.gif" title="Please Wait..."/>
+	</div>
+	</div>
+</apex:page>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>MapAnything Assignment Rule</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>MapAnything Assignment Rules</value>
+    </caseValues>
+    <fields>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <label><!-- MapAnything Assignment Plan --></label>
+        <name>AssignmentPlan__c</name>
+        <relationshipLabel><!-- MapAnything Assignment Rules --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- MapAnything Territory --></label>
+        <name>Territory__c</name>
+        <relationshipLabel><!-- MapAnything Assignment Rules --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>User__c</name>
+        <relationshipLabel><!-- MapAnything Assignment Rules --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

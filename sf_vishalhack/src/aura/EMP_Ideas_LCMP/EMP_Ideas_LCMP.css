@@ -1,0 +1,523 @@
+.THIS
+{
+    color: #666666;
+    min-width: 320px!important;
+    margin-bottom: 40px;
+    line-height: normal;
+}
+.THIS .ideasComponentContent .ideasHeader
+{
+	background: #82C600;
+	border-radius: 4px;
+    width: 100%;
+    text-align: center;
+    /*box-shadow: 0em 0em 0.5em 0em #000000;*/
+    transition: all 1s ease-in-out;
+}
+.THIS .ideasComponentContent .ideasHeader .ideasHeaderNav
+{
+    margin-bottom: 5px;
+    background: transparent;
+    border: solid 1px #619400;
+}
+.THIS .ideasComponentContent .ideasHeader .filterButtonsUl
+{
+    width: 100%;
+    margin: 0;
+}
+.THIS .ideasComponentContent .ideasHeader .createIdeaBtnDiv
+{
+    float: left;
+    width: 0%;
+}
+.THIS .ideasComponentContent .ideasHeader .createIdeaBtn
+{
+    /*float: right;*/
+    margin-left: 10px;
+}
+.THIS .ideasComponentContent .ideasHeader .collapsedCreateIdeaBtn
+{
+    display: none;
+}
+.THIS .ideasComponentContent .ideasHeader .filterButtonsDiv
+{
+    padding: 0;
+}
+.THIS .ideasComponentContent .ideasHeader .collapsedNavBarButton
+{
+    float: left;
+    margin: 8px;
+    background-color: #619400;
+    border-color: #4b7300;
+}
+.THIS .ideasComponentContent .ideasHeader .icon-bar
+{
+    background-color: #FFFFFF!important;
+}
+.THIS .ideasComponentContent .ideasHeader .collapsedNavBarButton:hover,
+.THIS .ideasComponentContent .ideasHeader .collapsedNavBarButton:active,
+.THIS .ideasComponentContent .ideasHeader .collapsedNavBarButton:focus
+{
+    background-color: #619400;
+    border-color: #4b7300;
+}
+.THIS .ideasComponentContent .ideasHeader .filterbutton
+{
+    font-size: 0.85em;
+    padding: 10px;
+    color: white!important;
+    text-transform: uppercase;
+}
+.THIS .ideasComponentContent .ideasHeader .active a
+{
+    background-color: transparent!important;
+    background: linear-gradient(#619400, #82C600);
+    border-bottom: 0.25em solid white;
+    font-weight: bold;
+}
+.THIS .ideasComponentContent .ideasListDiv
+{
+    text-align: center;
+}
+.THIS .ideasComponentContent .ideasListDiv .ideaCard
+{
+    position: relative;
+    display: inline-block;
+    background-color: #FFFFFF;
+    padding: 8px;
+}
+.THIS .ideasComponentContent .ideasListDiv .ideaDetailsDiv
+{
+    /*border-radius: 0.25em;*/
+    border-top-left-radius: 0.25em;
+    border-top-right-radius: 0.25em;
+    border-bottom-right-radius: 0em;
+    border-bottom-left-radius: 0em;
+    background: #F0F0F0;
+    cursor: pointer;
+    -webkit-transition-duration: 0.6s;
+    transition-duration: 0.6s;
+    -webkit-transition-property: box-shadow;
+    transition-property: box-shadow;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.THIS .ideasComponentContent .ideasListDiv .ideaDetailsDiv:hover
+{
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+.THIS .ideasComponentContent .ideasListDiv .ideaCardTable
+{
+    margin: 0px;
+    table-layout: fixed;
+}
+.THIS .ideasComponentContent .ideasListDiv .ideaCardTable .creatorImg
+{
+    width: 86px;
+    padding: 10px;
+    vertical-align: top;
+}
+.THIS .ideasComponentContent .ideaDetailModalDialog .commentUserImg
+{
+    width: 80px;
+    padding: 0px 0px 15px 0px;
+}
+.THIS .ideasComponentContent .ideaDetailModalDialog .newCommentUserImg
+{
+    width: 64px;
+    padding: 0px 10px 0px 0px;
+}
+.THIS .ideasComponentContent .ideasListDiv .ideaCardTable .creatorImgDiv,
+.THIS .ideasComponentContent .ideaDetailModalDialog .commentUserImgDiv,
+.THIS .ideasComponentContent .ideaDetailModalDialog .newCommentUserImgDiv
+{
+    width: 64px;
+    height: 64px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+.THIS .ideasComponentContent .ideasListDiv .ideaCardTable .creatorImg img,
+.THIS .ideasComponentContent .ideaDetailModalDialog .commentUserImgDiv img,
+.THIS .ideasComponentContent .ideaDetailModalDialog .newCommentUserImgDiv img
+{
+    width: 64px;
+}
+.THIS .ideasComponentContent .ideasListDiv .ideaCardTable .cardDetails
+{
+    vertical-align: top;
+    padding: 10px 10px 10px 0px;
+}
+.THIS .ideasComponentContent .cardDetails .cardTitle
+{
+    font-size: 1.2em;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 0.2em;
+    margin-top: 0;
+}
+.THIS .ideasComponentContent .cardDetails .createdBy
+{
+    font-size: 0.95em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.THIS .ideasComponentContent .dateDiv
+{
+    font-size: 0.8em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.THIS .ideasComponentContent .dateDiv .timeagoSpan,
+.THIS .ideasComponentContent .ideaDetailModalDialog .timeagoSpan
+{
+    color: #999999;
+}
+.THIS .ideasComponentContent .ideaDetailModalDialog .timeagoSpan
+{
+    font-size: 0.8em;
+}
+.THIS .ideasComponentContent .ideaCardTable .ideaNoComments
+{
+    padding-right: 10px;
+    width: 70px;
+}
+.THIS .ideasComponentContent .ideaCardTable .ideaNoCommentsDiv
+{
+    float: right;
+}
+.THIS .ideasComponentContent .ideaCardTable .ideaNoCommentsSpan
+{
+    font-size: 0.8em;
+    border-radius: 4px;
+    color: #FFFFFF;
+    text-align: center;
+    /*box-shadow: 2px 2px 2px #31708F;*/
+    background: #00A9CE;
+    padding: 5px 10px;
+    /*text-shadow: 1px 1px 3px #111111;*/
+    font-weight: bold;
+}
+.THIS .ideasComponentContent .ideaCardTable .ideaNoCommentsArrow
+{
+    display: inline-block;
+    width: 0; 
+    height: 0; 
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 0px solid transparent;
+    border-right: 6px solid #00A9CE;
+    vertical-align: middle;
+}
+.THIS .ideasComponentContent .modal-dialog,
+.THIS .ideasComponentContent .modal-dialog
+{
+    margin-top: 7%;
+}
+.THIS .ideasComponentContent .modal-title
+{
+    text-transform: uppercase;
+}
+.THIS .ideasComponentContent .ideaDetailModalDialog .titleHr
+{
+    margin: 8px 0;
+}
+.THIS .ideasComponentContent .ideaDetailModalDialog .modal-header p,
+.THIS .ideasComponentContent .ideaDetailModalDialog .newCommentHr
+{
+    margin: 0;
+}
+.THIS .ideasComponentContent .ideaDetailModalDialog .modal-body
+{
+    max-height: 15em;
+    overflow-y: auto;
+}
+.THIS .ideasComponentContent .ideaDetailModalDialog .commentFadeIn
+{
+    opacity: 0;
+    -webkit-animation: fadeIn ease-in 1;
+    animation: fadeIn ease-in 1;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+}
+.THIS .ideasComponentContent .ideaDetailModalDialog .newComPlaceholderText
+{
+    font-size: 1.2em;
+    color: #00A9CE;
+    padding-bottom: 4px;
+    display: block;
+    opacity: 0;
+    -webkit-animation: fadeIn ease-out 1;
+    animation: fadeIn ease-out 1;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+}
+.THIS .ideasComponentContent .ideaDetailModalDialog .ideaCommentBody
+{
+    vertical-align: top;
+    padding: 0px 0px 10px 0px;
+}
+.THIS .ideasComponentContent .ideaDetailModalDialog .ideaDesc
+{
+    font-size: 0.95em;
+    margin-bottom: 10px;
+}
+.THIS .ideasComponentContent .ideaDetailModalDialog .ideaCommentBodyText
+{
+    font-size: 0.95em;
+    padding-bottom: 4px;
+    display: block;
+}
+.THIS .ideasComponentContent .ideaDetailModalDialog .newCommentRowDiv
+{
+    padding: 15px;
+}
+.THIS .ideasComponentContent .ideaDetailModalDialog .ideaCommentsTable,
+.THIS .ideasComponentContent .ideaDetailModalDialog .newCommentTable
+{
+    margin: 0;
+}
+.THIS .ideasComponentContent .ideaDetailModalDialog .ideaCommentsTable td,
+.THIS .ideasComponentContent .ideaDetailModalDialog .ideaCommentsTable th,
+.THIS .ideasComponentContent .ideaDetailModalDialog .newCommentTable td,
+.THIS .ideasComponentContent .ideaDetailModalDialog .newCommentTable th
+{
+    border: none;
+}
+.THIS .ideasComponentContent .ideaDetailModalDialog .newCommentDesc
+{
+    padding: 0;
+    vertical-align: bottom;
+}
+.THIS .ideasComponentContent .ideaDetailModalDialog .newCommentPost
+{
+    width: 64px;
+    vertical-align: bottom;
+    padding-right: 0;
+    padding-bottom: 0;
+}
+.THIS .ideasComponentContent .ideaDetailModalDialog .ideaVoteDiv
+{
+    text-align: center;
+    font-size: 0.95em;
+}
+.THIS .ideasComponentContent .ideaDetailModalDialog .ideaVoteIconsDiv
+{
+    padding: 2px 0px 0px 0px;
+}
+.THIS .ideasComponentContent .ideaDetailModalDialog .voteUpIcon,
+.THIS .ideasComponentContent .ideaDetailModalDialog .voteDownIcon
+{
+    border: 2px solid #666666;
+    border-radius: 50%;
+    padding: 10px;
+    margin: 0px 5px 0px 5px;
+    cursor: pointer;
+}
+.THIS .ideasComponentContent .ideaDetailModalDialog .highlightUpVote
+{
+    color: #FFFFFF;
+    background-color: #82C600;
+    border-color: #82C600;
+    outline: none;
+}
+.THIS .ideasComponentContent .ideaDetailModalDialog .highlightDownVote
+{
+    color: #FFFFFF;
+    background-color: #8D0E57;
+    border-color: #8D0E57;
+    outline: none;
+}
+.THIS .ideasComponentContent .hiddenModalElementsDiv
+{
+    display: none;
+}
+.THIS .ideasComponentContent .ideaDetailModalDialog .messageTextDiv,
+.THIS .ideasComponentContent .createIdeaModal .messageTextDiv
+{
+    margin-bottom: 0;
+    padding: 5px;
+    margin-top: 5px;
+    text-align: left;
+}
+.THIS .ideasComponentContent .ideaDetailModalDialog .ideaDetailsFooter
+{
+    border: 0;
+    padding: 0;
+}
+.THIS .ideasComponentContent .ideaDetailModalDialog .noModalBodyPadding
+{
+    padding: 0;
+}
+.THIS .ideasComponentContent .ideaDetailModalDialog .modifiedModalBodyPadding
+{
+    padding: 15px 15px 0px 15px;
+}
+.THIS .ideasComponentContent .createIdeaModal .newIdeaDescDiv,
+.THIS .ideasComponentContent .createIdeaModal .ideaFileDiv
+{
+    margin-top: 5px;
+}
+.THIS .ideasComponentContent .form-control
+{
+    font-size: 0.95em;
+}
+.THIS .ideasComponentContent .inputTitle
+{
+    color: #00A9CE;
+    position: static;
+    margin: 0px 0px 2px 0px;
+    font-size: 0.95em;
+}
+.THIS .ideasComponentContent .progress
+{
+    height: 4px;
+    background: #F0F0F0;
+    border-radius: 0em;
+    margin-bottom: 0px;
+    -webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+.THIS .ideasComponentContent .collapsedCreateIdeaBtn,
+.THIS .ideasComponentContent .createIdeaBtn
+{
+    background-color: #619400;
+    border-color: #4b7300;
+    color: white!important;
+    text-transform: uppercase;
+}
+.THIS .ideasComponentContent .popupBackground
+{
+    background-color: black;
+    opacity: 0.60;
+    filter: alpha(opacity = 60);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 998;
+    position: fixed;
+    cursor: wait;
+}
+.THIS .ideasComponentContent .ideasSpinnerDiv
+{
+    z-index: 1100;
+    visibility: visible;
+}
+.THIS .ideasComponentContent .ideasSpinnerDiv,
+.THIS .ideasComponentContent .ideasSpinnerDiv td
+{
+    text-align: center;
+}
+.THIS .ideasComponentContent .ideasSpinnerDiv .modal-dialog
+{
+    max-width: 100%;
+    width: auto !important;
+    display: inline-block;
+}
+.THIS .ideasComponentContent .popupPanel
+{
+    background-color: white;
+    left: 50%;
+    width: auto;
+    margin-left: -100px;
+    height: auto;
+    padding: 20px;
+    z-index: 999;
+    position: fixed;
+    margin-top: 7%;
+}
+.THIS .ideasComponentContent .popupPanel td
+{
+    text-align: center;
+}
+.THIS .ideasComponentContent .newIdeaTitleDiv:before
+{
+    content: "|";
+    position: absolute;
+    color: red;
+    font-weight: bold;
+    font-size: 1.65em;
+}
+.THIS .ideasComponentContent .newIdeaTitle
+{
+    margin-left: 6px;
+    width: calc(100% - 6px);
+}
+.THIS .ideasComponentContent .ideaDetailModalDialog .ideaVoteCountLabel
+{
+    font-weight: bold;
+}
+.THIS .ideasComponentContent .filterButtonsUl .filterLabel
+{
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #FFFFFF;
+    font-size: 1.05em;
+}
+.THIS .ideasComponentContent .modal
+{
+    overflow-y: scroll!important;
+}
+.THIS .ideaAttachmentIcon
+{
+    font-size: 1.2em;
+    padding-right: 10px;
+}
+@media only screen and (min-width : 310px) and (max-width : 770px)
+{
+    .THIS .ideasComponentContent .ideasHeader .collapsedCreateIdeaBtn
+    {
+        /*float: right;
+        margin-right: 10px;*/
+        display: block;
+    }
+    .THIS .ideasComponentContent .ideasHeader .createIdeaBtn
+    {
+        display: none;
+    }
+    .THIS .ideasComponentContent .filterButtonsUl .filterLabel
+    {
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+    }
+}
+@media only screen and (min-width : 770px)
+{
+    .THIS .ideasComponentContent .ideasHeader .filterButtonsDiv
+    {
+        display: inline-block!important;
+        float: right!important;
+        margin-right: 10px;
+    }
+}
+/*iPads (Portrait)*/
+@media only screen and (min-width : 768px) and (max-width : 1024px) and (orientation: portrait)
+{
+    .THIS .ideasComponentContent .ideasHeader .filterButtonsDiv
+    {
+        display: inline-block!important;
+    }
+    .THIS .ideasComponentContent .ideasHeader .collapsedCreateIdeaBtn
+    {
+        display: none;
+    }
+    .THIS .ideasComponentContent .ideasHeader .createIdeaBtn
+    {
+        display: block;
+    }
+    .THIS .ideasComponentContent .filterButtonsUl .filterLabel
+    {
+        border: 0px;
+    }
+}

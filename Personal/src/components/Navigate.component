@@ -1,5 +1,0 @@
-<apex:component >
-     <apex:form >
-         <apex:commandLink action="https://www.google.co.in" value="abc"/>
-        </apex:form>
-</apex:component>

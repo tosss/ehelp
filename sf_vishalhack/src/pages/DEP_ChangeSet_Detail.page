@@ -1,0 +1,623 @@
+<apex:page controller="DEP_Changeset_Detail_Controller"  title="Change Set Detail"  docType="html-5.0" sidebar="false" showHeader="false">
+    <apex:slds />
+    <apex:includeScript loadOnReady="false" value="{!URLFOR($Resource.SLDS,'/resource/slds/assets')}" />
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    
+    <apex:includeScript value="{!URLFOR($Resource.jszip, '/jszip.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jszip, '/jszip-load.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jszip, '/jszip-deflate.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jszip, '/jszip-inflate.js')}"/>	
+        <style>
+        .datePicker 
+        {
+            z-index:9999 !important;
+        }
+    </style>
+    <script>
+        var j$ = jQuery.noConflict();
+    function editDeploymentDetails(deploymentId,order,sandbox,type,Strategy)
+    {
+        j$('input[id$="DeploymentId"]').val(deploymentId);
+        j$('input[id$="DeploymentOrder"]').val(order);
+        j$('input[id$="DeploymentSandbox"]').val(sandbox);
+        j$('select[id$="DeploymentSandboxType"]').val(type);
+        j$('select[id$="DeploymentStrategy"]').val(Strategy);
+        showDeploymentModal();
+    }
+    function deleteDeploymentObject(deploymentId)
+    {
+        j$('input[id$="DeploymentId"]').val(deploymentId);
+        j$('#DeleteConfirmation').show();
+        j$('.deleteComponentButton').hide();
+        j$('#deleteDeploymentButton').show();
+    }
+    function cancelDeleteDeployment()
+    {
+        j$('input[id$="DeploymentId"]').val('');
+        j$('#DeleteConfirmation').hide();
+    }
+    function deleteComponent(componentId)
+    {
+        j$('input[id$="DeploymentId"]').val(componentId);
+        j$('#DeleteConfirmation').show();
+        j$('#deleteDeploymentButton').hide();
+        j$('.deleteComponentButton').show();
+    }
+    function deployComponent(deploymentId)
+    {
+        j$('input[id$="DeploymentId"]').val(deploymentId);
+        deployComponentClient();
+    }
+    function showComponentModal()
+    {
+        j$('#CreateComponentModal').show();
+    }
+    function hideComponentModal()
+    {
+        j$('#CreateComponentModal').hide();
+    }
+    function showDeploymentModal()
+    {
+        j$('#CreateDeploymentModal').show();
+    }
+    function hideDeploymentModal()
+    {
+        j$('#CreateDeploymentModal').hide();
+    }
+    function hideStatusComponentModal()
+    {
+        j$('#UpdateStatusModal').hide();
+    }
+    function toggleDetails()
+    {
+        event.preventDefault();
+        j$('.detialsButton').toggle();
+        j$('.ChangesetDetails').toggle();
+    }
+    </script>
+    <apex:form id="form">
+        
+    <div class="demo-only" id="Spinner" style="height: 640px;display:none;">
+            <div role="status" class="slds-spinner slds-spinner_medium">
+                <span class="slds-assistive-text">Loading</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+        <div class="demo-only" style="height: 640px;display:none;" id="UpdateStatusModal">
+            <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_large slds-list-builder" aria-labelledby="id-of-modalheader-h2" aria-describedby="modal-content-id-1">
+                <div class="slds-modal__container" style="max-width: 50%;max-height: 44.4%;">
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close"  onclick="hideStatusComponentModal();">
+                            <h1 style="color:white;">
+                                X
+                            </h1>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="id-of-modalheader-h2" class="slds-text-heading_medium">Update Change Set Status</h2>
+                    </header>
+                    <div class="slds-modal__content slds-grid slds-grow" id="modal-content-id-1">
+                        <div class="slds-grid slds-grid_vertical" style="width:100%;">
+                            <div class="slds-p-vertical_x-small slds-p-horizontal_large slds-shrink-none slds-theme_shade">
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-combobox_container">
+                                            <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click" aria-expanded="false" aria-haspopup="listbox" role="combobox">
+                                                <div class="slds-form slds-form_horizontal">
+                                                    <fieldset class="slds-form-element">
+                                                        <legend class="slds-form-element__legend slds-form-element__label">Change Set Status</legend>
+                                                        <div class="slds-form-element__control">
+                                                            <apex:inputField styleclass="slds-input" value="{!changeSetObj.Status__c}" required="false" />
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" onclick="event.preventDefault();hideStatusComponentModal();">Cancel</button>
+                        <apex:commandbutton action="{!updateChangeSetStatus}" styleclass="slds-button slds-button_brand" value="Save" rerender="form" />
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>
+        <div class="demo-only" style="height: 640px;display:none;" id="CreateComponentModal">
+            <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_large slds-list-builder" aria-labelledby="id-of-modalheader-h2" aria-describedby="modal-content-id-1">
+                <div class="slds-modal__container" style="max-width: 62%;max-height: 76%;">
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close"  onclick="hideComponentModal();">
+                            <h1 style="color:white;">
+                                X
+                            </h1>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="id-of-modalheader-h2" class="slds-text-heading_medium">Create Change Set Component</h2>
+                    </header>
+                    <div class="slds-modal__content slds-grid slds-grow" id="modal-content-id-1">
+                        <div class="slds-grid slds-grid_vertical" style="width:100%;">
+                            <div class="slds-p-vertical_x-small slds-p-horizontal_large slds-shrink-none slds-theme_shade">
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-combobox_container">
+                                            <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click" aria-expanded="false" aria-haspopup="listbox" role="combobox">
+                                                <div class="slds-form slds-form_horizontal">
+                                                    <div class="slds-form-element">
+                                                        <label class="slds-form-element__label" for="input-id-02">Name</label>
+                                                        <div class="slds-form-element__control">
+                                                            <apex:inputField styleclass="slds-input" value="{!newChangeSetComponentObj.Component_Name__c}" required="false" />
+                                                        </div>
+                                                    </div>
+                                                    <fieldset class="slds-form-element">
+                                                        <legend class="slds-form-element__legend slds-form-element__label">Component Type</legend>
+                                                        <div class="slds-form-element__control">
+                                                            <apex:inputField styleclass="slds-input" value="{!newChangeSetComponentObj.Component_Type__c}" required="false" />
+                                                        </div>
+                                                    </fieldset>
+                                                    <fieldset class="slds-form-element">
+                                                        <legend class="slds-form-element__legend slds-form-element__label">Is Already Existing?</legend>
+                                                        <div class="slds-form-element__control">
+                                                            <apex:inputField styleclass="slds-checkbox" value="{!newChangeSetComponentObj.Is_Existing_Component__c}" required="false" />
+                                                        </div>
+                                                    </fieldset>
+                                                    <fieldset class="slds-form-element">
+                                                        <legend class="slds-form-element__legend slds-form-element__label">Deployment Order</legend>
+                                                        <div class="slds-form-element__control">
+                                                            <apex:inputField styleclass="slds-input" value="{!newChangeSetComponentObj.Deployment_Order__c}" required="false"  />
+                                                        </div>
+                                                    </fieldset>
+                                                    <fieldset class="slds-form-element">
+                                                        <legend class="slds-form-element__legend slds-form-element__label">Sandbox</legend>
+                                                        <div class="slds-form-element__control">
+                                                            <apex:inputField styleclass="slds-input" value="{!newChangeSetComponentObj.Sandbox__c}" required="false"  />
+                                                        </div>
+                                                    </fieldset>
+                                                    <fieldset class="slds-form-element">
+                                                        <legend class="slds-form-element__legend slds-form-element__label">Estimated Release Date</legend>
+                                                        <div class="slds-form-element__control">
+                                                            <apex:inputField styleclass="slds-input" value="{!newChangeSetComponentObj.Estimated_Release_Date__c}"  style="width:75%;" required="false"  />
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" onclick="event.preventDefault();hideComponentModal();">Cancel</button>
+                        <button class="slds-button slds-button_brand" onclick="event.preventDefault();j$('#Detail').hide();j$('#Spinner').show();SaveComponent();">Save</button>
+                        <apex:actionFunction name="SaveComponent" action="{!insertNewComponent}" rerender="form" />
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>
+        <div class="demo-only" style="height: 640px;display:none;" id="CreateDeploymentModal">
+            <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_large slds-list-builder" aria-labelledby="id-of-modalheader-h2" aria-describedby="modal-content-id-1">
+                <div class="slds-modal__container" style="max-width: 50%;max-height: 66.2%;">
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close"  onclick="hideDeploymentModal();">
+                            <h1 style="color:white;">
+                                X
+                            </h1>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="id-of-modalheader-h2" class="slds-text-heading_medium">Create Change Set Deployment</h2>
+                    </header>
+                    <div class="slds-modal__content slds-grid slds-grow" id="modal-content-id-1">
+                        <div class="slds-grid slds-grid_vertical" style="width:100%;">
+                            <div class="slds-p-vertical_x-small slds-p-horizontal_large slds-shrink-none slds-theme_shade">
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-combobox_container">
+                                            <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click" aria-expanded="false" aria-haspopup="listbox" role="combobox">
+                                                <div class="slds-form slds-form_horizontal">
+                                                    <div class="slds-form-element" style="display:none;">
+                                                        <label class="slds-form-element__label" for="input-id-02">Id</label>
+                                                        <div class="slds-form-element__control">
+                                                           <apex:inputHidden value="{!recordIdInAction}" id="DeploymentId" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="slds-form-element">
+                                                        <label class="slds-form-element__label" for="input-id-02">Sandbox</label>
+                                                        <div class="slds-form-element__control">
+                                                            <apex:inputField styleclass="slds-input" id="DeploymentSandbox" value="{!newChangeSetDeploymentObj.Sandbox__c}" required="false" />
+                                                        </div>
+                                                    </div>
+                                                    <fieldset class="slds-form-element">
+                                                        <legend class="slds-form-element__legend slds-form-element__label">Type</legend>
+                                                        <div class="slds-form-element__control">
+                                                            <apex:inputField styleclass="slds-select" id="DeploymentSandboxType" value="{!newChangeSetDeploymentObj.Sandbox_Type__c}" required="false"  />
+                                                        </div>
+                                                    </fieldset>
+                                                    <fieldset class="slds-form-element">
+                                                        <legend class="slds-form-element__legend slds-form-element__label">Strategy</legend>
+                                                        <div class="slds-form-element__control">
+                                                            <apex:inputField styleclass="slds-input" id="DeploymentStrategy" value="{!newChangeSetDeploymentObj.Deployment_Strategy__c}" required="false" />
+                                                        </div>
+                                                    </fieldset>
+                                                    <fieldset class="slds-form-element">
+                                                        <legend class="slds-form-element__legend slds-form-element__label">Order</legend>
+                                                        <div class="slds-form-element__control">
+                                                            <apex:inputField styleclass="slds-input" id="DeploymentOrder" value="{!newChangeSetDeploymentObj.Deployment_Order__c}" required="false" />
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" onclick="event.preventDefault();hideDeploymentModal();">Cancel</button>
+                        <button class="slds-button slds-button_brand" onclick="event.preventDefault();j$('#Detail').hide();j$('#Spinner').show();SaveDeployment();">Save</button>
+                        <apex:actionFunction name="SaveDeployment" action="{!insertNewDeployment}" rerender="form" />
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>
+        <div class="demo-only" style="height: 640px;display:none;" id="DeleteConfirmation">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+                            <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Delete Confirmation</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <p>Are you sure about deleting scheduled Deployment?</p>
+                        <br/>
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <div class="slds-combobox_container">
+                                    <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click" aria-expanded="false" aria-haspopup="listbox" role="combobox">
+                                        <div class="slds-form slds-form_horizontal">
+                                            <div class="slds-form-element deleteComponentButton">
+                                                <label class="slds-form-element__label" for="input-id-02">Reason for Deleting</label>
+                                                <div class="slds-form-element__control">
+                                                    <apex:selectList value="{!componentDeletionReason}" styleclass="slds-input" multiselect="false" size="1" >
+                                                        <apex:selectOption itemLabel="Didn't change component for this Request" itemValue="Didn't change component for this Request" />
+                                                        <apex:selectOption itemLabel="To be used by other High Priority Request" itemValue="To be used by other High Priority Request" />
+                                                    </apex:selectList>
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element deleteComponentButton">
+                                                <label class="slds-form-element__label" for="input-id-02">cc Code Backup</label>
+                                                <div class="slds-form-element__control">
+                                                    <apex:inputText value="{!ccAddress}" styleClass="slds-input" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" onclick="event.preventDefault();cancelDeleteDeployment();">Cancel</button>
+                        <button class="slds-button slds-button_brand deleteComponentButton" style="display:none;"  onclick="event.preventDefault();deleteComponentClient();j$(this).parent('#DeleteConfirmation').hide();j$('#Detail').hide();j$('#Spinner').show();">Yes</button>
+                        <button class="slds-button slds-button_brand" style="display:none;" id="deleteDeploymentButton" onclick="event.preventDefault();deleteDeploymentClient();j$(this).parent('#DeleteConfirmation').hide();j$('#Detail').hide();j$('#Spinner').show();">Yes</button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>
+        <apex:actionFunction action="{!deleteDeployment}" name="deleteDeploymentClient" reRender="form" />
+        <apex:actionFunction action="{!deleteComponent}" name="deleteComponentClient" reRender="form" />
+        <apex:actionFunction action="{!deploy}" name="deployComponentClient"/>
+        <div id="Detail" style="padding: 1rem;">
+            <div class="demo-only slds-grid"  style="background: rgb(244, 246, 249); padding: 1rem;">
+                <div class="slds-panel slds-grid slds-grid_vertical slds-nowrap">
+                    <div class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
+                        <div class="slds-panel__section slds-border_bottom">
+                            <div class="slds-media">
+                                <div class="slds-media__figure">
+                                    <span class="slds-icon_container slds-icon-standard-opportunity" title="Description of icon when needed">
+                                        <svg class="slds-icon" aria-hidden="true">
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/resource/slds/assets/icons/standard-sprite/svg/symbols.svg#opportunity"></use>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="slds-media__body">
+                                    <h2 class="slds-truncate slds-text-heading_small" title="{!changeSetObj.Name}"><a href="https://projects.cdk.com/browse/{!changeSetObj.Name}">{!changeSetObj.Name}</a></h2>
+                                    <p class="slds-truncate slds-text-body_small" title="{!changeSetObj.Priority__c}">Priority - {!changeSetObj.Priority__c} • {!If(changeSetObj.Major_Release__c,'Major Release','Minor Release')}</p>
+                                    <div class="slds-button-group slds-m-top_small slds-float_right" role="group" style="width:50%;">
+                                        <button class="slds-button slds-button_neutral slds-grow detialsButton" style="display:none;" onclick="toggleDetails();">Show Change Set Details</button>
+                                        <button class="slds-button slds-button_neutral slds-grow detialsButton" onclick="toggleDetails();">Hide Change Set Details</button>
+                                        <button class="slds-button slds-button_neutral slds-grow" onclick="event.preventDefault();j$('#UpdateStatusModal').show();">Update Status</button>  
+                                        <button class="slds-button slds-button_neutral slds-grow">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-panel__section ChangesetDetails" >
+                            <h3 class="slds-text-heading_small slds-m-bottom_medium">Change Set Information</h3>
+                            <ul>
+                                <li class="slds-form-element slds-hint-parent slds-border_bottom"><span class="slds-form-element__label">Priority</span>
+                                    <div class="slds-form-element__control"><span class="slds-form-element__static">{!changeSetObj.Priority__c}</span>
+                                    </div>
+                                </li>
+                                <li class="slds-form-element slds-hint-parent slds-border_bottom"><span class="slds-form-element__label">Estimated Release Date</span>
+                                    <div class="slds-form-element__control"><span class="slds-form-element__static"><apex:outputField value="{!changeSetObj.Estimated_Release_Date__c}" /></span>
+                                    </div>
+                                </li>
+                               <li class="slds-form-element slds-hint-parent slds-border_bottom"><span class="slds-form-element__label">Summary</span>
+                                    <div class="slds-form-element__control"><span class="slds-form-element__static">{!changeSetObj.Summary__c}</span>
+                                    </div>
+                                </li> 
+                                <li class="slds-form-element slds-hint-parent slds-border_bottom"><span class="slds-form-element__label">Description</span>
+                                    <div class="slds-form-element__control"><span class="slds-form-element__static">{!changeSetObj.Description__c}</span>
+                                    </div>
+                                </li> 
+                            </ul>
+                        </div>
+                        <div class="slds-panel__section ChangesetDetails">
+                            <h3 class="slds-text-heading_small slds-m-bottom_medium">Additional Information</h3>
+                            <ul>
+                                <li class="slds-form-element slds-hint-parent slds-border_bottom">
+                                    <span class="slds-form-element__label">Created By</span>
+                                    <div class="slds-form-element__control"><span class="slds-form-element__static">{!changeSetObj.CreatedBy.Name}</span>
+                                    </div>
+                                </li>
+                                <li class="slds-form-element slds-hint-parent slds-border_bottom">
+                                    <span class="slds-form-element__label">Created Date</span>
+                                    <div class="slds-form-element__control"><span class="slds-form-element__static"><apex:outputField value="{!changeSetObj.CreatedDate}" /></span>
+                                    </div>
+                                </li>
+                                <li class="slds-form-element slds-hint-parent slds-border_bottom"><span class="slds-form-element__label">Last Modified By</span>
+                                    <div class="slds-form-element__control"><span class="slds-form-element__static">{!changeSetObj.LastModifiedBy.Name}</span>
+                                    </div>
+                                </li>
+                                <li class="slds-form-element slds-hint-parent slds-border_bottom"><span class="slds-form-element__label">Last Modified Date</span>
+                                    <div class="slds-form-element__control"><span class="slds-form-element__static">
+                                        <apex:outputField value="{!changeSetObj.LastModifiedDate}" /></span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div clas="slds-scope" style="background: rgb(244, 246, 249); padding: 1rem;">
+                <div class="slds-page-header">
+                    <div class="slds-media">
+                        <div class="slds-media__figure">
+                            <span class="slds-icon_container slds-icon-standard-opportunity" title="Description of icon when needed">
+                                <svg class="slds-icon" aria-hidden="true">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/resource/slds/assets/icons/standard-sprite/svg/symbols.svg#opportunity"></use>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="slds-media__body">
+                            <div class="slds-media__body">
+                                <h2 class="slds-truncate slds-text-heading_small" title="{!changeSetObj.Name}"><a href="javascript:void(0);">Change Set Components</a></h2>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-no-flex slds-grid slds-align-top slds-p-bottom_xx-small">
+                            <div class="slds-button-group" role="group">
+                                <button class="slds-button slds-button_neutral"  onclick="event.preventDefault();showComponentModal();">New Change Set Component</button>
+                                <apex:commandButton styleclass="slds-button slds-button_neutral" value="Reorder" onclick="j$('#Detail').hide();j$('#Spinner').show();" action="{!updateChangeSetComponents}" rerender="form" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_striped">
+                    <thead>
+                        <tr class="slds-text-title_caps">
+                            <th scope="col">
+                                <div class="slds-truncate" >Action</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" >Order</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" >Component Name</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" >Folder Name</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" >Component Type</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" >Sandbox</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" >Created By</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <apex:repeat value="{!changeSetObj.Change_Set_Components__r}" var="changeSetComponentObj">
+                            <tr>
+                                <td scope="row" data-label="Select">
+                                    <div class="slds-button-group slds-m-top_small" role="group">
+                                        <img src="/resource/slds/assets/icons/utility/delete_60.png" onclick="deleteComponent('{!changeSetComponentObj.Id}');" title="Delete" style="width:26px;height:26px;" />
+                                    	
+                                    </div>
+                                </td>
+                                <td scope="row" data-label="Name">
+                                    <div class="slds-truncate">
+                                        <apex:inputField value="{!changeSetComponentObj.Deployment_Order__c}" style="width:10%;" />
+                                    </div>
+                                </td>
+                                <td scope="row" data-label="Name">
+                                    <div class="slds-truncate"><a href="javascript:void(0);">{!changeSetComponentObj.Component_Name__c}</a></div>
+                                </td>
+                                <td scope="row" data-label="Folder Name">
+                                    <div class="slds-truncate"><a href="javascript:void(0);">{!changeSetComponentObj.Folder_Name__c}</a></div>
+                                </td>
+                                <td scope="row" data-label="Component Type">
+                                    <div class="slds-truncate"><a href="javascript:void(0);">{!changeSetComponentObj.Component_Type__c}</a></div>
+                                </td>
+                                <td data-label="Sandbox">
+                                    <div class="slds-truncate">{!changeSetComponentObj.Sandbox__c}</div>
+                                </td>
+                                <td data-label="Created Date">
+                                    <div class="slds-truncate">{!changeSetComponentObj.CreatedBy.Name}</div>
+                                </td>
+                            </tr>
+                        </apex:repeat>
+                    </tbody>
+                </table>
+            </div>
+            <div clas="slds-scope" style="background: rgb(244, 246, 249); padding: 1rem;">
+                <div class="slds-page-header">
+                    <div class="slds-media">
+                        <div class="slds-media__figure">
+                            <span class="slds-icon_container slds-icon-standard-opportunity" title="Description of icon when needed">
+                                <svg class="slds-icon" aria-hidden="true">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/resource/slds/assets/icons/standard-sprite/svg/symbols.svg#opportunity"></use>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="slds-media__body">
+                            <div class="slds-media__body">
+                                <h2 class="slds-truncate slds-text-heading_small" title="{!changeSetObj.Name}"><a href="javascript:void(0);">Change Set Deployments</a></h2>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-no-flex slds-grid slds-align-top slds-p-bottom_xx-small">
+                            <div class="slds-button-group" role="group">
+                                <button class="slds-button slds-button_neutral"  onclick="event.preventDefault();showDeploymentModal();">New Change Set Deployment</button>
+                                <apex:commandButton styleclass="slds-button slds-button_neutral" value="Reorder" onclick="j$('#Detail').hide();j$('#Spinner').show();" action="{!updateChangeSetDeployments}" rerender="form" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_striped">
+                    <thead>
+                        <tr class="slds-text-title_caps">
+                            <th scope="col">
+                                <div class="slds-truncate" >Action</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" >Order</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" >Sandbox</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" >Type</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" >Strategy</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" >Status</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <apex:repeat value="{!changeSetObj.Change_Set_Deployments__r}" var="changeSetDeploymentObj">
+                            <tr>
+                                <td scope="row" data-label="Select">
+                                    <span  style="{!If(changeSetDeploymentObj.Status__c=='To Be Deployed','','display:none;')}">
+                                    <img src="/resource/slds/assets/icons/utility/edit_60.png" style="width:26px;height:26px;" title="Edit" 
+                                    onclick="editDeploymentDetails('{!changeSetDeploymentObj}','{!changeSetDeploymentObj.Deployment_Order__c}','{!changeSetDeploymentObj.Sandbox__c}','{!changeSetDeploymentObj.Sandbox_type__c}','{!changeSetDeploymentObj.Deployment_Strategy__c}');" />
+                                    &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                                    <img src="/resource/slds/assets/icons/utility/sync_60.png" style="width:26px;height:26px;" title="Deploy" onclick="deployComponent('{!changeSetDeploymentObj.Id}');" />&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                                    <img src="/resource/slds/assets/icons/utility/delete_60.png" style="width:26px;height:26px;" title="Delete" onclick="deleteDeploymentObject('{!changeSetDeploymentObj}');" />
+                                </span>
+                                </td>
+                                <td scope="row" data-label="Name">
+                                    <div class="slds-truncate">
+                                        <apex:inputField value="{!changeSetDeploymentObj.Deployment_Order__c}" rendered="{!changeSetDeploymentObj.Status__c=='To Be Deployed'}" style="width:10%;" />
+                                        <apex:outputField value="{!changeSetDeploymentObj.Deployment_Order__c}" rendered="{!changeSetDeploymentObj.Status__c!='To Be Deployed'}" />
+                                    </div>
+                                </td>
+                                <td data-label="Description">
+                                    <div class="slds-truncate">{!changeSetDeploymentObj.Sandbox__c}</div>
+                                </td>
+                                <td data-label="Type">
+                                    <div class="slds-truncate">{!changeSetDeploymentObj.Sandbox_Type__c}</div>
+                                </td>
+                                <td data-label="Strategy">
+                                    <div class="slds-truncate">{!changeSetDeploymentObj.Deployment_Strategy__c}</div>
+                                </td>
+                                <td data-label="Status">
+                                    <div class="slds-truncate">{!changeSetDeploymentObj.Status__c}</div>
+                                </td>
+                            </tr>
+                        </apex:repeat>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div style="display:none;">
+            <apex:actionPoller action="{!checkRetrieveAsyncRequest}" interval="5" rerender="form" rendered="{!NOT(ISNULL(RetrieveAsyncResult))}"/> 
+            <apex:outputPanel rendered="{!NOT(ISNULL(MetaDataRetrieveZip))}">
+                <apex:actionFunction name="receiveFile" action="{!receiveMetadataZipFile}" rerender="Messages,files" immediate="true" oncomplete="unzip();">
+                    <apex:param name="filename" assignTo="{!MetadataFileName}" value=""/>
+                    <apex:param name="filedata" assignTo="{!MetadataFileData}" value=""/>
+                </apex:actionFunction>  
+                <apex:actionFunction name="receiveComplete" action="{!receiveComplete}" immediate="true" rerender="form"/>
+                <c:unzip name="unzip" oncomplete="if(more) receiveFile(path, data); else receiveComplete();">{!MetaDataRetrieveZip}</c:unzip>
+            </apex:outputPanel>
+        </div>
+        <apex:outputPanel id="Deploy" >
+            
+            <script>
+            j$(document).ready( function() {
+                j$('.slds-theme--success').parent('.slds-notify_container').delay(10000).fadeOut();
+            });
+            </script>
+            <div class="slds-notify_container slds-notify_container--inline" data-reactid="115" style="{!IF(pageMessage==null,'display:none;','')}">
+                <div class="slds-notify slds-notify--toast slds-theme--{!pageMessage.messageSeverity}" role="alert" data-reactid="116">
+                    <span class="slds-assistive-text" data-reactid="117">Info</span>
+                    <button class="slds-button slds-button--icon-inverse slds-notify__close" tabindex="-1" data-reactid="118">
+                        <svg aria-hidden="true" class="slds-button__icon slds-button__icon--large" data-reactid="119">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/resource/slds/assets/icons/utility-sprite/svg/symbols.svg#close" data-reactid="120">
+                            </use>
+                        </svg>
+                        <span class="slds-assistive-text" data-reactid="121">Close</span>
+                    </button>
+                    <div class="slds-notify__content slds-grid" data-reactid="122">
+                        <svg aria-hidden="true" class="slds-icon slds-icon--small slds-m-right--small slds-col slds-no-flex" data-reactid="123">
+                            <use
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/resource/slds/assets/icons/utility-sprite/svg/symbols.svg#{!pageMessage.messageSeverity}" data-reactid="124">
+                            </use>
+                        </svg>
+                        <div class="slds-col slds-align-middle" data-reactid="125">
+                            <h2 class="slds-text-heading--small" data-reactid="126"><apex:outputText value="{!pageMessage.messageBody}" escape="false" /></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <apex:actionPoller action="{!checkAsyncRequest}" interval="5" rerender="Deploy,Messages" rendered="{!NOT(ISNULL(AsyncResult))}"/>
+            <apex:actionFunction name="deployZip" action="{!deployZip}" rerender="Deploy,Messages">
+                <apex:param name="data" assignTo="{!ZipData}" value=""/>
+            </apex:actionFunction>
+            <c:zip name="generateZip" oncomplete="deployZip(data);">
+                <c:zipEntry path="package.xml" data="{!PackageXml}"/>
+                <apex:repeat value="{!deployingComponents}" var="component">
+                    <c:zipEntry path="{!component.path}" data="{!component.body}"/>
+                </apex:repeat>
+            </c:zip>
+        </apex:outputPanel>
+        
+        
+        <apex:outputPanel rendered="{!If(packageXML!=null,'true','false')}">
+            <script>
+            j$( document ).ready(function() {
+                generateZip();
+            });
+            </script>
+            
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

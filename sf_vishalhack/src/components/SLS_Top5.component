@@ -1,0 +1,66 @@
+<!-- 2017-01-17 ragashalini.koka@cdk.com - RQ-08462 - Created this component-->
+<!-- 2017-04-04	lalitha.adduru@cdk.com - RQ-08893 -->
+<!--2017-04-05 lalitha.adduru@cdk.com added button to toggle black flag statuses on the Top5 records -RQ-08902-->
+<apex:component controller="SLS_Top5List_Controller">
+    
+    <style>
+        .nextLink {
+        float : right; 
+        font-size : 14px;
+        }
+        .errMsg {
+        font-size : 20px;
+        }
+        .progress-wrapper {
+        position: fixed;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(255, 255, 255, .8);
+        z-index: 99999;
+        }
+        
+        .progress-wrapper .progress {
+        font-weight: bold;
+        color: #000;
+        text-align: CENTER;
+        font-size: 19px;
+        margin-top: 10%;
+    </style>
+    <div class="progress-wrapper" style="display:none">
+        <div class="progress">
+			<span>Please wait ...</span>
+        </div>
+    </div>
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}" />
+	<apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.10.4.custom.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.ArriveJS)}"/>
+    <apex:includeScript value="{!URLFOR($Resource.SLS_Top5_JS)}" />
+    <apex:form >
+        <div align="center" draggable="false" >
+            <apex:commandButton value="New Top 5s" styleClass="padding-right : 10px" onclick="window.open('/setup/ui/recordtypeselect.jsp?ent=01I33000000FBvD&save_new_url=%2fa6t%2fe&saveURL=/apex/SLS_Top5ListPage_Primary','_self'); return false;" rendered="{!$CurrentPage.Name == 'SLS_Top5ListPage_Primary'}" />
+            <apex:commandButton value="New Top 5s" onclick="window.open('/setup/ui/recordtypeselect.jsp?ent=01I33000000FBvD&save_new_url=%2fa6t%2fe&saveURL=/apex/SLS_Top5ListPage_Secondary','_self'); return false;" rendered="{!$CurrentPage.Name == 'SLS_Top5ListPage_Secondary'}" />
+            <apex:outputLabel value=" " style="width:10px;"></apex:outputLabel>
+            <apex:commandButton id="Hide_Black_Flag" value="Hide Black Flags" onclick="showOrHideBlackFlagButtonClicked(this); return false;" />         
+        </div>
+	</apex:form>
+    <apex:outputLink value="{!nextPage}" styleClass="nextLink">{!nextPageName}</apex:outputLink>
+    <br/><br/> <!-- this is must for IE inorder to have proper rendering - lalitha.adduru@cdk.com -->
+    
+    <apex:outputPanel rendered="{!(hasPermission && isPresent)}">
+        <apex:repeat value="{!viewIdList}" var="viewId">
+            <apex:enhancedList height="270" rowsPerPage="200" customizable="false" Type="Top_5__c" ListId="{!viewId}" />
+        </apex:repeat>
+    </apex:outputPanel>
+    
+    <apex:outputPanel rendered="{!(!hasPermission || !isPresent)}" styleClass="errMsg">
+        <br/>
+        {!message}
+        <br/>
+    </apex:outputPanel>
+    <br/>
+    <apex:outputLink value="{!nextPage}" styleClass="nextLink">{!nextPageName}</apex:outputLink>
+</apex:component>

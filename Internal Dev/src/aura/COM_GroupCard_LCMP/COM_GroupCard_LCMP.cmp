@@ -1,0 +1,31 @@
+<!--
+Author: Vishal Bandari
+Company: CDK Global
+Description: Group List for Intranet Communities v3.0 - GLOBIT-1846
+History
+07/31/2017    vishal.bandari@cdk.com     Created
+08/24/2017 vijay.manimaran@cdk.com	Updated the complete component
+-->
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+    
+    <aura:attribute type="SObject" name="group" /> 
+        <div class="slds-p-horizontal_small slds-size_1-of-2 slds-medium-size_1-of-6 slds-large-size_6-of-12 " style="padding-bottom:10px;"> 
+            <a class="slds-link-container" href="{!'/'+v.group.CollaborationGroup.Network.UrlPathPrefix +'/' +v.group.CollaborationGroupId}" >
+                <div class="{!if(v.group.CollaborationGroup.Network.UrlPathPrefix=='intranet', 'panel-highlight-green', '')}">
+                    <div class="slds-form slds-form_stacked ">
+                        <div class="slds-panel__section slds-box">
+                            <div class="slds-media">
+                                <div class="slds-media__figure" style="width:45px;">
+                                    <img  src="{!v.group. CollaborationGroup.SmallPhotoUrl}" />
+                                </div>
+                                <div class="slds-media__body">
+                                    <h2 class="slds-truncate slds-text-heading_small" title="{!v.group.CollaborationGroup.Name}">{!v.group.CollaborationGroup.Name}</h2>
+                                    <p class="slds-truncate slds-text-body_small" title="{!v.group.CollaborationGroup.Description}">{!v.group.CollaborationGroup.Description}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+</aura:component>

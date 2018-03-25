@@ -1,0 +1,99 @@
+<!--2016-10-26- anirudh.singh@cdk.com- Created this component for displaying pdf version of Discovery Question Answers.-->
+<apex:component controller="ALL_QuestionAnswer_Controller">
+    <apex:includeScript value="{!URLFOR($Resource.ALL_QuestionAnswerForPDF_JS)}"/>
+    
+    <apex:stylesheet value="{!URLFOR($Resource.Bootstrap, '/cdk/css/bootstrap.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.ALL_QuestionAnswer_CSS)}"/>
+    
+    <apex:attribute name="categoryName" type="String" assignTo="{!categoryNameForRecs}" required="false" description="This is the Category Name for the Question Records."/>
+    <apex:attribute name="subCategoryName" type="String" assignTo="{!subCategoryNameForRecs}" required="false" description="This is the Sub-Category Name for the Question Records."/>
+    <apex:attribute name="discoverySiteWorkbookId" type="Id" assignTo="{!discoverySiteWorkbookIdForRecs}" required="true" description="This is the Discovery Workbook Id for Answer Records."/>
+    <apex:attribute name="displayHeader" type="Boolean" default="false" required="false" description="Whether to display Header or not. Value will be Yes or No."/>
+    <apex:attribute name="orderByField" type="String" assignTo="{!orderByFieldName}" required="false" description="The Order By Field Name for the Category or Sub-Category."/>
+    <apex:attribute name="scenario" type="String" assignTo="{!questionsScenario}" required="false" description="This determines whether normal scenario or pdf scenario."/>
+    <apex:attribute name="productName" type="String" required="false" description="This is the Product Name for the Question Records."/>
+    <apex:attribute name="questionIds" type="String" assignTo="{!questionIdsForRecs}" required="false" description="This is list of Question record Ids."/>
+    
+    <div class="questionAnswerComponent pdfQuesComponent">
+        <h3 class="categoryHeader headerH3">
+            <input type="hidden" 
+                   data-categorynameforrecs="{!categoryNameForRecs}"
+                   data-productname="{!productName}"
+                   data-subcategorynameforrecs="{!subCategoryNameForRecs}"/>
+        </h3>
+        
+        <input type="hidden" class="questionAnswerWrapperList"
+               value="{!questionAnswerWrapperList.size}"/>
+        
+        <!--Questions Answer Table-->
+        <div>
+            <table class="questionTable">
+                <apex:repeat value="{!questionAnswerWrapperList}" var="questionAnswerVar">
+                    <tr class="quesTR">
+                        <!--Question Number-->
+                        <td class="quesNo">
+                            <input type="hidden" 
+                                   data-parentquestionnumber="{!questionAnswerVar.parentQuestionNumber}"
+                                   data-questiontype="{!questionAnswerVar.questionRecord.Question_Type__c}"/>
+                        </td>
+                        
+                        <!--Question Text-->
+                        <td class="quesText col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <input type="hidden" 
+                                   data-questiontext="{!questionAnswerVar.questionRecord.Discovery_Question_Text__c}"
+                                   data-questiontype="{!questionAnswerVar.questionRecord.Question_Type__c}"
+                                   data-note="{!questionAnswerVar.questionRecord.Note__c}"
+                                   data-questiondatatype="{!questionAnswerVar.questionRecord.Answer_DataType__c}"/>
+                        </td>
+                        
+                        <!--Answer-->
+                        <td class="ansColumn col-lg-4 col-md-5 col-sm-4 col-xs-4">
+                            <input type="hidden" 
+                                   data-checkboxans="{!questionAnswerVar.answerRecord.Checkbox_Answer__c}"
+                                   data-currencyans="{!questionAnswerVar.answerRecord.Currency_Answer__c}"
+                                   data-dateans="{!questionAnswerVar.answerRecord.Date_Answer__c}"
+                                   data-datetimeans="{!questionAnswerVar.answerRecord.Date_Time_Answer__c}"
+                                   data-emailans="{!questionAnswerVar.answerRecord.Email_Answer__c}"
+                                   data-textareaans="{!questionAnswerVar.answerRecord.Long_Text_Area_Answer__c}"
+                                   data-numberans="{!questionAnswerVar.answerRecord.Number_Answer__c}"
+                                   data-phoneans="{!questionAnswerVar.answerRecord.Phone_Answer__c}"
+                                   data-textans="{!questionAnswerVar.answerRecord.Text_Answer__c}"
+                                   data-urlans="{!questionAnswerVar.answerRecord.URL_Answer__c}"
+                                   data-picklistans="{!questionAnswerVar.answerRecord.Picklist_Answer__c}"
+                                   data-multiselectpicklistans="{!questionAnswerVar.answerRecord.Multiselect_Picklist_Answer__c}"
+                                   data-picklistoptions="{!questionAnswerVar.questionRecord.Picklist_Values__c}"
+                                   data-questiondatatype="{!questionAnswerVar.questionRecord.Answer_DataType__c}"
+                                   data-questiontype="{!questionAnswerVar.questionRecord.Question_Type__c}"/>
+                        </td>
+                        
+                        <!--N/A Checkbox-->
+                        <td class="col-lg-1 col-md-1 col-sm-2 col-xs-2 notApplicableColumn">
+                            <input type="hidden" 
+                                   data-naValue="{!questionAnswerVar.answerRecord.N_A__c}"/>
+                        </td>
+                        
+                        <!--Empty Column for Desktop Screens-->
+                        <td class="col-lg-1 col-md-0 col-sm-0 col-xs-0 emptyColumn"></td>
+                    </tr>
+                    
+                    <tr class="quesTR">
+                        <td></td>
+                        
+                        <!--Parent Answer-->
+                        <td class="otherAnswer col-lg-4 col-md-5 col-sm-5 col-xs-5" colspan="2">
+                            <input type="hidden" 
+                                   data-questiontext="{!questionAnswerVar.questionRecord.Discovery_Question_Text__c}:"
+                                   data-questiontype="{!questionAnswerVar.questionRecord.Question_Type__c}"
+                                   data-questiondatatype="{!questionAnswerVar.questionRecord.Answer_DataType__c}"
+                                   data-otherAns="{!questionAnswerVar.answerRecord.Long_Text_Area_Answer__c}"/>
+                        </td>
+                        
+                        <!--Empty Column for Desktop Screens-->
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </apex:repeat>
+            </table>
+        </div>
+    </div>
+</apex:component>

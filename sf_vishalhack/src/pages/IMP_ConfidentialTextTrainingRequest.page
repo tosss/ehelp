@@ -1,0 +1,6 @@
+<!-- 2017-03-09 -laurie.duff@cdk.com  - Part of Training Request Field requirements -->
+<apex:page standardController="IMP_Training_Request__c">
+     <c:IMP_ConfidentialText isConfidential="{!(IMP_Training_Request__c.IMP_SubProject_Confidentiality_Status__c == 'Confidential' || 
+                        IMP_Training_Request__c.IMP_SubProject_Confidentiality_Status__c == 'Restricted')}"
+    confidentialityStatus="{!IMP_Training_Request__c.IMP_SubProject_Confidentiality_Status__c}"></c:IMP_ConfidentialText>
+</apex:page>

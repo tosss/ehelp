@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>MAMobileState</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>MAMobileState</value>
+    </caseValues>
+    <fields>
+        <label><!-- Center Point --></label>
+        <name>Center_Point__c</name>
+    </fields>
+    <fields>
+        <label><!-- PlottedIds --></label>
+        <name>PlottedIds__c</name>
+    </fields>
+    <fields>
+        <label><!-- PlottedRouteId --></label>
+        <name>PlottedRouteId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Zoom Level --></label>
+        <name>Zoom_Level__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

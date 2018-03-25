@@ -1,0 +1,8 @@
+<apex:page standardController="BigMachines__Quote_Product__c" extensions="BigMachines.BigMachinesQuoteProductController" tabStyle="Quotes__tab">
+    <script type="text/javascript">
+        window.parent.location.href = "{!redirectURL}";
+    </script>
+    <apex:sectionHeader title="Oracle CPQ Cloud Quote Product" subtitle="Edit Quote"/>
+    <apex:outputText rendered="false" value="{!BigMachines__Quote_Product__c.BigMachines__Quote__c}" />
+    <apex:pageMessages />
+</apex:page>

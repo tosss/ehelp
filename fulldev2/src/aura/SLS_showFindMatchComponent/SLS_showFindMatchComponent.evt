@@ -1,8 +1,0 @@
-<aura:event type="COMPONENT" description="to Show Find Match Component">
-    <!--
-	Author:        Vishal Bandari
-	Description:   Event to Show Find Match Component in 'Work My Leads' Page
-	Created on:    05 March 2016
- 	-->
-    <aura:attribute type="String" name="leadId" />
-</aura:event>

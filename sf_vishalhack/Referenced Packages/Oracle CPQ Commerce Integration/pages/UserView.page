@@ -1,0 +1,37 @@
+<apex:page standardController="User" extensions="BigMachines.OracleUserViewController">
+    <apex:outputPanel id="fullPagePanel">
+        <apex:form rendered="{!displayViewUsers}">
+            <apex:pageBlock title="Oracle CPQ Users" >
+                <apex:pageBlockButtons location="both">
+                    <apex:commandButton value=" Edit " action="{!startEdit}" rerender="fullPagePanel"/>
+                </apex:pageBlockButtons>
+                <apex:repeat value="{!usersWithSites}" var="o">
+                    <apex:pageBlockSection collapsible="true" showHeader="true" title="{!o.header}" rendered="{!o.site.BigMachines__Primary_Commerce_Process__c}">
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Oracle_CPQ_Cloud_Login__c}" rendered="{!showOutputMap[oracleUserWithPrefix + 'Oracle_CPQ_Cloud_Login__c']}" />
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Partner_Organization__c}" rendered="{!showOutputMap[oracleUserWithPrefix + 'Partner_Organization__c']}" />
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Bulk_Synchronization__c}" rendered="{!showOutputMap[oracleUserWithPrefix + 'Bulk_Synchronization__c']}" />
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Language_Preference__c}" rendered="{!showOutputMap[oracleUserWithPrefix + 'Language_Preference__c']}" />
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Provisioned__c}" rendered="{!showOutputMap[oracleUserWithPrefix + 'Provisioned__c']}" />
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Association_to_Organization__c}" rendered="{!showOutputMap[oracleUserWithPrefix + 'Association_to_Organization__c']}" />
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Allow_Quote_Creation__c}" rendered="{!showOutputMap[oracleUserWithPrefix + 'Allow_Quote_Creation__c']}" />
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Access_Type__c}" rendered="{!showOutputMap[oracleUserWithPrefix + 'Access_Type__c']}" />
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Delegated_Approver__c}" rendered="{!showOutputMap[oracleUserWithPrefix + 'Delegated_Approver__c']}" />
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Currency_Preference__c}" rendered="{!showOutputMap[oracleUserWithPrefix + 'Currency_Preference__c']}" />
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Number_Format__c}" rendered="{!showOutputMap[oracleUserWithPrefix + 'Number_Format__c']}" />
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Unit_System__c}" rendered="{!showOutputMap[oracleUserWithPrefix + 'Unit_System__c']}" />
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Date_Time_Format__c}" rendered="{!showOutputMap[oracleUserWithPrefix + 'Date_Time_Format__c']}" />
+                        <apex:outputField value="{!o.oracleUser.BigMachines__User_Groups__c}" rendered="{!showOutputMap[oracleUserWithPrefix + 'User_Groups__c']}" />
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Time_Zone__c}" rendered="{!showOutputMap[oracleUserWithPrefix + 'Time_Zone__c']}" />
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection collapsible="true" showHeader="true" title="{!o.header}" rendered="{!NOT(o.site.BigMachines__Primary_Commerce_Process__c)}">
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Allow_Quote_Creation__c}" rendered="{!showOutputMap[oracleUserWithPrefix + 'Allow_Quote_Creation__c']}" />
+                    </apex:pageBlockSection>
+                </apex:repeat>
+            </apex:pageBlock>
+        </apex:form>
+        
+        <apex:outputPanel rendered="{!displayEditUsers}">
+            <apex:include pageName="BigMachines__UserEdit" />
+        </apex:outputPanel>
+    </apex:outputPanel>
+</apex:page>

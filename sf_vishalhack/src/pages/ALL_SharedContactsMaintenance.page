@@ -1,0 +1,26 @@
+<apex:page >
+
+<apex:pageBlock title="Shared Contacts Maintenance">
+    <div style="width:700px; font-size:2em;">
+    
+        <div style="float:right;">
+            <img style="border:0; padding-right: 40px;" src="/resource/1438615617000/EMP_PortalImages/CDK_Logo_TM_RGB_300dpi_155x125.png"></img>
+        </div>
+        <!--
+        <div style="padding: 10px; padding-left: 40px; height:105px;">
+          <p>From: <span style="color:#00A9CE;text-shadow: 1px 1px #333;"><b>NOW</b></span><br/>Friday, June 17th <b>7PM CST</b>
+          <br/>
+          To: <span style="color:#82C600;text-shadow: 1px 1px #333;"><b>Monday</b></span>, June 20th <b>6AM CST</b></p>
+        </div>
+        -->
+    </div>
+    <div style="width:700px; font-size:1.6em;">
+        <div >
+          <!--<p>During this time the CDK Saleforce.com instance will be updated for the new Shared Contacts release.  While you can access the system during those hours, <b>please do NOT create any new contacts during this time</b>.</p>-->
+          <p>Due to the Shared Contacts deployment and data load, some Cases are still being updated. </p>
+          <p>If you have any questions, feel free to contact the <a href="https://mycdk.force.com/Employees/apex/EMP_AssociatePortalPage?page=ITSupportCommunity" target="_blank">IT Helpdesk</a>!</p>
+        </div>
+    </div>    
+</apex:pageBlock>
+
+</apex:page>

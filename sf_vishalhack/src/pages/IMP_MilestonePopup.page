@@ -1,0 +1,351 @@
+<!--
+/*------------------------------------------------------------
+Author: Michael Lasala
+Company: Cloud Sherpas
+Description: Milestone popup page for Standard/Non-Standard
+History
+09/03/14    Michael Lasala      Created
+09/15/14    Michael Lasala      Added input fields for Edit on Project Milestone And Project Activities, Added apex:pageMessages
+09/16/14    Michael Lasala      Added rendering of components for new Non-Standard Milestone
+09/23/14    Michael Lasala      Added External System ID picklist
+10/07/14    Samuel Oberes       Added JS function dismissEnterEvent
+10/07/14    Michael Lasala      Removed Hold Code/Reason Code from Activity table, Added textarea style
+10/08/14    Samuel Oberes       Removed JS function and updated closeAndRefreshParent method
+10/09/14    Michael Lasala      Changed outputText/inputText of Project Activity Description tag to inputTextArea
+10/09/14    Michael Lasala      Added component to hide the current date link for date inputFields, Added styleClass for all Activity oolumns for error highlight
+10/14/14    Rey Austral         Put internal and inline css to an external css
+12/05/14    Karl Simon          Updated closeAndRefreshParent js method to fix issue for refreshing parent page.
+04/02/15	Rey Austral	     	Add Expected Days Spent
+04/22/16    Venkata Shrivol     Added title to the page: RQ-06919
+06/23/16    Venkata Shrivol  changed sort_sequence__c field to sequence__c field on project milestone
+------------------------------------------------------------*/
+-->
+<apex:page standardController="Project_Milestone__c" extensions="IMP_MilestonePopup_Extension" id="pageId" showHeader="false" sidebar="false" title="{!subProject.SubProject_Name__c} - Create Milestones">
+    <apex:stylesheet value="{!URLFOR($Resource.IMP_Project_css)}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.IMP_Milestone_css)}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.All_Utilities_SR,'/img/CollapsibleTable.css')}"/>
+    <!-- Loader actionStatus -->
+    <apex:outputPanel >
+        <apex:actionStatus id="loader">
+            <apex:facet name="start">
+                <div class="waitingSearchDiv outerGrayedPanel" id="casActionProcessing"> 
+                    <div class="waitingHolder innerProcessPanel">
+                        <br />
+                        <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />   
+                        <span class="waitingDescription">Loading...</span>
+                    </div>
+                </div>
+            </apex:facet>
+        </apex:actionStatus>
+    </apex:outputPanel>
+    
+    <apex:pageMessages id="messageId" escape="false"/>
+    
+    <apex:form id="formId">
+        <apex:actionFunction name="createTask"  action="{!createNewTask}" reRender="formId,pnlScript"  status="loader" >
+            <apex:param assignTo="{!activityExternalId}" value="" name="actExternal" />
+        </apex:actionFunction>
+        <apex:actionFunction name="deleteActivity"  action="{!deleteNewActivity}" reRender="formId,pnlScript"  status="loader" immediate="true" >
+            <apex:param assignTo="{!activityIndex}" value="" name="indexAct"/>
+        </apex:actionFunction>
+        <apex:actionFunction name="deleteTask"  action="{!deleteNewTask}" reRender="formId,pnlScript"  status="loader" immediate="true" >
+            <apex:param assignTo="{!taskIndex}" value="" name="indexTsk"/>
+            <apex:param assignTo="{!activityExternalId}" value="" name="actExternal" />
+        </apex:actionFunction>
+        <!-- Validation boolean -->
+        <apex:inputHidden value="{!isValid}" id="isValidId"/>
+        <div class="popupContainer">
+            <div class="popupContent">
+                <apex:pageBlock title="Milestone">
+                    
+                    <apex:pageBlockButtons location="top">
+                        
+                        <apex:commandButton value="Save" action="{!saveRecords}" oncomplete="closeAndRefreshParent();" status="loader" reRender="messageId, formId" />
+                        <apex:commandButton value="Cancel" onClick="window.close();" status="loader" reRender="isValidId" />
+                        
+                    </apex:pageBlockButtons>
+                    <apex:outputPanel >
+                        <!-- Expose so that the site filter and external system filter would show up -->
+                        <div class="hide_component">
+                            <apex:inputField value="{!projectMilestone.SubProject__c}" />
+                        </div>
+                        
+                        <!-- Milestone section -->
+                        <apex:pageBlockSection title="Milestone Fields" collapsible="false" columns="2">
+                            
+                            <apex:outputField value="{!projectMilestone.Description__c}" rendered="{!projectMilestone.Standard__c}"/>
+                            <apex:inputField value="{!projectMilestone.Description__c}" rendered="{!NOT(projectMilestone.Standard__c)}"/>
+                            <apex:pageBlockSectionItem />
+                            
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel for="processStep" value="Process Step"/>
+                                <apex:inputField value="{!projectMilestone.Process_Step__c}" id="processStep"/>
+                            </apex:pageBlockSectionItem>
+                            
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel for="txtSequence" value="Sort Sequence"/>
+                                <apex:inputField value="{!projectMilestone.Sequence__c}" id="txtSequence"/>
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                
+                                <apex:outputLabel for="externalId" value="Subproject External Reference ID"/>
+                                <apex:inputField value="{!projectMilestone.External_System_New_Id__c}"/>
+                                <!-- <apex:selectList value="{!projectMilestone.External_System_ID__c}" id="externalId" size="1">
+<apex:selectOptions value="{!ExternalIds}"/>
+</apex:selectList> -->
+                                
+                            </apex:pageBlockSectionItem>
+                            
+                            <!-- <apex:inputField value="{!projectMilestone.Status__c}"/>                -->
+                            
+                            <apex:pageBlockSectionItem >
+                                
+                                <apex:outputLabel for="sitesId" value="Sites"/>
+                                <apex:inputField value="{!projectMilestone.Site__c}" id="sitesId"/>
+                                <!--  <apex:selectList value="{!projectMilestone.Site__c}" id="sitesId" size="1">
+<apex:selectOptions value="{!siteOptionsList}"/>
+</apex:selectList> -->
+                            </apex:pageBlockSectionItem>
+                            
+                            
+                            <apex:inputField value="{!projectMilestone.Comments__c}"/>
+                            
+                        </apex:pageBlockSection>
+                        
+                        <!-- Activity section -->
+                        <apex:pageBlockSection title="Activity List" collapsible="false">
+                            
+                            <apex:commandButton value="Add Non-Standard Activity" action="{!createNewActivity}" reRender="formId,messageId" status="loader"/>
+                            
+                        </apex:pageBlockSection>
+                        <br/>
+                        <apex:variable var="cnt" value="{!0}" />
+                        <div class="toggle_table child_td_content">     
+                            <table class="childTable">
+                                <apex:repeat value="{!projectActivityList }" var="act">
+                                    <thead>
+                                        <tr class="child_header_tr activity_border">
+                                            <th></th>                                          
+                                            <th>Description</th>  
+                                            <th>Sequence</th>
+                                            <th>Planned Start Date</th>
+                                            <th>Planned End Date</th>
+                                            <th>CDK Assignee</th>
+                                            <th>CDK Assignee Role</th>
+                                            <th>Client Assignee</th>
+                                            <th>Actual Start Date</th>
+                                            <th>Actual End Date</th>                                         
+                                            <th>Display on PSR</th>
+                                            <th>Comments</th>
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tr class="dataRow_child activity_border {!IF(act.hasError,'errorClass','')}">
+                                        <td id="tdSelected">                                       
+                                            <div onclick="deleteActivity('{!cnt}');" class="remove_Activity">
+                                                x
+                                            </div>  
+                                        </td>
+                                        
+                                        <td >
+                                            <div class="milestone_required">
+                                            </div>
+                                            <apex:inputText id="txtActivityDescription" value="{!act.activity.Description__c}" />
+                                        </td>
+                                        <td>
+                                            <apex:inputField value="{!act.activity.Sequence__c}"/>
+                                        </td>
+                                        <td >  
+                                            <c:IMP_HideCurrentDate >
+                                                <apex:inputField id="txtPlannedStartDate" value="{!act.activity.Planned_Start_Date__c}"  />
+                                            </c:IMP_HideCurrentDate>
+                                        </td>
+                                        <td>  
+                                            <c:IMP_HideCurrentDate >
+                                                <apex:inputField id="txtPlannedEndDate" value="{!act.activity.Planned_End_Date__c}"  />
+                                            </c:IMP_HideCurrentDate>
+                                        </td>
+                                        <td >
+                                            <apex:inputField id="luCDKAssignee" value="{!act.activity.CDK_Assignee__c}" />
+                                        </td>
+                                        <td >
+                                            <apex:inputField id="ddRole" value="{!act.activity.CDK_Assignee_Role__c}"  />
+                                        </td>
+                                        <td >
+                                            <apex:inputField id="luClientAssignee" value="{!act.activity.Client_Assignee__c}" />
+                                            
+                                        </td>
+                                        
+                                        <td >  
+                                            <c:IMP_HideCurrentDate >
+                                                <apex:inputField id="txtActualStartDate" value="{!act.activity.Actual_Start_Date__c}" />
+                                            </c:IMP_HideCurrentDate>
+                                        </td>
+                                        <td >  
+                                            <c:IMP_HideCurrentDate >
+                                                <apex:inputField id="txtActualEndDate" value="{!act.activity.Actual_End_Date_Final__c}" />
+                                            </c:IMP_HideCurrentDate>
+                                        </td>   
+                                        <td >
+                                            <apex:inputField value="{!act.activity.Display_on_PSR__c}"  id="chkPSR"/>
+                                        </td>
+                                        <td >
+                                            <apex:inputText id="txtActivityComments" value="{!act.activity.Comments__c}" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="16">
+                                            <div class="toggleTable_container child_td">
+                                                <apex:variable var="cntTask" value="{!0}" />
+                                                <!-- default value in onclick is "toggleSelectedTable(control)", can be change if there are extra function needed before expanding-->
+                                                <!-- required class "toogle_control" -->
+                                                <div class="toogle_control ">
+                                                    <!-- first span for dashed line -->
+                                                    <span class="child_td_node"></span>
+                                                    <span>
+                                                        <span class="toggleImgGrandChild">&nbsp;</span>
+                                                        <!-- Label of toggle -->
+                                                        Project Task ({!act.projectTask.size})
+                                                    </span>
+                                                    
+                                                </div>                             
+                                                <div onclick="createTask('{!act.activity.External_ID__c}');" class="add_Activity">
+                                                    |&nbsp;&nbsp; <span>+ Add Task</span>
+                                                </div>
+                                                
+                                                <div class="toggle_subtable child_td_content" >     
+                                                    <table class="grandChildTable">
+                                                        <thead>
+                                                            <tr class="grandChild_header_tr">
+                                                                <th></th>                                                                
+                                                                <th>Description</th>
+                                                                <th>Sequence</th>
+                                                                <th>Planned Start Date</th>
+                                                                <th>Planned End Date</th>
+                                                                <th>Expected Days Spent</th>
+                                                                <th>CDK Assignee</th>
+                                                                <th>CDK Assignee Role</th>
+                                                                <th>Client Assignee</th>
+                                                                <th>Actual Start Date</th>
+                                                                <th>Actual End Date</th>
+                                                                <th>Actual Days Spent</th>                                                              
+                                                                <th>Reason</th>
+                                                                <th>Comments</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <apex:repeat value="{!act.projectTask }" var="task">
+                                                            <tr class="dataRow_child {!IF(task.hasError,'errorClass','')}">
+                                                                <td id="tdSelected">                                                          
+                                                                    <div onclick="deleteTask('{!cntTask}','{!act.activity.External_ID__c}');" class="remove_Activity">
+                                                                        x
+                                                                    </div>                                       
+                                                                </td>
+                                                                
+                                                                <td >
+                                                                    <div class="milestone_required">
+                                                                    </div>
+                                                                    <apex:inputText id="txtTaskDescription" value="{!task.task.Description__c}" onchange="checkAndMarkChanged(this);"/>
+                                                                </td>
+                                                                <td>
+                                                                    <apex:inputField value="{!task.task.Sequence__c}"/>
+                                                                </td>
+                                                                <td >  
+                                                                    <c:IMP_HideCurrentDate >
+                                                                        
+                                                                        <apex:inputField id="txtTaskPStartDate" value="{!task.task.Planned_Start_Date__c}"  />
+                                                                        
+                                                                    </c:IMP_HideCurrentDate>
+                                                                </td>
+                                                                <td >   
+                                                                    <c:IMP_HideCurrentDate >
+                                                                        
+                                                                        <apex:inputField id="txtTaskPEndDate" value="{!task.task.Planned_End_Date__c}" ></apex:inputField>
+                                                                        
+                                                                    </c:IMP_HideCurrentDate>
+                                                                </td>
+                                                                <td >
+                                                                    <div class="milestone_required">
+                                                                    </div>
+                                                                    <apex:inputField id="txtExpectedTimeSpent" value="{!task.task.Expected_Time_Spent__c}" /> 
+                                                                </td>
+                                                                <td >
+                                                                    
+                                                                    <apex:inputField id="luTaskCDKAssignee" value="{!task.task.CDK_Assignee__c}" />
+                                                                </td>
+                                                                <td >
+                                                                    
+                                                                    <apex:inputField id="ddTaskRole" value="{!task.task.CDK_Assignee_Role__c}" />
+                                                                </td>
+                                                                <td >
+                                                                    
+                                                                    <apex:inputField id="luTaskClientAssignee" value="{!task.task.Client_Assignee__c}"/>
+                                                                </td>
+                                                                
+                                                                <td >  
+                                                                    <c:IMP_HideCurrentDate >
+                                                                        
+                                                                        <apex:inputField id="txtTaskAStartDate" value="{!task.task.Actual_Start_Date__c}" />
+                                                                        
+                                                                    </c:IMP_HideCurrentDate>
+                                                                </td>
+                                                                <td >  
+                                                                    <c:IMP_HideCurrentDate >
+                                                                        
+                                                                        <apex:inputField id="txtTaskAEndDate" value="{!task.task.Actual_End_Date__c}" />
+                                                                        
+                                                                    </c:IMP_HideCurrentDate>
+                                                                </td>
+                                                                <td >
+                                                                    <apex:inputField id="txtActualTimeSpent" value="{!task.task.Actual_Time_Spent__c}" /> 
+                                                                </td>
+                                                                
+                                                                <td>                                                            
+                                                                    <apex:inputField value="{!task.task.Reason__c}"  />                                                            
+                                                                    
+                                                                </td>
+                                                                <td >
+                                                                    
+                                                                    <apex:inputText id="txtTaskComments" value="{!task.task.Comments__c}"/>
+                                                                    
+                                                                </td>
+                                                            </tr>
+                                                            <apex:variable var="cntTask" value="{!cntTask+1}" /> 
+                                                        </apex:repeat>
+                                                    </table>
+                                                    
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <apex:variable var="cnt" value="{!cnt+1}" /> 
+                                </apex:repeat>
+                            </table>
+                            
+                        </div>
+                    </apex:outputPanel>
+                </apex:pageBlock>
+            </div>
+        </div>
+        <script>
+        /*------------------------------------------------------------
+        Author: Michael Lasala
+        Company: Cloud Sherpas
+        Description: Check validation flag. If true, close popup and refresh parent window
+        History
+        10/08/14    Samuel Oberes      Moved window close code to outside and below the IF statement so the child window will close regardless whether the save or cancel button is clicked
+        ------------------------------------------------------------*/
+        function closeAndRefreshParent(){
+            var validationflag = document.getElementById('pageId:formId:isValidId').value;
+            
+            if(validationflag == 'true'){
+                //window.opener.location.href="/apex/IMP_Milestones?id={!subProject.Id}";
+                //window.opener.location.href="/apex/IMP_SubProjectManagement?id={!subProject.Id}&tab=milestonesTab";
+                window.opener.afRenderPage();
+                window.top.close();
+            }
+        }
+        </script>
+        
+    </apex:form>
+    
+</apex:page>

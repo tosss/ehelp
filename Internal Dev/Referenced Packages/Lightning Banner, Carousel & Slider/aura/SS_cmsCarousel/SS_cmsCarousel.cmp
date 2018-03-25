@@ -1,0 +1,42 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="title" type="String" description="Title" access="global" />
+    <aura:attribute name="titleAlign" type="String" description="center or left or right" default="left" access="global" />
+    <aura:attribute name="titleSize" type="String" description="Size of the title" default="large" access="global" />
+    <aura:attribute name="slidesPerPage" type="Integer" default="3" description="Slides Per Page" access="global" />
+    <aura:attribute name="autoPlay" type="Boolean" default="false" access="global" />
+    <aura:attribute name="slideDefMap" type="object" />
+    <aura:attribute name="slideOptions" type="object" />
+    <aura:attribute name="autoPlayInterval" type="Integer" default="2000" description="Auto Play Duration" access="global" />
+    <aura:attribute name="showControls" type="Boolean" default="true" access="global" />
+     <aura:attribute name="controlsAlignment" type="String" default="center" access="global"></aura:attribute>
+    <aura:attribute name="controlsPosition" type="String" default="bottom" access="global"></aura:attribute>
+   <aura:attribute name="height" type="Integer" description="Slide Height (px)" default="200" />
+    <aura:attribute name="aspectRatioOptions" type="String" description="Slide Aspect Ratio Options (square, medium-rectangle, large-rectangle, vertical-rectangle, custom)" default="medium-rectangle" access="global" />
+    <aura:attribute name="customAspectRatio" type="String" description="Custom Slide Aspect Ratio (e.g. 1:1, 12:9)" access="global" />
+    <aura:attribute name="datasource" required="true" type="String" description="Data Source" default="json" access="global" />
+    <aura:attribute name="datasourceInput" required="true" type="String" description="JSON or Carousel Record Name" access="global" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <div class="{!(v.title !=null &amp;&amp; v.title!='' ? 'slds-show': 'slds-hide') + ' slds-text-heading--' + v.titleSize  + ' ' + 'slds-p-vertical--small slds-text-align--' + v.titleAlign}"><aura:unescapedHtml value="{!v.title}"/></div>
+    <aura:if isTrue="{!v.slideDefMap !=null}">
+        <aura:if isTrue="{!v.datasource=='json'}">
+            <cloudx_cms:SS_uiCarousel slidesPerPage="{!v.slidesPerPage}" autoPlay="{!v.autoPlay}" controlsAlignment="{!v.controlsAlignment}" controlsPosition="{!v.controlsPosition}" autoPlayInterval="{!v.autoPlayInterval}" showControls="{!v.showControls}">
+                <aura:set attribute="slideTemplate">
+                    <cloudx_cms:SS_cmsCarouselSlide item="{!item}" slideDefMap="{!v.slideDefMap}" options="{!v.slideOptions}" slidesPerPage="{!v.slidesPerPage}" />
+                </aura:set>
+                <aura:set attribute="dataProvider">
+                    <cloudx_cms:SS_uiJSONDataProvider inputJson="{!v.datasourceInput}" />
+                </aura:set>
+            </cloudx_cms:SS_uiCarousel>
+            <aura:set attribute="else">
+                <cloudx_cms:SS_uiCarousel slidesPerPage="{!v.slidesPerPage}" autoPlay="{!v.autoPlay}" autoPlayInterval="{!v.autoPlayInterval}" showControls="{!v.showControls}" controlsAlignment="{!v.controlsAlignment}" controlsPosition="{!v.controlsPosition}">
+                    <aura:set attribute="slideTemplate">
+                        <cloudx_cms:SS_cmsCarouselSlide item="{!item}" slideDefMap="{!v.slideDefMap}" options="{!v.slideOptions}" slidesPerPage="{!v.slidesPerPage}" />
+                    </aura:set>
+                    <aura:set attribute="dataProvider">
+                        <cloudx_cms:SS_cmsCarouselDataProvider name="{!v.datasourceInput}" />
+                    </aura:set>
+                </cloudx_cms:SS_uiCarousel>
+            </aura:set>
+        </aura:if>
+    </aura:if>
+</aura:component>

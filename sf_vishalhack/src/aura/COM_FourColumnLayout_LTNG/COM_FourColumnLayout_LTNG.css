@@ -1,0 +1,34 @@
+.THIS .contentPanel:before,
+.THIS .contentPanel:after {
+    content: " ";
+    display: table;
+    margin-top: 10px;
+}
+.THIS .contentPanel:after {
+    clear: both;
+}
+
+.THIS .colGutter:first-child { 
+    margin-left: 0;
+}
+
+.THIS .colGutter { 
+    margin-left: 1%;
+}
+
+.THIS .col1 {
+    float: left;
+    width: 24.25%;
+}
+.THIS .col2 {
+    float: left;
+    width: 24.25%;
+}
+.THIS .col3 {
+    float: left;
+    width: 24.25%;
+}
+.THIS .col4 {
+    float: left;
+    width: 24.25%;
+}

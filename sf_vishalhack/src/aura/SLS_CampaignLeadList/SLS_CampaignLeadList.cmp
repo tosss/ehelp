@@ -1,0 +1,107 @@
+<aura:component implements="force:appHostable" controller="SLS_CampaignLeadList_Controller" extensible="true">
+    <!--
+ Author:        Vishal Bandari
+ Description:  SLS_CampaignLeadList Component, Main Component for Work My Leads Page
+ Created on:    05 March 2016
+  -->
+    <ltng:require styles="/resource/slds100/assets/styles/salesforce-lightning-design-system.css" scripts="/resource/ALL_LightningUtility, /resource/jQuery/js/jquery-1.10.2.min.js" afterScriptsLoaded="{!c.setup}"/>
+      
+    <aura:attribute name="CampaignId" type="String" default="" />
+    <aura:attribute name="selectedLeadStatusToView" type="String[]" default="[]" />
+    <aura:attribute name="selectedLeadsStatusToUpdate" type="String" default="" />
+    <aura:attribute name="searchInLeads" type="String" default="" />
+    <aura:attribute name="CurrentAccount" type="String" default="" />
+    <aura:attribute name="CurrentContact" type="String" default="" />
+    <aura:attribute name="statusOptions" type="String[]" default="[]" />
+    <aura:attribute name="statusMassUpdateOptions" type="String[]" default="[]" />
+    <aura:attribute type="sobject[]"  name="leadsList" default="[]" />
+    <aura:attribute type="sobject[]"  name="selectedLeadsList" default="[]" />
+    <aura:attribute type="Integer" name="PageNumber" default="1" />
+    <aura:attribute type="Integer" name="RecordCount" default="10" />
+    <aura:attribute type="Integer" name="TotalRecordCount" default="0" />
+    <aura:attribute type="Integer" name="TotalPages" default="0" />
+    <aura:attribute type="String" name="hardware" default="{!$Browser.formFactor}" />
+    <aura:attribute name="currentLeadId" type="String" default="" />
+    <aura:attribute name="orderBy" type="String" default="LastModifiedDate" />
+    <aura:attribute name="ascending" type="Boolean" default="false" />
+    
+    <aura:handler name="showAccountandContact" event="c:SLS_showAccountAndContactDetails" action="{!c.showAccountAndContact}" />
+    <aura:handler name="showLeads" event="c:SLS_showLeads" action="{!c.showLeads}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="showFindMatch" event="c:SLS_showFindMatchComponent" action="{!c.findMatch}" />
+    <aura:handler name="showLeadsList" event="c:SLS_showLeadsList" action="{!c.showLeadsList}" />
+    <aura:handler name="convertToOpportunity" event="c:SLS_ConvertToOpportunity" action="{!c.convertToOpportunity}" />
+    
+    
+    <div id="fullPage" style="display:none;">
+        <div id="LeadsListPage" aura:id="LeadsListPage" class="Page">
+            <div class="slds-page-header" role="banner">
+                <div class="slds-media">
+                    <div class="slds-media__figure">
+                        <img class="slds-icon slds-icon--medium slds-icon-standard-lead" src="/resource/slds100/assets/icons/standard/lead_60.png" />
+                    </div>
+                    <div class="slds-media__body">
+                        <p class="slds-page-header__title slds-truncate slds-align-middle" title="Work My Leads">Work My Leads</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-notify_container" style="position:static;margin-top: 1rem;display:none;" id="messageBox">
+                <div class="slds-notify slds-notify--alert slds-theme--error slds-theme--alert-texture info" role="alert" style="background-color: rgb(248, 137, 98);">
+                    <h2>
+                        <span id="message">Unexpected Error</span>
+                    </h2>
+                </div>
+            </div>
+            <div class="slds-grid slds-container--center slds-grid--pull-padded" style="{!v.hardware == 'DESKTOP' ? 'max-width:100%;margin-bottom:1%;margin-top:1%;':'max-width:100%;margin-bottom:1%;display:block;margin-top:1%;'}">
+                <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--6-of-6 slds-large-size--5-of-12" style="{!v.hardware != 'DESKTOP' ? 'min-width:100%;':''}">
+                    
+                    <c:ALL_LookUp objectAPIName="Campaign" selectedId="{!v.CampaignId}" label="CAMPAIGN"/>
+                </div>
+                <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--6-of-6 slds-large-size--5-of-12" style="{!v.hardware != 'DESKTOP' ? 'min-width:100%;':''}">
+                    
+                    <c:ALL_MultiPicklist selectedOptions="{!v.selectedLeadStatusToView}" options="{!v.statusOptions}" multi="true"  label="STATUS"/>
+                </div>
+                <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--6-of-6 slds-large-size--2-of-12" style="{!v.hardware != 'DESKTOP' ? 'min-width:100%;margin-top:0.5rem;':''}">
+                    <label class="slds-form-element__label" style="{!v.hardware == 'DESKTOP' ? 'visibility:hidden;':'display:none;'}">Status</label>
+                    <button class="slds-button slds-button--neutral slds-not-selected" onclick="{!c.showLeads}" style="width:100%">Show Leads</button>
+                </div>
+            </div>
+            <div class="slds-tabs--default">
+                <ul class="slds-tabs--default__nav" role="tablist">
+                    <li class="slds-tabs--default__item slds-text-heading--label slds-active" id="listTab" title="List Tab" role="presentation" onclick="{!c.showDetailTab}">
+                        <a class="slds-tabs--default__link"  role="tab" tabindex="0" aria-selected="true" aria-controls="tab-default-1" id="tab-default-1__item">Leads List</a>
+                    </li>
+                    <li class="slds-tabs--default__item slds-text-heading--label " id="detailTab" title="Detail Tab" role="presentation" onclick="{!c.showListTab}" style="display:none;">
+                        <a class="slds-tabs--default__link"  role="tab" tabindex="-1"  aria-selected="false" aria-controls="tab-default-2" id="tab-default-2__item" >Lead Details</a>
+                    </li>
+                </ul>
+                <div id="tab1"  class="slds-tabs--default__content listTab" role="tabpanel" aria-labelledby="tab-default-1__item">
+                    
+                    <div class="slds-col--padded " >
+                    </div>
+                    <div class="slds-grid slds-container--center slds-grid--pull-padded" style="{!v.hardware == 'DESKTOP' ? 'max-width:100%;margin-bottom:1%;':'max-width:100%;margin-bottom:1%;display:block;'}" >
+                        <div class="slds-col--padded slds-wrap slds-size--1-of-1 slds-medium-size--4-of-6 slds-large-size--10-of-12" style="{!v.hardware != 'DESKTOP' ? 'min-width:100%;':''}">
+                            <c:ALL_MultiPicklist selectedOption="{!v.selectedLeadsStatusToUpdate}" options="{!v.statusMassUpdateOptions}" label="STATUS" />
+                        </div>
+                        <div class="slds-col--padded slds-wrap slds-size--1-of-1 slds-medium-size--2-of-6 slds-large-size--2-of-12" style="{!v.hardware != 'DESKTOP' ? 'min-width:100%;margin-top:0.5rem;margin-bottom:0.7rem;':''}">
+                            <label class="slds-form-element__label" style="{!v.hardware == 'DESKTOP' ? 'visibility:hidden;':'display:none;'}">Status</label>
+                            <button class="slds-button slds-button--neutral slds-not-selected" onclick="{!c.massUpdate}" style="width:100%;">Update Leads</button>
+                        </div>
+                    </div>
+                    
+                    <c:SLS_LeadsTable leadsList="{!v.leadsList}" orderBy="{!v.orderBy}" ascending="{!v.ascending}" selectedLeads="{!v.selectedLeadsList}" CampaignId="{!v.CampaignId}"  searchString="{!v.searchInLeads}" CurrentAccount="{!v.CurrentAccount}" CurrentContact="{!v.CurrentContact}" PageNumber="{!v.PageNumber}" RecordCount="{!v.RecordCount}" TotalRecordCount="{!v.TotalRecordCount}" TotalPages="{!v.TotalPages}" />
+                </div>
+                <div  class="slds-tabs--default__content  detailTab"  role="tabpanel" aria-labelledby="tab-default-2__item" id="tab2Container">
+                    <div  aura:id="tab2" id="tab2">
+                        <div style="display:none;"></div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div id="FindMatchPage" aura:id="FindMatchPage" class="Page" style="display:none;">
+            <div aura:id="FindMatchPageContent" id="FindMatchPageContent">
+            </div>
+        </div>
+    </div>
+</aura:component>

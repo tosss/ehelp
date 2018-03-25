@@ -1,0 +1,4 @@
+<design:component Label="Article Image">
+      <design:attribute name="dsg_knowledgeArticleID" label="Knowledge Article ID" />
+
+</design:component>

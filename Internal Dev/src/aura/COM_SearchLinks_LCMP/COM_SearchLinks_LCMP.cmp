@@ -1,0 +1,38 @@
+<aura:component implements="force:appHostable,forceCommunity:availableForAllPageTypes" access="global" controller="COM_SearchLinks_Controller">	
+    
+    <aura:attribute name="searchresults" type="string"/>
+    <aura:attribute name="searchTerm" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <div>
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered">
+            <thead>
+                <tr class="slds-text-title_caps slds-is-selected">
+                    <th scope="col" class="slds-has-focus">
+                        <div class="slds-truncate">Link Name</div>
+                    </th>
+                    
+                    <th scope="col" class="">
+                        <div class="slds-truncate">Component Name</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.searchresults}" var="sr">
+                    <tr>
+                        <td data-label="Account Name" class="">
+                            <div class="slds-truncate">
+                                <a href="{!sr.Link_URL__c}" target="_blank">{!sr.Link_Text__c}</a>
+                            </div>
+                        </td>
+                        <td data-label="Account Name" class="">
+                            <div class="slds-truncate">{!sr.Name}</div>
+                        </td>
+                    </tr>
+                </aura:iteration>
+                
+            </tbody>
+        </table>
+        
+    </div>
+</aura:component>

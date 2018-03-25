@@ -1,0 +1,37 @@
+<!--
+Author: Vishal Bandari
+Company: CDK Global
+Description: Group List for Intranet Communities v3.0 - GLOBIT-1846
+History
+07/31/2017    vishal.bandari@cdk.com     Created
+08/21/2017    vijay.manimaran@cdk.com    Updated from line 14-40 lines 
+08/22/2017    vijay.manimaran@cdk.com    removed slds-box from line 24
+08/24/2017    vijay.manimaran@cdk.com	 added archived groups list and modified compelete page. 
+-->
+<aura:component controller="EMP_MyCommunities_Controller" implements="forceCommunity:availableForAllPageTypes" access="global" >
+    
+    <aura:attribute type="Sobject[]" name="groupList" />
+    <aura:attribute type="String" name="CommunityNetworkId" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div>
+        <div class="demo-only-grid" >
+            <c:COM_Header_LCMP dsg_headerName="My Groups"/>
+            <div class="slds-grid slds-wrap slds-grid_pull-padded">
+                <aura:iteration items="{!v.groupList}" var="group">
+                    <aura:if isTrue="{!group.CollaborationGroup.IsArchived == false}">
+                        <c:COM_GroupCard_LCMP group="{!group}"/>
+                    </aura:if>
+                </aura:iteration>
+            </div> 
+            
+            <c:COM_Header_LCMP dsg_headerName="Archived Groups"/>
+            <div class="slds-grid slds-wrap slds-grid_pull-padded">
+                <aura:iteration items="{!v.groupList}" var="group">
+                    <aura:if isTrue="{!group.CollaborationGroup.IsArchived == true}">
+                        <c:COM_GroupCard_LCMP group="{!group}"/>
+                    </aura:if>
+                </aura:iteration>
+            </div>
+        </div>
+    </div>
+</aura:component>

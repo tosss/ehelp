@@ -1,4 +1,0 @@
-<apex:component >
-    <hr align="left" />
-    <chatter:feed entityId="{!$Setup.CustomSettings__c.Human_Resource_Community__c}" showPublisher="true" />
-</apex:component>

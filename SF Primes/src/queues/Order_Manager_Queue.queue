@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
-    <doesSendEmailToMembers>false</doesSendEmailToMembers>
-    <email>csadvantagenotifications@cobalt.com</email>
-    <name>Order Manager Queue</name>
-    <queueSobject>
-        <sobjectType>Launch__c</sobjectType>
-    </queueSobject>
-</Queue>

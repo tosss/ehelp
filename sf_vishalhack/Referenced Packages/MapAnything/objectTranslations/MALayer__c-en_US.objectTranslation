@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>MapAnything Layer</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>MapAnything Layers</value>
+    </caseValues>
+    <fields>
+        <label><!-- ArcGIS WebMap Click2Create --></label>
+        <name>ArcGISWebMapC2C__c</name>
+    </fields>
+    <fields>
+        <label><!-- ArcGIS WebMap Click2Create --></label>
+        <name>ArcGIS_WebMap_Click2Create__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- MapAnything Folder --></label>
+        <name>Folder__c</name>
+        <relationshipLabel><!-- MapAnything Layers --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Used to store the layer&apos;s options in a JSON format. --></help>
+        <label><!-- Options --></label>
+        <name>Options__c</name>
+    </fields>
+    <fields>
+        <help><!-- Used to determine what layer type the record represents. --></help>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>ArcGIS Online</masterLabel>
+            <translation><!-- ArcGIS Online --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Layer</masterLabel>
+            <translation><!-- Data Layer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tile Set</masterLabel>
+            <translation><!-- Tile Set --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Populated if directly under a user&apos;s personal folder, otherwise blank. If blank and the folder lookup is blank this will appear on the corporate folder. If the folder is filled out it could be a personal or corporate folder. --></help>
+        <label><!-- User --></label>
+        <name>User__c</name>
+        <relationshipLabel><!-- MapAnything Layers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Version --></label>
+        <name>Version__c</name>
+    </fields>
+    <layouts>
+        <layout>MapAnything Layer Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Options --></label>
+            <section>Options</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

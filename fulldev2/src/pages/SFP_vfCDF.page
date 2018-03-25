@@ -1,3 +1,0 @@
-<apex:page >
-    <apex:canvasApp applicationName="CDF_Canvas" height="1000px" width="2000px" scrolling="true"/>
-</apex:page>

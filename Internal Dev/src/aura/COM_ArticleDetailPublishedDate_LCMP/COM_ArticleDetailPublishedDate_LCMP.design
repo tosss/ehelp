@@ -1,0 +1,3 @@
+<design:component label="Article Published Date">
+    <design:attribute name="dsg_knowledgeArticleID" label="Knowledge Article URLName" />
+</design:component>

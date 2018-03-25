@@ -1,0 +1,83 @@
+<!-- *****************************************************
+**11/10/2017 created vijay.manimaran@cdk.com 
+********************************************************** -->
+
+<aura:component implements="force:lightningQuickAction,force:appHostable,forceCommunity:availableForAllPageTypes" access="global" controller="ISVC_CreateJiraIssue_Controller">
+    <aura:attribute name="Case" type="Case" default="{ 'sobjectType': 'Case' }" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="selectedValue" type="String" />
+    <aura:attribute name="selectedValue_issueType" type="String" />
+    <aura:attribute name="selectedValue_itTeam" type="String" />
+    <aura:attribute name="cases" type="List" />
+    <aura:attribute name="issueType" type="List" />
+    <aura:attribute name="iTTeam" type="List" />
+    <aura:attribute name="caseId" type="string" />
+    <aura:attribute name="caseSubject" type="string" />
+    <aura:attribute name="caseDescription" type="string" />
+    <aura:attribute name="toggleSpinner" type="boolean" default="false" />
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}" />
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}" />
+    <aura:attribute name="msgHeader" type="String" />
+    <aura:attribute name="msgBody" type="String" />
+
+    <aura:if isTrue="{!v.toggleSpinner}">
+        <div class="slds-spinner_container">
+            <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+                <span class="slds-assistive-text">Loading</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </aura:if>
+
+    <div>
+        <div style="height: 24rem;" aura:id="successMsg" class="hide-form">
+            <section role="alertdialog" tabindex="-1" aria-labelledby="prompt-heading-id" aria-describedby="prompt-message-wrapper" class="slds-modal slds-fade-in-open slds-modal_prompt" aria-modal="true">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header slds-theme_success slds-theme_alert-texture" aura:id="prompt-heading-id">
+                        <h2 class="slds-text-heading_medium">{!v.msgHeader} </h2>
+                    </header>
+                    <div class="slds-modal__content" id="modal-content-id-1" style="text-align:center">
+                        {!v.msgBody}
+                    </div>
+                    <footer class="slds-modal__footer slds-theme_default">
+                        <button class="slds-button slds-button_neutral" onclick="{!c.hideModal}">CLOSE</button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>
+    </div>
+    <div class="slds-form slds-form_stacked" aura:id="mainform">
+        <div class="slds-form-element">
+            <lightning:select name="selectedValue" label="JIRA Projects" aura:id="selectedValue" value="{!v.selectedValue}">
+                <aura:iteration items="{!v.cases}" var="cs">
+                    <option text="{!cs.label}" value="{!cs.value}" />
+                </aura:iteration>
+            </lightning:select>
+        </div>
+        <div class="slds-form-element">
+            <lightning:select name="selectedValue_issueType" label="Issue Type" aura:id="selectedValue_issueType" value="{!v.selectedValue_issueType}">
+                <aura:iteration items="{!v.issueType}" var="cs">
+                    <option text="{!cs}" value="{!cs}"> </option>
+                </aura:iteration>
+            </lightning:select>
+        </div>
+        <div class="slds-form-element">
+            <lightning:select name="selectedValue_itTeam" label="Issue Type" aura:id="selectedValue_itTeam" value="{!v.selectedValue_itTeam}">
+                <aura:iteration items="{!v.iTTeam}" var="team">
+                    <option text="{!team}" value="{!team}"> </option>
+                </aura:iteration>
+            </lightning:select>
+        </div>
+        <div class="slds-form-element">
+            <lightning:input value="{!v.Case.Subject}" label="Subject" name="Subject" aura:id="Subject" />
+        </div>
+        <div class="slds-form-element">
+            <lightning:input value="{!v.Case.Description}" label="Description" name="Description" aura:id="Description" />
+        </div>
+        <div class="slds-form-element">
+            <lightning:button variant="brand" label="Submit" onclick="{! c.submitJira }" />
+        </div>
+    </div>
+</aura:component>

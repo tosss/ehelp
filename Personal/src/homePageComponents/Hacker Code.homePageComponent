@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<HomePageComponent xmlns="http://soap.sforce.com/2006/04/metadata">
-    <body>&lt;div class=&quot;feedcommenttext&quot; style=&quot;&quot;&gt;&lt;font face=&quot;proximanovaregular, lucida grande, lucida sans unicode, arial, sans-serif&quot;&gt;&lt;span style=&quot;font-size: 15px;&quot;&gt;&amp;lt;div&amp;gt;&lt;br&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;</body>
-    <pageComponentType>htmlArea</pageComponentType>
-    <width>narrow</width>
-</HomePageComponent>

@@ -1,3 +1,0 @@
-<apex:page controller="sma.QueryBuilderAPI" action="{!generateJSONContent}" contentType="application/x-JavaScript; charset=utf-8" showHeader="false">
-    {!JSONContent}
-</apex:page>

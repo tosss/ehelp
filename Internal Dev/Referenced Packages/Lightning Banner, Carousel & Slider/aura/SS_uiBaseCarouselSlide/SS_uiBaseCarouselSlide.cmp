@@ -1,0 +1,8 @@
+<aura:component extensible="true" access="global">
+	<aura:attribute name="item" type="Object" access="global"/>
+	<aura:attribute name="options" type="Object" access="global"/>
+	<aura:attribute name="slidesPerPage" type="Integer" default="3" access="global"/>
+	<div class="{!'carousel-cell slds-col--padded slds-size--1-of-' + v.slidesPerPage}">
+		{!v.body}
+	</div>
+</aura:component>

@@ -1,0 +1,38 @@
+<!--
+Author: Vishal Bandari
+Company: CDK Global
+Description: Stock Ticker for Community Pages - GLOBIT-GLOBIT-1845
+History
+08/08/2017    vishal.bandari@cdk.com     Created
+11/02/2017    vishal.bandari@cdk.com     Updated API to alphvantage
+                                         API https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=CDK&interval=15min&apikey=7KS8QJ7N0MZ9E2FX
+                                         APIKey:7KS8QJ7N0MZ9E2FX - GLOBIT-3922
+
+12/19/2017    vishal.bandari@cdk.com     Changed to GLOBIT-7891
+-->
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="isStockPriceUp" type="String" default="null" />
+    <aura:attribute name="currentStockPrice" type="String" />
+    <aura:attribute name="changeInStockPrice" type="String" />
+    <aura:attribute name="percentageChangeInStockPrice" type="String" />
+    <aura:attribute name="updatedTime" type="String" />
+    <aura:attribute name="RefreshInterval" type="String" default="15min" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <div  class="{!v.isStockPriceUp == 'null' ? 'slds-hide':'stockTickerContainer'}">
+        <center>
+            <a href="http://www.nasdaq.com/symbol/cdk" target="_blank"><span class="company-name" >CDK GLOBAL Inc.</span></a>&nbsp;
+            <span class="{! 'header-price bold-text ' +(v.isStockPriceUp == '+ve' ? 'green' : (v.isStockPriceUp == '-ve' ? 'red' : 'black'))}">{!v.currentStockPrice} USD </span>
+            <lightning:icon iconName="utility:arrowdown" size="x-small" class="{!v.isStockPriceUp == '-ve' ? 'show':'hide'}"/>
+            <lightning:icon iconName="utility:arrowup" size="x-small" class="{!v.isStockPriceUp== '+ve' ? 'show':'hide'}"/>
+            <span class="{!'bold-text '+(v.isStockPriceUp == '+ve' ? 'green' : (v.isStockPriceUp == '-ve' ? 'red' : 'black'))}"> {!' '+v.changeInStockPrice+' '} </span>
+            <span class="{!'bold-text '+(v.isStockPriceUp == '+ve' ? 'green' : (v.isStockPriceUp == '-ve' ? 'red' : 'black'))}">({!v.percentageChangeInStockPrice}%)</span><br/>
+            
+            
+            <span class="time">Last Upated at {!v.updatedTime}<br/> Refreshes every {!v.RefreshInterval}</span>
+        </center>
+        
+    </div>
+    
+</aura:component>

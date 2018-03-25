@@ -1,0 +1,78 @@
+<apex:page controller="sma.MapAnythingExport" readOnly="true"  contentType="{!ContentType}" cache="true">
+    
+    
+    <!-- START This is stupid but it has to be like this for the CSV formatting -->
+    <apex:outputPanel rendered="{!PermissionsCheck && ExportAsCSV}" layout="none" >Record Id,Saved Query Name,{!$Label.sma__ma_street},{!$Label.sma__ma_city},{!$Label.sma__ma_state},{!$Label.sma__ma_zip_code},{!$Label.sma__ma_country},Object Type,{!$Label.sma__ma_tooltip} 1,{!$Label.sma__ma_tooltip} 2,{!$Label.sma__ma_tooltip} 3,{!$Label.sma__ma_tooltip} 4,{!$Label.sma__ma_tooltip} 5,{!$Label.sma__ma_tooltip} 6,{!$Label.sma__ma_tooltip} 7,{!$Label.sma__ma_tooltip} 8
+    <apex:repeat value="{!MAExportRows}" var="row">
+{!row.sma__RecordId__c},{!row.sma__SavedQueryName__c},{!row.sma__Street__c},{!row.sma__City__c},{!row.sma__State__c},{!row.sma__Zip__c},{!row.sma__Country__c},{!row.sma__ObjectType__c},{!SUBSTITUTE(row.sma__Tooltip1__c, ",","")},{!SUBSTITUTE(row.sma__Tooltip2__c, ",","")},{!SUBSTITUTE(row.sma__Tooltip3__c, ",","")},{!SUBSTITUTE(row.sma__Tooltip4__c, ",","")},{!SUBSTITUTE(row.sma__Tooltip5__c, ",","")},{!SUBSTITUTE(row.sma__Tooltip6__c, ",","")},{!SUBSTITUTE(row.sma__Tooltip7__c, ",","")},{!SUBSTITUTE(row.sma__Tooltip8__c, ",","")}
+    </apex:repeat>
+    </apex:outputPanel>
+    <!-- END This is stupid but it has to be like this for the CSV formatting -->
+    
+    
+    
+    
+    
+    <!-- START This is the xls file formatting which is less picky about spacing and tabs -->
+    <apex:outputPanel rendered="{!PermissionsCheck && NOT(ExportAsCSV)}" layout="none" >
+        <table>
+            <tr>
+                <td><b>{!$Label.sma__ma_export_name}:</b></td>
+                <td><apex:outputText value="{!MAE.Name}"/></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+            	<th>Record Id</th>
+                <th>Saved Query Name</th>
+                <th>{!$Label.sma__ma_street}</th>
+                <th>{!$Label.sma__ma_city}</th>
+                <th>{!$Label.sma__ma_state}</th>
+                <th>{!$Label.sma__ma_zip_code}</th>
+                <th>{!$Label.sma__ma_country}</th>
+                <th>Object Type</th>
+                <th>{!$Label.sma__ma_tooltip} 1</th>
+                <th>{!$Label.sma__ma_tooltip} 2</th>
+                <th>{!$Label.sma__ma_tooltip} 3</th>
+                <th>{!$Label.sma__ma_tooltip} 4</th>
+                <th>{!$Label.sma__ma_tooltip} 5</th>
+                <th>{!$Label.sma__ma_tooltip} 6</th>
+                <th>{!$Label.sma__ma_tooltip} 7</th>
+                <th>{!$Label.sma__ma_tooltip} 8</th>
+            </tr>
+            <apex:repeat value="{!MAExportRows}" var="row">
+                <tr>
+                	<td>{!row.sma__RecordId__c}</td>
+                    <td>{!row.sma__SavedQueryName__c}</td>
+                    <td>{!row.sma__Street__c}</td>
+                    <td>{!row.sma__City__c}</td>
+                    <td>{!row.sma__State__c}</td>
+                    <td>{!row.sma__Zip__c}</td>
+                    <td>{!row.sma__Country__c}</td>
+                    <td>{!row.sma__ObjectType__c}</td>
+                    <td>{!row.sma__Tooltip1__c}</td>
+                    <td>{!row.sma__Tooltip2__c}</td>
+                    <td>{!row.sma__Tooltip3__c}</td>
+                    <td>{!row.sma__Tooltip4__c}</td>
+                    <td>{!row.sma__Tooltip5__c}</td>
+                    <td>{!row.sma__Tooltip6__c}</td>
+                    <td>{!row.sma__Tooltip7__c}</td>
+                    <td>{!row.sma__Tooltip8__c}</td>
+                </tr>
+            </apex:repeat>
+        </table>
+    </apex:outputPanel>
+    <!-- END This is the xls file formatting which is less picky about spacing and tabs -->
+    
+    
+    
+    
+    
+    <!--START This is where everything is broken-->
+    <apex:outputPanel rendered="{!NOT(PermissionsCheck)}" >
+        <apex:pageMessages ></apex:pageMessages>
+    </apex:outputPanel>
+    <!--END This is where everything is broken-->
+    
+    
+</apex:page>

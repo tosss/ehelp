@@ -1,0 +1,54 @@
+<!--2017-06-07- anirudh.singh@cdk.com- Created this component for RQ-09402.-->
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global"
+                controller="COM_ArticlesCarousel_Controller">
+	<ltng:require styles="{!join(',', 
+                          $Resource.FontAwesome+'/4.6.1/css/font-awesome.css',
+                          $Resource.slickJS+'/slick.css',
+                          $Resource.slickJS+'/slick-theme.css')}" 
+                  scripts="{!join(',', 
+                           $Resource.jQuery+'/js/jquery-1.11.2.min.js',
+                           $Resource.slickJS+'/slick.min.js',
+                           $Resource.COM_ArticlesCarousel_JS)}" afterScriptsLoaded="{!c.initialize}"/>
+    
+    <aura:attribute name="topicName" type="String" required="true" 
+                    description="This parameter is used to take the Topic Name."/>
+    <aura:attribute name="communityName" type="String" required="true" 
+                    description="This parameter is used to take the Community Name."/>
+    <aura:attribute name="artWrapList" type="COM_ArticlesCarousel_Controller.ArticleWrapper[]" 
+                    description="This parameter is used to hold the Articles Wrapper List."/>
+    
+    <!--Fix for IE Scrollbar Issue-->
+    <style>
+        html
+        {
+        	-ms-overflow-style: scrollbar;
+        }
+    </style>
+    
+    <div>
+        <div class="articlesCarouselDiv">
+            <!--Spinner-->
+            <div class="articlesCarouselSpinnerDiv">
+                <div class="slds-spinner_container spinnerContainer">
+                    <div class="slds-spinner slds-spinner_medium">
+                        <span class="slds-assistive-text">Loading</span>
+                        <div class="slds-spinner__dot-a"></div>
+                        <div class="slds-spinner__dot-b"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="articlesImgsContent">
+                <div class="artDiv responsive">
+                    <aura:iteration items="{!v.artWrapList}" var="artWrapRec">
+                            <div class="articleImageDiv">
+                                <a href="{!artWrapRec.imgLink}" target="_blank">
+                                    <img class="articleImg" src="{!artWrapRec.imgSrc}" title="{!artWrapRec.articleTitle}"/>
+                                </a>
+                            </div>
+                    </aura:iteration>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

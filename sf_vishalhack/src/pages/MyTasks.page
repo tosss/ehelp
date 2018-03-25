@@ -1,0 +1,104 @@
+<!--04-12-2016 lalitha.adduru@cdk.com created RQ-08028-->
+<!--2016-06-05 lalitha.adduru@cdk.com, matt.keefe@cdk.com updated to fix issues with opening links-->
+<apex:page controller="MyTasks_Controller">
+    <style>
+        body
+        {
+        margin-left:0 !important;
+        margin-right:0 !important
+        }
+    </style>
+
+    <apex:form >
+        <apex:pageBlock title="My Tasks" id="mytasks" >
+            <apex:pageBlockButtons location="top" >
+                <apex:commandButton title="new" value="New"  onclick="window.top.location.href = '/setup/ui/recordtypeselect.jsp?ent=Task&retURL=%2Fhome%2Fhome.jsp&save_new_url=%2F00T%2Fe%3FretURL%3D%252Fhome%252Fhome.jsp';"/>
+                <apex:selectList id="filter" value="{!dateFilter}" required="true" size="1" style="float:right;" styleClass="dropdown" >
+                    <apex:actionSupport event="onchange" action="{!fetchTasks}" reRender="mytasks"/>
+                    <apex:selectOption itemLabel="Today"  itemValue="ActivityDate=Today"   />
+                    <apex:selectOption itemLabel="Overdue" itemValue="(ActivityDate<Today or ActivityDate=null)"/>
+                    <apex:selectOption itemLabel="Today + Overdue" itemValue="(ActivityDate<=Today or ActivityDate=null)" />
+                    <apex:selectOption itemLabel="Tomorrow" itemValue="ActivityDate=Tomorrow" />
+                    <apex:selectOption itemLabel="Next 7 days + Overdue" itemValue="((ActivityDate<Today) or (ActivityDate>=today and ActivityDate<=next_week) or ActivityDate=null)" />
+                    <apex:selectOption itemLabel="This Month" itemValue="ActivityDate=this_month"/>
+                    <apex:selectOption itemLabel="All open" itemValue="((ActivityDate<=Today) or (ActivityDate>=Today))"/>
+                </apex:selectList>
+                <apex:commandLink style="padding-right: 21px; color: #015ba7; text-decoration:none;float:right;"  value="Unresolved Emails and Tasks" onclick="window.open('/6AC?src=8','_parent');" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection id="emptyBlock" rendered="{!ISNULL(taskList)}">
+                <apex:pageBlockSectionItem dataStyle="align:center">You have no tasks scheduled for this period</apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        
+            <apex:pageBlockTable value="{!taskList}" id="table" var="task" rendered="{!NOT(ISNULL(taskList))}" >
+                <apex:column >
+                    <apex:facet name="header" >
+                        <apex:outputLabel >Complete</apex:outputLabel>
+                    </apex:facet>
+                    <apex:commandLink style="color: #015ba7;" value="X" onclick="window.open('/{!task.Id}/e?tsk12=Completed', '_parent');" reRender="mytasks">                    
+                    </apex:commandLink>
+                </apex:column>
+                <apex:column >
+                    <apex:facet name="header">
+                        <apex:commandLink action="{!fetchTasks}" value="Date " reRender="table">
+                            <apex:param name="column" value="ActivityDate" assignTo="{!fetchColumnToBeSorted}"/>
+                            <apex:outputText rendered="{!columnToBeSorted=='ActivityDate' && sortingOrder=='ASC'}">&#8595;</apex:outputText>
+                            <apex:outputText rendered="{!columnToBeSorted=='ActivityDate' && sortingOrder=='DESC'}">&#8593;</apex:outputText>
+                        </apex:commandLink>
+                    </apex:facet>
+                    <apex:outputText style="color:{!IF(task.ActivityDate<TODAY(),'#900','#000' )}" value="{0, date, MM/dd/yy}" rendered="{!NOT(ISNULL(task.ActivityDate))}">
+                        <apex:param value="{!task.ActivityDate}"></apex:param>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column >
+                    <apex:facet name="header">
+                        <apex:commandLink value="Subject " action="{!fetchTasks}" reRender="table" >
+                            <apex:param name="column" value="Subject" assignTo="{!fetchColumnToBeSorted}"/>
+                            <apex:outputText rendered="{!columnToBeSorted=='Subject' && sortingOrder=='ASC'}">&#8595;</apex:outputText>
+                            <apex:outputText rendered="{!columnToBeSorted=='Subject' && sortingOrder=='DESC'}">&#8593;</apex:outputText>
+                        </apex:commandLink>
+                    </apex:facet>
+                    <a style="cursor:pointer" onclick="window.top.location.href='/{!task.Id}'" >{!task.Subject}</a>
+                <apex:image id="theImage" value="/img/high_priority.gif" style="align:ABSMIDDLE" width="16" height="13" rendered="{!task.priority=='High'}"/>
+            </apex:column>
+            <apex:column value="{!task.Status}">
+                <apex:facet name="header">
+                    <apex:commandLink value="Status " action="{!fetchTasks}" reRender="table" >
+                        <apex:param name="column" value="Status" assignTo="{!fetchColumnToBeSorted}"/>
+                        <apex:outputText rendered="{!columnToBeSorted=='Status' && sortingOrder=='ASC'}">&#8595;</apex:outputText>
+                        <apex:outputText rendered="{!columnToBeSorted=='Status' && sortingOrder=='DESC'}">&#8593;</apex:outputText>
+                    </apex:commandLink>
+                </apex:facet>                  
+            </apex:column>
+            <apex:column >
+                <apex:facet name="header">
+                    <apex:commandLink value="Related to " action="{!fetchTasks}" reRender="table">
+                        <apex:param name="column" value="WhatId" assignTo="{!fetchColumnToBeSorted}"/>
+                        <apex:outputText rendered="{!columnToBeSorted=='WhatId' && sortingOrder=='ASC'}">&#8595;</apex:outputText>
+                        <apex:outputText rendered="{!columnToBeSorted=='WhatId' && sortingOrder=='DESC'}">&#8593;</apex:outputText>
+                    </apex:commandLink>
+                </apex:facet>
+                <apex:outputLink value="/{!task.WhatId}" onclick="window.open(this.href,'_parent')" target="_top">{!task.What.Name}</apex:outputLink>
+            </apex:column>
+            <apex:column value="{!task.Priority}" >
+                <apex:facet name="header">
+                    <apex:commandLink value="Priority " action="{!fetchTasks}" reRender="table" >
+                        <apex:param name="column" value="Priority" assignTo="{!fetchColumnToBeSorted}"/>
+                        <apex:outputText rendered="{!columnToBeSorted=='Priority' && sortingOrder=='ASC'}">&#8595;</apex:outputText>
+                        <apex:outputText rendered="{!columnToBeSorted=='Priority' && sortingOrder=='DESC'}">&#8593;</apex:outputText>
+                    </apex:commandLink>
+                </apex:facet>
+            </apex:column>
+            <apex:column >
+                <apex:facet name="header">
+                    <apex:commandLink value="Account " action="{!fetchTasks}" reRender="table" >
+                        <apex:param name="column" value="Primary_Account__r.Name" assignTo="{!fetchColumnToBeSorted}"/>
+                        <apex:outputText rendered="{!columnToBeSorted=='Primary_Account__r.Name' && sortingOrder=='ASC'}">&#8595;</apex:outputText>
+                        <apex:outputText rendered="{!columnToBeSorted=='Primary_Account__r.Name' && sortingOrder=='DESC'}">&#8593;</apex:outputText>
+                    </apex:commandLink>
+                </apex:facet>
+                <apex:outputLink value="/{!task.Primary_Account__c}" onclick="window.open(this.href,'_parent')" target="_top">{!task.Primary_Account__r.Name}</apex:outputLink>
+            </apex:column>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

@@ -1,0 +1,15 @@
+<apex:page StandardController="Deal_State__c" tabStyle="Deal_State__c">
+    <apex:form >
+        <apex:pageBlock title="Ownership Edit">
+            <apex:pageBlockSection columns="1">
+                <apex:outputField value="{!Deal_State__c.Name}" title="Transfer this Deal State" />
+                <apex:inputField value="{!Deal_State__c.OwnerId}" required="true" />
+                <apex:inputField value="{!Deal_State__c.Owner_Change_Notes__c}" />
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Save" action="{!Save}" />
+                <apex:commandButton value="Cancel" action="{!Cancel}" /> 
+            </apex:pageBlockButtons> 
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

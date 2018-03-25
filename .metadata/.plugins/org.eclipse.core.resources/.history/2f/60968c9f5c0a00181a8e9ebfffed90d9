@@ -1,0 +1,49 @@
+({
+    fetchStockData : function(component, event, helper)
+    {
+        
+        //11/02/2017    vishal.bandari@cdk.com     Updated API to alphvantage - GLOBIT-3922
+        //12/19/2017    vishal.bandari@cdk.com     changed Code GLOBIT-7891
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                if(this.responseText != null){ 
+                    var interval = component.get('v.RefreshInterval');
+                    var responseValue = JSON.parse(this.responseText);
+                    var lastRefreshed = responseValue["Meta Data"]["3. Last Refreshed"];
+                    var currentValue = responseValue["Time Series ("+interval+")"][lastRefreshed]["4. close"];
+                    var prevValue;
+                    component.set("v.currentStockPrice",responseValue);
+                    component.set("v.updatedTime",lastRefreshed+' '+responseValue["Meta Data"]["6. Time Zone"]);
+                    for(var i in responseValue["Time Series ("+interval+")"]){
+                        if(i!=lastRefreshed){
+                            prevValue=responseValue["Time Series ("+interval+")"][i]["4. close"];
+                            break;
+                        }
+                    }
+                    var changeInStock = currentValue-prevValue;
+                    component.set("v.currentStockPrice",Math.round(currentValue*100)/100);
+                    component.set("v.changeInStockPrice",Math.round(changeInStock*100)/100);
+                    component.set("v.percentageChangeInStockPrice",Math.round(changeInStock/prevValue*10000)/100);
+                  if(changeInStock>0){
+                        component.set("v.isStockPriceUp","+ve");
+                    }
+                    else if(changeInStock<0){
+                        component.set("v.isStockPriceUp","-ve");
+                    }
+                    else{
+                        component.set("v.isStockPriceUp","zero");
+                    }
+                }
+                else
+                {
+                    component.set("v.isStockPriceUp","null");
+                }
+            }
+        };
+        var timeInterval = component.get("v.RefreshInterval");
+        xhttp.open("GET", 'https://www.alphavantage.co/query?'
+                   +'function=TIME_SERIES_INTRADAY&symbol=CDK&interval='+timeInterval+'&apikey=7KS8QJ7N0MZ9E2FX', true);
+        xhttp.send();
+    }
+})

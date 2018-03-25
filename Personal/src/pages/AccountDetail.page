@@ -1,3 +1,0 @@
-<apex:page >
-    <apex:enhancedList customizable="false" type="Account" height="10" id="varun"/>
-</apex:page>

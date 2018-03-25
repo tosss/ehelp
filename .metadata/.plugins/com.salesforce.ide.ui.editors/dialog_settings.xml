@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="com.salesforce.ide.ui.editors.templates.contextType.apexClass">
+		<item value="true" key="useTemplate"/>
+		<item value="New Apex Class" key="lastTemplate"/>
+	</section>
+</section>

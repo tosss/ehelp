@@ -1,3 +1,0 @@
-<apex:page standardController="Contact" extensions="SA_TABOVER.TabHomeController" recordSetVar="contacts" action="{!initContactPage}">
-	<apex:pageMessages />
-</apex:page>

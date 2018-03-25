@@ -1,0 +1,33 @@
+<!--
+Author: Vishal Bandari
+Company: CDK Global
+Description: TLS 1.0 Check for Community Pages - GLOBIT-2464
+History
+08/21/2017    vishal.bandari@cdk.com     Created
+
+-->
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="showMessage" type="Boolean" default="false" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div style="{!v.showMessage?'':'display:none;'}">
+        <section role="dialog" aria-labelledby="modal-heading" aria-describedby="modal-content" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h2 id="modal-heading" class="slds-text-heading_medium slds-hyphenate">Please Upgrade Your Browser !!!</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content">
+                    <p>
+                        Your current Internet browser (Internet Explorer, Chrome, Firefox, or Safari) is not compatible with this site. 
+                    </p>
+                    <p>Please upgrade to the latest version or contact IT Support for assistance by visiting the 
+                        Employee Intranet/Portal and clicking the <a href="https://mycdk.force.com/Employees/apex/EMP_AssociatePortalPage?page=ITSupportCommunity">Need IT Support</a> link or by calling <a href="tel:1-866-995-4700">1-866-995-4700</a>
+                    </p>
+                </div>
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_brand" onclick="{!c.hideModal}">Close</button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+</aura:component>

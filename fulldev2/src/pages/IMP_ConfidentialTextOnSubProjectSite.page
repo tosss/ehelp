@@ -1,3 +1,0 @@
-<apex:page standardController="SubProjectSite__c">
-    <c:IMP_ConfidentialText isConfidential="{!SubProjectSite__c.SubProject_Confidential__c}"></c:IMP_ConfidentialText>
-</apex:page>

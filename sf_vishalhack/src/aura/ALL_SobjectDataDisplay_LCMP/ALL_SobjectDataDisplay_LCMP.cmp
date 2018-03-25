@@ -1,0 +1,11 @@
+<aura:component >
+	<aura:attribute name="sObjectRecord" type="sObject" required="true"/>
+    <aura:attribute name="fieldName" type="String" required="true"/>
+    <aura:attribute name="fieldType" type="String" required="false"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.initialize}"/>
+    
+    <ui:outputText aura:Id="outputTextId"/>
+    
+    {!v.body}
+</aura:component>

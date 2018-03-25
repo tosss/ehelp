@@ -1,0 +1,5 @@
+<apex:page contentType="application/json" showHeader="false" sidebar="false" standardStylesheets="false">
+
+    
+    <!-- THIS PAGE HAS BEEN DEPRECATED, USE APEX REMOTING -->
+</apex:page>

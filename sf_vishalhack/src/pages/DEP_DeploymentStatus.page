@@ -1,0 +1,76 @@
+<apex:page controller="DEP_DeploymentStatus_Controller" cache="false" expires="1000" title="Deployment Status" docType="html-5.0">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <apex:includeScript loadOnReady="false" value="{!URLFOR($Resource.SLDS,'/resource/slds/assets')}" />
+        <style>
+        .datePicker 
+        {
+            z-index:9999 !important;
+        }
+    </style>
+    <script>
+        var j$ = jQuery.noConflict();
+    function showModal(){    event.preventDefault();j$('#CreateModal').show(); }
+    function hideModal(){    event.preventDefault();j$('#CreateModal').hide(); }
+    function setDate(){ var dateValue = j$('#estimatedReleaseDate').val();j$('#estimatedReleaseDate').parent().find('input[type=hidden]').val(dateValue);}
+    function deleteChangeSet(){ j$('#ChangeSetList').hide();j$('.Spinner').show(); }
+    </script>
+    <apex:slds />
+    <apex:form id="form">
+        <div class="slds-scope" id="ChangeSetList" >
+            <div class="slds-page-header">
+                <div class="slds-media">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-icon-standard-opportunity" >
+                            <svg class="slds-icon" aria-hidden="true">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/resource/slds/assets/icons/standard-sprite/svg/symbols.svg#opportunity"></use>
+                            </svg>
+                        </span>
+                    </div>
+                    
+                    <div class="slds-media__body">
+                        <h1 class="slds-page-header__title slds-truncate slds-align-middle" title="Changeset">Deployment Status</h1>
+                        <p class="slds-text-body_small slds-line-height_reset">Code • Test • Deploy</p>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_striped">
+                <thead>
+                    <tr class="slds-text-title_caps">
+                        <th scope="col">
+                            <div class="slds-truncate" >Change Set Name</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" >Sandbox Name</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" >Deployment Status</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" >Error</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <apex:repeat value="{!changeSetDeployments}" var="changeSetComponentObj" >
+                        <tr>
+                            <td data-label="Description">
+                                <div class="slds-truncate">{!changeSetComponentObj.Change_set__r.Name}</div>
+                            </td>
+                            <td scope="row" data-label="Name">
+                                <div class="slds-truncate">{!changeSetComponentObj.Sandbox__c}</div>
+                            </td>
+                            <td data-label="Status">
+                                <div class="slds-truncate">{!changeSetComponentObj.Status__c}</div>
+                            </td>
+                            <td data-label="Priority">
+                                <div class="slds-truncate"><apex:outputField value="{!changeSetComponentObj.Deployment_Error__c}" /></div>
+                            </td>
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+            </table>
+        </div>
+    </apex:form>
+</apex:page>

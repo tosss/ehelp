@@ -1,3 +1,0 @@
-<apex:page standardController="Account_Plan__c" label="Critical Note" name="Critical Note" title="Critical Note">
-    {!Account_Plan__c.Account__r.Critical_Note__c}
-</apex:page>

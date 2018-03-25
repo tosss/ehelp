@@ -1,3 +1,0 @@
-<apex:page >
-  <apex:enhancedList customizable="true" height="300" rowsPerPage="25" id="enList" type="Launch__c" width="4"/>
-</apex:page>

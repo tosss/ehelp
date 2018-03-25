@@ -1,0 +1,31 @@
+<aura:component controller="CB_LaunchNotes_Handler">
+    <!--spinner-->
+    <lightning:spinner variant="brand" size="large" aura:id="mySpinner" />
+    
+    <aura:attribute Name="LaunchId" type="String" />
+    <aura:attribute name="LaunchNotes" type="Launch_Notes__c[]" />
+    <aura:attribute name="DesignNotes" type="Launch_Notes__c[]" />
+    <aura:attribute name="OrderManagerNotes" type="Launch_Notes__c[]" />
+    <aura:handler name="UpdateAllNotes" event="c:CB_UpdateLaunchNotesList_LEVT" action="{!c.updateALL}"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+        
+    <lightning:tabset >
+        
+        <lightning:tab label="ALL">
+            <c:ALL_LightningTable_LCMP DisplayForm="false" LaunchId="{!v.LaunchId}" sObjects="{!v.LaunchNotes}"/>
+        </lightning:tab>
+        
+        <lightning:tab label="DESIGNER">
+            <c:ALL_LightningTable_LCMP DisplayForm="true" LaunchId="{!v.LaunchId}" sObjects="{!v.DesignNotes}"                                        
+                                       NotesType="Designer"/>
+        </lightning:tab>
+        
+        <lightning:tab label="IC/IS">
+            <c:ALL_LightningTable_LCMP DisplayForm="true" LaunchId="{!v.LaunchId}" sObjects="{!v.OrderManagerNotes}"                                        
+                                        NotesType="IC/IS"/>   
+        </lightning:tab>  
+        
+    </lightning:tabset>
+    
+</aura:component>

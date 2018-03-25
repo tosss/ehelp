@@ -1,0 +1,150 @@
+<apex:page controller="sma.ClickToCreateForm" showHeader="false" sidebar="false"  showChat="false">
+    
+    <apex:variable var="RequestPlatform" value="{!IF($CurrentPage.parameters.platform == null || $CurrentPage.parameters.platform == 'null', 'tablet', LOWER($CurrentPage.parameters.platform))}" />
+
+    <style>
+        
+        .ClickToCreateFormTable td {
+            padding: 5px;
+        }
+            
+    </style>
+    
+    <apex:form >
+        
+        <!--<table class="ClickToCreateFormTable fieldSetTable">-->
+        <!--    <apex:repeat value="{!fields}" var="f">-->
+        <!--        <apex:outputPanel rendered="{! IF(RequestPlatform == 'tablet' && f.Type == 'reference', false, true)}" layout="none">-->
+        <!--            <apex:outputPanel layout="none" rendered="{!f.Type == 'date'}">-->
+        <!--                <tr>-->
+        <!--                    <td class="fieldLabel dateLabel"><b>{!f.Label}<apex:outputText value="*" rendered="{!f.Required || f.DBRequired}"/></b></td>-->
+                            
+        <!--                    <td class="field::{!f.fieldPath}  fieldInput" data-type="{!f.Type}" data-field="{!f.fieldPath}">-->
+        <!--                        <apex:inputField value="{!obj[f.fieldPath]}" styleClass="get-input {!f.fieldPath} datePick" />-->
+        <!--                    </td>-->
+        <!--                </tr>-->
+        <!--            </apex:outputPanel>-->
+        <!--            <apex:outputPanel layout="none" rendered="{!f.Type != 'date'}">-->
+        <!--                <tr>-->
+        <!--                    <td class="fieldLabel type-{!f.Type}"><b>{!f.Label}<apex:outputText value="*" rendered="{!f.Required || f.DBRequired}"/></b></td>-->
+                            
+        <!--                    <td class="field::{!f.fieldPath} fieldInput" data-type="{!f.Type}" data-field="{!f.fieldPath}">-->
+        <!--                        <apex:inputField value="{!obj[f.fieldPath]}" styleClass="get-input {!f.fieldPath}" />-->
+        <!--                    </td>-->
+        <!--                </tr>-->
+        <!--            </apex:outputPanel>-->
+        <!--        </apex:outputPanel>-->
+                    
+        <!--    </apex:repeat>-->
+        <!--    <tr>-->
+        <!--        <td colspan="2"><span style="font-size:10px;">*= Required</span></td>-->
+        <!--    </tr>-->
+        <!--    <tr>-->
+        <!--        <td colspan="2"><span style="font-size:10px;">+= Auto populated from Data Layer settings</span></td>-->
+        <!--    </tr>-->
+            
+        <!--</table>-->
+        
+        <div class="ClickToCreateFormTable fieldSetTable">
+            
+            <apex:repeat value="{!fields}" var="f">
+                <apex:outputPanel rendered="{! IF(RequestPlatform == 'tablet' && f.Type == 'reference', false, true)}" layout="none">
+                    <apex:outputPanel layout="none" rendered="{!f.Type == 'date'}">
+                        <div class="slds-form-element slds-m-top_x-small">
+                            <label class="fieldLabel dateLabel slds-form-element__label">{!f.Label}<apex:outputText value="*" rendered="{!f.Required || f.DBRequired}"/></label>
+                            
+                            <div class="field::{!f.fieldPath} fieldInput slds-form-element__control" data-type="{!f.Type}" data-field="{!f.fieldPath}">
+                                <apex:inputField value="{!obj[f.fieldPath]}" styleClass="get-input {!f.fieldPath} datePick" />
+                            </div>
+                        </div>
+                    </apex:outputPanel>
+                    <apex:outputPanel layout="none" rendered="{!f.Type != 'date'}">
+                        <div class="slds-form-element slds-m-top_x-small">
+                            <label class="fieldLabel type-{!f.Type} slds-form-element__label">
+                                <apex:outputText rendered="{!f.Required || f.DBRequired}">
+                                    <abbr class='slds-required' title='required'>*</abbr>
+                                </apex:outputText>
+                                {!f.Label}
+                            </label>
+                            
+                            <div class="field::{!f.fieldPath} fieldInput slds-form-element__control" data-type="{!f.Type}" data-field="{!f.fieldPath}">
+                                <apex:inputField value="{!obj[f.fieldPath]}" styleClass="get-input {!f.fieldPath} slds-input" />
+                            </div>
+                        </div>
+                    </apex:outputPanel>
+                </apex:outputPanel>
+                    
+            </apex:repeat>
+            <div>
+                <div colspan="2"><span style="font-size:10px;">*= Required</span></div>
+            </div>
+            <div>
+                <div colspan="2"><span style="font-size:10px;">+= Auto populated from Data Layer settings</span></div>
+            </div>
+            
+        </div>
+        <!----
+        <apex:pageBlock >
+            <apex:pageBlockSection title="{!fieldSetLabel}" columns="1" collapsible="false">
+                <apex:repeat value="{!fields}" var="f">
+                    <apex:inputField value="{!obj[f.fieldPath]}" styleClass="field::{!f.fieldPath}" />
+                </apex:repeat>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        ---->
+        
+        <script>
+        try {
+            $(function () {
+                try {
+                    setTimeout(function() {
+                        picklist.initialized = false;
+                        picklist.initAll();
+                    }, 500);
+                    
+                }
+                catch(e) {
+                    console.log(e);
+                }
+                
+                //rich text stuff
+                try {
+                    setTimeout(function() {
+                        if(typeof CKEDITOR != 'undefined') {
+                            var richTextInstances = CKEDITOR.instances || {};
+                            for(var key in richTextInstances) {
+                                var richTextObj = richTextInstances[key];
+                                
+                                if(!richTextObj.readOnly) {
+                                    //let's show the text field
+                                    var element = richTextObj.element.$;
+                                    $(element).addClass('get-input');
+                                    if($( "[id*='"+richTextObj.name+"']" ).length == 1) {
+                                        $(element).show();
+                                        $(element).css({'height':'100px','visibility':'visible','width':'200px'});
+                                    }
+                                }
+                            }
+                        }
+                    },500);
+                }
+                catch(e) {
+                    console.log('richText',e)
+                }
+                
+                try {
+                    var RequestPlatform='{!RequestPlatform}';
+                }
+                catch(e) {
+                    console.log('ar',e);
+                }
+            });
+        }
+        catch(e) {
+            
+        }
+    </script>
+        
+    </apex:form>
+
+</apex:page>

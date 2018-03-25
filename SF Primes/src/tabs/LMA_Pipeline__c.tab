@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customObject>true</customObject>
-    <description>The LMA Pipeline App will allow input of new market advertising spend details by the Regional Director on a weekly basis and allow edits to existing details. Detailed information will be be used in a pre-built reporting template for weekly distribution to executive management.</description>
-    <mobileReady>false</mobileReady>
-    <motif>Custom14: Hands</motif>
-</CustomTab>

@@ -1,0 +1,412 @@
+<!-- ----------------------------------------------------------------------
+ * RQ-06791 BankofAmerica
+ * vijay.manimaran@cdk.com - created this class
+ *
+ * ---------------------------MODIFICATIONS-----------------------------
+ * 2016-09-19 Vijay.manimaran@cdk.com  Updated logic
+  ----------------------------------------------------------------------  -->
+
+<apex:page standardstylesheets="false" showheader="false" controller="EMP_BankofAmerica_Controller" doctype="html-5.0">
+    <script type="text/javascript">
+        var j$ = jQuery.noConflict();
+        if (!j$) {
+              j$ = jQuery.noConflict();
+        }
+        var __showcards = '{!SHOWCARDS}';
+        var __redirectPage = '{!redirectPage}';
+        j$(document).ready(
+            function()
+            {
+                init();
+                j$('#Pcardemail').click(function () {
+                    var email_title = "Request for Pcard ";
+                    var email_body="Please start by filling out the information below to explain your intended use of and spend on a CDK Pcard%2E "+ "If the spend is allowable%2C you will be directed to complete the actual%2C full registration process which requires Manager"+ "Approval%2E   %0D%0A %0D%0A "+
+"%5F%5F%5F My role at CDK requires me to purchase the following Meeting and Event related expenses%2E%0D%0A "+
+"%20%20%20%20%20%20%20%5F%5F%5F Airline Reservations%0D%0A "+
+"%20%20%20%20%20%20%20%5F%5F%5F Group Hotel Accommodations%0D%0A"+ 
+"%20%20%20%20%20%20%20%5F%5F%5F Group Food %26 Beverage%2C Catering%0D%0A "+
+"%20%20%20%20%20%20%20%5F%5F%5F Group Ground Transportation%0D%0A "+
+"%20%20%20%20%20%20%20%5F%5F%5F Other Meeting %26 Event Related Expenses%5F%5F%5F%5F%5F%5F%5F%5F%5F%5F%5F%5F%5F%5F%5F%5F%5F%5F %0D%0A "+
+"%5F%5F%5F My role at CDK requires me to purchase Goods and Services such as  %0D%0A "+
+"%20%20%20%20%20%20%20%5F%5F%5F Promotional Items %0D%0A "+
+"%20%20%20%20%20%20%20%5F%5F%5F Office Supplies%2E %0D%0A "+
+"%20%20%20%20%20%20%20%5F%5F%5F Advertising %0D%0A "+
+"%20%20%20%20%20%20%20%5F%5F%5F Social Media %0D%0A "+
+ "%20%20%20%20%20%20%20%5F%5F%5F Misc Computer Equipment %0D%0A "+
+ "%20%20%20%20%20%20%20%5F%5F%5F Marketing related expenses %0D%0A "+
+ "%20%20%20%20%20%20%20%5F%5F%5F Gift Cards %0D%0A "+
+ "%20%20%20%20%20%20%20%5F%5F%5F Management Services provided by a 3rd party%0D%0A "+
+ "%20%20%20%20%20%20%20%5F%5F%5F Computer Software %0D%0A "+
+ "%20%20%20%20%20%20%20%5F%5F%5F Other%3A%5F%5F %0D%0A "+          
+"My Individual estimated spend on such purchases would be%3A %5F%5F%5F per Month or  %5F%5F%5F%5F%5F%5F  Annually%2E %0D%0A%0D%0AProvide the name of the Business Department you report to   "+
+"My Manager %5F%5F%5F%5F%5F%5F Managers title is %3A%5F%5F %0D%0A %0D%0A "+
+"CDK Procurement will review your request and advise within two days or sooner";
+;
+                    window.location.href ="mailto:Pcard_requests@cdk.com&subject="+email_title+"&body="+email_body;
+                                                    console.log('am inside here');
+
+                });
+            }
+        );
+       j$(document).tooltip(
+       {
+            tooltipClass: "tooltips",
+       });
+        
+    </script>
+    <style>
+        .formlabel:after {
+            content: "*";
+            color: red;
+        }
+
+        .tooltips {
+            background-color: #fff;
+        }
+
+        .progress-wrapper {
+            position: fixed;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(255,255,255,0.8);
+            z-index: 99999;
+            text-align: center;
+        }
+
+            .progress-wrapper .progress {
+                font-weight: 200;
+                position: relative;
+                top: 40%;
+                color: #fff;
+                margin: 0 auto;
+                width: 55px;
+                height: auto;
+                display: inline-block;
+                text-align: left;
+                padding: 10px 10px;
+                border-radius: 4px;
+                font-size: 14px;
+                border: 1px solid #DDD;
+            }
+
+        .bkg-pattern {
+            background-image: url("{!URLFOR($Resource.CDK_Patterns, '/Patterns/Backgrounds/Tread1.png')}");
+        }
+
+        .ui-dialog {
+            position: fixed;
+            height: auto;
+            width: 500px;
+            top: 50%;
+            left: 40%;
+            display: block;
+        }
+    </style>
+    <apex:stylesheet value="{!$Resource.EMP_BankofAmerica_CSS}" />
+    <apex:form id="profileForm">
+        <!-- script included at bottom -->
+        <div class="row" id="Newcard">
+            <div class="col-md-12">
+                <div class="col-md-4 box box-md fade-in one content bkg-pattern" id="Newtravel">
+                    <a id="newTravelCard" href="#Register">
+                        <div class="content-overlay"></div>
+                        <div class="content-details">
+                            <h3 class="content-title">
+                                Register for a Travel &amp; Expense Card
+                                <br /><i class="fa fa-plane" aria-hidden="true"></i>
+                                <i class="fa fa-car" aria-hidden="true"></i>
+                                <i class="fa fa-hotel" aria-hidden="true"></i>
+                                <i class="fa fa-cutlery" aria-hidden="true"></i>
+                            </h3>
+                            <p class="content-text">
+                                If this request requires special handling, contact CorpCardAdmin@cdk.com <br />
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 box box-md fade-in two content bkg-pattern" id="Pcardblockemail" 
+                     style="{!if(SHOWCARDS == true,'display:none','')};">
+                    <a id="Pcardemail" href="#">
+                        <!-- href="mailto:helpmeIt@cdk.com?subject=[Help]%20Request for Meeting and Event PCard&cc=Madia.Sergent@CDK.com" -->
+                        <div class="content-overlay"></div>
+                        <div class="content-details ">
+                            <h3 class="content-title" id="Pcardemail">
+                                Request for Pcard
+                                <br /><i class="fa fa-credit-card" aria-hidden="true"></i>
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            </h3>
+                            <p class="content-text">Click here to provide the rationale / justification of Pcard need for review
+                            
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                 <div class="col-md-4 box box-md fade-in two content bkg-pattern" id="Pcardblock" style="{!if(SHOWCARDS == false,'display:none','')};">
+                    <a id="Pcard" href="#PCard">
+                        <div class="content-overlay"></div>
+                        <div class="content-details ">
+                            <h3 class="content-title" id="Pcardtitle">
+                                Register for Pcard
+                                <br /><i class="fa fa-credit-card" aria-hidden="true"></i>
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            </h3>
+                            <p class="content-text"></p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 box box-md fade-in three content bkg-pattern" id="Pcardincblock" >
+                      <div id="PcardInc" href="#PcardInc">
+                          <div class="content-overlay"></div>
+                          <div class="content-details">
+                              <h3 class="content-title">
+                                  Request a Credit Limit Increase
+                                  <br /><i class="fa fa-usd" aria-hidden="true"></i>
+                                  <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                              </h3>
+                              <p class="content-text"> </p>
+                          </div>
+                      </div>
+                  </div> 
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-12">
+                <div id="locations">
+                    <div class="col-md-4 box box-sm three content" id="uslocation">
+                        <a href="#US" type="button" id="US">
+                            <div class="content-overlay"></div>
+                            <div class="content-details ">
+                                <h3 class="content-title">United States</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4 box box-sm three content" id="canadalocation">
+                        <a href="#Canada" type="button" id="Canada">
+                            <div class="content-overlay"></div>
+                            <div class="content-details ">
+                                <h3 class="content-title">Canada English</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4 box box-sm three content" id="frenchlocation">
+                        <a href="#French" type="button" id="French">
+                            <div class="content-overlay"></div>
+                            <div class="content-details">
+                                <h3 class="content-title">Canada French</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div id="Mainform" form="inputfields">
+            <div class="panel panel-default" id="Policies">
+                <div class="panel-heading">
+                    Step 1. Click and acknowledge the buttons below. <br />
+
+                </div>
+                <div class="panel-body">
+                    <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#AckModal" id="TravelPolicy" href="#">Travel and Expense Policy</a>
+                    <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#AckModal" id="Pcards" href="#">PCard Policy</a>
+                    <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#AckModal" id="Smmp" href="#">Meeting Policy</a>
+                    <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#AckModal" id="Termscondition" href="#">Terms and Conditions</a>
+                </div>
+            </div>
+            <div class="modal fade" id="AckModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="PolicyType"> </h4>
+                        </div>
+                        <div class="modal-body">
+                            <iframe width="750px" height="500px" src="Employees/apex/EMP_Content?DocumentId=" id="Documentviewer" scrolling="no"></iframe>
+                            <p id="Acknowledgetext">
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button value="I Acknowledge" id="acknowledgepolicy" class="btn btn-primary" onclick="ackpolicy();" data-dismiss="modal"> I Acknowledge</button>
+                            <apex:inputhidden value="{!Acknowledgementval}" id="AcknowledgementvalId" />
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default" id="completeForm">
+                <div class="panel-heading">
+                    Step 2. Complete the form and click submit. <br />
+                </div>
+                <div class="panel-body">
+                    <div class="form-horizontal" id="inputformfields">
+                        <div role="form" data-toggle="validator" id="registerForm">
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Employee Name</label>
+                                <div class="col-md-6" id="employeeName">{!$User.FirstName} {!$User.LastName}</div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label formlabel">Name on Card</label>
+                                <div class="col-md-6">
+                                    <apex:inputtext value="{!caseObj.BOA_NameOnCard__c}" styleclass="form-control" id="Nameoncard" maxlength="21" required="false" title="Name on card cannot exceed 21 characters." />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label formlabel">Mailing Address*</label>
+                                <div class="col-md-6">
+                                    {!hiddenCardValue}
+                                    <apex:inputtext value="{!addressline1}" styleclass="form-control" id="addressline1" required="false" maxlength="30" /><br />
+                                    <span style="font-size: 0.75em;" id="addressTooltip">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Address Line 2</label>
+                                <div class="col-md-6">
+                                    <apex:inputtext value="{!addressline2}" styleclass="form-control" id="addressline2" maxlength="30" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Address Line 3</label>
+                                <div class="col-md-6">
+                                    <apex:inputtext value="{!addressline3}" styleclass="form-control" id="addressline3" maxlength="30" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Address Line 4</label>
+                                <div class="col-md-6">
+                                    <apex:inputtext value="{!addressline4}" styleclass="form-control" id="addressline4" maxlength="30" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword" class="col-md-3 control-label formlabel">City</label>
+                                <div class="col-md-6">
+                                    <apex:inputtext value="{!caseObj.BOA_City__c}" styleclass="form-control" id="city" maxlength="30" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label formlabel">State/Province</label>
+                                <div class="col-md-6">
+                                    <apex:inputfield value="{!caseObj.BOA_State_Province__c}" styleclass="form-control" id="state" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label formlabel">Zipcode</label>
+                                <div class="col-md-6">
+                                    <apex:inputfield value="{!caseObj.BOA_ZipCode__c}" styleclass="form-control" id="zipcode" />
+                                    <span id="errmsg"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label formlabel">Phone </label>
+                                <div class="col-md-6">
+                                    <apex:inputfield value="{!caseObj.BOA_Phone__c}" styleclass="form-control numericField" id="Phone" />
+                                    <span id="errmsg"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label formlabel">Date of Birth</label>
+                                <div class="col-md-6">
+                                    <apex:input id="birthDate" value="{!birthDate}" styleclass="datepicker form-control" style="background: white;" />
+                                    <span style="font-size: 0.75em;" id="birthinfo" title="The cardholders Date of Birth (DOB) is required in order for BofAML to perform accurate scanning of customer data against relevant economic sanctions content.  You can rest assured that cardholder information will remain confidential based upon the Bank of America Merrill Lynch privacy Policy. (www.bankofamerica.com/privacy) "> <i class="fa fa-question-circle"></i> Why am I being asked to provide this info?</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Country</label>
+                                <div class="col-md-6">
+                                    <apex:inputfield value="{!caseObj.BOA_Country__c}" styleclass="form-control" id="country" />
+                                    <apex:inputhidden value="{!hiddenCardValue}" id="hiddenvalue" />
+                                </div>
+                            </div>
+                        </div>
+                        <div id="inclimitform">
+                            <div class="form-group">
+                                <label class="col-md-3 control-label formlabel">Beginning Date</label>
+                                <div class="col-md-8">
+                                    <apex:selectlist value="{!beginmonthvalue}" size="1" id="beginmonthvalue">
+                                        <apex:selectoptions value="{!months}" />
+                                    </apex:selectlist>
+                                    <apex:selectlist value="{!begindatevalue}" size="1" id="begindatevalue">
+                                        <apex:selectoptions value="{!dates}" />
+                                    </apex:selectlist>
+                                    <apex:selectlist value="{!beginyearvalue}" size="1" id="beginyearvalue">
+                                        <apex:selectoptions value="{!years}" />
+                                    </apex:selectlist>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label formlabel">End Date</label>
+                                <div class="col-md-6">
+                                    <apex:selectlist value="{!endmonthvalue}" size="1" id="endmonthvalue">
+                                        <apex:selectoptions value="{!months}" />
+                                    </apex:selectlist>
+                                    <apex:selectlist value="{!enddatevalue}" size="1" id="enddatevalue">
+                                        <apex:selectoptions value="{!dates}" />
+                                    </apex:selectlist>
+
+                                    <apex:selectlist value="{!endyearvalue}" size="1" id="endyearvalue">
+                                        <apex:selectoptions value="{!years}" />
+                                    </apex:selectlist>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label formlabel">Increase Justification</label>
+                                <div class="col-md-6">
+                                    <apex:inputfield value="{!caseObj.BOA_Increase_Justification__c}" styleclass="form-control" id="incJud" required="false"></apex:inputfield>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label formlabel">Amount</label>
+                                <div class="col-md-6">
+                                    <apex:inputfield value="{!caseObj.BOA_Currency_USD_CAD__c}" styleclass="form-control numericField" id="currency" required="false" ></apex:inputfield>
+                                    <span id="errmsgs"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label formlabel">Card type</label>
+                                <div class="col-md-6">
+                                    <apex:selectlist value="{!digitsOnCard}" size="1" id="digitsOnCard">
+                                        <apex:selectOption itemValue="Travel Card" itemLabel="Travel Card"/>
+                                        <apex:selectOption itemValue="Pcard" itemLabel="Pcard"/>
+                                    </apex:selectlist>
+                                  <!--  <apex:inputtext value="{!digitsOnCard}" styleclass="form-control numericField" id="cardType" required="false" title="Ensure you have accurately entered the last 4 digits of the card to receive the credit limit increase. Incorrect entry will delay the approval process. " maxlength="4"></apex:inputtext>
+                                    <span id="errmsgs"></span> -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <apex:commandbutton value="SUBMIT to MANAGER for APPROVAL" styleclass="btn btn-success buttons" onclick="doUiCheck();return false;" />-->
+                        <a type="button" onclick="doUiCheck();" class="btn btn-primary" href="#" id="managerApproval">Submit</a>
+                        <apex:actionfunction name="submitforApporval" action="{!submitforApporval}" rerender="msg" status="submitLoading" />
+                        <apex:actionstatus onstart="console.log('inside loading');j$('.progress-wrapper').prop('display','block');" onstop="j$('.progress-wrapper').hide();" id="submitLoading" />
+                        <span style="color:#999;">&nbsp;&nbsp;&nbsp;New card requests will route to your manager for approval.</span>
+                    </div>
+                    <hr />
+                    <div style="color:#666; text-align:center;">
+                        <h4>If this request requires special handling, contact CorpCardAdmin@cdk.com</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="dialog">
+            <p><apex:pagemessages id="msg" /></p>
+        </div>
+        <div id="cardCheckDialog">
+            <p>You have already requested the Travel Expense Card</p>
+        </div>
+        <div class="progress-wrapper">
+            <div class="progress">
+                <img src="/img/loading32.gif" />
+            </div>
+        </div>
+
+    </apex:form>
+    <script type="text/javascript" src="{!$Resource.EMP_BankofAmerica_JS}" />
+    <script type="text/javascript" src="{!URLFOR($Resource.EMP_PortalForm_JS)}" />
+    <script type="text/javascript" src="{!URLFOR($Resource.MomentJS)}" />
+</apex:page>

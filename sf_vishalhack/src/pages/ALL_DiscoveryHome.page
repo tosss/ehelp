@@ -1,0 +1,260 @@
+<!--2016-08-25- anirudh.singh@cdk.com- Created this for Discovery Home Page.-->
+<apex:page sidebar="false" showHeader="false" standardStylesheets="false" controller="ALL_DiscoveryHome_Controller" title="Discovery Home" docType="HTML - 5.0">
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, '/js/jquery-1.11.2.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.Bootstrap, '/js/bootstrap.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.ALL_DiscoveryHome_JS)}"/>
+    
+    <apex:stylesheet value="{!URLFOR($Resource.Bootstrap, '/cdk/css/bootstrap.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.FontAwesome, '/4.6.1/css/font-awesome.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.ALL_DiscoveryHome_CSS)}"/>
+    
+    <div class="discoveryHomePage">
+        <!--Scroll to Top button-->
+        <a href="#" class="scrollToTop" title="Back To Top">
+            <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+        </a>
+        
+        <!--Home Page Details Table-->
+        <table class="table homepageDetailsTable">
+            <tr>
+                <h2 class="homeDetailsHeader">
+                    <span class="headerText">Discovery Details</span>
+                    
+                    <apex:outputText id="discoveryHomeIcon" rendered="{!selectedTab='Print Version'}">
+                        <i class="fa fa-home homeIcon" onclick="navigateToDiscoveryHome();" title="Navigate to Discovery Home"></i>
+                    </apex:outputText>
+                    
+                    <!--Print Icon-->
+                    <apex:outputText rendered="{!selectedTab='Print Version'}">
+                        <i class="fa fa-print printIcon" title="Print" aria-hidden="true" 
+                           data-toggle="modal" data-target="#modalDialogSectionSelect" onclick="printPage();"></i>
+                    </apex:outputText>
+                    
+                    <apex:form >
+                        <apex:commandButton styleClass="btn btn-default generatePdf" onclick="addTabNameParameterToURL(this);"
+                                            value="Print Version" oncomplete="removeAllLinks();"
+                                            reRender="discoveryHomeIcon, contentToDisplay" status="statusHome" rendered="{!selectedTab!='Print Version'}">
+                        </apex:commandButton>
+                    </apex:form>
+                </h2>
+            </tr>
+            <tr>
+                <td class="homepageDetailsTableTd">
+                    <label class="homepageDetailsTableTdLabel">Opportunity Name</label>
+                    <a class="homepageDetailsTableTdField underlinedLinks" href="/{!oppLocationRecord.Opportunity__r.Id}" 
+                       target="_blank">{!oppLocationRecord.Opportunity__r.Name}</a>
+                </td>
+                <td class="homepageDetailsTableTd">
+                    <label class="homepageDetailsTableTdLabel">Site Name</label>
+                    <a class="homepageDetailsTableTdField underlinedLinks" href="/{!oppLocationRecord.Site__r.Id}" 
+                       target="_blank">{!oppLocationRecord.Site__r.Name}</a>
+                </td>
+            </tr>
+        </table>
+        
+        <apex:outputText id="contentToDisplay" rendered="{!selectedTab!='Print Version'}">
+            <!--Spinner-->
+            <div class="modal fade discHomeSpinnerDiv" id="discHomeSpinnerDiv" tabindex="-1" role="dialog" aria-labelledby="modalDialogLabel" aria-hidden="true"
+                 data-keyboard="false" data-backdrop="static">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td><h3>Please Wait...</h3></td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fa fa-spinner fa-spin fa-2x"></i></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!--Home Page Tabs-->
+            <apex:form >
+                <!--Action Status-->
+                <apex:actionStatus id="statusHome" onstart="showDiscHomeSpinner();" onstop="hideDiscHomeSpinner();"/>
+                
+                <ul class="nav nav-pills homePagetabUl">
+                    <apex:repeat value="{!homePageWrapperList}" var="wrapperRecord">
+                        <li class="homePageTabs">
+                            <apex:commandButton styleClass="tabButtonStyle {!wrapperRecord.tabColor}" 
+                                                onclick="addTabNameParameterToURL(this);" value="{!wrapperRecord.tabName}"
+                                                reRender="tabContentToDisplay" oncomplete="highlightSelectedTab();" status="statusHome">
+                            </apex:commandButton>
+                        </li>
+                    </apex:repeat>
+                </ul>
+            </apex:form>
+            
+            <!--Content To Display on clicking Tabs.-->
+            <apex:outputPanel id="tabContentToDisplay">
+                <div class="tabContent">
+                    <input type="hidden" value="{!selectedTab}" id="selectedTabValue"/>
+                    
+                    <!--Home Page Content-->
+                    <apex:outputText rendered="{!selectedTab='Home'}">
+                        <h3 class="homePageHeader"></h3>
+                        
+                        <div class="buttonGroup">
+                            <input type="hidden" class="selectedQuesTypeVal" value="{!selectedQuesType}"/>
+                            <apex:form >
+                                <span><b>Question Type Filter : </b></span>
+                                <div class="btn-group quesTypeBtn">
+                                    <button aria-expanded="false" aria-haspopup="true" class="btn btn-default dropdown-toggle" 
+                                            data-toggle="dropdown" type="button" onclick="homeQuesTypeBtn(this);">
+                                        All <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <apex:commandButton styleClass="quesTypeLiBtn" value="All" action="{!filterQuestions}"
+                                                                reRender="tabContentToDisplay" oncomplete="homeQuesTypeFilter();" status="statusHome">
+                                                <apex:param name="selectedQuesType" value="All" assignTo="{!selectedQuesType}"/>
+                                            </apex:commandButton>
+                                        </li>
+                                        <li>
+                                            <apex:commandButton styleClass="quesTypeLiBtn" value="Pre-Sale" action="{!filterQuestions}"
+                                                                reRender="tabContentToDisplay" oncomplete="homeQuesTypeFilter();" status="statusHome">
+                                                <apex:param name="selectedQuesType" value="Pre-Sale" assignTo="{!selectedQuesType}"/>
+                                            </apex:commandButton>
+                                        </li>
+                                        <li>
+                                            <apex:commandButton styleClass="quesTypeLiBtn" value="Post-Sale" action="{!filterQuestions}"
+                                                                reRender="tabContentToDisplay" oncomplete="homeQuesTypeFilter();" status="statusHome">
+                                                <apex:param name="selectedQuesType" value="Post-Sale" assignTo="{!selectedQuesType}"/>
+                                            </apex:commandButton>
+                                        </li>
+                                        <li>
+                                            <apex:commandButton styleClass="quesTypeLiBtn" value="Talk Track" action="{!filterQuestions}"
+                                                                reRender="tabContentToDisplay" oncomplete="homeQuesTypeFilter();" status="statusHome">
+                                                <apex:param name="selectedQuesType" value="Talk Track" assignTo="{!selectedQuesType}"/>
+                                            </apex:commandButton>
+                                        </li>
+                                        <li>
+                                            <apex:commandButton styleClass="quesTypeLiBtn" value="Virtual" action="{!filterQuestions}"
+                                                                reRender="tabContentToDisplay" oncomplete="homeQuesTypeFilter();" status="statusHome">
+                                                <apex:param name="selectedQuesType" value="Virtual" assignTo="{!selectedQuesType}"/>
+                                            </apex:commandButton>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </apex:form>
+                        </div>
+                        
+                        <table class="table table-bordered homePageTable">
+                            <thead>
+                                <tr>
+                                    <th class="homePageTh">Department</th>
+                                    <th class="homePageTh">Last Modified By</th>
+                                    <th class="homePageTh">Last Modified Date</th>
+                                    <th class="homePageTh">Progress</th>
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
+                                <apex:repeat value="{!homePageWrapperList}" var="wrapperRecord">
+                                    <apex:outputText rendered="{!wrapperRecord.tabName!='Home'}">
+                                        <tr class="homepageTr">
+                                            <td class="dataColumn">
+                                                <apex:form >
+                                                    <apex:commandLink styleClass="underlinedLinks" value="{!wrapperRecord.tabName}" onclick="addTabNameParameterToURL(this);" 
+                                                                      reRender="tabContentToDisplay" oncomplete="highlightSelectedTab();" status="statusHome">
+                                                        <apex:param name="selectedTabName" value="{!wrapperRecord.tabName}" assignTo="{!selectedTab}"/>
+                                                    </apex:commandLink>
+                                                </apex:form>
+                                            </td>
+                                            
+                                            <td class="dataColumn">
+                                                <span>
+                                                    <apex:outputText value="{!wrapperRecord.lastModifiedBy}" 
+                                                                     rendered="{!wrapperRecord.lastModifiedBy!=Null && wrapperRecord.lastModifiedBy!=''}"/>
+                                                    <apex:outputText value="--" rendered="{!wrapperRecord.lastModifiedBy==Null || wrapperRecord.lastModifiedBy==''}"/>
+                                                </span>
+                                            </td>
+                                            
+                                            <td class="dataColumn">
+                                                <span>
+                                                    <apex:outputText value=" {!wrapperRecord.lastModifiedDate}" rendered="{!wrapperRecord.lastModifiedDate!=Null}"/>
+                                                    <apex:outputText value="--" rendered="{!wrapperRecord.lastModifiedDate==Null}"/>
+                                                </span>
+                                            </td>
+                                            
+                                            <td class="dataColumn">
+                                                <span>
+                                                    <apex:outputText rendered="{!wrapperRecord.relatedToQuestionsAnswer}">
+                                                        <div class="progress homePageProgress">
+                                                            <apex:outputText rendered="{!wrapperRecord.percentComplete!='100'}">
+                                                                <div class="progress-bar progress-bar-striped homePageProgressBar" 
+                                                                     role="progressbar" style="{!'width:'+wrapperRecord.percentComplete+'%'}">
+                                                                    <span class="homePageProgressSpan">{!wrapperRecord.homePageProgressSpanText}</span>
+                                                                </div>
+                                                            </apex:outputText>
+                                                            
+                                                            <apex:outputText rendered="{!wrapperRecord.percentComplete='100'}">
+                                                                <div class="progress-bar progress-bar-success progress-bar-striped homePageProgressBar" 
+                                                                     role="progressbar" style="{!'width:'+wrapperRecord.percentComplete+'%'}">
+                                                                    <span class="homePageProgressSpan">{!wrapperRecord.homePageProgressSpanText}</span>
+                                                                </div>
+                                                            </apex:outputText>
+                                                        </div>
+                                                    </apex:outputText>
+                                                    
+                                                    <apex:outputText rendered="{!wrapperRecord.relatedToQuestionsAnswer==false}">
+                                                        <div class="progress homePageProgress">
+                                                            <apex:outputText rendered="{!wrapperRecord.percentComplete='0'}">
+                                                                <div class="progress-bar progress-bar-striped homePageProgressBar" 
+                                                                     role="progressbar" style="width:0%">
+                                                                    <span class="homePageProgressSpan">{!wrapperRecord.homePageProgressSpanText}</span>
+                                                                </div>
+                                                            </apex:outputText>
+                                                            
+                                                            <apex:outputText rendered="{!wrapperRecord.percentComplete='100'}">
+                                                                <div class="progress-bar progress-bar-success progress-bar-striped homePageProgressBar" 
+                                                                     role="progressbar" style="width:100%">
+                                                                    <span class="homePageProgressSpan">{!wrapperRecord.homePageProgressSpanText}</span>
+                                                                </div>
+                                                            </apex:outputText>
+                                                        </div>
+                                                    </apex:outputText>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </apex:outputText>
+                                </apex:repeat>
+                            </tbody>
+                        </table>
+                    </apex:outputText>
+                    
+                    <c:ALL_RenderComponents tabName="{!selectedTab}" opportunityLocationRecord="{!oppLocationRecord}" rendered="{!selectedTab!='Home'}"/>
+                </div>
+            </apex:outputPanel>
+        </apex:outputText>
+        
+        <apex:outputText rendered="{!selectedTab='Print Version'}">
+            <div class="pdfPageBreak">
+                <c:ALL_RenderComponents tabName="{!selectedTab}" opportunityLocationRecord="{!oppLocationRecord}"/>
+                
+                <!--Modal Dialog-->
+                <div class="modal fade modalDialogSectionSelect" id="modalDialogSectionSelect" tabindex="-1" role="dialog" 
+                     aria-labelledby="modalDialogLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="modalDialogLabel"></h4>
+                            </div>
+                            <div class="modal-body"></div>
+                            <div class="modal-footer"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </apex:outputText>
+    </div>
+</apex:page>

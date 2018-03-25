@@ -1,0 +1,5 @@
+<aura:component extends="cloudx_cms:SS_uiBaseCarouselSlide">
+	<aura:attribute name="slideDefMap" type="object"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	{!v.body}
+</aura:component>

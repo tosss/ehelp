@@ -1,0 +1,126 @@
+<apex:page id="ISVC_SearchAndLinkJiraIssues" standardController="Case" extensions="ISVC_SearchAndLinkJiraIssues_Extension" showHeader="false" lightningStylesheets="true">
+    <style>
+        .requiredInput .requiredBlock, .requiredBlock {background-color: white;}
+        .block {
+            width: 100%;
+            clear: both;
+        }
+        .label {
+            font-size: 12px;
+            font-weight: bold;
+            padding: 7px;
+            float: left;
+        }
+        .picklist {
+            border: none;
+            height: 30px;
+            padding-top: 6px;
+            padding-bottom: 6px;
+            padding: 7px;
+        }
+        .tablePanel {
+            height:250px;
+            overflow-y: auto;
+            margin-top: 10px;
+        }
+        .buttonsPanel {
+            position:fixed;
+            bottom:0px;
+            right:0px;
+        }
+        .button {
+            padding: 0 16px;
+            font-size: 12px;
+            font-weight: normal;
+            line-height: 27px;
+            border-color: #e0e5ee;
+            color: #fff;
+            background: #0070d2;
+        }
+        .statusBackground {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.25;
+            z-index: 1000;
+            background-color: black;
+        }
+        .statusPanel {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 1001;
+            margin: 15% 50%;
+        }
+        .statusDisplay {
+            display: inline-block;
+            padding: 2px;
+            background-color: #fff;
+            width: 125px;
+        }
+        .statusImage {
+            float: left;
+            margin: 8px;
+        }
+        .statusText {
+            display: inline-block;
+            padding: 10px 0px;
+        }
+    </style>
+    <apex:form >
+        <apex:actionFunction action="{!searchJiraIssues}" name="searchJiraIssues" status="status" rerender="tablePanel,buttonsPanel,pageMsgs"/>
+        <apex:actionFunction action="{!previousPage}" name="previousPage" status="status" rerender="tablePanel,buttonsPanel,pageMsgs"/>
+        <apex:actionFunction action="{!nextPage}" name="nextPage" status="status" rerender="tablePanel,buttonsPanel,pageMsgs"/>
+        <apex:actionFunction action="{!linkJiraIssues}" name="linkJiraIssues" status="status" rerender="pageMsgs"/>
+        <apex:actionStatus id="status">
+            <apex:facet name="start">
+                <div class="statusBackground">
+                    &nbsp;
+                </div>
+                <div class="statusPanel">
+                    <div class="statusDisplay">
+                        <img src="/img/loading.gif" class="statusImage"/>
+                        <span class="statusText">Please Wait...</span>
+                    </div>
+                </div>
+            </apex:facet>
+        </apex:actionStatus>
+        <apex:outputPanel id="mainPanel">
+            <apex:pageMessages id="pageMsgs"/>
+            <div class="block">
+                <div class="label"><apex:outputLabel value="{!$Label.ISVC_JiraProjects}"/></div>
+                <div>
+                    <apex:selectList value="{!jiraProjectKey}" size="1" styleClass="picklist" onchange="searchJiraIssues();">
+                        <apex:selectOptions value="{!jiraProjects}"/>
+                    </apex:selectList>
+                </div>
+            </div>
+            <apex:outputPanel id="tablePanel" layout="block" styleClass="tablePanel">
+                <table width="100%">
+                    <apex:repeat value="{!jiraIssues}" var="issue">
+                        <tr>
+                            <td width="5%"><apex:inputCheckbox value="{!issue.selected}" onChange="linkJiraIssues();"/></td>
+                            <td width="5%"><apex:outputText value="{!issue.key}"/></td>
+                            <td width="10%"><apex:outputText value="{!issue.assignee}"/></td>
+                            <td width="10%"><apex:outputText value="{!issue.status}"/></td>
+                            <td width="10%"><apex:outputText value="{!issue.type}"/></td>
+                            <td width="60%"><apex:outputText value="{!issue.summary}"/></td>
+                        </tr>
+                    </apex:repeat>
+                </table>
+            </apex:outputPanel>
+        </apex:outputPanel>
+    </apex:form>
+    <apex:outputPanel id="buttonsPanel" styleClass="buttonsPanel">
+        <apex:outputPanel rendered="{!hasPreviousPage}">
+            <button id="save_btn" type="button" onclick="previousPage();" class="button">{!$Label.ISVC_Previous}</button>
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!hasNextPage}">
+            <button id="save_btn" type="button" onclick="nextPage();" class="button">{!$Label.ISVC_Next}</button>
+        </apex:outputPanel>
+    </apex:outputPanel>
+</apex:page>

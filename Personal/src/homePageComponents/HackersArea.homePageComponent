@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<HomePageComponent xmlns="http://soap.sforce.com/2006/04/metadata">
-    <body>&lt;span style=&quot;color: rgb(34, 34, 34); font-family: pt sans,helvetica neue,helvetica,arial,sans-serif; font-size: 15px;&quot;&gt;{!REQUIRESCRIPT(&amp;quot;/resource/1402932484000/YourStaticResourceName&amp;quot;)}&lt;/span&gt;</body>
-    <pageComponentType>htmlArea</pageComponentType>
-    <width>narrow</width>
-</HomePageComponent>

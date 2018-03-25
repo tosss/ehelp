@@ -1,0 +1,281 @@
+<!-----------------------------------------------------------
+Author: Vijay Manimaran
+Description: Create/Edit New Contacts.
+History
+2016-05-16 Vijay.manimaran@cdk.com  Created
+2016-05-16 Sanjay.Ghanathey@cdk.com Updated : Grouped the field under pageblocksections based on pagelayouts for recordtypes on contact
+2016-05-16 Sanjay.Ghanathey@cdk.com Created : added
+2016-05-18 Vijay.manimaran@cdk.com  Updated : AutoPopulate Account field once launched from account or external system
+2016-05-18 Vijay.manimaran@cdk.com  Updated : Cleaned LDP fields based on Dave's feedback
+2016-05-18 Vijay.manimaran@cdk.com  Created : Updated related list based on the Dave's request
+2016-05-18 Sanjay.Ghanathey@cdk.com Updated : Updated related list based on the Dave's request
+2016-05-25 Sanjay.Ghanathey@cdk.com Updated : render attributed to the fields, based on recordtpyes
+2016-05-31 Vijay.manimaran@cdk.com  Updated : code and formating
+2016-06-20 Sanjay.Ghanathey@cdk.com Updated : Cancel Functionality to redirect when cancel is clicked on main page
+2016-09-09 vishal.bandari@cdk.com   Updated : Hide Role for editing for Internal HR Contacts, RQ-07641
+2017-04-03 ragashalini.koka@cdk.com Updated : Made changes on field positions for RQ-08961
+------------------------------------------------------------->
+
+<apex:page standardController="Contact_Relationship__c" extensions="ALL_SharedContacts_Controller" standardStylesheets="false" sidebar="false" >
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}" />
+    <script type="text/javascript">
+    var j$; if(!j$) { j$ = jQuery.noConflict(); }
+    function closeWindow() {
+        // window.close();        
+        var accountId = '{!ContactRelationship.Account__c}';
+        var CRId = '{!ContactRelationship.Id}';
+        var isCancel = '{!$CurrentPage.parameters.isCancel}'; 
+        var isReadOnly = '{!isReadOnly}';
+        // alert(isReadOnly);
+        if(accountId && CRId && isReadOnly!="false")
+        {
+            if(isCancel){
+                window.location="/{!ContactRelationship.Account__c}"; 
+            }
+            else{
+                window.location="/apex/sharedContactsPage?AccountId={!ContactRelationship.Account__c}&CRId={!ContactRelationship.Id}&isCancel=true";
+            }
+        }
+        else
+        {
+            var tempAccountId = '{!$CurrentPage.parameters.AccountId}';
+            var tempIsEdit = '{!$CurrentPage.parameters.isEdit}';
+            var tempCRId = '{!$CurrentPage.parameters.CRId}';            
+            if(tempAccountId && tempIsEdit && tempCRId){
+                window.location="/"+tempCRId;
+            }else 
+                if(tempAccountId){
+                    window.location="/"+tempAccountId;
+                }
+                else{
+                    window.location="/003"; 
+                }
+        }
+    }
+    j$( document ).ready(function() {
+        var isReadOnly = '{!isReadOnly}';               
+        if(isReadOnly == 'true')
+        {            
+            var inputSecectionId = j$("[id$='inputSectionId']");
+            j$(inputSecectionId).find(':input').prop('disabled', true);
+            
+        }
+        var status = j$("[id$='status']");
+        status.val('Active');
+        j$("[id$='check']").click(function(event) {
+            j$('#cont').hide();
+        });    
+    });
+    </script>
+    <apex:form id="form">
+        <apex:sectionHeader subtitle="{!CurrentContact.Name}" title="Shared Contact Edit"/>
+        <apex:pagemessages />
+        <apex:pageBlock > 
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Edit" action="{!EditPage}" rendered="{!IF(readMode == true && showbuttons == true , true,false)}" title="Edit the Existing Contact"/>
+                <apex:commandButton value="Continue" action="{!DuplicateCheck}" rendered="{!IF(readMode == false && showbuttons == true,true,false)}" id="check" title="Checks for Duplicate Contact"/>
+                <apex:commandButton value="Save" action="{!CreateContactRelationship}" rendered="{!IF(showbuttons == true,false,true )}" title="Create/Update Contact Relationship"/>
+                <apex:commandButton value="Cancel" onclick="closeWindow();return false;"/>
+            </apex:pageBlockButtons>            
+            <apex:pageBlockSection id="inputSectionId" columns="1" title="Contact details" rendered="{!IF($CurrentPage.parameters.mode =='Read' || readMode == true, false,true)}">
+                <apex:pageBlocksectionitem >
+                    <apex:outputLabel > Recordtype</apex:outputLabel>                     
+                        <apex:selectList value="{!recordType}" size="1" >		
+                        <apex:selectOptions value="{!RecordTypes}" ></apex:selectOptions>		
+                    </apex:selectList>
+                </apex:pageBlocksectionitem>
+                <apex:InputField id="AccountName" value="{!ContactRelationship.Account__c}" required="true"/>
+                <apex:InputField id="FirstName"  value="{!CurrentContact.FirstName}" required="true"/>
+                <apex:inputfield id="LastName" value="{!CurrentContact.LastName}" required="true" />
+                <apex:inputfield id="Email" value="{!CurrentContact.Email}" />
+            </apex:pageBlockSection>
+            <!-- 2016-09-09 -  vishal.bandari@cdk.com - hiding role for Internal HR Contacts  -->
+            <apex:pageBlockSection columns="1" rendered="{!IF(($CurrentPage.parameters.mode =='Read' || readMode == true || recordTypeHRId == CurrentContact.RecordTypeId), false,true)}">                                
+                <apex:InputField id="Role"  value="{!ContactRelationship.Role__c}" required="true"/> 
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Additional Contact Details" rendered="{!IF(CurrentContact.RecordTypeId!=null && readMode != true,true,false)}">           
+                <!--<apex:InputField id="Role"  value="{!contactRelationship.Role__c}" required="true"/>  -->
+                <apex:inputField value="{!CurrentContact.Vendor_ID__c}" rendered="{!IF(recordTypeHRId == CurrentContact.RecordTypeId,true,false)}"/>
+                <apex:inputField value="{!CurrentContact.No_Longer_There__c}" rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId,true,false)}"/>
+                <apex:inputField id="status" value="{!ContactRelationship.Status__c}" />
+                <apex:inputField value="{!CurrentContact.Middle_Initial__c}"/>  
+                <apex:inputField id="CR" value="{!ContactRelationship.Phone__c}" />
+                <apex:inputField value="{!CurrentContact.Vendor_Company__c}" rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId,true,false)}"/>
+                <apex:inputField value="{!ContactRelationship.Extension__c}"/>
+                <apex:inputField value="{!CurrentContact.Authorized_Contract_Signer__c}" rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId,true,false)}"/>
+                <apex:inputField value="{!CurrentContact.MobilePhone}"/>
+                <apex:inputField value="{!CurrentContact.Additional_Client_Designated_Signer__c}" rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId,true,false)}"/>                                
+                <apex:inputField value="{!CurrentContact.HomePhone}"/>
+                <apex:inputField value="{!CurrentContact.Authorized_Signer_e_Store_Only__c}" rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId,true,false)}"/>
+                <apex:inputField value="{!ContactRelationship.Fax__c}"/>
+                <apex:outputText />
+                <apex:inputField value="{!CurrentContact.Title}"/>
+                <apex:outputText rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId || recordTypeCDKOEMId == CurrentContact.RecordTypeId,true,false)}" />
+                <apex:inputField value="{!CurrentContact.Language_Preference__c}"
+                                 rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId || recordTypeCDKOEMId == CurrentContact.RecordTypeId,true,false)}"/>
+                 <apex:outputText rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId || recordTypeCDKOEMId == CurrentContact.RecordTypeId,true,false)}" />
+                <apex:inputField value="{!CurrentContact.Shift_Contact__c}"
+                                 rendered="{!IF(recordTypeCDKOEMId == CurrentContact.RecordTypeId,true,false)}"/>
+                  <apex:outputText rendered="{!IF(recordTypeCDKOEMId == CurrentContact.RecordTypeId,true,false)}" />
+                <apex:inputField value="{!CurrentContact.XCOM_member__c}" rendered="{!IF(recordTypeHRId == CurrentContact.RecordTypeId,true,false)}"/>
+                <apex:inputField value="{!CurrentContact.Title_Comments__c}" rendered="{!IF(recordTypeHRId != CurrentContact.RecordTypeId,true,false)}"/> 
+                <apex:inputField value="{!CurrentContact.Dealer_Group__c}" rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId,true,false)}"/> 
+                 <apex:outputText />
+                <apex:inputField value="{!CurrentContact.VIP__c}"
+                                 rendered="{!IF((recordTypeCustomerId == CurrentContact.RecordTypeId || recordTypeCDKOEMId == CurrentContact.RecordTypeId) && readMode != true,true,false)}" />
+                <apex:inputField value="{!CurrentContact.VIP_Reason_Code__c}"
+                                 rendered="{!IF((recordTypeCustomerId == CurrentContact.RecordTypeId || recordTypeCDKOEMId == CurrentContact.RecordTypeId) && readMode != true,true,false)}"/>
+                <apex:inputField value="{!CurrentContact.Do_Not_Solicit__c}" rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId,true,false)}"/>
+                <apex:inputField value="{!CurrentContact.Do_Not_Fax__c}" rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId,true,false)}"/>
+                <apex:inputField value="{!CurrentContact.HasOptedOutOfEmail}" rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId,true,false)}"/>
+                <apex:inputField value="{!CurrentContact.Personal_Email__c}" rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId,true,false)}"/>
+                <apex:outputText rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId,true,false)}"/>
+                <apex:inputField value="{!CurrentContact.Other_Email__c}" rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId,true,false)}"/>
+                <apex:inputField value="{!CurrentContact.DS_SLS_Required_CC__c}" rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId,true,false)}"/>
+                <apex:inputField value="{!CurrentContact.Sales_Notes__c}" rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId,true,false)}"/>                
+            </apex:pageBlockSection>                       
+            
+            <apex:pageBlockSection title="Policy Info" columns="2" rendered="{!IF(CurrentContact.RecordTypeId==recordTypeHRId && readMode != true,true,false)}" >
+                <apex:InputField value="{!CurrentContact.Total_Policies__c}" />
+                <apex:InputField value="{!CurrentContact.Total_Policies_To_Approve__c}" />
+                <apex:InputField value="{!CurrentContact.Manual_Policy_Addition__c}" />
+                <apex:InputField value="{!CurrentContact.FY16_US_Acknowledgement__c}" />
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Address Information" columns="2"  rendered="{!IF(CurrentContact.RecordTypeId!=null && readMode != true,true,false)}">     
+                <apex:inputField value="{!CurrentContact.MailingStreet}"/>
+                <apex:inputField value="{!CurrentContact.MailingCity}"/>
+                <apex:inputField value="{!CurrentContact.MailingState}"/>
+                <apex:inputField value="{!CurrentContact.MailingPostalcode}" />
+                <apex:InputField value="{!CurrentContact.County__c}" label="Mailing County"/>
+                <apex:inputField value="{!CurrentContact.MailingCountry}"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="System Updated" columns="2"  rendered="{!IF(CurrentContact.RecordTypeId==recordTypeHRId && readMode != true,true,false)}" >
+                <apex:InputField value="{!CurrentContact.HR_Status__c}" />
+                <apex:InputField value="{!CurrentContact.HR_Location__c}" />
+                <apex:InputField value="{!CurrentContact.HR_Title__c}" />
+                <apex:InputField value="{!CurrentContact.HR_Work_Country_Code__c}" />
+                <apex:InputField value="{!CurrentContact.HR_Manager__c}" />
+                <apex:InputField value="{!CurrentContact.HR_Business_Partner__c}" /> 
+                <apex:InputField value="{!CurrentContact.HR_Business_Unit__c}" />
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel />
+                </apex:pageBlockSectionItem>
+                <apex:InputField value="{!CurrentContact.HR_Hire_Date__c}" />
+                <apex:InputField value="{!CurrentContact.HR_Term_Date__c}" />
+                <apex:InputField value="{!CurrentContact.HR_Rehire_Date__c}" />                
+                <apex:InputField value="{!CurrentContact.HR_Last_Date_Worked__c}" />                
+                <apex:InputField value="{!CurrentContact.Employee_ID__c}" />
+                <apex:InputField value="{!CurrentContact.Associates_Last_Termination_Date_Time__c}" />                
+            </apex:pageBlockSection>                       
+          
+            <apex:pageblocksection rendered="{!IF($CurrentPage.parameters.mode =='Read' || readMode == true, true,false)}">
+                <apex:outputField value="{!CurrentContact.RecordtypeID}" />
+                <apex:outputField value="{!ContactRelationship.Account__c}"/>
+                <apex:outputField value="{!CurrentContact.LastName}"/>
+                <apex:outputField value="{!CurrentContact.FirstName}"/>
+                <apex:outputField value="{!CurrentContact.Email}"/>
+                <apex:outputField value="{!ContactRelationship.Role__c}"/>
+            </apex:pageblocksection>
+            
+            <apex:pageblocksection title="Additional CurrentContact Details" rendered="{!IF($CurrentPage.parameters.mode =='Read' || readMode == true, true,false)}">
+                <apex:outputField value="{!CurrentContact.Vendor_ID__c}" rendered="{!IF(recordTypeHRId == CurrentContact.RecordTypeId,true,false)}"/>
+                <apex:outputField value="{!CurrentContact.No_Longer_There__c}" rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId,true,false)}"/>
+                <apex:outputField value="{!ContactRelationship.Status__c}" />
+                <apex:outputField value="{!CurrentContact.Middle_Initial__c}"/>  
+                <apex:outputField value="{!ContactRelationship.Phone__c}" />
+                <apex:outputField value="{!CurrentContact.Vendor_Company__c}" rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId,true,false)}"/>
+                <apex:outputField value="{!ContactRelationship.Extension__c}"/>
+                <apex:outputField value="{!CurrentContact.Authorized_Contract_Signer__c}" rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId,true,false)}"/>
+                <apex:outputField value="{!CurrentContact.MobilePhone}"/>
+                <apex:outputField value="{!CurrentContact.Additional_Client_Designated_Signer__c}" rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId,true,false)}"/>                
+                <apex:outputField value="{!CurrentContact.Title}"/>
+                <apex:outputField value="{!CurrentContact.Authorized_Signer_e_Store_Only__c}" rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId,true,false)}"/>
+                <apex:outputField value="{!CurrentContact.Language_Preference__c}"
+                                  rendered="{!IF((recordTypeCustomerId == CurrentContact.RecordTypeId || recordTypeCDKOEMId == CurrentContact.RecordTypeId),true,false)}"/>
+               <apex:outputField value="{!CurrentContact.HomePhone}"/>
+                <apex:outputField value="{!CurrentContact.XCOM_member__c}" rendered="{!IF(recordTypeHRId == CurrentContact.RecordTypeId,true,false)}"/>
+                <apex:outputField value="{!CurrentContact.Dealer_Group__c}"/>
+                <apex:outputField value="{!CurrentContact.Title_Comments__c}" rendered="{!IF(recordTypeHRId != CurrentContact.RecordTypeId,true,false)}"/>                                
+                <apex:outputField value="{!CurrentContact.Do_Not_Solicit__c}" rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId,true,false)}"/>
+                <apex:outputField value="{!CurrentContact.VIP__c}" rendered="{!IF((recordTypeCustomerId == CurrentContact.RecordTypeId || recordTypeCDKOEMId == CurrentContact.RecordTypeId)&& readMode == true,true,false)}"/>
+                <apex:outputField value="{!CurrentContact.VIP_Reason_Code__c}" rendered="{!IF((recordTypeCustomerId == CurrentContact.RecordTypeId || recordTypeCDKOEMId == CurrentContact.RecordTypeId) && readMode == true,true,false)}" />
+                <apex:outputField value="{!CurrentContact.Do_Not_Fax__c}" rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId,true,false)}"/>
+                <apex:outputField value="{!CurrentContact.HasOptedOutOfEmail}" rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId,true,false)}"/>
+                <apex:outputField value="{!CurrentContact.Personal_Email__c}" rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId,true,false)}"/>
+              
+                <apex:outputField value="{!CurrentContact.DS_SLS_Required_CC__c}" rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId,true,false)}"/>
+                 <apex:outputField value="{!CurrentContact.Shift_Contact__c}"
+                                  rendered="{!IF(recordTypeCDKOEMId == CurrentContact.RecordTypeId,true,false)}"/>
+                <apex:outputField value="{!CurrentContact.Sales_Notes__c}" rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId,true,false)}"/>                
+            </apex:pageblocksection>
+            
+            <!--<apex:pageBlockSection title="Priority And Decesion Making" columns="2" rendered="{!IF(recordTypeCustomerId == CurrentContact.RecordTypeId && readMode == true,true,false)}">   
+                <apex:outputField value="{!CurrentContact.VIP__c}" />
+                <apex:outputField value="{!CurrentContact.VIP_Reason_Code__c}" />
+            </apex:pageBlockSection>-->
+            <apex:pageBlockSection title="System Information" columns="2" rendered="{!IF(CurrentContact.RecordTypeId!=null && readMode != true,true,false)}" >
+                <apex:InputField value="{!CurrentContact.OwnerId}" />
+                <apex:InputField value="{!CurrentContact.User__c}" />
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Policy Info" columns="2" rendered="{!IF(CurrentContact.RecordTypeId==recordTypeHRId && readMode==true,true,false)}">
+                <apex:outputField value="{!CurrentContact.Total_Policies__c}" />
+                <apex:outputField value="{!CurrentContact.Total_Policies_To_Approve__c}" />
+                <apex:outputField value="{!CurrentContact.Manual_Policy_Addition__c}" />
+                <apex:outputField value="{!CurrentContact.FY16_US_Acknowledgement__c}" />
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Address Information" columns="2" rendered="{!IF(CurrentContact.RecordTypeId!=null && readMode==true,true,false)}" >
+                <apex:outputField value="{!CurrentContact.MailingStreet}"/>
+                <apex:outputField value="{!CurrentContact.MailingCity}"/> 
+                <apex:outputField value="{!CurrentContact.MailingState}"/>
+                <apex:outputField value="{!CurrentContact.MailingPostalcode}" />
+                <apex:outputField value="{!CurrentContact.County__c}" />
+                <apex:outputField value="{!CurrentContact.MailingCountry}"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="System Updated" columns="2" rendered="{!IF(CurrentContact.RecordTypeId==recordTypeHRId && readMode==true,true,false)}">
+                <apex:OutputField value="{!CurrentContact.HR_Status__c}" />
+                <apex:OutputField value="{!CurrentContact.HR_Location__c}" />
+                <apex:OutputField value="{!CurrentContact.HR_Title__c}" />
+                <apex:OutputField value="{!CurrentContact.HR_Work_Country_Code__c}" />
+                <apex:OutputField value="{!CurrentContact.HR_Manager__c}" />
+                <apex:OutputField value="{!CurrentContact.HR_Business_Unit__c}" />
+                <apex:OutputField value="{!CurrentContact.HR_Business_Partner__c}" />                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel />
+                </apex:pageBlockSectionItem>
+                <apex:OutputField value="{!CurrentContact.HR_Hire_Date__c}" />
+                <apex:OutputField value="{!CurrentContact.HR_Term_Date__c}" />
+                <apex:OutputField value="{!CurrentContact.HR_Rehire_Date__c}" />                
+                <apex:OutputField value="{!CurrentContact.HR_Last_Date_Worked__c}" />                
+                <apex:OutputField value="{!CurrentContact.Employee_ID__c}" />
+                <apex:OutputField value="{!CurrentContact.Associates_Last_Termination_Date_Time__c}" />                
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="System Information" columns="2" rendered="{!IF(CurrentContact.RecordTypeId!=null && readMode==true,true,false)}" >
+                <apex:outputField value="{!CurrentContact.OwnerId}" />
+                <apex:outputField value="{!CurrentContact.CreatedById}"/>                
+                <apex:outputField value="{!CurrentContact.User__c}" />   
+                <apex:outputField value="{!CurrentContact.LastModifiedById}"/>                
+            </apex:pageBlockSection>                         
+        </apex:pageBlock>
+    </apex:form>
+    
+    <apex:outputPanel rendered="{!IF(readMode == true,true,false)}">
+        <apex:relatedList list="Cases" subject="{!CurrentContact.Id}"/>   
+        <apex:relatedList list="OpenActivities"  subject="{!CurrentContact.Id}"/>     
+        <apex:relatedList list="ActivityHistories" subject="{!CurrentContact.Id}"/>
+        <apex:relatedList list="CombinedAttachments" subject="{!CurrentContact.Id}"/> 
+        <apex:relatedList list="contact_Relationships__r" subject="{!CurrentContact.Id}"/>     
+        <apex:relatedList list="Leads__r" subject="{!CurrentContact.Id}"/>
+        <apex:relatedList list="Agency_Account_Contacts__r" subject="{!CurrentContact.Id}"/>
+        <apex:relatedList list="Influencers__r" subject="{!CurrentContact.Id}"/>
+        <apex:relatedList list="Marketing_Interactions__r" subject="{!CurrentContact.Id}"/>
+        <apex:relatedList list="Relationships__r" subject="{!CurrentContact.Id}"/>
+    </apex:outputPanel>
+    
+</apex:page>

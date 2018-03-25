@@ -1,0 +1,76 @@
+<!--2015-12-07- anirudh.singh@cdk.com- Modified the API Version from 19.0 to 34.0.-->
+<apex:page standardController="Case" extensions="combinedCaseActivityController">
+    <apex:pageblock >
+        <head>
+            <style>
+                body {background-color: #F3F3EC;}
+            </style>
+        </head>
+        <body>
+            <div class="pbBody">
+                <table class="list" cellspacing="0" cellpadding="0" border="0">
+                    <tbody>
+                        <tr class="headerRow">
+                            <th class="actionColumn" scope="col">View</th>
+                            <!-- <th class="" scope="col">Comment ID</th>  -->
+                            <th class="stringColumn" scope="col">Type</th>
+                            <th class="" scope="col">Comment</th>
+                            <th class="" scope="col">Created By</th>
+                            <th class="dateColumn" scope="col">Date Entered</th>
+                        </tr>
+                        <apex:repeat value="{!caseCommentEmailList}" var="thisCombinedComment" id="combinedCommentsRepeater">
+                            <tr class="dataRow">
+                                <td class="actionColumn" style="vertical-align: top;">
+                                    <apex:outputLink value="/{!thisCombinedComment.urlId}?parent_id={!Case.Id}&retURL=%2F{!Case.Id}&backURL=%2F{!Case.Id}" rendered="{!OR(thisCombinedComment.lineType == 'Task', thisCombinedComment.lineType == 'Email')}" target="_parent" styleClass="actionLink">View</apex:outputLink>
+                                    <apex:outputLink value="/apex/viewCase?caseCommentID={!thisCombinedComment.urlId}&commentId={!thisCombinedComment.caseID}&caseId={!Case.Id}" rendered="{!thisCombinedComment.lineType == 'Comment'}" target="_parent" styleClass="actionLink">View</apex:outputLink>
+                                    <!--<apex:outputText rendered="{!thisCombinedComment.lineType == 'Comment' && $Profile.Name == 'System Administrator'}">&nbsp;|&nbsp;</apex:outputText>-->
+                                    <!--<apex:outputLink value="/{!thisCombinedComment.urlId}/e?parent_id={!Case.Id}&retURL=%2F{!Case.Id}&saveURL=%2F{!Case.Id}" rendered="{!thisCombinedComment.lineType == 'Comment' && $Profile.Name == 'System Administrator'}" target="_parent"  styleClass="actionLink">Edit</apex:outputLink>-->
+                                </td>
+                                <!-- <td class="" scope="col">{!thisCombinedComment.caseID}</td>  -->
+                                <!--  	9/8/2010 - TAL - Wrapped everything in outputText and turned escaping off as per request from Ann Brommer -->
+                                <td class="stringColumn" scope="col" style="vertical-align: top;">
+                                    <apex:outputText escape="false" value="{!thisCombinedComment.lineType}" />
+                                </td>
+                                <td class="" scope="col" width="65%">
+                                    <apex:outputText escape="false" value="{!thisCombinedComment.subjectString}" />
+                                </td>
+                                <td class="" scope="col">
+                                    <apex:outputText escape="false" value="{!thisCombinedComment.createdBy}" />
+                                </td>
+                                <td class="dateColumn" scope="col">
+                                    <apex:outputText escape="false" value="{!thisCombinedComment.dateCreatedStr}" />
+                                </td>
+                            </tr>
+                        </apex:repeat>
+                    </tbody>
+                </table>
+            </div>
+        </body>
+     </apex:pageblock>
+    
+    <!--apex:pageblock title="Emails">
+        <apex:pageblockbuttons location="top" >        
+            <button class="btn" id="SendEmail" onclick="window.open('/_ui/core/email/author/EmailAuthor?p2_lkid={!Case.contactId}&p3_lkid={!Case.Id}&retURL=/apex/CloseMe')">Send an Email</button>
+        </apex:pageblockbuttons>
+        <apex:pageblocktable value="{!emailMessages}" var="email">
+            <apex:column >
+                <apex:facet name="header">Action</apex:facet>                   
+                <a href="/_ui/core/email/author/EmailAuthor?email_id={!email.Id}&replyToAll=0&retURL={!Case.Id}" target="_blank">Reply</a>  |
+                <a href="/_ui/core/email/author/EmailAuthor?email_id={!email.Id}&replyToAll=1&retURL={!Case.Id}" target="_blank">To All</a>                   
+            </apex:column>
+            
+            <apex:repeat value="{!emailMessageFields}" var="col">               
+                <apex:column >
+                        <apex:facet name="header">{!col.Header}</apex:facet>
+                        <apex:outputpanel rendered="{!IF(col.ApiName=='Subject',true,false)}">
+                            <a href="/{!email['Id']}" target="_blank">{!email[col.ApiName]}</a>
+                        </apex:outputpanel>
+                        <apex:outputpanel rendered="{!IF(col.ApiName =='Subject',false,true)}">
+                            <apex:outputfield value="{!email[col.ApiName]}" />
+                        </apex:outputpanel>
+                </apex:column>
+            </apex:repeat>
+        </apex:pageblocktable>
+    </apex:pageblock-->
+    
+</apex:page>

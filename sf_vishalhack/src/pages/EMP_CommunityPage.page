@@ -1,0 +1,42 @@
+<apex:page showHeader="false" sidebar="false" standardstylesheets="false" controller="EMP_MyCommunities_Controller">
+    <apex:outputPanel > 
+        <apex:form >
+            <h2>My Groups</h2>
+            <apex:repeat value="{!GroupMembership}" var="Groups">
+                <apex:variable value="{!Groups.CollaborationGroup.Network.UrlPathPrefix}" var="nPrefix" />
+                
+                <div class="col-md-4">
+                    <div class="panel panel-default {!IF(Groups.CollaborationGroup.Network.UrlPathPrefix=='intranet', 'panel-highlight-green', '')}" style="height: 77px;">
+                        <div class="panel-body">
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="{!IF(nPrefix!='', '/'+Groups.CollaborationGroup.Network.UrlPathPrefix, '')}/{!Groups.CollaborationGroupId}" 
+                                       target="_self">
+                                        <img class="media-object" width="45px" height="45px" src="{!Groups.CollaborationGroup.SmallPhotoUrl}" alt="{!Groups.CollaborationGroup.Name}" />
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <p>
+                                        <b>
+                                            <a href="{!IF(nPrefix!='', '/'+Groups.CollaborationGroup.Network.UrlPathPrefix, '')}/{!Groups.CollaborationGroupId}" 
+                                               target="_self">{!Groups.CollaborationGroup.Name}</a>
+                                        </b>
+                                        &nbsp;
+                                        <span style="color:#AAA; font-size:0.75em; text-transform: capitalize;">
+                                            {!IF(nPrefix!='', Groups.CollaborationGroup.Network.UrlPathPrefix, '')}
+                                        </span>
+                                    </p>
+                                    <!--
+                                    <p style="font-size:0.75em; overflow: auto; height: 16px;" tooltip="{!Groups.CollaborationGroup.Description}">
+                                        {!Groups.CollaborationGroup.Description}
+                                    </p>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </apex:repeat>
+        </apex:form>
+    </apex:outputPanel>
+</apex:page>

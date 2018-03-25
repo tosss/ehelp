@@ -1,0 +1,3 @@
+<apex:page applyHtmlTag="true" applyBodyTag="true" contentType="application/json" showHeader="false" sidebar="false" standardStylesheets="true">
+    <!-- deprecated -->
+</apex:page>

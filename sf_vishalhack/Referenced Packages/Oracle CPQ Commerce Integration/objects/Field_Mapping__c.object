@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>FieldMappingEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>An object used to associate a field in Oracle CPQ Cloud to a field in Salesforce.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Configuration_Record__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Site</label>
+        <referenceTo>Configuration_Record__c</referenceTo>
+        <relationshipLabel>Field Mappings</relationshipLabel>
+        <relationshipName>BigMachines_Field_Mappings</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Object_Mapping__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Object Mapping</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Quote -&gt; Opportunity</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Quote Product -&gt; Opportunity Product</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Source_Field_Label__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Source Field Label</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Source_Field_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Source Field Name</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Target_Field_Label__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Target Field Label</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Target_Field_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Target Field Name</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Field Mapping</label>
+    <nameField>
+        <displayFormat>MAP-{00000}</displayFormat>
+        <label>Record Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Oracle CPQ Cloud Field Mappings</pluralLabel>
+    <recordTypes>
+        <fullName>Standard</fullName>
+        <active>true</active>
+        <label>Standard</label>
+        <picklistValues>
+            <picklist>Object_Mapping__c</picklist>
+            <values>
+                <fullName>Quote -%3E Opportunity</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Quote Product -%3E Opportunity Product</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Object_Mapping_Required</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISPICKVAL( Object_Mapping__c , &apos;&apos;)</errorConditionFormula>
+        <errorDisplayField>Object_Mapping__c</errorDisplayField>
+        <errorMessage>You may not select &quot;None&quot; for the value of Object Mapping</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>New_Field_Mapping</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Field Mapping</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>{!URLFOR($Site.Prefix)}/apex/{!$Setup.NamespaceSettings__c.Underscore_Prefix__c}FieldMappingEdit?configId={!Configuration_Record__c.Id}</url>
+    </webLinks>
+</CustomObject>

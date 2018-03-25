@@ -1,7 +1,0 @@
-<aura:component >
-	 <aura:attribute name="AccountId" type="string" default=""/>
-    <aura:attribute name="ContactId" type="string" default=""/>
-    <aura:attribute name="CampaignId" type="string" default=""/> 
-    <aura:attribute name="LeadId" type="string" default=""/> 
-    
-</aura:component>

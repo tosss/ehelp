@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>MapAnything Data Load</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>MapAnything Data Loads</value>
+    </caseValues>
+    <fields>
+        <label><!-- DataType --></label>
+        <name>DataType__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email1 --></label>
+        <name>Email1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email2 --></label>
+        <name>Email2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email3 --></label>
+        <name>Email3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email4 --></label>
+        <name>Email4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email5 --></label>
+        <name>Email5__c</name>
+    </fields>
+    <fields>
+        <label><!-- Filters --></label>
+        <name>Filters__c</name>
+    </fields>
+    <fields>
+        <label><!-- Name --></label>
+        <name>Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Settings --></label>
+        <name>Settings__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Errors --></label>
+        <name>Total_Errors__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Records --></label>
+        <name>Total_Records__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Succeeded --></label>
+        <name>Total_Succeeded__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

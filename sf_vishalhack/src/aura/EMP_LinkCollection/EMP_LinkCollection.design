@@ -1,0 +1,5 @@
+<!--2016-07-26- anirudh.singh@cdk.com- Created this class for RQ-07332.-->
+<design:component label="Link Collection">
+    <design:attribute name="collectionName" label="Collection Name" description="The name of the Link Collection. Use 'My Links' for displaying User Personal Links."/>
+    <design:attribute name="color" label="Color" datasource="Green, Black, White, Dark-Green, Blue, Teal, Alt-Green, Light-Green, Yellow, Khaki, Purple, Burgundy, Soft-Black, Medium-Grey, Light-Grey, Beige" default="Blue" description="Which brand color should be used?" />
+</design:component>

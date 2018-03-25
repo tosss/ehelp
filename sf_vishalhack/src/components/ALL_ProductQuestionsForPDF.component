@@ -1,0 +1,23 @@
+<apex:component controller="ALL_ProductQuestions_Controller">
+    <apex:stylesheet value="{!URLFOR($Resource.Bootstrap, '/cdk/css/bootstrap.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.ALL_ProductQuestions_CSS)}"/>
+    
+    <apex:attribute name="opportunityLocationSiteId" type="Id" default="a6N230000004Ht2" assignTo="{!oppLocationSiteIdForRecs}" 
+                    required="true" description="This is the Opportunity Location Site Id."/>
+    <apex:attribute name="siteWorkbookId" type="Id" assignTo="{!siteWorkbookIdForQuestionsTab}" 
+                    required="true" description="This is the Discovery Workbook Id for Answer Records."/>
+    <apex:attribute name="scenario" type="String" assignTo="{!questionsScenario}" 
+                    required="false" description="This determines whether normal scenario or pdf scenario."/>
+    
+    <div class="productQuestionsComponent">
+        <apex:outputText rendered="{!displaySideBarTabsList!=Null && displaySideBarTabsList.size>0}">
+            <div class="productQuestionsContentDiv">
+                <apex:outputText id="productQuestionsContent">
+                    <div class="productQuestionsQuesAnsDiv pdfVersion">
+                        <apex:dynamicComponent componentValue="{!questionAnswerComponent}" invokeAfterAction="true"/>
+                    </div>
+                </apex:outputText>
+            </div>
+        </apex:outputText>
+    </div>
+</apex:component>

@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>QuoteEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>QuoteCreate</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>An Oracle CPQ Cloud quote object storing the proposal(s) and line items.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>BigMachines_Quotes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Summary Amount</label>
+        <summarizedField>Quote_Product__c.Total_Price__c</summarizedField>
+        <summaryForeignKey>Quote_Product__c.Quote__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Is_Forced_Sync__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Set this to true from Oracle CPQ Cloud to force a primary quote to synchronize with its opportunity.</description>
+        <externalId>false</externalId>
+        <label>Is Forced Sync</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Primary__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Is Primary?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Line_Items__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Line Items</label>
+        <summaryForeignKey>Quote_Product__c.Quote__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipName>BigMachines_Quotes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Prep_Sync__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Prep Sync</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Pricebook_Id__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Pricebook Id</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Process_Sync__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Process Sync</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Site__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Oracle CPQ Cloud Site</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Configuration_Record__c.Is_Active__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Configuration_Record__c</referenceTo>
+        <relationshipLabel>Oracle Quotes and Orders</relationshipLabel>
+        <relationshipName>Sites</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(Amount__c &gt; 0, Amount__c,  Total__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Total</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Transaction_Id__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <deprecated>false</deprecated>
+        <externalId>true</externalId>
+        <label>Transaction Id</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <label>Oracle Quote</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Description__c</columns>
+        <columns>Account__c</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Status__c</columns>
+        <columns>Is_Primary__c</columns>
+        <columns>Line_Items__c</columns>
+        <columns>Total_Amount__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Quotes</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Orphan_Quotes</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Description__c</columns>
+        <columns>Account__c</columns>
+        <columns>Total_Amount__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Opportunity__c</field>
+            <operation>equals</operation>
+        </filters>
+        <label>Orphan Quotes</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <label>Quote Number</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Oracle Quotes and Orders</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Standard</fullName>
+        <active>true</active>
+        <label>Standard</label>
+    </recordTypes>
+    <searchLayouts>
+        <excludedStandardButtons>New</excludedStandardButtons>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <listViewButtons>Move_Quote_List</listViewButtons>
+        <lookupDialogsAdditionalFields>Description__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Line_Items__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Total_Amount__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Opportunity__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Account__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Is_Primary__c</lookupDialogsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Read</sharingModel>
+    <webLinks>
+        <fullName>Clone_Quote_Detail</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Clone</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>{!URLFOR($Site.Prefix)}/apex/{!$Setup.NamespaceSettings__c.Underscore_Prefix__c}QuoteEdit?id={!Quote__c.Id}&amp;oppId={!Quote__c.OpportunityId__c}&amp;clone=true</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Clone_Quote_List</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Clone Quote</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/21.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/apex.js&quot;)} 
+
+var records = {!GETRECORDIDS($ObjectType.Quote__c)};
+var isOpp = &apos;{!Opportunity.Id}&apos;.length &gt; 0;
+
+if (records.length &gt; 1) {
+	alert(&apos;Please select only one quote to clone.&apos;);
+} else if (records.length == 1) {
+	var canEdit = sforce.apex.execute(&apos;{!$Setup.NamespaceSettings__c.Dot_Prefix__c}BigMachinesFunctionLibrary&apos;, &apos;canEditQuote&apos;, {quoteId:records[0]});
+	if (canEdit == &apos;true&apos;) {
+		if (isOpp) {
+			window.parent.location.href = &quot;{!URLFOR($Site.Prefix)}/apex/{!$Setup.NamespaceSettings__c.Underscore_Prefix__c}QuoteEdit?id=&quot; + records[0] + &quot;&amp;oppId={!Opportunity.Id}&amp;clone=true&quot;; 
+		} else {
+			window.parent.location.href = &quot;{!URLFOR($Site.Prefix)}/apex/{!$Setup.NamespaceSettings__c.Underscore_Prefix__c}QuoteEdit?id=&quot; + records[0] + &quot;&amp;actId={!Account.Id}&amp;clone=true&quot;; 
+		}
+	} else {
+		alert(&apos;You do not have permission to clone that quote.  Please contact your system administrator.&apos;);
+	}
+} else {
+	if (isOpp) {
+		window.parent.location.href = &quot;{!URLFOR($Site.Prefix)}/apex/{!$Setup.NamespaceSettings__c.Underscore_Prefix__c}QuoteCloneSelection?oppId={!Opportunity.Id}&quot;;
+	} else {
+		window.parent.location.href = &quot;{!URLFOR($Site.Prefix)}/apex/{!$Setup.NamespaceSettings__c.Underscore_Prefix__c}QuoteCloneSelection?actId={!Account.Id}&quot;;
+	}
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Move_Quote_List</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Move Quote</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/22.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/33.0/apex.js&quot;)}
+
+var records = {!GETRECORDIDS($ObjectType.Quote__c)};
+
+var moveQuote = false;
+if (records == null || records.length == 0) {
+	alert(&quot;Please check the box next to the quote that you would like to move before clicking the &apos;Move&apos; button.&quot;);
+} else if (records.length &gt; 1) {
+	alert(&quot;Please select only one quote to move.&quot;);
+} else if (sforce.apex.execute(&apos;{!$Setup.NamespaceSettings__c.Dot_Prefix__c}BigMachinesFunctionLibrary&apos;, &apos;canEditQuote&apos;, {quoteId:records[0]}) != &apos;true&apos;) {
+	alert(&apos;You do not have permission to move that quote.  Please contact your system administrator.&apos;);
+} else {
+	var result = sforce.connection.query(&quot;Select {!$Setup.NamespaceSettings__c.Underscore_Prefix__c}Is_Primary__c from {!$Setup.NamespaceSettings__c.Underscore_Prefix__c}Quote__c where Id = &apos;&quot; + records[0] + &quot;&apos;&quot;);
+	var quote = result.getArray(&quot;records&quot;);
+	if (quote[0].Is_Primary__c == &apos;true&apos;) {
+		moveQuote = confirm(&quot;This quote is marked as the primary quote for its current opportunity.  Moving this quote will remove the associated opportunity products from the opportunity and may affect the value of the opportunity.  Alternatively, you could keep this quote on the current opportunity and create a clone of it in the new opportunity.  Do you want to continue to move the quote and remove the associated opportunity products from the current opportunity?&quot;);
+	} else {
+		moveQuote = true;
+	}
+}
+
+if (moveQuote) {
+	window.parent.location.href = &quot;{!URLFOR($Site.Prefix)}/apex/{!$Setup.NamespaceSettings__c.Underscore_Prefix__c}QuoteMove?id=&quot; + records[0] + &quot;&amp;from_list=true&quot;; 
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Quote_List</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New Quote</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/21.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/21.0/apex.js&quot;)}
+
+var urlParams = &apos;&apos;;
+if (&apos;{!Opportunity.Id}&apos;.length &gt; 0) {
+	urlParams += &apos;?oppId={!Opportunity.Id}&apos;;
+}
+if (&apos;{!Account.Id}&apos;.length &gt; 0) {
+	urlParams += urlParams.length &gt; 0 ? &apos;&amp;&apos; : &apos;?&apos;;
+	urlParams += &apos;actId={!Account.Id}&apos;;
+}
+
+var onlyActiveSiteId = sforce.apex.execute(&apos;{!$Setup.NamespaceSettings__c.Dot_Prefix__c}BigMachinesFunctionLibrary&apos;, &apos;getOnlyActiveSiteId&apos;, {});
+
+if (onlyActiveSiteId[0] != null) {
+	urlParams += &apos;&amp;siteId=&apos; + onlyActiveSiteId;
+	window.parent.location.href = &quot;{!URLFOR($Site.Prefix)}/apex/{!$Setup.NamespaceSettings__c.Underscore_Prefix__c}QuoteEdit&quot; + urlParams;
+} else {
+	window.parent.location.href = &quot;{!URLFOR($Site.Prefix)}/apex/{!$Setup.NamespaceSettings__c.Underscore_Prefix__c}QuoteCreate&quot; + urlParams;
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Set_Primary_List</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Set as Primary</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/21.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/21.0/apex.js&quot;)}
+
+var records = {!GETRECORDIDS($ObjectType.Quote__c)};
+var isOpp = &apos;{!Opportunity.Id}&apos;.length &gt; 0;
+
+var setAsPrimary = false;
+if (records == null || records.length == 0) {
+	alert(&quot;Please check the box next to the quote that you would like to be the primary quote before clicking the &apos;Set as Primary&apos; button.&quot;);
+} else if (records.length &gt; 1) {
+	alert(&quot;Please select only one quote to be the primary quote.&quot;);
+} else if (sforce.apex.execute(&apos;{!$Setup.NamespaceSettings__c.Dot_Prefix__c}BigMachinesFunctionLibrary&apos;, &apos;canEditQuote&apos;, {quoteId:records[0]}) != &apos;true&apos;) {
+	alert(&apos;You do not have permission to set that quote as primary.  Please contact your system administrator.&apos;);
+} else if ((sforce.apex.execute(&apos;{!$Setup.NamespaceSettings__c.Dot_Prefix__c}BigMachinesFunctionLibrary&apos;, &apos;opportunityOfAccountHasLineItems&apos;, {quoteId:records[0]}) == &apos;true&apos;)) {
+	if (isOpp) {
+		setAsPrimary = confirm(&quot;Setting a new quote as the primary quote will delete all of the opportunity products on this opportunity which are associated with the current primary quote.  Do you want to continue?&quot;);
+	} else {
+		setAsPrimary = confirm(&quot;Setting a new quote as the primary quote will delete all of the opportunity products on the opportunity that this quote belongs to which are associated with the current primary quote.  Do you want to continue?&quot;);
+	}
+} else {
+	setAsPrimary = true;
+}
+
+if (setAsPrimary) {
+	var result = sforce.apex.execute(&quot;{!$Setup.NamespaceSettings__c.Dot_Prefix__c}BigMachinesFunctionLibrary&quot;, &quot;setQuoteAsPrimary&quot;, {quoteId:records[0]});
+	var hrefVal = window.parent.location.href;
+	var hashIndex = hrefVal.indexOf(&apos;#&apos;);
+	if (hashIndex &gt; -1) {
+		hrefVal = hrefVal.substr(0, hashIndex);
+	}
+	window.parent.location.href = hrefVal;
+}</url>
+    </webLinks>
+</CustomObject>

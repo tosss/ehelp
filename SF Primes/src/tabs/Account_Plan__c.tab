@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customObject>true</customObject>
-    <description>This object details the work history between a WebID and a Digital Services specialist.</description>
-    <mobileReady>false</mobileReady>
-    <motif>Custom50: Big top</motif>
-</CustomTab>

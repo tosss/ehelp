@@ -1,0 +1,86 @@
+<!-----------------------------------------------------------
+Author: 	Cameron Wong
+Description: Create/Edit New LMA RFP.
+History
+2015-10-23 Cameron.Wong@cdk.com  Created
+2015-08-31 smitha.simhadri@cdk.com  Updated : Request - 04926: RFP to USIM contacts via VF Page and route to LMA Strategist
+2016-07-05 Vijay.manimaran@cdk.com  Updated : Formatting, Header Comments
+2016-07-05 Vijay.manimaran@cdk.com  Updated : Adding logic for edit page.
+------------------------------------------------------------->
+<apex:page standardcontroller="LMA_RFP__c" extensions="CB_LMARFPCreate_Extension">
+    <script type="text/javascript" src="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}"/>
+    <script type="text/javascript" src="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.10.4.custom.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.ALL_NewContactDialog_JS)}"/>    
+        <apex:stylesheet value="{!URLFOR($Resource.jQuery, 'css/redmond/jquery-ui-1.8.20.custom.css')}" />
+        
+    <apex:sectionheader title="LMA RFP" subtitle="RFP Create" />
+    <apex:form >
+        <apex:pagemessages />
+        <apex:pageblock id="thePageBlock" rendered="{!IF($CurrentPage.parameters.Id != null,false,true)}">
+            <apex:pageblockbuttons >
+                <apex:commandbutton action="{!save}" value="Save" />
+                <apex:commandbutton action="{!cancel}" value="Cancel" />
+            </apex:pageblockbuttons>
+            <apex:pageblocksection columns="2">
+                <apex:selectlist id="selRecTypes" value="{!selectedRecType}" label="Record Type" size="1" onchange="lmaOptions()">
+                    <apex:selectoptions value="{!RFPrecTypeOptions}">
+                    </apex:selectoptions>
+                </apex:selectlist>
+                <apex:selectlist id="LMAModOne" label="Model 1" value="{!selectedModelOne}" size="1">
+                    <apex:selectoptions value="{!LMAModels}">
+                    </apex:selectoptions>
+                </apex:selectlist>
+                <apex:selectlist id="LMAAccounts" label="LMA" value="{!selectedLMA}" size="1">
+                    <apex:selectoptions value="{!LMAAccts}">
+                    </apex:selectoptions>
+                </apex:selectlist>
+                <apex:inputfield value="{!LMA_RFP__c.Strategy_Split_1__c}" />
+                <apex:inputfield value="{!LMA_RFP__c.IO_Start_Date__c}" />
+                <apex:selectlist id="LMAModTwo" label="Model 2" value="{!selectedModelTwo}" size="1">
+                    <apex:selectoptions value="{!LMAModels}">
+                    </apex:selectoptions>
+                </apex:selectlist>
+                <apex:inputfield value="{!LMA_RFP__c.IO_End_Date__c}" />
+                <apex:inputfield value="{!LMA_RFP__c.Strategy_Split_2__c}" />
+                
+                <apex:selectlist id="LMAModThree" label="Model 3" value="{!selectedModelThree}" size="1">
+                    <apex:selectoptions value="{!LMAModels}">
+                    </apex:selectoptions>
+                </apex:selectlist>
+                <apex:inputhidden value="{!LMA_RFP__c.LMA__c}" />
+                <apex:inputfield value="{!LMA_RFP__c.Strategy_Split_3__c}" />
+                <apex:inputhidden value="{!LMA_RFP__c.Model_1__c}" />
+                <apex:selectlist id="LMAModFour" label="Model 4" value="{!selectedModelFour}" size="1">
+                    <apex:selectoptions value="{!LMAModels}">
+                    </apex:selectoptions>
+                </apex:selectlist>
+                <apex:inputhidden value="{!LMA_RFP__c.Model_2__c}" />
+                <apex:inputfield value="{!LMA_RFP__c.Strategy_Split_4__c}" />
+                <apex:inputfield value="{!LMA_RFP__c.Notes__c}" style="width:90%" />
+                <apex:inputhidden value="{!LMA_RFP__c.Model_3__c}" />
+                <apex:inputhidden value="{!LMA_RFP__c.Model_4__c}" />
+                <apex:inputhidden value="{!LMA_RFP__c.RecordType.Name}" />
+            </apex:pageblocksection>
+                
+                <apex:pageblocksection title="Budget" columns="2">
+                    <apex:inputfield value="{!LMA_RFP__c.Budget__c}" />
+                        <apex:inputhidden />
+                            <apex:inputfield value="{!LMA_RFP__c.Jan__c}" />
+                                <apex:inputfield value="{!LMA_RFP__c.Jul__c}" />
+                                    <apex:inputfield value="{!LMA_RFP__c.Feb__c}" />
+                                        <apex:inputfield value="{!LMA_RFP__c.Aug__c}" />
+                                            <apex:inputfield value="{!LMA_RFP__c.Mar__c}" />
+                                                <apex:inputfield value="{!LMA_RFP__c.Sep__c}" />
+                                                    <apex:inputfield value="{!LMA_RFP__c.Apr__c}" />
+                                                        <apex:inputfield value="{!LMA_RFP__c.Oct__c}" />
+                                                            <apex:inputfield value="{!LMA_RFP__c.May__c}" />
+                                                                <apex:inputfield value="{!LMA_RFP__c.Nov__c}" />
+                                                                    <apex:inputfield value="{!LMA_RFP__c.Jun__c}" />
+                                                                        <apex:inputfield value="{!LMA_RFP__c.Dec__c}" />
+                                                                            </apex:pageblocksection>
+        </apex:pageblock>
+        <apex:actionfunction action="{!getLmaOptions}" name="lmaOptions" rerender="LMAAccounts,LMAModOne,LMAModTwo,LMAModThree,LMAModFour" />
+        <apex:detail relatedlist="true" title="false" inlineedit="true" />
+    </apex:form>
+        <c:ALL_NewContactDialog enablePR="false"></c:ALL_NewContactDialog>
+</apex:page>

@@ -1,0 +1,203 @@
+<!-- 2015-11-27 endiem@endiem.com - RQ-05509 - Resource Management Page to show Resources and B4B Coaching Associated to a resource   -->
+<apex:page standardStylesheets="true" showHeader="false" sidebar="false" controller="TRV_ResourceManagement_Controller">
+     
+    <apex:includeScript value="{!URLFOR($Resource.TRV_ResourceManagement, '/dhtmlxScheduler_v4.3.1/codebase/jquery-1.11.3.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.TRV_ResourceManagement, '/dhtmlxScheduler_v4.3.1/codebase/sources/dhtmlxscheduler.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.TRV_ResourceManagement, '/dhtmlxScheduler_v4.3.1/codebase/ext/dhtmlxscheduler_timeline.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.TRV_ResourceManagement, '/dhtmlxScheduler_v4.3.1/codebase/ext/dhtmlxscheduler_tooltip.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.TRV_ResourceManagement_JS)}"/>
+    <apex:includeScript value="{!URLFOR($Resource.TRV_ResourceManagement, '/dhtmlxScheduler_v4.3.1/codebase/sources/ext/dhtmlxscheduler_minical.js')}"/>
+    
+    <apex:stylesheet value="{!URLFOR($Resource.TRV_ResourceManagement, '/dhtmlxScheduler_v4.3.1/codebase/dhtmlxscheduler.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.TRV_ResourceManagement_CSS)}" />
+    
+    <body>
+        <apex:form id="formId">
+            <div class="FilterSection" id="filterSectionId">
+                <apex:outputPanel id="filterPanel">
+                    <table style="width:85%;">
+                        <tr>
+                            <td class="colAdd">
+                                Role:
+                            </td>
+                            
+                            <td class="colAdd"> 
+                                <apex:selectList id="SkillSetRole" size="1" value="{!strSelectedRole}" 
+                                    onchange="ApplyFilterRole(this.options[this.selectedIndex], null, null, null, null, null, null, null);">
+                                    <apex:selectOptions value="{!SkillsetRole}"/>
+                                </apex:selectList>
+                            </td>
+
+                            <td class="colAdd">
+                                Resource Status:
+                            </td>
+                            
+                            <td class="colAdd">
+                                <apex:selectList id="SkillSetStatus" size="1" value="{!strSelectedStatus}" 
+                                    onchange="ApplyFilterRole(null, this.options[this.selectedIndex], null, null, null, null, null, null);">
+                                    <apex:selectOptions value="{!Status}"/>
+                                </apex:selectList>
+                            </td>
+
+                            <td class="colAdd">
+                                Resource:
+                            </td>
+                            
+                            <td class="colAdd">
+                                <apex:inputField id="resourceId" value="{!objSkillSetForFilters.TRV_Resource__c}" 
+                                    onchange="ApplyFilterRole(null, null, document.getElementById('{!$Component.resourceId}_lkid').value, null, null, null, null, null);"/>
+                            </td>
+
+                            <td class="colAdd">
+                                Resource Location:
+                            </td>
+                            
+                            <td class="colAdd">
+                                <apex:selectList id="SkillSetLocation" size="1" value="{!strSelectedLocation}" 
+                                    onchange="ApplyFilterRole(null, null, null, this.options[this.selectedIndex], null, null, null, null);">
+                                    <apex:selectOptions value="{!location}"/>
+                                </apex:selectList>
+                            </td>
+
+                            <td class="colAdd">
+                                <input type="button" class="btn" style="width:38px" value="Exit" onclick="exitRM();"/>
+                            </td>
+                        </tr>
+
+                        <tr>
+
+                            <td class="colAdd">
+                                Expertise Major:
+                            </td>
+                            
+                            <td class="colAdd">
+                                <apex:inputField id="expertiseMajorId" value="{!objSkillSetForFilters.TRV_Expertise_Major__c}" 
+                                    onchange="ApplyFilterRole(null, null, null, null, this.options[this.selectedIndex], null, null, null);"/>
+                            </td>
+
+                            <td class="colAdd">
+                                Skill Level - Major:
+                            </td>
+                            
+                            <td class="colAdd">
+                                <apex:inputField id="skillLevelMajorId" value="{!objSkillSetForFilters.TRV_Skill_Level_Major__c}" 
+                                    onchange="ApplyFilterRole(null, null, null, null,null, null, this.options[this.selectedIndex], null);"/>
+                            </td>
+
+                            <td class="colAdd">
+                                Expertise Minor:
+                            </td>
+                            
+                            <td class="colAdd">
+                                <apex:inputField id="expertiseMinorId" value="{!objSkillSetForFilters.TRV_Expertise_Minor__c}" 
+                                    onchange="ApplyFilterRole(null, null, null, null,null, this.options[this.selectedIndex], null, null);"/>
+                            </td>
+
+                            <td class="colAdd">
+                                Skill Level - Minor:
+                            </td>
+                            
+                            <td class="colAdd">
+                                <apex:inputField id="skillLevelMinorId" value="{!objSkillSetForFilters.TRV_Skill_Level_Minor__c}" 
+                                    onchange="ApplyFilterRole(null, null, null, null,null, null, null, this.options[this.selectedIndex]);"/>
+                            </td> 
+
+                            <td class="colAdd">
+                                <apex:commandButton value="Reset" action="{!resetFilters}" reRender="filterPanel" onComplete="resetFilters()" status="actStatusId"/> 
+                            </td>
+                        </tr>
+                    </table>
+                </apex:outputPanel>   
+
+                <table style="width:15%;float: right;margin-top: -85px; border: 1px solid; margin-right: 5px;">
+                    <div id="div5content" class="popSourceBlock" style="float:right;">
+                        <tr>
+                            <td>
+                                Confirmed
+                            </td> 
+                            <td>
+                                <span style="background-color:#78c953;width:2px;">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                </span>
+                            </td>
+                            
+                            <td>
+                                Tentative
+                            </td>
+                            <td>
+                                <span style="background-color:#0b6fce;width:2px;">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Completed
+                            </td> 
+                            <td>
+                                <span style="background-color:#e27001;width:2px;">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                </span>
+                            </td>
+                            <td>
+                                Pushed
+                            </td> 
+                            <td>
+                                <span style="background-color:#a53711;width:2px;">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                </span>
+                            </td>
+                            
+                        </tr>                                           
+                    </div>   
+                </table>
+            </div>
+
+            <div id="scheduler_here" class="dhx_cal_container" style='width:100%;'>
+                <div class="dhx_cal_navline">
+                    <div class="dhx_cal_prev_button">&nbsp;</div>
+                    <div class="dhx_cal_next_button">&nbsp;</div>
+                    <div class="dhx_cal_today_button"></div>
+                    <div class="dhx_cal_date"></div>
+                    <div class="miniCalendar">
+                        <div class="dhx_minical_icon" id="dhx_minical_icon" 
+                            onclick="show_minical()">&nbsp;
+                        </div>
+                    </div>
+                    <apex:image styleClass="refreshClass" 
+                        value="{!URLFOR($Resource.TRV_ResourceManagement,'/dhtmlxScheduler_v4.3.1/codebase/imgs/refresh.png')}" 
+                        width="40" height="40" onclick="refreshTimeLineView()"/>
+                    <div class="dhx_cal_tab" name="day_tab" style="right:204px;"></div>
+                    <div class="dhx_cal_tab" name="week_tab" style="right:140px;"></div>
+                    <div class="dhx_cal_tab" name="timeline_tab" style="right:280px;"></div>
+                    <div class="dhx_cal_tab" name="month_tab" style="right:76px;"></div>
+                </div>
+                <div class="dhx_cal_header">
+                </div>
+                <div class="dhx_cal_data">
+                </div>
+            </div>
+            <apex:outputPanel id="dummyPanel"/>
+            
+            <div id="loadingScreenId">
+                <div class="waitingSearchDiv" id="el_loading" style="display:none; background-color: #DCD6D6; height: 100%;opacity:0.65;width:100%;">
+                    <div class="waitingHolder" style="top: 74.2px; width: 91px;">
+                        <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+                        <span class="waitingDescription">Loading...</span>
+                    </div>
+                </div>
+            </div>
+
+            <apex:actionstatus id="actStatusId">
+                <apex:facet name="start">
+                    <div class="waitingSearchDiv" id="el_loading" style="background-color: #DCD6D6; height: 100%;opacity:0.65;width:100%;">
+                        <div class="waitingHolder" style="top: 74.2px; width: 91px;">
+                            <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+                            <span class="waitingDescription">Loading...</span>
+                        </div>
+                    </div>
+                </apex:facet>
+            </apex:actionstatus>
+        </apex:form>
+    </body>
+</apex:page>

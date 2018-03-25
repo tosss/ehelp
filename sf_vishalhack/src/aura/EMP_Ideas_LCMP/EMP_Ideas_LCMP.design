@@ -1,0 +1,6 @@
+<design:component label="Ideas">
+    <design:attribute name="ideasZone" label="Zone" description="Idea Zone." 
+                      datasource="CRM Community Ideas, 
+                                  IT Support Community, 
+                                  NAMUG Community Ideas" default="IT Support Community"/>
+</design:component>

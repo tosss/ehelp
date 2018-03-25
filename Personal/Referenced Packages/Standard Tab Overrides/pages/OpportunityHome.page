@@ -1,3 +1,0 @@
-<apex:page standardController="Opportunity" extensions="SA_TABOVER.TabHomeController" recordSetVar="opportunities" action="{!initOpportunityPage}">
-	<apex:pageMessages />
-</apex:page>

@@ -1,0 +1,45 @@
+<aura:component controller="ALL_LightningUtility" implements="force:appHostable">
+    <!--
+	Author:        Vishal Bandari
+	Description:   Contact Relationship LookUp Field for Mobile and Lighning Compatibility
+	Created on:    27 May 2016
+ 	-->
+    <aura:attribute name="objectAPIName" type="String" default="Contact_Relationship__c" access="public" />
+    <aura:attribute name="searchFieldAPIName" type="String" default="Name" access="public" />
+    <aura:attribute name="searchString" type="String" default="" access="private" />
+    <aura:attribute name="resultList" type="sobject[]" default="[]" access="private" />
+    <aura:attribute name="selectedName" type="String" default="" access="public" />
+    <aura:attribute name="label" type="String" default="" access="public" />
+    <aura:attribute name="accountId" type="String" default="" />
+    <aura:attribute name="contactId" type="String" default="" />
+    <aura:attribute type="String" name="hardware" default="{!$Browser.formFactor}" />
+    
+    <div id="fullComponent" >
+        <div class="slds-lookup" data-select="multi" data-scope="single" data-typeahead="true">
+            
+            <div class="slds-form-element">
+                <label class="slds-form-element__label" for="searchString" style="{!v.label == '' ?'display:none':''}">{!v.label}</label>
+                <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon--right" style="cursor:pointer;">
+                    <img aura:id="searchIcon"  class="slds-input__icon slds-icon-text-default" src="/resource/slds100/assets/icons/utility/search_60.png"  
+                         onclick="{!c.getUpdatedList}" />
+                    <img aura:id="loadingIcon"  class="slds-input__icon slds-icon-text-default hide" src="/resource/slds100/assets/icons/utility/spinner_60.png"  />
+                    <ui:inputText aura:id="searchString"   class="slds-input" placeholder="Search for Contact" value="{!v.searchString}" 
+                                  change="{!c.updateValues}" updateOn="keypress,change" keypress="{!c.enterKeyPressed}"/>
+                </div>
+            </div>
+            
+            <div role="listbox" aura:id="searchResult" class="hide slds-lookup__menu" style="height:auto;" >
+                <ul class="slds-lookup__list" role="presentation" id="fullList" style="height:auto;">
+                    <aura:iteration items="{!v.resultList}" var="resultObject">
+                        <li class="slds-lookup__item" onclick="{!c.selectedSobject}">
+                            <a id="{!resultObject.Account__c+' '+resultObject.Contact__c}"  role="option" name="{!resultObject.Account__r.Name == null ? resultObject.Contact__r.Name : resultObject.Contact__r.Name+' - '+resultObject.Account__r.Name}" aura:Id="option">
+                                {!resultObject.Account__r.Name == null ? resultObject.Contact__r.Name : resultObject.Contact__r.Name+' - '+resultObject.Account__r.Name}
+                            </a>
+                        </li>
+                    </aura:iteration>
+                </ul>
+            </div>
+            
+        </div> 
+    </div>
+</aura:component>

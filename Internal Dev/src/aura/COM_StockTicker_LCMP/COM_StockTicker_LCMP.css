@@ -1,0 +1,61 @@
+.THIS .show{
+    display: inline;
+}
+.THIS .hide{
+    display: none;
+}
+.THIS .slds-icon-utility-arrowup svg.slds-icon{
+    fill: #82c600;
+}
+.THIS .slds-icon-utility-arrowdown svg.slds-icon{
+    fill: #D50500;
+}
+.THIS .green {
+    color: #82c600;
+}
+.THIS .red {
+    color: #D50500;
+}
+.THIS .black {
+    color: black;
+}
+.THIS .arrow
+{
+    font-weight: bold;
+    margin: 4px;
+}
+.THIS .company-name
+{
+    line-height: normal !important;
+}
+.THIS .time
+{
+    color: #999999;
+    font-size: 0.8em;
+    font-weight: normal;
+    vertical-align: baseline;
+}
+.THIS .header-price
+{
+    font-weight: bold;
+}
+.THIS .bold-text
+{
+    font-weight: bold;
+}
+@media (max-width:  18.75rem ) {
+    .THIS .time{
+        font-size: .6em !important;
+    }
+    .THIS .stockTickerContainer{
+        font-size: .7em !important;
+    }
+}
+@media (max-width:  300px ) {
+    .THIS .time{
+        font-size: .6em !important;
+    }
+    .THIS .stockTickerContainer{
+        font-size: .7em !important;
+    }
+}

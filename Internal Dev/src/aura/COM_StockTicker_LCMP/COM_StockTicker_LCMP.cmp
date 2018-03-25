@@ -1,0 +1,27 @@
+<aura:component controller="COM_Utility" implements="forceCommunity:availableForAllPageTypes" access="global" >
+    
+    <aura:attribute name="isStockPriceUp" type="String" default="+ve" />
+    <aura:attribute name="currentStockPrice" type="String" />
+    <aura:attribute name="changeInStockPrice" type="String" />
+    <aura:attribute name="percentageChangeInStockPrice" type="String" />
+    <aura:attribute name="updatedTime" type="String" />
+    <aura:attribute name="RefreshInterval" type="String" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <div  class="{!v.isStockPriceUp == 'null' ? 'slds-hide':'stockTickerContainer'}">
+        <center>
+            <lightning:icon iconName="utility:arrowdown" size="x-small" class="{!v.isStockPriceUp == '-ve' ? 'show':'hide'}"/>
+            <lightning:icon iconName="utility:arrowup" size="x-small" class="{!v.isStockPriceUp== '+ve' ? 'show':'hide'}"/>
+            <a href="http://www.nasdaq.com/symbol/cdk" target="_blank"><span class="company-name" >  CDK GLOBAL Inc.  </span></a>
+            <span class="{! 'header-price bold-text ' +(v.isStockPriceUp == '+ve' ? 'green' : (v.isStockPriceUp == '-ve' ? 'red' : 'black'))}">{!v.currentStockPrice}</span>
+            <span class="{!'bold-text '+(v.isStockPriceUp == '+ve' ? 'green' : (v.isStockPriceUp == '-ve' ? 'red' : 'black'))}">{!v.changeInStockPrice}</span>
+            <span class="{!'bold-text '+(v.isStockPriceUp == '+ve' ? 'green' : (v.isStockPriceUp == '-ve' ? 'red' : 'black'))}">( {!v.percentageChangeInStockPrice} % )</span><br/>
+            
+            
+            <span class="time">Last Upated at {!v.updatedTime}<br/> Refreshes every {!v.RefreshInterval}</span>
+        </center>
+        
+    </div>
+    
+</aura:component>

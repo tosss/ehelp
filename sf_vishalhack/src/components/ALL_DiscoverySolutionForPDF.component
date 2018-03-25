@@ -1,0 +1,78 @@
+<!--2016-11-17- anirudh.singh@cdk.com- Created this component for pdf version.-->
+<apex:component controller="ALL_DiscoveryProductSolution_Controller">
+    <apex:includeScript value="{!URLFOR($Resource.footable, 'footable.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.ALL_DiscoveryProductSolution_JS)}"/>
+    
+    <apex:stylesheet value="{!URLFOR($Resource.ALL_DiscoveryProductSolution_CSS)}" />
+    
+    <apex:attribute name="headerName" type="String" required="true" description="This determines the name of the section to be displayed."/>
+    
+    <script type="text/javascript">
+        var j$;
+        if(!j$) { j$ = jQuery.noConflict(); }
+        var existingIds = JSON.parse('{!existingTPSIds}');
+        var oppLocId = '{!$CurrentPage.parameters.OppLocId}';
+        var existingDSIds = JSON.parse('{!existingDSIds}');
+        var disableTPSForSoldProposed = JSON.parse('{!disableTPSForSoldProposed}');
+        var otherTPSIds = JSON.parse('{!otherTPSIds}');
+        var existingProducts;
+    </script>
+    
+    <div class="tps pdfSolutionAtSiteComponent">
+        <h3 class="solutionAtSiteHeader headerH3">
+            <apex:outputText value="{!headerName}"/>
+        </h3>
+        
+        <table class="table table-bordered pdfTable">
+            <thead>
+                <tr>                                                                  
+                    <th class="tableHeader"></th>                                
+                    <th class="tableHeader"><apex:outputText value="Application Name"/></th>                        
+                    <th class="tableHeader"><apex:outputText value="Vendor"/></th>  
+                    <th class="tableHeader"><apex:outputText value="Current"/></th>  
+                    <th class="tableHeader"><apex:outputText value="Proposed"/></th>  
+                    <th class="tableHeader"><apex:outputText value="Sold"/></th>  
+                    <th class="tableHeader"><apex:outputText value="Notes/Comments"/></th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <apex:repeat value="{!Records}" var="tps">
+                    <tr>
+                        <td class="tableData selectField">
+                            <span class="{!IF(tps.discoverySolutionId!=null, tps.discoverySolutionId, tps.TPSDObject.Id)} pdfCheckboxField">
+                                {!tps.isChecked}
+                            </span>
+                        </td>
+                        
+                        <td class="tableData appNameField">{!tps.TPSDObject.Application_Name__c}</td>
+                        
+                        <td class="tableData vendorField">{!tps.TPSDObject.Vendor__c}</td>
+                        
+                        <td class="tableData currentCheckboxField">
+                            <span class="{!IF(tps.discoverySolutionId!=null, "curr"+tps.discoverySolutionId, "curr"+tps.TPSDObject.Id)} pdfCheckboxField">
+                                {!tps.isCurrent}
+                            </span>
+                        </td>
+                        
+                        <td class="tableData proposedCheckboxField">
+                            <span class="{!IF(tps.discoverySolutionId!=null, "prop"+tps.discoverySolutionId, "prop"+tps.TPSDObject.Id)} pdfCheckboxField">
+                                {!tps.isProposed}
+                            </span>
+                        </td>
+                        
+                        <td class="tableData soldCheckboxField">
+                            <span class="{!IF(tps.discoverySolutionId!=null, "sold"+tps.discoverySolutionId, "sold"+tps.TPSDObject.Id)} pdfCheckboxField">
+                                {!tps.isSold}
+                            </span>
+                        </td>
+                        
+                        <td class="tableData notesField">
+                            <span value="{!tps.notes}" class="form-control pdfTextAreaField"/>
+                        </td>
+                    </tr> 
+                </apex:repeat>
+            </tbody>
+        </table>
+    </div>
+</apex:component>

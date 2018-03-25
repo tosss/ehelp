@@ -1,0 +1,249 @@
+<!--2017-04-25- anirudh.singh@cdk.com- Created this page for RQ-09132 Merge Add Opportunity Sites Pages & Functionality.-->
+<!--2017-04-25- anirudh.singh@cdk.com- Changed button name from Cancel to Close for RQ-09335.-->
+<apex:page standardStylesheets="false" controller="ALL_AccountHierarchy_Controller" extensions="ALL_MassCreateOppSites_Extension" 
+           action="{!processAccountHierarchy}" title="Create New Opportunity Locations: Site(s)">
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, '/js/jquery-1.11.2.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.ALL_MassAddOppSites_JS)}"/>
+    
+    <apex:stylesheet value="{!URLFOR($Resource.FontAwesome, '/4.6.1/css/font-awesome.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.ALL_MassAddOppSites_CSS)}"/>
+    <apex:slds />
+    
+    <div class="massCreateOpportunitySitesPage">
+        <!--Scroll to Top button-->
+        <a href="#" class="scrollToTop" title="Back To Top">
+            <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+        </a>
+        
+        <!--Header-->
+        <div class="slds-page-header slds-border--top slds-border--right slds-border--bottom slds-border--left massCreateOpportunitySitesHeader">
+            <div class="slds-grid">
+                <div class="slds-col slds-has-flexi-truncate">
+                    <div class="slds-media slds-no-space slds-grow">
+                        <div class="slds-media__body">
+                            <p class="slds-text-title--caps slds-line-height--reset massCreateOpportunitySitesHeaderH4">Create New Opportunity Location(s): Site(s)</p>
+                            <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate massCreateOpportunitySitesHeaderH2" 
+                                title="{!opportunityRecord.Name}">{!opportunityRecord.Name}</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col slds-no-flex slds-grid slds-align-top">
+                    <!--Buttons-->
+                    <div class="slds-button-group buttonGroup" role="group">
+                        <button class="slds-button slds-button--neutral saveButton" onclick="createSiteRecords();" 
+                                title="Create Sites for the selected Account rows.">Save</button>
+                        <!--2017-04-25- anirudh.singh@cdk.com- Changed button name from Cancel to Close for RQ-09335.-->
+                        <button class="slds-button slds-button--neutral cancelButton" onclick="redirectBackToOppPage();" 
+                                title="Close and go back.">Close</button>
+                        <button class="slds-button slds-button--neutral addSiteButton" onclick="addSiteScreen();" 
+                                data-toggle="modal" data-target="#addSiteModalDialog"
+                                title="Add Buy-Sell or Other Account Site">Add Buy-Sell or Other Site</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slds-post__content slds-text-longform userInfoNote">
+            <b>Note: </b> Sites with disabled checkboxes are already added or are not synchronized with Oracle (and therefore cannot be selected).
+        </div>
+        
+        <!--Error/Info Message-->
+        <div class="messageDiv"></div>
+        
+        <!--Loading Spinner-->
+        <div class="loadingSpinnerDiv">
+            <div role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <div class="slds-modal__header slds-modal__header slds-modal__header--empty"></div>
+                    <div class="slds-modal__content slds-p-around--medium">
+                        <div class="slds-text-heading--small">Please Wait...</div>
+                        <i class="fa fa-spinner fa-spin fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-backdrop slds-backdrop--open"></div>
+        </div>
+        
+        <!--Tables Div-->
+        <div class="accTablesDiv">
+            <input type="hidden" class="accountIdsWithExistingSites" value="{!accIdAndSiteIdsMap}"/>
+            <input type="hidden" class="opportunityRecord" value="{!opportunityRecord}"/>
+            
+            <!--Account Hierarchy Table-->
+            <div class="accountHierarchyTableDiv">
+                <table class="slds-table slds-table--bordered slds-table--col-bordered slds-table--resizable-cols slds-border--left slds-border--right accountHierarchyTable">
+                    <thead>
+                        <tr class="headerRow">
+                            <th class="accountHierarchyTableTh tableCheckbox">
+                                <input type="checkbox" class="headerRowCheckbox" onclick="headerRowCheckboxSelect(this);"/>
+                                <i class="fa fa-square headerRowCheckboxIcon" aria-hidden="true"></i>
+                            </th>
+                            
+                            <apex:repeat value="{!displayColumnNamesLabelList}" var="columnRow">
+                                <th class="accountHierarchyTableTh colNameLabelTh">
+                                    <input type="hidden" class="colName" value="{!columnRow.columnName}"/>
+                                    {!columnRow.columnLabel}
+                                </th>
+                            </apex:repeat>
+                            
+                            <apex:outputText rendered="{!userDiscAccess}">
+                                <th class="accountHierarchyTableTh homeIconColumnTh"></th>
+                            </apex:outputText>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <apex:repeat value="{!displayAccountsList}" var="accWrapperRec">
+                            <tr class="bodyRow">
+                                <input type="hidden" class="accountId" value="{!accWrapperRec.accountRec.Id}"
+                                       data-accpartyid="{!accWrapperRec.accountRec.PartyID__c}"/>
+                                
+                                <!--Checkbox-->
+                                <td class="accountHierarchyTableTd tableCheckbox" data-toggle="tooltip" data-container="body" data-placement="top">
+                                    <input type="checkbox" id="{!accWrapperRec.accountRec.Id}" class="bodyRowCheckbox" onclick="bodyRowCheckboxSelect();"/>
+                                    <i class="errorIconDiv"></i>
+                                </td>
+                                
+                                <!--Field Values-->
+                                <apex:repeat value="{!displayColumnNamesLabelList}" var="colRow">
+                                    <td class="accountHierarchyTableTd">
+                                        <apex:outputPanel rendered="{!colRow.columnName=='Name'}" style="margin-left: {!accWrapperRec.marginVar}px;" styleClass="accountName colData">
+                                            <a href="/{!accWrapperRec.accountRec.Id}" target="_blank">
+                                                <span>{!accWrapperRec.accountRec[colRow.columnName]}</span>
+                                            </a>
+                                        </apex:outputPanel>
+                                        
+                                        <apex:outputPanel rendered="{!colRow.columnName!='Name'}" styleClass="colData">
+                                            <apex:outputField value="{!accWrapperRec.accountRec[colRow.columnName]}"/>
+                                        </apex:outputPanel>
+                                    </td>
+                                </apex:repeat>
+                                
+                                <!--Home Icon-->
+                                <apex:outputText rendered="{!userDiscAccess}">
+                                    <td class="accountHierarchyTableTd homeIconColumn" title="Navigate to Discovery Home">
+                                        <i class="fa fa-home homeIcon" onclick="navigateToDiscoveryHome(this);"></i>
+                                    </td>
+                                </apex:outputText>
+                            </tr> 
+                        </apex:repeat>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!--Manually Added Sites Table-->
+            <div class="manuallyAddedSitesDiv">
+                <apex:outputPanel id="manuallyAddedSitesPanel">
+                    <apex:outputText rendered="{!displayManuallyAddedAccsList!=Null && displayManuallyAddedAccsList.size>0}" id="displayManuallyAddedAccsData">
+                        <!--Manually Added Sites Table Header-->
+                        <!--<h3 class="slds-section__title manuallyAddedSitesHeader"><strong>Manually Added Sites</strong></h3>-->
+                        <h3 class="slds-section__title slds-section-title--divider slds-border--top slds-border--right 
+                                   slds-border--bottom slds-border--left manuallyAddedSitesHeader"><strong>Manually Added Sites</strong></h3>
+                        
+                        <table class="slds-table slds-table--bordered slds-table--col-bordered slds-table--resizable-cols slds-border--left slds-border--right manuallyAddedSitesTable">
+                            <thead>
+                                <tr class="headerRow">
+                                    <th class="manuallyAddedSitesTableTh"></th>
+                                    
+                                    <apex:repeat value="{!columnNameLabelWrapperList}" var="columnRow">
+                                        <th class="manuallyAddedSitesTableTh">{!columnRow.columnLabel}</th>
+                                    </apex:repeat>
+                                    
+                                    <apex:outputText rendered="{!userDiscAccess}">
+                                        <th class="manuallyAddedSitesTableTh homeIconColumnTh"></th>
+                                    </apex:outputText>
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
+                                <!--Field Values-->
+                                <apex:repeat value="{!displayManuallyAddedAccsList}" var="accRecord">
+                                    <tr class="bodyRow">
+                                        <td class="manuallyAddedSitesTableTd manuallyAddedSiteRowCheckbox">
+                                            <input type="hidden" class="accountId" value="{!accRecord.Id}"/>
+                                        </td>
+                                        
+                                        <apex:repeat value="{!columnNameLabelWrapperList}" var="colRow">
+                                            <td class="manuallyAddedSitesTableTd">
+                                                <apex:outputPanel rendered="{!colRow.columnName=='Name'}" styleClass="accountName colData">
+                                                    <a href="/{!accRecord.Id}" target="_blank">
+                                                        <span>{!accRecord[colRow.columnName]}</span>
+                                                    </a>
+                                                </apex:outputPanel>
+                                                
+                                                <apex:outputPanel rendered="{!colRow.columnName!='Name'}" styleClass="colData">
+                                                    <apex:outputField value="{!accRecord[colRow.columnName]}"/>
+                                                </apex:outputPanel>
+                                            </td>
+                                        </apex:repeat>
+                                        
+                                        <!--Home Icon-->
+                                        <apex:outputText rendered="{!userDiscAccess}">
+                                            <td class="manuallyAddedSitesTableTd homeIconColumn" title="Navigate to Discovery Home">
+                                                <i class="fa fa-home homeIcon" onclick="navigateToDiscoveryHome(this);"></i>
+                                            </td>
+                                        </apex:outputText>
+                                    </tr> 
+                                </apex:repeat>
+                            </tbody>
+                        </table>
+                    </apex:outputText>
+                </apex:outputPanel>
+            </div>
+        </div>
+        
+        <!--Modal Dialog-->
+        <div id="addSiteModalDialog" class="noDisplay">
+            <div role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <div class="slds-modal__header">
+                        <h2 id="header43" class="slds-text-heading--medium slds-float--left">
+                            <strong>Add Site</strong>
+                        </h2>
+                    </div>
+                    <div class="slds-modal__content slds-p-around--medium modalBody">
+                        
+                    </div>
+                    <div class="slds-modal__footer">
+                        <button class="slds-button slds-button--neutral" onclick="closeAddSiteModal();">Close</button>
+                        <button class="slds-button slds-button--brand" onclick="addSiteRecord();">Add Site</button>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-backdrop slds-backdrop--open"></div>
+        </div>
+        
+        <div class="siteLookup noDisplay">
+            <apex:form >
+                <!--Action Function for fetching the Manually added Sites on Page Load.-->
+                <apex:actionFunction name="fetchManuallyAddedSitesFunction" action="{!fetchManuallyAddedSites}" status="loadingSpinnerDiv"
+                                     oncomplete="processingForManuallyAddedSites();" reRender="manuallyAddedSitesPanel">
+                    <apex:param name="accIdsManuallyAdded" value=""/>
+                    <apex:param name="accColumnsToBeFetched" value=""/>
+                    <apex:param name="colNameLabelMap" value=""/>
+                </apex:actionFunction>
+                
+                <table class="siteLookupTable">
+                    <tr>
+                        <td colspan="2" class="addSiteInfo">
+                            Please specify the Buy-Sell Account or another Account.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-4 newSiteAccountLabelCol">
+                            <label class="newSiteAccountLabel slds-float--right">
+                                <strong>Account Name : </strong>
+                            </label>
+                        </td>
+                        <td class="col-xs-8 newSiteAccountDiv">
+                            <div class="slds-form-element__control slds-input-has-fixed-addon">
+                                <apex:inputField value="{!opportunityRecord.AccountId}" styleClass="slds-input newSiteAccount" 
+                                                 html-placeholder="Please select a value using lookup..."/>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </apex:form>
+        </div>
+    </div>
+</apex:page>

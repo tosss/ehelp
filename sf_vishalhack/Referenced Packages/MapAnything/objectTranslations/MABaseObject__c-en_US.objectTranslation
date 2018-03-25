@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>MapAnything Base Object</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>MapAnything Base Objects</value>
+    </caseValues>
+    <fields>
+        <label><!-- Address Object --></label>
+        <name>AddressObject__c</name>
+    </fields>
+    <fields>
+        <label><!-- Auto Assignment Dirty Flag --></label>
+        <name>AutoAssignmentDirtyFlag__c</name>
+    </fields>
+    <fields>
+        <label><!-- Batch Size --></label>
+        <name>BatchSize__c</name>
+    </fields>
+    <fields>
+        <label><!-- City --></label>
+        <name>City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Clean City --></label>
+        <name>CleanCity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Clean Country --></label>
+        <name>CleanCountry__c</name>
+    </fields>
+    <fields>
+        <label><!-- Clean County --></label>
+        <name>CleanCounty__c</name>
+    </fields>
+    <fields>
+        <label><!-- Clean District --></label>
+        <name>CleanDistrict__c</name>
+    </fields>
+    <fields>
+        <label><!-- Clean Postal Code --></label>
+        <name>CleanPostalCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Clean State --></label>
+        <name>CleanState__c</name>
+    </fields>
+    <fields>
+        <label><!-- Clean Street --></label>
+        <name>CleanStreet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Device Id --></label>
+        <name>DeviceId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Device Type --></label>
+        <name>DeviceType__c</name>
+    </fields>
+    <fields>
+        <label><!-- Device Vendor --></label>
+        <name>DeviceVendor__c</name>
+    </fields>
+    <fields>
+        <label><!-- In Active --></label>
+        <name>InActive__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Updated --></label>
+        <name>LastUpdated__c</name>
+    </fields>
+    <fields>
+        <label><!-- Latitude --></label>
+        <name>Latitude__c</name>
+    </fields>
+    <fields>
+        <label><!-- Longitude --></label>
+        <name>Longitude__c</name>
+    </fields>
+    <fields>
+        <label><!-- MapIt Proximity Measurement Unit --></label>
+        <name>MapIt_Proximity_Measurement_Unit__c</name>
+        <picklistValues>
+            <masterLabel>Feet</masterLabel>
+            <translation><!-- Feet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kilometers</masterLabel>
+            <translation><!-- Kilometers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meters</masterLabel>
+            <translation><!-- Meters --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Miles</masterLabel>
+            <translation><!-- Miles --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yards</masterLabel>
+            <translation><!-- Yards --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- MapIt Proximity On --></label>
+        <name>MapIt_Proximity_On__c</name>
+    </fields>
+    <fields>
+        <label><!-- MapIt Proximity Radius --></label>
+        <name>MapIt_Proximity_Radius__c</name>
+    </fields>
+    <fields>
+        <label><!-- MapIt Show Inside Shape --></label>
+        <name>MapIt_Show_Inside_Shape__c</name>
+    </fields>
+    <fields>
+        <label><!-- MapIt Zoom Control --></label>
+        <name>MapIt_Zoom_Control__c</name>
+    </fields>
+    <fields>
+        <label><!-- Name --></label>
+        <name>Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Postal Code --></label>
+        <name>PostalCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Processing --></label>
+        <name>Processing__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quality --></label>
+        <name>Quality__c</name>
+    </fields>
+    <fields>
+        <label><!-- Record Type Id --></label>
+        <name>RecordTypeId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Routing End Time --></label>
+        <name>RoutingEndTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Routing Has Address --></label>
+        <name>RoutingHasAddress__c</name>
+    </fields>
+    <fields>
+        <label><!-- Routing Is Flexible --></label>
+        <name>RoutingIsFlexible__c</name>
+    </fields>
+    <fields>
+        <label><!-- Routing Start Time --></label>
+        <name>RoutingStartTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Settings --></label>
+        <name>Settings__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shape --></label>
+        <name>Shape__c</name>
+    </fields>
+    <fields>
+        <label><!-- Similarity --></label>
+        <name>Similarity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Skip Failed Geocodes --></label>
+        <name>SkipFailedGeocodes__c</name>
+    </fields>
+    <fields>
+        <label><!-- State --></label>
+        <name>State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Street --></label>
+        <name>Street__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tooltip One --></label>
+        <name>Tooltip1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tooltip Two --></label>
+        <name>Tooltip2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tooltip Three --></label>
+        <name>Tooltip3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tooltip Four --></label>
+        <name>Tooltip4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tooltip Five --></label>
+        <name>Tooltip5__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tooltip Six --></label>
+        <name>Tooltip6__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tooltip Seven --></label>
+        <name>Tooltip7__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tooltip Eight --></label>
+        <name>Tooltip8__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Geofence</masterLabel>
+            <translation><!-- Geofence --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Live</masterLabel>
+            <translation><!-- Live --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marker</masterLabel>
+            <translation><!-- Marker --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Verified Latitude --></label>
+        <name>VerifiedLatitude__c</name>
+    </fields>
+    <fields>
+        <label><!-- Verified Longitude --></label>
+        <name>VerifiedLongitude__c</name>
+    </fields>
+    <fields>
+        <label><!-- testLat --></label>
+        <name>testLat__c</name>
+    </fields>
+    <layouts>
+        <layout>Map Setting Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,29 @@
+<!-- *****************************************************
+**11/10/2017 created vijay.manimaran@cdk.com 
+********************************************************** -->
+<apex:page standardController="Case" standardStylesheets="false" applyBodyTag="false" lightningStylesheets="true">
+    <apex:includeScript value="/lightning/lightning.out.js"/>
+    <script>
+    var currentCaseId = "{!$CurrentPage.parameters.id}";
+    var caseSubject = "{!case.Subject}";
+    var caseDescription = "{!case.Description}";
+    console.log(currentCaseId);
+    $Lightning.use("c:ISVC_CreateJIRAIssue_App", function() {
+        $Lightning.createComponent("c:ISVC_CreateJiraIssue_LCMP",
+                                   { 
+                                       caseId : currentCaseId,
+                                       caseSubject : caseSubject,
+                                       caseDescription : caseDescription
+                                   },
+                                   "CreateJIRA",
+                                   function(cmp) {
+                                       console.log('am in lightnig component');
+                                   }
+                                  );
+    });
+    </script>
+    <apex:slds />
+    <div class="slds-scope">
+        <div id="CreateJIRA"></div> 
+    </div>
+</apex:page>

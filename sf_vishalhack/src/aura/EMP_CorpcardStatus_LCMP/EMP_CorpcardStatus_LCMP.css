@@ -1,0 +1,137 @@
+/* **************************************************************************************** 
+***** 03/28/2017 vijay.manimaran@cdk.com Created 
+******************************************************************************************** */
+
+.THIS .slds-text-heading--medium {
+    text-align: center;
+    font-size: xx-large;
+}
+
+.THIS .slds-text-heading--small {
+    text-align: center;
+}
+
+.THIS .button-country {
+    width: 33%;
+    height: 80px;
+    font-size: 1.5rem;
+}
+
+.THIS .hide-form {
+    display: none;
+}
+
+.THIS .form-height {
+    min-height: 900px;
+}
+
+.THIS .validation-custom {
+    text-align: center;
+}
+
+.THIS .slds-button--success {
+    background-color: #659607;
+    border: 1px solid #659607;
+}
+
+.THIS .slds-section-title--divider {
+    font-size: .875rem;
+    line-height: 1.25;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: .0625rem;
+    padding: .75rem 1rem;
+    background: rgba(103, 101, 101, 0.54);
+    margin-bottom: 15px;
+}
+
+.THIS .modal-content {
+    width: 100%;
+    height: 60%;
+}
+
+.THIS .slds-truncate {
+    max-width: 100%;
+    white-space: initial;
+}
+
+.THIS .slds-modal__container {
+    margin: 0 auto;
+    width: 50%;
+    max-width: 100%;
+    min-width: 50%;
+}
+
+.THIS .slds-button--primary {
+    background-color: #00a9ce;
+    color: white;
+    width: 20%;
+    height: 50px;
+    font-size: 1.0rem;
+}
+
+.THIS .slds-button--success-custom {
+    color: white;
+    width: 20%;
+    height: 50px;
+    font-size: 1.0rem;
+}
+
+.THIS .slds-modal__footer {
+    text-align: left;
+    padding: 10px;
+}
+
+.THIS .slds-button--neutral-custom {
+    width: 20%;
+    height: 50px;
+    font-size: 1.0rem;
+}
+
+.THIS .slds-spinner_container {
+    width: 100%;
+    min-height: 600px;
+}
+
+.THIS .button-section {
+    text-align: center;
+    margin: auto;
+    margin: 10px;
+}
+
+.THIS .custom-enteredValue {
+    padding: 10px;
+}
+
+.THIS .custom-label {
+    font-size: 1.2rem;
+}
+
+.THIS .col {
+    width: 5% !important;
+}
+
+.THIS .slds-item {
+    padding: 20px;
+    background: #DADAEE;
+    border-color: #999;
+}
+
+.THIS .slds-icon_container .slds-icon-utility-error {
+    margin: 20px !important;
+}
+
+.THIS .slds-truncate {
+    max-width: 100%;
+    white-space: normal;
+    word-wrap: break-word;
+    width: 125px;
+}
+
+.THIS .slds-button--sendemail {
+    font-size: 12px;
+    background-color: rgba(0, 45, 251, 0.38);
+    border: rgba(0, 45, 251, 0.38);
+    color: white;
+    padding: 4px;
+}

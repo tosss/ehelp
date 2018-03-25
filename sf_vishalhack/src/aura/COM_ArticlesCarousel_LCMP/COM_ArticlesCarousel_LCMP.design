@@ -1,0 +1,7 @@
+<design:component label="Article Carousel">
+	<design:attribute name="topicName" label="Topic Name" required="true" 
+                      description="This parameter is used to take the Topic Name."/>
+    <design:attribute name="communityName" label="Community Name" required="true" 
+                      datasource="Employee Community,Customer Community"
+                      description="This parameter is used to take the Community Name."/>
+</design:component>

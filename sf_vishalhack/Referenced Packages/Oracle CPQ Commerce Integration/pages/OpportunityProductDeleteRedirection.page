@@ -1,0 +1,7 @@
+<apex:page standardController="OpportunityLineItem" action="{!deleteRedirect}" extensions="BigMachines.BigMachinesOpportunityProductController" tabStyle="Quotes__tab">
+    <apex:sectionHeader title="Oracle CPQ Cloud Opportunity Product" subtitle="Edit Quote"/>
+    <apex:outputText rendered="false" value="{!OpportunityLineItem.Id}" />
+    <apex:outputText rendered="false" value="{!OpportunityLineItem.OpportunityId}" />
+    <apex:outputText rendered="false" value="{!OpportunityLineItem.BigMachines__Origin_Quote__c}" />
+    <apex:pageMessages />
+</apex:page>

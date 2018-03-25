@@ -1,0 +1,4 @@
+<!--2017-05-19- anirudh.singh@cdk.com- Created this design component for RQ-09062.-->
+<design:component >
+	<design:attribute name="groupId" label="Group Id" required="true" description="This parameter is used to take the Group Id."/>
+</design:component>

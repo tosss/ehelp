@@ -1,0 +1,50 @@
+<apex:component allowDML="true" controller="EMP_PortalForm_Controller" >
+    
+    <!-- Required Attributes -->
+    <apex:attribute name="RecordTypeId" type="String" description="The Record Type of the data to be entered on the form." assignTo="{!FormRecordTypeId}" required="true"></apex:attribute>
+    <apex:attribute name="FieldSetName" type="String" description="The name of the fieldset containing the fields to display." required="true"></apex:attribute>
+    
+    <!-- Other Attributes -->
+    <apex:attribute name="Heading" type="String" description="What should the form be titled?" required="false"></apex:attribute>
+    <apex:attribute name="ShowPanelHeading" type="Boolean" description="Should a Panel Heading be used instead of the default?" required="false"></apex:attribute>
+       
+    <h3 style="{!IF(ShowPanelHeading==TRUE,'display:none;','')}">
+        {!Heading}
+    </h3>
+    
+    <div class="panel panel-default">
+        
+        <div class="panel-heading" style="{!IF(ShowPanelHeading==TRUE,'','display:none;')}">
+            {!Heading}
+        </div>
+        
+        <div class="panel-body">
+            <apex:form styleClass="form-horizontal col-md-12">
+                <apex:repeat value="{!$ObjectType.Portal_Form__c.FieldSets[FieldSetName]}" var="f"> 
+                    <div class="form-group">
+                        <apex:outputLabel styleclass="col-sm-4 col-md-3 control-label" value="{!$ObjectType.Portal_Form__c.Fields[f].Label}"></apex:outputLabel>
+                        <div class="col-sm-8 col-md-9 col-xl-6">
+                            <apex:inputfield styleclass="form-control" html-fieldtype="{!$ObjectType.Portal_Form__c.Fields[f].Type}" html-fieldname="{!$ObjectType.Portal_Form__c.Fields[f].Name}" value="{!PortalForm[f]}" />
+                        </div>
+                    </div>
+                </apex:repeat>
+                <div>
+                    <div class="col-sm-4 col-md-3"></div>
+                    <div class="col-sm-8 col-md-6">
+                        <apex:commandButton styleClass="btn btn-primary" value="Submit" action="{!Save}" oncomplete="if('{!HasMessages}'!='true') { retURL(); }" reRender="FormMessages" />&nbsp;
+                        <a onclick="retURL();" styleClass="btn btn-default" style="cursor: pointer;">Cancel</a>
+                    </div>
+                    <div class="col-md-offset-3 col-sm-8 col-md-9">
+                        <apex:pageMessages id="FormMessages"></apex:pageMessages>
+                    </div>
+                </div>
+            </apex:form>
+        </div>
+        
+    </div>
+    
+    <!-- JavaScript Resources -->
+    <!--<script type="text/javascript"></script>-->
+    <script type="text/javascript" src="{!URLFOR($Resource.EMP_PortalForm_JS)}"></script>
+    
+</apex:component>

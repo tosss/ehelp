@@ -1,0 +1,31 @@
+<aura:component extends="cloudx_cms:SS_uiAbstractList" access="global">
+    <aura:attribute name="autoPlay" type="Boolean" default="false" access="global"/>
+    <aura:attribute name="autoPlayInterval" type="Integer" default="2000" description="Auto Play Duration" access="global"/>
+    <aura:attribute name="slidesPerPage" type="Integer" default="3" access="global"></aura:attribute>
+    <aura:attribute name="showControls" type="Boolean" default="true" access="global"></aura:attribute>
+    <aura:attribute name="controlsAlignment" type="String" default="center" access="global"></aura:attribute>
+    <aura:attribute name="controlsPosition" type="String" default="overlay" access="global"></aura:attribute>
+    <aura:attribute name="startSlideIdx" type="Integer" default="0" access="private"></aura:attribute>
+    <aura:attribute name="endSlideIdx" type="Integer" default="0" access="private"></aura:attribute>
+    <aura:attribute name="slideTemplate" type="Aura.ComponentDefRef[]" access="global"></aura:attribute>
+    <aura:attribute name="pages" type="Integer[]" access="private"></aura:attribute>
+    <aura:attribute name="currentPage" type="Integer" access="private" default="1"></aura:attribute>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:if isTrue="{!v.items !=null &amp;&amp; v.pages !=null}">
+        <div class="carousel">
+            <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                <aura:iteration items="{!v.items}" indexVar="idx" var="item" start="{!v.startSlideIdx}" end="{!v.endSlideIdx}" template="{!v.slideTemplate}">
+                </aura:iteration>
+            </div>
+            <section class="{! 'slds-grid ' + (v.controlsAlignment =='center' ?'slds-grid--align-center' : (v.controlsAlignment =='right' ? 'slds-grid--align-end' :'')) + ' ' + ( v.showControls &amp;&amp; v.pages !=null &amp;&amp; v.pages.length &gt; 1 ? '': 'slds-hide')}" style="{!(v.controlsPosition == 'overlay'? 'margin-top:-2.5rem;': '')}">
+                <div class="slds-button-group slds-p-around--x-small" role="group">
+                    <lightning:buttonIcon variant="bare" iconName="utility:chevronleft" onclick="{!c.prevPage}" alternativeText="Prev" />
+                    <aura:iteration items="{!v.pages}" var="page" indexVar="idx">
+                        <lightning:buttonIcon iconName="utility:record" onclick="{!c.gotoPage}" variant="bare" disabled="{! page==v.currentPage?true:false}" alternativeText="goto" class="{!page==v.currentPage?'isActiveItem':''}" value="{!idx}" />
+                    </aura:iteration>
+                    <lightning:buttonIcon variant="bare" iconName="utility:chevronright" onclick="{!c.nextPage}" alternativeText="Prev" />
+                </div>
+            </section>
+        </div>
+    </aura:if>
+</aura:component>

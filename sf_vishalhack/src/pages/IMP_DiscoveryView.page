@@ -1,0 +1,18 @@
+<!---------------------------------------------------------------- 
+// RQ-05791    - SubProject Home Page changes.
+// Description - This Page renders the Discovery View of SubProject
+// 2015-12-09  - venkata.shrivol@cdk.com  - Created
+-----------MODIFICATIONS--------------------------------------------
+2016-04-22  -venkata.shrivol@cdk.com    Added title to the page: RQ-06919
+2016-05-18 -venkata.shrivol@cdk.com  - added the another Confidentiality Status attribute -RQ-05471
+2016-12-09 -venkata.shrivol@cdk.com  - Commented this class as it is no longer needed.  
+-------------------------------------------------------------------->
+<apex:page ></apex:page>
+<!-- <apex:page standardController="SubProject__c" showHeader="true" sidebar="true" tabStyle="SubProject__c" title="{!SubProject__c.SubProject_Name__c} Discovery" >
+	<c:IMP_SubProjectSectionHeader autoName="{!SubProject__c.Name}" subProjectName="{!SubProject__c.SubProject_Name__c}" 
+    subProjectId="{!SubProject__c.Id}" confidentialityStatus="{!SubProject__c.Confidentiality_Status__c}" chatterFeedCheck="true"
+    confidentialCheck="{!(SubProject__c.Confidentiality_Status__c == 'Confidential' || SubProject__c.Confidentiality_Status__c == 'Restricted')}" >
+    </c:IMP_SubProjectSectionHeader>  
+    <apex:include pageName="IMP_SubProjectButtons"/>
+    <apex:include pageName="IMP_SiteWorkbook"/>
+</apex:page> -->

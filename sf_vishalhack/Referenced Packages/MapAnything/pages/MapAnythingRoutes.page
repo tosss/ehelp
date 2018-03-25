@@ -1,0 +1,1236 @@
+<apex:page controller="sma.MapAnythingRoutes" doctype="html-5.0" sidebar="false" showHeader="false">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!-- jQuery -->
+    <script type='text/javascript' src="{!URLFOR($Resource.MapAnything, 'js/jquery-1.8.3.min.js')}"></script> 
+    
+    
+    <!-- CSS -->
+    <style type="text/css">
+        html, body {
+            padding: 0; margin: 0;
+        }
+        
+        /* Loadmask */
+        #loadmask-wrapper {
+            display: none;
+            width: 100%; height: 100%;
+            position: absolute;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 9999;
+        }
+        .errormsg {
+            color: #BF0101;
+            padding: 5px;
+        }
+        #loadmask {
+            width: 300px; height: 40px;
+            background-color: #dddddd;
+            position: absolute; top: 50%; left: 50%;
+            margin: -40px -150px;
+            border-radius: 100px;
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.55);
+        }
+        #loadmask:after {
+            border-radius: 100px;
+            content: "";
+            position: absolute;
+            background-color: #EC8525;
+            left: 2px;
+            top: 2px;
+            bottom: 2px;
+            right: 260px;
+            /*box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.55);*/
+            -webkit-animation: slide 2s ease-in-out infinite -0.2s;
+        }
+        @-webkit-keyframes slide {
+            0% { right: 260px; left: 2px; }
+            5% { left: 2px; }
+            50% { right: 2px; left: 260px; }
+            55% { right: 2px; }
+            100% { right: 260px; left: 2px; }
+        }
+        
+        #Page-Header { 
+            background: #3684c5;
+            color: white;
+            font-weight: 700;
+            padding: .5em 15px;
+            font-size: 24px;
+            text-shadow: none;
+        }
+        .saved-waypoint .timedetails {
+        	color: #757575; font-size: 14px;
+        	{! IF(selectedRouteIsTimeBased, '', 'display: none;') }
+        }
+        .Route-Name, .saved-waypoint, .disposition-type-row {
+            border-bottom: 1px solid #ccc;
+            background: #eee;
+            font-weight: 700;
+            color: #222;
+            text-shadow: 0 1px 0 #fff;
+            background-image: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#f1f1f1));
+            background-image: -webkit-linear-gradient(#fff,#f1f1f1);
+            background-image: -moz-linear-gradient(#fff,#f1f1f1);
+            background-image: -ms-linear-gradient(#fff,#f1f1f1);
+            background-image: -o-linear-gradient(#fff,#f1f1f1);
+            background-image: linear-gradient(#fff,#f1f1f1);
+            padding: 0.7em 15px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .Route-Name.selected, .saved-waypoint.selected, .disposition-type-row.selected {
+            border-bottom: 1px solid #bbb;
+            background-image: -webkit-gradient(linear,left top,left bottom,from(#F5F5F5),to(#E0E0E0));
+            background-image: -webkit-linear-gradient(#F5F5F5,#E0E0E0);
+            background-image: -moz-linear-gradient(#F5F5F5,#E0E0E0);
+            background-image: -ms-linear-gradient(#F5F5F5,#E0E0E0);
+            background-image: -o-linear-gradient(#F5F5F5,#E0E0E0);
+            background-image: linear-gradient(#F5F5F5,#E0E0E0);
+        }
+        .cancel-disposition.selected {
+            background-image: none;
+        }
+        .waypoints-header {
+            font-size: 18px;
+            padding: .5em 15px;
+            font-weight: 700;
+            background: black;
+            color: white;
+            text-shadow: none;
+        }
+        .back-saved-routes {
+            position: absolute;
+            right: 10px;
+            top: 16px;
+            width: 30px;
+            height: 30px;
+            border: 3px solid white;
+            border-radius: 30px;
+            background: url('{!URLFOR($Resource.MapAnythingRoutes, '/images/icons-36-white.png')}') no-repeat -794px -2px;
+        }
+        .back-saved-routes.selected {
+            background-color: #8F8F8F;
+        }
+        .nav-to-record {
+            position: absolute;
+            right: 10px;
+            top: 15px;
+            width: 30px;
+            height: 36px;
+            background: url('{!URLFOR($Resource.MapAnythingRoutes, '/images/icons-36-white.png')}') no-repeat -1654px 0px;
+        }
+        .header-name {
+            font-size:10px;
+        }
+        .waypoint-info-row {
+            padding: .7em 15px;
+            border-bottom: 1px solid #ccc;
+            background: #eee;
+            font-weight: 700;
+            color: #222;
+            text-shadow: 0 1px 0 #fff;
+        }
+        .info-row {
+            padding: .7em 15px;
+            border-bottom: 1px solid #ccc;
+            background: #eee;
+            font-weight: 700;
+            color: #222;
+            text-shadow: 0 1px 0 #fff;
+            font-size: 18px;
+        }
+        .additionalinfo table td {
+            font-weight: bold;
+            font-size: 10px;
+        }
+        .additionalinfo table td:last-child {
+            font-weight: normal;
+        }
+        .waypoint-button {
+            font-size: 18px;
+            padding: .6em 20px;
+            min-width: .75em;
+            display: block;
+            position: relative;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            zoom: 1;
+            text-align: center;
+            margin-bottom: 5px;
+            border-radius: 10px;
+        }
+        .button-orange {
+            border: 1px solid #f4c63f;
+            background: #fadb4e;
+            font-weight: 700;
+            color: #222;
+            text-shadow: 0 1px 0 #fff;
+            background-image: -webkit-gradient(linear,left top,left bottom,from(#ffefaa),to(#ffe155));
+            background-image: -webkit-linear-gradient(#ffefaa,#ffe155);
+            background-image: -moz-linear-gradient(#ffefaa,#ffe155);
+            background-image: -ms-linear-gradient(#ffefaa,#ffe155);
+            background-image: -o-linear-gradient(#ffefaa,#ffe155);
+            background-image: linear-gradient(#ffefaa,#ffe155);
+        }
+        .button-orange:hover {
+            border: 1px solid #f2c43d;
+            background: #fbe26f;
+            font-weight: 700;
+            color: #111;
+            text-shadow: 0 1px 0 #fff;
+            background-image: -webkit-gradient(linear,left top,left bottom,from(#fff5ba),to(#fbdd52));
+            background-image: -webkit-linear-gradient(#fff5ba,#fbdd52);
+            background-image: -moz-linear-gradient(#fff5ba,#fbdd52);
+            background-image: -ms-linear-gradient(#fff5ba,#fbdd52);
+            background-image: -o-linear-gradient(#fff5ba,#fbdd52);
+            background-image: linear-gradient(#fff5ba,#fbdd52);
+            text-decoration: underline;
+        }
+        .button-blue {
+            border: 1px solid #044062;
+            background: #396b9e;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 1px 0 #194b7e;
+            background-image: -webkit-gradient(linear,left top,left bottom,from(#5f9cc5),to(#396b9e));
+            background-image: -webkit-linear-gradient(#5f9cc5,#396b9e);
+            background-image: -moz-linear-gradient(#5f9cc5,#396b9e);
+            background-image: -ms-linear-gradient(#5f9cc5,#396b9e);
+            background-image: -o-linear-gradient(#5f9cc5,#396b9e);
+            background-image: linear-gradient(#5f9cc5,#396b9e);
+        }
+        .button-blue:hover{
+            border: 1px solid #00415e;
+            background: #4b88b6;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 1px 0 #194b7e;
+            background-image: -webkit-gradient(linear,left top,left bottom,from(#6facd5),to(#4272a4));
+            background-image: -webkit-linear-gradient(#6facd5,#4272a4);
+            background-image: -moz-linear-gradient(#6facd5,#4272a4);
+            background-image: -ms-linear-gradient(#6facd5,#4272a4);
+            background-image: -o-linear-gradient(#6facd5,#4272a4);
+            background-image: linear-gradient(#6facd5,#4272a4);
+            text-decoration: underline;
+        }
+        .button-white {
+            border: 1px solid #ccc;
+            background: #eee;
+            font-weight: 700;
+            color: #222;
+            text-shadow: 0 1px 0 #fff;
+            background-image: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#f1f1f1));
+            background-image: -webkit-linear-gradient(#fff,#f1f1f1);
+            background-image: -moz-linear-gradient(#fff,#f1f1f1);
+            background-image: -ms-linear-gradient(#fff,#f1f1f1);
+            background-image: -o-linear-gradient(#fff,#f1f1f1);
+            background-image: linear-gradient(#fff,#f1f1f1);
+        }
+        .button-white:hover {
+            border: 1px solid #bbb;
+            background: #dfdfdf;
+            font-weight: 700;
+            color: #222;
+            text-shadow: 0 1px 0 #fff;
+            background-image: -webkit-gradient(linear,left top,left bottom,from(#f6f6f6),to(#e0e0e0));
+            background-image: -webkit-linear-gradient(#f6f6f6,#e0e0e0);
+            background-image: -moz-linear-gradient(#f6f6f6,#e0e0e0);
+            background-image: -ms-linear-gradient(#f6f6f6,#e0e0e0);
+            background-image: -o-linear-gradient(#f6f6f6,#e0e0e0);
+            background-image: linear-gradient(#f6f6f6,#e0e0e0);
+            text-decoration: underline;
+        }
+        .info-row.cancel-disposition {
+            border: 1px solid #111;
+            background: #333;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 1px 0 #111;
+            background-image: -webkit-gradient(linear,left top,left bottom,from(#444),to(#2d2d2d));
+            background-image: -webkit-linear-gradient(#444,#2d2d2d);
+            background-image: -moz-linear-gradient(#444,#2d2d2d);
+            background-image: -ms-linear-gradient(#444,#2d2d2d);
+            background-image: -o-linear-gradient(#444,#2d2d2d);
+            background-image: linear-gradient(#444,#2d2d2d);
+        }
+        .alert-body {
+            font-weight: 700;
+            color: #222;
+            text-shadow: 0 1px 0 #fff;
+            background: #eee;
+            border-bottom: 1px solid #ccc;
+            padding: 0.7em 15px;
+            cursor: pointer;
+            font-size: 18px;
+            text-shadow: 0 1px 0 #fff; 
+        }
+        .waypoints-counters {
+            font-size: 10px;
+            position: absolute;
+            right: 60px;
+            top: 5px;
+        }
+        .waypoints-counters table {
+            border-spacing: 0;
+        }
+        .waypoints-counters tr td {
+            color: white;
+        }
+        .waypoints-counters td:first-child {
+            padding-right: 4px;
+        }
+    
+        body 
+        { 
+            {! IF ( state = 'Disposition', 'padding-bottom: 70px;', '') }
+        }
+        select
+        {
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        }
+        /* Salesforce overwrites */
+.fSetOverWrite .fieldSetTable {
+    width: 100%;
+}
+.fSetOverWrite .fieldSetTable tr{
+    border-bottom: 1px solid #E2E2E2;
+    display: block;
+}
+.fSetOverWrite .fieldSetTable tr:first-child {
+    border-top: 1px solid #e2e2e2;
+}
+.fSetOverWrite .fieldSetTable tr:last-child {
+    border-bottom: none;
+}
+.fSetOverWrite .fieldSetTable td {
+    position: relative;
+    border-bottom: none;
+}
+.fSetOverWrite .fieldSetTable .dateInput {
+    white-space: normal;
+}
+.fSetOverWrite .fieldSetTable .fieldLabel {
+    padding: 15px 5px 16px 16px;
+    width:20%;
+    max-width:20%;
+    display:inline-block;
+    vertical-align: top;
+}
+.fSetOverWrite .fieldSetTable .fieldInput {
+    width: 65%;
+    display:inline-block;
+}
+.fSetOverWrite .fieldSetTable td[data-type="picklist"] {
+    padding: 10px;
+}
+.fSetOverWrite .fieldSetTable td[data-type="combobox"] > a {
+    display:none;
+}
+.fSetOverWrite .fieldSetTable td[data-type="picklist"] select{
+    float: right;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 5px 48px 5px 0px;
+    width: 100%;
+    border: 1px solid #DFDFDF;
+    background: #FAFAFA;
+    color: #333;
+    text-indent: 0.01px;
+    text-overflow: '';
+    white-space: nowrap;
+    font-size: 14px;
+    cursor: pointer;
+    direction: rtl;
+    height: 40px;
+}
+.fSetOverWrite .fieldSetTable td[data-type="picklist"]:after {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    margin-top: -3px;
+    width: 0;
+    height: 0;
+    border-top: 5px solid;
+    border-right: 5px solid rgba(0, 0, 0, 0);
+    border-left: 5px solid rgba(0, 0, 0, 0);
+    color: #999;
+    content: "";
+    pointer-events: none;
+}
+.fSetOverWrite .fieldSetTable td[data-type="boolean"] span,
+.fSetOverWrite .fieldSetTable td[data-type="boolean"] input,
+.fSetOverWrite .fieldSetTable td[data-type="datetime"] span,
+.fSetOverWrite .fieldSetTable td[data-type="string"] span {
+    float: right;
+}
+.fSetOverWrite .fieldSetTable td[data-type="boolean"] {
+    padding-right: 20px;
+}
+.fSetOverWrite .fieldSetTable td[data-type="multipicklist"] select {
+    height: 60px;
+    max-height: 60px;
+    width: 100px;
+    max-width: 100px;
+}
+.fSetOverWrite .fieldSetTable .dateLabel, .fSetOverWrite .fieldSetTable .fieldLabel.type-datetime {
+    vertical-align: top;
+}
+.fSetOverWrite .fieldSetTable span.dateFormat {
+    float:right;
+}
+.fSetOverWrite .fieldSetTable td input[type="text"],
+.fSetOverWrite .fieldSetTable td textarea {
+    text-align: right;
+    width: 100%;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 220px;
+    -moz-box-flex: 1;
+    -moz-flex: 1 220px;
+    -ms-flex: 1 220px;
+    flex: 1 220px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+    padding-right: 24px;
+    background-color: transparent;
+    border: 1px solid rgb(223, 223, 223);
+    border-radius: 3px;
+    min-height: 40px;
+}
+.fsWrapper .fSetOverWrite .button {
+    border-color: #b2b2b2 !important;
+    background-color: #f8f8f8 !important;
+    color: #444 !important;
+    position: relative !important;
+    display: inline-block !important;
+    margin: 0 !important;
+    padding: 0 12px;
+    min-width: 52px;
+    min-height: 47px;
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-radius: 2px !important;
+    vertical-align: top !important;
+    text-align: center !important;
+    text-overflow: ellipsis !important;
+    font-size: 16px;
+    line-height: 42px;
+    cursor: pointer;
+}
+.fsWrapper .button.button-stable {
+    background-color: #f8f8f8 !important;
+    color: #444 !important;
+    background-image: none !important;
+    border: 1px solid #b2b2b2 !important;
+}
+.fsWrapper .button.button-positive, .popup-buttons .button.button-positive {
+    background-color: #387ef5 !important;
+    color: #fff !important;
+    background-image: none !important;
+    border: 1px solid #0c63ee !important;
+}
+.fsWrapper .type-multipicklist, .fSetOverWrite .fieldSetTable td[data-type="multipicklist"]{
+    display: block;
+    border-bottom: none;
+}
+.fSetOverWrite .fieldSetTable td[data-type="multipicklist"] tr {
+    border-bottom: none;
+}
+.fsWrapper .fSetOverWrite span.dateInput {
+    width: 100%;
+}
+.dis-header-wrap {
+    background-color: #387ef5;
+    border-bottom: 1px solid #0c63ee;
+    color: #fff;
+    height: 50px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.dis-header-wrap .dis-head {
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 50px;
+}
+.customDis-buttons .saveDisposition {
+    margin-right: 5%; 
+    height: 40px; 
+    width: 40%;
+    background: #387EF5; 
+    margin-left: 5%; 
+    color:white;
+}
+#customDis-loadmask {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 99999999;
+    background: rgba(0, 0, 0, 0.04) url('{!URLFOR($Resource.MapAnything, 'images/chatterstatus-loader.gif')}') center no-repeat;
+}
+    </style>
+    
+    <!-- JavaScript -->
+    <script type='text/javascript'>
+        var MA = {};
+        //get checkin info
+        MA.CheckIn = {
+            getFields: function (sobject) {
+                var dfd = jQuery.Deferred();
+                var processData = { 
+                    ajaxResource : 'MAAdminAJAXResources',
+                    action : 'getCheckInFieldSets'
+                };
+                
+                Visualforce.remoting.Manager.invokeAction(MARemoting.processAJAXRequest,
+                    processData,
+                    function(res, event){
+                        if(event.status) {
+                            dfd.resolve({success:true,data:res.data});
+                        }
+                        else {
+                            dfd.resolve({success:false,data:res.data});
+                        }
+                    }        
+                );
+
+                return dfd.promise();
+            },
+            verifyCheckin: function (requestData) {
+                //sample data
+                /*var rq = {
+                    SavedQueryId:'a0HA000000H0h5OMAR',
+                    id:'005A0000006GEb8IAG',
+                    lid:'001A000001FPOvGIAX',
+                    tooltip1:'Test0253',
+                    clat:'33.944646999999996',
+                    clong:'-84.3226488',
+                    caccuracy:'54152',
+                    length:'44871.81354796125'
+                }*/
+                var dfd = jQuery.Deferred();
+                jQuery.ajax({
+                    url: '/apex/sma__MATooltipAJAXResources?action=VerifyCheckIn',
+                    type: 'POST',
+                    dataType: 'JSON',
+                    data : requestData,
+                }).done (function (res) {
+                    dfd.resolve(res);
+                }).error (function (res) {
+                    dfd.resolve(res);
+                });
+                return dfd.promise();
+            },
+            general : {
+                'Activity-FieldSet' : 'Select',
+                'AutoCheckOutEnabled' : 'False'
+            }
+        };
+        $(function () {
+        
+            //on route click
+            $('.Route-Name').on('click', function() {
+                $(this).addClass('selected');
+                $('[id$=":routeId"]').val($(this).attr('data-id'));
+                $('#loadmask-wrapper').show();
+                getWaypoints();
+            });
+            
+            //on waypoint click
+            $('.saved-waypoint').on('click', function() {
+                $(this).addClass('selected');
+                $('[id$=":waypointId"]').val($(this).attr('data-id'));
+                $('[id$=":accountId"]').val($(this).attr('data-account'));
+                $('#loadmask-wrapper').show();
+                getWaypointOptions();
+            });
+            
+            //return to routes
+            $('.back-saved-routes').on('click', function() {
+                $(this).addClass('selected');
+                $('#loadmask-wrapper').show();
+                getRoutes();
+            });
+            
+            //return to waypoints
+            $('.back-waypoints').on('click', function() {
+                $('#loadmask-wrapper').show();
+                getWaypoints();
+            });
+            
+            $('.customDis-cancel').on('click', function() {
+                //console.log("HERE");
+                return;
+                $('#loadmask-wrapper').show();
+                getWaypoints();
+            });
+            
+            //Various button navigation
+            $('.waypoint-button.add-dispostion, .add-notes, .back-waypoints, .disposition-back').on('click', function() {
+                $('#loadmask-wrapper').show();
+                
+                var $button = $(this);
+                if ($button.is('.add-dispostion')) {
+                    $(this).addClass('selected');
+                    $('[id$=":waypointSelectionType"]').val('createDisposition');
+                }
+                else if ($button.is('.add-notes')) {
+                    $(this).addClass('selected');
+                    $('[id$=":waypointSelectionType"]').val('createNote');
+                }
+                else if ($button.is('.back-waypoints')) {
+                    $(this).addClass('selected');
+                    $('[id$=":waypointSelectionType"]').val('return');
+                }
+                else if ($button.is('.back-waypoints') || $button.is('.dispostion-no')) {
+                    $(this).addClass('selected');
+                    $('[id$=":waypointSelectionType"]').val('returnDisposition');
+                }
+                else if ($button.is('.disposition-back')) {
+                    $(this).addClass('selected');
+                    $('[id$=":waypointSelectionType"]').val('returnDisposition');
+                }
+                waypointSelectionTypeAct();
+            });
+            
+            //add note
+            $('.SaveNote-Account, .SaveNote-Waypoints').on('click', function() {
+                var $button = $(this);
+            
+                //validation
+                if ($('#addnote-title').val() == '' || $('#addnote-body').val() == '') {
+                    DialogAlert_Show('Validation Error', 'Please enter a title and body before proceeding');
+                    return;
+                }
+                
+                //serialze note 
+                var serializedNote = JSON.stringify({
+                    ParentId                    : $('[id$=":accountId"]').val(),
+                    Title                       : $('#addnote-title').val(),
+                    Body                        : $('#addnote-body').val()
+                });
+                
+                //store info to build record
+                $('[id$=":serializedNote"]').val(serializedNote);
+                
+                //return to the waypoints/waypoint page depending on the button that was clicked
+                if ($button.is('.SaveNote-Account')) {
+                    $('[id$=":saveType"]').val('AccountReturn');
+                }
+                else {
+                    $('[id$=":saveType"]').val('WaypointReturn');
+                }
+                
+                //save note 
+                addNote();
+                
+            });
+      
+        });
+        
+        function getFieldSetInfo (checkInStatus) {
+            MA.CheckIn.getFields().then(function(res) {
+                //console.log(res);
+                MA.CheckIn.general = res.data;
+                
+                //overwrite with options
+                var fieldSetName = MA.CheckIn.general['Activity-FieldSet'];
+                $('[id$=":fieldSetLabel"]').val(fieldSetName);
+                //console.log(fieldSetName,$('[id$=":accuracy"]').val());
+                var $but = $('<button onclick="buildChechInJson(\''+checkInStatus+'\'); return false;" class="saveDisposition MAbutton button-silver">Finish</button>');
+                $('#CustomDispositionPopup .customDis-buttons .saveDisposition').remove();
+                //var $but = $('<button class="saveDisposition MAbutton button-silver">Finish</button>');
+                $('#CustomDispositionPopup .customDis-buttons').prepend($but)
+                $('#customDis-loadmask').show();
+                $('#CustomDispositionPopup').show();
+                
+                //show the disposition
+                $('#customDis-loadmask').hide();
+    
+                //fill
+                var waypoint = {};
+                try{waypoint = JSON.parse($('[id$=":waypointJSONInfo"]').val());} catch (e){}
+                try { $('#customDis-fieldset .fieldInput[data-field="Subject"]').find('.get-input').val('CheckIn @ ' + waypoint.Name); } catch (err) {}
+                try { $('#customDis-fieldset .fieldInput[data-field="Status"]').find('.get-input').val('Completed'); } catch (err) {}
+                try { $('#customDis-fieldset .fieldInput[data-field="'+MA.CheckIn.general["Activity-CheckOutAccuracy"]+'"]').find('.get-input').val($('[id$=":accuracy"]').val()); } catch (err) {}
+                try { $('#customDis-fieldset .fieldInput[data-field="'+MA.CheckIn.general["Activity-CheckOutDate"]+'"]').find('.get-input').val(UserContext.today); } catch (err) {}
+                try { 
+                    var distance = getDistance($('[id$=":latitude"]').val(),$('[id$=":longitude"]').val(),waypoint.sma__Latitude__c,waypoint.sma__Longitude__c)
+                    $('#customDis-fieldset .fieldInput[data-field="'+MA.CheckIn.general["Activity-CheckOutDistanceFromRecord"]+'"]').find('.get-input').val(distance*0.000621371);
+                    try { $('#customDis-fieldset .fieldInput[data-field="'+MA.CheckIn.general["Activity-DistanceFromRecord"]+'"]').find('.get-input').val(distance*0.000621371); } catch (err) {}
+                } catch (err) {}
+                try { $('#customDis-fieldset .fieldInput[data-field="'+MA.CheckIn.general["Activity-CheckOutLatitude"]+'"]').find('.get-input').val($('[id$=":latitude"]').val()); } catch (err) {}
+                try { $('#customDis-fieldset .fieldInput[data-field="'+MA.CheckIn.general["Activity-CheckOutLongitude"]+'"]').find('.get-input').val($('[id$=":longitude"]').val()); } catch (err) {}
+                try { $('#customDis-fieldset .fieldInput[data-field="'+MA.CheckIn.general["Activity-CreatedLatitude"]+'"]').find('.get-input').val($('[id$=":latitude"]').val()); } catch (err) {}
+                try { $('#customDis-fieldset .fieldInput[data-field="'+MA.CheckIn.general["Activity-CreatedLongitude"]+'"]').find('.get-input').val($('[id$=":longitude"]').val()); } catch (err) {}
+                try { $('#customDis-fieldset .fieldInput[data-field="'+MA.CheckIn.general["Activity-CreatedLocationAccuracy"]+'"]').find('.get-input').val($('[id$=":accuracy"]').val()); } catch (err) {}
+                
+                
+                //handle finish button
+                //buildChechInJson(checkInStatus)
+                /*$but.on('click',function(e) {
+                    e.stopPropagation();
+                    //get the field data
+                    var fields = {};
+                    var FieldsFoundArray = [];
+
+                    //show loading
+                    $('#CustomDispositionPopup #customDis-loadmask').show();
+
+                    //grab fields from the field set
+                    $('#customDis-fieldset [class^="field::"]').each(function () 
+                    {
+                        var fieldName = $(this).attr('data-field');
+                        var fieldType = $(this).attr('data-type');
+                        
+                        FieldsFoundArray.push(fieldName);
+
+                        var value = '';
+                        if(jQuery(this).find('.get-input').is('img')) {
+                          value = undefined;
+                        }
+                        else if(fieldType == 'picklist') {
+                            //find the select value
+                            value = $(this).find('select').val();
+                        }
+                        else if (fieldType == 'reference') 
+                        {
+                            if($(this).find('select').length == 0 && $(this).find('input').val() != '000000000000000') 
+                            {
+                                value = $(this).find('input').val();
+                            }
+                            else 
+                            {
+                                value = $(this).find('select').val();
+                            }
+                        }
+                        else if (fieldType == 'boolean') {
+                            if($(this).find('input').is(':checked')) {
+                                value = true;
+                            }
+                            else {
+                                value = false;
+                            }
+                        }
+                        else 
+                        {
+                            value = $(this).find('.get-input').val();
+                        }
+
+                        //if(value != '' && value != undefined)
+                        if(value != undefined) 
+                        {
+                            fields[fieldName] = value;
+                        }
+                    });
+
+                    //convert fields to an array (this used to be the structure so for now it's easier to just convert back)
+                    var fieldsArr = []; 
+                    $.each(fields, function (name, val) {
+                        fieldsArr.push({ name: name, value: val });
+                    });
+                    fields = fieldsArr;
+                    
+                    $('[id$=":fieldsJSON"]').val(JSON.stringify(fields));
+                    
+                    //handle checkIn
+                    //console.log(checkInStatus);
+                    if(checkInStatus == 'checkIn') {
+                        checkIn();
+                    }
+                    else {
+                        //console.log('checkout');
+                        checkOut();
+                    }
+                    
+                });*/
+            });
+        }
+        
+        function buildChechInJson (checkInStatus) {
+            //get the field data
+            var fields = {};
+            var FieldsFoundArray = [];
+
+            //show loading
+            $('#CustomDispositionPopup #customDis-loadmask').show();
+
+            //grab fields from the field set
+            $('#customDis-fieldset [class^="field::"]').each(function () 
+            {
+                var fieldName = $(this).attr('data-field');
+                var fieldType = $(this).attr('data-type');
+                
+                FieldsFoundArray.push(fieldName);
+
+                var value = '';
+                if(jQuery(this).find('.get-input').is('img') && fieldType != 'multipicklist') {
+                  value = undefined;
+                }
+                else if(fieldType == 'picklist') {
+                    //find the select value
+                    value = $(this).find('select').val();
+                }
+                else if (fieldType == 'reference') 
+                {
+                    if($(this).find('select').length == 0 && $(this).find('input').val() != '000000000000000') 
+                    {
+                        value = $(this).find('input').val();
+                    }
+                    else if($(this).find('select').length == 1 && $(this).find('span.lookupInput').length == 1) 
+                    {
+                        value = $(this).find('input').val();
+                    }
+                    else 
+                    {
+                        value = $(this).find('select').val();
+                    }
+                }
+                else if (fieldType == 'boolean') {
+                    if($(this).find('input').is(':checked')) {
+                        value = true;
+                    }
+                    else {
+                        value = false;
+                    }
+                }
+                else if (fieldType == 'multipicklist') {
+                    var selectOptions = $(this).find('.get-input optgroup[label="Chosen"]').closest('select').find('option');
+                    value = '';
+                    for(var so = 0; so < selectOptions.length; so++) {
+                        var $option = $(selectOptions[so]);
+                        value += $option.text() + ';';
+
+                    }
+                }
+                else 
+                {
+                    value = $(this).find('.get-input').val();
+                }
+
+                //if(value != '' && value != undefined)
+                if(value != undefined) 
+                {
+                    fields[fieldName] = value;
+                }
+            });
+
+            //convert fields to an array (this used to be the structure so for now it's easier to just convert back)
+            var fieldsArr = []; 
+            $.each(fields, function (name, val) {
+                fieldsArr.push({ name: name, value: val });
+            });
+            fields = fieldsArr;
+            
+            $('[id$=":fieldsJSON"]').val(JSON.stringify(fields));
+            
+            //handle checkIn
+            //console.log(checkInStatus);
+            if(checkInStatus == 'checkIn') {
+                checkIn();
+            }
+            else {
+                //console.log('checkout');
+                checkOut();
+            }
+        }
+        
+        function nativeGPSNavigation (lat,lng)
+        {
+            if( (navigator.platform.indexOf("iPhone") != -1) || (navigator.platform.indexOf("iPod") != -1) || (navigator.platform.indexOf("iPad") != -1))
+            {
+                return "maps://maps.google.com/maps?daddr=" +  encodeURIComponent(lat+','+lng);
+            }
+            else
+            {
+                return  'http://maps.google.com/maps?daddr=' + encodeURIComponent(lat+','+lng);
+            }
+            
+            
+            /*
+            //figure out which iOS version this is
+            var versions;
+            var address;
+            if (/iP(hone|od|ad)/.test(navigator.platform)) 
+            {
+                // supports iOS 2.0 and later: http://bit.ly/TJjs1V
+                var v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
+                versions = [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)];
+            }
+
+            //open the proper link depending on version
+            if (versions && versions[0] <= 5) {
+                address = 'http://maps.google.com/maps?daddr=' + encodeURIComponent(lat+','+lng); //native google maps
+            }
+            else if (versions) {
+                //address = 'http://maps.apple.com/?daddr=' + encodeURIComponent(lat+','+lng);  //native apple maps
+                address = 'comgooglemaps://?saddr=&daddr=' + encodeURIComponent(lat+','+lng);  //google maps app
+            }
+            else {
+                address = 'http://maps.google.com/maps?daddr=' + encodeURIComponent(lat+','+lng); //not iOS
+            }
+            */
+            
+            //return address;
+        }
+        
+        function getDistance(lat1,lng1,lat2,lng2) {
+            var R = 6378137; // Earth’s mean radius in meter
+            var dLat = rad(lat2 - lat1);
+            var dLong = rad(lng2 - lng1);
+            var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(rad(lat1)) * Math.cos(rad(lat2)) *
+            Math.sin(dLong / 2) * Math.sin(dLong / 2);
+            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            var d = R * c;
+            return d; // returns the distance in meter
+        };
+        
+        function rad(deg) {
+            return deg * (Math.PI/180)
+        }
+        
+        function populateLocation (callback) {
+            $('#loadmask-wrapper').show();
+            navigator.geolocation.getCurrentPosition(function (response) {
+                $('[id$=":accuracy"]').val(response.coords.accuracy);
+                $('[id$=":latitude"]').val(response.coords.latitude);
+                $('[id$=":longitude"]').val(response.coords.longitude);
+                //console.log('fieldSetName',$('[id$=":accuracy"]').val());
+                //console.log(callback);
+                callback(); 
+            });
+        }
+        
+        function cancelDis (callback) {
+            setTimeout(function() {
+                getWaypointOptions();
+            },500)
+        }
+        
+    </script>
+    
+    <apex:form >
+
+        <!-- Loadmask -->
+        <div id='loadmask-wrapper'>
+            <div id='loadmask'></div>
+        </div>
+        
+        <!-- apex functions -->
+        <apex:variable var="RequestPlatform" value="{!IF($CurrentPage.parameters.platform == null || $CurrentPage.parameters.platform == 'null', 'tablet', LOWER($CurrentPage.parameters.platform))}" />
+        <apex:actionFunction name="addNote" action="{! addNote }"/>
+        <apex:actionFunction name="getWaypoints" action="{! getWaypoints }"/>
+        <apex:actionFunction name="getRoutes" action="{! getRoutes }"/>
+        <apex:actionFunction name="getWaypointOptions" action="{! getWaypointOptions }"/>
+        <apex:actionFunction name="waypointSelectionTypeAct" action="{! waypointSelectionTypeAct }"/>
+        <apex:actionFunction name="checkIn" action="{! checkIn }"/>
+        <apex:actionFunction name="checkOut" action="{! checkOut }"/>
+        <apex:actionFunction name="DispositionCheck" action="{! DispositionCheck }"/>
+        <apex:actionFunction name="CheckOutDispositionCheck" action="{! CheckOutDispositionCheck }"/>
+        <apex:inputHidden id="routeId" value="{! routeId }"/>
+        <apex:inputHidden id="checkInSuccess" value="{! checkInSuccess }"/>
+        <apex:inputHidden id="waypointId" value="{! waypointId }"/>
+        <apex:inputHidden id="serializedNote" value="{! serializedNote }"/>
+        <apex:inputHidden id="saveType" value="{! saveType }"/>
+        <apex:inputHidden id="waypointSelectionType" value="{! waypointSelectionType }"/>
+        <apex:inputHidden id="accuracy" value="{!accuracy}" />
+        <apex:inputHidden id="latitude" value="{!latitude}" />
+        <apex:inputHidden id="longitude" value="{!longitude}" />
+        <apex:inputHidden id="errorDetails" value="{!errorDetails}" />
+        <apex:inputHidden id="waypointJSONInfo" value="{!waypointJSONInfo}" />
+        <apex:inputHidden id="fieldSetLabel" value="{!fieldSetLabel}" />
+        <apex:inputHidden id="fieldsJSON" value="{!fieldsJSON}" />
+        
+        <!-- Error View -->
+        <apex:outputPanel rendered="{! state == 'Error'}">
+            <div id='Page-Header'>Error</div>
+            <div style='padding: 15px; font-size: 24px; font-weight: bold; color: #8D8D8D; font-style: italic;'>{!error}</div>
+        </apex:outputPanel>
+        
+        <!-- My Routes View -->
+        <apex:outputPanel rendered="{! state == 'MyRoutes'}">
+            <div id='Page-Header'>My Routes</div>
+            <apex:repeat value="{! routes }" var="r">
+                <div class='Route-Name' data-id='{! r.Id }'>
+                    <div>{!r.Name}</div>
+                    <div><apex:outputField value="{!r.sma__Date__c}"></apex:outputField></div>
+                </div>
+            </apex:repeat>
+        </apex:outputPanel>
+        
+        <!-- Waypoints View -->
+        <apex:outputPanel rendered="{! state == 'Waypoints'}">
+            <div id='Page-Header'>
+                <div class='header-name'>Waypoints</div>
+                <div>{!selectedRoute.Name}</div>
+                <div class='back-saved-routes'></div>
+                <div class="waypoints-counters">
+                    <table>
+                        <tr>
+                        </tr>
+                            <td class="waypoints-counters-checkedin"></td>
+                            <td>Checked In</td>
+                        <tr>
+                            <td class="waypoints-counters-remaining"></td>
+                            <td>Remaining</td>
+                        </tr>
+                        <tr>
+                            <td class="waypoints-counters-checkedout"></td>
+                            <td>Checked Out</td>
+                        </tr>
+                        <tr>
+                            <td class="waypoints-counters-total"></td>
+                            <td>Total</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class='waypoints-header'>Checked In</div>
+            <apex:repeat value="{! checkedInWaypoints }" var="w">
+                <div data-account='{! w.waypoint.LinkId__c }'  data-id='{! w.waypoint.Id }' class='checkedin saved-waypoint'>
+                	<div class='name'>{!w.waypoint.Name}</div>
+                	<div class='timedetails'>{!w.timeDetails}</div>
+                </div>
+            </apex:repeat>
+            <div class='waypoints-header'>Remaining</div>
+            <apex:repeat value="{! remainingWaypoints }" var="w">
+                <div data-account='{! w.waypoint.LinkId__c }'  data-id='{! w.waypoint.Id }' class='remaining saved-waypoint'>
+                	<div class='name'>{!w.waypoint.Name}</div>
+                	<div class='timedetails'>{!w.timeDetails}</div>
+                </div>
+            </apex:repeat>
+            <div class='waypoints-header'>Checked Out</div>
+            <apex:repeat value="{! checkedOutWaypoints }" var="w">
+                <div data-account='{! w.waypoint.LinkId__c }' data-id='{! w.waypoint.Id }' class='checkedout saved-waypoint'>
+                	<div class='name'>{!w.waypoint.Name}</div>
+                	<div class='timedetails'>{!w.timeDetails}</div>
+                </div>
+            </apex:repeat>
+            
+            <script type='text/javascript'>
+                var checkedInLength = $('.checkedin.saved-waypoint').length;
+                var remainingLength = $('.remaining.saved-waypoint').length;
+                var checkedOutLength = $('.checkedout.saved-waypoint').length;
+
+                $('.waypoints-counters-checkedin').text(checkedInLength);
+                $('.waypoints-counters-remaining').text(remainingLength);
+                $('.waypoints-counters-checkedout').text(checkedOutLength);
+                $('.waypoints-counters-total').text(checkedInLength + remainingLength + checkedOutLength);
+            </script>
+        </apex:outputPanel>
+        
+        <!-- Waypoint More Info View -->
+        <apex:outputPanel rendered="{! state == 'modifyWaypoint'}">
+            <div id='Page-Header'>
+                <div class='header-name'>Details</div>
+                <div>{!waypointInfo.Name}</div>
+                <div class='nav-to-record' onclick="try { sforce.one.navigateToSObject('{!JSENCODE(HTMLENCODE(waypointInfo.LinkId__c))}'); } catch (err) { }" style="{!IF(waypointInfo.LinkId__c = NULL, 'display: none;', '')}"></div>
+            </div>
+            <div class='waypoint-info-row'>
+              <div>Address:</div>
+              <div class='address'><a style='cursor: pointer; font-weight: bold; color: #3684C5; text-decoration: none;'>{! waypointInfo.Address__c}</a></div>
+            </div>
+            <div class='waypoint-info-row'>
+              <div>Additional Info:</div>
+              <div class='additionalinfo'>
+                <apex:outputLabel escape="false" value="{! tooltipTable}"></apex:outputLabel>
+              </div>
+            </div>
+            <div class='waypoint-info-row' style='display: none;'>
+              <div>Notes:</div>
+              <div class="notes" style="font-weight: normal;">{! waypointInfo.Notes__c}</div>
+            </div>
+            <div class='waypoint-info-row'>
+              <div class='waypoint-button-wrapper'>
+                <div class="errormsg" style="{! IF(checkInSuccess, 'display: none;', '') }">{! checkInError }</div>
+                <div class='waypoint-button button-blue checkin' style="{! IF(OR(NOT(selectedWaypointSupportsCheckin), checkInObj != NULL), 'display: none;', '') }" onclick="populateLocation(function () { DispositionCheck(); });">Check In</div>
+                <div class='waypoint-button button-orange checkout' style="{! IF(OR(NOT(selectedWaypointSupportsCheckin), checkInObj = NULL), 'display: none;', '') }" onclick="$('#loadmask-wrapper').show(); populateLocation(function () {CheckOutDispositionCheck(); })">Check Out</div>
+                <div class='waypoint-button button-blue add-notes' style='display: none;'>Add Notes</div>
+                <div class='waypoint-button button-white back-waypoints'>Back</div>
+              </div>
+            </div>
+            
+            <!-- Update Address URL -->
+            <script type='text/javascript'>
+                var htmlEncodeLat = '{!JSENCODE(TEXT(waypointInfo.Latitude__c))}';
+                var htmlEncodeLng = '{!JSENCODE(TEXT(waypointInfo.Longitude__c))}';
+                $('.address a').attr('href', nativeGPSNavigation(htmlEncodeLat, htmlEncodeLng));
+            </script>
+        </apex:outputPanel>
+        
+        <!-- Alert Dialog -->
+        <apex:outputPanel rendered="{! state == 'alertDialog'}">
+            <div id='Page-Header'>
+                <div class='header-name'>{! waypointInfo.Name}</div>
+                <div>Confirm</div>
+            </div>
+            <div class='alert-body'></div>
+            <div class='info-row' style='text-align: center;'>
+                <div class='disposition-yes waypoint-button button-blue' >Yes</div>
+                <div class='dispostion-no waypoint-button button-white'>No</div>
+            </div>
+            <script type='text/javascript'>
+                var $info = $('<div/>');
+                var type = $('[id$=":dispostionSubType"]').val();
+                $info.text('This will result in a 6 month period before the next visit. Are you sure you want to select ' + type + '?');
+                $('.alert-body').append($info);
+            </script>
+        </apex:outputPanel>
+        
+        <!-- Disposition Next Visit View -->
+        <apex:outputPanel rendered="{! state == 'CreateNote'}">
+          <div id='Page-Header'>
+                <div class='header-name'>{! waypointInfo.Name}</div>
+                <div>Add Note</div>
+            </div>
+            <div class='info-row'>
+              <div>Title:</div>
+                <div class='input-wrapper'>
+                  <input type='text' id='addnote-title' name='addnote-title' />
+              </div>
+            </div>
+            <div class='info-row'>
+              <div>Body:</div>
+                <div class='input-wrapper'>
+                  <textarea id='addnote-body' name='addnote-body'></textarea>
+              </div>
+            </div>
+            <div class='info-row'>
+              <div class='SaveNote-Account waypoint-button button-blue'>Finish &amp; Return to Account</div>
+                <div class='SaveNote-Waypoints waypoint-button button-blue'>Finish &amp; Return to Waypoints</div>
+                <div class='disposition-back waypoint-button button-white' >Back</div>
+            </div>
+        </apex:outputPanel>
+        
+        <apex:outputPanel rendered="{! state == 'showDisposition'}">
+          <div id='Page-Header' style="margin-bottom:15px;">
+                <div class='header-name' style="font-size:16px;">Custom Dispostion</div>
+            </div>
+            <div id="CustomDispositionPopup" class="fSetOverWrite" data-enhance="false">
+                <!-- Loadmask -->
+                <div id='customDis-loadmask'></div>
+        
+                <div>
+                    <label style="margin-left:10px;">Fill in the fields below</label>
+                    <div class="errormsg" style="{! IF(checkInSuccess, 'display: none;', '') }">{! checkInError }</div>
+                    <ul id='customDis-fieldset-errors'></ul>
+                    <div id='customDis-fieldset'>
+                        <table class="CustomDispositionFormTable fieldSetTable">
+                            <apex:repeat value="{!fields}" var="f">
+                                <apex:outputPanel rendered="{! IF(RequestPlatform == 'tablet' && f.Type == 'reference', false, true)}" layout="none">
+                                    <apex:outputPanel layout="none" rendered="{!f.Type == 'date'}">
+                                        <tr>
+                                            <td class="fieldLabel dateLabel"><b>{!f.Label}<apex:outputText value="*" rendered="{!f.Required || f.DBRequired}"/></b></td>
+                                            
+                                            <td class="field::{!f.fieldPath}  fieldInput" data-type="{!f.Type}" data-field="{!f.fieldPath}">
+                                                <apex:inputField value="{!obj[f.fieldPath]}" styleClass="get-input {!f.fieldPath} datePick" />
+                                            </td>
+                                        </tr>
+                                    </apex:outputPanel>
+                                    <apex:outputPanel layout="none" rendered="{!f.Type != 'date'}">
+                                        <tr>
+                                            <td class="fieldLabel type-{!f.Type}"><b>{!f.Label}<apex:outputText value="*" rendered="{!f.Required || f.DBRequired}"/></b></td>
+                                            
+                                            <td class="field::{!f.fieldPath} fieldInput" data-type="{!f.Type}" data-field="{!f.fieldPath}">
+                                                <apex:inputField value="{!obj[f.fieldPath]}" styleClass="get-input {!f.fieldPath}" />
+                                            </td>
+                                        </tr>
+                                    </apex:outputPanel>
+                                </apex:outputPanel>
+                                    
+                            </apex:repeat>
+                            <tr>
+                                <td><span style="font-size:10px;">*=Required</span></td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                </div>
+        
+                <div class='customDis-buttons' style="margin-top:20px;">
+                    <button style="margin-right: 5%; height: 40px; width: 40%; background: #387EF5; margin-left: 5%; color:white;" class="saveDisposition">Finish</button>
+                    <apex:commandButton style="height: 40px;width: 40%;background: #f8f8f8;margin-left: 5%;" title="Cancel" value="Cancel" onclick="$('#loadmask-wrapper').show(); getWaypointOptions(); return false;"/>
+                </div>      
+            </div>
+            <script>
+                getFieldSetInfo('checkIn');
+            </script>
+        </apex:outputPanel>
+        
+        <apex:outputPanel rendered="{! state == 'showCheckOutDisposition'}">
+          <div id='Page-Header' style="margin-bottom:15px;">
+                <div class='header-name' style="font-size:16px;">Custom Dispostion</div>
+            </div>
+            <div id="CustomDispositionPopup" class="fSetOverWrite" data-enhance="false">
+                <!-- Loadmask -->
+                <div id='customDis-loadmask'></div>
+        
+                <div>
+                    <label style="margin-left:10px;">Fill in the fields below</label>
+                    <div class="errormsg" style="{! IF(checkInSuccess, 'display: none;', '') }">{! checkInError }</div>
+                    <ul id='customDis-fieldset-errors'></ul>
+                    <div id='customDis-fieldset'>
+                         <table class="CustomDispositionFormTable fieldSetTable">
+                            <apex:repeat value="{!fields}" var="f">
+                                <apex:outputPanel rendered="{! IF(RequestPlatform == 'tablet' && f.Type == 'reference', false, true)}" layout="none">
+                                    <apex:outputPanel layout="none" rendered="{!f.Type == 'date'}">
+                                        <tr>
+                                            <td class="fieldLabel dateLabel"><b>{!f.Label}<apex:outputText value="*" rendered="{!f.Required || f.DBRequired}"/></b></td>
+                                            
+                                            <td class="field::{!f.fieldPath}  fieldInput" data-type="{!f.Type}" data-field="{!f.fieldPath}">
+                                                <apex:inputField value="{!obj[f.fieldPath]}" styleClass="get-input {!f.fieldPath} datePick" />
+                                            </td>
+                                        </tr>
+                                    </apex:outputPanel>
+                                    <apex:outputPanel layout="none" rendered="{!f.Type != 'date'}">
+                                        <tr>
+                                            <td class="fieldLabel type-{!f.Type}"><b>{!f.Label}<apex:outputText value="*" rendered="{!f.Required || f.DBRequired}"/></b></td>
+                                            
+                                            <td class="field::{!f.fieldPath} fieldInput" data-type="{!f.Type}" data-field="{!f.fieldPath}">
+                                                <apex:inputField value="{!obj[f.fieldPath]}" styleClass="get-input {!f.fieldPath}" />
+                                            </td>
+                                        </tr>
+                                    </apex:outputPanel>
+                                </apex:outputPanel>
+                                    
+                            </apex:repeat>
+                            <tr>
+                                <td><span style="font-size:10px;">*=Required</span></td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                </div>
+        
+                <div class='customDis-buttons' style="margin-top:20px;">
+                    <button style="margin-right: 5%; height: 40px; width: 40%; background: #387EF5; margin-left: 5%; color:white;" class="saveDisposition">Finish</button>
+                    <apex:commandButton style="height: 40px;width: 40%;background: #f8f8f8;margin-left: 5%;" title="Cancel" value="Cancel" onclick="$('#loadmask-wrapper').show(); getWaypointOptions(); return false;"/>
+                </div>      
+            </div>
+            <script>
+                getFieldSetInfo('checkOut');
+            </script>
+        </apex:outputPanel>
+        
+        
+    </apex:form>
+</apex:page>

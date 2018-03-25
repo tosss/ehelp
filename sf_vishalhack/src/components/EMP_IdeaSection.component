@@ -1,0 +1,134 @@
+<apex:component controller="EMP_IdeaController">
+    <apex:attribute description="Community Id" type="String" name="community" required="true" assignTo="{!communityIdValue}" />
+    <apex:attribute description="Community Name" type="String" name="name" required="false" assignTo="{!communityName}" />
+    
+    <style type="text/css">
+        .idea-container {
+            padding: 0 10px;
+        }
+        .panel-title {
+            height: 80px;
+            -webkit-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+        }
+        .title-text {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size:1.2em;
+            vertical-align:middle;
+        }
+    </style>
+    
+    <script type="text/javascript">
+    function promoteTheTdea(element, ideaId){
+        srcBtnId = 'srcBtn' + ideaId;
+        dstIdeaSpanId = 'toBeUpdated' + ideaId;
+        var type = 'Up';
+        
+        EMP_IdeaController.Vote(type, ideaId, function(result){
+            if(result != null)
+            {
+                result = result.split(',')[1];
+                result = (result>0 ? '+'+result : result);
+                result = parseInt(result, 10) *10;
+                jQuery("span[id=" +dstIdeaSpanId + "]").html(result + ' Points');
+            	jQuery("a[id=" +srcBtnId + "]").addClass('disabled');
+            }
+        });
+    }
+    
+    jQuery(document).ready(function(){
+        var template = '';
+        if('{!communityName}' == '')
+        {
+            EMP_IdeaController.getCommunityName('{!communityId}',function(result){
+                if(result != null)
+                {
+                    jQuery('#CommunityName').html(result);
+                }
+            });
+        }
+        
+        // iterate through the ideas list to decide whether promote should be disabled or not
+        jQuery("input[id^='voteType']").each(function (i, el) {
+            var hiddenVoteType = jQuery(this).val();
+            var ideaId = jQuery(this).attr('id').substring(8);
+            var hiddenCreatedById = 'createdBy' + ideaId;
+            var hiddenCreatedByUserId = jQuery("input[id=" +hiddenCreatedById + "]").val();
+            
+            if(hiddenVoteType == 'Up' || hiddenCreatedByUserId == '{!$User.Id}') 
+            {
+                srcBtnId = 'srcBtn' + ideaId;
+                jQuery("a[id=" +srcBtnId + "]").addClass('disabled');
+            }
+        });
+    });
+    
+    </script>
+    
+    <div class="idea-container">    
+        <h3 id="CommunityName">
+            {!communityName}
+        </h3>
+        <div class="row" id="IdeasSection">
+            <apex:repeat value="{!Ideas}" var="idea">
+                <input type="hidden" value="{!idea.VoteType}" id="voteType{!idea.IdeaObj.Id}" />
+                <input type="hidden" value="{!idea.IdeaObj.CreatedById}" id="createdBy{!idea.IdeaObj.Id}" />
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                    <div class="panel panel-default " style="margin-top:3%;">
+                        <div class="panel-heading" >
+                            <span style="font-weight:bold;font-size:1.3em;" title="{!idea.CreatorName}">{!idea.IdeaObj.CreatorName}</span>
+                            <div class="pull-right" style="position:relative; top:6px;">
+                                <span class="label label-default" id="toBeUpdated{!idea.IdeaObj.Id}">
+                                	{!idea.IdeaObj.voteTotal} Points
+                                </span>
+                            </div>
+                        </div>
+                        <div class="panel-body" style="text-align:center;">
+                            <div class="panel-title">
+                                <div class="title-text">
+                                    {!idea.IdeaObj.Title}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer" style="min-height:54px;">
+                            <div >
+                                <div class="pull-left">
+                                    <a class="btn btn-default" href="/Employees/ideas/viewIdea.apexp?id={!idea.IdeaObj.Id}">Details</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a onclick="promoteTheTdea(this, '{!idea.IdeaObj.Id}'); return false;" 
+                                       id="srcBtn{!idea.IdeaObj.Id}" href="" class="btn btn-info">
+                                        <span>
+                                            <i class="fa fa-plus-circle"></i> <b>10</b>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div style="text-align: center; vertical-align: bottom; line-height:1;">
+                                    <div>
+                                        <span style="font-size:0.9em;">
+                                            <span>{!idea.IdeaObj.NumComments} Comments</span>
+                                            <br/>
+                                            <span>Updated:</span>&nbsp;
+                                            <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                                <apex:param value="{!idea.IdeaObj.LastModifiedDate}" /> 
+                                            </apex:outputText>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </apex:repeat>
+        </div>
+        
+        <a href="/Employees/ideas/ideaList.apexp?lsi=0&u={!$User.Id}&c={!communityId}" class="btn btn-default">Show More</a> 
+        <a href="/Employees/ideas/editIdea.apexp?c={!communityId}&retURL=/ideas/ideaList.apexp?lsi=0&u={!$User.Id}&c={!communityId}" class="btn btn-default">Post Idea</a>
+    </div>
+    
+    
+    
+</apex:component>

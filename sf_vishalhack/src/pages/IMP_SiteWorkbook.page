@@ -1,0 +1,256 @@
+<!--
+/*------------------------------------------------------------
+Author: Kimiko Roberto
+Company: Cloud Sherpas
+Description: Discovery Workbook Dashboard page
+History
+08/26/14    Kimiko Roberto      Created
+09/02/14    Michael Lasala      Revised design to use visualforce tags and applied changes based on Sridhar's comments
+09/15/14    Alexander Daria     Add last modified, add progressbar
+10/14/14    Rey Austral         Put internal and inline css to an external css
+06/28/15    Vishal Bandari      RQ-04849: Commented Section Header and Back link
+12/09/16    Venkata Shrivol		Commented the code as it is no longer needed
+------------------------------------------------------------*/
+-->
+<apex:page ></apex:page>
+<!-- <apex:page standardController="SubProject__c" extensions="IMP_SiteWorkbook_Extension" id="DashboardID">
+    
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.7.2.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.8.20.custom.min.js')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.jQuery, 'css/redmond/jquery-ui-1.8.20.custom.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.IMP_Project_css)}"/>
+    <style>
+        .errorMsg {
+        Display:none;
+        }
+    </style>
+    <script>
+    //used to create a progress bar in the workbook dashboard
+    var j$; if(!j$) { j$ = jQuery.noConflict(); }
+    
+    j$(function() { 
+        
+        j$(".progressbar").each(function(index, element) {
+            var answers= j$(".progress-label h2", element).html();
+            answers= Number(answers);
+            var questions= j$(".progress-label span", element).html(); 
+            
+            questions= Number(questions);    
+            var pb = j$(element).progressbar();
+            
+            if(questions && !isNaN(questions)) 
+            { 
+                var max = pb.progressbar( "option", "max" );
+                // setter
+                pb.progressbar( "option", "max", questions);
+                pb.progressbar("option", "value", answers); 
+            }
+        });
+        j$(".category")
+        .css("width", 300)
+        .button();
+    });
+    
+    </script>
+    
+    <apex:form id="formId">
+        Section Header commented by Vishal Bandari on 28-June-2015
+      <apex:sectionHeader title="SubProject" subtitle="{!subProject.SubProject_Name__c}"/>
+        <apex:actionFunction action="{!deleteSiteWorkbook}" name="DeleteAccount" reRender="formId" status="actStatusId">
+            <apex:param name="accountid" value="" assignTo="{!SelectedId}"/>
+        </apex:actionFunction> 
+        commented by Vishal Bandari on 28-June-2015
+      <apex:outputLink value="/{!lastPage}" target="_parent" styleClass="backLink">Back</apex:outputLink> <br />  <br />
+        <apex:outputPanel id="messageErr">
+            <apex:pagemessages id="pgeMessage" />
+        </apex:outputPanel>
+        <apex:outputPanel >
+            <apex:actionStatus id="actStatusId">
+                <apex:facet name="start">
+                    <div class="waitingSearchDiv outerGrayedPanel" id="casActionProcessing"> 
+                        <div class="waitingHolder innerProcessPanel">
+                            <br />
+                            <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />   
+                            <span class="waitingDescription">Loading...</span>
+                        </div>
+                    </div>
+                </apex:facet>
+            </apex:actionStatus>
+        </apex:outputPanel>       
+        Create Workbook section
+        <apex:pageBlock tabStyle="SubProject__c" >
+         
+            <apex:outputPanel styleClass="dashboard_create">
+                <apex:pageBlockTable value="{!tempSite}" var="a"  >
+                    <apex:column headerValue="Create Workbook"  headerClass="TableTitle"  >
+                        <apex:actionRegion >
+                            <apex:outputLabel for="cSite" value="Choose Site" />&nbsp;&nbsp;
+                            <apex:selectList id="cSite" value="{!tempSite.Site__c}" size="1">
+                                <apex:selectOptions value="{!Sites}"/>
+                            </apex:selectList>
+                            <apex:inputField id="cSite" value="{!tempSite.Site__c}" />
+                            <apex:commandButton value="Create" action="{!createWkbook}" reRender="formId" status="actStatusId"/>
+                        </apex:actionRegion>
+                    </apex:column>
+                    <apex:column headerValue="Copy Workbook within SubProject" headerClass="TableTitle">
+                        <apex:actionRegion >
+                            <apex:outputLabel for="source" value="Source Site"/>&nbsp;&nbsp;
+                            <apex:selectList value="{!siteClone.Site_Workbook__c}" size="1">
+                                <apex:selectOptions value="{!Sources}"/>
+                            </apex:selectList> <br/>
+                            <apex:outputLabel for="destination" value="Target Site" />&nbsp;&nbsp;&nbsp;
+                            <apex:inputField id="destination" value="{!site.Site__c}" />
+                            <apex:selectList id="destination" value="{!site.Site__c}" size="1">
+                                <apex:selectOptions value="{!Sites}"/>
+                            </apex:selectList>
+                            <apex:commandButton value="Copy" action="{!cloneWkbook}" reRender="formId" status="actStatusId"/>  
+                        </apex:actionRegion>
+                     <apex:commandButton value="Copy to other Site with in SubProject" onclick="window.open('/apex/IMP_CopyWorkbooksToAnotherSite?id=' + '{!subProject.Id}','SubProjects','location=1,status=1,scrollbars=1,resizable=1, width=800,height=600'); return false"/>   
+                    </apex:column>
+                    <apex:column headerValue="Copy Workbook to another SubProject" headerClass="TableTitle">
+                        <apex:commandButton value="Copy to other SubProject" onclick="window.open('/apex/IMP_WorkBookAcrossProjects?id=' + '{!project.Id}','Projects','location=1,status=1,scrollbars=1,resizable=1, width=800,height=600'); return false"/>
+                    </apex:column>    
+                </apex:pageBlockTable>
+            </apex:outputPanel>
+        </apex:pageBlock>
+        
+        Checklist Dasboard section
+        <apex:pageBlock title="Checklist Dashboard">        
+            <apex:pageBlockSection collapsible="false" > </apex:pageBlockSection>
+            <apex:pageBlockButtons location="Top">
+             <div class="dashboard_checklist_control">
+                <apex:commandButton value="View" action="{!ViewChecklist}" ></apex:commandButton> 
+                <apex:commandButton value="Edit" action="{!EditChecklist}"></apex:commandButton> 
+            </div>  
+            </apex:pageBlockButtons>                   
+            <apex:pageblocktable value="{!projectChkLists}" var="dtl" styleClass="dashboard_Checklist_table">
+                <apex:column value="{!dtl.Item_Category__r.Name}"   headerValue="Checklist Category"></apex:column>
+                <apex:column styleClass="textCenter" value="{!dtl.Number_of_Items_Remaining__c}" headerClass="textCenter" headerValue="# Items Remaining"  ></apex:column>
+                <apex:column styleClass="textCenter" value="{!dtl.Number_of_Items_Collected__c}" headerClass="textCenter"  headerValue="# Items Collected"  ></apex:column>
+            </apex:pageBlockTable>    
+            <br />
+            <apex:pageblocksection >
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Last Modified Date</apex:outputLabel>
+                    <apex:outputText value=" {!lastModifiedDate}"></apex:outputText> 
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Last Modified By</apex:outputLabel>
+                    <apex:outputText >{!lastModifiedBy}</apex:outputText>
+                </apex:pageBlockSectionItem>
+            </apex:pageblocksection>
+        </apex:pageBlock>
+        
+        Workbook Dashboard section
+        
+        <apex:pageBlock rendered="{!(siteDetailNew.size > 0)}" id="details" title="Workbook Dashboard">
+            
+            <script>
+            //need this to reload the progressbar when the pagination is click
+            var j$; if(!j$) { j$ = jQuery.noConflict(); }
+            j$(function() { 
+                j$(".progressbar").each(function(index, element) {
+                    var answers= j$(".progress-label h2", element).html();
+                    answers= Number(answers);
+                    var questions= j$(".progress-label span", element).html(); 
+                    
+                    questions= Number(questions);    
+                    var pb = j$(element).progressbar();
+                    
+                    if(questions && !isNaN(questions)) 
+                    { 
+                        
+                        var max = pb.progressbar( "option", "max" );
+                        // setter
+                        pb.progressbar( "option", "max", questions);
+                        pb.progressbar("option", "value", answers); 
+                    }
+                });
+                j$(".category")
+                .css("width", 300)
+                .button();
+            });
+            </script>
+            Pagination Section for the workbook dashboard
+           <apex:pageBlockButtons >
+         
+            <apex:outputPanel >
+                <div class="dashboard_workbook_pagination" align="right">
+                   
+                        <apex:commandLink action="{!first}"  rendered="{!hasPrevious}" rerender="details" title="First Page" >First </apex:commandlink>
+                       
+                        <apex:commandLink action="{!previous}" rendered="{!hasPrevious}"  rerender="details" title="Previous Page" > Previous</apex:commandlink>  
+                      
+                        <apex:commandLink action="{!next}" rendered="{!hasNext}" rerender="details" title="Next Page">Next  </apex:commandlink>
+                       
+                        <apex:commandLink action="{!last}" rendered="{!hasNext}"  rerender="details" title="Last Page" >Last  </apex:commandlink>
+                        
+                        <apex:outputText rendered="{!(siteDetailNew.size > 0)}">{!(pageNumber * size)+1-size}-{!IF((pageNumber * size)>noOfRecords, noOfRecords,(pageNumber * size))} of {!noOfRecords} </apex:outputText>
+                  
+                </div>
+            </apex:outputPanel>
+           
+           </apex:pageBlockButtons>
+            
+            <apex:repeat value="{!siteDetailNew}"  var="site">
+                Site title
+                <apex:panelGrid styleClass="dashboard_workbook_site"  columns="4" columnClasses="col1,col2,col3,col4"   >
+                    Category column
+                    <apex:outputPanel >
+                        <apex:outputText value="{!site.Site__r.Name}"/> 
+                    </apex:outputPanel>
+                    <apex:outputPanel >Created Date:</apex:outputPanel>
+                    <apex:outputPanel >
+                        <apex:outputText value=" {!site.CreatedDate}"></apex:outputText>              
+                    </apex:outputPanel>
+                    <apex:outputPanel >
+                        <apex:outputText > <a href="javascript:if (window.confirm('Are you sure?')) DeleteAccount('{!site.Id}');" >Delete</a></apex:outputText>
+                    </apex:outputPanel>      
+                </apex:panelGrid>
+                
+                Related site categories
+                <apex:pageBlockTable columns="7" value="{!siteWkbkCatMap[site.Id]}" var="siteCat">
+                    <apex:column styleClass="dashboard_workbook_control" headerValue="Action">
+                        Hemanth 29-May-2015 Modified outputlink to pass subprojectId to the view page
+                        <apex:outputLink value="apex/imp_siteworkbookcategory?id={!siteCat.Id}&View=true&subProject={!subProject.Id}" target="_parent"> View</apex:outputLink> /
+                        Hemanth 28-May-2015 Modified outputlink to pass subprojectId to the edit page
+                        <apex:outputLink value="apex/imp_siteworkbookcategory?id={!siteCat.Id}&subProject={!subProject.Id}" target="_parent"> Edit</apex:outputLink>
+                    </apex:column>
+                    <apex:column styleClass="dashboard_workbook_category" headerValue="Dealership Need">
+                        <apex:outputText value="{!siteCat.Question_Category__r.Name}"/> 
+                    </apex:column>
+                    <apex:column styleClass="dashboard_workbook_progress" rendered="true" headerValue="Progress">
+                        <apex:outputPanel id="thePanel"  layout="block"  rendered="true">
+                            <div class="progressbar" >
+                                <div class="progress-label">
+                                    <h2>{!siteCat.No_of_Discovery_Answer_Wkbk_Categories__c}</h2>
+                                    /<span>{!siteCat.Count_of_Questions__c}</span> 
+                                </div>
+                            </div>
+                        </apex:outputPanel>
+                    </apex:column>
+                    <apex:column styleClass="dashboard_workbook_By" headerValue="Last Modified By">  
+                       Last Modified  By:
+                    </apex:column>
+                    <apex:column styleClass="dashboard_workbook_By_val" headerValue="Last Modified By">  
+                       <apex:repeat value="{!siteCat.Discovery_Answer_Workbook_Categories__r}" var="ans"><apex:outputField value="{!ans.LastModifiedById}"/></apex:repeat>
+                    </apex:column>
+                    <apex:column styleClass="dashboard_workbook_Date" > 
+                        Last Modified Date:
+                    </apex:column>
+                    <apex:column styleClass="dashboard_workbook_Date_val" headerValue="Last Modified Date"> 
+                        <apex:repeat value="{!siteCat.Discovery_Answer_Workbook_Categories__r}" var="ans"><apex:outputText value=" {!ans.LastModifiedDate}"></apex:outputText></apex:repeat>
+                    </apex:column>
+                </apex:pageBlockTable><br/>
+            </apex:repeat>
+           
+        </apex:pageBlock>
+        
+        <script >
+        //to hide the double error message
+        j$(".messageText").each(function () {
+            j$("ul li:not(:first)", this).hide();
+        });
+        </script>
+    </apex:form>
+</apex:page> -->

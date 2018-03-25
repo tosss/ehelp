@@ -1,0 +1,65 @@
+/* **************************************************************************************** 
+***** 03/28/2017 vijay.manimaran@cdk.com Created 
+*****
+******************************************************************************************** */
+
+.THIS .custom-button{
+    text-align:center;
+    margin:auto;
+}
+
+.THIS .slds-button {
+    color: rgb(255, 255, 255);
+    /* padding: 9px; */
+    width: 40%;
+    font-size: 1.5rem;
+    padding: 1%;
+    margin-top:2%;
+}
+
+.THIS .slds-button--danger {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+    color: rgb(255, 255, 255);
+}
+
+.THIS .hide-form{
+    display:none;
+}
+.THIS .validation-custom {
+    text-align: center;
+}
+.THIS .slds-form-element__label {
+
+    font-size: 1.5rem;
+    padding:1%;
+}
+.THIS .slds-truncate {
+    max-width: 100%;
+    white-space: initial;
+}
+
+.THIS .heading-custom{
+    text-align:center;
+    margin: auto;
+}
+
+.THIS .slds-item {
+    padding: 20px;
+    background: #DADAEE;
+    border-color: #999;
+}
+.THIS .slds-button--neutral{
+    color: rgb(56, 148, 0);
+    width: 40%;
+    font-size: 1.5rem;
+    padding: 1%;
+    margin-top: 2%;
+}
+.THIS .slds-icon_container .slds-icon-utility-error {
+    margin: 20px !important;
+}

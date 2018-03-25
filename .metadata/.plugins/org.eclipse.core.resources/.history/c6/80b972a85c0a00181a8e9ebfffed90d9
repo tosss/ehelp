@@ -1,0 +1,3 @@
+<design:component label="Stock Ticker">
+	<design:attribute name="RefreshInterval" label="Refresh Interval" description="Frequency of refresh" datasource="1min,5min,15min,30min,60min" />
+</design:component>

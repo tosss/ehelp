@@ -1,0 +1,16 @@
+<apex:page >
+	<script type="text/javascript">
+    //2016-06-24  ragashalini.koka@cdk.com  added try catch and fetchAllRecords method to auto refresh screen in new MAT.
+    try {
+        var url = document.referrer;
+        var siteId = url.substring(url.indexOf("com/")+4,url.lastIndexOf("/e"));
+        window.opener.refreshPicklistValuesForSite(siteId);
+        window.opener.hideAlert();
+        // window.opener.fetchAllRecords();
+    }
+    catch(err) {
+    }
+      window.close();
+    
+	</script>
+</apex:page>

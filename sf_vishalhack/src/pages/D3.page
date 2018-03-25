@@ -1,0 +1,37 @@
+<apex:page controller="ChartController"  docType="html-5.0"      applyBodyTag="false" applyHtmlTag="false" showHeader="false" sidebar="false">  
+
+    <head>
+  <!-- Load c3.css -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.css" rel="stylesheet" type="text/css" />
+  <!-- Load d3.js and c3.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.js"></script>
+</head>
+    <script>
+    var chart = c3.generate({
+        bindto: '#chart',
+        data:
+        {
+            columns:
+            [
+                // JSON.parse() is required here because the JSON returned by
+                //   {!myData} is (and can only be) a string
+                JSON.parse({!myData})
+            ]
+        }
+    });
+</script>
+         <body>
+  <div id="chart"></div>
+             {!myData}
+</body>
+    <!--<apex:pageBlock title="Chart">
+    <apex:pageBlockTable value="{!pieData}" var="c">
+         <apex:column headerValue="NUM" value="{!c.num}"/>
+         <apex:column  headerValue="RemainingPercentage"
+          value="{!c.data}"/>
+         <apex:column headerValue="API" value="{!c.name}"/>
+    </apex:pageBlockTable>
+    </apex:pageBlock>-->
+   
+</apex:page>

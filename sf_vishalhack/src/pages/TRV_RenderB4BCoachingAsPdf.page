@@ -1,0 +1,88 @@
+<!--2017-03-20	lalitha.adduru@cdk.com	modified the page to be in french when french docusign needed s checked - RQ-08667 -->
+<apex:page renderAs="pdf" standardcontroller="Traver_Coaching__c"  extensions="TRV_RenderB4BCoachingAsPDF_Controller">
+   
+    <apex:image value="{!$Resource.EMP_CDK_Logo_Web}"/>
+    <p><apex:outputText value="{0,date,MM/dd/yy}" label="Date"> <apex:param value="{!TODAY()}" /></apex:outputText></p>
+    
+    <apex:outputPanel rendered="{!NOT(frenchDocusignNeeded)}">
+    <p> {!Traver_Coaching__c.TRV_FRM_Resource_Name_onResource__c}, will be visiting your dealership on &nbsp; <apex:outputText value="{0,date,MM/dd/yy}"> <apex:param value="{!Traver_Coaching__c.Visit_Start_Date__c}" /> </apex:outputText> for {!NumberOfDays} days.</p>
+    </apex:outputPanel>
+    
+    <apex:outputPanel rendered="{!frenchDocusignNeeded}"><p>
+    {!$Setup.FrenchWords__c.In_accordance_with__c} aux dispositions de votre Contrat-cadre de services, de ses Addendas et Annexes, 
+    conclus entre CDK et votre concessionnaire, {!Traver_Coaching__c.TRV_FRM_Resource_Name_onResource__c} 
+    se {!$Setup.FrenchWords__c.Will_Present__c} chez votre concessionnaire le &nbsp; <apex:outputText value="{0,date,MM/dd/yy}"> <apex:param value="{!Traver_Coaching__c.Visit_Start_Date__c}" /> </apex:outputText>
+    pour une visite de {!NumberOfDays} jours.</p>
+    </apex:outputPanel>
+    <!-- <p>Delivery Location: {!deliveryLocation}</p>-->
+    <!--<apex:outputPanel rendered="{!isDeliveryLocation}">
+        <p><apex:outputText rendered="{!NOT(frenchDocusignNeeded)}"/>Delivery Location: {!deliveryLocation}</p>
+        <p><apex:outputText rendered="{!frenchDocusignNeeded}"/>Address du site: {!deliveryLocation}</p>
+    </apex:outputPanel>-->
+    
+    <apex:outputPanel rendered="{!NOT(isDeliveryLocation)}">
+        <p><apex:outputText rendered="{!NOT(frenchDocusignNeeded)}">Delivery Location: {!Traver_Coaching__c.Traver_Project__r.TRV_FRM_Address_onAccount__c}</apex:outputText></p>
+        <p><apex:outputText rendered="{!frenchDocusignNeeded}">Address du site: {!Traver_Coaching__c.Traver_Project__r.TRV_FRM_Address_onAccount__c}</apex:outputText></p>
+    </apex:outputPanel>
+    
+    <apex:outputPanel >
+    <p><apex:outputText rendered="{!NOT(frenchDocusignNeeded)}">This visit is for:</apex:outputText></p>
+    <p><apex:outputText rendered="{!NOT(frenchDocusignNeeded)}">Dealership: {!Traver_Coaching__c.Traver_Project__r.TRV_FRM_Name_onAccount__c}</apex:outputText></p> 
+    <p><apex:outputText rendered="{!frenchDocusignNeeded}">Concessionnaire: {!Traver_Coaching__c.Traver_Project__r.TRV_FRM_Name_onAccount__c}</apex:outputText></p>
+    <p><apex:outputText rendered="{!frenchDocusignNeeded}">Objet de la visite : {!Traver_Coaching__c.RecordType.Name}</apex:outputText></p>
+    <p><apex:outputText rendered="{!NOT(frenchDocusignNeeded)}">Dealership Address: {!Traver_Coaching__c.Traver_Project__r.TRV_FRM_Address_onAccount__c}</apex:outputText></p>
+    <p><apex:outputText rendered="{!frenchDocusignNeeded}">Adresse du concessionnaire: {!Traver_Coaching__c.Traver_Project__r.TRV_FRM_Address_onAccount__c}</apex:outputText></p>
+    <p><apex:outputText rendered="{!NOT(frenchDocusignNeeded)}">Dealership Contact: {!Traver_Coaching__c.Traver_Project__r.Contact_Name__c}</apex:outputText></p>
+    <p><apex:outputText rendered="{!frenchDocusignNeeded}">Contact chez le concessionnaire : {!Traver_Coaching__c.Traver_Project__r.Contact_Name__c}</apex:outputText></p>
+    <p><apex:outputText rendered="{!NOT(frenchDocusignNeeded)}">Phone Number: {!Traver_Coaching__c.Traver_Project__r.Account_Phone_Number__c}</apex:outputText></p>
+    <p><apex:outputText rendered="{!frenchDocusignNeeded}">No de {!$Setup.FrenchWords__c.Phone__c}: {!Traver_Coaching__c.Traver_Project__r.Account_Phone_Number__c}</apex:outputText></p>
+    <p><apex:outputText rendered="{!NOT(frenchDocusignNeeded)}">Consulting Project ID: {!Traver_Coaching__c.Traver_Project__r.Name}</apex:outputText></p>
+    <p><apex:outputText rendered="{!frenchDocusignNeeded}">ID du projet-conseil: {!Traver_Coaching__c.Traver_Project__r.Name}</apex:outputText></p>
+    <p><apex:outputText rendered="{!NOT(frenchDocusignNeeded)}">B4B Coaching ID:  <a href="{!linkToB4B}">{!Traver_Coaching__c.Name}</a></apex:outputText></p>
+    <p><apex:outputText rendered="{!frenchDocusignNeeded}">ID Coaching B4B:  <a href="{!linkToB4B}">{!Traver_Coaching__c.Name}</a></apex:outputText></p>
+    <p><apex:outputText rendered="{!NOT(frenchDocusignNeeded)}">Primary Client Contacts: {!Traver_Coaching__c.Primary_Client_Contacts__c}</apex:outputText></p>
+    <p><apex:outputText rendered="{!frenchDocusignNeeded}">Principal contact du client: {!Traver_Coaching__c.Primary_Client_Contacts__c}</apex:outputText></p>
+    <p><apex:outputText rendered="{!NOT(frenchDocusignNeeded)}">Primary Client Email: {!Traver_Coaching__c.Primary_Client_Email__c}</apex:outputText></p>
+    <p><apex:outputText rendered="{!frenchDocusignNeeded}">Principal courriel du client: {!Traver_Coaching__c.Primary_Client_Email__c}</apex:outputText></p>
+    <p><apex:outputText rendered="{!NOT(frenchDocusignNeeded)}">Primary Client Phone: {!Traver_Coaching__c.Primary_Client_Phone__c}</apex:outputText></p>
+    <p><apex:outputText rendered="{!frenchDocusignNeeded}">Principal no de {!$Setup.FrenchWords__c.Phone__c} du client: {!Traver_Coaching__c.Primary_Client_Phone__c}</apex:outputText></p>
+   
+    <!--<table>
+        <th>Coaching Contacts</th>
+        <tr><td>Primary Client Contacts</td><td>{!Traver_Coaching__c.Primary_Client_Contacts__c}</td></tr>
+        <tr><td>Primary Client Email</td><td>{!Traver_Coaching__c.Primary_Client_Email__c}</td></tr>
+        <tr><td>Contact Email</td><td>{!Traver_Coaching__c.TRV_FRM_ContactEmail_onConsultingProject__c}</td></tr>
+        <tr><td>Contact Phone</td><td>{!Traver_Coaching__c.TRV_FRM_Contact_Phone_onProjectContact__c}</td></tr>
+        <tr><td>Push Reason</td><td>{!Traver_Coaching__c.TRV_Push_Reason__c}</td></tr>
+        <tr><td>Pushed By</td><td>{!Traver_Coaching__c.TRV_Pushed_By__c}</td></tr>
+    </table>-->
+    
+    <p><apex:outputText rendered="{!NOT(frenchDocusignNeeded)}">No travel will be purchased until this form is received.  
+        By signing the confirmation, you are stating that you are authorized to give CDK Consulting permission to purchase airline tickets, book hotels, and make other transportation arrangements.
+        Once CDK Consulting has purchased airline tickets, they are non-refundable and will be invoiced to your dealership (as applicable).</apex:outputText></p>
+    <p><apex:outputText rendered="{!frenchDocusignNeeded}">Aucun {!$Setup.FrenchWords__c.shifting__c} ne pourra {!$Setup.FrenchWords__c.be__c} {!$Setup.FrenchWords__c.planned__c} avant que vous ne 
+        signiez et retourniez ce formulaire.  En signant la confirmation, vous indiquez que vous {!$Setup.FrenchWords__c.are__c} {!$Setup.FrenchWords__c.Authorized__c} {!$Setup.FrenchWords__c.At__c} {!$Setup.FrenchWords__c.Confer__c}
+        la permission au Services-conseils CDK d'acheter les billets d'avion, de {!$Setup.FrenchWords__c.book__c} les chambres {!$Setup.FrenchWords__c.Hotel__c} et de prendre
+        toute autre disposition requise. Les billets d'avion {!$Setup.FrenchWords__c.purchased__c} par les Services-conseils CDK pour ce {!$Setup.FrenchWords__c.shifting__c} ne sont 
+        pas remboursables. {!$Setup.FrenchWords__c.In_accordance_with__c} aux dispositions de votre Contrat-cadre de services, 
+        les frais de {!$Setup.FrenchWords__c.shifting__c} encourus pourraient {!$Setup.FrenchWords__c.be__c} {!$Setup.FrenchWords__c.Invoiced__c} {!$Setup.FrenchWords__c.At__c} votre concessionnaire.</apex:outputText></p>
+
+
+    
+    <div style='clear:right;margin-top:50px'>
+        <div style='float:right'>____________________________________</div>
+        <div style='float:right'><apex:outputText rendered="{!NOT(frenchDocusignNeeded)}">By :</apex:outputText>
+        <apex:outputText rendered="{!frenchDocusignNeeded}">{!$Setup.FrenchWords__c.Sign__c} par: (By :)</apex:outputText>
+        </div>
+        
+    </div>    
+    <div style='clear:right;margin-top:50px'>
+        <div style='float:right'>____________________________________</div>
+        <div style='float:right'><apex:outputText rendered="{!NOT(frenchDocusignNeeded)}">Date Signed :</apex:outputText>
+        <apex:outputText rendered="{!frenchDocusignNeeded}">Date de signature: (Date Signed :)</apex:outputText>
+        </div>
+    </div>
+        </apex:outputPanel>
+   <!---->
+    
+</apex:page>

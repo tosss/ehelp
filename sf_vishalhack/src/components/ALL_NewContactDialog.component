@@ -1,0 +1,157 @@
+<!--2016-05-12- anirudh.singh@cdk.com, venkata.shrivol@cdk.com- Created this component for RQ-06986.-->
+<!-- 2017-02-03  ragashalini.koka@cdk.com Added Mobile field for RQ-08334 -->
+<apex:component controller="ALL_NewContactDialog_Controller">
+    <!--<apex:attribute name="allAttributes" type="ALL_NewContact_Wrapper" assignTo="{!fetchAllAttributes}" required="true" description="All attributes."/>-->
+    <apex:attribute name="enablePR" type="boolean" assignTo="{!enableProjectRole}" required="false" description=""/>
+    <apex:attribute name="lmaId" type="string" required="false" description=""/>
+    <script type="text/javascript">
+	var __sfdcSessionId = '{!GETSESSIONID()}';
+    function callDialogFromMilestone(inputCall)
+    {
+        sforce.connection.sessionId = "{!$Api.Session_ID}";
+        var __numberOfSites = '{!numberOfSites}';
+        var subProjectId = '{!subProjectId}';
+        if(__numberOfSites > 0)
+        {
+            openDialog(subProjectId, true, true,inputCall);
+        }
+        else
+        {
+            alert('There are no SubProject-Sites on this SubProject. Please add at least one site.');
+        }
+        //console.log(typeof __numberOfSites);
+    }
+	</script>
+	
+    <apex:includeScript value="/soap/ajax/34.0/connection.js"/>
+	<apex:includeScript value="/soap/ajax/34.0/apex.js"/>
+
+    <apex:includeScript value="{!URLFOR($Resource.ALL_NewContactDialog_JS)}"/>
+    <apex:form >
+        <div id="newContactSectionContainer">
+            <div id="newContactSection" style="display:none;" >
+                <apex:pageblock mode="edit" >
+                    <apex:pageblocksection columns="2" >
+                        <apex:pageblocksection columns="1" >
+                            <apex:pageblocksectionitem labelStyle="width:35%;" >
+                                <apex:outputlabel value="First Name" for="newContactFirstName" />
+                                <apex:outputpanel styleclass="requiredInput" layout="block" >
+                                    <div class="requiredBlock" ></div>
+                                    <input type="text" id="newContactFirstName" />
+                                </apex:outputpanel>
+                            </apex:pageblocksectionitem>
+                            
+                            <apex:pageblocksectionitem >
+                                <apex:outputlabel value="Last Name" for="newContactLastName" />
+                                <apex:outputpanel styleclass="requiredInput" layout="block" >
+                                    <div class="requiredBlock" ></div>
+                                    <input type="text" id="newContactLastName" />
+                                </apex:outputpanel>
+                            </apex:pageblocksectionitem>
+                            
+                            <apex:pageblocksectionitem >
+                                <apex:outputlabel value="Account" for="newContactAccountSelect" />
+                                <apex:outputpanel styleclass="requiredInput" layout="block" >
+                                    <div class="requiredBlock" ></div>
+                                    <select id="newContactAccountSelect" >
+                                        <apex:repeat value="{!AccountMap}" var="label">
+                                            <option value="{!AccountMap[label]}">{!label}</option>
+                                        </apex:repeat>
+                                    </select>
+                                </apex:outputpanel>
+                            </apex:pageblocksectionitem>
+                            
+                            <!--Use this account look-up when account needs to be look up instead of picklist-->
+                            <apex:pageblocksectionitem rendered="false">
+                                <apex:outputlabel value="Account" for="newContactAccountLookup" />
+                                <apex:outputpanel styleclass="requiredInput" layout="block">
+                                    <div class="requiredBlock" ></div>
+                                    <apex:inputField value="{!contactRecord.AccountId}"/>
+                                </apex:outputpanel>
+                            </apex:pageblocksectionitem>
+                        </apex:pageblocksection>
+                        
+                        <apex:pageblocksection columns="1" >
+                            <apex:pageblocksectionitem labelStyle="width:35%;" >
+                                <apex:outputlabel value="E-mail" for="newContactEmail" />
+                                <input type="text" id="newContactEmail" />
+                            </apex:pageblocksectionitem>
+                            
+                            <apex:pageblocksectionitem >
+                                <apex:outputlabel value="Phone" for="newContactPhone" />
+                                <apex:outputpanel styleclass="requiredInput" layout="block" id="phoneBlock">
+                                    <!--<div class="requiredBlock" ></div>-->
+                                    <input type="text" id="newContactPhone" onblur="formatPhoneNumber(this);"/>
+                                </apex:outputpanel>
+                            </apex:pageblocksectionitem>
+                            <!-- 2017-02-03  ragashalini.koka@cdk.com Added Mobile field for RQ-08334 -->
+                            <apex:pageblocksectionitem >
+                                <apex:outputlabel value="Mobile" for="newContactMobile" />
+                                <apex:outputpanel styleclass="requiredInput" layout="block" id="mobileBlock">
+                                    <!--<div class="requiredBlock" ></div>-->
+                                    <input type="text" id="newContactMobile" onblur="formatPhoneNumber(this);"/>
+                                </apex:outputpanel>
+                            </apex:pageblocksectionitem>
+                        </apex:pageblocksection>
+                    </apex:pageblocksection>
+                    
+                    <apex:pageblocksection columns="1" >
+                        <apex:pageblocksectionitem >
+                            <!--<apex:outputlabel value="{!fetchAllAttributes.fieldLabelToDisplay}" for="newSObjectRoles"/>-->
+                             <apex:outputlabel value="Contact Role" for="newSObjectRoles"/>
+                            <apex:outputpanel styleclass="requiredInput" layout="block" >
+                                <table border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td>
+                                            <div class="requiredBlock" style="left:-1px;"></div>
+                                            <select id="selectableSObjectRoles" multiple="multiple" size="4" style="min-height: 64px;">
+                                                <optgroup label="Available" style="font-size:14px;text-decoration:none;"></optgroup>
+                                                <apex:repeat value="{!RelationshipRoles}" var="label">
+                                                    <option value="{!RelationshipRoles[label]}">{!label}</option>
+                                                </apex:repeat>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <button class="btn ui-button ui-widget" style="margin:0px 6px 6px 3px;" id="newSObjectRoleSelect">
+                                                <span class="ui-button-icon-primary ui-icon ui-icon-carat-1-e"></span>
+                                            </button>
+                                            <br/>
+                                            <button class="btn ui-button ui-widget" style="margin:0px 6px 6px 3px;" id="newSObjectRoleUnselect">
+                                                <span class="ui-button-icon-primary ui-icon ui-icon-carat-1-w"></span>
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <select id="newSObjectRoles" multiple="multiple" size="4" style="min-height: 64px;">
+                                                <optgroup label="Choosen" style="font-size:14px;text-decoration:none;"></optgroup>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                                
+                            </apex:outputpanel>
+                        </apex:pageblocksectionitem>
+                    </apex:pageblocksection>
+                    
+                    <!--<apex:pageblocksection columns="1" rendered="{!fetchAllAttributes.displayProjectRole}">-->
+                    <apex:pageblocksection columns="1" rendered="{!enableProjectRole}">
+                        <!--<input type="hidden" id="displayProjectRole" value="{!fetchAllAttributes.displayProjectRole}"/>
+                        <input type="hidden" id="subProjectId" value="{!fetchAllAttributes.subProjectId}"/>-->
+                        <apex:pageblocksectionitem >
+                            <apex:outputlabel value="Project Role"/>
+                            <apex:outputpanel styleclass="requiredInput" layout="block">
+                                <div class="requiredBlock" ></div>
+                                <select id="projectRoleSelect" >
+                                    <apex:repeat value="{!ProjectRoles}" var="label" >
+                                        <option value="{!ProjectRoles[label]}">{!label}</option>
+                                    </apex:repeat>
+                                </select>
+                            </apex:outputpanel>
+                        </apex:pageblocksectionitem>
+                    </apex:pageblocksection>
+                    <div id="newContactErrorSummary" class="NewContactErrorSummary" style="text-align:center;"></div>
+                </apex:pageblock>
+            </div>
+        </div>
+    </apex:form>
+    
+</apex:component>

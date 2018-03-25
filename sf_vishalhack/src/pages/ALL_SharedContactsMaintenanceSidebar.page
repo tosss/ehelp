@@ -1,0 +1,74 @@
+<apex:page >
+    
+    <div style="width:180px">
+        <div style="background-color: #8D0E57; width: 100%; border-radius: 3px; ">
+            <p style="padding: 2px;">
+                <span style="color:#FFF; font-weight:bold; text-shadow: 1px 1px #333;">
+                Shared Contacts Maintenance
+                </span>
+            </p>
+        </div>
+        <!--
+        <p>
+            From: <span style="color:#00A9CE;text-shadow: 1px 1px #333; font-size:1.5em;"><b>NOW</b></span><br/>Friday, June 17th <b>7PM CST</b>
+            <br/><br/>
+            To: <span style="color:#82C600;text-shadow: 1px 1px #333; font-size:1.5em;"><b>Monday</b></span>, <br/>June 20th <b>6AM CST</b>
+        </p>
+        -->
+        <!--<p>During this time the CDK Saleforce.com instance will be updated for the new Shared Contacts release.  While you can access the system during those hours, <b>please do NOT create any new contacts during this time</b>.</p>-->
+        <p>Due to the Shared Contacts deployment and data load, some Cases are still being updated. </p>
+        <p>If you have any questions, feel free to contact the <a href="https://mycdk.force.com/Employees/apex/EMP_AssociatePortalPage?page=ITSupportCommunity" target="_blank">IT Helpdesk</a>!</p>
+        
+        <p></p>
+    </div>
+    
+    <style>
+    /* @group Blink */
+    
+    .blink {
+        -webkit-animation: blink 1s linear infinite;
+        -moz-animation: blink 1s linear infinite;
+        -ms-animation: blink 1s linear infinite;
+        -o-animation: blink 1s linear infinite;
+        animation: blink 1s linear infinite;
+    }
+    
+    @-webkit-keyframes blink {
+        0% { opacity: 0.5; }
+        50% { opacity: 0.5; }
+        50.01% { opacity: 0.75; }
+        100% { opacity: 0.75; }
+    }
+    
+    @-moz-keyframes blink {
+        0% { opacity: 0.5; }
+        50% { opacity: 0.5; }
+        50.01% { opacity: 0.75; }
+        100% { opacity: 0.75; }
+    }
+    
+    @-ms-keyframes blink {
+        0% { opacity: 0.5; }
+        50% { opacity: 0.5; }
+        50.01% { opacity: 0.75; }
+        100% { opacity: 0.75; }
+    }
+    
+    @-o-keyframes blink {
+        0% { opacity: 0.5; }
+        50% { opacity: 0.5; }
+        50.01% { opacity: 0.75; }
+        100% { opacity: 0.75; }
+    }
+    
+    @keyframes blink {
+        0% { opacity: 0.5; }
+        50% { opacity: 0.5; }
+        50.01% { opacity: 0.75; }
+        100% { opacity: 0.75; }
+    }
+    
+    /* @end */
+    </style>
+    
+</apex:page>

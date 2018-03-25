@@ -1,0 +1,49 @@
+<!--2016-07-26- anirudh.singh@cdk.com- Created this class for RQ-07332.-->
+    <aura:component implements="force:appHostable,forceCommunity:availableForAllPageTypes,forceCommunity:layout" access="global"
+    controller="EMP_LinkCollection_Controller">
+    <ltng:require styles="{!'/resource/FontAwesome/4.6.1/css/font-awesome.css'}"/>
+    
+    <aura:attribute name="collectionName" type="String" default="Home Page Links" description="The name of the Link Collection. Use 'My Links' for displaying User Personal Links."/>
+    <aura:attribute name="linksWrapperList" type="EMP_LinkCollection_Controller.LinkWrapper[]" />
+    <aura:attribute name="color" type="String" default="Green" access="global" />
+    <aura:attribute name="dsg_knowledgeArticleID" type="string" />
+    <aura:handler name="init" value="{!this}" action="{!c.displayLinkCollection}"/>
+    <!--
+    <aura:registerEvent name="articleName" type="c:ArticleNameEvent"/>
+-->
+    <div>
+        <div class="slds-grid">
+            <div class="slds-p-horizontal_small  slds-large-size_3-of-12" style="min-width:240px;"> 
+                <h2>{!v.collectionName}</h2>
+                <table class="slds-table " >
+                    <tbody>
+                        <aura:iteration items="{!v.linksWrapperList}" var="linkWrapperRecord">
+                            <aura:if isTrue="{!linkWrapperRecord.link.Link_Text__c != Null}">
+                                <tr>
+                                    <td>
+                                        <div class="slds-truncate text-title-caps" >
+                                            <aura:if isTrue="{!linkWrapperRecord.link.Link_URL__c != Null}">   
+                                                <a data-id="{!linkWrapperRecord.link.Link_URL__c}" href="{!linkWrapperRecord.link.Link_URL__c}" id="{!linkWrapperRecord.link.Link_URL__c}" style="width:100%; display:block;">
+                                                    {!linkWrapperRecord.link.Link_Text__c}
+                                                </a>
+                                            </aura:if>
+                                            <aura:if isTrue="{!linkWrapperRecord.link.Link_URL__c == Null}"> 
+                                                <a data-id="{!linkWrapperRecord.link.content_URL__c}" onclick="{!c.onClick}" id="{!linkWrapperRecord.link.Content_URL__c}" style="width:100%; display:block;">
+                                                    {!linkWrapperRecord.link.Link_Text__c}
+                                                </a>
+                                            </aura:if>
+                                        </div> 
+                                    </td>
+                                </tr>
+                            </aura:if>
+                        </aura:iteration>
+                    </tbody>
+                </table>
+            </div>
+                
+            <div class="slds-col">
+                <c:COM_ArticleDetailContent_LCMP dsg_knowledgeArticleID="{!v.dsg_knowledgeArticleID}" noData="false"/>
+            </div>
+        </div>
+    </div>
+</aura:component>

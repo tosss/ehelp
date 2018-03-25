@@ -1,0 +1,22 @@
+<!-- ********************************************************************
+**8/16/2017 vijay.manimaran@cdk.com created 
+**
+*************************************************************************-->
+
+<aura:component implements="force:appHostable,forceCommunity:availableForAllPageTypes" access="global">	
+    
+    <aura:attribute name="dsg_headerName" type="String" />
+    <aura:attribute name="color" type="String" default="Green" access="global" />
+    <aura:attribute name="dsg_headerAlign" type="String" default="left"  />
+    <aura:attribute name="dsg_headerFont" type="String" default="heading2"  />
+    <div>
+        <div class="base-items uiAbstractList selfServiceBaseSimpleItems selfServiceTopicTrendingArticles pad-header lc">
+            <div class="{! 'ha-' + v.dsg_headerFont}">
+                <div class="{! 'lc-' + v.color + '-header-border-bottom title'+ ' ha-'+ v.dsg_headerAlign}">     
+                    {!v.dsg_headerName}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</aura:component>

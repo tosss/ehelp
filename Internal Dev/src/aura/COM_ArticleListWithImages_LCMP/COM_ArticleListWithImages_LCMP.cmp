@@ -1,0 +1,182 @@
+<!-- ********************************************************************
+**RQ-09404 - 6/29/2017 vijay.manimaran@cdk.com created 
+**
+*************************************************************************-->
+
+<aura:component implements="force:appHostable,forceCommunity:availableForAllPageTypes" access="global" controller="COM_ArticleList_Controller">
+    <aura:attribute type="String" name="header" />
+    <aura:attribute name="knowledgeArticles" type="String" />
+    <aura:attribute name="knowledgeArticlesCount" type="String[]" />
+    <aura:attribute name="dsg_topicName" type="String" />
+    <aura:attribute name="dsg_articleCounter" type="String" default="4" />
+    <aura:attribute name="c_offset" type="String" default="2" />
+    <aura:attribute name="dsg_headerName" type="String" />
+    <aura:attribute name="color" type="String" default="Green" access="global" />
+    <aura:attribute name="showPagination" type="String" default="Yes" access="global" />
+    <aura:attribute name="dsgn_sortBy" type="String" default="Name" access="global" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="attachment" type="String" default="field=Attachment__Body__s" />
+    <aura:attribute name="imageAttachment" type="String" default="field=Image__Body__s" />
+    <aura:attribute name="loadMore" type="String" default="False" />
+    <aura:attribute name="doctype" type="String" />
+    <aura:attribute name="pathName" type="String" />
+    <aura:attribute name="pathName_Attachment" type="String" />
+    <aura:attribute name="hostName" type="String" />
+    
+    <aura:attribute name="dsgn_showImage" type="String" default="Normal view" />
+    <aura:attribute name="dsgn_showViews" type="String" default="Yes" />
+    <aura:method name="showSpinnerMethod" action="{!c.showSpinner}" description=""></aura:method>
+    <aura:method name="hideSpinnerMethod" action="{!c.hideSpinner}" description=""></aura:method>
+    
+    <div>
+       <div class="base-items uiAbstractList selfServiceBaseSimpleItems selfServiceTopicTrendingArticles pad-header lc">
+            <h2 class="{! 'lc-' + v.color + '-header-border-bottom title' }">     
+                {!v.dsg_headerName}
+            </h2>
+        </div>
+        <aura:if isTrue="{!v.dsgn_showImage != 'Compact view'}">
+            <aura:iteration items="{!v.knowledgeArticles}" var="knowledgeArticle">
+                <a href="{! '/'+ v.pathName+'/article/'+knowledgeArticle.KnowledgeArticleVersionlst.UrlName}">
+                    <ul class="slds-has-dividers--around-space">
+                        <li>
+                            <div class="slds-tile slds-media">
+                                <aura:if isTrue="{!knowledgeArticle.EMPCommunityArticle.Image__Name__s != Null }">
+                                    <div class="article-image" style="{! 'background-image: url('+'\'/'+v.pathName_Attachment+'/servlet/fileField?entityId='+knowledgeArticle.KnowledgeArtcle_Id+'&amp;'+ v.imageAttachment+'\')'}">
+                                    </div>
+                                    <div class="image-placeholder">
+                                        <lightning:icon iconName="utility:image" size="large" />
+                                    </div>
+                                </aura:if>
+                                <div class="slds-media__body">
+                                    <div class="text-width">
+                                        <span class="article-title">
+                                            <ui:outputURL value="{!'/'+v.pathName+'/article/'+knowledgeArticle.KnowledgeArticleVersionlst.UrlName}" label="{!knowledgeArticle.KnowledgeArticleVersionlst.Title}"/>
+                                        </span>
+                                        <span class="publish-date">
+                                            
+                                            &nbsp;&ndash;&nbsp;<ui:outputdate value="{!knowledgeArticle.KnowledgeArticleVersionlst.LastPublishedDate}"></ui:outputdate>
+                                        </span>
+                                    </div>
+                                    <div class="text text-width">
+                                        <div class="summary">
+                                            {!knowledgeArticle.KnowledgeArticleVersionlst.Summary}<span class="ellipsis"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <aura:if isTrue="{!knowledgeArticle.EMPCommunityArticle.Attachment__ContentType__s != Null}"> 
+                                <div class="file-icon" style="">
+                                    <a href="{!'/'+v.pathName_Attachment+'/servlet/fileField?entityId='+knowledgeArticle.KnowledgeArtcle_Id+'&amp;'+ v.attachment}">
+                                        <aura:if isTrue="{!knowledgeArticle.EMPCommunityArticle.Attachment__ContentType__s  == 'image/png' || knowledgeArticle.EMPCommunityArticle.Attachment__ContentType__s == 'image/jpeg' }">
+                                            <lightning:icon iconName="doctype:image" size="small" />
+                                        </aura:if>
+                                        <aura:if isTrue="{!knowledgeArticle.EMPCommunityArticle.Attachment__ContentType__s == 'application/pdf'}">
+                                            <lightning:icon iconName="doctype:pdf" size="small" />
+                                        </aura:if>
+                                        <aura:if isTrue="{!(knowledgeArticle.EMPCommunityArticle.Attachment__ContentType__s == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')}">
+                                            <lightning:icon iconName="doctype:csv" size="small" />
+                                        </aura:if>
+                                           <aura:if isTrue="{!(knowledgeArticle.EMPCommunityArticle.Attachment__ContentType__s == 'text/csv')}">
+                                            <lightning:icon iconName="doctype:word" size="small" />
+                                        </aura:if>
+                                           <aura:if isTrue="{!(knowledgeArticle.EMPCommunityArticle.Attachment__ContentType__s == 'application/vnd.openxmlformats-officedocument.presentationml.presentation')}">
+                                            <lightning:icon iconName="doctype:ppt" size="small" />
+                                        </aura:if>
+                                    </a>
+                                </div>
+                            </aura:if>                                              
+                        </li>
+                    </ul>
+                </a>
+                <hr/>
+            </aura:iteration>
+        </aura:if>
+        
+        <!-- new code for the list starts here -->
+        <aura:if isTrue="{!v.dsgn_showImage == 'Compact view'}">
+            <aura:iteration items="{!v.knowledgeArticles}" var="knowledgeArticle" indexVar="indexval">
+                <ul class="slds-has-dividers--around-space">
+                    <li>
+                        <div class="slds-tile slds-media">
+                            <div class="" style="padding-right:8px;">
+                                <a href="{!'/'+v.pathName_Attachment+'/servlet/fileField?entityId='+knowledgeArticle.KnowledgeArtcle_Id+'&amp;'+ v.attachment}" target="_blank">
+                                       <aura:if isTrue="{!knowledgeArticle.EMPCommunityArticle.Attachment__ContentType__s  == 'image/png' || knowledgeArticle.EMPCommunityArticle.Attachment__ContentType__s == 'image/jpeg' }">
+                                            <lightning:icon iconName="doctype:image" size="small" />
+                                        </aura:if>
+                                        <aura:if isTrue="{!knowledgeArticle.EMPCommunityArticle.Attachment__ContentType__s == 'application/pdf'}">
+                                            <lightning:icon iconName="doctype:pdf" size="small" />
+                                        </aura:if>
+                                        <aura:if isTrue="{!(knowledgeArticle.EMPCommunityArticle.Attachment__ContentType__s == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')}">
+                                            <lightning:icon iconName="doctype:csv" size="small" />
+                                        </aura:if>
+                                           <aura:if isTrue="{!(knowledgeArticle.EMPCommunityArticle.Attachment__ContentType__s == 'text/csv')}">
+                                            <lightning:icon iconName="doctype:word" size="small" />
+                                        </aura:if>
+                                           <aura:if isTrue="{!(knowledgeArticle.EMPCommunityArticle.Attachment__ContentType__s == 'application/vnd.openxmlformats-officedocument.presentationml.presentation')}">
+                                            <lightning:icon iconName="doctype:ppt" size="small" />
+                                        </aura:if>
+                                </a>
+                            </div>
+                            
+                            <div class="slds-media__body">
+                                <span style="font-size: 14px;">
+                                    <span  class="new-blue">
+                                        <aura:if isTrue="{!knowledgeArticle.newDocument}"> 
+                                            NEW!
+                                        </aura:if>
+                                    </span>
+                                    <span class="article-title-compact">
+                                        <ui:outputURL label="{!knowledgeArticle.KnowledgeArticleVersionlst.Title}" value="{!'/'+v.pathName+'/article/'+knowledgeArticle.KnowledgeArticleVersionlst.UrlName}" />
+                                    </span>
+                                </span>
+                                <div class="publish-date_list">
+                                    <ui:outputdate value="{!knowledgeArticle.KnowledgeArticleVersionlst.LastPublishedDate}"></ui:outputdate>
+                                    &nbsp;&nbsp;
+                                </div>
+                            </div>
+                            
+                            <span class="icons-span">
+                                <aura:if isTrue="{!v.dsgn_showViews == 'Yes'}">
+                                    <span class="view-count">
+                                        <c:COM_ArticleDetailViewCount_LCMP dsg_knowledgeArticleID="{!knowledgeArticle.KnowledgeArticleVersionlst.UrlName}" dsg_iconSize="x-small" dsg_showIcon="true" dsg_fontSize="medium" dsg_showTitleParam="true" dsg_showTitle="false"/> 
+                                    </span>
+                                </aura:if>
+                                
+                                <a href="{!'/'+v.pathName_Attachment+'/servlet/fileField?entityId='+knowledgeArticle.KnowledgeArtcle_Id+'&amp;'+ v.attachment}" style="padding-right:2px;width:30px;" target="_blank">
+                                    <lightning:buttonIcon iconName="utility:download" size="medium" variant="bare" alternativeText="Settings" class="icon-custom slds-button slds-not-selected uiButton" />
+                                </a>
+                                <a href="{! '/'+ v.pathName+'/article/'+knowledgeArticle.KnowledgeArticleVersionlst.UrlName}" style="padding-right: 2px;width:30px;">
+                                    <lightning:buttonIcon iconName="utility:description" size="medium" variant="bare" alternativeText="Settings" class="icon-custom slds-button slds-not-selected uiButton" />
+                                </a>
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+                
+            </aura:iteration>
+            <div class="loadmore-hr">
+            </div>
+        </aura:if>
+        
+        <div aura:id="spinner-div" class="hideBlock">
+            <ui:spinner aura:id="spinner" class="spinner-override" />
+        </div>
+        
+        <!-- new code for the list ends here  -->
+        <div>
+            <div style="text-align:center;">
+                
+                <aura:if isTrue="{!v.loadMore == 'False'}">
+                    <div class="loadmore">
+                        <a onclick="{!c.nextArticles}" aura:id="loadMore" disabled="" style="">Load More</a>
+                    </div>
+                </aura:if>
+                <aura:if isTrue="{!v.loadMore == 'True'}">
+                    <span style="font-family:helvetica; font-size:10pt;">
+                        ~ There are no more articles to load. ~
+                    </span>
+                </aura:if>
+            </div>
+        </div>
+    </div>
+</aura:component>

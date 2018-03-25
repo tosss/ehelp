@@ -1,3 +1,0 @@
-<apex:page standardController="Contract" extensions="SA_TABOVER.TabHomeController" recordSetVar="contracts" action="{!initContractPage}">
-	<apex:pageMessages />
-</apex:page>

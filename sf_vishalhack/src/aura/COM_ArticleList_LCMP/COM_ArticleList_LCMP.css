@@ -1,0 +1,84 @@
+.THIS div.expandCollapse{
+    cursor : pointer;
+}
+.THIS div.hide{
+    display:none;
+}
+
+.THIS .hideBlock{
+    display:none;
+}
+.THIS .hrSection {
+    margin: 0rem !important;
+    display: block;
+    border-top: 1px solid #acb6bc;
+    height: 1px;
+    clear: both;
+}
+.THIS .summary .ToggleText{
+    display: block;
+}
+
+.THIS .articleUrl {
+    color: #53565a;
+}
+
+.THIS .navButton {
+    text-align: center; 
+    border: solid 1px #ccc; 
+    background: none;
+    border-radius: 3px;
+    margin: 6px 2px;
+    font-size:0.9em;
+}    
+
+.THIS .textEclipse {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp:1; /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+.THIS .topicTitle{
+    /*border: 1px solid #82c600;*/
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    padding: 2px 3px;
+    margin: 1.5px;
+    font-size: 0.8em;
+}
+.THIS .article-date, .THIS .article-date:hover {
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+.THIS .myBorder
+{
+    border-radius: 3px;
+    border: 1px solid #d5d5d5;
+}
+
+.THIS .myHeader
+{
+    border-top-left-radius: 1px;
+    border-top-right-radius: 1px;
+    padding: 4px 10px;
+    font-size: 12pt;
+    background-color: rgba(0, 0, 0, 0.16);
+}
+.THIS .cdkdate{
+    font-size: .75rem;
+}
+.THIS .loadMore {
+    margin: -1em auto 0 auto;
+    color: #06192e;
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: .875em;
+    padding-top: 18px;
+}
+.THIS .spinner-override {
+	margin: 10px 0;
+	background: none !important;
+}

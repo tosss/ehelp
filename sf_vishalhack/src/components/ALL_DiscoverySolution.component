@@ -1,0 +1,269 @@
+<apex:component controller="ALL_DiscoveryProductSolution_Controller" allowDML="true" >    
+<!-----------------------------------------------------------
+Author: Sanjay Ghanathey
+Description: Discovery Project - Third Party Solutions.
+History
+2016-08-22 Sanjay.Ghanathey@cdk.com Created
+2016-08-23 Sanjay.Ghanathey@cdk.com Updated : Fetch Records.
+2016-08-24 Sanjay.Ghanathey@cdk.com Updated : Save and Cancel method.
+2017-03-23- anirudh.singh@cdk.com- Added Modal for showing Spinner.
+------------------------------------------------------------->        
+    
+    <!-- JavaScript Resources -->            
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.11.2.min.js')}"/>    
+    <apex:includeScript value="{!URLFOR($Resource.Bootstrap, '/js/bootstrap.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.ALL_DiscoveryProductSolution_JS)}"/> 
+    <apex:includeScript value="{!URLFOR($Resource.footable, 'footable.js')}"/>       
+    
+    <!-- Stylesheet Resources -->  
+    <apex:stylesheet value="{!URLFOR($Resource.Bootstrap, 'cdk/css/bootstrap.min.css')}"/>    
+    <apex:stylesheet value="{!URLFOR($Resource.FontAwesome, '4.6.1/css/font-awesome.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.footable, 'footable.core.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.ALL_DiscoveryProductSolution_CSS)}" />
+    <apex:stylesheet value="{!URLFOR($Resource.footable, 'fonts/footable.woff')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.footable, 'fonts/footable.ttf')}"/>
+    
+    
+    <script type="text/javascript">
+    var j$; if(!j$) { j$ = jQuery.noConflict(); }             
+    var existingIds = JSON.parse('{!existingTPSIds}'); 
+    var oppLocId = '{!$CurrentPage.parameters.OppLocId}';
+    var existingDSIds = JSON.parse('{!existingDSIds}'); 
+    var disableTPSForSoldProposed = JSON.parse('{!disableTPSForSoldProposed}');
+    var otherTPSIds = JSON.parse('{!otherTPSIds}');
+    var existingProducts;    
+    </script>   
+    <div class="tps" id="tpsolutions">  
+        <div class="modal fade" id="checkboxError" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Ok"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Error</h4>
+                    </div>
+                    <div class="modal-body" style="height: auto !Important;">
+                        <input type="hidden" id="tempId"/> 
+                        <p>
+                            Please check either proposed, sold or current for the selected solution(s).
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="deleteConfirmId" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
+                    </div>
+                    <div class="modal-body" style="height: auto !Important;">
+                        <input type="hidden" id="tempId"/> 
+                        <p>
+                            Do you really want to delete the Solution?
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="deleteTPS(j$(tempId).val())" data-dismiss="modal">Proceed</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="OtherSolutionForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Add Other Solution</h4>
+                    </div>
+                    <div class="modal-body" style="height: auto !Important;">    
+                        <div class="alert alert-danger" role="alert" id="errorInModal" style="display:none;">                            
+                        </div>
+                        <apex:form >                            
+                            <div class="form-group">
+                                <label for="otherSolutionName">Solution Name</label>                                
+                                <apex:inputField styleClass="form-control" id="otherSolutionName" value="{!solutionAtSite.Other_Solution_Name__c}"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="otherVendorName">Vendor Name</label>
+                                <apex:inputField styleClass="form-control" id="otherVendorName" value="{!solutionAtSite.Other_Vendor_Name__c}"/>                                
+                            </div>   
+                            <!-- 2017-01-30 sanjay.ghanathey@cdk.com Requirements Changes - Need to remove Proposed and Proposed and Sold -->
+                            <!--<div class="checkbox">
+                                <label style="padding:5px;">
+                                    <apex:inputCheckbox id="changedCurrentId" onchange="disableFormCheckbox(this);" value="{!solutionAtSite.Current__c}"/> <label style="padding-left:30px;padding-top:5px;"> Current</label>  
+                                </label>                                
+                            </div> 
+                            <div class="checkbox">
+                                <label style="padding:5px;">                                    
+                                    <apex:inputCheckbox id="changedProposedId" onchange="disableFormCheckbox(this);" value="{!solutionAtSite.Proposed__c}"/> <label style="padding-left:30px;padding-top:5px;"> Proposed </label>   
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label style="padding:5px;">                                    
+                                    <apex:inputCheckbox id="changedSoldId" onchange="disableFormCheckbox(this);" value="{!solutionAtSite.Proposed_and_Sold__c}"/> <label style="padding-left:30px;padding-top:5px;"> Sold </label>    
+                                </label>
+                            </div>-->
+                            <div class="form-group">
+                                <label for="notesComments">Notes/Comments</label>                                
+                                <apex:inputTextArea styleClass="form-control" id="notesComments" value="{!solutionAtSite.Notes_Comments__c}"/>
+                            </div> 
+                        </apex:form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" onclick="saveOtherSolution();">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h3 class="solprodHeaderDiv"><apex:outputText value="Third Party Solutions" rendered="false"/></h3>
+        
+        <!--2017-03-23- anirudh.singh@cdk.com- Added Modal for showing Spinner.-->
+        <!--Spinner-->
+        <div class="modal fade discProdSolSpinnerDiv" id="discProdSolSpinnerDiv" tabindex="-1" role="dialog" aria-labelledby="modalDialogLabel" aria-hidden="true"
+             data-keyboard="false" data-backdrop="static">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td><h3>Please Wait...</h3></td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fa fa-spinner fa-spin fa-2x"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <apex:form id="formId">
+            <div class="panel">
+                <div class="panel-heading" style="padding-bottom: 5px;">
+                    <div> 
+                        <div class="input-group" style="width:100%;">
+                            <span class="searchFilterDiv">
+                                <select id="searchFilter" class="form-control" style="width:auto;">
+                                    <option>All</option>
+                                    <option>Vendor</option>
+                                    <option>Application Name</option>                                
+                                </select> 
+                                
+                                <div style="display: inline-block;">
+                                    <input id="searchtps" type="search" class="form-control searchtps" style="width:auto;" placeholder="Search" aria-describedby="basic-addon1"/>
+                                </div>
+                            </span>
+                            
+                            <div class="tpsMenu tpsMenuDiv">
+                                <span>
+                                    <apex:commandButton value="Save" action="{!saveSolution}" styleClass="btn btn-primary" reRender="showMessages" status="saveStatus" onclick="if(!validateOnSubmit(event)){return false;};"/>&nbsp;
+                                    <apex:commandButton value="Reset" onclick="resetForm();" styleClass="btn btn-default" reRender="dummy"/>
+                                    <button type="button" class="btn btn-default" 
+                                            data-toggle="modal" data-target="#OtherSolutionForm" title="Can’t find the solution you’re searching for ? Click to add a solution">
+                                        Add Other Solution
+                                    </button> 
+                                    <apex:actionStatus onstart="j$('#discProdSolSpinnerDiv').modal('show');" onstop="reloadPage();" id="saveStatus"/>
+                                    <div class="dropdown" style="display: inline-block;">
+                                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            Solution Learning
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                            <li><a target="_blank" href="http://dssaiis2he.hoffman.ds.adp.com/saportal/NNA_BTT_Frame.asp?EADID=ujavNvl">Learning Tool</a></li>                                       
+                                        </ul>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>                                
+                    </div>                                                             
+                </div> 
+            </div>
+                        
+            <apex:pageMessages id="showMessages"/>
+            <table class="table tpstable" id="tpstable" data-filtering="true">                        
+                <thead>
+                    <tr>                                                                  
+                        <th>
+                            <div></div>
+                        </th>                                
+                        <th data-toggle="true">Application Name &nbsp;</th>                        
+                        <th data-hide="phone,tablet">Vendor &nbsp;</th>  
+                         <!--2017-01-30 sanjay.ghanathey@cdk.com Requirements Changes - Need to remove Proposed and Proposed and Sold -->
+                        <!--<th>Current</th>  
+                       <th>Proposed</th>  
+                        <th>Proposed and Sold</th>  -->
+                        <th>Notes/Comments &nbsp;</th>
+                        <th></th>
+                    </tr>
+                </thead>                
+                <tbody>
+                    <apex:repeat value="{!Records}" var="tps">
+                        <tr>
+                            <td> <apex:inputCheckbox value="{!tps.isChecked}" styleClass="{!if(tps.discoverySolutionId != null ,tps.discoverySolutionId,tps.TPSDObject.Id)}" />                                 
+                                <!-- <i class="fa fa-info-circle tool errIcon" id="err{!if(tps.discoverySolutionId != null ,tps.discoverySolutionId,tps.TPSDObject.Id)}" style="display:none"></i>
+<i class="fa fa-check-square" id="check{!if(tps.discoverySolutionId != null ,tps.discoverySolutionId,tps.TPSDObject.Id)}" style="display:none"></i>-->
+                                <i class="fa fa-exclamation-triangle" aria-hidden="true" id="checkerr{!if(tps.discoverySolutionId != null ,tps.discoverySolutionId,tps.TPSDObject.Id)}" style="display:none;color:red;"></i>
+                            </td>
+                            <td> <apex:outputText rendered="{!IF(tps.thirdPartyId != null,true,false)}">                                
+                                <a target="_blank" href="/{!tps.thirdPartyId}/e?retURL=/apex/ALL_CloseSelfDonotReload&saveURL=/apex/ALL_CloseSelf">{!tps.TPSDObject.Application_Name__c}</a>
+                                </apex:outputText>
+                                <apex:outputText rendered="{!IF(tps.cdkSolutionId != null,true,false)}">                                
+                                    <a target="_blank" href="/{!tps.cdkSolutionId}/e?retURL=/apex/ALL_CloseSelfDonotReload&saveURL=/apex/ALL_CloseSelf">{!tps.TPSDObject.Application_Name__c}</a>
+                                </apex:outputText>
+                                <apex:outputText rendered="{!IF(tps.thirdPartyId == null && tps.cdkSolutionId == null,true,false)}">                                
+                                    {!tps.TPSDObject.Application_Name__c}
+                                </apex:outputText>
+                            </td>                           
+                            <td> {!tps.TPSDObject.Vendor__c} </td>  
+                           <!-- <td> 
+                                <apex:inputCheckbox value="{!tps.isCurrent}" onchange="solutionCheck('{!if(tps.discoverySolutionId != null ,"curr"+tps.discoverySolutionId,"curr"+tps.TPSDObject.Id)}');" styleClass="{!if(tps.discoverySolutionId != null ,"curr"+tps.discoverySolutionId,"curr"+tps.TPSDObject.Id)}" />                                 
+                                <i class="fa fa-square-o" aria-hidden="true" style="display:none" id="{!if(tps.discoverySolutionId != null ,"dummycurr"+tps.discoverySolutionId,"dummycurr"+tps.TPSDObject.Id)}"></i>
+                            </td>
+                            <td> 
+                                <apex:inputCheckbox value="{!tps.isProposed}" onchange="solutionCheck('{!if(tps.discoverySolutionId != null ,"prop"+tps.discoverySolutionId,"prop"+tps.TPSDObject.Id)}');" styleClass="{!if(tps.discoverySolutionId != null ,"prop"+tps.discoverySolutionId,"prop"+tps.TPSDObject.Id)}" />                                 
+                                <i class="fa fa-square-o" aria-hidden="true" style="display:none" id="{!if(tps.discoverySolutionId != null ,"dummyprop"+tps.discoverySolutionId,"dummyprop"+tps.TPSDObject.Id)}"></i>
+                            </td>
+                            <td> 
+                                <apex:inputCheckbox value="{!tps.isSold}" onchange="solutionCheck('{!if(tps.discoverySolutionId != null ,"sold"+tps.discoverySolutionId,"sold"+tps.TPSDObject.Id)}');" styleClass="{!if(tps.discoverySolutionId != null ,"sold"+tps.discoverySolutionId,"sold"+tps.TPSDObject.Id)}" />                                 
+                                <i class="fa fa-square-o" aria-hidden="true" style="display:none" id="{!if(tps.discoverySolutionId != null ,"dummysold"+tps.discoverySolutionId,"dummysold"+tps.TPSDObject.Id)}"></i>
+                            </td>
+							-->
+                            <td>                                                                
+                                <div id="notes{!if(tps.discoverySolutionId != null ,tps.discoverySolutionId,tps.TPSDObject.Id)}">
+                                    <apex:inputTextarea rows="1" value="{!tps.notes}" styleClass="form-control"/>
+                                </div>
+                            </td>
+                            <td>                                 
+                                <i class="fa fa-times-circle" style="font-size:1.5em;cursor: pointer; display:none;" aria-hidden="true" id="del{!if(tps.discoverySolutionId != null ,tps.discoverySolutionId,tps.TPSDObject.Id)}" onclick="confirmDialog('{!if(tps.discoverySolutionId != null ,tps.discoverySolutionId,tps.TPSDObject.Id)}',this);" 
+                                   data-toggle="modal" data-target="#deleteConfirmId" title="Delete Solution"/>                                
+                            </td>
+                        </tr> 
+                    </apex:repeat>
+                </tbody>                   
+            </table> 
+            <div class="panel">
+                <div class="panel-heading">
+                    <div class="text-center">
+                        <apex:commandButton value="Save" oncomplete="reloadPage();" action="{!saveSolution}" styleClass="btn btn-primary" reRender="showMessages" status="saveStatusFooter"  onclick="if(!validateOnSubmit(event)){return false;};"/>&nbsp;
+                        <apex:commandButton value="Reset" onclick="resetForm();" styleClass="btn btn-default" reRender="dummy"/>
+                        <button type="button" class="btn btn-default" 
+                                data-toggle="modal" data-target="#OtherSolutionForm" title="Can’t find the solution you’re searching for ? Click to add a solution">
+                            Add Other Solution
+                        </button> 
+                        <apex:actionStatus onstart="j$('#discProdSolSpinnerDiv').modal('show');" onstop="j$('#discProdSolSpinnerDiv').modal('hide');resetForm();" id="saveStatusFooter"/>                                                                               
+                    </div> 
+                </div>                    
+            </div>
+        </apex:form>    
+    </div>
+    
+</apex:component>

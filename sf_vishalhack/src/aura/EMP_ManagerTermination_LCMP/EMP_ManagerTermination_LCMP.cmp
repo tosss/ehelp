@@ -1,0 +1,734 @@
+<!-- ****************************************************************************** 
+**RQ-08648 02/22/2017 Created Vijay.Manimaran@cdk.com
+********************************************************************************** -->
+
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" controller="EMP_ManagerTermination_Controller">
+    <aura:attribute name="portalForm" type="Portal_Form__c" default="{'sobjectType':'Portal_Form__c'}" />
+    <aura:attribute name="portalForms" type="String" description="portalForms response values" />
+    <aura:attribute name="portalFormsreturn" type="String" description="portalForms response values" />
+    <aura:attribute name="contactList" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:method name="getContactDetails" action="{!c.getContactDetails}" description="" />
+    <aura:method name="updateProgressBar" action="{!c.updateProgressBar}" description="" />
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}" />
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}" />
+    <aura:attribute name="toggleSpinner" type="boolean" default="false" />
+    <aura:attribute name="ltng_icon_mycareer" type="String" default="utility:chevrondown" />
+    <aura:attribute name="ltng_icon_resignation" type="String" default="utility:chevronright" />
+    <aura:attribute name="ltng_icon_lastday" type="String" default="utility:chevronright" />
+    <aura:attribute name="modalBody" type="String" default="Thank you " />
+    <aura:attribute name="modalHeader" type="String" default="Thank you " />
+    <aura:attribute name="formCompleted" type="String" default="false" />
+    <aura:method name="fetch_Helper" action="{!c.fetch_Helper}" />
+    
+    <aura:if isTrue="{!v.toggleSpinner}">
+        <div class="slds-spinner_container">
+            <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+                <span class="slds-assistive-text">Loading</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </aura:if>
+    
+    <div>
+        <div class="manager-form-hide" aura:id="accessCards">
+            <div class="slds-card ">
+                <div class="slds-card__header slds-grid">
+                    <header class="slds-media slds-media--center slds-has-flexi-truncate">
+                        <div class="slds-media__figure">
+                            <span class="slds-icon_container slds-icon-standard-contact" title="description of icon when needed"></span>
+                        </div>
+                        <div class="slds-media__body">
+                            <h2><a href="javascript:void(0);" class="slds-card__header-link slds-truncate"><span class="slds-text-heading--small">Error</span></a></h2>
+                        </div>
+                    </header>
+                </div>
+                <div class="slds-card__body">You do not have access to terminate an Employee, because you do not have any assigned direct reports. If you believe this message is an error, please contact HelpMeHR@cdk.com.</div>
+            </div>
+        </div>
+        
+        <div>
+            <div class="manager-form-hide" aura:id="managerTerminationForm">
+                <div aura:id="selectAssociate">
+                    <h3 class="slds-section-title--divider">SELECT EMPLOYEE</h3>
+                    <div class="slds-form--horizontal">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label">Employee </label>
+                            <div class="slds-form-element__control">
+                                <force:inputField value="{!v.portalForm.Contact__c}" aura:id="contactName" required="true"></force:inputField>
+                            </div>
+                        </div>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label">Employee Work Location </label>
+                            <div class="slds-form-element__control">
+                                <force:inputField value="{!v.portalForm.Mgr_Term_Work_Location__c}" aura:id="workLocation" change="{!c.onchange}"></force:inputField>
+                            </div>
+                        </div>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label">Involuntary Termination?</label>
+                            <div class="slds-form-element__control">
+                                <force:inputField value="{!v.portalForm.Mgr_Term_Involuntary__c}" aura:id="termInvoluntary" change="{!c.onchange}"></force:inputField>
+                            </div>
+                        </div>
+                        <div class="slds-form-element">
+                            <div style="text-align:center;">
+                                <lightning:button aura:id="startTerminationButton" class="slds-button slds-button--success" label="Start Termination Process" onclick="{!c.startTermination}" />
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+           
+                    <div>
+                        <h3 class="slds-section-title--divider">PENDING LIST OF EMPLOYEES</h3>
+                        <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+                            <thead>
+                                <tr class="slds-text-title--caps table-header">
+                                    <th scope="col">
+                                        <div class="slds-truncate">Employee Name</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="slds-truncate">Manager Name</div>
+                                    </th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <aura:iteration items="{!v.contactList}" var="contacts">
+                                    <tr>
+                                        <th scope="row">
+                                            <div class="slds-truncate contact-name" onclick="{!c.fetchSelectedAssocaite}" id="{!contacts.Contact__c}">
+                                                {!contacts.Contact__r.Name}</div>
+                                        </th>
+                                        <td>
+                                            <div class="slds-truncate">{!contacts.Termination_Manager__r.Name}</div>
+                                        </td>
+                                    </tr>
+                                </aura:iteration>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div aura:id="managerForm" class="manager-form-hide">
+                    <!-- Progress bar -->
+                    <div class="slds-grid">
+                        <div class="slds-tabs--path" role="application">
+                            <ul class="slds-tabs--path__nav" role="tablist">
+                                <li class="slds-tabs--path__item slds-is-current" role="presentation" aura:id="myCareerProgress">
+                                    
+                                    <a class="slds-tabs--path__link" style="color:white;" id="tabs-path-91" aria-controls="content-path-1" aria-selected="false" tabindex="-1" role="tab" href="javascript:void(0);" aria-live="assertive">
+                                        <span class="slds-tabs--path__stage">
+                                            <span class="slds-assistive-text"></span>
+                                        </span>
+                                        <span class="slds-tabs--path__title" aura:id="myCareer">IMMEDIATE ACTION ITEMS REQUIRED</span>
+                                    </a>
+                                </li>
+                                <li class="slds-tabs--path__item slds-is-incomplete" role="presentation" aura:id="myResignationProgress">
+                                    <a class="slds-tabs--path__link" style="color:white;" id="tabs-path-92" aria-controls="content-path-1" aria-selected="false" tabindex="-1" role="tab" href="javascript:void(0);" aria-live="assertive">
+                                        <span class="slds-tabs--path__stage">
+                                        </span>
+                                        <span class="slds-tabs--path__title">WITHIN THE RESIGNATION PERIOD</span>
+                                    </a>
+                                </li>
+                                <li class="slds-tabs--path__item slds-is-incomplete" role="presentation" aura:id="lastDayProgress">
+                                    <a class="slds-tabs--path__link" style="color:white;" id="tabs-path-92" aria-controls="content-path-1" aria-selected="false" tabindex="-1" role="tab" href="javascript:void(0);" aria-live="assertive">
+                                        <span class="slds-tabs--path__stage">
+                                        </span>
+                                        <span class="slds-tabs--path__title">EMPLOYEE’S LAST DAY</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Progress bar end -->
+                    
+                    <!-- Associate Header Information -->
+                    <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap associateinfo">
+                        <div class="slds-form-element slds-hint-parent">
+                            Employee:
+                            <ui:outputText value="{!v.portalForm.Contact__r.Name}"></ui:outputText>
+                            <ui:outputText value="{!v.portalForm.Mgr_Term_Involuntary__c}" aura:id="termination"/>
+                            <span style="float:right;">
+                                Manager: 
+                                <ui:outputText value="{!v.portalForm.Termination_Manager__r.Name}"></ui:outputText>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <!-- sections  -->
+                    <div class="minerva18">
+                        <!-- Single Section Wrapper With Three SLDS Sections, The Wrapper Div Class must be 'Minerva18SectionGroupSingle' -->
+                        <div class="Minerva18SectionGroupSingle">
+                            <!--SLDS Section Start-->
+                            <div class="slds-section">
+                                <div class="slds-section__title">
+                                    <button class="slds-button slds-section__title-action section-title" onclick="{!c.sectionPanel}" id="myCareerSection">
+                                        
+                                        <lightning:icon iconName="{!v.ltng_icon_mycareer}" size="xx-small" alternativeText="Indicates approval" aura:id="myCareer_Collapse"/> 
+                                        IMMEDIATE ACTION ITEMS REQUIRED
+                                    </button>
+                                </div>
+                                <div aura:id="myCareerPanel" class="">
+                                    <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap question-block" aura:id="myCareer_Q1">
+                                        <div class="slds-form-element slds-hint-parent slds-has-divider--bottom">
+                                            <div class="manager-questions slds-text-heading--small slds-m-bottom--medium">
+                                                Did you complete the termination transaction for the impacted Employee in myCareer?
+                                                
+                                                <div class="manager-answers">
+                                                    <force:inputField value="{!v.portalForm.Mgr_Term_Q01_myCareer__c}" aura:id="myCareers" change="{!c.onchange}"></force:inputField>
+                                                </div>
+                                                
+                                                <div aura:id="myCareers_Date" class="manager-form-hide manager-answers">
+                                                    <label for="fullname">Employee Termination Date</label>
+                                                    
+                                                    <force:inputField value="{!v.portalForm.Mgr_Term_Q01a_myCareer__c}" ></force:inputField>
+                                                </div>
+                                                
+                                                <div aura:id="myCareers_Msg" class="manager-form-hide">
+                                                    <div class="slds-notify--alert slds-theme--error slds-theme--alert-texture" role="alert">
+                                                        In order to continue, the first thing you must do is complete the termination transaction in myCareer to record the change in employee status.
+                                                        Termination transactions should be entered as soon as you are made aware that the Employee plans to leave. Do not wait for the actual termination date as steps need to be taken in advance in order to ensure the Employee’s final paycheck is accurate and meets state law requirements.
+                                                      <a target="_blank" href="https://sso.cdk.com/adfs/ls/IDPInitiatedSignon.aspx?LoginToRP=https://www.successfactors.eu"> 
+                                                            (Please click here to get to myCareer.) </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap question-block" aura:id="myCareer_Q2">
+                                        <div class="slds-form-element slds-hint-parent slds-has-divider--bottom">
+                                            <div class="manager-questions slds-text-heading--small slds-m-bottom--medium">
+                                                Did you contact your Human Resources Business Partner (HRBP) to make sure that he or she is aware of the Employee’s resignation?
+                                                
+                                                <div class="manager-answers">
+                                                    <force:inputField value="{!v.portalForm.Mgr_Term_Q02_HRBP__c}" aura:id="myCareer_HRBP" change="{!c.onchange}"></force:inputField>
+                                                </div>
+                                            </div>
+                                            <div aura:id="myCareers_HRBPMsg" class="manager-form-hide">
+                                                <div class="slds-notify--alert slds-theme--error slds-theme--alert-texture" role="alert">
+                                                    In order to continue, please send an email to your repective HRBP with a copy of the Employee's resignation letter
+                                                </div>
+                                            </div>
+                                            <div aura:id="myCareers_HRBPMsg_No" class="manager-form-hide">
+                                                <div class="slds-notify--alert slds-theme--info slds-theme--alert-texture" role="alert">
+                                                    As a reminder, the Manager is required to provide their HR Business Partner with a  copy of the Employee’s resignation letter prior to the Employee’s last day worked.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <h3 class="manager-form-hide" aura:id="involuntaryHeader"> 
+                                        My employee is exiting CDK as an involuntary termination. 
+                                        I have engaged my HRBP in the termination process. 
+                                       
+                                    </h3>
+                                     <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap manager-form-hide" aura:id="involuntaryTermination_Q">
+                                        <div class="slds-form-element slds-hint-parent slds-has-divider--bottom">
+                                            <div class="manager-questions slds-text-heading--small slds-m-bottom--medium">
+                                                Please select reason for involuntary termination
+                                                <div class="manager-answers">
+                                                    <force:inputField value="{!v.portalForm.Mgr_Term_Involuntary_Reason__c}" 
+                                                                      aura:id="involuntaryTermination_invol" change="{!c.onchange}">
+                                                    </force:inputField>
+                                                </div>
+                                            </div>
+                                            <div aura:id="involuntaryTermination_Msg" class="manager-form-hide">
+                                                <div class="slds-notify--alert slds-theme--info slds-theme--alert-texture" role="alert">
+                                                    HR will complete the termination transition in myCareer
+                                                </div>
+                                            </div>
+                                            <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap question-block" aura:id="myCareer_invol">
+                                                <div class="slds-form-element slds-hint-parent slds-has-divider--bottom" style="margin-bottom: -11px;">
+                                                    <div class="manager-questions slds-text-heading--small slds-m-bottom--medium">
+                                                        Was a termination transaction complete for the impacted Employee in myCareer?
+                                                        
+                                                        <div class="manager-answers">
+                                                            <force:inputField value="{!v.portalForm.Mgr_Term_Q01_myCareer__c}" aura:id="myCareers_invol"
+                                                                              change="{!c.onchange}"></force:inputField>
+                                                        </div>
+                                                        
+                                                        <div aura:id="myCareersinvol_Date" class="manager-form-hide manager-answers">
+                                                            <label for="fullname">Employee Termination Date</label>
+                                                            
+                                                            <force:inputField value="{!v.portalForm.Mgr_Term_Q01a_myCareer__c}" ></force:inputField>
+                                                        </div>
+                                                        <div aura:id="myCareersinvol_Msg" class="manager-form-hide">
+                                                             <div class="slds-notify--alert slds-theme--error slds-theme--alert-texture" role="alert">
+                                                               In order to continue, the first thing you must do is complete the termination transaction in 
+                                                                 myCareer to record the 
+                                                                 change in employee status.
+                                                                 Termination transactions should be entered as soon as you are made aware that the 
+                                                                 Employee plans to leave. Do not wait for the actual termination date as steps need to be taken in advance in 
+                                                                 order to ensure the Employee’s final paycheck is accurate and meets state law requirements.
+                                                                   <a target="_blank"
+                                                                    href="https://sso.cdk.com/adfs/ls/IDPInitiatedSignon.aspx?LoginToRP=https://www.successfactors.eu"> 
+                                                                 (Please click here to get to myCareer.) </a> 
+                                                    </div>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap">
+                                        <div class="slds-form-element slds-hint-parent slds-has-divider--bottom">
+                                            <div class="manager-questions slds-text-heading--small slds-m-bottom--medium">
+                                                <aura:if isTrue="{!v.portalForm.Mgr_Term_Q03_employeeData__c == Null}"></aura:if>
+                                                Do you need access to employee’s data (email and/or PC files) upon termination?
+                                                <div class="manager-answers">
+                                                    <force:inputField value="{!v.portalForm.Mgr_Term_Q03_employeeData__c}" aura:id="employeeData" change="{!c.onchange}"></force:inputField>
+                                                </div>
+                                            </div>
+                                            <div aura:id="employeeData_Msg" class="manager-form-hide">
+                                                <div class="slds-notify--alert slds-theme--info slds-theme--alert-texture" role="alert">
+                                                    Please notify your respective HRBP no later than 5 days before termination. If any of the records identified in the record retention policy are stored on your Employee’s laptop; 
+                                                    you will need to store and retain those records in accordance with the policy.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap question-block">
+                                        <div class="slds-form-element slds-hint-parent slds-has-divider--bottom">
+                                            <div class="manager-questions slds-text-heading--small slds-m-bottom--medium">
+                                                Does the employee have a fleet vehicle that needs to be returned?
+                                                <div class="manager-answers">
+                                                    <force:inputField value="{!v.portalForm.Mgr_Term_Q04_employeeFleetVechicle__c}" aura:id="employeeFleetVechicle" change="{!c.onchange}"></force:inputField>
+                                                </div>
+                                            </div>
+                                            <div aura:id="employeeFleetVechicle_Msg" class="manager-form-hide">
+                                                <div class="slds-notify--alert slds-theme--info slds-theme--alert-texture" role="alert">
+                                                    A case will be generated and sent to the Procurement team for review upon completion of this checklist.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap question-block">
+                                        <div class="slds-form-element slds-hint-parent slds-has-divider--bottom">
+                                            <div class="manager-questions slds-text-heading--small slds-m-bottom--medium">
+                                                Does the employee have a car allowance that should be stopped?
+                                                <div class="manager-answers">
+                                                    <force:inputField value="{!v.portalForm.Mgr_Term_Q05_employeeCarAllowance__c}" aura:id="carAllowance" change="{!c.onchange}"></force:inputField>
+                                                </div>
+                                            </div>
+                                            <div aura:id="carAllowance_Msg" class="manager-form-hide">
+                                                <div class="slds-notify--alert slds-theme--info slds-theme--alert-texture" role="alert">
+                                                    A case will be generated and sent to HR Operations for review upon completion of this checklist.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                   
+                                    
+                                    <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap manager-form-hide" aura:id="employeeCellPhoneQ_invol">
+                                        <div class="slds-form-element slds-hint-parent slds-has-divider--bottom">
+                                            <div class="manager-questions slds-text-heading--small slds-m-bottom--medium">
+                                                Does the Employee have a company paid cell phone?
+                                                <div class="manager-answers">
+                                                    <force:inputField value="{!v.portalForm.Mgr_Term_Q21_employeeCellPhone__c}" aura:id="employeeCellPhone_invol" change="{!c.onchange}"></force:inputField>
+                                                </div>
+                                            </div>
+                                            <div aura:id="employeeCellPhoneinvol_Msg" class="manager-form-hide">
+                                                <div class="slds-notify--alert slds-theme--info slds-theme--alert-texture" role="alert">
+                                                    Provide your employee with the following document to instruct them on the process for porting over their
+                                                    cell phone number <a target="_blank"
+                                                                         href="http://adpdscfo.ds.ad.adp.com/sites/CIO/supplychain/Internal/Group/TechnicalServices/Wireless/_layouts/WordViewer.aspx?id=/sites/CIO/supplychain/Internal/Group/TechnicalServices/Wireless/Documents/CDK-Wireless-Corporate-to-Personal-Transfers.docx&amp;Source=http%3A%2F%2Fadpdscfo%2Eds%2Ead%2Eadp%2Ecom%2Fsites%2FCIO%2Fsupplychain%2FInternal%2FGroup%2FTechnicalServices%2FWireless%2FDocuments%2FForms%2FAllItems%2Easpx%3FPaged%3DTRUE%26p_SortBehavior%3D0%26p_FileLeafRef%3DATT%255fMiFi%255fRoaming%255fInstruction"> (Click here for instructions) </a>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap ">
+                                        <div class="slds-form-element slds-hint-parent slds-has-divider--bottom">
+                                            <div class="manager-questions slds-text-heading--small slds-m-bottom--medium">
+                                                Is CDK currently sponsoring this employee for immigration (i.e. H1B, L1, Green Card)?
+                                                <div class="manager-answers">
+                                                    <force:inputField value="{!v.portalForm.Mgr_Term_Q18_Immigration__c}" aura:id="employeeImmigration" change="{!c.onchange}"></force:inputField>
+                                                </div>
+                                            </div>
+                                            <div aura:id="employeeImmigration_Msg" class="manager-form-hide">
+                                                <div class="slds-notify--alert slds-theme--info slds-theme--alert-texture" role="alert">
+                                                    A case will be generated and sent to HR Operations for review upon completion of this checklist.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap manager-form-hide" aura:id="salesEmployeeQ">
+                                        <div class="slds-form-element slds-hint-parent slds-has-divider--bottom">
+                                            <div class="manager-questions slds-text-heading--small slds-m-bottom--medium">
+                                                Is the terminating employee a Sales Employee?
+                                                <div class="manager-answers">
+                                                    <force:inputField value="{!v.portalForm.Mgr_Term_Q20_salesEmployee__c}" aura:id="salesEmployee_invol" change="{!c.onchange}"></force:inputField>
+                                                </div>
+                                            </div>
+                                            <div aura:id="salesEmployeeinvol_Msg" class="manager-form-hide">
+                                                <div class="slds-notify--alert slds-theme--info slds-theme--alert-texture" role="alert">
+                                                    A case will be generated and sent to Finance/Commissions and Corporate Compensation for review upon completion of this checklist.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    
+                                </div>
+                                <!--SLDS Section End-->
+                                
+                                <div class="slds-section manager-form-hide" aura:id="resignationForm">
+                                    <div class="slds-section__title">
+                                        <button class="slds-button slds-section__title-action section-title" onclick="{!c.sectionPanel}" id="resignationSection">
+                                            <lightning:icon iconName="{!v.ltng_icon_resignation}" size="xx-small"  aura:id="resignation_Collapse"/> 
+                                            
+                                            WITHIN THE RESIGNATION PERIOD
+                                        </button>
+                                    </div>
+                                    <div class="manager-form-hide" aura:id="resignationPanel">
+                                        <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap">
+                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom">
+                                                <div class="manager-questions slds-text-heading--small slds-m-bottom--medium">
+                                                    Does your departing employee have a change in address, phone number or personal email ?
+                                                    <div class="manager-answers">
+                                                        <force:inputField value="{!v.portalForm.Mgr_Term_Q06_employeeAddress__c}" aura:id="employeeAddress" change="{!c.onchange}"></force:inputField>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div aura:id="employeeAddress_Msg" class="manager-form-hide">
+                                                    <div class="slds-notify--alert slds-theme--info slds-theme--alert-texture" role="alert">
+                                                        Instruct your Employee to update their information in myCareer prior to their departure.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap">
+                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom">
+                                                <div class="manager-questions slds-text-heading--small slds-m-bottom--medium">
+                                                    Does the Employee have a company paid cell phone?
+                                                    <div class="manager-answers">
+                                                        <force:inputField value="{!v.portalForm.Mgr_Term_Q07_employeeCellPhone__c}" aura:id="employeeCellPhone" change="{!c.onchange}"></force:inputField>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div aura:id="employeeCellPhone_Msg" class="manager-form-hide">
+                                                    <div class="slds-notify--alert slds-theme--info slds-theme--alert-texture" role="alert">
+                                                        Provide your employee with the following document to instruct them on the process for porting over their
+                                                        cell phone number <a target="_blank" href="http://adpdsportal.ds.ad.adp.com/DSHR/DSManagersToolbox/AssociateTermination/CDK%20Wireless%20Corporate%20to%20Personal%20Transfers_3-2015.pdf"> (Click here for instructions) </a>.
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap">
+                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom">
+                                                <div class="manager-questions slds-text-heading--small slds-m-bottom--medium">
+                                                    Did the Employee complete a final expense report to ensure all expenses have been paid?
+                                                    <div class="manager-answers">
+                                                        <force:inputField value="{!v.portalForm.Mgr_Term_Q08_employeeExpenseReport__c}" aura:id="employeeExpenseReport" change="{!c.onchange}"></force:inputField>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div aura:id="employeeExpenseReport_Msg" class="manager-form-hide">
+                                                    <div class="slds-notify--alert slds-theme--info slds-theme--alert-texture" role="alert">
+                                                        Any expenses that were not submitted by the time of the employee’s termination, will be processed in coordination with the T&amp;E Team.  The travel and expense team will reach out to the manager and ask the Manager to assign a delegate to complete the final expense report.                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap">
+                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom">
+                                                <div class="manager-questions slds-text-heading--small slds-m-bottom--medium">
+                                                    Does the terminating Employee have direct reports?
+                                                    <div class="manager-answers">
+                                                        <force:inputField value="{!v.portalForm.Mgr_Term_Q09_employeeDirectReport__c}" aura:id="employeeDirectReport" change="{!c.onchange}"></force:inputField>
+                                                    </div>
+                                                </div>
+                                                <div aura:id="employeeDirectReport_Msg" class="manager-form-hide">
+                                                    <div class="slds-notify--alert slds-theme--default slds-theme--alert-texture" role="alert">
+                                                        <div class="manager-questions slds-text-heading--small">
+                                                            Did you complete a transaction in myCareer to move the direct reports to a new Manager?
+                                                            <div class="manager-answers">
+                                                                <force:inputField value="{!v.portalForm.Mgr_Term_Q09a_employeeDirectReport__c}" aura:id="employeeDirectReport_Q1a" change="{!c.onchange}"></force:inputField>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div aura:id="employeeDirectReportQ1_Msg" class="manager-form-hide">
+                                                            <div class="slds-notify--alert slds-theme--error slds-theme--alert-texture" role="alert">
+                                                                In order to continue, please complete a transaction in to move the direct reports to a new Manager.
+                                                                <a href="https://sso.cdk.com/adfs/ls/IDPInitiatedSignon.aspx?LoginToRP=https://www.successfactors.eu" target="_blank">MyCareer
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap">
+                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom">
+                                                <div class="manager-questions slds-text-heading--small slds-m-bottom--medium">
+                                                    Is the Employee’s eTime/EZLM accrual up to date?
+                                                    <div class="manager-answers">
+                                                        <force:inputField value="{!v.portalForm.Mgr_Term_Q10_employeeeTime__c}" aura:id="employeeeTime" change="{!c.onchange}"></force:inputField>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div aura:id="employeeeTime_Msg" class="manager-form-hide">
+                                                    <div class="slds-notify--alert slds-theme--error slds-theme--alert-texture" role="alert">
+                                                        If you need assistance with updating the system, please contact the CDK Service Center at 877-213-6231.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap manager-form-hide" aura:id="canadaQuestion">
+                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom">
+                                                <div class="manager-questions slds-text-heading--small slds-m-bottom--medium">
+                                                    Is the Employee located in Canada?
+                                                    <div class="manager-answers">
+                                                        <force:inputField value="{!v.portalForm.Mgr_Term_Q11_employeeCanada__c}" aura:id="employeeCanada" change="{!c.onchange}"></force:inputField>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div aura:id="employeeCanada_Msg" class="manager-form-hide">
+                                                    <div class="slds-notify--alert slds-theme--info slds-theme--alert-texture" role="alert">
+                                                        A case will be generated and sent to HR Operations for review upon completion of this checklist.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap">
+                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom">
+                                                <div class="manager-questions slds-text-heading--small slds-m-bottom--medium">
+                                                    Is the terminating employee a Sales Employee?
+                                                    <div class="manager-answers">
+                                                        <force:inputField value="{!v.portalForm.Mgr_Term_Q12_salesEmployee__c}" aura:id="salesEmployee" change="{!c.onchange}"></force:inputField>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div aura:id="salesEmployee_Msg" class="manager-form-hide">
+                                                    <div class="slds-notify--alert slds-theme--info slds-theme--alert-texture" role="alert">
+                                                        A case will be generated and sent to Finance/Commissions and Corporate Compensation for review upon completion of this checklist.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="manager-form-hide" aura:id="lastDayForm">
+                                    <div class="slds-section__title">
+                                        <button class="slds-button slds-section__title-action section-title" onclick="{!c.sectionPanel}" id="lastDaySection">
+                                            <lightning:icon iconName="{!v.ltng_icon_lastday}" size="xx-small"  aura:id="lastDay_Collapse"/> 
+                                            EMPLOYEE’S LAST DAY
+                                        </button>
+                                    </div>
+                                    <div class="manager-form-hide" aura:id="lastDayPanel">
+                                        <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap">
+                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom">
+                                                <div class="manager-questions slds-text-heading--small slds-m-bottom--medium">
+                                                    Did you collect ALL equipment (laptop, iPad, etc.) from your Employee?
+                                                    <div class="manager-answers">
+                                                        <force:inputField value="{!v.portalForm.Mgr_Term_Q13_employeeEquipment__c}" aura:id="allEquipment" change="{!c.onchange}"></force:inputField>
+                                                    </div>
+                                                </div>
+                                                <div aura:id="allEquipment_Msg" class="manager-form-hide">
+                                                    <div class="slds-notify--alert slds-theme--info slds-theme--alert-texture" role="alert">
+                                                        All equipment must be turned into IT at the time of the employee’s exit. The Manager is responsible for ensuring that this step is complete.
+                                                    </div>
+                                                      <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap manager-form-hide slds-notify--alert slds-theme--default slds-theme--alert-texture" aura:id="allEquipment13a">
+                                                          <div class="slds-form-element slds-hint-parent slds-has-divider--bottom">
+                                                              <div class="manager-questions slds-text-heading--small slds-m-bottom--medium">
+                                                                  Does the Employee need a box and label to ship equipment back?
+                                                                  <div class="manager-answers">
+                                                                      <force:inputField value="{!v.portalForm.Mgr_Term_Q13a_employeeEquipment__c}" aura:id="allEquipment1a" change="{!c.onchange}"></force:inputField>
+                                                                  </div>
+                                                              </div>
+                                                              
+                                                              <div aura:id="allEquipment1a_Msg" class="manager-form-hide">
+                                                                  <div class="slds-notify--alert slds-theme--info slds-theme--alert-texture" role="alert">
+                                                                      A case will be generated and sent to IT to assist in the collection of your remote employee’s assigned IT equipment. The case will be generate upon completion of this checklist. 
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        
+                                        <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap">
+                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom">
+                                                <div class="manager-questions slds-text-heading--small slds-m-bottom--medium">
+                                                    Did you collect the ID Badge, parking pass and/or transit pass and office key to and returned to facilities or local HR?
+                                                    <div class="manager-answers">
+                                                        <force:inputField value="{!v.portalForm.Mgr_Term_Q14_employeeFacility__c}" aura:id="employeeFacilities" change="{!c.onchange}"></force:inputField>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div aura:id="employeeFacilities_Msg" class="manager-form-hide">
+                                                    <div class="slds-notify--alert slds-theme--error slds-theme--alert-texture" role="alert">
+                                                        The Manager must contact facilities immediately to deactivate the employee’s badge.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap">
+                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom">
+                                                <div class="manager-questions slds-text-heading--small slds-m-bottom--medium">
+                                                    Does the terminating Employee have a company credit card?
+                                                    <div class="manager-answers">
+                                                        <force:inputField value="{!v.portalForm.Mgr_Term_Q17_creditCard__c}" aura:id="creditCard" change="{!c.onchange}"></force:inputField>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div aura:id="creditCard_Msg" class="manager-form-hide">
+                                                    <div class="slds-notify--alert slds-theme--error slds-theme--alert-texture" role="alert">
+                                                        Please be sure to collect the company card from the employee and place it in the shred bin.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap">
+                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom">
+                                                <div class="manager-questions slds-text-heading--small slds-m-bottom--medium">
+                                                    Did you collect any desk or file cabinet keys from the Employee? The items should remain in the appropriate office space for available use.
+                                                    <div class="manager-answers">
+                                                        <force:inputField value="{!v.portalForm.Mgr_Term_Q15_employeeKeys__c}" aura:id="employeeKeys" change="{!c.onchange}"></force:inputField>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div aura:id="employeeKeys_Msg" class="manager-form-hide">
+                                                    <div class="slds-notify--alert slds-theme--info slds-theme--alert-texture" role="alert">
+                                                        Please collect any desk or file cabinet keys
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap">
+                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom">
+                                                <div class="manager-questions slds-text-heading--small slds-m-bottom--medium">
+                                                    Did you collect/secure all CDK and client documents and data (regardless of the medium) from the Employee?
+                                                    <div class="manager-answers">
+                                                        <force:inputField value="{!v.portalForm.Mgr_Term_Q16_clientDocuments__c}" aura:id="clientDocuments" change="{!c.onchange}"></force:inputField>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div aura:id="clientDocuments_Msg" class="manager-form-hide">
+                                                    <div class="slds-notify--alert slds-theme--info slds-theme--alert-texture" role="alert">
+                                                       Please be sure to collect all CDK documentation and data prior to your employee’s exit.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap manager-form-hide" aura:id="Oregon">
+                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom">
+                                                <div class="manager-questions slds-text-heading--small slds-m-bottom--medium">
+                                                    For Oregon   :  Does the employee have a TriMet?
+                                                    <div class="manager-answers">
+                                                        <force:inputField value="{!v.portalForm.Mgr_Term_Q018_Pass__c}" aura:id="Oregon_Q18" change="{!c.onchange}"></force:inputField>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div aura:id="Oregon_Msg" class="manager-form-hide">
+                                                    <div class="slds-notify--alert slds-theme--info slds-theme--alert-texture" role="alert">
+                                                        Please collect the pass from the employee and turn it into the front desk or HR.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap manager-form-hide" aura:id="washington">
+                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom">
+                                                <div class="manager-questions slds-text-heading--small slds-m-bottom--medium">
+                                                    For Washington   :  Does the employee have a Orca Flex?
+                                                    <div class="manager-answers">
+                                                        <force:inputField value="{!v.portalForm.Mgr_Term_Q018_Pass__c}" aura:id="washington_Q18" change="{!c.onchange}"></force:inputField>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div aura:id="washington_Msg" class="manager-form-hide">
+                                                    <div class="slds-notify--alert slds-theme--info slds-theme--alert-texture" role="alert">
+                                                        Please collect the pass from the employee and turn it into the front desk or HR.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap manager-form-hide" aura:id="Michigan">
+                                            <div class="slds-form-element slds-hint-parent slds-has-divider--bottom">
+                                                <div class="manager-questions slds-text-heading--small slds-m-bottom--medium">
+                                                    For Michigan   :  Does the employee have a Transit Pass?
+                                                    <div class="manager-answers">
+                                                        <force:inputField value="{!v.portalForm.Mgr_Term_Q018_Pass__c}" aura:id="Michigan_Q18" change="{!c.onchange}"></force:inputField>
+                                                    </div>
+                                                </div>
+                                                <div aura:id="Michigan_Msg" class="manager-form-hide">
+                                                    <div class="slds-notify--alert slds-theme--info slds-theme--alert-texture" role="alert">
+                                                        Please collect the pass from the employee and turn it into the front desk or HR.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Single Section Wrapper End-->
+                            </div>
+                            <!-- Form details  -->
+                        </div>
+                    </div>
+                    <div class="slds-panel slds-grid slds-grid--vertical slds-nowrap">
+                        <div class="slds-form-element slds-hint-parent">
+                            <div class="manager-questions slds-text-heading--small slds-m-bottom--medium">
+                                <button class="slds-button slds-button--success manager-form-hide" data-recId="saveContinue" onclick="{!c.updateAssociateTermination}" aura:id="saveContinue"> SAVE &amp; CONTINUE</button>
+                                <button class="slds-button slds-button--success manager-form-hide" data-recId="Submit" onclick="{!c.updateAssociateTermination}" aura:id="Submit" id="Submit"> SUBMIT</button>
+                                
+                                <lightning:button aura:id="Close" class="slds-button slds-button--default" label="CLOSE" onclick="{!c.gotoURL}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- modal code starts -->
+                <div id="newModalId" style="display:none;">
+                    <div aria-hidden="false" role="dialog" class="slds-modal slds-fade-in-open">
+                        <div class="slds-modal__container">
+                            <div class="slds-modal__header">
+                                <h2 id="header43" class="slds-text-heading--medium">{!v.modalHeader}</h2>
+                            </div>
+                            <div class="slds-modal__content slds-p-around--medium">
+                                <p>{!v.modalBody}</p>
+                            </div>
+                            <div class="slds-modal__footer">
+                                <aura:if isTrue="{!v.modalHeader != 'Success'}">
+                                    <button class="slds-button slds-button--neutral" onclick="{!c.hideModal}">Close</button>
+                                </aura:if> 
+                                <aura:if isTrue="{!v.modalHeader == 'Success'}">
+                                    <button class="slds-button slds-button--neutral" onclick="{!c.gotoURL}">Close</button>
+                                </aura:if> 
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-backdrop slds-backdrop--open slds-modal-backdrop--open"></div>
+                    
+                    <!-- modal code ends -->
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

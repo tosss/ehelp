@@ -1,0 +1,31 @@
+<apex:page standardController="Case" extensions="SC_Launch_Handler" action="{!getForwardPage}">
+    <script type="text/javascript" src="/canvas/sdk/js/controller.js" />
+    <script>
+        Sfdc.canvas.controller.subscribe({
+            name : 'sc.caseId',
+            onData : function (data) {
+                loadCasePage(JSON.stringify(data));
+            }
+        });
+     </script>
+
+    <apex:pageBlock id="selectAccount" title="Create Service Connect Case" rendered="{!showSearch}">
+        <apex:form >
+            <apex:outputLabel value="Account Name   " for="accountId" />
+            <apex:inputField id="accountId" value="{!newCase.AccountId}" />
+            <apex:commandButton value="Launch Service Connect" action="{!launchServiceConnect}" />
+        </apex:form>
+    </apex:pageBlock>
+
+    <apex:form >
+        <apex:actionFunction action="{!getCaseEditPage}" name="loadCasePage" rerender="selectAccount">
+            <apex:param id="aCaseDetails" name="caseDetails" value="" />
+        </apex:actionFunction>
+    </apex:form>
+
+    <apex:pageBlock title="Create Service Connect Case" rendered="{!showCanvasApp}">
+        <apex:canvasApp width="1200px" canvasId="scCanvasApp" applicationName="SC_Canvas" parameters="{!canvasAppParameters}" />
+    </apex:pageBlock>
+
+    <apex:pageMessages ></apex:pageMessages>
+</apex:page>

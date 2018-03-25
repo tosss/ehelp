@@ -1,9 +1,0 @@
-<aura:component implements="forceCommunity:availableForAllPageTypes">
-    
-	<aura:attribute name="Title" type="String" />
-    <aura:attribute name="Subtitle" type="String" />
-    
-    <h2><span class="Title">{!v.Title}</span></h2>
-    <h4><span class="Subtitle">{!v.Subtitle}</span></h4>
-    
-</aura:component>

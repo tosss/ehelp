@@ -1,0 +1,7 @@
+<!--2016-10-14- anirudh.singh@cdk.com- Created this dynamic component for rendering components dynamically.-->
+<apex:component controller="ALL_RenderComponents_Controller">
+    <apex:attribute name="tabName" type="String" default="Dealership Overview" assignTo="{!tabNameSelected}" required="true" description="This is the Tab Name for the Question Records."/>
+    <apex:attribute name="opportunityLocationRecord" type="Opportunity_Location__c" assignTo="{!oppLocationRecord}" required="true" description="This is the Tab Name for the Question Records."/>
+    
+    <apex:dynamicComponent componentValue="{!OutputTextPanel}" invokeAfterAction="true"/>
+</apex:component>

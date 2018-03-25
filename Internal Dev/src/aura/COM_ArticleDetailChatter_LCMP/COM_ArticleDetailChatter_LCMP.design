@@ -1,0 +1,4 @@
+<design:component Label="Article Chatter">
+      <design:attribute name="articleType" label="Article Type" dataSource="Employee_Community_Article,Customer_Community"
+       description="Type of the Article" required="true"  />
+</design:component>

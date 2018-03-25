@@ -1,0 +1,10 @@
+<apex:page standardController="Launch__c">
+    <apex:includeLightning />
+    <div id="launch_notes" />
+    
+    <script>
+        $Lightning.use("c:CB_LaunchNotes_LAPP", function(){ 
+            $Lightning.createComponent("c:CB_LaunchNotes_LTNG", { LaunchId : "{!Launch__c.Id}"}, "launch_notes", function(cmp){});});
+    </script>
+    
+</apex:page>

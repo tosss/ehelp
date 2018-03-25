@@ -1,278 +1,225 @@
- WARN [2016-04-27 12:08:16,276] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'setStartUrl/setStartUrl.evt', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:08:16,277] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'setStartUrl/setStartUrl.evt-meta.xml', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:08:16,278] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'showAccountandContactDetails/showAccountandContactDetails.evt', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:08:16,280] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'showAccountandContactDetails/showAccountandContactDetails.evt-meta.xml', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:08:16,281] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'showFindMatchComponent/showFindMatchComponent.evt', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:08:16,282] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'showFindMatchComponent/showFindMatchComponent.evt-meta.xml', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:08:16,283] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'testInputFields/testInputFields.cmp', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:08:16,283] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'testInputFields/testInputFields.cmp-meta.xml', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:08:16,285] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'testInputFieldsApp/testInputFieldsApp.app-meta.xml', tagging as component of type 'Unknown'
-ERROR [2016-04-27 12:12:55,567] (SyncServiceListenerBroadcaster.java:handleException:59) - Error executing a contributed ISyncServiceListener
-java.lang.NullPointerException
-	at com.salesforce.ide.core.model.ComponentList.getComponentFactory(ComponentList.java:62)
-	at com.salesforce.ide.core.model.ComponentList.getComponentListForComponentType(ComponentList.java:266)
-	at com.salesforce.ide.debug.ui.sync.SyncActionListener.collectDebuggerElements(SyncActionListener.java:154)
-	at com.salesforce.ide.debug.ui.sync.SyncActionListener.invalidateApexModelManager(SyncActionListener.java:122)
-	at com.salesforce.ide.debug.ui.sync.SyncActionListener.projectSync(SyncActionListener.java:114)
-	at com.salesforce.ide.core.services.hooks.SyncServiceListenerBroadcaster$1.run(SyncServiceListenerBroadcaster.java:54)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:50)
-	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:173)
-	at com.salesforce.ide.core.services.hooks.SyncServiceListenerBroadcaster.executeExtension(SyncServiceListenerBroadcaster.java:62)
-	at com.salesforce.ide.core.services.hooks.SyncServiceListenerBroadcaster.broadcast(SyncServiceListenerBroadcaster.java:40)
-	at com.salesforce.ide.core.model.ProjectPackageList.saveResources(ProjectPackageList.java:1212)
-	at com.salesforce.ide.core.model.ProjectPackageList.saveResources(ProjectPackageList.java:1129)
-	at com.salesforce.ide.core.services.ProjectService$1.run(ProjectService.java:2077)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2242)
-	at com.salesforce.ide.core.services.ProjectService.handleRetrieveResult(ProjectService.java:2073)
-	at com.salesforce.ide.ui.actions.RefreshResourceActionController.refreshSourceFolder(RefreshResourceActionController.java:236)
-	at com.salesforce.ide.ui.actions.RefreshResourceActionController.refreshResources(RefreshResourceActionController.java:144)
-	at com.salesforce.ide.ui.handlers.RefreshResourceHandler$1.execute(RefreshResourceHandler.java:85)
-	at org.eclipse.ui.actions.WorkspaceModifyOperation$1.run(WorkspaceModifyOperation.java:108)
-	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2242)
-	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:130)
-	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
- WARN [2016-04-27 12:20:56,159] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'aura/OutlookCompose/OutlookCompose.cmp', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,160] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'aura/OutlookCompose/OutlookCompose.cmp-meta.xml', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,161] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'aura/OutlookCompose/OutlookCompose.css', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,163] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'aura/OutlookCompose/OutlookComposeHelper.js', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,164] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'aura/OutlookCompose/OutlookComposeRenderer.js', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,165] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'aura/OutlookComposeVF/OutlookComposeVF.app-meta.xml', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,370] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/Dataloader_Bulk_oauth/ConnectivityDevConfigs/Dataloader_Bulk_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,371] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/Dataloader_Bulk_oauth/modules/sf_com_apps__Dataloader_Bulk_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,377] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/Dataloader_Bulk', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,383] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/Dataloader_P5r_oauth/ConnectivityDevConfigs/Dataloader_P5r_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,389] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/Dataloader_P5r_oauth/modules/sf_com_apps__Dataloader_P5r_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,395] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/Dataloader_Partner', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,401] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/Forcecom_IDE_oauth/ConnectivityDevConfigs/Forcecom_IDE_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,407] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/Forcecom_IDE_oauth/modules/sf_com_apps__Forcecom_IDE_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,413] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/Forcecom_IDE', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,419] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/Forcecom_Migration_Tool_oauth/ConnectivityDevConfigs/Forcecom_Migration_Tool_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,426] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/Forcecom_Migration_Tool_oauth/modules/sf_com_apps__Forcecom_Migration_Tool_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,434] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/Forcecom_Migration_Tool', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,443] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/S8e_M4e_Dashboards_oauth/ConnectivityDevConfigs/S8e_M4e_Dashboards_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,452] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/S8e_M4e_Dashboards_oauth/modules/sf_com_apps__S8e_M4e_Dashboards_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,460] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/Salesforce_Mobile_Dashboards', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,469] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/S8e_T3h_oauth/ConnectivityDevConfigs/S8e_T3h_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,475] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/S8e_T3h_oauth/modules/sf_com_apps__S8e_T3h_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,481] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/Salesforce_Touch', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,488] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/S8e_for_Outlook_oauth/ConnectivityDevConfigs/S8e_for_Outlook_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,494] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/S8e_for_Outlook_oauth/modules/sf_com_apps__S8e_for_Outlook_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,503] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/Salesforce_for_Outlook', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,509] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/Workbench_oauth_c4s/Canvases/Workbench_oauth_c4sCanvas.Canvas', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,515] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/Workbench_oauth_c4s/modules/sf_com_apps__Workbench_oauth_c4s', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,521] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/Workbench_oauth/ConnectivityDevConfigs/Workbench_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,530] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/Workbench_oauth/modules/sf_com_apps__Workbench_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,538] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/Workbench', tagging as component of type 'Unknown'
-ERROR [2016-04-27 12:20:56,547] (ProjectPackageList.java:generateComponents:483) - Filepath-zip mapping is null or empty for package 'Salesforce Connected Apps' [0A3400000008krmCAA] - skipping component generation
- WARN [2016-04-27 12:20:56,552] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/C5r_Desktop_oauth/ConnectivityDevConfigs/C5r_Desktop_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,561] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/C5r_Desktop_oauth/modules/sf_chttr_apps__C5r_Desktop_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,570] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/Chatter_Desktop', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,579] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/C5r_for_Android_oauth_android/AndroidPushApplicationSetup/C5r_for_Android_oauth_androidAndroidPushApplicationSetup.AndroidPushApplicationSetup', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,585] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/C5r_for_Android_oauth_android/modules/sf_chttr_apps__C5r_for_Android_oauth_android', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,591] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/C5r_for_Android_oauth/ConnectivityDevConfigs/C5r_for_Android_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,596] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/C5r_for_Android_oauth/modules/sf_chttr_apps__C5r_for_Android_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,602] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/Chatter_for_Android', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,607] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/C5r_for_BlackBerry_oauth/ConnectivityDevConfigs/C5r_for_BlackBerry_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,613] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/C5r_for_BlackBerry_oauth/modules/sf_chttr_apps__C5r_for_BlackBerry_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,619] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/Chatter_for_BlackBerry', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,624] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/C5r_for_iOS_oauth_apple/ApplePushApplicationSetup/C5r_for_iOS_oauth_appleApplePushApplicationSetup.ApplePushApplicationSetup', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,630] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/C5r_for_iOS_oauth_apple/modules/sf_chttr_apps__C5r_for_iOS_oauth_apple', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,636] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/C5r_for_iOS_oauth/ConnectivityDevConfigs/C5r_for_iOS_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,641] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/C5r_for_iOS_oauth/modules/sf_chttr_apps__C5r_for_iOS_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,647] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/Chatter_for_iOS', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,653] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/S8e_C8x_oauth/ConnectivityDevConfigs/S8e_C8x_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,658] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/S8e_C8x_oauth/modules/sf_chttr_apps__S8e_C8x_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,665] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/Salesforce_Chatterbox', tagging as component of type 'Unknown'
-ERROR [2016-04-27 12:20:56,671] (ProjectPackageList.java:generateComponents:483) - Filepath-zip mapping is null or empty for package 'Salesforce1 and Chatter Apps' [0A3400000008lGSCAY] - skipping component generation
- WARN [2016-04-27 12:20:56,680] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/S9A_oauth/ConnectivityDevConfigs/S9A_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,689] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/S9A_oauth/modules/sf_chttr_apps__S9A_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,698] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/SalesforceA', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,728] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/S91_for_Windows_oauth/ConnectivityDevConfigs/S91_for_Windows_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,729] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/S91_for_Windows_oauth/modules/sf_chttr_apps__S91_for_Windows_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:20:56,730] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/Salesforce1_for_Windows', tagging as component of type 'Unknown'
- WARN [2016-04-27 12:21:58,400] (ProjectPackageList.java:saveResources:1161) - Component list in project package 'Salesforce Connected Apps' is empty.  No resources to save.
- WARN [2016-04-27 12:21:59,386] (ProjectPackageList.java:saveResources:1161) - Component list in project package 'Salesforce1 and Chatter Apps' is empty.  No resources to save.
- WARN [2016-04-27 14:02:56,127] (BasePackageService.java:waitForResult:240) - Polling aborted after 638 secs for id '09Sc0000002ZCZpEAO'
-ERROR [2016-04-27 18:57:06,314] (MetadataOperationsRetryAspect.java:metadataOperationsRetry:34) - ForceRemoteException occurred while attempting to perform a metadata operation
- WARN [2016-04-27 19:01:13,737] (RefreshResourceHandler.java:fetchRemoteComponents:106) - Operation canceled: Operation cancelled
- WARN [2016-04-27 20:13:39,232] (ConnectionFactory.java:clearCache:220) - Clearing the following cached connections
- WARN [2016-04-27 20:13:39,235] (DescribeObjectRegistry.java:clearCache:660) - No cached describes
- WARN [2016-04-27 20:13:39,236] (MetadataFactory.java:clearCache:128) - Clearing the following cached metadata stubs
- WARN [2016-04-29 12:37:47,579] (ConnectionFactory.java:clearCache:217) - No cached connections
- WARN [2016-04-29 12:37:47,587] (DescribeObjectRegistry.java:clearCache:660) - No cached describes
- WARN [2016-04-29 12:37:47,588] (MetadataFactory.java:clearCache:125) - No cached metadata stubs
- WARN [2016-04-29 17:10:05,859] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'AuraDefinitionBundle': Unable to get bean for id 'AuraDefinitionBundle'
- WARN [2016-04-29 17:10:05,862] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ExternalDataSource': Unable to get bean for id 'ExternalDataSource'
- WARN [2016-04-29 17:10:05,867] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'NamedCredential': Unable to get bean for id 'NamedCredential'
- WARN [2016-04-29 17:10:05,870] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CustomFeedFilter': Unable to get bean for id 'CustomFeedFilter'
- WARN [2016-04-29 17:10:05,880] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'FlowDefinition': Unable to get bean for id 'FlowDefinition'
- WARN [2016-04-29 17:10:05,883] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'MatchingRules': Unable to get bean for id 'MatchingRules'
- WARN [2016-04-29 17:10:05,884] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ChannelLayout': Unable to get bean for id 'ChannelLayout'
- WARN [2016-04-29 17:10:05,889] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SharingRules': Unable to get bean for id 'SharingRules'
- WARN [2016-04-29 17:10:05,891] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ManagedTopics': Unable to get bean for id 'ManagedTopics'
- WARN [2016-04-29 17:10:05,892] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CorsWhitelistOrigin': Unable to get bean for id 'CorsWhitelistOrigin'
- WARN [2016-04-29 17:10:05,893] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ActionLinkGroupTemplate': Unable to get bean for id 'ActionLinkGroupTemplate'
- WARN [2016-04-29 17:10:05,894] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SynonymDictionary': Unable to get bean for id 'SynonymDictionary'
- WARN [2016-04-29 17:10:05,894] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PathAssistant': Unable to get bean for id 'PathAssistant'
- WARN [2016-04-29 17:10:05,895] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PlatformCachePartition': Unable to get bean for id 'PlatformCachePartition'
- WARN [2016-04-29 17:10:08,546] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'AuraDefinitionBundle': Unable to get bean for id 'AuraDefinitionBundle'
- WARN [2016-04-29 17:10:08,553] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ExternalDataSource': Unable to get bean for id 'ExternalDataSource'
- WARN [2016-04-29 17:10:08,566] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'NamedCredential': Unable to get bean for id 'NamedCredential'
- WARN [2016-04-29 17:10:08,576] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CustomFeedFilter': Unable to get bean for id 'CustomFeedFilter'
- WARN [2016-04-29 17:10:08,585] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'FlowDefinition': Unable to get bean for id 'FlowDefinition'
- WARN [2016-04-29 17:10:08,593] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'MatchingRules': Unable to get bean for id 'MatchingRules'
- WARN [2016-04-29 17:10:08,597] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ChannelLayout': Unable to get bean for id 'ChannelLayout'
- WARN [2016-04-29 17:10:08,602] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SharingRules': Unable to get bean for id 'SharingRules'
- WARN [2016-04-29 17:10:08,607] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ManagedTopics': Unable to get bean for id 'ManagedTopics'
- WARN [2016-04-29 17:10:08,611] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CorsWhitelistOrigin': Unable to get bean for id 'CorsWhitelistOrigin'
- WARN [2016-04-29 17:10:08,616] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ActionLinkGroupTemplate': Unable to get bean for id 'ActionLinkGroupTemplate'
- WARN [2016-04-29 17:10:08,620] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SynonymDictionary': Unable to get bean for id 'SynonymDictionary'
- WARN [2016-04-29 17:10:08,625] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PathAssistant': Unable to get bean for id 'PathAssistant'
- WARN [2016-04-29 17:10:08,629] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PlatformCachePartition': Unable to get bean for id 'PlatformCachePartition'
- WARN [2016-04-29 17:20:07,357] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:StaticResource and file name:CDKFavicon.
- WARN [2016-04-29 17:25:18,591] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'CalendarAnything/package.xml': Can't retrieve non-customizable CustomObject named: Default_Standard_Objects__c
- WARN [2016-04-29 17:25:18,592] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'DocuSign For Salesforce/package.xml': Can't retrieve non-customizable CustomObject named: DocuSignUserSettings__c
- WARN [2016-04-29 17:25:18,594] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'DocuSign For Salesforce/package.xml': Can't retrieve non-customizable CustomObject named: DocuSignOrgSettings__c
- WARN [2016-04-29 17:25:18,594] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'DocuSign For Salesforce/package.xml': Can't retrieve non-customizable CustomObject named: DocuSign_Setting__c
- WARN [2016-04-29 17:25:18,595] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'DocuSign For Salesforce/package.xml': Can't retrieve non-customizable CustomObject named: DocuSignUserSettings__c
- WARN [2016-04-29 17:25:18,596] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'DocuSign For Salesforce/package.xml': Can't retrieve non-customizable CustomObject named: DocuSignOrgSettings__c
- WARN [2016-04-29 17:25:18,596] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'DocuSign For Salesforce/package.xml': Can't retrieve non-customizable CustomObject named: DocuSign_Setting__c
- WARN [2016-04-29 17:25:18,597] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'MapAnything/package.xml': Can't retrieve non-customizable CustomObject named: MapAnything__c
- WARN [2016-04-29 17:25:18,598] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'MapAnything/package.xml': Can't retrieve non-customizable CustomObject named: MapAnything__c
- WARN [2016-04-29 17:25:18,598] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'Pardot/package.xml': Can't retrieve non-customizable CustomObject named: Private_Settings__c
- WARN [2016-04-29 17:25:18,599] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'Pardot/package.xml': Can't retrieve non-customizable CustomObject named: Pardot_SalesReach__c
- WARN [2016-04-29 17:25:18,600] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'Pardot/package.xml': Can't retrieve non-customizable CustomObject named: Configuration__c
- WARN [2016-04-29 17:25:18,600] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'Pardot/package.xml': Can't retrieve non-customizable CustomObject named: FeatureFlag__c
- WARN [2016-04-29 17:25:18,601] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'Pardot/package.xml': Can't retrieve non-customizable CustomObject named: Private_Settings__c
- WARN [2016-04-29 17:25:18,602] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'Pardot/package.xml': Can't retrieve non-customizable CustomObject named: Pardot_SalesReach__c
- WARN [2016-04-29 17:25:18,602] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'Pardot/package.xml': Can't retrieve non-customizable CustomObject named: Configuration__c
- WARN [2016-04-29 17:25:18,603] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'Pardot/package.xml': Can't retrieve non-customizable CustomObject named: FeatureFlag__c
- WARN [2016-04-29 17:25:18,604] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'Salesforce Connected Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Salesforce_for_Outlook.
- WARN [2016-04-29 17:25:18,605] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'Salesforce Connected Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Salesforce_Touch.
- WARN [2016-04-29 17:25:18,606] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'Salesforce Connected Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Forcecom_Migration_Tool.
- WARN [2016-04-29 17:25:18,607] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'Salesforce Connected Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Salesforce_Mobile_Dashboards.
- WARN [2016-04-29 17:25:18,607] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'Salesforce Connected Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Dataloader_Partner.
- WARN [2016-04-29 17:25:18,608] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'Salesforce Connected Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Forcecom_IDE.
- WARN [2016-04-29 17:25:18,612] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'Salesforce Connected Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Workbench.
- WARN [2016-04-29 17:25:18,613] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'Salesforce Connected Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Dataloader_Bulk.
- WARN [2016-04-29 17:25:18,614] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Salesforce1_for_Windows.
- WARN [2016-04-29 17:25:18,615] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:SalesforceA.
- WARN [2016-04-29 17:25:18,616] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Chatter_for_iOS.
- WARN [2016-04-29 17:25:18,617] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Salesforce_Chatterbox.
- WARN [2016-04-29 17:25:18,617] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Chatter_for_Android.
- WARN [2016-04-29 17:25:18,618] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Chatter_for_BlackBerry.
- WARN [2016-04-29 17:25:18,619] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'Salesforce1 and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Chatter_Desktop.
- WARN [2016-04-29 17:25:18,620] (ProjectController.java:handleRetrieveResults:762) - Failed to retrieve: 'SalesforceIQ Inbox/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:SalesforceIQ.
- WARN [2016-04-29 17:25:18,808] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/S10Q_oauth/ConnectivityDevConfigs/S10Q_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:18,812] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/S10Q_oauth/modules/relateiq__S10Q_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:18,831] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/SalesforceIQ', tagging as component of type 'Unknown'
-ERROR [2016-04-29 17:25:18,832] (ProjectPackageList.java:generateComponents:483) - Filepath-zip mapping is null or empty for package 'SalesforceIQ Inbox' [0A333000000HGWMCA4] - skipping component generation
- WARN [2016-04-29 17:25:18,836] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'aura/OutlookCompose/OutlookCompose.cmp', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:18,837] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'aura/OutlookCompose/OutlookCompose.cmp-meta.xml', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:18,838] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'aura/OutlookCompose/OutlookCompose.css', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:18,840] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'aura/OutlookCompose/OutlookComposeHelper.js', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:18,841] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'aura/OutlookCompose/OutlookComposeRenderer.js', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:18,843] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'aura/OutlookComposeVF/OutlookComposeVF.app-meta.xml', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,006] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/Dataloader_Bulk_oauth/ConnectivityDevConfigs/Dataloader_Bulk_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,008] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/Dataloader_Bulk_oauth/modules/sf_com_apps__Dataloader_Bulk_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,009] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/Dataloader_Bulk', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,010] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/Dataloader_P5r_oauth/ConnectivityDevConfigs/Dataloader_P5r_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,012] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/Dataloader_P5r_oauth/modules/sf_com_apps__Dataloader_P5r_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,013] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/Dataloader_Partner', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,014] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/Forcecom_IDE_oauth/ConnectivityDevConfigs/Forcecom_IDE_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,015] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/Forcecom_IDE_oauth/modules/sf_com_apps__Forcecom_IDE_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,016] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/Forcecom_IDE', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,017] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/Forcecom_Migration_Tool_oauth/ConnectivityDevConfigs/Forcecom_Migration_Tool_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,018] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/Forcecom_Migration_Tool_oauth/modules/sf_com_apps__Forcecom_Migration_Tool_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,019] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/Forcecom_Migration_Tool', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,020] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/S8e_M4e_Dashboards_oauth/ConnectivityDevConfigs/S8e_M4e_Dashboards_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,021] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/S8e_M4e_Dashboards_oauth/modules/sf_com_apps__S8e_M4e_Dashboards_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,022] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/Salesforce_Mobile_Dashboards', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,023] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/S8e_T3h_oauth/ConnectivityDevConfigs/S8e_T3h_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,024] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/S8e_T3h_oauth/modules/sf_com_apps__S8e_T3h_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,025] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/Salesforce_Touch', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,026] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/S8e_for_Outlook_oauth/ConnectivityDevConfigs/S8e_for_Outlook_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,027] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/S8e_for_Outlook_oauth/modules/sf_com_apps__S8e_for_Outlook_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,028] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/Salesforce_for_Outlook', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,028] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/Workbench_oauth_c4s/Canvases/Workbench_oauth_c4sCanvas.Canvas', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,029] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/Workbench_oauth_c4s/modules/sf_com_apps__Workbench_oauth_c4s', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,030] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/Workbench_oauth/ConnectivityDevConfigs/Workbench_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,031] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/Workbench_oauth/modules/sf_com_apps__Workbench_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,032] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/Workbench', tagging as component of type 'Unknown'
-ERROR [2016-04-29 17:25:19,033] (ProjectPackageList.java:generateComponents:483) - Filepath-zip mapping is null or empty for package 'Salesforce Connected Apps' [0A3400000008krmCAA] - skipping component generation
- WARN [2016-04-29 17:25:19,034] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/C5r_Desktop_oauth/ConnectivityDevConfigs/C5r_Desktop_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,035] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/C5r_Desktop_oauth/modules/sf_chttr_apps__C5r_Desktop_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,036] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/Chatter_Desktop', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,036] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/C5r_for_Android_oauth_android/AndroidPushApplicationSetup/C5r_for_Android_oauth_androidAndroidPushApplicationSetup.AndroidPushApplicationSetup', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,037] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/C5r_for_Android_oauth_android/modules/sf_chttr_apps__C5r_for_Android_oauth_android', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,038] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/C5r_for_Android_oauth/ConnectivityDevConfigs/C5r_for_Android_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,039] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/C5r_for_Android_oauth/modules/sf_chttr_apps__C5r_for_Android_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,040] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/Chatter_for_Android', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,041] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/C5r_for_BlackBerry_oauth/ConnectivityDevConfigs/C5r_for_BlackBerry_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,042] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/C5r_for_BlackBerry_oauth/modules/sf_chttr_apps__C5r_for_BlackBerry_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,042] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/Chatter_for_BlackBerry', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,043] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/C5r_for_iOS_oauth_apple/ApplePushApplicationSetup/C5r_for_iOS_oauth_appleApplePushApplicationSetup.ApplePushApplicationSetup', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,044] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/C5r_for_iOS_oauth_apple/modules/sf_chttr_apps__C5r_for_iOS_oauth_apple', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,045] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/C5r_for_iOS_oauth/ConnectivityDevConfigs/C5r_for_iOS_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,046] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/C5r_for_iOS_oauth/modules/sf_chttr_apps__C5r_for_iOS_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,046] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/Chatter_for_iOS', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,047] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/S8e_C8x_oauth/ConnectivityDevConfigs/S8e_C8x_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,048] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/S8e_C8x_oauth/modules/sf_chttr_apps__S8e_C8x_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,049] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/Salesforce_Chatterbox', tagging as component of type 'Unknown'
-ERROR [2016-04-29 17:25:19,049] (ProjectPackageList.java:generateComponents:483) - Filepath-zip mapping is null or empty for package 'Salesforce1 and Chatter Apps' [0A3400000008lGSCAY] - skipping component generation
- WARN [2016-04-29 17:25:19,050] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/S9A_oauth/ConnectivityDevConfigs/S9A_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,051] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/S9A_oauth/modules/sf_chttr_apps__S9A_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,052] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/SalesforceA', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,068] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/S91_for_Windows_oauth/ConnectivityDevConfigs/S91_for_Windows_oauth_devConfig.ConnectivityDevConfig', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,069] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'modules/S91_for_Windows_oauth/modules/sf_chttr_apps__S91_for_Windows_oauth', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:25:19,070] (ComponentFactory.java:getComponentByFilePath:614) - No id found for filepath 'applicationManifests/Salesforce1_for_Windows', tagging as component of type 'Unknown'
- WARN [2016-04-29 17:27:11,353] (ProjectPackageList.java:saveResources:1161) - Component list in project package 'SalesforceIQ Inbox' is empty.  No resources to save.
- WARN [2016-04-29 17:27:43,116] (ProjectPackageList.java:saveResources:1161) - Component list in project package 'Salesforce Connected Apps' is empty.  No resources to save.
- WARN [2016-04-29 17:27:43,772] (ProjectPackageList.java:saveResources:1161) - Component list in project package 'Salesforce1 and Chatter Apps' is empty.  No resources to save.
- WARN [2016-04-29 20:01:20,183] (ConnectionFactory.java:clearCache:220) - Clearing the following cached connections
- WARN [2016-04-29 20:01:20,186] (DescribeObjectRegistry.java:clearCache:663) - Clearing cached describes
- WARN [2016-04-29 20:01:20,200] (MetadataFactory.java:clearCache:128) - Clearing the following cached metadata stubs
- WARN [2016-05-12 14:08:31,144] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'AuraDefinitionBundle': Unable to get bean for id 'AuraDefinitionBundle'
- WARN [2016-05-12 14:08:31,148] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ExternalDataSource': Unable to get bean for id 'ExternalDataSource'
- WARN [2016-05-12 14:08:31,153] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'NamedCredential': Unable to get bean for id 'NamedCredential'
- WARN [2016-05-12 14:08:31,160] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CustomFeedFilter': Unable to get bean for id 'CustomFeedFilter'
- WARN [2016-05-12 14:08:31,166] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'FlowDefinition': Unable to get bean for id 'FlowDefinition'
- WARN [2016-05-12 14:08:31,174] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'MatchingRules': Unable to get bean for id 'MatchingRules'
- WARN [2016-05-12 14:08:31,180] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ChannelLayout': Unable to get bean for id 'ChannelLayout'
- WARN [2016-05-12 14:08:31,185] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SharingRules': Unable to get bean for id 'SharingRules'
- WARN [2016-05-12 14:08:31,191] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ManagedTopics': Unable to get bean for id 'ManagedTopics'
- WARN [2016-05-12 14:08:31,195] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CorsWhitelistOrigin': Unable to get bean for id 'CorsWhitelistOrigin'
- WARN [2016-05-12 14:08:31,201] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ActionLinkGroupTemplate': Unable to get bean for id 'ActionLinkGroupTemplate'
- WARN [2016-05-12 14:08:31,206] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SynonymDictionary': Unable to get bean for id 'SynonymDictionary'
- WARN [2016-05-12 14:08:31,210] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PathAssistant': Unable to get bean for id 'PathAssistant'
- WARN [2016-05-12 14:08:31,216] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PlatformCachePartition': Unable to get bean for id 'PlatformCachePartition'
- WARN [2016-05-12 14:08:33,728] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'AuraDefinitionBundle': Unable to get bean for id 'AuraDefinitionBundle'
- WARN [2016-05-12 14:08:33,730] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ExternalDataSource': Unable to get bean for id 'ExternalDataSource'
- WARN [2016-05-12 14:08:33,731] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'NamedCredential': Unable to get bean for id 'NamedCredential'
- WARN [2016-05-12 14:08:33,733] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CustomFeedFilter': Unable to get bean for id 'CustomFeedFilter'
- WARN [2016-05-12 14:08:33,735] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'FlowDefinition': Unable to get bean for id 'FlowDefinition'
- WARN [2016-05-12 14:08:33,737] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'MatchingRules': Unable to get bean for id 'MatchingRules'
- WARN [2016-05-12 14:08:33,746] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ChannelLayout': Unable to get bean for id 'ChannelLayout'
- WARN [2016-05-12 14:08:33,747] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SharingRules': Unable to get bean for id 'SharingRules'
- WARN [2016-05-12 14:08:33,750] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ManagedTopics': Unable to get bean for id 'ManagedTopics'
- WARN [2016-05-12 14:08:33,756] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CorsWhitelistOrigin': Unable to get bean for id 'CorsWhitelistOrigin'
- WARN [2016-05-12 14:08:33,760] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ActionLinkGroupTemplate': Unable to get bean for id 'ActionLinkGroupTemplate'
- WARN [2016-05-12 14:08:33,765] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SynonymDictionary': Unable to get bean for id 'SynonymDictionary'
- WARN [2016-05-12 14:08:33,770] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PathAssistant': Unable to get bean for id 'PathAssistant'
- WARN [2016-05-12 14:08:33,777] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PlatformCachePartition': Unable to get bean for id 'PlatformCachePartition'
- WARN [2016-05-12 14:15:15,151] (PackageRetrieveService.java:logFailure:1210) - Retrieve operation from 'https://adpdealerservices--docusign.cs40.my.salesforce.com/services/Soap/m/35.0/00D54000000Cu7R' failed: INVALID_CROSS_REFERENCE_KEY: No package named 'Milestones PM+' found (Failed)
- WARN [2016-05-12 14:15:15,155] (PackageRetrieveService.java:retrieveWork:1058) - Unable to retrieve components: ServiceException: INVALID_CROSS_REFERENCE_KEY: No package named 'Milestones PM+' found (Failed)
- WARN [2016-05-12 19:50:34,598] (ConnectionFactory.java:clearCache:220) - Clearing the following cached connections
- WARN [2016-05-12 19:50:34,609] (DescribeObjectRegistry.java:clearCache:663) - Clearing cached describes
- WARN [2016-05-12 19:50:34,611] (MetadataFactory.java:clearCache:128) - Clearing the following cached metadata stubs
- WARN [2016-07-12 17:29:11,290] (BaseRetryAspect.java:isLoginExceptionRetryable:115) - Login evaluation deemed exception not retry-able:
+ WARN [2018-01-17 18:27:41,335] (ProjectAddEvaluator.java:visit:86) - Unable to add skip builder flag to added project 'P/sf_dev': Project 'sf_dev' is not open. Cause:
+ (1) Project 'sf_dev' is not open.
+ WARN [2018-01-17 18:27:41,355] (ProjectAddEvaluator.java:visit:101) - Unable to add skip builder flag to added project 'P/sf_dev': Project 'sf_dev' is not open. Cause:
+ (1) Project 'sf_dev' is not open.
+ WARN [2018-01-17 18:27:41,554] (ProjectAddEvaluator.java:visit:86) - Unable to add skip builder flag to added project 'P/VishalHack': Project 'VishalHack' is not open. Cause:
+ (1) Project 'VishalHack' is not open.
+ WARN [2018-01-17 18:27:41,554] (ProjectAddEvaluator.java:visit:101) - Unable to add skip builder flag to added project 'P/VishalHack': Project 'VishalHack' is not open. Cause:
+ (1) Project 'VishalHack' is not open.
+ WARN [2018-01-17 18:27:49,056] (BaseBuilder.java:checkSkipBuilder:86) - Skipping build - user credentials not found
+ WARN [2018-01-17 18:32:15,222] (ConnectionFactory.java:clearCache:217) - No cached connections
+ WARN [2018-01-17 18:32:15,223] (DescribeObjectRegistry.java:clearCache:660) - No cached describes
+ WARN [2018-01-17 18:32:15,223] (MetadataFactory.java:clearCache:125) - No cached metadata stubs
+ WARN [2018-01-18 19:18:48,669] (ConnectionFactory.java:clearCache:217) - No cached connections
+ WARN [2018-01-18 19:18:48,702] (DescribeObjectRegistry.java:clearCache:660) - No cached describes
+ WARN [2018-01-18 19:18:48,703] (MetadataFactory.java:clearCache:125) - No cached metadata stubs
+ WARN [2018-01-22 17:50:03,713] (BaseBuilder.java:checkSkipBuilder:86) - Skipping build - user credentials not found
+ WARN [2018-01-23 14:25:29,975] (BaseBuilder.java:checkSkipBuilder:86) - Skipping build - user credentials not found
+ WARN [2018-01-23 14:39:44,716] (BuilderPayload.java:filterComponentsInConflict:256) - Remote retrieve result count [8] does not equal request count [1].
+ WARN [2018-01-23 14:39:44,731] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'aura/COM_ArticleDetailImage_LCMP'
+ WARN [2018-01-23 14:39:44,733] (BuilderPayload.java:conflictCheck:296) - AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged] not found in remote project package list.  Assuming no conflict.
+ WARN [2018-01-23 14:40:07,722] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-01-23 14:40:07,731] (MarkerUtils.java:clearDirty:446) - Unable to clear dirty markers on resources - resources is null or empty
+ WARN [2018-01-23 14:40:07,735] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-01-23 14:40:07,736] (MarkerUtils.java:clearSaveMarkers:564) - Unable to clear save markers on resources - resources is null or empty 
+ WARN [2018-01-23 14:40:07,766] (ProjectPackageList.java:getComponentByMetadataFilePath:737) - Did not find component for 'aura/COM_ArticleDetailImage_LCMP'
+ WARN [2018-01-23 14:40:07,767] (ProjectService.java:handleRetrieveMessages:2220) - Unable to handle retrieve message - could not find component 'aura/COM_ArticleDetailImage_LCMP' for message 'In field: specific ids - no AuraDefinitionBundle named COM_ArticleDetailImage_LCMP. found'
+ WARN [2018-01-23 14:44:41,333] (BuilderPayload.java:filterComponentsInConflict:256) - Remote retrieve result count [8] does not equal request count [1].
+ WARN [2018-01-23 14:44:41,366] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'aura/COM_ArticleDetailImage_LCMP'
+ WARN [2018-01-23 14:44:41,368] (BuilderPayload.java:conflictCheck:296) - AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged] not found in remote project package list.  Assuming no conflict.
+ WARN [2018-01-23 14:44:53,760] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-01-23 14:44:53,764] (MarkerUtils.java:clearDirty:446) - Unable to clear dirty markers on resources - resources is null or empty
+ WARN [2018-01-23 14:44:53,768] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-01-23 14:44:53,773] (MarkerUtils.java:clearSaveMarkers:564) - Unable to clear save markers on resources - resources is null or empty 
+ WARN [2018-01-23 14:44:53,781] (ProjectPackageList.java:getComponentByMetadataFilePath:737) - Did not find component for 'aura/COM_ArticleDetailImage_LCMP'
+ WARN [2018-01-23 14:44:53,784] (ProjectService.java:handleRetrieveMessages:2220) - Unable to handle retrieve message - could not find component 'aura/COM_ArticleDetailImage_LCMP' for message 'In field: specific ids - no AuraDefinitionBundle named COM_ArticleDetailImage_LCMP. found'
+ WARN [2018-01-23 14:44:55,944] (BuilderPayload.java:filterComponentsInConflict:256) - Remote retrieve result count [8] does not equal request count [1].
+ WARN [2018-01-23 14:44:55,959] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'aura/COM_ArticleDetailImage_LCMP'
+ WARN [2018-01-23 14:44:55,961] (BuilderPayload.java:conflictCheck:296) - AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged] not found in remote project package list.  Assuming no conflict.
+ WARN [2018-01-23 14:45:10,578] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-01-23 14:45:10,581] (MarkerUtils.java:clearDirty:446) - Unable to clear dirty markers on resources - resources is null or empty
+ WARN [2018-01-23 14:45:10,586] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-01-23 14:45:10,589] (MarkerUtils.java:clearSaveMarkers:564) - Unable to clear save markers on resources - resources is null or empty 
+ WARN [2018-01-23 14:45:10,597] (ProjectPackageList.java:getComponentByMetadataFilePath:737) - Did not find component for 'aura/COM_ArticleDetailImage_LCMP'
+ WARN [2018-01-23 14:45:10,601] (ProjectService.java:handleRetrieveMessages:2220) - Unable to handle retrieve message - could not find component 'aura/COM_ArticleDetailImage_LCMP' for message 'In field: specific ids - no AuraDefinitionBundle named COM_ArticleDetailImage_LCMP. found'
+ WARN [2018-01-23 14:45:12,747] (BuilderPayload.java:filterComponentsInConflict:256) - Remote retrieve result count [8] does not equal request count [1].
+ WARN [2018-01-23 14:45:12,781] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'aura/COM_ArticleDetailImage_LCMP'
+ WARN [2018-01-23 14:45:12,783] (BuilderPayload.java:conflictCheck:296) - AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged] not found in remote project package list.  Assuming no conflict.
+ WARN [2018-01-23 14:45:24,152] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-01-23 14:45:24,156] (MarkerUtils.java:clearDirty:446) - Unable to clear dirty markers on resources - resources is null or empty
+ WARN [2018-01-23 14:45:24,159] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-01-23 14:45:24,162] (MarkerUtils.java:clearSaveMarkers:564) - Unable to clear save markers on resources - resources is null or empty 
+ WARN [2018-01-23 14:45:24,171] (ProjectPackageList.java:getComponentByMetadataFilePath:737) - Did not find component for 'aura/COM_ArticleDetailImage_LCMP'
+ WARN [2018-01-23 14:45:24,173] (ProjectService.java:handleRetrieveMessages:2220) - Unable to handle retrieve message - could not find component 'aura/COM_ArticleDetailImage_LCMP' for message 'In field: specific ids - no AuraDefinitionBundle named COM_ArticleDetailImage_LCMP. found'
+ WARN [2018-01-23 14:47:06,879] (BuilderPayload.java:filterComponentsInConflict:256) - Remote retrieve result count [8] does not equal request count [1].
+ WARN [2018-01-23 14:47:06,891] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'aura/COM_ArticleDetailImage_LCMP'
+ WARN [2018-01-23 14:47:06,893] (BuilderPayload.java:conflictCheck:296) - AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged] not found in remote project package list.  Assuming no conflict.
+ WARN [2018-01-23 14:47:21,068] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-01-23 14:47:21,071] (MarkerUtils.java:clearDirty:446) - Unable to clear dirty markers on resources - resources is null or empty
+ WARN [2018-01-23 14:47:21,075] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-01-23 14:47:21,078] (MarkerUtils.java:clearSaveMarkers:564) - Unable to clear save markers on resources - resources is null or empty 
+ WARN [2018-01-23 14:47:21,085] (ProjectPackageList.java:getComponentByMetadataFilePath:737) - Did not find component for 'aura/COM_ArticleDetailImage_LCMP'
+ WARN [2018-01-23 14:47:21,087] (ProjectService.java:handleRetrieveMessages:2220) - Unable to handle retrieve message - could not find component 'aura/COM_ArticleDetailImage_LCMP' for message 'In field: specific ids - no AuraDefinitionBundle named COM_ArticleDetailImage_LCMP. found'
+ WARN [2018-01-23 14:47:24,898] (BuilderPayload.java:filterComponentsInConflict:256) - Remote retrieve result count [8] does not equal request count [1].
+ WARN [2018-01-23 14:47:24,923] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'aura/COM_ArticleDetailImage_LCMP'
+ WARN [2018-01-23 14:47:24,925] (BuilderPayload.java:conflictCheck:296) - AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged] not found in remote project package list.  Assuming no conflict.
+ WARN [2018-01-23 14:47:36,404] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-01-23 14:47:36,405] (MarkerUtils.java:clearDirty:446) - Unable to clear dirty markers on resources - resources is null or empty
+ WARN [2018-01-23 14:47:36,419] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-01-23 14:47:36,420] (MarkerUtils.java:clearSaveMarkers:564) - Unable to clear save markers on resources - resources is null or empty 
+ WARN [2018-01-23 14:47:36,422] (ProjectPackageList.java:getComponentByMetadataFilePath:737) - Did not find component for 'aura/COM_ArticleDetailImage_LCMP'
+ WARN [2018-01-23 14:47:36,424] (ProjectService.java:handleRetrieveMessages:2220) - Unable to handle retrieve message - could not find component 'aura/COM_ArticleDetailImage_LCMP' for message 'In field: specific ids - no AuraDefinitionBundle named COM_ArticleDetailImage_LCMP. found'
+ WARN [2018-01-23 14:47:56,507] (BuilderPayload.java:filterComponentsInConflict:256) - Remote retrieve result count [1] does not equal request count [2].
+ WARN [2018-01-23 14:47:56,515] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/COM_ArticleList_Controller.cls'
+ WARN [2018-01-23 14:47:56,518] (BuilderPayload.java:conflictCheck:296) - ApexClass 'classes/COM_ArticleList_Controller.cls' [unpackaged] not found in remote project package list.  Assuming no conflict.
+ WARN [2018-01-23 14:47:56,521] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/COM_ArticleList_Controller.cls-meta.xml'
+ WARN [2018-01-23 14:47:56,524] (BuilderPayload.java:conflictCheck:296) - ApexClass 'classes/COM_ArticleList_Controller.cls-meta.xml' [unpackaged] not found in remote project package list.  Assuming no conflict.
+ WARN [2018-01-23 14:48:03,462] (ProjectService.java:handleDeployResult:1942) - Save failed!
+ WARN [2018-01-23 14:48:03,477] (ProjectService.java:handleRetrieveResult:2129) - Nothing to save to project - retrieve result is empty
+ WARN [2018-01-23 15:36:40,853] (BuilderPayload.java:filterComponentsInConflict:256) - Remote retrieve result count [1] does not equal request count [2].
+ WARN [2018-01-23 15:36:40,865] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/COM_ArticleList_Controller.cls'
+ WARN [2018-01-23 15:36:40,870] (BuilderPayload.java:conflictCheck:296) - ApexClass 'classes/COM_ArticleList_Controller.cls' [unpackaged] not found in remote project package list.  Assuming no conflict.
+ WARN [2018-01-23 15:36:40,873] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/COM_ArticleList_Controller.cls-meta.xml'
+ WARN [2018-01-23 15:36:40,876] (BuilderPayload.java:conflictCheck:296) - ApexClass 'classes/COM_ArticleList_Controller.cls-meta.xml' [unpackaged] not found in remote project package list.  Assuming no conflict.
+ WARN [2018-01-23 15:57:47,834] (BuilderPayload.java:filterComponentsInConflict:256) - Remote retrieve result count [8] does not equal request count [1].
+ WARN [2018-01-23 15:57:47,848] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'aura/COM_ArticleDetailImage_LCMP'
+ WARN [2018-01-23 15:57:47,849] (BuilderPayload.java:conflictCheck:296) - AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged] not found in remote project package list.  Assuming no conflict.
+ WARN [2018-01-23 15:58:00,928] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-01-23 15:58:00,931] (MarkerUtils.java:clearDirty:446) - Unable to clear dirty markers on resources - resources is null or empty
+ WARN [2018-01-23 15:58:00,934] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-01-23 15:58:00,937] (MarkerUtils.java:clearSaveMarkers:564) - Unable to clear save markers on resources - resources is null or empty 
+ WARN [2018-01-23 15:58:00,947] (ProjectPackageList.java:getComponentByMetadataFilePath:737) - Did not find component for 'aura/COM_ArticleDetailImage_LCMP'
+ WARN [2018-01-23 15:58:00,950] (ProjectService.java:handleRetrieveMessages:2220) - Unable to handle retrieve message - could not find component 'aura/COM_ArticleDetailImage_LCMP' for message 'In field: specific ids - no AuraDefinitionBundle named COM_ArticleDetailImage_LCMP. found'
+ WARN [2018-01-23 16:29:26,820] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-01-23 16:29:26,823] (MarkerUtils.java:clearDirty:446) - Unable to clear dirty markers on resources - resources is null or empty
+ WARN [2018-01-23 16:29:26,826] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-01-23 16:29:26,830] (MarkerUtils.java:clearSaveMarkers:564) - Unable to clear save markers on resources - resources is null or empty 
+ WARN [2018-01-23 16:29:26,843] (ProjectPackageList.java:getComponentByMetadataFilePath:737) - Did not find component for 'aura/COM_ArticleDetailImage_LCMP'
+ WARN [2018-01-23 16:29:26,846] (ProjectService.java:handleRetrieveMessages:2220) - Unable to handle retrieve message - could not find component 'aura/COM_ArticleDetailImage_LCMP' for message 'In field: specific ids - no AuraDefinitionBundle named COM_ArticleDetailImage_LCMP. found'
+ WARN [2018-01-23 16:29:33,421] (ProjectService.java:evaluateLocalAndRemote:2667) - Project package 'unpackaged' does not jive with remote package - assuming project is out of sync
+ WARN [2018-01-23 18:31:29,992] (BuilderPayload.java:filterComponentsInConflict:256) - Remote retrieve result count [8] does not equal request count [1].
+ WARN [2018-01-23 18:31:30,016] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'aura/COM_ArticleDetailImage_LCMP'
+ WARN [2018-01-23 18:31:30,018] (BuilderPayload.java:conflictCheck:296) - AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged] not found in remote project package list.  Assuming no conflict.
+ WARN [2018-01-23 18:31:45,546] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-01-23 18:31:45,547] (MarkerUtils.java:clearDirty:446) - Unable to clear dirty markers on resources - resources is null or empty
+ WARN [2018-01-23 18:31:45,548] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-01-23 18:31:45,549] (MarkerUtils.java:clearSaveMarkers:564) - Unable to clear save markers on resources - resources is null or empty 
+ WARN [2018-01-23 18:31:45,552] (ProjectPackageList.java:getComponentByMetadataFilePath:737) - Did not find component for 'aura/COM_ArticleDetailImage_LCMP'
+ WARN [2018-01-23 18:31:45,553] (ProjectService.java:handleRetrieveMessages:2220) - Unable to handle retrieve message - could not find component 'aura/COM_ArticleDetailImage_LCMP' for message 'In field: specific ids - no AuraDefinitionBundle named COM_ArticleDetailImage_LCMP. found'
+ WARN [2018-01-23 19:00:35,075] (BuilderPayload.java:filterComponentsInConflict:256) - Remote retrieve result count [8] does not equal request count [1].
+ WARN [2018-01-23 19:00:35,086] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'aura/COM_ArticleDetailImage_LCMP'
+ WARN [2018-01-23 19:00:35,090] (BuilderPayload.java:conflictCheck:296) - AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged] not found in remote project package list.  Assuming no conflict.
+ WARN [2018-01-23 19:00:51,117] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-01-23 19:00:51,118] (MarkerUtils.java:clearDirty:446) - Unable to clear dirty markers on resources - resources is null or empty
+ WARN [2018-01-23 19:00:51,119] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-01-23 19:00:51,120] (MarkerUtils.java:clearSaveMarkers:564) - Unable to clear save markers on resources - resources is null or empty 
+ WARN [2018-01-23 19:00:51,122] (ProjectPackageList.java:getComponentByMetadataFilePath:737) - Did not find component for 'aura/COM_ArticleDetailImage_LCMP'
+ WARN [2018-01-23 19:00:51,123] (ProjectService.java:handleRetrieveMessages:2220) - Unable to handle retrieve message - could not find component 'aura/COM_ArticleDetailImage_LCMP' for message 'In field: specific ids - no AuraDefinitionBundle named COM_ArticleDetailImage_LCMP. found'
+ WARN [2018-01-23 19:00:53,328] (BuilderPayload.java:filterComponentsInConflict:256) - Remote retrieve result count [8] does not equal request count [1].
+ WARN [2018-01-23 19:00:53,344] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'aura/COM_ArticleDetailImage_LCMP'
+ WARN [2018-01-23 19:00:53,350] (BuilderPayload.java:conflictCheck:296) - AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged] not found in remote project package list.  Assuming no conflict.
+ WARN [2018-01-23 19:01:06,690] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-01-23 19:01:06,691] (MarkerUtils.java:clearDirty:446) - Unable to clear dirty markers on resources - resources is null or empty
+ WARN [2018-01-23 19:01:06,692] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-01-23 19:01:06,693] (MarkerUtils.java:clearSaveMarkers:564) - Unable to clear save markers on resources - resources is null or empty 
+ WARN [2018-01-23 19:01:06,697] (ProjectPackageList.java:getComponentByMetadataFilePath:737) - Did not find component for 'aura/COM_ArticleDetailImage_LCMP'
+ WARN [2018-01-23 19:01:06,699] (ProjectService.java:handleRetrieveMessages:2220) - Unable to handle retrieve message - could not find component 'aura/COM_ArticleDetailImage_LCMP' for message 'In field: specific ids - no AuraDefinitionBundle named COM_ArticleDetailImage_LCMP. found'
+ WARN [2018-01-23 19:01:08,816] (BuilderPayload.java:filterComponentsInConflict:256) - Remote retrieve result count [8] does not equal request count [1].
+ WARN [2018-01-23 19:01:08,837] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'aura/COM_ArticleDetailImage_LCMP'
+ WARN [2018-01-23 19:01:08,838] (BuilderPayload.java:conflictCheck:296) - AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged] not found in remote project package list.  Assuming no conflict.
+ WARN [2018-01-23 19:01:19,632] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-01-23 19:01:19,635] (MarkerUtils.java:clearDirty:446) - Unable to clear dirty markers on resources - resources is null or empty
+ WARN [2018-01-23 19:01:19,638] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-01-23 19:01:19,641] (MarkerUtils.java:clearSaveMarkers:564) - Unable to clear save markers on resources - resources is null or empty 
+ WARN [2018-01-23 19:01:19,646] (ProjectPackageList.java:getComponentByMetadataFilePath:737) - Did not find component for 'aura/COM_ArticleDetailImage_LCMP'
+ WARN [2018-01-23 19:01:19,651] (ProjectService.java:handleRetrieveMessages:2220) - Unable to handle retrieve message - could not find component 'aura/COM_ArticleDetailImage_LCMP' for message 'In field: specific ids - no AuraDefinitionBundle named COM_ArticleDetailImage_LCMP. found'
+ WARN [2018-01-23 19:21:51,673] (ConnectionFactory.java:clearCache:220) - Clearing the following cached connections
+ WARN [2018-01-23 19:21:51,676] (DescribeObjectRegistry.java:clearCache:663) - Clearing cached describes
+ WARN [2018-01-23 19:21:51,679] (MetadataFactory.java:clearCache:128) - Clearing the following cached metadata stubs
+ WARN [2018-01-30 17:08:23,026] (BuilderPayload.java:filterComponentsInConflict:256) - Remote retrieve result count [8] does not equal request count [1].
+ WARN [2018-01-30 17:08:23,051] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'aura/COM_ArticleDetailImage_LCMP'
+ WARN [2018-01-30 17:08:23,057] (BuilderPayload.java:conflictCheck:296) - AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged] not found in remote project package list.  Assuming no conflict.
+ WARN [2018-01-30 17:08:51,284] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-01-30 17:08:51,299] (MarkerUtils.java:clearDirty:446) - Unable to clear dirty markers on resources - resources is null or empty
+ WARN [2018-01-30 17:08:51,299] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-01-30 17:08:51,299] (MarkerUtils.java:clearSaveMarkers:564) - Unable to clear save markers on resources - resources is null or empty 
+ WARN [2018-01-30 17:08:51,307] (ProjectPackageList.java:getComponentByMetadataFilePath:737) - Did not find component for 'aura/COM_ArticleDetailImage_LCMP'
+ WARN [2018-01-30 17:08:51,309] (ProjectService.java:handleRetrieveMessages:2220) - Unable to handle retrieve message - could not find component 'aura/COM_ArticleDetailImage_LCMP' for message 'In field: specific ids - no AuraDefinitionBundle named COM_ArticleDetailImage_LCMP. found'
+ WARN [2018-01-30 17:08:53,604] (BuilderPayload.java:filterComponentsInConflict:256) - Remote retrieve result count [16] does not equal request count [14].
+ WARN [2018-01-30 17:08:53,632] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'aura/COM_ArticleDetailImage_LCMP'
+ WARN [2018-01-30 17:08:53,634] (BuilderPayload.java:conflictCheck:296) - AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged] not found in remote project package list.  Assuming no conflict.
+ WARN [2018-01-30 17:08:53,636] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'aura/COM_StockTicker_LCMP'
+ WARN [2018-01-30 17:08:53,636] (BuilderPayload.java:conflictCheck:296) - AuraDefinitionBundle 'aura/COM_StockTicker_LCMP' [unpackaged] not found in remote project package list.  Assuming no conflict.
+ WARN [2018-01-30 17:08:53,638] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/CB_EntitlementsToCaseAssignment_Handler.cls'
+ WARN [2018-01-30 17:08:53,639] (BuilderPayload.java:conflictCheck:296) - ApexClass 'classes/CB_EntitlementsToCaseAssignment_Handler.cls' [unpackaged] not found in remote project package list.  Assuming no conflict.
+ WARN [2018-01-30 17:08:53,640] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/CB_EntitlementsToCaseAssignment_Handler.cls-meta.xml'
+ WARN [2018-01-30 17:08:53,641] (BuilderPayload.java:conflictCheck:296) - ApexClass 'classes/CB_EntitlementsToCaseAssignment_Handler.cls-meta.xml' [unpackaged] not found in remote project package list.  Assuming no conflict.
+ WARN [2018-01-30 17:08:53,644] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/COM_Utility.cls'
+ WARN [2018-01-30 17:08:53,660] (BuilderPayload.java:conflictCheck:296) - ApexClass 'classes/COM_Utility.cls' [unpackaged] not found in remote project package list.  Assuming no conflict.
+ WARN [2018-01-30 17:08:53,676] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/COM_Utility.cls-meta.xml'
+ WARN [2018-01-30 17:08:53,676] (BuilderPayload.java:conflictCheck:296) - ApexClass 'classes/COM_Utility.cls-meta.xml' [unpackaged] not found in remote project package list.  Assuming no conflict.
+ WARN [2018-01-30 17:08:53,676] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/COM_UtilityMock.cls'
+ WARN [2018-01-30 17:08:53,676] (BuilderPayload.java:conflictCheck:296) - ApexClass 'classes/COM_UtilityMock.cls' [unpackaged] not found in remote project package list.  Assuming no conflict.
+ WARN [2018-01-30 17:08:53,676] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/COM_UtilityMock.cls-meta.xml'
+ WARN [2018-01-30 17:08:53,676] (BuilderPayload.java:conflictCheck:296) - ApexClass 'classes/COM_UtilityMock.cls-meta.xml' [unpackaged] not found in remote project package list.  Assuming no conflict.
+ WARN [2018-01-30 17:08:53,676] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/COM_Utility_Test.cls'
+ WARN [2018-01-30 17:08:53,676] (BuilderPayload.java:conflictCheck:296) - ApexClass 'classes/COM_Utility_Test.cls' [unpackaged] not found in remote project package list.  Assuming no conflict.
+ WARN [2018-01-30 17:08:53,676] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/COM_Utility_Test.cls-meta.xml'
+ WARN [2018-01-30 17:08:53,676] (BuilderPayload.java:conflictCheck:296) - ApexClass 'classes/COM_Utility_Test.cls-meta.xml' [unpackaged] not found in remote project package list.  Assuming no conflict.
+ WARN [2018-01-30 17:08:53,676] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/DSCB_CloneAnything.cls'
+ WARN [2018-01-30 17:08:53,676] (BuilderPayload.java:conflictCheck:296) - ApexClass 'classes/DSCB_CloneAnything.cls' [unpackaged] not found in remote project package list.  Assuming no conflict.
+ WARN [2018-01-30 17:08:53,676] (ProjectPackageList.java:getComponentByFilePath:662) - Did not find component for 'classes/DSCB_CloneAnything.cls-meta.xml'
+ WARN [2018-01-30 17:08:53,676] (BuilderPayload.java:conflictCheck:296) - ApexClass 'classes/DSCB_CloneAnything.cls-meta.xml' [unpackaged] not found in remote project package list.  Assuming no conflict.
+ WARN [2018-01-30 17:09:13,150] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-01-30 17:09:13,150] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_StockTicker_LCMP' [unpackaged]
+ WARN [2018-01-30 17:09:13,151] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-01-30 17:09:13,151] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_StockTicker_LCMP' [unpackaged]
+ WARN [2018-01-30 17:09:13,703] (ProjectPackageList.java:getComponentByMetadataFilePath:737) - Did not find component for 'aura/COM_ArticleDetailImage_LCMP'
+ WARN [2018-01-30 17:09:13,719] (ProjectService.java:handleRetrieveMessages:2220) - Unable to handle retrieve message - could not find component 'aura/COM_ArticleDetailImage_LCMP' for message 'In field: specific ids - no AuraDefinitionBundle named COM_ArticleDetailImage_LCMP. found'
+ WARN [2018-01-30 17:09:13,735] (ProjectPackageList.java:getComponentByMetadataFilePath:737) - Did not find component for 'aura/COM_StockTicker_LCMP'
+ WARN [2018-01-30 17:09:13,735] (ProjectService.java:handleRetrieveMessages:2220) - Unable to handle retrieve message - could not find component 'aura/COM_StockTicker_LCMP' for message 'In field: specific ids - no AuraDefinitionBundle named COM_StockTicker_LCMP. found'
+ WARN [2018-01-30 19:00:53,240] (ConnectionFactory.java:clearCache:220) - Clearing the following cached connections
+ WARN [2018-01-30 19:00:53,243] (DescribeObjectRegistry.java:clearCache:660) - No cached describes
+ WARN [2018-01-30 19:00:53,245] (MetadataFactory.java:clearCache:128) - Clearing the following cached metadata stubs
+ WARN [2018-02-01 18:44:10,246] (ConnectionFactory.java:clearCache:220) - Clearing the following cached connections
+ WARN [2018-02-01 18:44:10,262] (DescribeObjectRegistry.java:clearCache:660) - No cached describes
+ WARN [2018-02-01 18:44:10,262] (MetadataFactory.java:clearCache:125) - No cached metadata stubs
+ WARN [2018-02-01 19:24:51,250] (ConnectionFactory.java:clearCache:220) - Clearing the following cached connections
+ WARN [2018-02-01 19:24:51,284] (DescribeObjectRegistry.java:clearCache:660) - No cached describes
+ WARN [2018-02-01 19:24:51,286] (MetadataFactory.java:clearCache:125) - No cached metadata stubs
+ WARN [2018-02-02 11:52:54,243] (BaseBuilder.java:checkSkipBuilder:86) - Skipping build - user credentials not found
+ WARN [2018-02-02 11:55:49,427] (ConnectionFactory.java:clearCache:220) - Clearing the following cached connections
+ WARN [2018-02-02 11:55:49,430] (DescribeObjectRegistry.java:clearCache:660) - No cached describes
+ WARN [2018-02-02 11:55:49,432] (MetadataFactory.java:clearCache:125) - No cached metadata stubs
+ WARN [2018-02-02 11:59:36,988] (ProjectAddEvaluator.java:visit:86) - Unable to add skip builder flag to added project 'P/sf_dev': Project 'sf_dev' is not open. Cause:
+ (1) Project 'sf_dev' is not open.
+ WARN [2018-02-02 11:59:37,005] (ProjectAddEvaluator.java:visit:101) - Unable to add skip builder flag to added project 'P/sf_dev': Project 'sf_dev' is not open. Cause:
+ (1) Project 'sf_dev' is not open.
+ WARN [2018-02-02 15:32:24,656] (ConnectionFactory.java:clearCache:220) - Clearing the following cached connections
+ WARN [2018-02-02 15:32:24,662] (DescribeObjectRegistry.java:clearCache:660) - No cached describes
+ WARN [2018-02-02 15:32:24,664] (MetadataFactory.java:clearCache:125) - No cached metadata stubs
+ WARN [2018-02-02 19:15:26,640] (ConnectionFactory.java:clearCache:217) - No cached connections
+ WARN [2018-02-02 19:15:26,649] (DescribeObjectRegistry.java:clearCache:660) - No cached describes
+ WARN [2018-02-02 19:15:26,651] (MetadataFactory.java:clearCache:125) - No cached metadata stubs
+ WARN [2018-02-04 12:00:13,573] (BaseRetryAspect.java:isLoginExceptionRetryable:124) - Login evaluation deemed exception not retry-able:
  LoginFault: Invalid username, password, security token; or user locked out.
- WARN [2016-07-12 17:29:11,297] (BaseRetryAspect.java:isConnectionExceptionRetryable:150) - Connection evaluation deemed exception not retry-able:
+ WARN [2018-02-04 12:00:13,582] (BaseRetryAspect.java:isConnectionExceptionRetryable:159) - Connection evaluation deemed exception not retry-able:
  LoginFault: Invalid username, password, security token; or user locked out.
-ERROR [2016-07-12 17:29:11,300] (ApexSystemCompletionsRepository.java:getCompletionsFetchIfNecessary:85) - Failed to fetch system completions
-com.salesforce.ide.core.remote.InvalidLoginException: Invalid username, password, security token; or user locked out.
-	at com.salesforce.ide.core.internal.utils.ForceExceptionUtils.handleConnectionException(ForceExceptionUtils.java:67)
+ WARN [2018-02-04 12:00:13,615] (RefreshResourceHandler.java:fetchRemoteComponents:116) - Unable to refresh resource(s): Invalid username, password, security token; or user locked out.
+ WARN [2018-02-04 12:01:52,603] (BaseRetryAspect.java:isLoginExceptionRetryable:124) - Login evaluation deemed exception not retry-able:
+ LoginFault: Invalid username, password, security token; or user locked out.
+ WARN [2018-02-04 12:01:52,609] (BaseRetryAspect.java:isConnectionExceptionRetryable:159) - Connection evaluation deemed exception not retry-able:
+ LoginFault: Invalid username, password, security token; or user locked out.
+ WARN [2018-02-04 12:01:52,615] (ProjectPropertyPage.java:updateProject:168) - Invalid login credentials: Invalid username, password, security token; or user locked out.
+ WARN [2018-02-04 12:04:54,470] (BaseRetryAspect.java:isLoginExceptionRetryable:124) - Login evaluation deemed exception not retry-able:
+ ConnectException: Connection timed out: connect
+ WARN [2018-02-04 12:04:54,473] (BaseRetryAspect.java:isConnectionExceptionRetryable:159) - Connection evaluation deemed exception not retry-able:
+ ConnectException: Connection timed out: connect
+ERROR [2018-02-04 12:04:54,477] (ProjectPropertyPage.java:updateProject:182) - Unable to update project properties.
+com.salesforce.ide.core.remote.ForceConnectionException: Unable to create connection to server 'test.salesforce.com':
+
+ConnectException: Connection timed out: connect
+	at com.salesforce.ide.core.internal.utils.ForceExceptionUtils.handleConnectionException(ForceExceptionUtils.java:74)
 	at com.salesforce.ide.core.remote.Connection.login(Connection.java:301)
 	at com.salesforce.ide.core.remote.Connection$$FastClassByCGLIB$$8e61a81d.invoke(<generated>)
 	at net.sf.cglib.proxy.MethodProxy.invoke(MethodProxy.java:149)
@@ -283,7 +230,7 @@ com.salesforce.ide.core.remote.InvalidLoginException: Invalid username, password
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:483)
+	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:627)
 	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:616)
 	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:64)
@@ -293,105 +240,62 @@ com.salesforce.ide.core.remote.InvalidLoginException: Invalid username, password
 	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:90)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
 	at org.springframework.aop.framework.Cglib2AopProxy$DynamicAdvisedInterceptor.intercept(Cglib2AopProxy.java:635)
-	at com.salesforce.ide.core.remote.Connection$$EnhancerByCGLIB$$a0a4d2db.login(<generated>)
+	at com.salesforce.ide.core.remote.Connection$$EnhancerByCGLIB$$8496179b.login(<generated>)
 	at com.salesforce.ide.core.factories.ConnectionFactory.getNewConnection(ConnectionFactory.java:82)
 	at com.salesforce.ide.core.factories.ConnectionFactory.storeConnection(ConnectionFactory.java:167)
 	at com.salesforce.ide.core.factories.ConnectionFactory.getConnection(ConnectionFactory.java:134)
-	at com.salesforce.ide.core.remote.HTTPConnection.initializeConnection(HTTPConnection.java:62)
-	at com.salesforce.ide.core.remote.HTTPConnection.initialize(HTTPConnection.java:54)
-	at com.salesforce.ide.apex.core.tooling.systemcompletions.ApexSystemCompletionsRepository.initializeConnectionIfNecessary(ApexSystemCompletionsRepository.java:96)
-	at com.salesforce.ide.apex.core.tooling.systemcompletions.ApexSystemCompletionsRepository.getCompletionsFetchIfNecessary(ApexSystemCompletionsRepository.java:54)
-	at com.salesforce.ide.ui.editors.apex.ApexCodeMultiPageEditor.init(ApexCodeMultiPageEditor.java:67)
-	at org.eclipse.ui.internal.EditorReference.initialize(EditorReference.java:362)
-	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.create(CompatibilityPart.java:319)
+	at com.salesforce.ide.ui.properties.ProjectUpdateOperation.update(ProjectUpdateOperation.java:63)
+	at com.salesforce.ide.ui.properties.ProjectPropertyPage.updateProject(ProjectPropertyPage.java:150)
+	at com.salesforce.ide.ui.properties.ProjectPropertyPage.performOk(ProjectPropertyPage.java:136)
+	at org.eclipse.jface.preference.PreferenceDialog$7.run(PreferenceDialog.java:902)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil.lambda$0(JFaceUtil.java:44)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:173)
+	at org.eclipse.jface.preference.PreferenceDialog.okPressed(PreferenceDialog.java:886)
+	at org.eclipse.ui.internal.dialogs.FilteredPreferenceDialog.okPressed(FilteredPreferenceDialog.java:400)
+	at org.eclipse.jface.preference.PreferenceDialog.buttonPressed(PreferenceDialog.java:230)
+	at org.eclipse.jface.dialogs.Dialog.lambda$0(Dialog.java:619)
+	at org.eclipse.swt.events.SelectionListener$1.widgetSelected(SelectionListener.java:81)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:249)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:86)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4428)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4238)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3817)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:818)
+	at org.eclipse.jface.window.Window.open(Window.java:794)
+	at com.salesforce.ide.ui.handlers.OpenProjectPropertiesHandler.execute(OpenProjectPropertiesHandler.java:31)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:291)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:92)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:483)
-	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:56)
-	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:898)
-	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:879)
-	at org.eclipse.e4.core.internal.di.InjectorImpl.inject(InjectorImpl.java:121)
-	at org.eclipse.e4.core.internal.di.InjectorImpl.internalMake(InjectorImpl.java:345)
-	at org.eclipse.e4.core.internal.di.InjectorImpl.make(InjectorImpl.java:264)
-	at org.eclipse.e4.core.contexts.ContextInjectionFactory.make(ContextInjectionFactory.java:162)
-	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.createFromBundle(ReflectionContributionFactory.java:105)
-	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.doCreate(ReflectionContributionFactory.java:74)
-	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.create(ReflectionContributionFactory.java:56)
-	at org.eclipse.e4.ui.workbench.renderers.swt.ContributedPartRenderer.createWidget(ContributedPartRenderer.java:129)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:971)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:647)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:753)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:724)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:718)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:702)
-	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl$1.handleEvent(PartServiceImpl.java:99)
-	at org.eclipse.e4.ui.services.internal.events.UIEventHandler$1.run(UIEventHandler.java:40)
-	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:186)
-	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:145)
-	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4761)
-	at org.eclipse.e4.ui.internal.workbench.swt.E4Application$1.syncExec(E4Application.java:211)
-	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:36)
-	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:201)
-	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:197)
-	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
-	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
-	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:148)
-	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:135)
-	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:78)
-	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:39)
-	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:85)
-	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:60)
-	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:374)
-	at org.eclipse.e4.ui.model.application.ui.impl.ElementContainerImpl.setSelectedElement(ElementContainerImpl.java:171)
-	at org.eclipse.e4.ui.internal.workbench.ModelServiceImpl.showElementInWindow(ModelServiceImpl.java:494)
-	at org.eclipse.e4.ui.internal.workbench.ModelServiceImpl.bringToTop(ModelServiceImpl.java:458)
-	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.delegateBringToTop(PartServiceImpl.java:724)
-	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.bringToTop(PartServiceImpl.java:396)
-	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.showPart(PartServiceImpl.java:1166)
-	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditor(WorkbenchPage.java:3238)
-	at org.eclipse.ui.internal.WorkbenchPage.access$25(WorkbenchPage.java:3153)
-	at org.eclipse.ui.internal.WorkbenchPage$10.run(WorkbenchPage.java:3135)
-	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
-	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:3130)
-	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:3094)
-	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:3084)
-	at org.eclipse.ui.ide.IDE.openEditor(IDE.java:541)
-	at org.eclipse.ui.ide.IDE.openEditor(IDE.java:500)
-	at org.eclipse.jdt.internal.ui.javaeditor.EditorUtility.openInEditor(EditorUtility.java:360)
-	at org.eclipse.jdt.internal.ui.javaeditor.EditorUtility.openInEditor(EditorUtility.java:167)
-	at org.eclipse.jdt.ui.actions.OpenAction.run(OpenAction.java:256)
-	at org.eclipse.jdt.ui.actions.OpenAction.run(OpenAction.java:221)
-	at org.eclipse.jdt.ui.actions.SelectionDispatchAction.dispatchRun(SelectionDispatchAction.java:271)
-	at org.eclipse.jdt.ui.actions.SelectionDispatchAction.run(SelectionDispatchAction.java:249)
-	at org.eclipse.jdt.internal.ui.packageview.PackageExplorerActionGroup.handleOpen(PackageExplorerActionGroup.java:379)
-	at org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart$4.open(PackageExplorerPart.java:540)
-	at org.eclipse.ui.OpenAndLinkWithEditorHelper$InternalListener.open(OpenAndLinkWithEditorHelper.java:48)
-	at org.eclipse.jface.viewers.StructuredViewer$2.run(StructuredViewer.java:854)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:50)
-	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:173)
-	at org.eclipse.jface.viewers.StructuredViewer.fireOpen(StructuredViewer.java:851)
-	at org.eclipse.jface.viewers.StructuredViewer.handleOpen(StructuredViewer.java:1168)
-	at org.eclipse.jface.viewers.StructuredViewer$6.handleOpen(StructuredViewer.java:1275)
-	at org.eclipse.jface.util.OpenStrategy.fireOpenEvent(OpenStrategy.java:278)
-	at org.eclipse.jface.util.OpenStrategy.access$2(OpenStrategy.java:272)
-	at org.eclipse.jface.util.OpenStrategy$1.handleEvent(OpenStrategy.java:313)
-	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
-	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
-	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
-	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:305)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:239)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:132)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:152)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:494)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:487)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:210)
+	at org.eclipse.e4.ui.workbench.renderers.swt.HandledContributionItem.executeItem(HandledContributionItem.java:431)
+	at org.eclipse.e4.ui.workbench.renderers.swt.AbstractContributionItem.handleWidgetSelection(AbstractContributionItem.java:446)
+	at org.eclipse.e4.ui.workbench.renderers.swt.AbstractContributionItem.lambda$2(AbstractContributionItem.java:472)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:86)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4428)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4238)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3817)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
 	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
-	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:157)
-	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:654)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1044)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
 	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:598)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
-	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
 	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
 	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
 	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
@@ -400,265 +304,136 @@ com.salesforce.ide.core.remote.InvalidLoginException: Invalid username, password
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:483)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
-Caused by: [LoginFault [ApiFault  exceptionCode='INVALID_LOGIN'
- exceptionMessage='Invalid username, password, security token; or user locked out.'
- upgradeURL='null'
- upgradeMessage='null'
-]
-]
-
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:408)
-	at java.lang.Class.newInstance(Class.java:438)
-	at com.sforce.ws.bind.TypeMapper.readSingle(TypeMapper.java:652)
-	at com.sforce.ws.bind.TypeMapper.readObject(TypeMapper.java:529)
-	at com.sforce.ws.transport.SoapConnection.parseDetail(SoapConnection.java:230)
-	at com.sforce.ws.transport.SoapConnection.createException(SoapConnection.java:204)
-	at com.sforce.ws.transport.SoapConnection.receive(SoapConnection.java:150)
-	at com.sforce.ws.transport.SoapConnection.send(SoapConnection.java:99)
-	at com.sforce.soap.partner.wsc.PartnerConnection.login(PartnerConnection.java:1843)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+Caused by: com.sforce.ws.ConnectionException: Failed to send request to https://test.salesforce.com/services/Soap/u/38.0
+	at com.sforce.ws.transport.SoapConnection.send(SoapConnection.java:121)
+	at com.sforce.soap.partner.wsc.PartnerConnection.login(PartnerConnection.java:1065)
 	at com.salesforce.ide.core.remote.Connection.login(Connection.java:254)
-	... 130 more
- WARN [2016-07-12 20:25:31,332] (ConnectionFactory.java:clearCache:217) - No cached connections
- WARN [2016-07-12 20:25:31,337] (DescribeObjectRegistry.java:clearCache:660) - No cached describes
- WARN [2016-07-12 20:25:31,338] (MetadataFactory.java:clearCache:125) - No cached metadata stubs
- WARN [2016-07-19 11:20:07,541] (BaseRetryAspect.java:isLoginExceptionRetryable:115) - Login evaluation deemed exception not retry-able:
- LoginFault: Invalid username, user not active
- WARN [2016-07-19 11:20:07,545] (BaseRetryAspect.java:isConnectionExceptionRetryable:150) - Connection evaluation deemed exception not retry-able:
- LoginFault: Invalid username, user not active
- WARN [2016-07-19 11:20:07,550] (ProjectController.java:getRemotePackageNames:930) - Unable to get project packages for project 'SLSshort': Invalid username, user not active
- WARN [2016-07-19 11:20:07,569] (ProjectOrganizationPage.java:prepareNextPage:263) - Unable to login: Invalid username, user not active
- WARN [2016-07-19 11:30:37,168] (BaseRetryAspect.java:isLoginExceptionRetryable:115) - Login evaluation deemed exception not retry-able:
- LoginFault: Invalid username, password, security token; or user locked out.
- WARN [2016-07-19 11:30:37,172] (BaseRetryAspect.java:isConnectionExceptionRetryable:150) - Connection evaluation deemed exception not retry-able:
- LoginFault: Invalid username, password, security token; or user locked out.
- WARN [2016-07-19 11:30:37,176] (ProjectController.java:getRemotePackageNames:930) - Unable to get project packages for project 'SLSshort': Invalid username, password, security token; or user locked out.
- WARN [2016-07-19 11:30:37,210] (ProjectOrganizationPage.java:prepareNextPage:263) - Unable to login: Invalid username, password, security token; or user locked out.
- WARN [2016-07-19 11:31:01,822] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'AuraDefinitionBundle': Unable to get bean for id 'AuraDefinitionBundle'
- WARN [2016-07-19 11:31:01,823] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ExternalDataSource': Unable to get bean for id 'ExternalDataSource'
- WARN [2016-07-19 11:31:01,824] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'NamedCredential': Unable to get bean for id 'NamedCredential'
- WARN [2016-07-19 11:31:01,826] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'GlobalPicklist': Unable to get bean for id 'GlobalPicklist'
- WARN [2016-07-19 11:31:01,828] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CustomFeedFilter': Unable to get bean for id 'CustomFeedFilter'
- WARN [2016-07-19 11:31:01,828] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'FlowDefinition': Unable to get bean for id 'FlowDefinition'
- WARN [2016-07-19 11:31:01,835] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'MatchingRules': Unable to get bean for id 'MatchingRules'
- WARN [2016-07-19 11:31:01,839] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ChannelLayout': Unable to get bean for id 'ChannelLayout'
- WARN [2016-07-19 11:31:01,840] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SharingRules': Unable to get bean for id 'SharingRules'
- WARN [2016-07-19 11:31:01,843] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ManagedTopics': Unable to get bean for id 'ManagedTopics'
- WARN [2016-07-19 11:31:01,844] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CorsWhitelistOrigin': Unable to get bean for id 'CorsWhitelistOrigin'
- WARN [2016-07-19 11:31:01,846] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ActionLinkGroupTemplate': Unable to get bean for id 'ActionLinkGroupTemplate'
- WARN [2016-07-19 11:31:01,851] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SynonymDictionary': Unable to get bean for id 'SynonymDictionary'
- WARN [2016-07-19 11:31:01,852] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PathAssistant': Unable to get bean for id 'PathAssistant'
- WARN [2016-07-19 11:31:01,853] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PlatformCachePartition': Unable to get bean for id 'PlatformCachePartition'
- WARN [2016-07-19 11:31:03,689] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'AuraDefinitionBundle': Unable to get bean for id 'AuraDefinitionBundle'
- WARN [2016-07-19 11:31:03,690] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ExternalDataSource': Unable to get bean for id 'ExternalDataSource'
- WARN [2016-07-19 11:31:03,691] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'NamedCredential': Unable to get bean for id 'NamedCredential'
- WARN [2016-07-19 11:31:03,694] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'GlobalPicklist': Unable to get bean for id 'GlobalPicklist'
- WARN [2016-07-19 11:31:03,696] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CustomFeedFilter': Unable to get bean for id 'CustomFeedFilter'
- WARN [2016-07-19 11:31:03,698] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'FlowDefinition': Unable to get bean for id 'FlowDefinition'
- WARN [2016-07-19 11:31:03,701] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'MatchingRules': Unable to get bean for id 'MatchingRules'
- WARN [2016-07-19 11:31:03,703] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ChannelLayout': Unable to get bean for id 'ChannelLayout'
- WARN [2016-07-19 11:31:03,704] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SharingRules': Unable to get bean for id 'SharingRules'
- WARN [2016-07-19 11:31:03,706] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ManagedTopics': Unable to get bean for id 'ManagedTopics'
- WARN [2016-07-19 11:31:03,708] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CorsWhitelistOrigin': Unable to get bean for id 'CorsWhitelistOrigin'
- WARN [2016-07-19 11:31:03,709] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ActionLinkGroupTemplate': Unable to get bean for id 'ActionLinkGroupTemplate'
- WARN [2016-07-19 11:31:03,711] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SynonymDictionary': Unable to get bean for id 'SynonymDictionary'
- WARN [2016-07-19 11:31:03,712] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PathAssistant': Unable to get bean for id 'PathAssistant'
- WARN [2016-07-19 11:31:03,714] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PlatformCachePartition': Unable to get bean for id 'PlatformCachePartition'
- WARN [2016-07-19 11:31:48,945] (Utils.java:loadDocument:800) - Unable to load document: C:\Users\bandariv\Salesforce\.metadata\.plugins\com.salesforce.ide.core\packageCache.xml (The system cannot find the file specified)
- WARN [2016-07-19 11:31:51,064] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'AuraDefinitionBundle': Unable to get bean for id 'AuraDefinitionBundle'
- WARN [2016-07-19 11:31:51,068] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ExternalDataSource': Unable to get bean for id 'ExternalDataSource'
- WARN [2016-07-19 11:31:51,071] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'NamedCredential': Unable to get bean for id 'NamedCredential'
- WARN [2016-07-19 11:31:51,074] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'GlobalPicklist': Unable to get bean for id 'GlobalPicklist'
- WARN [2016-07-19 11:31:51,083] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CustomFeedFilter': Unable to get bean for id 'CustomFeedFilter'
- WARN [2016-07-19 11:31:51,089] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'FlowDefinition': Unable to get bean for id 'FlowDefinition'
- WARN [2016-07-19 11:31:51,097] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'MatchingRules': Unable to get bean for id 'MatchingRules'
- WARN [2016-07-19 11:31:51,098] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ChannelLayout': Unable to get bean for id 'ChannelLayout'
- WARN [2016-07-19 11:31:51,099] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SharingRules': Unable to get bean for id 'SharingRules'
- WARN [2016-07-19 11:31:51,102] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ManagedTopics': Unable to get bean for id 'ManagedTopics'
- WARN [2016-07-19 11:31:51,103] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CorsWhitelistOrigin': Unable to get bean for id 'CorsWhitelistOrigin'
- WARN [2016-07-19 11:31:51,104] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ActionLinkGroupTemplate': Unable to get bean for id 'ActionLinkGroupTemplate'
- WARN [2016-07-19 11:31:51,105] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SynonymDictionary': Unable to get bean for id 'SynonymDictionary'
- WARN [2016-07-19 11:31:51,107] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PathAssistant': Unable to get bean for id 'PathAssistant'
- WARN [2016-07-19 11:31:51,109] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PlatformCachePartition': Unable to get bean for id 'PlatformCachePartition'
- WARN [2016-07-19 11:31:53,097] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'AuraDefinitionBundle': Unable to get bean for id 'AuraDefinitionBundle'
- WARN [2016-07-19 11:31:53,102] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ExternalDataSource': Unable to get bean for id 'ExternalDataSource'
- WARN [2016-07-19 11:31:53,108] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'NamedCredential': Unable to get bean for id 'NamedCredential'
- WARN [2016-07-19 11:31:53,121] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'GlobalPicklist': Unable to get bean for id 'GlobalPicklist'
- WARN [2016-07-19 11:31:53,124] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CustomFeedFilter': Unable to get bean for id 'CustomFeedFilter'
- WARN [2016-07-19 11:31:53,129] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'FlowDefinition': Unable to get bean for id 'FlowDefinition'
- WARN [2016-07-19 11:31:53,133] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'MatchingRules': Unable to get bean for id 'MatchingRules'
- WARN [2016-07-19 11:31:53,135] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ChannelLayout': Unable to get bean for id 'ChannelLayout'
- WARN [2016-07-19 11:31:53,137] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SharingRules': Unable to get bean for id 'SharingRules'
- WARN [2016-07-19 11:31:53,139] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ManagedTopics': Unable to get bean for id 'ManagedTopics'
- WARN [2016-07-19 11:31:53,141] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CorsWhitelistOrigin': Unable to get bean for id 'CorsWhitelistOrigin'
- WARN [2016-07-19 11:31:53,142] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ActionLinkGroupTemplate': Unable to get bean for id 'ActionLinkGroupTemplate'
- WARN [2016-07-19 11:31:53,143] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SynonymDictionary': Unable to get bean for id 'SynonymDictionary'
- WARN [2016-07-19 11:31:53,145] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PathAssistant': Unable to get bean for id 'PathAssistant'
- WARN [2016-07-19 11:31:53,146] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PlatformCachePartition': Unable to get bean for id 'PlatformCachePartition'
- WARN [2016-07-19 11:31:55,008] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'AuraDefinitionBundle': Unable to get bean for id 'AuraDefinitionBundle'
- WARN [2016-07-19 11:31:55,013] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ExternalDataSource': Unable to get bean for id 'ExternalDataSource'
- WARN [2016-07-19 11:31:55,018] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'NamedCredential': Unable to get bean for id 'NamedCredential'
- WARN [2016-07-19 11:31:55,025] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'GlobalPicklist': Unable to get bean for id 'GlobalPicklist'
- WARN [2016-07-19 11:31:55,030] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CustomFeedFilter': Unable to get bean for id 'CustomFeedFilter'
- WARN [2016-07-19 11:31:55,032] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'FlowDefinition': Unable to get bean for id 'FlowDefinition'
- WARN [2016-07-19 11:31:55,032] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'MatchingRules': Unable to get bean for id 'MatchingRules'
- WARN [2016-07-19 11:31:55,035] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ChannelLayout': Unable to get bean for id 'ChannelLayout'
- WARN [2016-07-19 11:31:55,038] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SharingRules': Unable to get bean for id 'SharingRules'
- WARN [2016-07-19 11:31:55,045] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ManagedTopics': Unable to get bean for id 'ManagedTopics'
- WARN [2016-07-19 11:31:55,048] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CorsWhitelistOrigin': Unable to get bean for id 'CorsWhitelistOrigin'
- WARN [2016-07-19 11:31:55,050] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ActionLinkGroupTemplate': Unable to get bean for id 'ActionLinkGroupTemplate'
- WARN [2016-07-19 11:31:55,053] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SynonymDictionary': Unable to get bean for id 'SynonymDictionary'
- WARN [2016-07-19 11:31:55,056] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PathAssistant': Unable to get bean for id 'PathAssistant'
- WARN [2016-07-19 11:31:55,058] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PlatformCachePartition': Unable to get bean for id 'PlatformCachePartition'
- WARN [2016-07-19 11:31:57,189] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'AuraDefinitionBundle': Unable to get bean for id 'AuraDefinitionBundle'
- WARN [2016-07-19 11:31:57,193] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ExternalDataSource': Unable to get bean for id 'ExternalDataSource'
- WARN [2016-07-19 11:31:57,195] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'NamedCredential': Unable to get bean for id 'NamedCredential'
- WARN [2016-07-19 11:31:57,198] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'GlobalPicklist': Unable to get bean for id 'GlobalPicklist'
- WARN [2016-07-19 11:31:57,202] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CustomFeedFilter': Unable to get bean for id 'CustomFeedFilter'
- WARN [2016-07-19 11:31:57,206] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'FlowDefinition': Unable to get bean for id 'FlowDefinition'
- WARN [2016-07-19 11:31:57,210] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'MatchingRules': Unable to get bean for id 'MatchingRules'
- WARN [2016-07-19 11:31:57,212] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ChannelLayout': Unable to get bean for id 'ChannelLayout'
- WARN [2016-07-19 11:31:57,215] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SharingRules': Unable to get bean for id 'SharingRules'
- WARN [2016-07-19 11:31:57,219] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ManagedTopics': Unable to get bean for id 'ManagedTopics'
- WARN [2016-07-19 11:31:57,221] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CorsWhitelistOrigin': Unable to get bean for id 'CorsWhitelistOrigin'
- WARN [2016-07-19 11:31:57,223] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ActionLinkGroupTemplate': Unable to get bean for id 'ActionLinkGroupTemplate'
- WARN [2016-07-19 11:31:57,225] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SynonymDictionary': Unable to get bean for id 'SynonymDictionary'
- WARN [2016-07-19 11:31:57,227] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PathAssistant': Unable to get bean for id 'PathAssistant'
- WARN [2016-07-19 11:31:57,228] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PlatformCachePartition': Unable to get bean for id 'PlatformCachePartition'
- WARN [2016-07-19 11:31:59,464] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'AuraDefinitionBundle': Unable to get bean for id 'AuraDefinitionBundle'
- WARN [2016-07-19 11:31:59,471] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ExternalDataSource': Unable to get bean for id 'ExternalDataSource'
- WARN [2016-07-19 11:31:59,474] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'NamedCredential': Unable to get bean for id 'NamedCredential'
- WARN [2016-07-19 11:31:59,478] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'GlobalPicklist': Unable to get bean for id 'GlobalPicklist'
- WARN [2016-07-19 11:31:59,482] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CustomFeedFilter': Unable to get bean for id 'CustomFeedFilter'
- WARN [2016-07-19 11:31:59,488] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'FlowDefinition': Unable to get bean for id 'FlowDefinition'
- WARN [2016-07-19 11:31:59,496] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'MatchingRules': Unable to get bean for id 'MatchingRules'
- WARN [2016-07-19 11:31:59,498] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ChannelLayout': Unable to get bean for id 'ChannelLayout'
- WARN [2016-07-19 11:31:59,500] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SharingRules': Unable to get bean for id 'SharingRules'
- WARN [2016-07-19 11:31:59,504] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ManagedTopics': Unable to get bean for id 'ManagedTopics'
- WARN [2016-07-19 11:31:59,505] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CorsWhitelistOrigin': Unable to get bean for id 'CorsWhitelistOrigin'
- WARN [2016-07-19 11:31:59,506] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ActionLinkGroupTemplate': Unable to get bean for id 'ActionLinkGroupTemplate'
- WARN [2016-07-19 11:31:59,507] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SynonymDictionary': Unable to get bean for id 'SynonymDictionary'
- WARN [2016-07-19 11:31:59,507] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PathAssistant': Unable to get bean for id 'PathAssistant'
- WARN [2016-07-19 11:31:59,508] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PlatformCachePartition': Unable to get bean for id 'PlatformCachePartition'
- WARN [2016-07-19 11:34:53,456] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ActionLinkGroupTemplate': Unable to get bean for id 'ActionLinkGroupTemplate'
- WARN [2016-07-19 11:34:53,621] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'AuraDefinitionBundle': Unable to get bean for id 'AuraDefinitionBundle'
- WARN [2016-07-19 11:34:53,654] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'BusinessProcess': Unable to get bean for id 'BusinessProcess'
- WARN [2016-07-19 11:34:53,679] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ChannelLayout': Unable to get bean for id 'ChannelLayout'
- WARN [2016-07-19 11:34:53,704] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CompactLayout': Unable to get bean for id 'CompactLayout'
- WARN [2016-07-19 11:34:53,728] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CorsWhitelistOrigin': Unable to get bean for id 'CorsWhitelistOrigin'
- WARN [2016-07-19 11:34:53,761] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CustomFeedFilter': Unable to get bean for id 'CustomFeedFilter'
- WARN [2016-07-19 11:34:53,774] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CustomField': Unable to get bean for id 'CustomField'
- WARN [2016-07-19 11:34:53,801] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CustomLabel': Unable to get bean for id 'CustomLabel'
- WARN [2016-07-19 11:34:54,900] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'AuraDefinitionBundle': Unable to get bean for id 'AuraDefinitionBundle'
- WARN [2016-07-19 11:34:54,903] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ExternalDataSource': Unable to get bean for id 'ExternalDataSource'
- WARN [2016-07-19 11:34:54,907] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'NamedCredential': Unable to get bean for id 'NamedCredential'
- WARN [2016-07-19 11:34:54,910] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'GlobalPicklist': Unable to get bean for id 'GlobalPicklist'
- WARN [2016-07-19 11:34:54,914] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CustomFeedFilter': Unable to get bean for id 'CustomFeedFilter'
- WARN [2016-07-19 11:34:54,919] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'FlowDefinition': Unable to get bean for id 'FlowDefinition'
- WARN [2016-07-19 11:34:54,924] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'MatchingRules': Unable to get bean for id 'MatchingRules'
- WARN [2016-07-19 11:34:54,927] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ChannelLayout': Unable to get bean for id 'ChannelLayout'
- WARN [2016-07-19 11:34:54,928] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SharingRules': Unable to get bean for id 'SharingRules'
- WARN [2016-07-19 11:34:54,931] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ManagedTopics': Unable to get bean for id 'ManagedTopics'
- WARN [2016-07-19 11:34:54,932] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CorsWhitelistOrigin': Unable to get bean for id 'CorsWhitelistOrigin'
- WARN [2016-07-19 11:34:54,933] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ActionLinkGroupTemplate': Unable to get bean for id 'ActionLinkGroupTemplate'
- WARN [2016-07-19 11:34:54,934] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SynonymDictionary': Unable to get bean for id 'SynonymDictionary'
- WARN [2016-07-19 11:34:54,935] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PathAssistant': Unable to get bean for id 'PathAssistant'
- WARN [2016-07-19 11:34:54,936] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PlatformCachePartition': Unable to get bean for id 'PlatformCachePartition'
- WARN [2016-07-19 11:34:56,916] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'AuraDefinitionBundle': Unable to get bean for id 'AuraDefinitionBundle'
- WARN [2016-07-19 11:34:56,919] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ExternalDataSource': Unable to get bean for id 'ExternalDataSource'
- WARN [2016-07-19 11:34:56,922] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'NamedCredential': Unable to get bean for id 'NamedCredential'
- WARN [2016-07-19 11:34:56,924] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'GlobalPicklist': Unable to get bean for id 'GlobalPicklist'
- WARN [2016-07-19 11:34:56,929] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CustomFeedFilter': Unable to get bean for id 'CustomFeedFilter'
- WARN [2016-07-19 11:34:56,932] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'FlowDefinition': Unable to get bean for id 'FlowDefinition'
- WARN [2016-07-19 11:34:56,938] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'MatchingRules': Unable to get bean for id 'MatchingRules'
- WARN [2016-07-19 11:34:56,939] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ChannelLayout': Unable to get bean for id 'ChannelLayout'
- WARN [2016-07-19 11:34:56,940] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SharingRules': Unable to get bean for id 'SharingRules'
- WARN [2016-07-19 11:34:56,943] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ManagedTopics': Unable to get bean for id 'ManagedTopics'
- WARN [2016-07-19 11:34:56,944] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CorsWhitelistOrigin': Unable to get bean for id 'CorsWhitelistOrigin'
- WARN [2016-07-19 11:34:56,945] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ActionLinkGroupTemplate': Unable to get bean for id 'ActionLinkGroupTemplate'
- WARN [2016-07-19 11:34:56,945] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SynonymDictionary': Unable to get bean for id 'SynonymDictionary'
- WARN [2016-07-19 11:34:56,946] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PathAssistant': Unable to get bean for id 'PathAssistant'
- WARN [2016-07-19 11:34:56,947] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PlatformCachePartition': Unable to get bean for id 'PlatformCachePartition'
- WARN [2016-07-19 11:34:58,867] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'AuraDefinitionBundle': Unable to get bean for id 'AuraDefinitionBundle'
- WARN [2016-07-19 11:34:58,868] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ExternalDataSource': Unable to get bean for id 'ExternalDataSource'
- WARN [2016-07-19 11:34:58,869] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'NamedCredential': Unable to get bean for id 'NamedCredential'
- WARN [2016-07-19 11:34:58,871] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'GlobalPicklist': Unable to get bean for id 'GlobalPicklist'
- WARN [2016-07-19 11:34:58,874] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CustomFeedFilter': Unable to get bean for id 'CustomFeedFilter'
- WARN [2016-07-19 11:34:58,876] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'FlowDefinition': Unable to get bean for id 'FlowDefinition'
- WARN [2016-07-19 11:34:58,878] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'MatchingRules': Unable to get bean for id 'MatchingRules'
- WARN [2016-07-19 11:34:58,879] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ChannelLayout': Unable to get bean for id 'ChannelLayout'
- WARN [2016-07-19 11:34:58,881] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SharingRules': Unable to get bean for id 'SharingRules'
- WARN [2016-07-19 11:34:58,883] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ManagedTopics': Unable to get bean for id 'ManagedTopics'
- WARN [2016-07-19 11:34:58,884] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CorsWhitelistOrigin': Unable to get bean for id 'CorsWhitelistOrigin'
- WARN [2016-07-19 11:34:58,885] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ActionLinkGroupTemplate': Unable to get bean for id 'ActionLinkGroupTemplate'
- WARN [2016-07-19 11:34:58,886] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SynonymDictionary': Unable to get bean for id 'SynonymDictionary'
- WARN [2016-07-19 11:34:58,887] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PathAssistant': Unable to get bean for id 'PathAssistant'
- WARN [2016-07-19 11:34:58,889] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PlatformCachePartition': Unable to get bean for id 'PlatformCachePartition'
- WARN [2016-07-19 11:34:59,900] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ExternalDataSource': Unable to get bean for id 'ExternalDataSource'
- WARN [2016-07-19 11:34:59,913] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'FieldSet': Unable to get bean for id 'FieldSet'
- WARN [2016-07-19 11:34:59,944] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'FlowDefinition': Unable to get bean for id 'FlowDefinition'
- WARN [2016-07-19 11:34:59,957] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'GlobalPicklist': Unable to get bean for id 'GlobalPicklist'
- WARN [2016-07-19 11:35:00,016] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ListView': Unable to get bean for id 'ListView'
- WARN [2016-07-19 11:35:00,029] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ManagedTopic': Unable to get bean for id 'ManagedTopic'
- WARN [2016-07-19 11:35:00,041] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ManagedTopics': Unable to get bean for id 'ManagedTopics'
- WARN [2016-07-19 11:35:00,052] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'MatchingRule': Unable to get bean for id 'MatchingRule'
- WARN [2016-07-19 11:35:00,064] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'MatchingRules': Unable to get bean for id 'MatchingRules'
- WARN [2016-07-19 11:35:00,083] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'NamedCredential': Unable to get bean for id 'NamedCredential'
- WARN [2016-07-19 11:35:00,103] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PathAssistant': Unable to get bean for id 'PathAssistant'
- WARN [2016-07-19 11:35:00,123] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PlatformCachePartition': Unable to get bean for id 'PlatformCachePartition'
- WARN [2016-07-19 11:35:00,166] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'RecordType': Unable to get bean for id 'RecordType'
- WARN [2016-07-19 11:35:01,113] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'AuraDefinitionBundle': Unable to get bean for id 'AuraDefinitionBundle'
- WARN [2016-07-19 11:35:01,115] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ExternalDataSource': Unable to get bean for id 'ExternalDataSource'
- WARN [2016-07-19 11:35:01,118] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'NamedCredential': Unable to get bean for id 'NamedCredential'
- WARN [2016-07-19 11:35:01,119] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'GlobalPicklist': Unable to get bean for id 'GlobalPicklist'
- WARN [2016-07-19 11:35:01,122] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CustomFeedFilter': Unable to get bean for id 'CustomFeedFilter'
- WARN [2016-07-19 11:35:01,125] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'FlowDefinition': Unable to get bean for id 'FlowDefinition'
- WARN [2016-07-19 11:35:01,128] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'MatchingRules': Unable to get bean for id 'MatchingRules'
- WARN [2016-07-19 11:35:01,131] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ChannelLayout': Unable to get bean for id 'ChannelLayout'
- WARN [2016-07-19 11:35:01,133] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SharingRules': Unable to get bean for id 'SharingRules'
- WARN [2016-07-19 11:35:01,135] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ManagedTopics': Unable to get bean for id 'ManagedTopics'
- WARN [2016-07-19 11:35:01,137] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CorsWhitelistOrigin': Unable to get bean for id 'CorsWhitelistOrigin'
- WARN [2016-07-19 11:35:01,139] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ActionLinkGroupTemplate': Unable to get bean for id 'ActionLinkGroupTemplate'
- WARN [2016-07-19 11:35:01,141] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SynonymDictionary': Unable to get bean for id 'SynonymDictionary'
- WARN [2016-07-19 11:35:01,143] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PathAssistant': Unable to get bean for id 'PathAssistant'
- WARN [2016-07-19 11:35:01,145] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PlatformCachePartition': Unable to get bean for id 'PlatformCachePartition'
- WARN [2016-07-19 11:35:02,539] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SharingCriteriaRule': Unable to get bean for id 'SharingCriteriaRule'
- WARN [2016-07-19 11:35:02,549] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SharingOwnerRule': Unable to get bean for id 'SharingOwnerRule'
- WARN [2016-07-19 11:35:02,559] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SharingReason': Unable to get bean for id 'SharingReason'
- WARN [2016-07-19 11:35:02,567] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SharingRules': Unable to get bean for id 'SharingRules'
- WARN [2016-07-19 11:35:02,614] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ValidationRule': Unable to get bean for id 'ValidationRule'
- WARN [2016-07-19 11:35:02,624] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'WebLink': Unable to get bean for id 'WebLink'
- WARN [2016-07-19 11:35:02,641] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'WorkflowAlert': Unable to get bean for id 'WorkflowAlert'
- WARN [2016-07-19 11:35:02,650] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'WorkflowFieldUpdate': Unable to get bean for id 'WorkflowFieldUpdate'
- WARN [2016-07-19 11:35:02,660] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'WorkflowKnowledgePublish': Unable to get bean for id 'WorkflowKnowledgePublish'
- WARN [2016-07-19 11:35:02,669] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'WorkflowOutboundMessage': Unable to get bean for id 'WorkflowOutboundMessage'
- WARN [2016-07-19 11:35:02,677] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'WorkflowRule': Unable to get bean for id 'WorkflowRule'
- WARN [2016-07-19 11:35:02,687] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'WorkflowSend': Unable to get bean for id 'WorkflowSend'
- WARN [2016-07-19 11:35:02,696] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'WorkflowTask': Unable to get bean for id 'WorkflowTask'
- WARN [2016-07-19 11:35:02,765] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ActionLinkGroupTemplate': Unable to get bean for id 'ActionLinkGroupTemplate'
- WARN [2016-07-19 11:35:02,776] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'AuraDefinitionBundle': Unable to get bean for id 'AuraDefinitionBundle'
- WARN [2016-07-19 11:35:02,777] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ChannelLayout': Unable to get bean for id 'ChannelLayout'
- WARN [2016-07-19 11:35:02,779] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CorsWhitelistOrigin': Unable to get bean for id 'CorsWhitelistOrigin'
- WARN [2016-07-19 11:35:02,781] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'CustomFeedFilter': Unable to get bean for id 'CustomFeedFilter'
- WARN [2016-07-19 11:35:02,804] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ExternalDataSource': Unable to get bean for id 'ExternalDataSource'
- WARN [2016-07-19 11:35:02,806] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'FlowDefinition': Unable to get bean for id 'FlowDefinition'
- WARN [2016-07-19 11:35:02,807] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'GlobalPicklist': Unable to get bean for id 'GlobalPicklist'
- WARN [2016-07-19 11:35:02,810] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ManagedTopic': Unable to get bean for id 'ManagedTopic'
- WARN [2016-07-19 11:35:02,812] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'ManagedTopics': Unable to get bean for id 'ManagedTopics'
- WARN [2016-07-19 11:35:02,812] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'MatchingRule': Unable to get bean for id 'MatchingRule'
- WARN [2016-07-19 11:35:02,813] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'MatchingRules': Unable to get bean for id 'MatchingRules'
- WARN [2016-07-19 11:35:02,815] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'NamedCredential': Unable to get bean for id 'NamedCredential'
- WARN [2016-07-19 11:35:02,816] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PathAssistant': Unable to get bean for id 'PathAssistant'
- WARN [2016-07-19 11:35:02,818] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'PlatformCachePartition': Unable to get bean for id 'PlatformCachePartition'
- WARN [2016-07-19 11:35:02,835] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SharingCriteriaRule': Unable to get bean for id 'SharingCriteriaRule'
- WARN [2016-07-19 11:35:02,837] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SharingOwnerRule': Unable to get bean for id 'SharingOwnerRule'
- WARN [2016-07-19 11:35:02,837] (ComponentFactory.java:getComponentBean:1149) - Unable to get component for id 'SharingRules': Unable to get bean for id 'SharingRules'
- WARN [2016-07-19 18:46:44,692] (ConnectionFactory.java:clearCache:220) - Clearing the following cached connections
- WARN [2016-07-19 18:46:44,701] (DescribeObjectRegistry.java:clearCache:660) - No cached describes
- WARN [2016-07-19 18:46:44,709] (MetadataFactory.java:clearCache:128) - Clearing the following cached metadata stubs
+	... 87 more
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:673)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:175)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:463)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:558)
+	at sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:264)
+	at sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:367)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:191)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1199)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1050)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:177)
+	at sun.net.www.protocol.http.HttpURLConnection.getOutputStream0(HttpURLConnection.java:1334)
+	at sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1309)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getOutputStream(HttpsURLConnectionImpl.java:259)
+	at com.sforce.ws.transport.JdkHttpTransport.connectRaw(JdkHttpTransport.java:136)
+	at com.sforce.ws.transport.JdkHttpTransport.connectLocal(JdkHttpTransport.java:100)
+	at com.sforce.ws.transport.JdkHttpTransport.connectLocal(JdkHttpTransport.java:95)
+	at com.sforce.ws.transport.JdkHttpTransport.connect(JdkHttpTransport.java:91)
+	at com.sforce.ws.transport.SoapConnection.send(SoapConnection.java:95)
+	... 89 more
+ WARN [2018-02-04 12:11:42,650] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce Connected Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Dataloader_Bulk.
+ WARN [2018-02-04 12:11:42,651] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce Connected Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Salesforce_Mobile_Dashboards.
+ WARN [2018-02-04 12:11:42,655] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce Connected Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Forcecom_Migration_Tool.
+ WARN [2018-02-04 12:11:42,657] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce Connected Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Forcecom_IDE.
+ WARN [2018-02-04 12:11:42,658] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce Connected Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Dataloader_Partner.
+ WARN [2018-02-04 12:11:42,659] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce Connected Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Workbench.
+ WARN [2018-02-04 12:11:42,660] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce Connected Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Salesforce_for_Outlook.
+ WARN [2018-02-04 12:11:42,662] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce Connected Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Salesforce_Touch.
+ WARN [2018-02-04 12:11:42,663] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:SalesforceA.
+ WARN [2018-02-04 12:11:42,664] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Salesforce1_for_Windows.
+ WARN [2018-02-04 12:11:42,665] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Salesforce_Chatterbox.
+ WARN [2018-02-04 12:11:42,666] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Chatter_for_iOS.
+ WARN [2018-02-04 12:11:42,667] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Chatter_for_BlackBerry.
+ WARN [2018-02-04 12:11:42,668] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Chatter_for_Android.
+ WARN [2018-02-04 12:11:42,669] (ProjectController.java:handleRetrieveResults:694) - Failed to retrieve: 'Salesforce and Chatter Apps/package.xml': Metadata API received improper input. Please ensure file name and capitalization is correct. Load of metadata from db failed for metadata of type:ConnectedApp and file name:Chatter_Desktop.
+ERROR [2018-02-04 12:11:42,841] (SyncServiceListenerBroadcaster.java:handleException:59) - Error executing a contributed ISyncServiceListener
+java.lang.NullPointerException
+	at com.salesforce.ide.core.model.ComponentList.getComponentFactory(ComponentList.java:59)
+	at com.salesforce.ide.core.model.ComponentList.getComponentListForComponentType(ComponentList.java:261)
+	at com.salesforce.ide.debug.ui.sync.SyncActionListener.collectDebuggerElements(SyncActionListener.java:145)
+	at com.salesforce.ide.debug.ui.sync.SyncActionListener.collectApexDebuggerElementsWithOpenedEditors(SyncActionListener.java:120)
+	at com.salesforce.ide.debug.ui.sync.SyncActionListener.projectSync(SyncActionListener.java:113)
+	at com.salesforce.ide.core.services.hooks.SyncServiceListenerBroadcaster$1.run(SyncServiceListenerBroadcaster.java:54)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil.lambda$0(JFaceUtil.java:44)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:173)
+	at com.salesforce.ide.core.services.hooks.SyncServiceListenerBroadcaster.executeExtension(SyncServiceListenerBroadcaster.java:62)
+	at com.salesforce.ide.core.services.hooks.SyncServiceListenerBroadcaster.broadcast(SyncServiceListenerBroadcaster.java:40)
+	at com.salesforce.ide.core.model.ProjectPackageList.saveResources(ProjectPackageList.java:1066)
+	at com.salesforce.ide.core.model.ProjectPackageList.saveResources(ProjectPackageList.java:996)
+	at com.salesforce.ide.core.services.ForceProjectRefreshJob$ForceProjectRefreshProject.doSaveResources(ForceProjectRefreshJob.java:62)
+	at com.salesforce.ide.core.services.ForceProjectRefreshJob.runInWorkspace(ForceProjectRefreshJob.java:42)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+ WARN [2018-02-04 12:23:03,698] (ConnectionFactory.java:clearCache:220) - Clearing the following cached connections
+ WARN [2018-02-04 12:23:03,701] (DescribeObjectRegistry.java:clearCache:660) - No cached describes
+ WARN [2018-02-04 12:23:03,704] (MetadataFactory.java:clearCache:128) - Clearing the following cached metadata stubs
+ WARN [2018-02-05 14:28:27,788] (ComponentFactory.java:getCompositeComponentFromComponent:975) - Unable to load existing 'classes/COM_ArticleDetailImage_LCMP.cls-meta.xml' from project - associated component's file resource is null.  Assuming new.
+ WARN [2018-02-05 14:28:39,445] (Utils.java:loadDocument:807) - Unable to load document: C:\Users\bandariv\eclipse-workspace\.metadata\.plugins\org.eclipse.core.resources\.projects\sf_dev_internal\com.salesforce.ide.core\packageCache.xml (The system cannot find the file specified)
+ WARN [2018-02-05 14:28:39,447] (ComponentController.java:run:421) - Unable to update cache with new component Apex Class - cache is not found
+ WARN [2018-02-05 14:30:25,277] (ProjectPackageFactory.java:prepareProjectPackageList:249) - Project package list already contains component ApexClass 'classes/COM_ArticleDetailImage_LCMP.cls-meta.xml' [unpackaged] for file 'src/classes/COM_ArticleDetailImage_LCMP.cls-meta.xml'
+ WARN [2018-02-05 14:30:38,521] (ProjectPackageList.java:getComponentByMetadataFilePath:737) - Did not find component for 'classes/COM_ArticleDetailImage_LCMP.cls'
+ WARN [2018-02-05 14:30:38,523] (ProjectService.java:handleRetrieveMessages:2220) - Unable to handle retrieve message - could not find component 'classes/COM_ArticleDetailImage_LCMP.cls' for message 'In field: specific ids - no ApexClass named COM_ArticleDetailImage_LCMP found'
+ WARN [2018-02-05 14:30:38,526] (Utils.java:loadDocument:807) - Unable to load document: C:\Users\bandariv\eclipse-workspace\.metadata\.plugins\org.eclipse.core.resources\.projects\sf_dev_internal\com.salesforce.ide.core\packageCache.xml (The system cannot find the file specified)
+ WARN [2018-02-05 14:30:38,527] (DeleteRefactorController.java:run:344) - Unable to update cache with with deleted component(s)  - cache is not found
+ WARN [2018-02-05 14:30:47,745] (ComponentController.java:checkInFolder:219) - Component resource 'COM_ArticleList_Controller.cls' already exists in project
+ WARN [2018-02-05 14:32:13,683] (ComponentFactory.java:getCompositeComponentFromComponent:975) - Unable to load existing 'classes/COM_ArticlesCarousel_Controller.cls-meta.xml' from project - associated component's file resource is null.  Assuming new.
+ WARN [2018-02-05 14:32:33,551] (Utils.java:loadDocument:807) - Unable to load document: C:\Users\bandariv\eclipse-workspace\.metadata\.plugins\org.eclipse.core.resources\.projects\sf_dev_internal\com.salesforce.ide.core\packageCache.xml (The system cannot find the file specified)
+ WARN [2018-02-05 14:32:33,556] (ComponentController.java:run:421) - Unable to update cache with new component Apex Class - cache is not found
+ WARN [2018-02-05 14:35:26,527] (ComponentFactory.java:getCompositeComponentFromComponent:975) - Unable to load existing 'classes/COM_ArticleList_Test.cls-meta.xml' from project - associated component's file resource is null.  Assuming new.
+ WARN [2018-02-05 14:35:34,925] (Utils.java:loadDocument:807) - Unable to load document: C:\Users\bandariv\eclipse-workspace\.metadata\.plugins\org.eclipse.core.resources\.projects\sf_dev_internal\com.salesforce.ide.core\packageCache.xml (The system cannot find the file specified)
+ WARN [2018-02-05 14:35:34,925] (ComponentController.java:run:421) - Unable to update cache with new component Apex Class - cache is not found
+ WARN [2018-02-05 14:36:15,140] (ComponentFactory.java:getCompositeComponentFromComponent:975) - Unable to load existing 'classes/COM_ArticlesCarousel_Test.cls-meta.xml' from project - associated component's file resource is null.  Assuming new.
+ WARN [2018-02-05 14:36:21,500] (Utils.java:loadDocument:807) - Unable to load document: C:\Users\bandariv\eclipse-workspace\.metadata\.plugins\org.eclipse.core.resources\.projects\sf_dev_internal\com.salesforce.ide.core\packageCache.xml (The system cannot find the file specified)
+ WARN [2018-02-05 14:36:21,500] (ComponentController.java:run:421) - Unable to update cache with new component Apex Class - cache is not found
+ WARN [2018-02-05 15:32:49,745] (ComponentFactory.java:getCompositeComponentFromComponent:975) - Unable to load existing 'aura/COM_ArticleCarousel_LCMP/COM_ArticleCarousel_LCMP.cmp-meta.xml' from project - associated component's file resource is null.  Assuming new.
+ WARN [2018-02-05 15:32:56,427] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleCarousel_LCMP' [unpackaged]
+ WARN [2018-02-05 15:32:56,432] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleCarousel_LCMP' [unpackaged]
+ WARN [2018-02-05 15:32:56,438] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleCarousel_LCMP' [unpackaged]
+ WARN [2018-02-05 15:32:56,441] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleCarousel_LCMP' [unpackaged]
+ WARN [2018-02-05 15:32:56,442] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleCarousel_LCMP' [unpackaged]
+ WARN [2018-02-05 15:32:56,444] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleCarousel_LCMP' [unpackaged]
+ WARN [2018-02-05 15:32:56,445] (MarkerUtils.java:clearDirty:446) - Unable to clear dirty markers on resources - resources is null or empty
+ WARN [2018-02-05 15:32:56,448] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleCarousel_LCMP' [unpackaged]
+ WARN [2018-02-05 15:32:56,449] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleCarousel_LCMP' [unpackaged]
+ WARN [2018-02-05 15:32:56,450] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleCarousel_LCMP' [unpackaged]
+ WARN [2018-02-05 15:32:56,452] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleCarousel_LCMP' [unpackaged]
+ WARN [2018-02-05 15:32:56,454] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleCarousel_LCMP' [unpackaged]
+ WARN [2018-02-05 15:32:56,455] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleCarousel_LCMP' [unpackaged]
+ WARN [2018-02-05 15:32:56,457] (MarkerUtils.java:clearSaveMarkers:564) - Unable to clear save markers on resources - resources is null or empty 
+ WARN [2018-02-05 15:32:56,461] (ProjectPackageList.java:getComponentByMetadataFilePath:737) - Did not find component for 'aura/COM_ArticleCarousel_LCMP'
+ WARN [2018-02-05 15:32:56,463] (ProjectService.java:handleRetrieveMessages:2220) - Unable to handle retrieve message - could not find component 'aura/COM_ArticleCarousel_LCMP' for message 'In field: specific ids - no AuraDefinitionBundle named COM_ArticleCarousel_LCMP. found'
+ WARN [2018-02-05 15:32:56,466] (Utils.java:loadDocument:807) - Unable to load document: C:\Users\bandariv\eclipse-workspace\.metadata\.plugins\org.eclipse.core.resources\.projects\sf_dev_internal\com.salesforce.ide.core\packageCache.xml (The system cannot find the file specified)
+ WARN [2018-02-05 15:32:56,468] (ComponentController.java:run:421) - Unable to update cache with new component Lightning Component - cache is not found
+ WARN [2018-02-05 19:36:10,983] (ConnectionFactory.java:clearCache:220) - Clearing the following cached connections
+ WARN [2018-02-05 19:36:10,987] (DescribeObjectRegistry.java:clearCache:660) - No cached describes
+ WARN [2018-02-05 19:36:10,992] (MetadataFactory.java:clearCache:128) - Clearing the following cached metadata stubs
+ WARN [2018-02-05 20:03:11,368] (Component.java:hasRemoteChanged:970) - Conflict found! Attribute compare of local and remote ApexClass 'classes/COM_ArticleList_Controller.cls' [unpackaged] are NOT equal
+ WARN [2018-02-05 20:03:11,374] (ProjectService.java:evaluateLocalAndRemote:2667) - Project package 'unpackaged' does not jive with remote package - assuming project is out of sync
+ WARN [2018-02-05 20:03:33,863] (ZipUtils.java:handleDuplicateEntryException:261) - Zip already contains 'classes/COM_ArticleList_Test.cls' - skipping duplicate
+ WARN [2018-02-05 20:03:33,867] (ZipUtils.java:handleDuplicateEntryException:261) - Zip already contains 'classes/COM_ArticlesCarousel_Controller.cls' - skipping duplicate
+ WARN [2018-02-05 20:03:33,869] (ZipUtils.java:handleDuplicateEntryException:261) - Zip already contains 'classes/COM_ArticlesCarousel_Test.cls' - skipping duplicate
+ WARN [2018-02-05 20:03:40,090] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleCarousel_LCMP' [unpackaged]
+ WARN [2018-02-05 20:03:40,091] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-02-05 20:03:40,093] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleCarousel_LCMP' [unpackaged]
+ WARN [2018-02-05 20:03:40,093] (ProjectPackageList.java:getAllComponentResources:938) - File resource not found for component AuraDefinitionBundle 'aura/COM_ArticleDetailImage_LCMP' [unpackaged]
+ WARN [2018-02-05 20:03:40,672] (ProjectPackageList.java:getComponentByMetadataFilePath:737) - Did not find component for 'aura/COM_ArticleCarousel_LCMP'
+ WARN [2018-02-05 20:03:40,673] (ProjectService.java:handleRetrieveMessages:2220) - Unable to handle retrieve message - could not find component 'aura/COM_ArticleCarousel_LCMP' for message 'In field: specific ids - no AuraDefinitionBundle named COM_ArticleCarousel_LCMP. found'
+ WARN [2018-02-05 20:03:40,675] (ProjectPackageList.java:getComponentByMetadataFilePath:737) - Did not find component for 'aura/COM_ArticleDetailImage_LCMP'
+ WARN [2018-02-05 20:03:40,675] (ProjectService.java:handleRetrieveMessages:2220) - Unable to handle retrieve message - could not find component 'aura/COM_ArticleDetailImage_LCMP' for message 'In field: specific ids - no AuraDefinitionBundle named COM_ArticleDetailImage_LCMP. found'
+ WARN [2018-02-05 20:04:17,899] (ConnectionFactory.java:clearCache:220) - Clearing the following cached connections
+ WARN [2018-02-05 20:04:17,901] (DescribeObjectRegistry.java:clearCache:660) - No cached describes
+ WARN [2018-02-05 20:04:17,903] (MetadataFactory.java:clearCache:128) - Clearing the following cached metadata stubs
+ WARN [2018-02-07 13:19:50,296] (ConnectionFactory.java:clearCache:217) - No cached connections
+ WARN [2018-02-07 13:19:50,343] (DescribeObjectRegistry.java:clearCache:660) - No cached describes
+ WARN [2018-02-07 13:19:50,348] (MetadataFactory.java:clearCache:125) - No cached metadata stubs

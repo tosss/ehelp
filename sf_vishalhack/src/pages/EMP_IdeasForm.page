@@ -1,0 +1,3 @@
+<apex:page standardStylesheets="false" showHeader="false" sidebar="false" >
+    <c:EMP_PortalForm FieldSetName="Ideas" RecordTypeId="01233000000Ih3d" Heading=""></c:EMP_PortalForm>
+</apex:page>

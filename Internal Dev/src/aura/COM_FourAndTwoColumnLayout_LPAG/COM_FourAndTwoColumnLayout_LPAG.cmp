@@ -1,0 +1,44 @@
+<!-- 2017-06-12 matt.keefe@cdk.com -->
+<aura:component implements="forceCommunity:layout" description="4 columns with 1:1:1:1 ratio" access="global">
+    
+    <aura:attribute name="contentHeader" type="Aura.Component[]" required="false"></aura:attribute>
+    <aura:attribute name="row1Column1" type="Aura.Component[]" required="false"></aura:attribute>
+    <aura:attribute name="row1Column2" type="Aura.Component[]" required="false"></aura:attribute>
+    <aura:attribute name="row1Column3" type="Aura.Component[]" required="false"></aura:attribute>
+    <aura:attribute name="row1Column4" type="Aura.Component[]" required="false"></aura:attribute>
+    <aura:attribute name="row3Column1" type="Aura.Component[]" required="false"></aura:attribute>
+    <aura:attribute name="row3Column2" type="Aura.Component[]" required="false"></aura:attribute>
+    <aura:attribute name="contentFooter" type="Aura.Component[]" required="false"></aura:attribute>
+
+    <div class="grid">
+        <div class="one-column slds-col--padded">
+            {!v.contentHeader}
+        </div>
+        <div class="row four-column">
+            <div class="column with-left-gutter">
+                {!v.row1Column1}
+            </div>
+            <div class="column with-left-gutter">
+                {!v.row1Column2}
+            </div>
+            <div class="column with-left-gutter">
+                {!v.row1Column3}
+            </div>
+            <div class="column with-left-gutter">
+                {!v.row1Column4}
+            </div>
+        </div>
+        <div class="row two-column">
+            <div class="column with-left-gutter">
+                {!v.row3Column1}
+            </div>
+            <div class="column with-left-gutter">
+                {!v.row3Column2}
+            </div>
+        </div>
+        <div class="row one-column">
+            {!v.contentFooter}
+        </div>
+    </div>
+    
+</aura:component>

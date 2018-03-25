@@ -1,0 +1,98 @@
+<!-- ********************************************************************
+**12/6/2016 vijay.manimaran@cdk.com created 
+**
+*************************************************************************-->
+
+<aura:component implements="force:appHostable,forceCommunity:availableForAllPageTypes" access="global" controller="EMP_ArticleList_LTNG">
+    <aura:attribute type="String" name="header"/>
+    <aura:attribute name="knowledgeArticles" type="String"/>
+    <aura:attribute name="knowledgeArticlesCount" type="String[]"/>
+    <aura:attribute name="dsg_topicName" type="String"/>
+    <aura:attribute name="dsg_articleCounter" type="String" default="4"/>
+    <aura:attribute name="c_offset" type="String" default="0"/> 
+    <aura:attribute name="dsg_headerName" type="String"/>
+    <aura:attribute name="isValid" type="String" default="False" access="global"/>
+    <aura:attribute name="color" type="String" default="Green" access="global"/>
+    <aura:attribute name="showPagination" type="String" default="Yes" access="global"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <ltng:require styles="{!join(',',$Resource.FontAwesome + '/4.6.1/css/font-awesome.min.css')}"/>
+    <link rel="stylesheet" type="text/css" href="{!$Resource.EMP_Collection_CSS}"/>
+    
+    <aura:method name="countArticlesMethod" action="{!c.countArticles}" description=""></aura:method>
+    <aura:method name="showSpinnerMethod" action="{!c.showSpinner}" description=""></aura:method>
+    <aura:method name="hideSpinnerMethod" action="{!c.hideSpinner}" description=""></aura:method>
+
+    <div>
+        <div class="lc">
+            <div class="{! 'lc-' + v.color }">
+                <div class="lc-header">
+                    {!v.dsg_headerName}
+                </div>
+                <ui:spinner aura:id="spinner" class="spinner-override" />
+                <ul class="fa-ul article-margin">
+                    <aura:iteration items="{!v.knowledgeArticles}" var="knowledgeArticle">
+                        <li>
+                            <div class="slds-media" style="padding-bottom:6px;">
+                                <aura:if isTrue="{!v.isValid != 'False'}">
+                                    <div class="slds-media__figure">
+                                        <span class="slds-avatar slds-avatar--large">
+                                            <img src="{!knowledgeArticle.PhotoUrl}" style="width:48px; height:48px;" />
+                                        </span>
+                                    </div>
+                                </aura:if>
+                                <div class="slds-media__body">
+                                    &nbsp; 
+                                    <ui:outputURL value="{!'/s/article/'+knowledgeArticle.UrlName}" label="{!knowledgeArticle.Title}" title="View article" /> 
+                                    <c:EMP_CollapsiblePanel_LTNG >
+                                        <aura:set attribute="body">
+                                            <aura:if isTrue="{!knowledgeArticle.Summary!= Null}">
+                                                <p style="color:#8d8c8c; font-size:0.9em;">
+                                                    {!knowledgeArticle.Summary} <br/>
+                                                    
+                                                    <aura:iteration items="{!knowledgeArticle.tpws}" var="x">
+                                                        <aura:if isTrue="{!x.topicName != Null}">
+                                                            <ui:outputURL value="{!'/s/topic/'+x.titleId}" label="{!x.topicName}" class="topicTitle articleUrl" title="{!'Topic : '+ x.topicName}"/>
+                                                            <!--   <ui:outputURL value="{!'/s/topic/'+x.titleId}" label="{!x.topicName}" class="" title="{!'Topic : '+ x.topicName}" />  -->
+                                                        </aura:if>
+                                                    </aura:iteration>
+                                                </p> 
+                                            </aura:if>
+                                            <aura:if isTrue="{!knowledgeArticle.Summary == Null}">
+                                                <p style="padding:5px">
+                                                    Sorry there is no summary available for this article.
+                                                </p> 
+                                            </aura:if>
+                                            
+                                        </aura:set>
+                                    </c:EMP_CollapsiblePanel_LTNG> 
+                                </div>
+                            </div>
+                        </li>
+                        
+                    </aura:iteration>
+                    
+                    <aura:if isTrue="{!v.knowledgeArticles ==''}">
+                        There are no available articles to display.
+                    </aura:if>
+                    
+                </ul>
+                
+                <!--<lightning:icon iconName="action:approval" size="large" alternativeText="Indicates approval"/>-->
+                
+                <hr class="{! 'hrSection lc-BorderTop-' + v.color}"/>
+                <aura:if isTrue="{!v.showPagination == 'Yes'}">
+                    <div style="text-align:center; margin:auto; ">
+                        <button id="Prev" label="Prev" class="navButton" onclick="{!c.previousArticles}" style="">&lsaquo;</button>
+                        <aura:iteration items="{!v.knowledgeArticlesCount}" var="count" indexVar="index"> 
+                            <button id="{!index}" class="navButton" label="{!index}" onclick="{!c.nextArticles}"> {!index+1} </button>
+                        </aura:iteration>
+                        <button id="Next" class="navButton" label="Next" onclick="{!c.nextArticles}">&rsaquo;</button>
+                    </div>
+                </aura:if>
+                
+                
+            </div>        
+        </div>
+    </div>
+</aura:component>

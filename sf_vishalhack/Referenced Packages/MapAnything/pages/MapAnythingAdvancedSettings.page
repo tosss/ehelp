@@ -1,0 +1,646 @@
+<apex:page title="MapAnything Advanced Settings" setup="true" controller="sma.MAComponentCon" extensions="sma.MARemoteFunctions">
+
+    <script type='text/javascript'>
+        var MARemoting = {
+            processAJAXRequest : '{!$RemoteAction.MARemoteFunctions.processAJAXRequest}',
+            saveNewMapTile : '{!$RemoteAction.MARemoteFunctions.saveNewMapTile}',
+            removeMapTile : '{!$RemoteAction.MARemoteFunctions.removeMapTile}'
+        }
+    </script>
+
+	<!-- CSS -->
+	<style type='text/css'>
+		#settings-loader {
+			
+			display: none;
+		}
+		
+		.setting-table td
+		{
+		    vertical-align: middle;
+		}
+		
+		.setting-table input[type='text']
+		{
+		    text-align:center;
+		    width: 50px;
+		}
+		
+		.ma-modal-title {
+            color: #5876a3;
+            font-weight: 300;
+            line-height: 1.25;
+            text-transform: inherit;
+            letter-spacing: 0;
+            font-size: 1rem;
+        }
+          
+        .setting-table input {
+            float: right;
+        }
+        .setting-table select {
+            float: right;
+        }
+        .setting-table input#google-url {
+            float: left;
+        }
+        .setting-table input#urlName {
+            float: left;
+        }
+        .setting-table input#mapTlieURL {
+            float: left;
+            margin-top: 6px;
+        }
+        
+		
+	</style>
+
+	<!-- jQuery -->
+	<script type='text/javascript' src="{!URLFOR($Resource.MapAnything, 'js/jquery-1.7.1.min.js')}"></script>
+	<!-- Glyphicons -->
+    <apex:stylesheet value="{!URLFOR($Resource.sma__MapAnything, 'css/MapAnything.css')}"/>
+    <!-- Lightning Design System 2.3.0 -->
+    <link type="text/css" rel="stylesheet" href="{!URLFOR($Resource.MapAnythingJS, 'styles/css/salesforce-lightning-design-system-vf-2.3.0.min.css')}" />
+    <!-- icon-font -->
+    <apex:stylesheet value="{!URLFOR($Resource.sma__MapAnythingJS, 'styles/styles.css')}"/>
+    <!-- MapAnything Configuration Page Styling -->
+    <apex:stylesheet value="{!URLFOR($Resource.sma__MapAnythingJS, 'styles/css/ma-configuration-ui.css')}"/>
+	<!-- MA -->
+	<c:MA />
+
+    <apex:outputPanel layout="none" rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+        <script type='text/javascript'>
+            $.ajaxSetup({
+                dataFilter: function (rawData,type)
+                {
+                    try
+                    {
+                        //console.log('rawdata:', rawData);
+                        //console.log(type);
+                        
+                        if (rawData != undefined  && rawData != '')
+                        {
+                            if (type === 'JSON' || type == 'JSONP' || type=='json' || type =='jsonp')
+                            {
+                                //console.log('rawdata 2:', rawData.replace(/<script.*?>.*?<\/script>/igm, ''));
+                                return rawData.replace(/<script.*?>.*?<\/script>/igm, '');
+                            }
+                        }
+                    }
+                    catch (ex)
+                    {
+                        
+                    }
+                }
+            });
+        
+            jQuery.ajaxSetup({
+                dataFilter: function (rawData,type)
+                {
+                    try
+                    {
+                        //console.log('rawdata:', rawData);
+                        //console.log(type);
+                        
+                        if (rawData != undefined  && rawData != '')
+                        {
+                            if (type === 'JSON' || type == 'JSONP' || type=='json' || type =='jsonp')
+                            {
+                                //console.log('rawdata 2:', rawData.replace(/<script.*?>.*?<\/script>/igm, ''));
+                                return rawData.replace(/<script.*?>.*?<\/script>/igm, '');
+                            }
+                        }
+                    }
+                    catch (ex)
+                    {
+                        
+                    }
+                }
+            });
+    
+        </script>
+    </apex:outputPanel>
+
+	<!-- JS -->
+	<script type='text/javascript'>
+		$(function () 
+		{
+		    //populate mass-field-update-scope-size options
+		    var massFieldUpdateSelectOptions = '';
+		    for (var i = 10; i < 210; i+= 10)
+		    {
+		        massFieldUpdateSelectOptions += '<option>' + i + '</option>';
+		    }
+		    $('#mass-field-update-scope-size').html(massFieldUpdateSelectOptions);
+		    
+			//load settings
+			$('#settings-loader').show();
+            var processData = { 
+                ajaxResource : 'MAAdminAJAXResources',
+				action	: 'get_settings'
+            };
+            
+            Visualforce.remoting.Manager.invokeAction(MARemoting.processAJAXRequest,
+                processData,
+                function(response, event){
+    				if (response.success) 
+    				{
+    					MA.Util.removeNamespace((response.data || {}));
+    					
+    					var mapTiles = response.mapTiles || [];
+                        
+                        //loop over custom tiles 
+                        for(var i = 0; i < mapTiles.length; i++) 
+                        {
+                            var data = mapTiles[i];
+                            
+                            var row = '<tr data-id="'+data.Id+'"><td style="font-weight: bold;padding-right: 15px">'+data.Name+'</td><td class="removeTileSet"><button class="MAbutton button-red button-small">Remove</button></td></tr>';
+                            $('#existingTiles .tileBody').append(row);
+                            
+                            ///////////////////////
+                            $('#default_map_tile').append('<option value="' + data.Id + '">'+data.Name+'</option>');
+                            
+                        }
+    					
+    					
+    					try { $('#all-checkin').attr('checked', response.data['CheckInAllDevicesEnabled'].Value__c == 'false' ? false : 'checked'); } catch (err) { }
+    					try { $('#disable_forward_geocoding').attr('checked', response.data['disable_forward_geocoding'].Value__c == 'false' ? false : 'checked'); } catch (err) { }
+    					try { $('#disable_reverse_geocoding').attr('checked', response.data['disable_reverse_geocoding'].Value__c == 'false' ? false : 'checked'); } catch (err) { }
+    					try { $('#disable_places_search').attr('checked', response.data['disable_places_search'].Value__c == 'false' ? false : 'checked'); } catch (err) { }
+    					try { $('#enable-mobile-lookup').attr('checked', response.data['EnableMobileLookupFields'].Value__c == 'false' ? false : 'checked'); } catch (err) { }
+    					try { $('#desktop-sidebar').attr('checked', response.data['Sneaky-Desktop-Sidebar'].Value__c == 'true' ? 'checked' : false); } catch (err) { }
+    					try { $('#totango-enabled').attr('checked', response.data['TotangoEnabled'].Value__c == 'true' ? 'checked' : false); } catch (err) { }
+    					try { $('#cloudbiltapi-force-salesforce-proxy-enabled').attr('checked', response.data['CloudbiltAPIForceSFDCProxyEnabled'].Value__c == 'true' ? 'checked' : false); } catch (err) { }
+    					try { $('#waypointtrigger-disabled').attr('checked', response.data['RunWayPointTriggers'].Value__c == 'true' ? 'checked' : false); } catch (err) { }
+    					try {$('#animate-liveLayers').prop('checked', response.data['AnimateLiveLayers'].Value__c == 'true' ? true : false); } catch(err){}
+    					try {$('#store-route-geometry').prop('checked', response.data['StoreRouteGeometry'].Value__c == 'true' ? true : false); } catch(err){}
+    					try {$('#remove-aggregate_tab').prop('checked', response.data['RemoveAggregatesTooltipTab'].Value__c == 'true' ? true : false); } catch(e){}
+    					try {$('#eventHandlers').val(response.data['HandleAction'].Value__c); } catch(e){$('#eventHandlers').val('showPopup');}
+    					try {$('#marker-layer-batchsize').val(response.data['MarkerLayerBatchsize'].Value__c); } catch(e) {$('#marker-layer-batchsize').val('1000');}
+    					try {$('#auto-assignment-batch-size').val(response.data['AutoAssignmentBatchSize'].Value__c); } catch(e) {$('#auto-assignment-batch-size').val('2000');}
+
+    					try {$('#default_map_tile').val(response.data['default_map_tile'].Value__c); } catch(e) {$('#default_map_tile').val('-none-');}
+    					
+    
+    					try {$('#newMobile-enabled').prop('checked', response.data['EnableNewMobile'].Value__c == 'true' ? true : false); } catch(err){
+    					    $('#newMobile-enabled').prop('checked', true);
+    					}
+    					try {
+                            var googleURL = response.data['GoogleMapsURL'].Value__c || '';
+                            $('#google-url').val(googleURL);
+                        } catch (err) { }
+                        
+                        
+    
+    					try 
+    					{
+    						var massFieldUpdateScopeSize = parseInt(response.data['MassFieldUpdateScopeSize'].Value__c);
+    						
+    						$('#mass-field-update-scope-size').val(isNaN(massFieldUpdateScopeSize) ? 201 : massFieldUpdateScopeSize);
+    					} catch (err) {
+    					    $('#mass-field-update-scope-size').val(200);
+    					}
+    					
+    					try { $('#imageserver-enabled').attr('checked', response.data['ImageServerEnabled'].Value__c == 'true' ? 'checked' : false); } catch (err) { }
+    					try 
+    					{
+    						var threads = parseInt(response.data['Sneaky-ThreadedGeocoding'].Value__c);
+    						$('#threaded-geocoding').val(isNaN(threads) ? 5 : threads);
+    					} catch (err) {}
+    					
+    					try 
+    					{
+    						var clusterThreshold = parseInt(response.data['AutomaticClusterThreshold'].Value__c);
+    						$('#automaticclusterthreshold-input').val(isNaN(clusterThreshold) ? 500 : clusterThreshold);
+    					} catch (err) {}
+    				}
+    				else {
+    					alert('Unable to load settings');
+    				}
+    				$('#settings-loader').hide();
+                },{buffer:false,escape:false}
+            );
+
+			//save settings on change
+			//$('#settings-wrapper input[type="checkbox"]').change(SaveSettings);              
+			//$('#settings-wrapper input[type="text"]').blur(SaveSettings);
+			
+			$('#addCustomTile').on('click',function() {
+			    addCustomTile();
+			});
+			
+			$('#existingTiles').on('click','.removeTileSet',function() {
+			    removeExistingTileSet(this);
+			});
+		});
+		
+		function removeExistingTileSet (row) {
+		    $('#removemaptile-loader').show();
+		    var $row = $(row).closest('tr');
+		    
+		    if($row.hasClass('loading')) {
+		        return;
+		    }
+		    
+		    $row.addClass('loading');
+		    
+		    var rowId = $row.attr('data-id');
+            //send request to save settings 
+            Visualforce.remoting.Manager.invokeAction(MARemoting.removeMapTile,
+                rowId,
+                function(response, event){
+                    $('#removemaptile-loader').hide();
+                    $row.removeClass('loading');
+                    if(event.status) {
+                        if(response.success) {
+                            $row.remove();
+                        }
+                        else {
+                            var alertPopup = MA.Popup.showMAAlert({
+                                template: '<div style="text-align:center;">Unable to delete tile layer</div>',
+                                okText : 'Ok',
+                                okType : 'button-red'
+                            });
+                        	MA.log(response);
+                        	
+                        }
+                    }
+                    else {
+                        var alertPopup = MA.Popup.showMAAlert({
+                            template: '<div style="text-align:center;">Unable to delete tile layer</div>',
+                            okText : 'Ok',
+                            okType : 'button-red'
+                        });
+                    	MA.log(response);
+                    }
+                }
+            );
+		}
+		
+		function addCustomTile() {
+		    if($('#addCustomTile').hasClass('saving')) {
+		        return;
+		    }
+		    //do we have a name
+		    var urlName = $('#urlName').val();
+		    var mapTileURL = $('#mapTlieURL').val();
+		    if(urlName == '') {
+		        alert('a name is required');
+		        return;
+		    }
+		    if(mapTileURL == '') {
+		        alert('a map tile url is required');
+		        return;
+		    }
+		    $('#addCustomTile').addClass('saving');
+		    $('#maptile-loader').show();
+		    //create a new tile layer
+		    var processData = {
+                Name : urlName,
+                sma__Options__c : JSON.stringify({ url : mapTileURL })
+            };
+            
+            //send request to save settings 
+            Visualforce.remoting.Manager.invokeAction(MARemoting.saveNewMapTile,
+                JSON.stringify(processData),
+                function(response, event){
+                    $('#maptile-loader').hide();
+                    $('#addCustomTile').removeClass('saving');
+                    if(event.status) {
+                        if(response.success) {
+                            $('#urlName').val('');
+		    	            $('#mapTlieURL').val('');
+                            //create a new row
+                            var data = response.data || {};
+                            
+                            var row = '<tr data-id="'+data.Id+'"><td style="font-weight: bold;padding-right: 15px">'+data.Name+'</td><td class="removeTileSet""><button class="MAbutton button-red button-small">Remove</button></td></tr>';
+                            $('#existingTiles .tileBody').append(row);
+                        }
+                        else {
+                            //alert('Unable to save settings');
+                            var alertPopup = MA.Popup.showMAAlert({
+                                template: '<div style="text-align:center;">Unable to save tile layer</div>',
+                                okText : 'Ok',
+                                okType : 'button-red'
+                            });
+                        	MA.log(response);
+                        }
+                    }
+                    else {
+                        //alert('Unable to save settings');
+                        var alertPopup = MA.Popup.showMAAlert({
+                            template: '<div style="text-align:center;">Unable to save tile layer</div>',
+                            okText : 'Ok',
+                            okType : 'button-red'
+                        });
+                    	MA.log(response);
+                    }
+                }
+            );
+		}
+
+		function SaveSettings ()
+		{
+            //check if the custom tile url is empty
+            var urlName = $('#urlName').val();
+		    var mapTileURL = $('#mapTlieURL').val();
+            var cc = true;
+            if(urlName != '' || mapTileURL != '') {
+                cc = confirm('It looks like you started entering custom map tile information... Do you wish to ignore these settings? \n \n Click "OK" to ignore or "Cancel" to finsh the map tile setup.');
+            }
+
+			//put all settings in a request obj
+			if(cc) {
+			    //show loading
+		    	$('#settings-loader').show();
+		    	$('#urlName').val('');
+		    	$('#mapTlieURL').val('');
+                var processData = {
+                    ajaxResource : 'MAAdminAJAXResources',
+    				action	: 'save_settings',
+                	settings: JSON.stringify({
+                    	'CheckInAllDevicesEnabled'		: $('#all-checkin').is(':checked') ? 'true' : 'false',
+                    	'disable_forward_geocoding'		: $('#disable_forward_geocoding').is(':checked') ? 'true' : 'false',
+                    	'disable_reverse_geocoding'		: $('#disable_reverse_geocoding').is(':checked') ? 'true' : 'false',
+                    	'disable_places_search'		: $('#disable_places_search').is(':checked') ? 'true' : 'false',
+                    	'Sneaky-Desktop-Sidebar'	: $('#desktop-sidebar').is(':checked') ? 'true' : 'false',
+                    	'TotangoEnabled'	        : $('#totango-enabled').is(':checked') ? 'true' : 'false',
+                    	'CloudbiltAPIForceSFDCProxyEnabled'	: $('#cloudbiltapi-force-salesforce-proxy-enabled').is(':checked') ? 'true' : 'false',
+                    	'ImageServerEnabled'        : $('#imageserver-enabled').is(':checked') ? 'true' : 'false',
+                    	'Sneaky-ThreadedGeocoding'	: $('#threaded-geocoding').val(),
+                    	'AutomaticClusterThreshold'	: $('#automaticclusterthreshold-input').val(),
+                    	'MassFieldUpdateScopeSize'	: $('#mass-field-update-scope-size').val(),
+                    	'RunWayPointTriggers'       : $('#waypointtrigger-disabled').is(':checked') ? 'true' : 'false',
+                    	'AnimateLiveLayers'         : $('#animate-liveLayers').prop('checked') ? 'true' : 'false',
+                    	'RemoveAggregatesTooltipTab': $('#remove-aggregate_tab').prop('checked') ? 'true' : 'false',
+                        'EnableNewMobile'           : $('#newMobile-enabled').prop('checked') ? 'true' : 'false',
+                    	'GoogleMapsURL'             : $('#google-url').val() || '',
+                    	'StoreRouteGeometry'        : $('#store-route-geometry').prop('checked') ? 'true' : 'false',
+                    	'HandleAction'              : $('#eventHandlers').val() || 'showPopup',
+                    	'EnableMobileLookupFields'		: $('#enable-mobile-lookup').is(':checked') ? 'true' : 'false',
+                    	'MarkerLayerBatchsize'      : $('#marker-layer-batchsize').val() || '1000',
+                        'AutoAssignmentBatchSize'   : $('#auto-assignment-batch-size').val() || '2000',
+                    	'default_map_tile'      : $('#default_map_tile').val(),
+                    	'EnabledSettingsGroup'      : $('#enabled-settings-group').prop('checked') ? 'true' : 'false' 
+                    })
+                };
+                
+                //send request to save settings 
+                Visualforce.remoting.Manager.invokeAction(MARemoting.processAJAXRequest,
+                    processData,
+                    function(response, event){
+                        if(!response.success){
+                            
+                        	//alert('Unable to save settings');
+                            var alertPopup = MA.Popup.showMAAlert({
+                                template: '<div style="text-align:center;">Unable to save settings</div>',
+                                okText : 'Ok',
+                                okType : 'button-red'
+                            });
+                        	MA.log(response);
+                        }
+                        else
+                        {
+                            //alert("Saved!");
+                            var alertPopup = MA.Popup.showMAAlert({
+                                template: '<div style="text-align:center;">Settings saved!</div>',
+                                okText : 'Ok',
+                                okType : 'button-blue'
+                            });
+                        }
+                        $('#settings-loader').hide();
+                    },{buffer:false,escape:false}
+                );
+			}
+		}
+		
+		
+	</script>
+    
+        <div class="flex-column full-height">
+            <!-- Header -->
+            <div class="slds-scope">
+                <div class="slds-page-header">
+                  <div class="slds-grid">
+                    <div class="slds-col slds-has-flexi-truncate">
+                      <div class="slds-media slds-no-space slds-grow">
+                        <div class="slds-media__figure ma-slds-media__figure">
+                          <span class="slds-icon ma-icon ma-icon-mapanything"></span>
+                        </div>
+                        <div class="slds-media__body">
+                          <p class="slds-text-title--caps slds-line-height--reset">MapAnything</p>
+                          <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate" title="this should match the Record Title">Configuration</h1>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            
+            <div class="flex-row flex-grow-1">
+                <div class="flex-shrink-0">
+                    <!--navigation-->
+                    <c:MAAdminHeader />
+                </div>
+                <div class="flex-grow-1">
+            	    <div id='settings-wrapper' style="margin: 16px;">
+        
+        		
+                
+                <table cellpadding="5" style="margin-top:10px; margin-bottom:10px;" class="setting-table">
+                    <tr>
+                        <td><center><input type='checkbox' id='all-checkin' /></center></td>
+                        <td>Enable "Check In" for non mobile pages (Desktop)</td>
+                    </tr>
+                    <tr>
+                        <td><center><input type='checkbox' id='enable-mobile-lookup' /></center></td>
+                        <td>Allow lookup fields on mobile devices (may cause issues inside Salesforce1)</td>
+                    </tr>
+                    <tr>
+                        <td><center><input type='checkbox' id='desktop-sidebar' /></center></td>
+                        <td>Show sidebar on MA desktop</td>
+                    </tr>
+                    <tr>
+                        <td><center><input type='checkbox' id='totango-enabled' checked='checked' /></center></td>
+                        <td>Totango Enabled</td>
+                    </tr>
+                    <tr>
+                        <td><input type='text' id='threaded-geocoding' value='5'  /></td>
+                        <td>Geocode threads (0 for disabled)</td>
+                    </tr>
+                    <tr>
+                        <td><input type='text' id='automaticclusterthreshold-input' value='500'  /></td>
+                        <td>Cluster Threshold</td>
+                    </tr>
+                    <tr>
+                        <td><center><input type='checkbox' id='imageserver-enabled' /></center></td>
+                        <td>Image Server Enabled</td>
+                    </tr>
+                    <tr>
+                        <td><center><input type='checkbox' id='waypointtrigger-disabled' /></center></td>
+                        <td>Disable Waypoint Trigger</td>
+                    </tr>
+                    <tr>
+                        <td><center><input type='checkbox' id='cloudbiltapi-force-salesforce-proxy-enabled' /></center></td>
+                        <td>Process MapAnything<sup>TM</sup> API Traffic with Salesforce Proxy</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select id='mass-field-update-scope-size'>
+                            </select>
+                        </td>
+                        <td>Mass Field Update Scope Size</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select id='marker-layer-batchsize'>
+                                <option value="1000">1000</option>
+                                <option value="500">500</option>
+                            </select>
+                            <td>Marker Layer Batch Size</td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select id='auto-assignment-batch-size'>
+                                <option value="2000">2000</option>
+                                <option value="1500">1500</option>
+                                <option value="1000">1000</option>
+                                <option value="500">500</option>
+                                <option value="200">200</option>
+                            </select>
+                            <td>Auto-Assignment Batch Size</td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><center><input type='checkbox' id='animate-liveLayers' /></center></td>
+                        <td>Animate MapAnything<sup>TM</sup> Live Layers</td>
+                    </tr>
+                    <tr>
+                        <td><center><input type='checkbox' id='store-route-geometry' /></center></td>
+                        <td>Save routing geometry on MapAnything<sup>TM</sup> routes object</td>
+                    </tr>
+                    <tr>
+                        <td><center><input type='checkbox' id='newMobile-enabled' /></center></td>
+                        <td>Enable New Mobile</td>
+                    </tr>
+                    <tr style="display:none;">
+                        <td><center><input type='checkbox' id='enabled-settings-group' /></center></td>
+                        <td>Enable New "Settings Groups" for MapAnything</td>
+                    </tr>
+                    <tr>
+                        <td><center><input type='checkbox' id='remove-aggregate_tab' /></center></td>
+                        <td>Remove Aggregates Tab from Shape and Cluster Tooltips</td>
+                    </tr>
+                    <tr>
+                        <td><center><input type='checkbox' id='disable_forward_geocoding' /></center></td>
+                        <td>Disable Forward Geocoding</td>
+                    </tr>
+                    <tr>
+                        <td><center><input type='checkbox' id='disable_reverse_geocoding' /></center></td>
+                        <td>Disable Reverse Geocoding</td>
+                    </tr>
+                    <tr>
+                        <td><center><input type='checkbox' id='disable_places_search' /></center></td>
+                        <td>Disable Places Search</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select id="default_map_tile">
+                                <option value="-none-">None</option>
+                                <option value="google_roadmap">Roadmap</option>
+                                <option value="google_satellite">Satellite</option>
+                                <option value="google_hybrid">Hybrid</option>
+                                <option value="google_terrain">Terrain</option>
+                            </select>
+                        </td>
+                        <td>Default Map Tile</td>
+                    </tr>
+                    <tr>
+                        <td><select id="eventHandlers">
+                            <option value="showPopup">MapAnything Popup</option>
+                            <option value="showSalesforce">Salesforce Classic</option>
+                        </select></td>
+                        <td>How should we handle certain events like "Log a call", "New Task", and "New Event"</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <div>Google Maps URL (Region Support) <span style="color: #ff6969;font-style: italic;font-size: 10px;">please do not modify</span></div>
+                            <div><input style="width: 400px; text-align: left;" placeholder="https://maps.googleapis.com" type='text' id='google-url' /></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <div style="padding-top:15px; font-weight:bold;font-size:14px;">Custom Map Tile URL</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="border: 1px solid silver;">
+                            <div>
+                                <table>
+                                    <tr>
+                                        <td>Name:</td>
+                                        <td><input style="width: 400px; text-align: left;" type="text" id="urlName"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>URL:</td>
+                                        <td><input placeholder="www.mycustomurl.com/{zoom}/{latitude}/{longitude}" style="width: 400px; text-align: left;" type="text" id="mapTlieURL"/><button style="vertical-align: middle;margin-left: 10px;" class="MAbutton button-green" id="addCustomTile">Add</button> <img style="display:none;" id='maptile-loader' src="{!URLFOR($Resource.MapAnything, 'images/chatterstatus-loader.gif')}"/></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div>
+                                <table style="color: #757575;" cellpadding="2" class="chatter-post-merge-fields">
+                                    <tr>
+                                        <td>{zoom}</td>
+                                        <td>=</td>
+                                        <td>Zoom level of map</td>
+                                    </tr><tr>   
+                                        <td>{latitude}</td>
+                                        <td>=</td>
+                                        <td>Latitude parameter for map tile</td>
+                                    </tr><tr>    
+                                        <td>{longitude}</td>
+                                        <td>=</td>
+                                        <td>Longitude parameter for map tile</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="border: 1px solid silver;">
+                            <div>Existing Tile Layers <img style="display:none;" id='removemaptile-loader' src="{!URLFOR($Resource.MapAnything, 'images/chatterstatus-loader.gif')}"/></div>
+                            <div>
+                                <table id="existingTiles">
+                                    <tbody class='tileBody'>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                
+                <table>
+                    <tr>
+                        <td>
+                            <button type="button" class="MAbutton button-blue" onclick="SaveSettings();">Save Settings</button>
+                        </td>
+                        <td>
+                            <!-- Loader -->
+        		            <img id='settings-loader' src="{!URLFOR($Resource.MapAnything, 'images/chatterstatus-loader.gif')}"/>
+                        </td>
+                    </tr>
+                </table>
+        		
+                
+                
+        	</div>
+            	</div>
+        	</div>
+        </div>
+    	
+</apex:page>

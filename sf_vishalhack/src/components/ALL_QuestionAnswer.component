@@ -1,0 +1,316 @@
+<!--2016-08-22- anirudh.singh@cdk.com- Created this component for displaying Discovery Question Answers.-->
+<!--2017-05-05- anirudh.singh@cdk.com- Modified this Component for RQ-09205 Discovery - Add a Comments question for each tab.-->
+<apex:component controller="ALL_QuestionAnswer_Controller" allowDML="true">
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, '/js/jquery-1.11.2.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.Bootstrap, '/js/bootstrap.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.momentJS)}"/>
+    <apex:includeScript value="{!URLFOR($Resource.Datetimepicker, '/bootstrap-datetimepicker.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.ALL_QuestionAnswer_JS)}"/>
+    
+    <apex:stylesheet value="{!URLFOR($Resource.Bootstrap, '/cdk/css/bootstrap.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.Datetimepicker, '/bootstrap-datetimepicker.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.FontAwesome, '/4.6.1/css/font-awesome.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.ALL_QuestionAnswer_CSS)}"/>
+    
+    <apex:attribute name="categoryName" type="String" assignTo="{!categoryNameForRecs}" required="false" 
+                    description="This is the Category Name for the Question Records."/>
+    <apex:attribute name="subCategoryName" type="String" assignTo="{!subCategoryNameForRecs}" required="false" 
+                    description="This is the Sub-Category Name for the Question Records."/>
+    <apex:attribute name="discoverySiteWorkbookId" type="Id" assignTo="{!discoverySiteWorkbookIdForRecs}" required="true" 
+                    description="This is the Discovery Workbook Id for Answer Records."/>
+    <apex:attribute name="displayHeader" type="Boolean" default="false" required="false" 
+                    description="Whether to display Header or not. Value will be Yes or No."/>
+    <apex:attribute name="orderByField" type="String" assignTo="{!orderByFieldName}" required="false" 
+                    description="The Order By Field Name for the Category or Sub-Category."/>
+    <apex:attribute name="productName" type="String" assignTo="{!productNameForRecs}" required="false" 
+                    description="This is the Product Name for the Question Records."/>
+    <apex:attribute name="questionIds" type="String" assignTo="{!questionIdsForRecs}" required="false" 
+                    description="This is list of Question record Ids."/>
+    
+    <div>
+        <div class="questionAnswerComponent">
+            <input type="hidden" class="siteWorkBookId" value="{!discoverySiteWorkbookId}"/>
+            <h3 class="categoryHeader">
+                <input type="hidden" 
+                       data-categorynameforrecs="{!categoryNameForRecs}"
+                       data-productname="{!productName}"
+                       data-subcategorynameforrecs="{!subCategoryNameForRecs}"
+                       data-displayheader="{!displayHeader}"/>
+            </h3>
+            
+            <!--Modal Dialog-->
+            <div class="modal fade" id="modalDialogQAReset" tabindex="-1" role="dialog" aria-labelledby="modalDialogLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="modalDialogLabel">
+                                <b>Reset Confirmation</b>
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Are you sure you want to reset the whole form?<br/><br/><b>Please Note: </b>Any data entered in this section will be lost and cannot be reverted.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="confirmReset();">Confirm Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!--Error Modal-->
+            <div class="modal fade discQuesAnsErrorDiv" id="discQuesAnsErrorDiv" tabindex="-1" role="dialog" aria-labelledby="modalDialogLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="modalDialogLabel">
+                                <b>Error Message</b>
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Network Interrupted or Disconnected. Please try saving again once network connection is established.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="saveAnswers(this);">Retry Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!--Spinner-->
+            <div class="modal fade qaSpinnerDiv" id="qaSpinnerDiv" tabindex="-1" role="dialog" aria-labelledby="modalDialogLabel" aria-hidden="true"
+                 data-keyboard="false" data-backdrop="static">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td><h3>Please Wait...</h3></td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fa fa-spinner fa-spin fa-2x"></i></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <apex:form id="questionAnswerForm">
+                <input type="hidden" class="saveActionFunctionName" value="{!saveActionFunctionName}Save"/>
+                <apex:actionFunction name="{!saveActionFunctionName}Save" action="{!saveAnswerRecords}" oncomplete="reset();" 
+                                     reRender="questionAnswerForm" status="questionAnswerStatus"/>
+                
+                <!--Action Status-->
+                <apex:actionStatus id="questionAnswerStatus" onstart="showQASpinner();" onstop="hideQASpinner();"/>
+                
+                <apex:outputText rendered="{!questionAnswerWrapperList!=Null && questionAnswerWrapperList.size>0}">
+                    <!--Buttons-->
+                    <div class="buttonGroup">
+                        <apex:commandButton value="Save" styleClass="btn btn-primary qaSaveButton" onclick="saveAnswers(this);"
+                                            reRender="dummy" status="questionAnswerStatus"/>
+                        <button type="button" class="btn btn-default qaResetButton" 
+                                data-toggle="modal" data-target="#modalDialogQAReset">Reset</button>
+                        <button class="btn btn-default quickSaveButton" type="button"><i class="fa fa-square-o quickSaveIcon" aria-hidden="true"></i>Enable QuickSave</button>
+                        
+                        <div class="btn-group quesTypeBtn">
+                            <button aria-expanded="false" aria-haspopup="true" class="btn btn-default dropdown-toggle" 
+                                    data-toggle="dropdown" type="button" onclick="quesTypeFilterButton(this);">
+                                All Question Types <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a onclick="quesTypeFilter(this);">All Question Types</a></li>
+                                <li><a onclick="quesTypeFilter(this);">Pre-Sale</a></li>
+                                <li><a onclick="quesTypeFilter(this);">Post-Sale</a></li>
+                                <li><a onclick="quesTypeFilter(this);">Talk Track</a></li>
+                                <li><a onclick="quesTypeFilter(this);">Virtual</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!--Questions Answer Table-->
+                    <div>
+                        <table class="questionTable table-hover">
+                            <apex:repeat value="{!questionAnswerWrapperList}" var="questionAnswerVar">
+                                <apex:outputText rendered="{!questionAnswerVar.questionRecord.Question_Type__c!='Other'}">
+                                    <tr class="quesTR">
+                                        <!--Question Number-->
+                                        <td class="quesNo">
+                                            <input type="hidden" 
+                                                   data-parentquestionnumber="{!questionAnswerVar.parentQuestionNumber}"
+                                                   data-questiontype="{!questionAnswerVar.questionRecord.Question_Type__c}"
+                                                   data-questionname="{!questionAnswerVar.questionRecord.Name}"
+                                                   data-parentname="{!questionAnswerVar.questionRecord.Parent_Question__r.Name}"
+                                                   data-datatype="{!questionAnswerVar.questionRecord.Answer_DataType__c}"
+                                                   data-parentansforrendering="{!questionAnswerVar.questionRecord.Parent_Answer_For_Child_Rendering__c}"
+                                                   data-parentdatatype="{!questionAnswerVar.questionRecord.Parent_Question__r.Answer_DataType__c}"
+                                                   data-answerid="{!questionAnswerVar.answerRecord.Id}"
+                                                   data-quesid="{!questionAnswerVar.questionRecord.Id}"/>
+                                        </td>
+                                        
+                                        <!--Question Text-->
+                                        <td class="quesText col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                            <input type="hidden" 
+                                                   data-questiontext="{!questionAnswerVar.questionRecord.Discovery_Question_Text__c}"
+                                                   data-questiontype="{!questionAnswerVar.questionRecord.Question_Type__c}"
+                                                   data-note="{!questionAnswerVar.questionRecord.Note__c}"/>
+                                        </td>
+                                        
+                                        <!--Answer-->
+                                        <td class="ansColumn col-lg-4 col-md-5 col-sm-4 col-xs-4">
+                                            <!--Checkbox Field-->
+                                            <apex:inputField styleClass="checkBoxField" value="{!questionAnswerVar.answerRecord.Checkbox_Answer__c}"
+                                                             rendered="{!questionAnswerVar.questionRecord.Answer_DataType__c='Checkbox'}"/>
+                                            
+                                            <!--Currency Field-->
+                                            <apex:inputField styleClass="form-control" value="{!questionAnswerVar.answerRecord.Currency_Answer__c}"
+                                                             rendered="{!questionAnswerVar.questionRecord.Answer_DataType__c='Currency'}" 
+                                                             html-placeholder="Enter Currency value..."/>
+                                            
+                                            <!--Date Field-->
+                                            <apex:outputText rendered="{!questionAnswerVar.questionRecord.Answer_DataType__c='Date'}">
+                                                <div class="input-group date datepicker">
+                                                    <apex:inputField styleClass="form-control dateField" value="{!questionAnswerVar.answerRecord.Date_Answer__c}"
+                                                                     showDatePicker="false"
+                                                                     html-placeholder="MM/DD/YYYY"/>
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </apex:outputText>
+                                            
+                                            <!--Date Time Field-->
+                                            <apex:outputText rendered="{!questionAnswerVar.questionRecord.Answer_DataType__c='DateTime'}">
+                                                <div class="input-group date datetimepicker">
+                                                    <apex:inputField styleClass="form-control dateTimeField" value="{!questionAnswerVar.answerRecord.Date_Time_Answer__c}"
+                                                                     showDatePicker="false"
+                                                                     html-placeholder="MM/DD/YYYY HH:MM AM|PM"/>
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </apex:outputText>
+                                            
+                                            <!--Email Field-->
+                                            <apex:inputField styleClass="form-control" value="{!questionAnswerVar.answerRecord.Email_Answer__c}"
+                                                             rendered="{!questionAnswerVar.questionRecord.Answer_DataType__c='Email'}" 
+                                                             type="email" html-placeholder="abc@email.com"/>
+                                            
+                                            <!--Long Text Area Field-->
+                                            <apex:inputField styleClass="form-control" value="{!questionAnswerVar.answerRecord.Long_Text_Area_Answer__c}"
+                                                             rendered="{!questionAnswerVar.questionRecord.Answer_DataType__c='Long Text Area'}"/>
+                                            
+                                            <!--Number Field-->
+                                            <apex:inputField styleClass="form-control numberField" value="{!questionAnswerVar.answerRecord.Number_Answer__c}"
+                                                             rendered="{!questionAnswerVar.questionRecord.Answer_DataType__c='Number'}" 
+                                                             type="number" html-placeholder="Enter a Number..."/>
+                                            
+                                            <!--Phone Field-->
+                                            <apex:inputField styleClass="form-control" value="{!questionAnswerVar.answerRecord.Phone_Answer__c}"
+                                                             rendered="{!questionAnswerVar.questionRecord.Answer_DataType__c='Phone'}" 
+                                                             type="tel" html-placeholder="Enter a Phone Number..."/>
+                                            
+                                            <!--Text Field-->
+                                            <apex:inputField styleClass="form-control" value="{!questionAnswerVar.answerRecord.Text_Answer__c}"
+                                                             rendered="{!questionAnswerVar.questionRecord.Answer_DataType__c='Text'}" 
+                                                             html-placeholder="Enter a Text value..."/>
+                                            
+                                            <!--URL Field-->
+                                            <apex:inputField styleClass="form-control" value="{!questionAnswerVar.answerRecord.URL_Answer__c}"
+                                                             rendered="{!questionAnswerVar.questionRecord.Answer_DataType__c='URL'}" 
+                                                             type="url" html-placeholder="Enter a URL..."/>
+                                            
+                                            <!--Picklist Field-->
+                                            <apex:selectList styleClass="form-control" size="1" value="{!questionAnswerVar.answerRecord.Picklist_Answer__c}"
+                                                             rendered="{!questionAnswerVar.questionRecord.Answer_DataType__c='Picklist'}">
+                                                <apex:selectOptions value="{!questionAnswerVar.picklistValues}"/>
+                                            </apex:selectList>
+                                            
+                                            <!--Multiselect Picklist Field-->
+                                            <apex:selectList styleClass="form-control multiselectField" size="3" 
+                                                             value="{!questionAnswerVar.answerRecord.Multiselect_Picklist_Answer__c}"
+                                                             rendered="{!questionAnswerVar.questionRecord.Answer_DataType__c='MultiSelect Picklist'}" multiselect="true"
+                                                             html-fieldvalue="{!questionAnswerVar.answerRecord.Multiselect_Picklist_Answer__c}">
+                                                <apex:selectOptions value="{!questionAnswerVar.picklistValues}"/>
+                                            </apex:selectList>
+                                            <apex:outputText rendered="{!questionAnswerVar.questionRecord.Answer_DataType__c='MultiSelect Picklist'}">
+                                                <button type="button" class="btn btn-default multiselectClearButton" onclick="clearMultiselectVales(this);">Clear</button>
+                                            </apex:outputText>
+                                        </td>
+                                        
+                                        <!--N/A Checkbox-->
+                                        <td class="col-lg-1 col-md-1 col-sm-2 col-xs-2 notApplicableColumn">
+                                            <apex:inputField styleClass="checkBoxField notApplicableField" value="{!questionAnswerVar.answerRecord.N_A__c}"/>
+                                            <apex:outputLabel value="N/A" styleClass="notApplicableLabel"/>
+                                        </td>
+                                        
+                                        <!--Empty Column for Desktop Screens-->
+                                        <td class="col-lg-1 col-md-0 col-sm-0 col-xs-0 emptyColumn"></td>
+                                    </tr>
+                                </apex:outputText>
+                                
+                                <apex:outputText rendered="{!questionAnswerVar.questionRecord.Question_Type__c='Other'}">
+                                    <tr class="quesTR">
+                                        <td>
+                                            <input type="hidden" class="otherComments" 
+                                                   data-answerid="{!questionAnswerVar.answerRecord.Id}"
+                                                   data-quesid="{!questionAnswerVar.questionRecord.Id}"/>
+                                        </td>
+                                        
+                                        <!--Parent Answer-->
+                                        <td class="ansColumn col-lg-4 col-md-5 col-sm-5 col-xs-5" colspan="2">
+                                            <apex:outputText styleClass="other" value="{!questionAnswerVar.questionRecord.Discovery_Question_Text__c}:"/>
+                                            <!--Long Text Area Field-->
+                                            <apex:inputField styleClass="form-control" value="{!questionAnswerVar.answerRecord.Long_Text_Area_Answer__c}"
+                                                             rendered="{!questionAnswerVar.questionRecord.Answer_DataType__c='Long Text Area'}"/>
+                                        </td>
+                                        
+                                        <!--Empty Column for Desktop Screens-->
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </apex:outputText>
+                            </apex:repeat>
+                        </table>
+                    </div>
+                    
+                    <!--Button Group-->
+                    <div class="buttonGroup">
+                        <apex:commandButton value="Save" styleClass="btn btn-primary qaSaveButton" onclick="saveAnswers(this);"
+                                            reRender="dummy" status="questionAnswerStatus"/>
+                        <button type="button" class="btn btn-default qaResetButton" 
+                                data-toggle="modal" data-target="#modalDialogQAReset">Reset</button>
+                        <button class="btn btn-default quickSaveButton" type="button"><i class="fa fa-square-o quickSaveIcon" aria-hidden="true"></i>Enable QuickSave</button>
+                        
+                        <div class="btn-group quesTypeBtn">
+                            <button aria-expanded="false" aria-haspopup="true" class="btn btn-default dropdown-toggle" 
+                                    data-toggle="dropdown" type="button" onclick="quesTypeFilterButton(this);">
+                                All Question Types <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a onclick="quesTypeFilter(this);">All Question Types</a></li>
+                                <li><a onclick="quesTypeFilter(this);">Pre-Sale</a></li>
+                                <li><a onclick="quesTypeFilter(this);">Post-Sale</a></li>
+                                <li><a onclick="quesTypeFilter(this);">Talk Track</a></li>
+                                <li><a onclick="quesTypeFilter(this);">Virtual</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </apex:outputText>
+                
+                <apex:outputText rendered="{!questionAnswerWrapperList=Null || questionAnswerWrapperList='' || questionAnswerWrapperList.size=0}">
+                    <h4>There are no question(s) configured for this section.</h4>
+                </apex:outputText>
+            </apex:form>
+        </div>
+    </div>
+</apex:component>

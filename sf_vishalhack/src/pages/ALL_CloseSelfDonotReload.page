@@ -1,0 +1,6 @@
+<!--2016-08-30- anirudh.singh@cdk.com- Created this generic page for redirecting to the Parent Page and close the Child Page opened through Parent.-->
+<apex:page >
+    <script type="text/javascript">
+        window.close();
+    </script>
+</apex:page>

@@ -1,0 +1,117 @@
+<apex:page standardController="Page_Component__c" extensions="EMP_PortalPageComponent_Controller" docType="html-5.0" >
+    
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}" />
+    <script src='//cdn.tinymce.com/4/tinymce.min.js'></script>
+    
+    <style>
+        textarea.mce-textbox {
+            font-size: 11pt;
+            font-family: "Courier New", Courier, monospace;
+        }
+    </style>
+    
+    <apex:sectionHeader title="Portal Page Component" subtitle="{!IF(ISBLANK(Page_Component__c.Name),'New Portal Page Component',Page_Component__c.Name)}" />
+  
+    <apex:form >
+        <apex:pageBlock Title="Portal Page Component Edit..."> 
+            <apex:pageblocksection columns="1">
+                <apex:repeat value="{!lstFields}" var="f"> 
+                    <apex:inputField value="{!PageComp[f]}" rendered="{!NOT(OR(f=='VFPageName__c',f=='Main_Content__c'))}" />
+                </apex:repeat>
+                <apex:selectList value="{!PageComp.VFPageName__c}" size="1" multiselect="false" rendered="{!sRecordTypeName!='Link' && sRecordTypeName!='Link_Collection'}">
+                    <apex:selectOptions value="{!options}"/>
+                </apex:selectList>
+                <apex:inputTextarea id="MainEditor" styleclass="main-content" value="{!PageComp.Main_Content__c}"  rendered="{!showContent}">
+                </apex:inputTextarea>
+                
+            </apex:pageblocksection>
+            <!--<apex:pageBlockSection columns="1" title="Content Section" >
+                <apex:selectList value="{!PageComp.VFPageName__c}" size="1" multiselect="false">
+                    <apex:selectOptions value="{!options}"/>
+                </apex:selectList>
+                <apex:inputTextarea id="MainEditor" value="{!PageComp.Main_Content__c}" rendered="{!showContent}">
+                </apex:inputTextarea>
+            </apex:pageBlockSection>
+            -->
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!save}" />
+                <apex:commandButton value="Cancel" action="{!cancel}" immediate="true" />
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+    
+    <apex:relatedList subject="{!Page_Component__c}" list="CombinedAttachments" rendered="{!if(Page_Component__c.Recordtype.Name == 'Carousel',true,false)}" />
+    
+    <script type="text/javascript">
+    /*
+    var j$ = jQuery.noConflict();
+    var CustomFullToolbar = [
+        { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
+        { name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
+        { name: 'forms', groups: [ 'forms' ] },
+        { name: 'links', groups: [ 'links' ] },
+        { name: 'insert', groups: [ 'insert' ] },
+        { name: 'document', groups: [ 'doctools', 'document', 'mode' ] },
+        { name: 'tools', groups: [ 'tools' ] },
+        '/',
+        { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+        { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
+        '/',
+        { name: 'styles', groups: [ 'styles' ] },
+        { name: 'colors', groups: [ 'colors' ] },
+        { name: 'others', groups: [ 'others' ] },
+        { name: 'about', groups: [ 'about' ] }
+    ];
+    
+    var CustomFullToolbarRemoveButtons = 
+        'Flash,Save,Templates,NewPage,Preview,Print,Replace,Scayt,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField';
+    
+    j$("[id$='MainEditor']").ckeditor({
+        extraAllowedContent: 'a div;a span;a i;a h1;a h2;a h3;a h4;a p',
+        allowedContent: true,
+        toolbarGroups: CustomFullToolbar,
+        removeButtons: CustomFullToolbarRemoveButtons
+    });
+    */
+    
+    tinymce.init({
+        selector : 'textarea',
+        height : 500,
+        theme : 'modern',
+        allow_html_in_named_anchor: true,
+        plugins : [
+            'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+            'searchreplace wordcount visualblocks visualchars code fullscreen',
+            'insertdatetime media nonbreaking save table contextmenu directionality',
+            'template paste textcolor colorpicker textpattern imagetools'
+        ],
+        toolbar1 : 'insertfile fontselect fontsizeselect | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | cut copy paste | undo redo | print fullscreen',
+        toolbar2 : 'formatselect | bold italic underline strikethrough superscript subscript | forecolor backcolor | removeformat | hr blockquote | link image | code',
+        image_advtab : true,
+        templates : [{
+                title : 'Test template 1',
+                content : 'Test 1'
+            }, {
+                title : 'Test template 2',
+                content : 'Test 2'
+            }
+        ],
+        content_css : [
+            '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+            '//www.tinymce.com/css/codepen.min.css'
+        ],
+        forced_root_block: false, 
+        preformatted: true, 
+        schema: 'html5', 
+        valid_children: '+a[div|h1|h2|h3|h4|h5|h6|p|#text]',
+        convert_urls: false, 
+        remove_script_host: false, 
+        verify_html: false, 
+        target_list: [
+            {title: 'Same page', value: '_self'},
+            {title: 'New page', value: '_blank'}
+        ]
+    });
+    </script>
+
+</apex:page>

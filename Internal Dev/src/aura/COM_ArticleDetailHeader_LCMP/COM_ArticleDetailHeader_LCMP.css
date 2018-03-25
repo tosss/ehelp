@@ -1,0 +1,74 @@
+.THIS .article-header {
+    text-align: center;
+    margin: auto;
+    text-transform: uppercase;
+    
+}
+
+.THIS .article-header .headlineTitle {
+    font-weight: 700;
+    line-height: 1.375;
+    text-align: center; 
+    font-size: 1.5rem;
+    padding: 10px 0 25px;
+}
+
+.THIS .hide-summary{
+    display: none;
+}
+.THIS .slds-avatar {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    color: #ffffff;
+}
+
+.THIS .icon-custom{
+    position: absolute;
+    margin-top:-50px;
+    
+}
+
+.THIS .icon-custom-edit{
+    margin-left: 40px;
+    position: absolute;
+    margin-top:-50px;
+}
+.THIS .slds-icon-custom-custom105 {
+    background-color: rgb(129, 153, 175);
+}
+
+.THIS .slds-icon-custom-custom105 hover {
+    background-color: blue;
+    color:white;
+}
+
+
+.THIS .style16 { 
+    border-top: 1px dashed #8c8b8b; 
+    text-align: center;
+    
+} 
+
+.THIS  .slds-button--icon-border {
+    border: 0px solid rgb(225, 215, 176); 
+}
+.THIS .style16 {
+    display: block;
+    margin: -18px 0 !important;
+    height: 1px;
+    clear: both;
+}
+
+.THIS .header-icon-background {
+    background-color: #fff;
+    padding-left: 4px;
+    float:right;
+}
+
+
+.THIS .header-icon {
+    margin-top: -20px;
+    margin-left:5px;
+}

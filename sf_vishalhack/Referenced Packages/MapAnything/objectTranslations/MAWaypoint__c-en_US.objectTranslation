@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>MapAnything Waypoint</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>MapAnything Waypoints</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- MapAnything Waypoints --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Additional Data --></label>
+        <name>AdditionalData__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address --></label>
+        <name>Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Base Object Lookup --></label>
+        <name>BaseObjectId__c</name>
+        <relationshipLabel><!-- MapAnything Waypoints --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Base Object --></label>
+        <name>BaseObject__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- MapAnything Waypoints --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- MapAnything Waypoints --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- EventId --></label>
+        <name>EventId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Has Address --></label>
+        <name>HasAddress__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Flexible --></label>
+        <name>IsFlexible__c</name>
+    </fields>
+    <fields>
+        <label><!-- Latitude --></label>
+        <name>Latitude__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead --></label>
+        <name>Lead__c</name>
+        <relationshipLabel><!-- MapAnything Waypoints --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Link Id --></label>
+        <name>LinkId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Longitude --></label>
+        <name>Longitude__c</name>
+    </fields>
+    <fields>
+        <label><!-- Saved Query --></label>
+        <name>MASavedQry__c</name>
+        <relationshipLabel><!-- Waypoints --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Notes --></label>
+        <name>Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- MapAnything Waypoints --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Options --></label>
+        <name>Options__c</name>
+    </fields>
+    <fields>
+        <label><!-- Route --></label>
+        <name>Route__c</name>
+        <relationshipLabel><!-- Waypoints --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Sort Order --></label>
+        <name>SortOrder__c</name>
+    </fields>
+    <layouts>
+        <layout>MapAnything Waypoint Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

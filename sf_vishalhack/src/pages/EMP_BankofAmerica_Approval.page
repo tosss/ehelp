@@ -1,0 +1,232 @@
+<!--*******************************************************
+*vijay.manimaran@cdk.com created 1/30/2017
+*********************************************************** -->
+<apex:page standardController="Case" extensions="EMP_BankofAmerica_Controller">
+<script type="text/javascript" src="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.10.4.custom.min.js')}"></script>
+<link rel="stylesheet" type="text/css" href="{!$Resource.EMP_AssociatePortalPage_CSS}" />
+<link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.FontAwesome, '4.6.1/css/font-awesome.min.css')}" />
+<style>
+    .rejectbutton
+    {
+    background-color:#710707;
+    
+    }
+    .approvebutton{
+    background-color: #396002;
+    }
+    .box-sm {
+    height: 60px;
+    
+    }
+    .buttoncenter{
+    margin-left: 30%;
+    }
+    
+    .action-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    }
+    
+    .action-btn-primary {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    margin-left:25%;
+    height: 50px;
+    }
+    
+    .action-btn-warning {
+    color: #fff;
+    background-color: #f0ad4e;
+    border-color:#eea236;
+    margin-right:25%;
+    height: 50px;
+    }
+    
+    .progress-wrapper {
+    position: fixed;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255,255,255,0.8);
+    z-index: 99999;
+    text-align: center;
+    }
+    
+    .progress-wrapper .progress {
+    font-weight: 200;
+    position: relative;
+    top: 40%;
+    color: #fff;
+    margin: 0 auto;
+    width: 55px;
+    height: auto;
+    display: inline-block;
+    text-align: left;
+    padding: 10px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    border: 1px solid #DDD;
+    }
+</style>    
+    
+    <script type="text/javascript">
+    var j$ = jQuery.noConflict();
+    if (!j$) {
+        j$ = jQuery.noConflict();
+    }
+    j$(document).ready(
+        function()
+        {
+            j$("[id$='messageDialog']").hide();
+            j$("[id$='rejectDialog']").hide();
+            j$(".progress-wrapper").hide();
+            
+            var caseID = '{!$currentPage.parameters.Id}';
+            var managerAction;
+            var caseDescription;
+            
+            //remote call to the method 
+            function approvalReject(caseID,managerAction,caseDescription){
+                EMP_BankofAmerica_Controller.ApprovalReject(caseID,managerAction,casedescription,function(result, event) {
+                    if (event.status) {
+                        if (result == 'success') {
+                            var casenumber = j$("[id$='casenumber']").val();
+                            j$(".progress-wrapper").hide();
+                            var messagemodal = "Thank you . Please save this Case Number : "+casenumber+" for future reference";
+                            j$("[id$='submitrejection']").hide();
+                            j$("[id$='modal-body']").html(messagemodal);
+                            j$("#myModal").modal('show'); 
+                            j$("[id$='Reject']").attr("disabled", "disabled");
+                            j$("[id$='Reject']").attr("style", "background-color:#ddd");
+
+                            j$("[id$='Approve']").attr("disabled", "disabled");
+                            j$("[id$='Approve']").attr("style", "background-color:#ddd");
+
+                        } else {
+                            var messagemodal = "Sorry unable to process your request. Please contact CorpCardAdmin@cdk.com";
+                            j$("[id$='submitrejection']").hide();
+                            j$("[id$='modal-body']").html(messagemodal);
+                            j$("#myModal").modal('show'); 
+                        }
+                    }
+                });
+            }
+            
+
+            
+            casedescription ='';
+            j$("[id$='Approve']").click(function() {
+                j$(".progress-wrapper").show();
+                j$("[id$='Reject']").attr("disabled", "disabled");
+                j$("[id$='Reject']").attr("style", "border-color:#ddd");
+                j$("[id$='Reject']").attr("style", "background-color:#ddd");
+                var approval = "Manager - Approved";
+                approvalReject(caseID,approval,casedescription);
+            });
+            j$("[id$='Reject']").click(function() {
+                j$(".progress-wrapper").hide();
+                j$("[id$='Approve']").attr("disabled", "disabled");
+                j$("[id$='Approve']").attr("style", "border-color:#ddd");
+                j$("[id$='Approve']").attr("style", "background-color:#ddd");
+
+                j$("[id$='modal-body']").html(messagemodal);
+            });
+            
+            
+            j$("[id$='submitrejection']").click(function() {
+                j$(".progress-wrapper").show();
+                approval = "Manager - Rejected";
+                casedescription = j$("[id$='casedescription']").val();
+                approvalReject(caseID,approval,casedescription);
+            });
+        });
+    </script>
+    
+    <div>
+        <h3> <i class="fa fa-globe" aria-hidden="true"></i> {!$CurrentPage.parameters.Type} Request</h3>
+    </div>
+    <apex:form id="theform">
+        <apex:inputHidden value="{!case.casenumber}" id="casenumber"/>
+    </apex:form>
+    <apex:pageBlock mode="">
+        <apex:pageBlockSection columns="2" title="Case Number: {!case.casenumber}" collapsible="false" >
+            <apex:outputField value="{!case.BOA_NameOnCard__c}"/> 
+            <apex:outputField value="{!case.Status}"/> 
+            <apex:outputField value="{!case.contact.email}"/> 
+            <apex:outputField value="{!case.BOA_Phone__c}"/> 
+            <apex:outputField value="{!case.Origin}"/>
+            <apex:outputField value="{!case.BOA_BirthDate__c}"/>
+            <apex:outputField value="{!case.BOA_City__c}"/>
+            <apex:outputField value="{!case.BOA_ZipCode__c}"/>
+            <apex:outputField value="{!case.BOA_Country__c}"/>
+            <apex:outputField value="{!case.BOA_Manager__c}"/>	
+            <apex:outputField value="{!case.BOA_Manager_Approval__c}"/>
+            <apex:outputField value="{!case.BOA_ManagerEmail__c}"/>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    
+    <div style="text-align:center; margin:auto;">
+        <p>
+            <button type="button" id="Approve" class="action-btn action-btn-primary btn-lg col-md-2" rerender="msg" status="submitLoading"> 
+                <i class="fa fa-check" aria-hidden="true"></i>
+                Approve</button>
+            <apex:actionstatus onstart="console.log('inside loading');j$('.progress-wrapper').prop('display','block');" onstop="j$('.progress-wrapper').hide();" id="submitLoading" />
+            
+            <button type="button" class="action-btn action-btn-warning btn-lg col-md-2" data-toggle="modal" data-target="#myModal" id="Reject">
+                <i class="fa fa-times" aria-hidden="true"></i>
+                Reject</button>
+        </p>
+    </div>
+    <div id="messageDialog">
+        <p>You have already requested the Travel Expense Card</p>
+    </div>
+    <div class="progress-wrapper" id="progress-wrapper">
+        <div class="progress">
+            <img src="/img/loading32.gif" />
+        </div>
+    </div>
+    <div class="container">
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Message </h4>
+                    </div>
+                    <div class="modal-body" id="modal-body">
+                        <p>
+                            <label>Reason for rejection</label>
+                            <input class="form-control" value="{!case.description}" type="text" id="casedescription"/>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" id="submitrejection">Submit Rejection</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</apex:page>

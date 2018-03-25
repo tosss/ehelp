@@ -1,0 +1,79 @@
+<!--2016-10-19- anirudh.singh@cdk.com- Created this for Questions Tab for Products.-->
+<apex:component controller="ALL_ProductQuestions_Controller" allowDML="true">
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, '/js/jquery-1.11.2.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.Bootstrap, '/js/bootstrap.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.ALL_ProductQuestions_JS)}"/>
+    
+    <apex:stylesheet value="{!URLFOR($Resource.Bootstrap, '/cdk/css/bootstrap.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.FontAwesome, '/4.6.1/css/font-awesome.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.ALL_ProductQuestions_CSS)}"/>
+    
+    <apex:attribute name="opportunityLocationSiteId" type="Id" default="a6N230000004Ht2" assignTo="{!oppLocationSiteIdForRecs}" 
+                    required="true" description="This is the Opportunity Location Site Id."/>
+    <apex:attribute name="siteWorkbookId" type="Id" assignTo="{!siteWorkbookIdForQuestionsTab}" 
+                    required="true" description="This is the Discovery Workbook Id for Answer Records."/>
+    
+    <div class="productQuestionsComponent">
+        <!--Spinner-->
+        <div class="modal fade prodQuesSpinnerDiv" id="prodQuesSpinnerDiv" tabindex="-1" 
+             role="dialog" aria-labelledby="modalDialogLabel" aria-hidden="true"
+             data-keyboard="false" data-backdrop="static">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td><h3>Please Wait...</h3></td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fa fa-spinner fa-spin fa-2x"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <apex:outputText rendered="{!displaySideBarTabsList!=Null && displaySideBarTabsList.size>0}">
+            
+            <div class="productQuestionsContentDiv">
+                <!-- 2016-10-24 matt.keefe@cdk.com - moved form inside productQuestionsContentDiv -->
+                <apex:form >
+                    <apex:actionStatus id="statusQuestionsComponent" onstart="showProdQuesSpinnerDiv();" onstop="hideProdQuesSpinnerDiv();"/>
+                    
+                    <!--Sidebar-->
+                    <div class="sideBar">
+                        <ul class="nav nav-pills nav-stacked sideBarTabs">
+                            <!-- 2016-10-24 matt.keefe@cdk.com - added Category Header -->
+                            <h3 class="catergoryHeader">Product Workflow</h3>
+                            <apex:repeat value="{!displaySideBarTabsList}" var="sideBarTab">
+                                <li role="presentation">
+                                    <a class="buttonAnchorTag">
+                                        <apex:commandButton styleClass="sideBarButton" value="{!sideBarTab}" onclick="addParameterToURL(this);" 
+                                                            oncomplete="highlightSelectedSideBarTab();" 
+                                                            reRender="productQuestionsContent" status="statusQuestionsComponent">
+                                        </apex:commandButton>
+                                    </a>
+                                </li>
+                            </apex:repeat>
+                        </ul>
+                    </div>
+                </apex:form>
+                
+                <input type="hidden" value="{!selectedDeptWorkflow}" id="selectedDeptWorkflowValue"/>
+                
+                <apex:outputText id="productQuestionsContent">
+                    <div class="productQuestionsQuesAnsDiv">
+                        <apex:dynamicComponent componentValue="{!questionAnswerComponent}" invokeAfterAction="true"/>
+                    </div>
+                </apex:outputText>
+            </div>
+        </apex:outputText>
+        
+        <apex:outputText rendered="{!displaySideBarTabsList=Null || displaySideBarTabsList.size=0}">
+            <h4>There are no question records to display.</h4>
+        </apex:outputText>
+    </div>
+</apex:component>

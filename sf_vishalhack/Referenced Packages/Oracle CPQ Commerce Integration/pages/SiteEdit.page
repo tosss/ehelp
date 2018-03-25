@@ -1,0 +1,68 @@
+<apex:page standardController="BigMachines__Configuration_Record__c" extensions="BigMachines.BigMachinesEditSiteController">
+    <apex:sectionHeader title="{!$ObjectType.BigMachines__Configuration_Record__c.Label} Edit" subtitle="{!BigMachines__Configuration_Record__c.Name}" />
+    <apex:form >
+        <apex:PageMessages id="messages" />
+        <apex:pageBlock title="Oracle CPQ Cloud Site Edit" mode="Edit">
+            <apex:pageBlockButtons location="both">
+                <apex:commandButton value=" Save " action="{!save}" />
+                <apex:commandButton value=" Cancel " action="{!cancel}" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Information">
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__bm_site__c}"/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.Name}"/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__Connected_App_Name__c}"/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__Is_Active__c}"/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__process_id__c}"/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__Description__c}"/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__action_id_copy__c}"/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__Primary_Commerce_Process__c}">
+                    <apex:actionsupport event="onclick" action="{!changePrimaryCommerceProcess}" reRender="defaultsSection"/>
+                </apex:inputField>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__action_id_open__c}"/>
+                <apex:outputLabel value=""/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__document_id__c}"/>
+                <apex:outputLabel value=""/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__version_id__c}"/>
+                <apex:outputLabel value=""/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__process__c}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection columns="2" collapsible="true" showHeader="true" title="Oracle CPQ Cloud API Administrator">
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__API_Login__c}" rendered="{!canEditPassword}" />
+                <apex:outputField value="{!BigMachines__Configuration_Record__c.BigMachines__API_Login__c}" rendered="{!cannotEditPassword}" />
+                <apex:inputSecret value="{!BigMachines__Configuration_Record__c.BigMachines__API_Password__c}" rendered="{!canEditPassword}" />
+                <apex:pageBlockSectionItem rendered="{!cannotEditPassword}">
+                    <apex:outputLabel value="API Admin Password"/> 
+                    <apex:outputText >*****</apex:outputText>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection id="defaultsSection" columns="2" collapsible="true" showHeader="true" title="New Oracle User Defaults">
+                <apex:outputLabel value="Use Default Value?"/>
+                <apex:outputText value="Default Values"/>
+                    
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__Use_Default_Bulk_Synchronization__c}" label="" rendered="{!primaryCommerceProcess}"/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__Default_Bulk_Synchronization__c}" rendered="{!primaryCommerceProcess}"/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__Use_Default_Provisioned__c}" label="" rendered="{!primaryCommerceProcess}"/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__Default_Provisioned__c}" rendered="{!primaryCommerceProcess}"/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__Use_Default_Allow_Quote_Creation__c}" label=""/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__Default_Allow_Quote_Creation__c}"/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__Use_Default_Number_Format__c}" label="" rendered="{!primaryCommerceProcess}"/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__Default_Number_Format__c}" rendered="{!primaryCommerceProcess}"/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__Use_Default_Date_Time_Format__c}" label="" rendered="{!primaryCommerceProcess}"/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__Default_Date_Time_Format__c}" rendered="{!primaryCommerceProcess}"/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__Use_Default_Language_Preference__c}" label="" rendered="{!primaryCommerceProcess}"/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__Default_Language_Preference__c}" rendered="{!primaryCommerceProcess}"/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__Use_Default_Association_to_Organization__c}" label="" rendered="{!primaryCommerceProcess}"/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__Default_Association_to_Organization__c}" rendered="{!primaryCommerceProcess}"/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__Use_Default_Access_Type__c}" label="" rendered="{!primaryCommerceProcess}"/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__Default_Access_Type__c}" rendered="{!primaryCommerceProcess}"/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__Use_Default_Currency_Preference__c}" label="" rendered="{!primaryCommerceProcess}"/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__Default_Currency_Preference__c}" rendered="{!primaryCommerceProcess}"/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__Use_Default_Unit_System__c}" label="" rendered="{!primaryCommerceProcess}"/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__Default_Unit_System__c}" rendered="{!primaryCommerceProcess}"/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__Use_Default_User_Groups__c}" label="" rendered="{!primaryCommerceProcess}"/>
+                <apex:inputField value="{!BigMachines__Configuration_Record__c.BigMachines__Default_User_Groups__c}" rendered="{!primaryCommerceProcess}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

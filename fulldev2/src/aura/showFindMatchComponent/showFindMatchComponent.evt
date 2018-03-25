@@ -1,3 +1,0 @@
-<aura:event type="COMPONENT" description="to Show Find Match Component">
-    <aura:attribute type="String" name="leadId" />
-</aura:event>

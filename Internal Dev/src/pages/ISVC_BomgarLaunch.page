@@ -1,0 +1,25 @@
+<!-- *****************************************************
+**11/10/2017 created vijay.manimaran@cdk.com 
+********************************************************** -->
+<apex:page standardController="Case" standardStylesheets="false" applyBodyTag="false" lightningStylesheets="true">
+    <apex:includeScript value="/lightning/lightning.out.js"/>
+    <script>
+    var currentCaseId = "{!$CurrentPage.parameters.id}";
+    console.log('currentCaseId',currentCaseId);
+    $Lightning.use("c:ISVC_Bomgar_App", function() {
+        $Lightning.createComponent("c:ISVC_Bomgar_LCMP",
+                                   { 
+                                       caseId : currentCaseId             
+                                   },
+                                   "BomgarLaunch",
+                                   function(cmp) {
+                                       console.log('am in lightnig component');
+                                   }
+                                  );
+    });
+    </script>
+    <apex:slds />
+    <div class="slds-scope">
+        <div id="BomgarLaunch"></div> 
+    </div>
+</apex:page>

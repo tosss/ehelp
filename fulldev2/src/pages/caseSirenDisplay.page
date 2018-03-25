@@ -1,6 +1,0 @@
-<!--2015-11-17- anirudh.singh@cdk.com- To upgrade the API Version FROM 16.0 to 34.0.-->
-<apex:page standardController="Case" label="Siren" name="Siren" title="Siren">
-    <apex:outputPanel rendered="{!!ISBLANK(Case.Account.Critical_Note__c)}">
-        <center><img src="{!$Resource.siren}" height="20" width="18" alt="ALERT!"/></center>
-    </apex:outputPanel>
-</apex:page>

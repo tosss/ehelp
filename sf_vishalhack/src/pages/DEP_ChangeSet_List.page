@@ -1,0 +1,178 @@
+<apex:page controller="DEP_Changeset_List_Controller" cache="false" expires="1000" title="Change Sets" docType="html-5.0">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<apex:includeScript loadOnReady="false" value="{!URLFOR($Resource.SLDS100,'/resource/slds/assets')}" />
+    <style>
+        .datePicker 
+        {
+            z-index:9999 !important;
+        }
+        </style>
+    <script>
+        var j$ = jQuery.noConflict();
+    function showModal(){    event.preventDefault();j$('#CreateModal').show(); }
+    function hideModal(){    event.preventDefault();j$('#CreateModal').hide(); }
+    function setDate(){ var dateValue = j$('#estimatedReleaseDate').val();j$('#estimatedReleaseDate').parent().find('input[type=hidden]').val(dateValue);}
+    function deleteChangeSet(){ j$('#ChangeSetList').hide();j$('.Spinner').show(); }
+    </script>
+    <apex:slds />
+    <apex:form id="form">
+        <script>
+        j$(document).ready( function() {
+            j$('.slds-theme--success').parent('.slds-notify_container').delay(10000).fadeOut();
+        });
+        </script>
+        <outputPanel id="Messages">
+            <div class="slds-notify_container slds-notify_container--inline" data-reactid="115" style="{!If(pageMessage!=null,'','display:none;')}">
+                <div class="slds-notify slds-notify--toast slds-theme--{!pageMessage.messageSeverity}" role="alert" data-reactid="116">
+                    <span class="slds-assistive-text" data-reactid="117">Info</span>
+                    <button class="slds-button slds-button--icon-inverse slds-notify__close" tabindex="-1" data-reactid="118" onclick="event.preventDefault();j$('.slds-notify_container').hide();">
+                        <svg aria-hidden="true" class="slds-button__icon slds-button__icon--large" data-reactid="119">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/resource/slds/assets/icons/utility-sprite/svg/symbols.svg#close" data-reactid="120">
+                            </use>
+                        </svg>
+                        <span class="slds-assistive-text" data-reactid="121">Close</span>
+                    </button>
+                    <div class="slds-notify__content slds-grid" data-reactid="122">
+                        <svg aria-hidden="true" class="slds-icon slds-icon--small slds-m-right--small slds-col slds-no-flex" data-reactid="123">
+                            <use
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/resource/slds/assets/icons/utility-sprite/svg/symbols.svg#{!pageMessage.messageSeverity}" data-reactid="124">
+                            </use>
+                        </svg>
+                        <div class="slds-col slds-align-middle" data-reactid="125">
+                            <h2 class="slds-text-heading--small" data-reactid="126"><apex:outputText value="{!pageMessage.messageBody}" escape="false" /></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </outputPanel>
+        <div class="demo-only Spinner" style="height: 640px;display:none;">
+            <div role="status" class="slds-spinner slds-spinner_medium">
+                <span class="slds-assistive-text">Loading</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+        <div class="demo-only" style="height: 640px;display:none;" id="CreateModal">
+            <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_large slds-list-builder" aria-labelledby="id-of-modalheader-h2" aria-describedby="modal-content-id-1">
+                <div class="slds-modal__container" style="max-width: 62%;max-height: 62.5%;">
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close"  onclick="hideModal();">
+                            <h1 style="color:white;">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/resource/slds/assets/icons/utility-sprite/svg/symbols.svg#close" data-reactid="120">
+                            </use>
+                            </h1>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="id-of-modalheader-h2" class="slds-text-heading_medium">Create Change Set</h2>
+                    </header>
+                    <div class="slds-modal__content slds-grid slds-grow" id="modal-content-id-1">
+                        <div class="slds-grid slds-grid_vertical" style="width:100%;">
+                            <div class="slds-p-vertical_x-small slds-p-horizontal_large slds-shrink-none slds-theme_shade">
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <div class="slds-combobox_container">
+                                            <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click" aria-expanded="false" aria-haspopup="listbox" role="combobox">
+                                                <div class="slds-form slds-form_horizontal">
+                                                    <div class="slds-form-element">
+                                                        <label class="slds-form-element__label" for="input-id-01">Name</label>
+                                                        <div class="slds-form-element__control">
+                                                            <apex:inputField styleclass="slds-input" value="{!newChangeSet.Name}" required="false" />
+                                                        </div>
+                                                    </div>
+                                                    <fieldset class="slds-form-element">
+                                                        <legend class="slds-form-element__legend slds-form-element__label">Major Release</legend>
+                                                        <div class="slds-form-element__control">
+                                                                <apex:inputField value="{!newChangeSet.Major_Release__c}" required="false" />
+                                                        </div>
+                                                    </fieldset>
+                                                    <fieldset class="slds-form-element">
+                                                        <legend class="slds-form-element__legend slds-form-element__label">Version</legend>
+                                                        <div class="slds-form-element__control">
+                                                            <apex:inputField styleclass="slds-input" value="{!newChangeSet.Version__c}"  required="false"  />
+                                                        </div>
+                                                    </fieldset>
+                                                    <fieldset class="slds-form-element">
+                                                        <legend class="slds-form-element__legend slds-form-element__label">Estimated Release Date</legend>
+                                                        <div class="slds-form-element__control">
+                                                            <apex:inputField styleclass="slds-input" value="{!newChangeSet.Estimated_Release_Date__c}"  style="width:75%;" required="false"  />
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" onclick="hideModal();">Cancel</button>
+                        <apex:commandButton styleclass="slds-button slds-button_brand"  action="{!insertChangeSet}" value="Save" rerender="form" />
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>
+        <div clas="slds-scope" id="ChangeSetList" >
+            <div class="slds-page-header">
+                <div class="slds-media">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-icon-standard-opportunity" >
+                            <svg class="slds-icon" aria-hidden="true">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#opportunity"></use>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <h1 class="slds-page-header__title slds-truncate slds-align-middle" title="Changeset">Change Sets</h1>
+                        <p class="slds-text-body_small slds-line-height_reset">Code • Test • Deploy</p>
+                    </div>
+                    <div class="slds-col slds-no-flex slds-grid slds-align-top slds-p-bottom_xx-small">
+                        <div class="slds-button-group" role="group">
+                            <button class="slds-button slds-button_neutral"  onclick="showModal();">New Change Set</button>
+                            <apex:commandButton styleclass="slds-button slds-button_neutral" action="{!deleteChangeSets}" rerender="form" value="Delete Change Sets" onclick="event.preventDefault();deleteChangeSet();" />
+                            <button class="slds-button slds-button_neutral"  onclick="event.preventDefault();window.open('/apex/DEP_RefreshSetup','_blank');">Refresh Setup</button>
+                            <button class="slds-button slds-button_neutral"  onclick="event.preventDefault();window.open('/apex/DEP_DeploymentStatus','_blank');">Deployment Report</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_striped">
+                <thead>
+                    <tr class="slds-text-title_caps">
+                        <th scope="col">
+                            <div class="slds-truncate" >Action</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" >Change Set Name</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" >Summary</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" >Priority</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <apex:repeat value="{!changeSetWrapperList}" var="changeSetWrapperObj">
+                        <tr>
+                            <th scope="row" data-label="Select">
+                                <apex:inputCheckbox value="{!changeSetWrapperObj.selected}" />
+                            </th>
+                            <th scope="row" data-label="Name">
+                                <div class="slds-truncate"><a href="/apex/DEP_Changeset_Detail?id={!changeSetWrapperObj.changeSetObj.Id}">{!changeSetWrapperObj.changeSetObj.Name}</a></div>
+                            </th>
+                            <td data-label="Description">
+                                <div class="slds-truncate">{!changeSetWrapperObj.changeSetObj.Summary__c}</div>
+                            </td>
+                            <td data-label="Priority">
+                                <div class="slds-truncate">{!changeSetWrapperObj.changeSetObj.Priority__c}</div>
+                            </td>
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+            </table>
+        </div>
+    </apex:form>
+</apex:page>

@@ -1,3 +1,0 @@
-<aura:component controller='pi.OutlookComposeController'>
-    <div></div>
-</aura:component>

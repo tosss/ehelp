@@ -1,0 +1,15 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasSOBjectName,force:hasRecordId" access="global">
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <aura:attribute name="cmpHeight" type="String" default="600px" access="global"/>
+    <aura:attribute name="cmpWidth" type="String" default="100%" access="global"/>
+    <aura:attribute name="miniMapId" type="String" default="" access="global"/>
+
+    <aura:attribute name="url" type="String" default="" />
+
+    <div style="{!'width:' + v.cmpWidth + ';height:' + v.cmpHeight}">
+        <iframe src="{!v.url}" frameBorder="0" style="height:100%; width:100%;" />
+    </div>
+
+</aura:component>

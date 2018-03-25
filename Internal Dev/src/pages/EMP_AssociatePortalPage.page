@@ -1,0 +1,591 @@
+<!--
+/*------------------------------------------------------------
+Author: Matt Keefe
+
+Description: 
+History
+8/3/2015     Vijay.Manimaran@CDK.com   Created
+Note:8/3/2015 - 4/25/2016: Matt Keefe and Vijay Manimaran made UI changes for the requests and branding Standards of CDK.
+4/25/2016    Vijay.Manimaran@CDK.com   Modified for RQ-05490 - Finance Community RQ-05803 - Procurement Security On Portal Page, New Ideas Component
+------------------------------------------------------------*/
+-->
+
+<apex:page standardStylesheets="false" showHeader="false" sidebar="false" docType="html-5.0" applyHtmlTag="false" applyBodyTag="false" controller="EMP_AssociatePortalPage_Controller">
+    <html>
+        <head>
+            <!-- The following 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+            <meta charset="utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <meta name="CDK Global" content="" />
+            <meta name="description" content="" />
+            
+            <title>CDK Global Associate Community</title>
+            
+            <!-- Page Icon -->
+            <link rel="shortcut icon" href="{!URLFOR($Resource.CDKFavicon)}" type="image/vnd.microsoft.icon"/>
+            
+            <!-- Placeholder iFrame -->
+            <iframe id="iframe" src="" style="display:none"></iframe>
+            
+            <!-- JavaScript Resources -->
+            <script type="text/javascript" src="{!URLFOR($Resource.ALL_Utilities_JS)}"></script>
+            
+            <script type="text/javascript">
+            var browserInfo = checkBrowser();
+            
+            if(browserInfo && browserInfo.isIE && browserInfo.compatibilityMode)
+            {
+                var showCompatibilityModeDocument = confirm(
+                    "Don't panic! You're currently viewing the CDK Employee Community in 'Compatibility View'. This means that some functions of the community will not work as expected. However, there's an easy fix in Internet Explorer's settings (that white gear at the top right under the red close button)." + "\r\n" + "\r\n" + 
+                    "To view the full instructions, click 'OK' below. If you'd prefer to try this later, click 'Cancel'." + "\r\n" + "\r\n" + 
+                    "If all of this is way to confusing, please contact the IT Help Desk by clicking 'Cancel' then clicking the 'Need IT Support?' link at the top right of this page, or simply call 866-995-4700, and IT Support will assist you."
+                );
+                
+                if(showCompatibilityModeDocument) {
+                    var frame = document.getElementById("iframe");
+                    window.onload = setTimeout(function(){
+                        frame.src="{!URLFOR($Resource.EMP_CompatibilityViewInstructions)}";
+                    },100);
+                }
+            }
+            
+            </script>
+            
+            <script type="text/javascript" src="{!URLFOR($Resource.Bootstrap, 'js/bootstrap.min.js')}"></script>
+            <script type="text/javascript" src="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}"></script>
+            <script type="text/javascript" src="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.10.4.custom.min.js')}"></script>
+            <script type="text/javascript" src="{!URLFOR($Resource.Linkify, 'linkify.min.js')}"></script>
+            <script type="text/javascript" src="{!URLFOR($Resource.Linkify, 'linkify-jquery.min.js')}"></script>
+            
+            <!-- Stylesheets Resources -->
+            <link rel="stylesheet" type="text/css" href="{!$Resource.EMP_AssociatePortalPage_CSS}" />
+            <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.Bootstrap, 'cdk/css/bootstrap.min.css')}" />
+            <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.BootstrapYAMM, 'yamm/yamm.css')}" />
+            <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.jQuery, 'css/redmond/jquery-ui-1.10.4.custom.css')}" />
+            <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.FontAwesome, '4.6.1/css/font-awesome.min.css')}" />
+                                    
+            <script type="text/javascript"> 
+            var __BackgroundURL;
+            
+            jQuery(document).ready(function(){
+                
+                jQuery("marquee").hover(function(){
+                    this.stop();
+                }, function() {
+                    this.start();
+                });
+                
+                // set background url for compatibility
+                __BackgroundURL = "{!URLFOR($Resource.InputBoxLoadingIcon)}";
+                
+                // convert text links to anchors
+                var browserInfo = checkBrowser();
+                if(browserInfo && !browserInfo.compatibilityMode && (browserInfo.actingVersion >= 11 || browserInfo.actingVersion == 0))
+                {
+                    jQuery('.container').linkify({ target: "_blank" });
+                }
+                
+                // remove content styles
+                jQuery(".remove-style span, .remove-style div").children().removeAttr("style");
+                
+                // Just replacing the value of the [content] attribute will not work.
+                j$('meta[name=X-UA-Compatible]').remove();
+                j$('head').prepend( '<meta http-equiv="X-UA-Compatible" content="IE=edge" />' );
+            });
+            </script>
+            
+            <style type="text/css">
+                .dropdown:hover > .dropdown-menu { display: block;}
+            </style>
+            
+            <script type="text/javascript" src="{!URLFOR($Resource.EMP_HRInvoluntary_JS)}"></script>
+            <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.EMP_HRInvoluntary_CSS)}" />
+        </head>
+        
+        <body>        
+            <div class="wrapper container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a  href="/Employees/apex/EMP_AssociatePortalPage" target="_self">
+                                <apex:image style="max-width:100px; float:left;" value="{!URLFOR($Resource.EMP_PortalImages, 'CDK_Logo_TM_RGB_300dpi_155x125.png')}" ></apex:image>
+                            </a>
+                        </div>
+                        <div class="col-md-8 header-right branded-links">
+                            <apex:form >
+                                <i class="fa fa-user"></i>
+                                <a href="{!$Site.Prefix}/_ui/core/userprofile/UserProfilePage?u={!$User.Id}" target="">Welcome {!$User.FirstName} {!$User.LastName}</a>! 
+                                <br/>
+                                <i class="fa fa-sign-out"></i>
+                                Not {!$User.FirstName}? <a href="{!$Site.Prefix}/secur/logout.jsp" target="_top">Logout</a>
+                                <br/>
+                                
+                                <i class="fa fa-comments-o"></i> <a href="{!$Site.Prefix}/apex/EMP_AssociatePortalPage?page=EMP_ITSupportCommunity">Need IT Support</a><span>?</span><br/>
+                                <i class="fa fa-flag"></i> <span>Community Home: </span>
+                                
+                                <select id="CommunityHome" autocomplete="off" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                                    <apex:repeat value="{!CommunityHomeOptions}" var="item" >
+                                        <option value="{!CommunityHomeOptions[item]}">{!item}</option>
+                                    </apex:repeat>
+                                </select>
+                                
+                                <script type="text/javascript">
+                                var CommunityHomeOptions = document.getElementById("CommunityHome").options;
+                                var CommunityHomeParameter = "{!$CurrentPage.parameters.home}";
+                                if (CommunityHomeOptions && CommunityHomeParameter != "") {
+                                    for(var opt in CommunityHomeOptions) { 
+                                        if (CommunityHomeOptions[opt] && CommunityHomeOptions[opt].text &&
+                                            CommunityHomeOptions[opt].text.toLowerCase() == CommunityHomeParameter.toLowerCase()) 
+                                        {
+                                            CommunityHomeOptions[opt].selected = true;
+                                        }
+                                    } 
+                                }
+                                </script>
+                            </apex:form>
+                        </div> 
+                    </div> 
+                </div>
+                
+                <div class="yamm navbar navbar-static-top navbar-default margin-bottom">
+                    <div class="container">
+                        <!-- NAVBAR -->                     
+                        
+                        <div class="navbar-header">
+                            <button type="button" data-toggle="collapse" data-target="#navbar-collapse-1" class="navbar-toggle"> 
+                                <span class="icon-bar"></span><span class="icon-bar">
+                                </span>
+                                <span class="icon-bar"></span> 
+                            </button> 
+                            <a class="navbar-brand" href="/Employees/apex/EMP_AssociatePortalPage" style=""><i class="fa fa-home"></i><span>&nbsp;Home</span></a>
+                        </div>
+                        
+                        <div id="navbar-collapse-1" class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+                                
+                                <apex:repeat value="{!MainNav}" var="menuItem" id="theRepeat1">
+                                    <li class="{!menuItem.Value['Style_Class__c']} {!IF(menuItem.Value['RecordType'].Name = 'Mega Menu','dropdown','')}" >
+                                        <a href="{!IF(ISBLANK(menuItem.Value['URL__c']),menuItem.Value['URL__c'],'#')}" 
+                                           class="dropdown-toggle" style="{!IF(menuItem.Value['RecordType'].Name = 'Mega Menu','','display: None;')}">
+                                            {!menuItem.Value['Label__c']}
+                                            <b class="{!IF(menuItem.Value['RecordType'].Name = 'Mega Menu','caret','')}"></b>
+                                        </a>
+                                        <!--if recordtype is mega menu.. only -->
+                                        <ul class="dropdown-menu">
+                                            <li class="">
+                                                <!-- Content container to add padding -->
+                                                <div class="yamm-content">
+                                                    <div class="row">
+                                                        <apex:repeat value="{!menuItem.SortedNextLevel}" var="subMenu">
+                                                            <ul class="{!subMenu.Value['Style_Class__c']} list-unstyled">
+                                                                <li style="{!IF(ISBLANK(subMenu.Value['Label__c']),'display:none;','')}">
+                                                                    <h4>
+                                                                        {!subMenu.Value['Label__c']}
+                                                                    </h4>
+                                                                </li>
+                                                                <apex:repeat value="{!subMenu.SortedNextLevel}" var="subMenuItems">
+                                                                    <li>
+                                                                        <a tabindex="-1" href="{!subMenuItems.Value['URL__c']}">
+                                                                            {!subMenuItems.Value['Label__c']}
+                                                                        </a>
+                                                                    </li>
+                                                                </apex:repeat>
+                                                            </ul>
+                                                        </apex:repeat>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        
+                                    </li>
+                                    <!-- Pictures -->
+                                    
+                                    <!-- Classic Nav -->
+                                    <li class="{!IF(menuItem.Value['RecordType'].Name = 'Mega Menu','','dropdown')}">
+                                        <a href="{!menuItem.Value['URL__c']}" data-toggle="{!IF(menuItem.Value['RecordType'].Name = 'Menu Label','','dropdown')}"
+                                           class="dropdown-toggle" style="{!IF(menuItem.Value['RecordType'].Name != 'Mega Menu' || menuItem.Value['RecordType'].Name == 'StandAlone'  ,'','Display:None;')}">
+                                            {!menuItem.Value['Label__c']}
+                                            <b class="{!IF(menuItem.Value['RecordType'].Name = 'Main Menu','caret','')}"></b>
+                                        </a>
+                                        <ul role="menu" class="{!IF(menuItem.Value['RecordType'].Name = 'Main Menu','dropdown-menu','')}">
+                                            <apex:repeat value="{!menuItem.SortedNextLevel}" var="subMenu" rendered="{!IF(menuItem.Value['RecordType'].Name = 'Main Menu',True,false)}">
+                                                <li>
+                                                    <a tabindex="-1" href="{!subMenu.Value['URL__c']}">    
+                                                        {!subMenu.Value['Name']}
+                                                    </a>
+                                                </li>                                              
+                                            </apex:repeat>
+                                        </ul>
+                                    </li>                       
+                                </apex:repeat>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="container">
+                    <div class="row">
+                        <div class="{!ComponentZero.Custom_Style__c} {!if(ComponentZero.RecordType.Name  == 'Content', 'remove-style', '')} {!if(CONTAINS(LOWER(ComponentZero.VFPageName__c),'carousel'), '', 'pad-bottom page-component branded-links')}">
+                            <apex:include pageName="{!ComponentZero.VFPageName__c}" rendered="{!if(ComponentZero.RecordType.Name  == 'Carousel', true, false)}" />
+                            <div class="pad-horizontal">
+                                <apex:outputtext value="{!ComponentZero.Main_Content__c}" escape="false" rendered="{!if(ComponentZero.RecordType.Name  == 'Content', true, false)}"/>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+                
+                <apex:outputpanel rendered="{!IF(NOT(ISBLANK(ScrollingMessage)),'true','false')}">
+                    <marquee direction="left" width="100%" onmouseover="this.stop();" onmouseout="this.start();" class="ScrollingMsg">
+                        {!ScrollingMessage}
+                    </marquee>
+                </apex:outputpanel>
+                
+                <div class="container marketing"> 
+                    <!-- Three columns of text below the carousel -->
+                    <div class="row">
+                        <div class="col-md-12 pad-top">
+                            <apex:messages styleClass="red-text page-messages" id="PageMessages"></apex:messages>
+                        </div>
+                    </div>
+                    <div class="row">
+                        
+                        <div class="{!ComponentOne.Custom_Style__c} {!if(ComponentOne.RecordType.Name  == 'Content', 'remove-style', '')} pad-bottom page-component branded-links">
+                            <apex:outputpanel rendered="{!IF((showComponentOne == false && Componentone.Is_security_required__c== true) , true , false )}">
+                                <div class="alert alert-warning">{!ComponentOne.Error_Message__c} <br/></div> 
+                            </apex:outputpanel>
+                            
+                            <apex:outputpanel rendered="{!IF((showComponentOne == true || Componentone.Is_security_required__c== false ), true , false)}">
+                                <apex:include pageName="{!ComponentOne.VFPageName__c}" rendered="{!if(Componentone.RecordType.Name  == 'VisualforcePage', true, false)}" />
+                                <div class="pad-horizontal">
+                                    <apex:outputtext value="{!ComponentOne.Main_Content__c}" escape="false" rendered="{!if(Componentone.RecordType.Name  == 'Content', true, false)}"/>
+                                </div> 
+                                <c:EMP_Chatter ChatterGroupId="{!ComponentOne.Chatter_Group__c}" rendered="{!if(Componentone.RecordType.Name  == 'Chatter', true, false)}"/> 
+                                <c:EMP_PortalVideoComponent Content="{!ComponentOne.Main_Content__c}" VideoId="{!ComponentOne.Video_ID__c}" rendered="{!if(ComponentOne.RecordType.Name  == 'Video', true, false)}"/>
+                                <c:EMP_IdeaSection community="{!ComponentOne.Idea_ID__c}" rendered="{!if(Componentone.RecordType.Name  == 'Ideas', true, false)}"/>
+                                
+                            </apex:outputpanel>
+                        </div>
+                        
+                        <div class="{!ComponentTwo.Custom_Style__c} {!if(ComponentTwo.RecordType.Name  == 'Content', 'remove-style', '')} pad-bottom page-component branded-links">
+                            <apex:outputpanel rendered="{!IF((showComponentTwo == false && ComponentTwo.Is_security_required__c== true) , true , false )}">
+                                <div class="alert alert-warning">{!ComponentTwo.Error_Message__c} <br/></div> 
+                            </apex:outputpanel>
+                            
+                            <apex:outputpanel rendered="{!IF((showComponentTwo == true || ComponentTwo.Is_security_required__c== false ), true , false)}">
+                                <apex:include pageName="{!ComponentTwo.VFPageName__c}" rendered="{!if(ComponentTwo == null,false,true)}" />
+                                <div class="pad-horizontal">
+                                    <apex:outputtext value="{!ComponentTwo.Main_Content__c}" escape="false" rendered="{!if(ComponentTwo.RecordType.Name  == 'Content', true, false)}"/> 
+                                </div>
+                                <c:EMP_Chatter ChatterGroupId="{!ComponentTwo.Chatter_Group__c}" rendered="{!if(ComponentTwo.RecordType.Name  == 'Chatter', true, false)}"/> 
+                                <c:EMP_PortalVideoComponent Content="{!ComponentTwo.Main_Content__c}" VideoId="{!ComponentTwo.Video_ID__c}" rendered="{!if(ComponentTwo.RecordType.Name  == 'Video', true, false)}"/>
+                                <c:EMP_IdeaSection community="{!ComponentTwo.Idea_ID__c}" rendered="{!if(ComponentTwo.RecordType.Name  == 'Ideas', true, false)}"/>
+                                
+                            </apex:outputpanel>
+                        </div>
+                        
+                        
+                        <div class="{!ComponentThree.Custom_Style__c} {!if(ComponentThree.RecordType.Name  == 'Content', 'remove-style', '')} pad-bottom page-component branded-links">
+                            <apex:outputpanel rendered="{!IF((showComponentThree == false && ComponentThree.Is_security_required__c== true) , true , false )}">
+                                <div class="alert alert-warning">{!ComponentThree.Error_Message__c} <br/></div> 
+                            </apex:outputpanel>
+                            
+                            <apex:outputpanel rendered="{!IF((showComponentThree == true || ComponentThree.Is_security_required__c== false ), true , false)}">
+                                <apex:include pageName="{!ComponentThree.VFPageName__c}" rendered="{!if(ComponentThree.RecordType.Name  == 'VisualforcePage', true, false)}" />
+                                <div class="pad-horizontal">
+                                    <apex:outputtext value="{!ComponentThree.Main_Content__c}" escape="false" rendered="{!if(ComponentThree.RecordType.Name  == 'Content', true, false)}"/> 
+                                </div>
+                                <c:EMP_Chatter ChatterGroupId="{!ComponentThree.Chatter_Group__c}" rendered="{!if(ComponentThree.RecordType.Name  == 'Chatter', true, false)}"/> 
+                                <c:EMP_PortalVideoComponent Content="{!ComponentThree.Main_Content__c}" VideoId="{!ComponentThree.Video_ID__c}" rendered="{!if(ComponentThree.RecordType.Name  == 'Video', true, false)}"/>
+                                <c:EMP_IdeaSection community="{!ComponentThree.Idea_ID__c}" rendered="{!if(ComponentThree.RecordType.Name  == 'Ideas', true, false)}"/>
+                                
+                            </apex:outputpanel>
+                        </div>
+                        
+                        <div class="{!ComponentFour.Custom_Style__c} {!if(ComponentFour.RecordType.Name  == 'Content', 'remove-style', '')} pad-bottom page-component branded-links">
+                            <apex:outputpanel rendered="{!IF((showComponentFour == false && ComponentFour.Is_security_required__c== true) , true , false )}">
+                                <div class="alert alert-warning">{!ComponentFour.Error_Message__c} <br/></div> 
+                            </apex:outputpanel>
+                            
+                            <apex:outputpanel rendered="{!IF((showComponentFour == true || ComponentFour.Is_security_required__c== false ), true , false)}">
+                                <apex:include pageName="{!ComponentFour.VFPageName__c}" rendered="{!if(ComponentFour.RecordType.Name  == 'VisualforcePage', true, false)}" />
+                                <div class="pad-horizontal">
+                                    <apex:outputtext value="{!ComponentFour.Main_Content__c}" escape="false" rendered="{!if(ComponentFour.RecordType.Name  == 'Content', true, false)}"/> 
+                                </div>
+                                <c:EMP_Chatter ChatterGroupId="{!ComponentFour.Chatter_Group__c}" rendered="{!if(ComponentFour.RecordType.Name  == 'Chatter', true, false)}"/> 
+                                <c:EMP_PortalVideoComponent Content="{!ComponentFour.Main_Content__c}" VideoId="{!ComponentFour.Video_ID__c}" rendered="{!if(ComponentFour.RecordType.Name  == 'Video', true, false)}"/>
+                                <c:EMP_IdeaSection community="{!ComponentFour.Idea_ID__c}" rendered="{!if(ComponentFour.RecordType.Name  == 'Ideas', true, false)}"/>
+                                
+                            </apex:outputpanel>  
+                        </div> 
+                        <div class="{!ComponentFive.Custom_Style__c} {!if(ComponentFive.RecordType.Name  == 'Content', 'remove-style', '')} pad-bottom page-component branded-links">
+                            <apex:outputpanel rendered="{!IF((showComponentFive == false && ComponentFive.Is_security_required__c== true) , true , false )}">
+                                <div class="alert alert-warning">{!ComponentFive.Error_Message__c} <br/></div> 
+                            </apex:outputpanel>
+                            
+                            <apex:outputpanel rendered="{!IF((showComponentFive == true || ComponentFive.Is_security_required__c== false ), true , false)}">
+                                <apex:include pageName="{!ComponentFive.VFPageName__c}" rendered="{!if(ComponentFive.RecordType.Name  == 'VisualforcePage', true, false)}" />
+                                <div class="pad-horizontal">
+                                    <apex:outputtext value="{!ComponentFive.Main_Content__c}" escape="false" rendered="{!if(ComponentFive.RecordType.Name  == 'Content', true, false)}"/> 
+                                </div>
+                                <c:EMP_Chatter ChatterGroupId="{!ComponentFive.Chatter_Group__c}" rendered="{!if(ComponentFive.RecordType.Name  == 'Chatter', true, false)}"/> 
+                                <c:EMP_PortalVideoComponent Content="{!ComponentFive.Main_Content__c}" VideoId="{!ComponentFive.Video_ID__c}" rendered="{!if(ComponentFive.RecordType.Name  == 'Video', true, false)}"/>
+                                <c:EMP_IdeaSection community="{!ComponentFive.Idea_ID__c}" rendered="{!if(ComponentFive.RecordType.Name  == 'Ideas', true, false)}"/>
+                                
+                            </apex:outputpanel>
+                        </div>
+                        <div class="{!ComponentSix.Custom_Style__c} {!if(ComponentSix.RecordType.Name  == 'Content', 'remove-style', '')} pad-bottom page-component branded-links">
+                            <apex:outputpanel rendered="{!IF((showComponentSix == false && ComponentSix.Is_security_required__c== true) , true , false )}">
+                                <div class="alert alert-warning">{!ComponentSix.Error_Message__c} <br/></div> 
+                            </apex:outputpanel>
+                            
+                            <apex:outputpanel rendered="{!IF((showComponentSix == true || ComponentSix.Is_security_required__c== false ), true , false)}">
+                                <apex:include pageName="{!ComponentSix.VFPageName__c}" rendered="{!if(ComponentSix.RecordType.Name  == 'VisualforcePage', true, false)}" />
+                                <div class="pad-horizontal">
+                                    <apex:outputtext value="{!ComponentSix.Main_Content__c}" escape="false" rendered="{!if(ComponentSix.RecordType.Name  == 'Content', true, false)}"/> 
+                                </div>
+                                <c:EMP_Chatter ChatterGroupId="{!ComponentSix.Chatter_Group__c}" rendered="{!if(ComponentSix.RecordType.Name  == 'Chatter', true, false)}"/> 
+                                <c:EMP_PortalVideoComponent Content="{!ComponentSix.Main_Content__c}" VideoId="{!ComponentSix.Video_ID__c}" rendered="{!if(ComponentSix.RecordType.Name  == 'Video', true, false)}"/>
+                                <c:EMP_IdeaSection community="{!ComponentSix.Idea_ID__c}" rendered="{!if(ComponentSix.RecordType.Name  == 'Ideas', true, false)}"/>
+                                
+                            </apex:outputpanel>
+                        </div>
+                    </div><!-- /.row -->
+                    <div class="row">
+                        
+                        <div class="{!ComponentSeven.Custom_Style__c} {!if(ComponentSeven.RecordType.Name  == 'Content', 'remove-style', '')} pad-bottom page-component branded-links">
+                            <apex:outputpanel rendered="{!IF((showComponentSeven == false && ComponentSeven.Is_security_required__c== true) , true , false )}">
+                                <div class="alert alert-warning">{!ComponentSeven.Error_Message__c} <br/></div> 
+                            </apex:outputpanel>
+                            
+                            <apex:outputpanel rendered="{!IF((showComponentSeven == true || ComponentSeven.Is_security_required__c== false ), true , false)}">
+                                <apex:include pageName="{!ComponentSeven.VFPageName__c}" rendered="{!if(ComponentSeven.RecordType.Name  == 'VisualforcePage', true, false)}" />
+                                <div class="pad-horizontal">
+                                    <apex:outputtext value="{!ComponentSeven.Main_Content__c}" escape="false" rendered="{!if(ComponentSeven.RecordType.Name  == 'Content', true, false)}"/> 
+                                </div>
+                                <c:EMP_Chatter ChatterGroupId="{!ComponentSeven.Chatter_Group__c}" rendered="{!if(ComponentSeven.RecordType.Name  == 'Chatter', true, false)}"/> 
+                                <c:EMP_PortalVideoComponent Content="{!ComponentSeven.Main_Content__c}" VideoId="{!ComponentSeven.Video_ID__c}" rendered="{!if(ComponentSeven.RecordType.Name  == 'Video', true, false)}"/>
+                                <c:EMP_IdeaSection community="{!ComponentSeven.Idea_ID__c}" rendered="{!if(ComponentSeven.RecordType.Name  == 'Ideas', true, false)}"/>
+                                
+                            </apex:outputpanel>
+                        </div> 
+                        
+                        <div class="{!ComponentEight.Custom_Style__c} {!if(ComponentEight.RecordType.Name  == 'Content', 'remove-style', '')} pad-bottom page-component branded-links">
+                            <apex:outputpanel rendered="{!IF((showComponentEight == false && ComponentEight.Is_security_required__c== true) , true , false )}">
+                                <div class="alert alert-warning">{!ComponentEight.Error_Message__c} <br/></div> 
+                            </apex:outputpanel>
+                            
+                            <apex:outputpanel rendered="{!IF((showComponentEight == true || ComponentEight.Is_security_required__c== false ), true , false)}">
+                                <apex:include pageName="{!ComponentEight.VFPageName__c}" rendered="{!if(ComponentEight.RecordType.Name  == 'VisualforcePage', true, false)}" />
+                                <div class="pad-horizontal">
+                                    <apex:outputtext value="{!ComponentEight.Main_Content__c}" escape="false" rendered="{!if(ComponentEight.RecordType.Name  == 'Content', true, false)}"/> 
+                                </div>
+                                <c:EMP_Chatter ChatterGroupId="{!ComponentEight.Chatter_Group__c}" rendered="{!if(ComponentEight.RecordType.Name  == 'Chatter', true, false)}"/> 
+                                <c:EMP_PortalVideoComponent Content="{!ComponentEight.Main_Content__c}" VideoId="{!ComponentEight.Video_ID__c}" rendered="{!if(ComponentEight.RecordType.Name  == 'Video', true, false)}"/>
+                                <c:EMP_IdeaSection community="{!ComponentEight.Idea_ID__c}" rendered="{!if(ComponentEight.RecordType.Name  == 'Ideas', true, false)}"/>
+                                
+                            </apex:outputpanel>
+                        </div>                
+                        <div class="{!ComponentNine.Custom_Style__c} {!if(ComponentNine.RecordType.Name  == 'Content', 'remove-style', '')} pad-bottom page-component branded-links">
+                            <apex:outputpanel rendered="{!IF((showComponentNine == false && ComponentNine.Is_security_required__c== true) , true , false )}">
+                                <div class="alert alert-warning">{!ComponentNine.Error_Message__c} <br/></div> 
+                            </apex:outputpanel>
+                            
+                            <apex:outputpanel rendered="{!IF((showComponentNine == true || ComponentNine.Is_security_required__c== false ), true , false)}">
+                                <apex:include pageName="{!ComponentNine.VFPageName__c}" rendered="{!if(Componentnine.RecordType.Name  == 'VisualforcePage', true, false)}" />
+                                <div class="pad-horizontal">
+                                    <apex:outputtext value="{!ComponentNine.Main_Content__c}" escape="false" rendered="{!if(ComponentNine.RecordType.Name  == 'Content', true, false)}"/> 
+                                </div>
+                                <c:EMP_Chatter ChatterGroupId="{!ComponentNine.Chatter_Group__c}" rendered="{!if(Componentnine.RecordType.Name  == 'Chatter', true, false)}"/> 
+                                <c:EMP_PortalVideoComponent Content="{!ComponentNine.Main_Content__c}" VideoId="{!ComponentNine.Video_ID__c}" rendered="{!if(ComponentNine.RecordType.Name  == 'Video', true, false)}"/>
+                                <c:EMP_IdeaSection community="{!ComponentNine.Idea_ID__c}" rendered="{!if(ComponentNine.RecordType.Name  == 'Ideas', true, false)}"/>
+                                
+                            </apex:outputpanel>
+                        </div> 
+                        <div class="{!ComponentTen.Custom_Style__c} {!if(ComponentTen.RecordType.Name  == 'Content', 'remove-style', '')} pad-bottom page-component branded-links">
+                            <apex:outputpanel rendered="{!IF((showComponentTen == false && ComponentTen.Is_security_required__c== true) , true , false )}">
+                                <div class="alert alert-warning">{!ComponentTen.Error_Message__c} <br/></div> 
+                            </apex:outputpanel>
+                            
+                            <apex:outputpanel rendered="{!IF((showComponentTen == true || ComponentTen.Is_security_required__c== false ), true , false)}">
+                                <apex:include pageName="{!ComponentTen.VFPageName__c}" rendered="{!if(ComponentTen.RecordType.Name  == 'VisualforcePage', true, false)}" />
+                                <div class="pad-horizontal">
+                                    <apex:outputtext value="{!ComponentTen.Main_Content__c}" escape="false" rendered="{!if(ComponentTen.RecordType.Name  == 'Content', true, false)}"/> 
+                                </div>
+                                <c:EMP_Chatter ChatterGroupId="{!ComponentTen.Chatter_Group__c}" rendered="{!if(ComponentTen.RecordType.Name  == 'Chatter', true, false)}"/> 
+                                <c:EMP_PortalVideoComponent Content="{!ComponentTen.Main_Content__c}" VideoId="{!ComponentTen.Video_ID__c}" rendered="{!if(ComponentTen.RecordType.Name  == 'Video', true, false)}"/>
+                                <c:EMP_IdeaSection community="{!ComponentTen.Idea_ID__c}" rendered="{!if(ComponentTen.RecordType.Name  == 'Ideas', true, false)}"/>
+                                
+                            </apex:outputpanel>
+                        </div>  
+                        
+                        <div class="{!ComponentEleven.Custom_Style__c} {!if(ComponentEleven.RecordType.Name  == 'Content', 'remove-style', '')} pad-bottom page-component branded-links">
+                            <apex:outputpanel rendered="{!IF((showComponentEleven == false && ComponentEleven.Is_security_required__c== true) , true , false )}">
+                                <div class="alert alert-warning">{!ComponentEleven.Error_Message__c} <br/></div> 
+                            </apex:outputpanel>
+                            
+                            <apex:outputpanel rendered="{!IF((showComponentEleven == true || ComponentEleven.Is_security_required__c== false ), true , false)}">
+                                <apex:include pageName="{!ComponentEleven.VFPageName__c}" rendered="{!if(ComponentEleven.RecordType.Name  == 'VisualforcePage', true, false)}" />
+                                <div class="pad-horizontal">
+                                    <apex:outputtext value="{!ComponentEleven.Main_Content__c}" escape="false" rendered="{!if(ComponentEleven.RecordType.Name  == 'Content', true, false)}"/> 
+                                </div>
+                                <c:EMP_Chatter ChatterGroupId="{!ComponentEleven.Chatter_Group__c}" rendered="{!if(ComponentEleven.RecordType.Name  == 'Chatter', true, false)}"/> 
+                                <c:EMP_PortalVideoComponent Content="{!ComponentEleven.Main_Content__c}" VideoId="{!ComponentEleven.Video_ID__c}" rendered="{!if(ComponentEleven.RecordType.Name  == 'Video', true, false)}"/>
+                                <c:EMP_IdeaSection community="{!ComponentEleven.Idea_ID__c}" rendered="{!if(ComponentEleven.RecordType.Name  == 'Ideas', true, false)}"/>
+                                
+                            </apex:outputpanel>
+                        </div> 
+                        <div class="{!ComponentTwelve.Custom_Style__c} {!if(ComponentTwelve.RecordType.Name  == 'Content', 'remove-style', '')} pad-bottom page-component branded-links">
+                            <apex:outputpanel rendered="{!IF((showComponentTwelve == false && ComponentTwelve.Is_security_required__c== true) , true , false )}">
+                                <div class="alert alert-warning">{!ComponentTwelve.Error_Message__c} <br/></div> 
+                            </apex:outputpanel>
+                            
+                            <apex:outputpanel rendered="{!IF((showComponentTwelve == true || ComponentTwelve.Is_security_required__c== false ), true , false)}">
+                                <apex:include pageName="{!ComponentTwelve.VFPageName__c}" rendered="{!if(ComponentTwelve.RecordType.Name  == 'VisualforcePage', true, false)}" />
+                                <div class="pad-horizontal">
+                                    <apex:outputtext value="{!ComponentTwelve.Main_Content__c}" escape="false" rendered="{!if(ComponentTwelve.RecordType.Name  == 'Content', true, false)}"/> 
+                                </div>
+                                <c:EMP_Chatter ChatterGroupId="{!ComponentTwelve.Chatter_Group__c}" rendered="{!if(ComponentTwelve.RecordType.Name  == 'Chatter', true, false)}"/> 
+                                <c:EMP_PortalVideoComponent Content="{!ComponentTwelve.Main_Content__c}" VideoId="{!ComponentTwelve.Video_ID__c}" rendered="{!if(ComponentTwelve.RecordType.Name  == 'Video', true, false)}"/>
+                                <c:EMP_IdeaSection community="{!ComponentTwelve.Idea_ID__c}" rendered="{!if(ComponentTwelve.RecordType.Name  == 'Ideas', true, false)}"/>
+                                
+                            </apex:outputpanel>
+                        </div> 
+                    </div><!-- /.row -->
+                    <div class="row">
+                        <div class="{!ComponentThirteen.Custom_Style__c} {!if(ComponentThirteen.RecordType.Name  == 'Content', 'remove-style', '')} pad-bottom page-component branded-links">
+                            <apex:outputpanel rendered="{!IF((showComponentThirteen == false && ComponentThirteen.Is_security_required__c== true) , true , false )}">
+                                <div class="alert alert-warning">{!ComponentThirteen.Error_Message__c} <br/></div> 
+                            </apex:outputpanel>
+                            
+                            <apex:outputpanel rendered="{!IF((showComponentThirteen == true || ComponentThirteen.Is_security_required__c== false ), true , false)}">
+                                <apex:include pageName="{!ComponentThirteen.VFPageName__c}" rendered="{!if(ComponentThirteen.RecordType.Name  == 'VisualforcePage', true, false)}" />
+                                <div class="pad-horizontal">
+                                    <apex:outputtext value="{!ComponentThirteen.Main_Content__c}" escape="false" rendered="{!if(ComponentThirteen.RecordType.Name  == 'Content', true, false)}"/> 
+                                </div>
+                                <c:EMP_Chatter ChatterGroupId="{!ComponentThirteen.Chatter_Group__c}" rendered="{!if(ComponentThirteen.RecordType.Name  == 'Chatter', true, false)}"/> 
+                                <c:EMP_PortalVideoComponent Content="{!ComponentThirteen.Main_Content__c}" VideoId="{!ComponentThirteen.Video_ID__c}" rendered="{!if(ComponentThirteen.RecordType.Name  == 'Video', true, false)}"/>
+                                <c:EMP_IdeaSection community="{!ComponentThirteen.Idea_ID__c}" rendered="{!if(ComponentThirteen.RecordType.Name  == 'Ideas', true, false)}"/>
+                                
+                            </apex:outputpanel>
+                        </div> 
+                        <div class="{!ComponentFourteen.Custom_Style__c} {!if(ComponentFourteen.RecordType.Name  == 'Content', 'remove-style', '')} pad-bottom page-component branded-links">
+                            <apex:outputpanel rendered="{!IF((showComponentFourteen == false && ComponentFourteen.Is_security_required__c== true) , true , false )}">
+                                <div class="alert alert-warning">{!ComponentFourteen.Error_Message__c} <br/></div> 
+                            </apex:outputpanel>
+                            
+                            <apex:outputpanel rendered="{!IF((showComponentFourteen == true || ComponentFourteen.Is_security_required__c== false ), true , false)}">
+                                <apex:include pageName="{!ComponentFourteen.VFPageName__c}" rendered="{!if(ComponentFourteen.RecordType.Name  == 'VisualforcePage', true, false)}" />
+                                <div class="pad-horizontal">
+                                    <apex:outputtext value="{!ComponentFourteen.Main_Content__c}" escape="false" rendered="{!if(ComponentFourteen.RecordType.Name  == 'Content', true, false)}"/> 
+                                </div>
+                                <c:EMP_Chatter ChatterGroupId="{!ComponentFourteen.Chatter_Group__c}" rendered="{!if(ComponentFourteen.RecordType.Name  == 'Chatter', true, false)}"/> 
+                                <c:EMP_PortalVideoComponent Content="{!ComponentFourteen.Main_Content__c}" VideoId="{!ComponentFourteen.Video_ID__c}" rendered="{!if(ComponentFourteen.RecordType.Name  == 'Video', true, false)}"/>
+                                <c:EMP_IdeaSection community="{!ComponentFourteen.Idea_ID__c}" rendered="{!if(ComponentFourteen.RecordType.Name  == 'Ideas', true, false)}"/>
+                                
+                            </apex:outputpanel>
+                        </div> 
+                        <div class="{!ComponentFifteen.Custom_Style__c} {!if(ComponentFifteen.RecordType.Name  == 'Content', 'remove-style', '')} pad-bottom page-component branded-links">
+                            <apex:outputpanel rendered="{!IF((showComponentFifteen == false && ComponentFifteen.Is_security_required__c== true) , true , false )}">
+                                <div class="alert alert-warning">{!ComponentFifteen.Error_Message__c} <br/></div> 
+                            </apex:outputpanel>
+                            
+                            <apex:outputpanel rendered="{!IF((showComponentFifteen == true || ComponentFifteen.Is_security_required__c== false ), true , false)}">
+                                <apex:include pageName="{!ComponentFifteen.VFPageName__c}" rendered="{!if(ComponentFifteen.RecordType.Name  == 'VisualforcePage', true, false)}" />
+                                <div class="pad-horizontal">
+                                    <apex:outputtext value="{!ComponentFifteen.Main_Content__c}" escape="false" rendered="{!if(ComponentFifteen.RecordType.Name  == 'Content', true, false)}"/> 
+                                </div>
+                                <c:EMP_Chatter ChatterGroupId="{!ComponentFifteen.Chatter_Group__c}" rendered="{!if(ComponentFifteen.RecordType.Name  == 'Chatter', true, false)}"/> 
+                                <c:EMP_PortalVideoComponent Content="{!ComponentFifteen.Main_Content__c}" VideoId="{!ComponentFifteen.Video_ID__c}" rendered="{!if(ComponentFifteen.RecordType.Name  == 'Video', true, false)}"/>
+                                <c:EMP_IdeaSection community="{!ComponentFifteen.Idea_ID__c}" rendered="{!if(ComponentFifteen.RecordType.Name  == 'Ideas', true, false)}"/>
+                                
+                            </apex:outputpanel>
+                        </div> 
+                        <div class="{!ComponentSixteen.Custom_Style__c} {!if(ComponentSixteen.RecordType.Name  == 'Content', 'remove-style', '')} pad-bottom page-component branded-links">
+                            <apex:outputpanel rendered="{!IF((showComponentSixteen == false && ComponentSixteen.Is_security_required__c== true) , true , false )}">
+                                <div class="alert alert-warning">{!ComponentSixteen.Error_Message__c} <br/></div> 
+                            </apex:outputpanel>
+                            
+                            <apex:outputpanel rendered="{!IF((showComponentSixteen == true || ComponentSixteen.Is_security_required__c== false ), true , false)}">
+                                <apex:include pageName="{!ComponentSixteen.VFPageName__c}" rendered="{!if(ComponentSixteen.RecordType.Name  == 'VisualforcePage', true, false)}" />
+                                <div class="pad-horizontal">
+                                    <apex:outputtext value="{!ComponentSixteen.Main_Content__c}" escape="false" rendered="{!if(ComponentSixteen.RecordType.Name  == 'Content', true, false)}"/> 
+                                </div>
+                                <c:EMP_Chatter ChatterGroupId="{!ComponentSixteen.Chatter_Group__c}" rendered="{!if(ComponentSixteen.RecordType.Name  == 'Chatter', true, false)}"/> 
+                                <c:EMP_PortalVideoComponent Content="{!ComponentSixteen.Main_Content__c}" VideoId="{!ComponentSixteen.Video_ID__c}" rendered="{!if(ComponentSixteen.RecordType.Name  == 'Video', true, false)}"/>
+                                <c:EMP_IdeaSection community="{!ComponentSixteen.Idea_ID__c}" rendered="{!if(ComponentSixteen.RecordType.Name  == 'Ideas', true, false)}"/>
+                                
+                            </apex:outputpanel>
+                        </div> 
+                        <div class="{!ComponentSeventeen.Custom_Style__c} {!if(ComponentSeventeen.RecordType.Name  == 'Content', 'remove-style', '')} pad-bottom page-component branded-links">
+                            <apex:outputpanel rendered="{!IF((showComponentSeventeen == false && ComponentSeventeen.Is_security_required__c== true) , true , false )}">
+                                <div class="alert alert-warning">{!ComponentSeventeen.Error_Message__c} <br/></div> 
+                            </apex:outputpanel>
+                            
+                            <apex:outputpanel rendered="{!IF((showComponentSeventeen == true || ComponentSeventeen.Is_security_required__c== false ), true , false)}">
+                                <apex:include pageName="{!ComponentSeventeen.VFPageName__c}" rendered="{!if(ComponentSeventeen.RecordType.Name  == 'VisualforcePage', true, false)}" />
+                                <div class="pad-horizontal">
+                                    <apex:outputtext value="{!ComponentSeventeen.Main_Content__c}" escape="false" rendered="{!if(ComponentSeventeen.RecordType.Name  == 'Content', true, false)}"/> 
+                                </div>
+                                <c:EMP_Chatter ChatterGroupId="{!ComponentSeventeen.Chatter_Group__c}" rendered="{!if(ComponentSeventeen.RecordType.Name  == 'Chatter', true, false)}"/> 
+                                <c:EMP_PortalVideoComponent Content="{!ComponentSeventeen.Main_Content__c}" VideoId="{!ComponentSeventeen.Video_ID__c}" rendered="{!if(ComponentSeventeen.RecordType.Name  == 'Video', true, false)}"/>
+                                <c:EMP_IdeaSection community="{!ComponentSeventeen.Idea_ID__c}" rendered="{!if(ComponentSeventeen.RecordType.Name  == 'Ideas', true, false)}"/>
+                                
+                            </apex:outputpanel>
+                        </div> 
+                        <div class="{!ComponentEightteen.Custom_Style__c} {!if(ComponentEightteen.RecordType.Name  == 'Content', 'remove-style', '')} pad-bottom page-component branded-links">
+                            <apex:outputpanel rendered="{!IF((showComponentEightteen == false && ComponentEightteen.Is_security_required__c== true) , true , false )}">
+                                <div class="alert alert-warning">{!ComponentEightteen.Error_Message__c} <br/></div> 
+                            </apex:outputpanel>
+                            
+                            <apex:outputpanel rendered="{!IF((showComponentEightteen == true || ComponentEightteen.Is_security_required__c== false ), true , false)}">
+                                <apex:include pageName="{!ComponentEightteen.VFPageName__c}" rendered="{!if(ComponentEightteen.RecordType.Name  == 'VisualforcePage', true, false)}" />
+                                <div class="pad-horizontal">
+                                    <apex:outputtext value="{!ComponentEightteen.Main_Content__c}" escape="false" rendered="{!if(ComponentEightteen.RecordType.Name  == 'Content', true, false)}"/> 
+                                </div>
+                                <c:EMP_Chatter ChatterGroupId="{!ComponentEightteen.Chatter_Group__c}" rendered="{!if(ComponentEightteen.RecordType.Name  == 'Chatter', true, false)}"/> 
+                                <c:EMP_PortalVideoComponent Content="{!ComponentEightteen.Main_Content__c}" VideoId="{!ComponentEightteen.Video_ID__c}" rendered="{!if(ComponentEightteen.RecordType.Name  == 'Video', true, false)}"/>
+                                <c:EMP_IdeaSection community="{!ComponentEightteen.Idea_ID__c}" rendered="{!if(ComponentEightteen.RecordType.Name  == 'Ideas', true, false)}"/>
+                                
+                            </apex:outputpanel>
+                        </div>
+                    </div><!-- /.row -->
+                </div>
+                
+                <div class="container footer">
+                    <footer>
+                        <div class="row pad-bottom">
+                            <div class="col-md-2 text-left">
+                                <span>&copy; 2015 CDK Global &middot; </span>
+                            </div>
+                            <div class="col-md-8 text-center">
+                                <apex:include pageName="EMP_StockTicker" />
+                            </div>
+                            <div class="col-md-2 text-right"><a href="#">Back to top</a></div>
+                        </div>
+                    </footer>
+                </div> 
+            </div>
+            <!-- /.wrapper .container -->
+            
+            <script>
+            (function(i,s,o,g,r,a,m){
+                i['GoogleAnalyticsObject']=r;
+                i[r]=i[r]||function(){ 
+                    (i[r].q=i[r].q||[]).push(arguments)
+                },
+                    i[r].l=1*new Date();
+                a=s.createElement(o), 
+                    m=s.getElementsByTagName(o)[0];
+                a.async=1;
+                a.src=g;
+                m.parentNode.insertBefore(a,m) 
+            })
+            (window,document,'script','//www.google-analytics.com/analytics.js','ga'); 
+            ga('create', 'UA-58410620-1', 'auto'); 
+            ga('send', 'pageview');             
+            </script> 
+            
+        </body>
+    </html>
+</apex:page>

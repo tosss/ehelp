@@ -1,0 +1,225 @@
+<!--2016-03-16- anirudh.singh@cdk.com- Created this lightning component for Request RQ-06471 NADA Leads Process - Work My Leads.-->
+<!--2016-05-26- anirudh.singh@cdk.com- Modified for RQ-06983 Work My Leads - Shared Contacts Mods.-->
+<aura:component implements="force:appHostable" controller="SLS_LeadLink_Controller">
+    <ltng:require styles="/resource/slds100/assets/styles/salesforce-lightning-design-system.css"/>
+    <ltng:require styles="/resource/FontAwesome/4.3.0/css/font-awesome.min.css"/>
+    <ltng:require scripts="/resource/jQuery/js/jquery-1.10.2.min.js"/>
+    
+    <aura:attribute name="leadId" type="Id" default="00Q22000000y18i"/>
+    <aura:attribute name="leadAndLeadMatchesRecord" type="SLS_LeadLink_Controller.LeadAndLeadMatchesWrapper"/>
+    <aura:attribute name="errorMessageValue" type="String"/>
+    <aura:attribute name="hardware" type="String" default="{!$Browser.formFactor}"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.initialize}"/>
+    
+    <aura:registerEvent name="showLeads" type="c:SLS_showLeads"/>
+    
+    <div class="slds-page-header" role="banner">
+        <div class="slds-media">
+            <div class="slds-media__figure">
+                <img class="logoStyle" src="/resource/slds100/assets/icons/standard/lead_60.png"/>
+            </div>
+            <div class="slds-media__body">
+                <p class="slds-page-header__title  slds-align-middle" title="{!v.leadAndLeadMatchesRecord.leadRecord.Name}"><b>{!v.leadAndLeadMatchesRecord.leadRecord.Name}</b></p>
+                <p class="slds-text-body--small slds-page-header__info"><b>Lead</b></p>
+            </div>
+        </div>
+    </div>
+    
+    <div>
+        <div aura:id="spinnerLeadLink" class="slds-spinner_container noDisplay">
+            <div class="slds-spinner--brand slds-spinner slds-spinner--large">
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!--Error Message Block-->
+    <div>
+        <div aura:id="errorOuterDiv" class="noDisplay">
+            <div aura:id="errorDiv" role="dialog" class="errorPosition slds-modal slds-modal--prompt slds-fade-in-open">
+                <div class="slds-modal__container slds-modal--prompt">
+                    <div class="slds-modal__header slds-theme--error slds-theme--alert-texture">
+                        <h2 class="slds-text-heading--medium">Error</h2>
+                    </div>
+                    <div class="slds-modal__content slds-p-around--medium">
+                        <p><div class="errorMessageAlignment" aura:id="errorMessage"></div></p>
+                    </div>
+                    <div class="slds-modal__footer slds-theme--default">
+                        <button class="slds-button slds-button--brand" onclick="{!c.hideError}">Ok</button>
+                    </div>
+                </div>
+            </div>
+            <div aura:id="backgroundDiv" class="slds-backdrop slds-backdrop--open"></div>
+        </div>
+    </div>
+    
+    <!--Lead Details-->
+    <table class="{!'slds-table slds-table--bordered slds-max-medium-table--stacked-horizontal slds-no-row-hover'+' '+(v.hardware == 'DESKTOP' ? '' : 'slds-table--fixed-layout slds-scrollable--x')}">
+        <tr class="slds-hint-parent tableRow">
+            <th class="{!v.hardware != 'DESKTOP' ? 'noDisplay' : 'slds-text-heading--label'}">Lead Record Type</th>
+            <td class="slds-truncate" title="{!v.leadAndLeadMatchesRecord.leadRecord.RecordType.Name}" data-label="Lead Record Type">{!v.leadAndLeadMatchesRecord.leadRecord.RecordType.Name}</td>
+            <th class="{!v.hardware != 'DESKTOP' ? 'noDisplay' : 'slds-text-heading--label'}">Lead Status</th>
+            <td class="slds-truncate" title="{!v.leadAndLeadMatchesRecord.leadRecord.Status}" data-label="Lead Status">{!v.leadAndLeadMatchesRecord.leadRecord.Status}</td>
+        </tr>
+        <tr class="slds-hint-parent tableRow">
+            <th class="{!v.hardware != 'DESKTOP' ? 'noDisplay' : 'slds-text-heading--label'}">Lead Owner</th>
+            <td class="slds-truncate" title="{!v.leadAndLeadMatchesRecord.leadRecord.Owner.Name}" data-label="Lead Owner">
+                <a href="{!'/' + v.leadAndLeadMatchesRecord.leadRecord.Owner.Id}" class="{!v.hardware != 'DESKTOP' ? 'noDisplay' : ''}">{!v.leadAndLeadMatchesRecord.leadRecord.Owner.Name}</a>
+                <a id="{!v.leadAndLeadMatchesRecord.leadRecord.Owner.Id}" onclick="{!c.openRecordDetail}" class="{!v.hardware == 'DESKTOP' ? 'noDisplay' : ''}">{!v.leadAndLeadMatchesRecord.leadRecord.Owner.Name}</a>
+            </td>
+            <th class="{!v.hardware != 'DESKTOP' ? 'noDisplay' : 'slds-text-heading--label'}">Reason</th>
+            <td class="slds-truncate" title="{!v.leadAndLeadMatchesRecord.leadRecord.Reason__c}" data-label="Reason">{!v.leadAndLeadMatchesRecord.leadRecord.Reason__c}</td>
+        </tr>
+        <tr class="slds-hint-parent tableRow">
+            <th class="{!v.hardware != 'DESKTOP' ? 'noDisplay' : 'slds-text-heading--label'}">Name</th>
+            <td class="slds-truncate" title="{!v.leadAndLeadMatchesRecord.leadRecord.Name}" data-label="Name">
+                <a href="{!'/' + v.leadAndLeadMatchesRecord.leadRecord.Id}" class="{!v.hardware != 'DESKTOP' ? 'noDisplay' : ''}">{!v.leadAndLeadMatchesRecord.leadRecord.Name}</a>
+                <a id="{!v.leadAndLeadMatchesRecord.leadRecord.Id}" onclick="{!c.openRecordDetail}" href="{!'/' + v.leadAndLeadMatchesRecord.leadRecord.Id}" class="{!v.hardware == 'DESKTOP' ? 'noDisplay' : ''}">{!v.leadAndLeadMatchesRecord.leadRecord.Name}</a>
+            </td>
+            <th class="{!v.hardware != 'DESKTOP' ? 'noDisplay' : 'slds-text-heading--label'}">Lead Type</th>
+            <td class="slds-truncate" title="{!v.leadAndLeadMatchesRecord.leadRecord.Lead_Type__c}" data-label="Lead Type">{!v.leadAndLeadMatchesRecord.leadRecord.Lead_Type__c}</td>
+        </tr>
+        <tr class="slds-hint-parent tableRow">
+            <th class="{!v.hardware != 'DESKTOP' ? 'noDisplay' : 'slds-text-heading--label'}">Role</th>
+            <td class="slds-truncate" title="{!v.leadAndLeadMatchesRecord.leadRecord.Title}" data-label="Role">{!v.leadAndLeadMatchesRecord.leadRecord.Title}</td>
+            <th class="{!v.hardware != 'DESKTOP' ? 'noDisplay' : 'slds-text-heading--label'}">Campaign</th>
+            <td class="slds-truncate" title="{!v.leadAndLeadMatchesRecord.leadRecord.ADP_Campaign__c}" data-label="Campaign">
+                <a href="{!'/' + v.leadAndLeadMatchesRecord.leadRecord.ADP_Campaign__c}" class="{!v.hardware != 'DESKTOP' ? 'noDisplay' : ''}">{!v.leadAndLeadMatchesRecord.leadRecord.ADP_Campaign__r.Name}</a>
+                <a id="{!v.leadAndLeadMatchesRecord.leadRecord.ADP_Campaign__c}" onclick="{!c.openRecordDetail}" class="{!v.hardware == 'DESKTOP' ? 'noDisplay' : ''}">{!v.leadAndLeadMatchesRecord.leadRecord.ADP_Campaign__r.Name}</a>
+            </td>
+        </tr>
+        <tr class="slds-hint-parent tableRow">
+            <th class="{!v.hardware != 'DESKTOP' ? 'noDisplay' : 'slds-text-heading--label'}">Company</th>
+            <td class="slds-truncate" title="{!v.leadAndLeadMatchesRecord.leadRecord.Company}" data-label="Company">{!v.leadAndLeadMatchesRecord.leadRecord.Company}</td>
+            <th class="{!v.hardware != 'DESKTOP' ? 'noDisplay' : 'slds-text-heading--label'}">Lead Source</th>
+            <td class="slds-truncate" title="{!v.leadAndLeadMatchesRecord.leadRecord.LeadSource}" data-label="Lead Source">{!v.leadAndLeadMatchesRecord.leadRecord.LeadSource}</td>
+        </tr>
+        <tr class="slds-hint-parent tableRow">
+            <th class="{!v.hardware != 'DESKTOP' ? 'noDisplay' : 'slds-text-heading--label'}">Email</th>
+            <td class="slds-truncate" title="{!v.leadAndLeadMatchesRecord.leadRecord.Email}" data-label="Email"><a href="{!'mailto:'+v.leadAndLeadMatchesRecord.leadRecord.Email}">{!v.leadAndLeadMatchesRecord.leadRecord.Email}</a></td>
+            <th class="{!v.hardware != 'DESKTOP' ? 'noDisplay' : 'slds-text-heading--label'}">Phone</th>
+            <td class="slds-truncate" title="{!v.leadAndLeadMatchesRecord.leadRecord.Phone}" data-label="Phone">{!v.leadAndLeadMatchesRecord.leadRecord.Phone}</td>
+        </tr>
+        <tr class="slds-hint-parent tableRow">
+            <td colspan="4">
+                <center>
+                    <button class="slds-button slds-button--brand slds-not-selected" type="button" onclick="{!c.redirectToLeadList}">Back to Work my Leads</button>
+                </center>
+            </td>
+        </tr>
+    </table>
+    
+    <!--Custom Match-->
+    <div class="slds-card">
+        <div class="slds-card__header slds-grid">
+            <div class="slds-media slds-media--center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                    <h2 class="slds-text-heading--small slds-truncate"><b>Custom Match</b></h2>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slds-grid slds-wrap slds-grid--pull-padded slds-col--bump-right slds-col--bump-left customMatchGridFields">
+            <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Lookup Account</div>
+            </div>
+            
+            <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                <div class="customMatchColPadding">
+                    <c:ALL_LookUp objectAPIName="Account" selectedId="{!v.leadAndLeadMatchesRecord.leadRecord.Current_Account__c}" label=""/>
+                </div>
+                <div class="customMatchButtonPadding">
+                    <button class="slds-button slds-button--brand slds-not-selected" type="button" onclick="{!c.matchSelectedAccount}">Match Selected Account</button>
+                </div>
+            </div>
+            <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                <div class="slds-text-heading--label customMatchColPadding customMatchHeading">Lookup Contact</div>
+            </div>
+            <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-4 slds-large-size--1-of-4">
+                <div class="customMatchColPadding">
+                    <!--2016-05-27- anirudh.singh@cdk.com- Commented the below line. Added the line for using ALL_Contact_Relationship_Lookup-->
+                    <!--<c:ALL_LookUp objectAPIName="Contact" selectedId="{!v.leadAndLeadMatchesRecord.leadRecord.Contact__c}" label=""/>-->
+                    <c:ALL_Contact_Relationship_Lookup accountId="{!v.leadAndLeadMatchesRecord.leadRecord.Current_Account__c}" 
+                                                       contactId="{!v.leadAndLeadMatchesRecord.leadRecord.Contact__c}" 
+                                                       label=""/>
+                </div>
+                <div class="customMatchButtonPadding">
+                    <button class="slds-button slds-button--brand slds-not-selected" type="button" onclick="{!c.matchSelectedContact}">Match Selected Contact</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--Matching Contacts-->
+    <div class="slds-card">
+        <div class="slds-card__header slds-grid">
+            <div class="slds-media slds-media--center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                    <h2 class="slds-text-heading--small slds-truncate"><b>Matching Contacts ({!v.leadAndLeadMatchesRecord.leadMatchesList.length})</b></h2>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slds-card__body">
+            <table class="{!'slds-table slds-table--bordered slds-max-medium-table--stacked-horizontal slds-no-row-hover'+' '+(v.hardware == 'DESKTOP' ? '' : 'slds-table--fixed-layout slds-scrollable--x')}">
+                <thead>
+                    <tr>
+                        <th class="slds-text-heading--label">Action</th>
+                        <th class="slds-text-heading--label">First Name</th>
+                        <th class="slds-text-heading--label">Last Name</th>
+                        <th class="slds-text-heading--label">Account Name</th>
+                        <th class="slds-text-heading--label">Account Address</th>
+                        <th class="slds-text-heading--label">Account City</th>
+                        <th class="slds-text-heading--label">Account State</th>
+                        <th class="slds-text-heading--label">Phone</th>
+                        <th class="slds-text-heading--label">Email</th>
+                        <th class="slds-text-heading--label">Site Type</th>
+                    </tr>
+                </thead>
+                
+                <!--2016-05-26- anirudh.singh@cdk.com- Account fields are now brought from Contact Relationship instead of Contact which was used earlier.-->
+                <tbody>
+                    <aura:iteration items="{!v.leadAndLeadMatchesRecord.leadMatchesList}" var="leadMatch">
+                        <tr>
+                            <td class="" data-label="Action">
+                                <label>
+                                    <a id="{!leadMatch.Id}" onclick="{!c.linkAndRedirect}">Select</a>
+                                    <span class="slds-assistive-text">Action</span>
+                                </label>
+                            </td>
+                            <td class="slds-truncate" data-label="First Name" title="{!leadMatch.Contact__r.FirstName}">{!leadMatch.Contact__r.FirstName}</td>
+                            <td class="slds-truncate" data-label="Last Name" title="{!leadMatch.Contact__r.LastName}">{!leadMatch.Contact__r.LastName}</td>
+                            
+                            <!--2016-05-26- anirudh.singh@cdk.com- Contact__r.Account.Name changed to Contact_Relationship__r.Account__r.Name-->
+                            <!--2016-05-26- anirudh.singh@cdk.com- Contact__r.AccountId changed to Contact_Relationship__r.Account__r.Name-->
+                            <td class="slds-truncate" data-label="Account Name" title="{!leadMatch.Contact_Relationship__r.Account__r.Name}">
+                                <a href="{!'/' + leadMatch.Contact_Relationship__r.Account__c}" class="{!v.hardware != 'DESKTOP' ? 'noDisplay' : ''}">{!leadMatch.Contact_Relationship__r.Account__r.Name}</a>
+                                <a id="{!leadMatch.Contact_Relationship__r.Account__c}" onclick="{!c.openRecordDetail}" class="{!v.hardware == 'DESKTOP' ? 'noDisplay' : ''}">{!leadMatch.Contact_Relationship__r.Account__r.Name}</a>
+                            </td>
+                            <!--2016-05-26- anirudh.singh@cdk.com- Contact__r.BillingStreet changed to Contact_Relationship__r.Account__r.BillingStreet-->
+                            <td class="slds-truncate" data-label="Account Address" title="{!leadMatch.Contact_Relationship__r.Account__r.BillingStreet}">{!leadMatch.Contact_Relationship__r.Account__r.BillingStreet}</td>
+                            
+                            <!--2016-05-26- anirudh.singh@cdk.com- Contact__r.BillingCity changed to Contact_Relationship__r.Account__r.BillingCity-->
+                            <td class="slds-truncate" data-label="Account City" title="{!leadMatch.Contact_Relationship__r.Account__r.BillingCity}">{!leadMatch.Contact_Relationship__r.Account__r.BillingCity}</td>
+                            
+                            <!--2016-05-26- anirudh.singh@cdk.com- Contact__r.BillingState changed to Contact_Relationship__r.Account__r.BillingState-->
+                            <td class="slds-truncate" data-label="Account State" title="{!leadMatch.Contact_Relationship__r.Account__r.BillingState}">{!leadMatch.Contact_Relationship__r.Account__r.BillingState}</td>
+                            
+                            <!--2016-05-26- anirudh.singh@cdk.com- Contact__r.Phone changed to Contact_Relationship__r.Phone__c-->
+                            <td class="slds-truncate" data-label="Phone" title="{!leadMatch.Contact_Relationship__r.Phone__c}">{!leadMatch.Contact_Relationship__r.Phone__c}</td>
+                            
+                            <td class="slds-truncate" data-label="Email" title="{!leadMatch.Contact__r.Email}">
+                                <a href="{!'mailto:'+leadMatch.Contact__r.Email}">{!leadMatch.Contact__r.Email}</a>
+                            </td>
+                            
+                            <!--2016-05-26- anirudh.singh@cdk.com- Contact__r.Account.Site_Type__r.Name changed to Contact_Relationship__r.Account__r.Site_Type__r.Name-->
+                            <td class="slds-truncate" data-label="Site Type" title="{!leadMatch.Contact_Relationship__r.Account__r.Site_Type__r.Name}">{!leadMatch.Contact_Relationship__r.Account__r.Site_Type__r.Name}</td>
+                        </tr>
+                    </aura:iteration>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</aura:component>

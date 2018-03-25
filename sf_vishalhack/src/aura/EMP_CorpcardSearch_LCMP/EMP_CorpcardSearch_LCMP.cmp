@@ -1,0 +1,294 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" controller="EMP_Corpcard_Controller">
+    <aura:attribute name="portalForm" type="Portal_Form__c" default="{ 'sobjectType': 'Portal_Form__c'}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}" />
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}" />
+    <aura:attribute name="toggleSpinner" type="boolean" default="false" />
+    <aura:attribute name="portalForms" type="String" />
+    <aura:attribute name="validationMessage" type="String" />
+    <aura:attribute name="searchResults" type="String" />
+    <aura:attribute name="searchValue" type="String" />
+    <aura:attribute name="modalBody" type="String" />
+    <aura:attribute name="modalHeader" type="String" default="Thank you " />
+    <aura:attribute name="pageParam" type="String" default="" />
+
+    <aura:if isTrue="{!v.toggleSpinner}">
+        <div class="slds-spinner_container">
+            <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+                <span class="slds-assistive-text">Loading</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </aura:if>
+    <div  style="mind-height:500px">
+        <div class="hide-form" aura:id="validationMessage">
+            <div class="validation-custom">
+                <ul class="slds-has-dividers--around-space">
+                    <li class="slds-item">
+                        <div class="slds-tile slds-tile--board">
+                            <h2 class="" title="Anypoint Connectors">
+                                <lightning:icon iconName="utility:error" variant="error"/>
+                            </h2>
+                            <div class="slds-tile__detail slds-text-body--small">
+                                <p class="slds-text-heading--large">
+                                    {!v.validationMessage}
+                                </p>
+                                <p class=""> 
+                                    Click here to send email to corporate card Administration for more questions.
+                                    <br/>
+                                    <button class="slds-button slds-button--success" onclick="{!c.sendEmail}" id="sendEmail" aura:id="sendEmail">
+                                        SEND EMAIL 
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div  aura:id="searchRequestform">
+            <div style="margin-bottom:30px;"  aura:id="searchRequest" class="hide-form">
+                <lightning:input type="search" label="Search Employee" name="search" aura:id="searchVal" />
+                <div style="text-align:center;">
+                    <button class="slds-button slds-button--success" id ="submitSearch" onclick="{!c.searchRequest}"> Search </button>
+                </div>
+            </div>
+            
+              <div style="margin-bottom:30px;"  aura:id="pcardAccess" class="hide-form">
+                <force:inputField value="{!v.portalForm.BOA_User__c}" aura:id="searchResult"></force:inputField>
+                <div style="text-align:center;">
+                    <button class="slds-button slds-button--success" id ="submitSearch" onclick="{!c.searchRequest}"> Search Employee </button>
+                </div>
+            </div>
+            <div class="hide-form" aura:id="pcardAccessResults">
+                <div class="slds-grid">
+                    <aura:iteration items="{!v.searchResults}" var="searchResult"> 
+                        <div class="slds-col">
+                            <div class="slds-box slds-box--small slds-theme--shade slds-text-align--center"  style="padding: 25px;">
+                                {!searchResult.BOA_NameOnCard__c} 
+                            </div>
+                        </div>
+                        <div class="slds-col">
+                            <div class="slds-box slds-box--small slds-theme--shade slds-text-align--center">
+                                <aura:if isTrue="{!searchResult.BOA_Access_to_Pcard__c == 'True'}">
+                                    You have already given access on {!searchResult.BOA_Procurement_Manager_Response_Date__c}
+                                </aura:if>
+                                <aura:if isTrue="{!searchResult.BOA_Access_to_Pcard__c != 'True'}">
+                                    <button class="slds-button slds-button--success" onclick="{!c.accessToPcard}" id="{!searchResult.Name}" 
+                                            aura:id="{!searchResult.Name}" data-recId="{!searchResult.Name}" disabled="" style="font-size: 1.1rem;">
+                                        Access to Pcard
+                                    </button>
+                                </aura:if>
+                            </div>
+                        </div>
+                    </aura:iteration>
+                </div>
+            </div>
+            
+            <div class="hide-form" aura:id="searchResults">
+                <p class="slds-form-element__label">Search results for:  "{!v.searchValue}"</p>
+                <table class="slds-table slds-table--bordered slds-table--cell-buffer slds-table--striped" >
+                    <thead>
+                        <tr class="slds-text-title--caps">
+                            <th scope="col" style="background: #659607;color: white;">
+                                <div class="slds-truncate" title="Opportunity Name">Request ID</div>
+                            </th>
+                            <th scope="col" style="background: #659607;color: white;">
+                                <div class="slds-truncate" title="Opportunity Name">Employee Name</div>
+                            </th>
+                            <th scope="col" style="background: #659607;color: white;">
+                                <div class="slds-truncate" title="Account Name">Card Type</div>
+                            </th>
+                            <th scope="col" style="background: #659607;color: white;">
+                                <div class="slds-truncate" title="Account Name">Manager</div>
+                            </th>
+                            <th scope="col" style="background: #659607;color: white;">
+                                <div class="slds-truncate" title="Account Name">Status</div>
+                            </th>
+                            <th scope="col" style="background: #659607;color: white; width:10px">
+                                <div class="slds-truncate" title="Account Name">Manager responded/Date</div>
+                            </th>
+                            <th scope="col" style="background: #659607;color: white;">
+                                <div class="slds-truncate" title="Account Name">Submitted Date</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration items="{!v.searchResults}" var="searchResult"> 
+                            <aura:if isTrue="{!or(searchResult.BOA_Manager_Approval__c == Null , searchResult.BOA_Manager_Approval__c == 'Manager - Approved',searchResult.BOA_Manager_Approval__c == '' )}">
+                                <tr>
+                                    <td scope="row">
+                                        <div class="slds-truncate" >
+                                            <ui:outputURL value="{!'/intranet/s/detail/'+searchResult.Id}" label="{!searchResult.Name}"/>
+                                        </div>
+                                    </td>
+                                    
+                                    <td scope="row">
+                                        <div class="slds-truncate" > {!searchResult.BOA_NameOnCard__c}</div>
+                                    </td>
+                                    
+                                    <td scope="row">
+                                        <div class="slds-truncate" > {!searchResult.BOA_SelectedCard__c}</div>
+                                    </td>
+                                    
+                                    <td scope="row">
+                                        <div class="slds-truncate" > {!searchResult.BOA_Manager__c}</div>
+                                    </td>
+                                    <td>
+                                        <div class="slds-truncate">
+                                            Congratulations!!! You have successfully submitted your request
+                                        </div>
+                                    </td>
+                                    <td scope="row">
+                                        <div class="slds-truncate" > {!searchResult.BOA_Manager__c}</div>
+                                    </td>
+                                    <td>
+                                        <div class="slds-truncate" >
+                                            <ui:outputDate value="{!searchResult.CreatedDate}"/>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </aura:if>
+                            
+                            <aura:if isTrue="{!or(searchResult.BOA_Manager_Approval__c == 'Manager - Approved', searchResult.BOA_Manager_Approval__c == 'Procurement - Approved',searchResult.BOA_Manager_Approval__c == 'Admin Closed' )}">
+                                <tr>
+                                    <td scope="row">
+                                        <div class="slds-truncate" > {!searchResult.Name}</div>
+                                    </td>
+                                    
+                                    <td scope="row">
+                                        <div class="slds-truncate" > {!searchResult.BOA_NameOnCard__c}</div>
+                                    </td>
+                                    <td scope="row">
+                                        <div class="slds-truncate" > {!searchResult.BOA_SelectedCard__c}</div>
+                                    </td>
+                                    <td>
+                                        <div class="slds-truncate">
+                                            Request has been Approved by Manager
+                                        </div>
+                                    </td>
+                                    
+                                    <td scope="row">
+                                        <div class="slds-truncate" > {!searchResult.BOA_Manager__c}</div>
+                                    </td>
+                                    
+                                    <td>
+                                        <div class="slds-truncate" >
+                                            {!searchResult.BOA_Manager_Response_date__c}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="slds-truncate" >
+                                            <ui:outputDate value="{!searchResult.CreatedDate}"/>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </aura:if>
+                            
+                            <aura:if isTrue="{!or(searchResult.BOA_Manager_Approval__c == 'Manager - Rejected', searchResult.BOA_Manager_Approval__c == 'Procurement - Rejected')}">
+                                <tr>
+                                    <td scope="row">
+                                        <div class="slds-truncate" > <ui:outputURL value="{!'/intranet/s/detail/'+searchResult.Id}" label="{!searchResult.Name}"/></div>
+                                    </td>
+                                    
+                                    <td scope="row">
+                                        <div class="slds-truncate" > {!searchResult.BOA_NameOnCard__c}</div>
+                                    </td>
+                                    <td scope="row">
+                                        <div class="slds-truncate" > {!searchResult.BOA_SelectedCard__c}</div>
+                                    </td>
+                                    <td scope="row">
+                                        <div class="slds-truncate" > {!searchResult.BOA_Manager__c}</div>
+                                    </td>
+                                    
+                                    <td>
+                                        <div class="slds-truncate">
+                                            Request has been Rejected by Manager
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="slds-truncate" >
+                                            {!searchResult.BOA_Manager_Response_date__c}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="slds-truncate" >
+                                            <ui:outputDate value="{!searchResult.CreatedDate}"/>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </aura:if>
+                            <aura:if isTrue="{!or(searchResult.BOA_Manager_Approval__c == 'Procurement - Approved',searchResult.BOA_Manager_Approval__c == 'Admin Closed')}">
+                                <tr>
+                                    <td scope="row">
+                                        <div class="slds-truncate" > <ui:outputURL value="{!'/intranet/s/detail/'+searchResult.Id}" label="{!searchResult.Name}"/></div>
+                                    </td>
+                                    
+                                    <td scope="row">
+                                        <div class="slds-truncate" > {!searchResult.BOA_NameOnCard__c}</div>
+                                    </td>
+                                    <td scope="row">
+                                        <div class="slds-truncate" > {!searchResult.BOA_SelectedCard__c}</div>
+                                    </td>
+                                    <td>
+                                        <div class="slds-truncate">
+                                            Request has been Approved by Procurement Manager
+                                            
+                                        </div>
+                                    </td>
+                                    
+                                    <td scope="row">
+                                        <div class="slds-truncate" > {!searchResult.BOA_Manager__c}</div>
+                                    </td>
+                                    
+                                    <td>
+                                        <div class="slds-truncate" >
+                                            {!searchResult.BOA_Procurement_Manager_Response_Date__c}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="slds-truncate" >
+                                            <ui:outputDate value="{!searchResult.CreatedDate}"/>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </aura:if>
+                            <aura:if isTrue="{!searchResult.BOA_Manager_Approval__c == 'Admin Closed'}">
+                                <tr>
+                                    <td scope="row">
+                                        <div class="slds-truncate" > <ui:outputURL value="{!'/intranet/s/detail/'+searchResult.Id}" label="{!searchResult.Name}"/></div>
+                                    </td>
+                                    
+                                    <td scope="row">
+                                        <div class="slds-truncate" > {!searchResult.BOA_NameOnCard__c}</div>
+                                    </td>
+                                    <td scope="row">
+                                        <div class="slds-truncate" > {!searchResult.BOA_SelectedCard__c}</div>
+                                    </td>
+                                    <td>
+                                        <div class="slds-truncate">
+                                            Corporate Card Admins have successfully udpated your request 
+                                        </div>
+                                    </td>
+                                    
+                                    <td scope="row">
+                                        <div class="slds-truncate" > {!searchResult.BOA_Manager__c}</div>
+                                    </td>
+                                    
+                                    <td>
+                                        <div class="slds-truncate" >
+                                            <ui:outputDate value="{!searchResult.CreatedDate}"/>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </aura:if>        
+                        </aura:iteration>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+</aura:component>

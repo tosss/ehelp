@@ -1,0 +1,151 @@
+/* 2016-07-26- anirudh.singh@cdk.com- Created this class for RQ-07332.*/
+/* 2016-11-22 matt.keefe@cdk.com - modified CSS - Link Collection */
+.THIS .lc > div{
+    border-radius: 3px;
+}
+
+.THIS .slds-table{
+    width:200px;
+    background-color: #ffffff;
+}
+.THIS .slds-text-title--caps {
+    font-size: 1.09rem;
+    line-height: 1.25;
+    color: rgb(6, 25, 46);
+    text-transform: uppercase;
+    letter-spacing: 0rem;
+}
+.THIS .text-title-caps{
+        text-transform: uppercase;
+
+}
+.THIS .lc .lc-header {
+    border-top-left-radius: 1px;
+    border-top-right-radius: 1px;
+    padding: 4px 10px; 
+    font-size: 12pt; 
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px #333;
+}
+
+.THIS .lc .info-message
+{
+    font-size: 0.9rem;
+    padding: 4px 10px 4px 10px;
+}
+
+.THIS .lc ul {
+    padding-left: 0px; 
+    padding-top: 6px;
+}
+
+.THIS .lc li i {
+    transition: all .25s ease-in-out;
+    -moz-transition: all .25s ease-in-out;
+    -webkit-transition: all .25s ease-in-out;
+}
+
+.THIS .lc li a {
+    color: #53565A;
+    position: relative; 
+    left: -10px;
+}
+
+.THIS .lc li a:hover {
+    color: #619400;
+}
+
+.THIS .lc .link-collection-row:hover a
+{
+    color: rgb(105, 190, 40);
+    text-decoration: underline;
+}
+
+.THIS .lc ul:last-child {
+    padding-bottom: 4px; 
+}
+
+/* hide hidden icons to start */
+.THIS .lc .link-collection-row i.fa-hidden-icon {
+    opacity: 0;
+}
+
+.THIS .lc .link-collection-row i.fa-plus-circle,
+.THIS .lc .link-collection-row i.fa-times-circle {
+    cursor: pointer;
+}
+
+.THIS .lc .link-collection-row i.fa-plus-circle {
+    color: #619400;
+}
+
+.THIS .lc .link-collection-row i.fa-times-circle {
+    color: #A30400; /*#BB0E0E;*/
+}
+
+.THIS .lc .link-collection-row i.fa-check {
+    color: #00A9CE;
+}
+
+/* on hover hide default icon */
+.THIS .lc .link-collection-row:hover i.fa-default-icon {
+    opacity: 0;
+}
+
+/* on hover show action/info icons */
+.THIS .lc .link-collection-row:hover i.fa-plus-circle,
+.THIS .lc .link-collection-row:hover i.fa-check,
+.THIS .lc .link-collection-row:hover i.fa-times-circle
+{
+    opacity: 1;
+}
+
+/* Border and Background Colors */
+.THIS .lc .lc-Green { border: solid 1px #82c600; }
+.THIS .lc .lc-Green .lc-header { background-color: #82c600; }
+
+.THIS .lc .lc-Blue { border: solid 1px #00A9CE; }
+.THIS .lc .lc-Blue .lc-header { background-color: #00A9CE; }
+
+.THIS .lc .lc-Teal { border: solid 1px #00B2A9; }
+.THIS .lc .lc-Teal .lc-header { background-color: #00B2A9; }
+
+.THIS .lc .lc-Alt-Green { border: solid 1px #00C489; }
+.THIS .lc .lc-Alt-Green .lc-header { background-color: #00C489; }
+
+.THIS .lc .lc-Light-Green { border: solid 1px #A4D65E; }
+.THIS .lc .lc-Light-Green .lc-header { background-color: #A4D65E; }
+
+.THIS .lc .lc-Yellow { border: solid 1px #D0DF00; }
+.THIS .lc .lc-Yellow .lc-header { background-color: #D0DF00; }
+
+.THIS .lc .lc-Khaki { border: solid 1px #E1D7B0; }
+.THIS .lc .lc-Khaki .lc-header { background-color: #E1D7B0; }
+
+.THIS .lc .lc-Dark-Green { border: solid 1px #619400; }
+.THIS .lc .lc-Dark-Green .lc-header { background-color: #619400; }
+
+.THIS .lc .lc-Purple { border: solid 1px #8714A3; }
+.THIS .lc .lc-Purple .lc-header { background-color: #8714A3; }
+
+.THIS .lc .lc-Burgundy { border: solid 1px #8D0E57; }
+.THIS .lc .lc-Burgundy .lc-header { background-color: #8D0E57; }
+
+.THIS .lc .lc-Black { border: solid 1px #333; }
+.THIS .lc .lc-Black .lc-header { background-color: #333; }
+
+.THIS .lc .lc-Soft-Black { border: solid 1px #53565A; }
+.THIS .lc .lc-Soft-Black .lc-header { background-color: #53565A; }
+
+.THIS .lc .lc-Medium-Grey { border: solid 1px #A7A8AA; }
+.THIS .lc .lc-Medium-Grey .lc-header { background-color: #A7A8AA; }
+
+.THIS .lc .lc-Light-Grey { border: solid 1px #D0D0CE; }
+.THIS .lc .lc-Light-Grey .lc-header { background-color: #D0D0CE; }
+
+.THIS .lc .lc-White { border: solid 1px #ccc; }
+.THIS .lc .lc-White .lc-header { background-color: #f5f5f5; border-bottom: solid 1px #ccc; color: #333 !important; text-shadow: none !important; }
+
+.THIS .lc .lc-Beige { border: solid 1px #DBC893; }
+.THIS .lc .lc-Beige .lc-header { background-color: #DBC893; }

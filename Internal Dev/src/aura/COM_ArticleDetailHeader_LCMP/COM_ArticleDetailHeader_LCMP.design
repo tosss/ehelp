@@ -1,0 +1,3 @@
+<design:component label="Article Header">
+	<design:attribute name="dsg_Image" label="Show Image" description="Checkbox" datasource="No,Yes"/>
+</design:component>

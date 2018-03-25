@@ -1,0 +1,56 @@
+<apex:page standardController="Lead" extensions="pi.MicroCampaignStdCtrl" sidebar="false" action="{!init}">
+
+<apex:stylesheet value="{!URLFOR($Resource.pi__LightningDesignSystem_2_0_2, 'styles/salesforce-lightning-design-system.min.css')}"></apex:stylesheet>
+<apex:stylesheet value="{!URLFOR($Resource.pi__MicroCampaign, 'css/main.css')}"></apex:stylesheet>
+<div class="slds-text-body--regular">
+  <div id="modal_container"></div>
+  <div id="toast_message_container" class="toast-message-container"></div>
+  <div id="engage_email_container"></div>
+</div>
+<apex:includeLightning ></apex:includeLightning>
+<apex:includeScript value="{!URLFOR($Resource.pi__MarketingActions, 'js/jquery-2.1.1.min.js')}"></apex:includeScript>
+<apex:includeScript value="{!URLFOR($Resource.pi__jquery_ui_1_11_1_custom_has_dialog, 'jquery-ui.min.js')}"></apex:includeScript>
+<apex:includeScript value="{!URLFOR($Resource.pi__ckeditorSalesReach, 'ckeditor/ckeditor.js')}"></apex:includeScript>
+<script type="text/javascript">
+  window.SLDS_assetsPath = '{!URLFOR($Resource.pi__LightningDesignSystem_2_0_2, '')}';
+  window.NamespacePrefix = '{!namespace}';
+  window.SyncedProspectType = '{!standardControllerType}';
+  window.userFullName = '{!JSENCODE($User.FirstName)} {!JSENCODE($User.LastName)}';
+  window.recipients = [];
+  window.emailTemplates = [];
+  window.returnUrl = '{!JSENCODE(returnUrl)}';
+  window.invalidObjectType = '{!invalidObjectTypeError}';
+  window.userHasInsufficientAccess = '{!userHasInsufficientAccess}';
+  window.TemplateLockingEnabled = {!hasTemplateLockingEnabled};
+  window.UiUpdatesPdfUrl = '{!URLFOR($Resource.pi__MicroCampaign, 'pdf/Engage_Editor_Updates.pdf')}';
+  
+  <apex:repeat value="{!emailTemplates}" var="template">
+  	emailTemplates.push({
+  		id: '{!template.id}',
+  		name: "{!JSENCODE(HTMLENCODE(template.name))}"
+  	});
+  </apex:repeat>
+  
+  <apex:repeat value="{!recipients}" var="recipient">
+  	recipients.push({
+  		id: '{!recipient.id}',
+  		name: "{!JSENCODE(recipient.name)}",
+  		email: "{!recipient.email}",
+  		canReceiveEmails: {!recipient.canReceiveEmails},
+  		isDuplicateEmail: {!recipient.isDuplicateEmail},
+  		accountHasEmailBlocked: {!recipient.accountHasEmailBlocked}
+  	});
+  </apex:repeat>
+  
+</script>
+<apex:includeScript value="{!URLFOR($Resource.pi__MicroCampaign, 'js/micro_campaign_main.js')}"></apex:includeScript>
+<script type="text/javascript">
+	window.PardotBaseUrl = '{!$Label.Pardot_Production_Base_Url}' + 'api/';
+	window.SendEmailActionLocation = '{!$RemoteAction.MicroCampaignStdCtrl.sendMicrocampaign}';
+	window.GetRemainingPardotEmailSendsActionLocation = '{!$RemoteAction.MicroCampaignStdCtrl.getRemainingPardotEmailSends}';
+	window.GetPardotImages = '{!$RemoteAction.MicroCampaignStdCtrl.getPardotImages}';
+	window.GetPardotVariableTags = '{!$RemoteAction.MicroCampaignStdCtrl.getPardotVariableTags}';
+	window.TemplateHtmlActionLocation = '{!$RemoteAction.MicroCampaignStdCtrl.getEmailTemplate}';
+    window.unsubscribeFooterThreshold = '{!unsubscribeFooterThreshold}';
+</script>
+</apex:page>

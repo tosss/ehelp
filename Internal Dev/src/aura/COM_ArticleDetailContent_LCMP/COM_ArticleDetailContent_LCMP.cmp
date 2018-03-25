@@ -1,0 +1,70 @@
+<!-- ********************************************************************
+**RQ-09404 - 6/29/2017 vijay.manimaran@cdk.com created 
+**GLOBIT-1926 - 08/07/2017 vijay.manimaran@cdk.com updated
+**10/23/2017  vishal.bandari@cdk.com      generized the code to handle any article type
+*************************************************************************-->
+<aura:component implements="force:appHostable,forceCommunity:availableForAllPageTypes" access="global" controller="COM_KnowledgeArticle_Controller">
+    <aura:attribute name="knowledgeArticles" type="String" />
+    <aura:attribute name="knowledgeArticleId" type="String[]" />
+    <aura:attribute name="dsg_Image" type="String" default="No" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="errorMsg" type="String" />
+    <aura:attribute name="dsg_knowledgeArticleID" type="String" />
+    <aura:attribute name="noData" type="String" default="false"/>
+    <aura:attribute name="pathName" type="String" />
+    <aura:attribute name="pathName_Attachment" type="String" />
+    <aura:attribute name="hostName" type="String" />   
+    <aura:attribute name="articleType" type="String" default="Knowledge__kav" /> 
+    <aura:handler name="change" value="{!v.dsg_knowledgeArticleID}" action="{!c.setSelectedArticle}"/>
+    
+    <div>
+        <ui:outputrichtext value="{!v.knowledgeArticles.EMPCommunityArticle.Content__c}"></ui:outputrichtext>
+        <br/>
+        <div>
+            <aura:if isTrue="{!v.knowledgeArticles.EMPCommunityArticle.Hide_Summary__c != 'true'}">
+                <h2 class="base-items-header">SUMMARY</h2>
+                <div> 
+                    {!v.knowledgeArticles.KnowledgeArticleVersionlst.Summary}
+                    
+                </div>
+            </aura:if>
+            
+        </div>
+        <br/>
+        <aura:if isTrue="{!v.noData != 'true'}">
+            <a class="" href="{!'/'+v.pathName_Attachment+'/servlet/fileField?entityId='+v.knowledgeArticles.KnowledgeArtcle_Id+'&amp;field=Attachment__Body__s'}" target="_Blank">
+                <article class="slds-card padBottm">
+                    <div class="slds-card__header slds-grid ">
+                        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                            <div class="slds-media__figure">
+                                <aura:if isTrue="{!v.knowledgeArticles.EMPCommunityArticle.Attachment__ContentType__s  == 'image/png' || v.knowledgeArticles.EMPCommunityArticle.Attachment__ContentType__s == 'image/jpeg' }">
+                                    <lightning:icon iconName="doctype:image" size="small" />
+                                </aura:if>
+                                <aura:if isTrue="{!v.knowledgeArticles.EMPCommunityArticle.Attachment__ContentType__s == 'application/pdf'}">
+                                    <lightning:icon iconName="doctype:pdf" size="small" />
+                                </aura:if>
+                                <aura:if isTrue="{!(v.knowledgeArticles.EMPCommunityArticle.Attachment__ContentType__s == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')}">
+                                    <lightning:icon iconName="doctype:csv" size="small" />
+                                </aura:if>
+                                <aura:if isTrue="{!v.knowledgeArticles.EMPCommunityArticle.Attachment__ContentType__s == 'text/csv' || v.knowledgeArticles.EMPCommunityArticle.Attachment__ContentType__s == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'  }">
+                                    <lightning:icon iconName="doctype:word" size="small" />
+                                </aura:if>
+                                <aura:if isTrue="{!(v.knowledgeArticles.EMPCommunityArticle.Attachment__ContentType__s == 'application/vnd.openxmlformats-officedocument.presentationml.presentation')}">
+                                    <lightning:icon iconName="doctype:ppt" size="small" />
+                                </aura:if>
+                            </div>
+                            <div class="slds-media__body "> 
+                                <h2>
+                                    <div  class="slds-card__header-link" >
+                                        <span class="slds-text-heading_small">Download Attachment</span>
+                                    </div>
+                                </h2>
+                            </div>
+                        </header>
+                    </div>
+                </article>
+            </a>
+        </aura:if>
+        <br/>
+    </div>
+</aura:component>

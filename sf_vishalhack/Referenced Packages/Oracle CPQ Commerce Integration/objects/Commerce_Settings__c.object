@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Administrator_Email__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Error messages will be sent to this email address to help troubleshoot issues with the integration.</description>
+        <externalId>false</externalId>
+        <label>Administrator Email</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Allow_Orphan_Creation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If this box is checked, users will be allowed to create Quotes through the Salesforce UI that are not linked to a parent object.  If this box is unchecked, users will be forced to select an opportunity (or account) to which the quote will be attached when created.  This checkbox has no impact on Quotes created through Oracle CPQ Cloud Unplugged or through the Salesforce Data Loader.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If this box is checked, users will be allowed to create Quotes through the Salesforce UI that are not linked to a parent object.  If this box is unchecked, users will be forced to select a parent object to which the quote will be attached when created.</inlineHelpText>
+        <label>Allow Orphan Creation</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Allow_Quotes_on_Accounts__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If this box is checked, users will be allowed to create Quotes through the Salesforce UI that are linked directly to an Account without an Opportunity.  If this box is unchecked, users will not be allowed to create quotes on an account without also attaching them to an opportunity.  This checkbox has no impact on Quotes created through Oracle CPQ Cloud Unplugged or through the Salesforce Data Loader.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If this box is checked, users may create Quotes through the Salesforce UI that are linked directly to an Account.  If this box is unchecked, users will not be allowed to create quotes on an account without also attaching them to an opportunity.</inlineHelpText>
+        <label>Allow Quotes on Accounts</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Display_Page_Header__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If this box is checked, the Oracle CPQ Cloud header will be displayed at the top of the page when creating and editing Oracle CPQ Cloud quotes.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If this box is checked, the Oracle CPQ Cloud header will be displayed at the top of the page when creating and editing Oracle CPQ Cloud quotes.</inlineHelpText>
+        <label>Display Page Header</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Encrypt_API_Password__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If this box is checked the API password on the Oracle CPQ Cloud site setup page will be hidden and the value stored will be encrypted.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If this box is checked the API password on the Oracle CPQ Cloud site setup page will be hidden and the value stored will be encrypted.</inlineHelpText>
+        <label>Encrypt API Password</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>First_Quote_Is_Primary__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If this box is checked, the first quote on an opportunity is automatically set to be the primary quote for that opportunity.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If this box is checked, the first quote on an opportunity is automatically set to be the primary quote for that opportunity.</inlineHelpText>
+        <label>First Quote Is Primary</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Optimize_Synchronization__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This option is provided to support legacy integrations.  New implementations should check this box.  If this box is checked, the integration package will use an optimized approach to synchronize quotes.  If you check this box and Oracle CPQ Cloud is not using the correct XSLs, your opportunities will not be updated with the correct products from your quotes on the first save attempt.  Similarly, if you update your XSLs but do not check this box, when you delete products from Oracle CPQ Cloud, they will not be removed from Salesforce.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If this box is checked, the integration package will use an optimized approach to synchronize quotes. In order for this approach to work, CPQ Cloud must be using optimizied XSLs. Do not check this box unless you are sure you are using the correct XSLs.</inlineHelpText>
+        <label>Optimize Synchronization</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Preserve_Ad_Hoc_Products__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If this box is checked, any products that have been added directly to the opportunity will not be removed when syncing a quote.  If this box is unchecked, the products on the opportunity will always be an exact match of the products on the primary quote.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If this box is checked, any products that have been added directly to the opportunity will not be removed when syncing a quote.  If this box is unchecked, the products on the opportunity will always be an exact match of the products on the primary quote.</inlineHelpText>
+        <label>Preserve Ad Hoc Products</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Use_Opportunity_Currency__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If this box is checked, the integration package will send the currency ISO code of the opportunity to Oracle CPQ Cloud when creating new quotes. If this box is checked and the currency that is sent to Oracle CPQ Cloud is not enabled, you will get an error when creating new quotes.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If this box is checked, the integration package will send the currency ISO code of the opportunity to Oracle CPQ Cloud when creating new quotes. Do not check this box unless you are sure that all necessary currencies are enabled in Oracle CPQ Cloud.</inlineHelpText>
+        <label>Use Opportunity Currency</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Use_Opportunity_Pricebook__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This option is provided to support legacy integrations.  New implementations should check this box.  If this box is checked, the integration package will send the ID of the opportunity pricebook to Oracle CPQ Cloud when creating new quotes.  If this box is checked and the Oracle CPQ Cloud pricebooks do not have the correct partner pricebook ID values, you will get an error when creating new quotes.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If this box is checked, the integration package will send the ID of the opportunity pricebook to CPQ Cloud when creating new quotes.  Do not check this box unless you are sure that the CPQ Cloud pricebooks have the correct partner pricebook ID values.</inlineHelpText>
+        <label>Use Opportunity Pricebook</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Width_Adjustment__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Pixel adjustment of Oracle CPQ Cloud iFrame size.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Pixel adjustment of Oracle CPQ Cloud iFrame size.</inlineHelpText>
+        <label>Width Adjustment</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Oracle CPQ Cloud Commerce Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

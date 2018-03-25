@@ -1,3 +1,0 @@
-<apex:page >
-    <c:RssJqueryComponent ComponentId="news" numberOfArticles="5" rssFeedURL="https://news.google.de/news/feeds?pz=1&cf=all&ned=LANGUAGE&hl=COUNTRY&q=SEARCH_TERM&output=rss" />
-</apex:page>

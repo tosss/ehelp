@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>MapAnything Assignment Plan</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>MapAnything Assignment Plans</value>
+    </caseValues>
+    <fields>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <label><!-- Custom Assignment Field --></label>
+        <name>CustomAssignmentField__c</name>
+    </fields>
+    <fields>
+        <label><!-- Debug Mode --></label>
+        <name>DebugMode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Debug SObject Field --></label>
+        <name>DebugSObjectField__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Processing --></label>
+        <name>IsProcessing__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Batch Id --></label>
+        <name>LastBatchId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Successful Batch Run --></label>
+        <name>LastSuccessfulBatchRun__c</name>
+    </fields>
+    <fields>
+        <label><!-- Latitude Field --></label>
+        <name>LatField__c</name>
+    </fields>
+    <fields>
+        <label><!-- Longitude Field --></label>
+        <name>LngField__c</name>
+    </fields>
+    <fields>
+        <label><!-- Assignment Rule Lookup Field --></label>
+        <name>MARuleLookupField__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Batches Processed Last Batch --></label>
+        <name>NumBatches__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reassign Owner --></label>
+        <name>ReassignOwner__c</name>
+    </fields>
+    <fields>
+        <label><!-- SOQL Filter --></label>
+        <name>SOQLFilter__c</name>
+    </fields>
+    <fields>
+        <label><!-- SObject Name --></label>
+        <name>SObject_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- SObject --></label>
+        <name>SObject__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

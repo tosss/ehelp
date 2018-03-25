@@ -1,0 +1,127 @@
+/*******************************************************************************
+** RQ-08648 02/22/2017 Created Vijay.Manimaran@cdk.com
+
+********************************************************************************* */
+
+.THIS .slds-button--brand {
+    width: 60%;
+    height: 54px;
+    text-align: center;
+}
+
+.THIS .associateinfo {
+    padding-top: 10px;
+    font-weight: bold;
+    font-size: large;
+}
+
+.THIS .slds-tabs--path__link{
+    
+    color:white;
+}
+.THIS .manager-form-hide {
+    display: none;
+}
+
+.THIS .manager-questions {
+    font-size: 1rem;
+    padding-top: 10px;
+    margin-bottom: 2px
+}
+
+.THIS .manager-answers {
+    margin: auto;
+    padding-right: 80%;
+    text-align: center;
+    padding-bottom: 1%;
+    disabled: disabled;
+}
+
+.THIS .slds-nowrap {
+    padding-bottom: 10px;
+}
+
+.THIS .slds-has-divider--bottom {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    background-color:rgba(218, 214, 214, 0.2);
+    border-bottom: none;
+}
+
+.THIS .slds-tabs--path .slds-is-complete .slds-tabs--path__title {
+    -webkit-transform: none !important;
+    -ms-transform: rotateX(180deg);
+    transform: none;
+}
+
+.THIS .table-header {
+    background: #4bca81;
+}
+
+.THIS .section-title {
+    font-size: .9rem;
+}
+
+.THIS .contact-name {
+    cursor: pointer;
+}
+
+.THIS slds-button[disabled] {
+    color: rgb(51, 51, 51) !important;
+}
+
+.THIS .progress-container {
+    width: 100%;
+    height: 1.5em;
+    position: relative;
+    background-color: rgb(224, 229, 238);
+    cursor: pointer;
+}
+
+.THIS .slds-truncate {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.THIS .progressbar {
+    background-color: #4bca81;
+    height: 100%;
+    position: absolute;
+    line-height: inherit;
+    padding-left: 10px;
+    text-align: center;
+    margin: auto;
+}
+
+.THIS .round-xlarge {
+    border-radius: 16px!important;
+    margin-bottom: 10px;
+}
+
+.THIS .slds-section__title-action {
+    background: rgb(224, 229, 238)!important;
+    margin-bottom: 10px;
+}
+
+.THIS .slds-theme--info {
+    color: #ffffff;
+    background-color: #00a9ce;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.THIS .slds-theme--error {
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-right: 10px;
+	}
+
+.THIS .slds-card {
+    background: rgba(194, 57, 52, 0.95) !important;
+    color: rgb(255, 255, 255) !important;
+    text-align: center;
+    margin: auto;
+}

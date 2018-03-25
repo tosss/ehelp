@@ -1,4 +1,0 @@
-<!--2015-11-17- anirudh.singh@cdk.com- To upgrade the API Version FROM 16.0 to 34.0.-->
-<apex:page standardController="Case" label="Critical Note" name="Critical Note" title="Critical Note">
-    {!Case.Account.Critical_Note__c}
-</apex:page>

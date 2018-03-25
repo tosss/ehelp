@@ -1,0 +1,63 @@
+<apex:page standardController="User" extensions="BigMachines.OracleUserViewController">
+    <apex:form >
+            <apex:pageBlock title="Oracle CPQ Users" >
+                <apex:pageBlockButtons location="both">
+                    <apex:commandButton value=" Save " action="{!save}" />
+                    <apex:commandButton value=" Cancel " action="{!finishEdit}" rerender="fullPagePanel"/>
+                </apex:pageBlockButtons>
+                <apex:pageMessages />
+                <apex:repeat value="{!usersWithSites}" var="o">
+                    <apex:pageBlockSection collapsible="true" showHeader="true" title="{!o.header}" rendered="{!o.site.BigMachines__Primary_Commerce_Process__c}">
+                        <apex:inputField value="{!o.oracleUser.BigMachines__Oracle_CPQ_Cloud_Login__c}" rendered="{!showEditOutputMap[oracleUserWithPrefix + 'Oracle_CPQ_Cloud_Login__c']}"/>
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Oracle_CPQ_Cloud_Login__c}" rendered="{!showReadOnlyOutputMap[oracleUserWithPrefix + 'Oracle_CPQ_Cloud_Login__c']}" />
+                        
+                        <apex:inputField value="{!o.oracleUser.BigMachines__Partner_Organization__c}" rendered="{!showEditOutputMap[oracleUserWithPrefix + 'Partner_Organization__c']}"/>
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Partner_Organization__c}" rendered="{!showReadOnlyOutputMap[oracleUserWithPrefix + 'Partner_Organization__c']}" />
+                        
+                        <apex:inputField value="{!o.oracleUser.BigMachines__Bulk_Synchronization__c}" rendered="{!showEditOutputMap[oracleUserWithPrefix + 'Bulk_Synchronization__c']}"/>
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Bulk_Synchronization__c}" rendered="{!showReadOnlyOutputMap[oracleUserWithPrefix + 'Bulk_Synchronization__c']}" />
+                        
+                        <apex:inputField value="{!o.oracleUser.BigMachines__Language_Preference__c}" rendered="{!showEditOutputMap[oracleUserWithPrefix + 'Language_Preference__c']}"/>
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Language_Preference__c}" rendered="{!showReadOnlyOutputMap[oracleUserWithPrefix + 'Language_Preference__c']}" />
+                        
+                        <apex:inputField value="{!o.oracleUser.BigMachines__Provisioned__c}" rendered="{!showEditOutputMap[oracleUserWithPrefix + 'Provisioned__c']}" />
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Provisioned__c}" rendered="{!showReadOnlyOutputMap[oracleUserWithPrefix + 'Provisioned__c']}" />
+                        
+                        <apex:inputField value="{!o.oracleUser.BigMachines__Association_to_Organization__c}" rendered="{!showEditOutputMap[oracleUserWithPrefix + 'Association_to_Organization__c']}"/>
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Association_to_Organization__c}" rendered="{!showReadOnlyOutputMap[oracleUserWithPrefix + 'Association_to_Organization__c']}" />
+                        
+                        <apex:inputField value="{!o.oracleUser.BigMachines__Allow_Quote_Creation__c}" rendered="{!showEditOutputMap[oracleUserWithPrefix + 'Allow_Quote_Creation__c']}"/>
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Allow_Quote_Creation__c}" rendered="{!showReadOnlyOutputMap[oracleUserWithPrefix + 'Allow_Quote_Creation__c']}" />
+                        
+                        <apex:inputField value="{!o.oracleUser.BigMachines__Access_Type__c}" rendered="{!showEditOutputMap[oracleUserWithPrefix + 'Access_Type__c']}"/>
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Access_Type__c}" rendered="{!showReadOnlyOutputMap[oracleUserWithPrefix + 'Access_Type__c']}" />
+                        
+                        <apex:inputField value="{!o.oracleUser.BigMachines__Delegated_Approver__c}" rendered="{!showEditOutputMap[oracleUserWithPrefix + 'Delegated_Approver__c']}"/>
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Delegated_Approver__c}" rendered="{!showReadOnlyOutputMap[oracleUserWithPrefix + 'Delegated_Approver__c']}" />
+                        
+                        <apex:inputField value="{!o.oracleUser.BigMachines__Currency_Preference__c}" rendered="{!showEditOutputMap[oracleUserWithPrefix + 'Currency_Preference__c']}"/>
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Currency_Preference__c}" rendered="{!showReadOnlyOutputMap[oracleUserWithPrefix + 'Currency_Preference__c']}" />
+                        
+                        <apex:inputField value="{!o.oracleUser.BigMachines__Number_Format__c}" rendered="{!showEditOutputMap[oracleUserWithPrefix + 'Number_Format__c']}"/>
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Number_Format__c}" rendered="{!showReadOnlyOutputMap[oracleUserWithPrefix + 'Number_Format__c']}" />
+                        
+                        <apex:inputField value="{!o.oracleUser.BigMachines__Unit_System__c}" rendered="{!showEditOutputMap[oracleUserWithPrefix + 'Unit_System__c']}"/>
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Unit_System__c}" rendered="{!showReadOnlyOutputMap[oracleUserWithPrefix + 'Unit_System__c']}" />
+                        
+                        <apex:inputField value="{!o.oracleUser.BigMachines__Date_Time_Format__c}" rendered="{!showEditOutputMap[oracleUserWithPrefix + 'Date_Time_Format__c']}"/>
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Date_Time_Format__c}" rendered="{!showReadOnlyOutputMap[oracleUserWithPrefix + 'Date_Time_Format__c']}" />
+                        
+                        <apex:inputField value="{!o.oracleUser.BigMachines__User_Groups__c}" rendered="{!showEditOutputMap[oracleUserWithPrefix + 'User_Groups__c']}"/>
+                        <apex:outputField value="{!o.oracleUser.BigMachines__User_Groups__c}" rendered="{!showReadOnlyOutputMap[oracleUserWithPrefix + 'User_Groups__c']}" />
+                        
+                        <apex:inputField value="{!o.oracleUser.BigMachines__Time_Zone__c}" rendered="{!showEditOutputMap[oracleUserWithPrefix + 'Time_Zone__c']}"/>
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Time_Zone__c}" rendered="{!showReadOnlyOutputMap[oracleUserWithPrefix + 'Time_Zone__c']}" />
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection collapsible="true" showHeader="true" title="{!o.header}" rendered="{!NOT(o.site.BigMachines__Primary_Commerce_Process__c)}">
+                        <apex:inputField value="{!o.oracleUser.BigMachines__Allow_Quote_Creation__c}" rendered="{!showEditOutputMap[oracleUserWithPrefix + 'Allow_Quote_Creation__c']}"/>
+                        <apex:outputField value="{!o.oracleUser.BigMachines__Allow_Quote_Creation__c}" rendered="{!showReadOnlyOutputMap[oracleUserWithPrefix + 'Allow_Quote_Creation__c']}" />
+                    </apex:pageBlockSection>
+                </apex:repeat>
+            </apex:pageBlock>
+        </apex:form>
+</apex:page>

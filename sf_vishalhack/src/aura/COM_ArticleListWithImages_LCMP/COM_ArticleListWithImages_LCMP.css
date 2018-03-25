@@ -1,0 +1,119 @@
+.THIS .slds-has-dividers--around-space {
+    position: relative;
+    /*box-shadow:0px 0px 0px 0px;*/
+    width: 100%;
+    margin-bottom:10px;
+}
+
+.THIS .slds-list--horizontal .slds-item--detail {
+    width: 100%;
+}
+
+.THIS .pad-header {
+    margin-bottom: 10px;
+}
+.THIS .slds-media {
+    width: 95%;
+}
+
+.THIS .article-image {
+    background-position: center center; 
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 80px;
+    height: 80px;
+    display: block;
+    margin: 0 10px 0 0;
+    border-radius: 5px;
+    z-index: 100;
+}
+
+.THIS .image-placeholder {
+    z-index: -100;
+    position: absolute;
+}
+
+.THIS .image-placeholder svg {
+    width: 5rem;
+    height: 5rem;
+}
+
+.THIS .article-title {
+    text-align: left;
+    font-weight: 700;
+    font-family: Montserrat;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.THIS .article-title a {
+    color: #333;
+}
+
+.THIS .article-title a:hover {
+    color: #619400;
+}
+
+.THIS .text {
+    position: relative;
+    font-size: 14px;
+    color: #3c3c3c;
+    width: 92%; 
+}
+
+.THIS .summary {
+    position: relative;
+    display: inline-block;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 3.6em; 
+    line-height: 1.2em;
+    width:100%;
+}
+
+.THIS .summary .ellipsis::after {
+    content: "...";
+    position: absolute;
+}
+
+.THIS .publish-date {
+    font-size: 10pt;
+    font-family: Helvetica;
+    color: #666;
+    text-transform: UPPERCASE;
+}
+
+.THIS .file-icon {
+    position: absolute; 
+    right: 0; 
+    top: 0;
+}
+
+.THIS hr {
+    display: block;
+    margin: 1rem 0;
+    border-top: 1px solid #acb6bc;
+    height: 1px;
+    clear: both;
+}
+
+.THIS .slds-list--horizontal .slds-item--label {
+    width: 100%;
+    padding-right: .75rem;
+}
+
+.THIS .slds-item {
+    background-clip: padding-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(172, 182, 188);
+    border-image: initial;
+    border-radius: 0rem;
+    padding: 0.75rem;
+}
+
+.THIS .spinner-override {
+	margin: 10px 0;
+	background: none !important;
+}

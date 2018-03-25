@@ -1,0 +1,101 @@
+.THIS {
+	
+}
+
+.THIS .tile {
+	border-radius: 5px;
+	margin-top: 20px;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    text-shadow: 1px 1px 3px #666;
+}
+
+.THIS .tile a h2 {
+    text-shadow: 1px 1px 1px #333;
+}
+
+.THIS .button {
+	border-radius: 2px;
+	margin-top: 20px;
+    max-width: 100%;
+    height: 60px !important;
+    overflow: hidden;
+    text-align: center;
+}
+
+.THIS .button a h2 {
+    text-shadow: 1px 1px 3px #666 !important;
+    font-family: Arial;
+    font-weight: 700;
+    font-size: 1em;
+    text-transform: uppercase;
+}
+
+.THIS a {
+	color: #FFF;
+}
+
+.THIS .community-title-button {
+    margin: auto;
+}
+
+.THIS .community-button-content {
+    position: relative;
+    top: 0; 
+    left: 0;
+    padding: 15px 6px;
+    width: 100%;
+    height: 60px;
+    transition: all .25s ease-in-out;
+    -o-transition: all .25s ease-in-out;
+    -moz-transition: all .25s ease-in-out;
+    -webkit-transition: all .25s ease-in-out;
+    text-align: center;
+    line-height: 1.875rem;
+}
+
+.THIS:hover .community-button-content {
+    box-shadow: inset 0px 0px 140px rgba(0,0,0,0.5);
+}
+
+.THIS .community-tile-content {
+    position: relative;
+    top: 0; 
+    left: 0;
+    padding: 10px;
+    width: 100%;
+    height: 200px;
+    transition: all .25s ease-in-out;
+    -o-transition: all .25s ease-in-out;
+    -moz-transition: all .25s ease-in-out;
+    -webkit-transition: all .25s ease-in-out;
+    
+}
+
+.THIS:hover .community-tile-content {
+    box-shadow: inset 0px 0px 140px rgba(0,0,0,0.5);
+}
+
+
+/*
+.THIS .community-tile-overlay {
+position: relative;
+top: -200px;
+left: 0;
+overflow: hidden;
+width: 100%;
+height: 200px;
+border-radius: 5px;
+background-color: black;
+opacity: 0;
+transition: all .25s ease-in-out;
+-o-transition: all .25s ease-in-out;
+-moz-transition: all .25s ease-in-out;
+-webkit-transition: all .25s ease-in-out;
+}
+
+.THIS:hover .community-tile-overlay {
+opacity: 0;
+}
+*/

@@ -1,0 +1,289 @@
+<!--
+/*------------------------------------------------------------
+Author: Michael Lasala
+Company: Cloud Sherpas
+Description: Provide access to a specific site workbook's category of questions, supporting both view and edit mode.
+History
+08/28/14    Kimiko  Roberto         Created
+09/01/14    Rey Austral             Added filter Section
+10/14/14    Rey Austral             Put internal and inline css to an external css
+10/16/14    Kimiko Roberto          Removed 'Remove Interviewer' function
+10/16/14    Kimiko Roberto          Made Interviewers and Interviewees as links redirecting to their UserProfile page
+12/05/14    Karl Simon              Applied the .toLowerCase() JS string method to both parentToggleAnswer and parentQuestionValue to ensure
+the comparison driving child field edit toggling based upon a value match would be case insensitive.
+
+05/29/15	Hemanth Kesapragada		Added Interview component, commented interiviewee,interviewer section
+06/01/15	Hemanth Kesapragada		Removed unused visualforce components
+06/10/15	Hemanth Kesapragada		Adding floating div,jquery scroll methods for quicksave functionality
+06/12/14	hemanth.kesapragada@cdk.com 	Moved javascript to new file IMP_SiteWorkbookCategory_JS
+06/28/15    Vishal Bandari          RQ-04849:Back to Dashboard navigation to IMP_SubProjectManagement Page
+06/16/16    Venkata Shrivol          Added ALL_NewContactDialog vf component
+12/06/16  Venkata Shrivol	         commented the project object reference RQ-08305
+------------------------------------------------------------*/
+-->
+<apex:page ></apex:page>
+<!-- <apex:page extensions="IMP_SiteWorkbookCategory_Extension">
+    
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.10.4.custom.min.js')}" />  
+    <apex:includeScript value="{!URLFOR($Resource.IMP_CustomError_js)}" />
+
+    <style>
+        div#quickSavebutton {
+        background-color:#1796BF;
+        width:40%;
+        margin-left:auto;
+        margin-right:auto;
+        padding:5px;
+        border-radius:5px;
+        visibility:hidden;
+        }
+        .divScrollDown {
+        position:fixed;
+        top:0px;
+        align:center;
+        width:40%;
+        left:30%;
+        margin-left:0px;
+        }
+        .divScrollUp {
+        position:static;
+        top:0px;
+        width:40%;
+        margin-left:30%;
+        }
+    </style>
+    2015-06-12 hemanth.kesapragada@cdk.com Added variables to pass from apex to javascript
+    <script type="text/javascript">
+/*var __autoSaveTimer = "{!autoSaveTimer}";
+    var __generatedJSON = {!generatedJSON};
+    var __populateProduct = "{!$Component.formSiteWorkbook.filterBlock.ddSolution}";
+    var __projectObj = "{!DiscoveryWorkbookCategory.Site_Workbook__r.Project__c}";
+    var __subProjectId = "{!subProjectId}";
+    //var __isEditMode = "{!isEditMode}";*/
+    
+    </script>
+    <apex:outputPanel id="blkJavascript">
+        <script type="text/javascript">
+/*var __isEditMode = "{!isEditMode}";*/
+        </script>
+        <apex:includeScript value="{!URLFOR($Resource.IMP_SiteWorkbookCategory_JS)}" />
+    </apex:outputPanel>
+    
+    <apex:outputPanel id="jsPanel">
+        <script type="text/javascript">
+/*var j$; if(!j$) { j$ = jQuery.noConflict(); }
+        var err = '{!selectedErrorMsg}'; 
+        var elementId = '{!selectedAnswerField}';
+        if (elementId != '')
+        {
+            var element = document.getElementById(elementId);
+            if (err != '') 
+            {  
+                removeError(element);
+                highlightError(element,'{!selectedErrorMsg}');
+            } 
+            else 
+            {
+                removeError(element);
+            }  
+        }*/
+        </script>
+    </apex:outputPanel>
+    
+    <apex:outputPanel >
+        <apex:actionStatus id="actStatusId" onstop="disableWhenPostBack(); ">
+            <apex:facet name="start">
+                <div class="waitingSearchDiv outerGrayedPanel" id="casActionProcessing"> 
+                    <div class="waitingHolder innerProcessPanel">
+                        <br />
+                        <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />   
+                        <span class="waitingDescription">Loading...</span>
+                    </div>
+                </div>
+            </apex:facet>
+        </apex:actionStatus>
+    </apex:outputPanel>
+    
+    <apex:outputPanel >
+        <apex:actionStatus id="actStatusId2" >
+            <apex:facet name="start">
+                <div class="waitingSearchDiv outerGrayedPanel" id="casActionProcessing"> 
+                    <div class="waitingHolder innerProcessPanel">
+                        <br />
+                        <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />   
+                        <span class="waitingDescription">Loading...</span>
+                    </div>
+                </div>
+            </apex:facet>
+        </apex:actionStatus>
+    </apex:outputPanel>
+    
+    <apex:stylesheet value="{!URLFOR($Resource.jQuery, 'css/redmond/jquery-ui-1.10.4.custom.css')}" />
+    
+    
+    <apex:form id="formSiteWorkbook">    
+        
+        <apex:actionFunction action="{!tabSaveAnswer}" name="saveSelectedQuestion"  reRender="jsPanel" immediate="true" >
+            <apex:param assignTo="{!selectedAnswerField}" value="" name="answerField"/>
+            <apex:param assignTo="{!selectedQuestionId}" value="" name="questionId"/>
+            <apex:param assignTo="{!selectedAnswerValue}" value="" name="answers"/> 
+            <apex:param assignTo="{!selectedAnswerType}" value="" name="answerType"/>         
+        </apex:actionFunction>
+        
+        Header Section
+        <div id="quickSavebutton" align="center" >
+            <apex:outputText style="color:white;margin-right:10px;" value="It's been a while you saved. Do you want to save it?"></apex:outputText>
+            <apex:commandButton reRender="dummy" onclick="saveAnswer();" value="Quick Save" oncomplete="hideQuickSave();" />
+        </div>
+        <apex:pageBlock mode="maindetail" >
+            <apex:pageBlockSection columns="2" collapsible="false" >
+                <apex:pageBlockSectionItem >
+                    <apex:outputText value="SubProject"/>
+                    <apex:commandLink value="{!DiscoveryWorkbookCategory.Site_Workbook__r.SubProject__r.SubProject_Name__c}" onclick="window.open('/{!DiscoveryWorkbookCategory.Site_Workbook__r.SubProject__r.Id}','','location=1,status=1,scrollbars=1,resizable=1, width=800,height=600'); return false" target="_blank"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputText value="Site"/>
+                    <apex:commandLink value="{!DiscoveryWorkbookCategory.Site_Workbook__r.Site__r.Name}" onclick="window.open('/{!DiscoveryWorkbookCategory.Site_Workbook__r.Site__r.id}','','location=1,status=1,scrollbars=1,resizable=1, width=800,height=600'); return false" target="_blank"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputText value="Last Modified By"/>
+                    <apex:outputText value="{!lastModifiedBy}"/> 
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputText value="Last Modified Date"/>
+                    Space is required for Time zone and Date format
+                    <apex:outputText value=" {!lastModifiedDate}"/> 
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        Component with Interviewee, Interiviewer pageblocks
+        <c:IMP_Interview mode="{!isEditMode}" SubProject="{!subProjectId}" id="InterviewComponent" DiscSiteWorkbookCategoryId="{!Discovery_Workbook_Category__c.Id}" QuestionCategory="{!Discovery_Workbook_Category__c.Question_Category__r.Name}" rendered="true" ></c:IMP_Interview>
+          <br/>
+        <apex:outputPanel id="blkLink"> 
+            <apex:outputPanel rendered="{!IF(isEditMode,FALSE,TRUE)}" >
+                Vishal Bandari changed link onclick attribute to IMP_SubProjectManagement page
+                <apex:commandLink reRender="dummy" onclick="window.open('/apex/IMP_SubProjectManagement?id={!DiscoveryWorkbookCategory.Site_Workbook__r.SubProject__c}&tab=discoveryTab','_self')"  value="Back to Dashboard"  styleClass="backLink" />  
+                <br /><br />
+            </apex:outputPanel>
+        </apex:outputPanel>
+        
+        <apex:pagemessages id="pmError"/> 
+		
+		<apex:actionRegion >
+        	Filter Section 
+	        <apex:pageBlock id="filterBlock">         
+	            <apex:panelGrid columns="5" styleClass="maxWidth">
+	                <apex:outputText value="Market" styleClass="headerText"></apex:outputText>
+	                <apex:outputText value="Project Type" styleClass="headerText"></apex:outputText>
+	                <apex:outputText value="Solution" styleClass="headerText"></apex:outputText>
+	                <apex:outputText value="Product" styleClass="headerText"></apex:outputText>
+	                <apex:outputText ></apex:outputText>
+	                
+	                <apex:selectList multiselect="false" value="{!marketSelectedValue}" size="1" styleClass="filterControl">
+	                    <apex:selectOptions value="{!MarketItems}"></apex:selectOptions>
+	                </apex:selectList>
+	                
+	                <apex:outputText value="{!thisSubProject.Market__c}" styleClass="headerText"></apex:outputText>
+	                
+	                <apex:selectList multiselect="false" value="{!projectTypeSelectedValue}" size="1" styleClass="filterControl">
+	                    <apex:selectOptions value="{!ProjectTypeItems}"></apex:selectOptions>
+	                </apex:selectList> 
+	                
+	                <apex:outputText value="{!thisSubProject.Project_Type__c}" styleClass="headerText"></apex:outputText>
+	                the on change(or when the user select an item) will trigger the javascript to populate the product type 
+	                <apex:selectList id="ddSolution" multiselect="true" value="{!solutionSelectedValue}" size="5" styleClass="filterControl" onchange="populateProduct();">              
+	                    <apex:selectOptions value="{!solutionItems}"></apex:selectOptions>
+	                </apex:selectList>
+	                <select id="ddProduct" size="5" multiple="true" class="filterControl">
+	                    <option >-- None --</option>
+	                </select>
+	                
+	                <apex:panelGrid columns="1" styleClass="maxWidth">
+	                    <apex:commandButton Id="btnFilter" value="Filter" onclick="executeFilterFunction(); return false;" styleClass="filterButton" reRender="dummy"/>   
+	                    <apex:actionFunction action="{!performFilterQuestion}" name="filterQuestion" status="actStatusId"  reRender="blkQuestion">
+				            <apex:param assignTo="{!tempSelectedProduct}" value="" name="productValue"/>
+				        </apex:actionFunction>
+	                    <apex:commandButton value="Clear Filter" status="actStatusId" reRender="filterBlock,blkQuestion" action="{!clearFilter}" styleClass="filterButton"/>  
+	                </apex:panelGrid> 
+	            </apex:panelGrid> 
+	            
+	        </apex:pageBlock>
+	        
+	        Question and Answer Section 
+            <apex:pageBlock title="{!Discovery_Workbook_Category__c.Question_Category__r.Name} Questions" Id="blkQuestion">
+                <apex:pageBlockButtons >
+                    
+                    <apex:actionFunction status="actStatusId" action="{!SaveAnswers}" reRender="InterviewComponent,blkQuestion, pmError" name="saveAnswers"/>
+                    <apex:commandButton action="{!SaveAnswers}" value="Save" status="actStatusId" reRender="blkQuestion, pmError" rendered="{!isEditMode}"  />
+                    <apex:commandButton id="SaveAnswers" reRender="dummy" onclick="saveAnswer();" value="Save"  rendered="{!isEditMode}"  />
+                    <apex:commandButton action="{!SaveAnswers}" value="Save and Close" status="actStatusId" reRender="blkQuestion, pmError" rendered="{!isEditMode}" oncomplete="saveAndClose();" />
+                    <apex:commandButton onclick="saveAnswer();"  value="Save and Close"  reRender="dummy" rendered="{!isEditMode}" oncomplete="saveAndClose();" />
+                    
+                    <apex:commandButton action="{!Close}" value="Save and Close" rendered="{!isEditMode}" />
+                    <apex:commandButton action="{!ViewClose}" value="Cancel" rendered="{!isEditMode}"  immediate="true"/>
+                    do not render the filter section when edit button is click, must maintain the selection
+					<apex:commandButton action="{!ViewEdit}" value="Edit"
+						rendered="{!IF(isEditMode,FALSE,TRUE)}" styleClass="controlButton"
+						status="actStatusId"
+						reRender="blkQuestion,blkInterviewee,blkJavascript,pb,blkLink" />
+				</apex:pageBlockButtons>
+                
+                <table class="maxWidth">
+                    The inputfield cannot render a text area so this function need to hide input field and textarea based on the question type
+                    if the question type is checkbox add width in the input field, because with no width the checkbox will not align in the left
+                    the only way to disable an inputfield is by adding html-disabled property
+                    <apex:repeat value="{!qWrapper }" var="q">                  
+                        <tr >
+                            <td class="rowNumber_td">
+                                <apex:outputText value="{!q.rowNumber}." /> 
+                            </td>
+                            <td class="question_td">                            
+                                <apex:outputText value="{!q.questions.Question_Text__c}" /> 
+                            </td>     
+                            <td>
+                                <apex:outputPanel styleClass="helper_td" rendered="{!IF(ISBLANK(q.questions.Help_Text__c),FALSE,TRUE)}" >
+                                    <a class="tooltip question-help-text" title="{!q.questions.Help_Text__c}" href="#">?</a>
+                                </apex:outputPanel>                   
+                            </td>
+                            <td class="{!q.questions.Answer_Type__c} answer_td">                            
+                                <apex:inputTextarea onchange="toggleDependent(this,'{!q.questions.Id}','{!q.questions.Toggle_Dependent__c}','{!q.questions.Answer_Type__c}');" styleClass="answer_textArea" disabled="{!IF(isEditMode,FALSE,TRUE)}" rendered="{!q.questionType.isTextAreaField}" value="{!AnswersForEachQuestion[q.questions.Id][q.questions.Answer_Type__c&'_Answer__c']}" />
+                                
+                                <apex:selectList size="1" disabled="{!IF(isEditMode,FALSE,TRUE)}" value="{!AnswersForEachQuestion[q.questions.Id][q.questions.Answer_Type__c&'_Answer__c']}"  rendered="{!q.questionType.isSelectField}" onchange="toggleDependent(this,'{!q.questions.Id}','{!q.questions.Toggle_Dependent__c}','{!q.questions.Answer_Type__c}');" style="width:80%">              
+                                    <apex:selectOptions value="{!q.picklistValues }"></apex:selectOptions>
+                                </apex:selectList>
+                                
+                                <apex:selectList disabled="{!IF(isEditMode,FALSE,TRUE)}" size="4" multiselect="true" value="{!selectedMultiPicklist[q.questions.Id]}"  rendered="{!q.questionType.isMultiSelectField}" onchange="toggleDependent(this,'{!q.questions.Id}','{!q.questions.Toggle_Dependent__c}','{!q.questions.Answer_Type__c}');" style="width:80%">              
+                                    <apex:selectOptions value="{!q.picklistValues }"></apex:selectOptions>
+                                </apex:selectList>
+                                
+                                <apex:outputField value="{!AnswersForEachQuestion[q.questions.Id][q.questions.Answer_Type__c&'_Answer__c']}" rendered="{!q.questionType.isOutputField}"/>
+                                
+                                <apex:inputField style="{!IF(q.questions.Answer_Type__c == 'Checkbox','','width:80%;')}" rendered="{!IF(isEditMode,FALSE,q.questionType.isInputField)}" value="{!AnswersForEachQuestion[q.questions.Id][q.questions.Answer_Type__c&'_Answer__c']}" html-disabled="true" />                                
+                                
+                                <div style="{!IF(isEditMode,'','display:none')}" >
+                                    <apex:inputField styleClass="Answer{!q.questions.Answer_Type__c}" onchange="toggleDependent(this,'{!q.questions.Id}','{!q.questions.Toggle_Dependent__c}','{!q.questions.Answer_Type__c}');" style="{!IF(q.questions.Answer_Type__c == 'Checkbox','','width:80%;')}" value="{!AnswersForEachQuestion[q.questions.Id][q.questions.Answer_Type__c&'_Answer__c']}" rendered="{!q.questionType.isInputField}" onkeydown="noenter(event);"/>
+                                    outputPanel Added by Vishal Bandari vishal.bandari@cdk.com on 29/Feb/2015
+                                    <apex:outputPanel rendered="{!IF(q.questions.Answer_Type__c == 'URL',true,false)}"  style="margin-left:1%;font-weight:bold;">
+                                        N / A&nbsp;
+                                        <apex:inputField styleclass="notApplicable{!AnswersForEachQuestion[q.questions.Id]['N_A__c']}"  value="{!AnswersForEachQuestion[q.questions.Id]['N_A__c']}" />
+                                    </apex:outputPanel>
+                                </div>                       
+                                <apex:inputHidden value="{!q.questions.Id}" id="QuestionId" />
+                                <apex:inputHidden value="{!q.questions.Dependent_Question__c}" id="DependentId" />
+                                <apex:inputHidden value="{!q.questions.Toggle_Dependent__c}" id="DependentAnswer" />
+                            </td>
+                            
+                        </tr>             
+                    </apex:repeat>
+                </table>
+                <apex:pageBlockSection >                
+                    
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+        </apex:actionRegion>
+        <apex:pageMessages id="msg"/>
+    </apex:form>
+    <c:ALL_NewContactDialog enablePR="false"></c:ALL_NewContactDialog>
+</apex:page> -->

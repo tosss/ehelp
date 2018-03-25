@@ -1,0 +1,9 @@
+<!-- 2016-05-18 -venkata.shrivol@cdk.com  - Changed the confidential field to Confidentiality Status -RQ-05471 -->
+<apex:component >
+   <apex:stylesheet value="{!$Resource.IMP_ConfidentialText_CSS}"/>
+    <apex:attribute name="isConfidential" required="true" type="boolean" description="confidential boolean value of the record"/>
+    <apex:attribute name="confidentialityStatus" required="true" type="string" description="confidentiality status to render on the page"/>
+    <apex:outputPanel layout="block" rendered="{!isConfidential}">
+    	<div class="confidentialIndicatorImage">{!IF(confidentialityStatus=='Confidential', 'CONFIDENTIAL', 'RESTRICTED')}</div>
+    </apex:outputPanel>
+</apex:component>

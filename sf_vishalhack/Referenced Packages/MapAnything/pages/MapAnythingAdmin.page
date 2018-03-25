@@ -1,0 +1,578 @@
+<apex:page title="MapAnything Settings" controller="sma.MapAnythingAdmin" setup="true" >
+
+<!-- jQuery
+<apex:includeScript value="{!URLFOR($Resource.MapAnything, 'js/jquery-1.7.1.min.js')}"/> -->
+
+<!-- jsColor -->
+<apex:includeScript value="{!URLFOR($Resource.sma__MapAnything, 'jscolor/jscolor.js')}"/>
+
+<!-- On Ready
+<script type='text/javascript'>
+    $(function () {
+        jscolor.init();
+    });
+</script>  -->
+
+<script>
+    function CopyToClipboard( text )
+    {
+      var input = document.getElementById( 'OutputURL' );
+      
+      input.value = text;
+      alert(input.value);
+      input.focus();
+      input.select();
+      document.execCommand( 'Copy' );
+    }
+
+</script>
+
+
+<style>
+    .tabc
+    {
+        font:inherit;
+        background-color:white;
+        border:0px; 
+        padding:0px 0px 0px 0px;
+        margin-bottom:0px;
+    }
+
+    .TabPanelActiveTab
+    {
+        padding-left:10px;
+        padding-right:10px;
+        padding-top:2px;
+        padding-bottom:2px;
+        background-color: #f8f8f8;
+    }
+    .TabPanelInActiveTab
+    {
+        padding-left:10px;
+        padding-right:10px;
+        padding-top:2px;
+        padding-bottom:2px;
+    }
+
+</style>
+
+<apex:form >
+        
+    <c:MAAdminHeader />
+    
+      
+    <apex:pageMessages id="PageMessages"/>
+    
+    <apex:pageBlock title="Settings">
+        <apex:pageBlockButtons location="top">
+            
+            <apex:actionstatus id="OptionsSaveStatus">
+                <apex:facet name="stop">
+                    <apex:commandButton value="Save" action="{!SaveSettings}" status="OptionsSaveStatus" reRender="PageMessages" />
+                </apex:facet>
+                <apex:facet name="start">
+                    <apex:commandButton value="{!$Label.sma__ma_please_wait}..." disabled="true" />
+                </apex:facet>
+            </apex:actionstatus>
+        </apex:pageBlockButtons>
+    
+        <apex:pageBlockSection >
+            <apex:pageBlockSectionItem >
+                {!$Label.sma__ma_serial}
+                <apex:inputText size="50" value="{!Serial.sma__Value__c}"/>
+                
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+    
+    </apex:pageBlock>
+    
+      
+    <apex:tabPanel switchType="client" activeTabClass="TabPanelActiveTab" inactiveTabClass="TabPanelInActiveTab"  >
+    
+        <apex:tab label="Create New" styleClass="tabc">
+            <apex:pageBlock >
+            
+                <apex:pageBlockButtons location="bottom" >
+                    <apex:outputPanel id="CreateNewButtons">
+                        <apex:commandButton value="Suggest" status="CreateNewButtonStatus" rendered="{!SelectedAvailableObject != ''}" action="{!CreateNew_MakeSuggestion}" reRender="SelectedAvailableObjectOP"/>
+                        <apex:commandButton value="Save" status="CreateNewButtonStatus" rendered="{!SelectedAvailableObject != ''}" action="{!CreateNew_Save}" reRender="SelectedAvailableObjectOP,PageMessages,DeleteExistingBaseObject,EditExistingBaseObject"/>
+                        &nbsp;<apex:actionStatus id="CreateNewButtonStatus" startText="{!$Label.sma__ma_please_wait}..."/>
+                    </apex:outputPanel>
+                </apex:pageBlockButtons>
+                
+                
+                
+                <apex:pageBlockSection columns="1" title="{!$Label.sma__ma_choose_an_object}" collapsible="false">
+                    <apex:pageBlockSectionItem >
+                        {!$Label.sma__ma_base_object}
+                        <apex:outputPanel >
+                            <apex:selectList size="1" value="{!SelectedAvailableObject}">
+                                <apex:selectOptions value="{!AvailablObjects}"/>
+                                <apex:actionSupport event="onchange" action="{!CreateNew_ObjectSelected}" status="CreateNewObjectSelectedStatus" reRender="SelectedAvailableObjectOP,PageMessages,CreateNewButtons"/>
+                            </apex:selectList>
+                            &nbsp;<apex:actionStatus id="CreateNewObjectSelectedStatus" startText="{!$Label.sma__ma_please_wait}..."/>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                
+                <apex:outputPanel id="SelectedAvailableObjectOP">
+                
+                    
+                        
+                    <apex:pageBlockSection title="{!$Label.sma__ma_base_object_details}" collapsible="false" rendered="{!SelectedAvailableObject != ''}" columns="2">
+                        <apex:inputField value="{!NewBaseObject.sma__Name__c}"/>
+                        
+                        
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_address_location}
+                            <apex:outputPanel >
+                                <apex:selectList value="{!NewBaseObject.sma__AddressObject__c}"  size="1">
+                                    <apex:selectOptions value="{!RelationshipFields}"/>
+                                    <apex:actionSupport event="onchange" action="{!CreateNew_AddressObjectSelected}" status="AddressObjectSelectedStatus" reRender="SelectedAvailableObjectOP,PageMessages"/>
+                                </apex:selectList>
+                                &nbsp;<apex:actionStatus id="AddressObjectSelectedStatus" startText="{!$Label.sma__ma_please_wait}..."/>
+                            </apex:outputPanel>
+                           
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                    
+                    
+                    <apex:pageBlockSection title="{!$Label.sma__ma_address_fields}" collapsible="false" rendered="{!SelectedAvailableObject != ''}" columns="2">
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_street} 
+                            <apex:outputPanel id="Street">
+                                <apex:SelectList value="{!NewBaseObject.sma__Street__c}"  size="1">
+                                    <apex:selectoptions value="{!AddressFields}" />
+                                </apex:SelectList>
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_postal_code}
+                            <apex:SelectList value="{!NewBaseObject.sma__PostalCode__c}" id="PostalCode" size="1">
+                                <apex:selectoptions value="{!AddressFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        
+                        
+                        
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_city}
+                            <apex:SelectList value="{!NewBaseObject.sma__City__c}" id="City" size="1">
+                                <apex:selectoptions value="{!AddressFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_country}
+                            <apex:SelectList value="{!NewBaseObject.sma__Country__c}" id="Country" size="1">
+                                <apex:selectoptions value="{!AddressFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        
+                        
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_state}
+                            <apex:SelectList value="{!NewBaseObject.sma__State__c}" id="State" size="1">
+                                <apex:selectoptions value="{!AddressFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        
+                        
+                        
+                        
+                    </apex:pageBlockSection>
+                    
+                    <apex:pageBlockSection title="{!$Label.sma__ma_coordinate_fields}" collapsible="false" rendered="{!SelectedAvailableObject != ''}">
+                        
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_latitude}
+                            <apex:SelectList value="{!NewBaseObject.sma__Latitude__c}" size="1">
+                                <apex:selectoptions value="{!CoordinateFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        
+                        
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_longitude}
+                            <apex:SelectList value="{!NewBaseObject.sma__Longitude__c}" size="1">
+                                <apex:selectoptions value="{!CoordinateFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        
+                    </apex:pageBlockSection>
+                    
+                    
+                    <apex:pageBlockSection columns="2" title="{!$Label.sma__ma_clean_address_fields}" rendered="{!SelectedAvailableObject != ''}" collapsible="false" >
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_clean_street}
+                            <apex:SelectList value="{!NewBaseObject.sma__CleanStreet__c}" size="1">
+                                <apex:selectoptions value="{!AddressFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_similarity}
+                            <apex:SelectList value="{!NewBaseObject.sma__Similarity__c}" size="1">
+                                <apex:selectoptions value="{!SimilarityFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        
+                        
+                        
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_clean_city}
+                            <apex:SelectList value="{!NewBaseObject.sma__CleanCity__c}" size="1">
+                                <apex:selectoptions value="{!AddressFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_quality}
+                            <apex:SelectList value="{!NewBaseObject.sma__Quality__c}" size="1">
+                                <apex:selectoptions value="{!QualityFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        
+                        
+                        
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_clean_state}
+                            <apex:SelectList value="{!NewBaseObject.sma__CleanState__c}" size="1">
+                                <apex:selectoptions value="{!AddressFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_clean_county}
+                            <apex:SelectList value="{!NewBaseObject.sma__CleanCounty__c}" size="1">
+                                <apex:selectoptions value="{!AddressFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_clean_postal_code}
+                            <apex:SelectList value="{!NewBaseObject.sma__CleanPostalCode__c}" size="1">
+                                <apex:selectoptions value="{!AddressFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_clean_district}
+                            <apex:SelectList value="{!NewBaseObject.sma__CleanDistrict__c}" size="1">
+                                <apex:selectoptions value="{!AddressFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        
+                        
+                        
+                        
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_clean_country}
+                            <apex:SelectList value="{!NewBaseObject.sma__CleanCountry__c}" size="1">
+                                <apex:selectoptions value="{!AddressFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        
+                        
+                    </apex:pageBlockSection>
+                    
+                    
+                </apex:outputPanel>
+                
+                
+            </apex:pageBlock>
+        </apex:tab>
+        
+        
+        <apex:tab label="{!$Label.sma__ma_edit_existing}" styleClass="tabc">
+            <apex:pageBlock id="EditExistingPageBlock">
+            
+                <apex:pageBlockButtons location="bottom" >
+                    <apex:outputPanel id="EditExistingButtons">
+                        
+                        <apex:commandButton value="Save" status="EditExistingButtonStatus" rendered="{!SelectedCurrentBaseObjects != ''}" action="{!EditExisting_Save}" reRender="PageMessages"/>
+                        &nbsp;<apex:actionStatus id="EditExistingButtonStatus" startText="{!$Label.sma__ma_please_wait}..."/>
+                    </apex:outputPanel>
+                </apex:pageBlockButtons>
+                
+                
+                
+                <apex:pageBlockSection columns="1" title="{!$Label.sma__ma_choose_a_base_object}" collapsible="false">
+                    <apex:pageBlockSectionItem >
+                        {!$Label.sma__ma_base_object}
+                        <apex:outputPanel id="EditExistingBaseObject" >
+                            <apex:selectList size="1" value="{!SelectedCurrentBaseObjects}">
+                                <apex:selectOptions value="{!CurrentBaseObjects}"/>
+                                <apex:actionSupport event="onchange" action="{!EditExisting_BaseObjectSelected}" status="EditExistingObjectSelectedStatus" reRender="ExistingSelectedAvailableObjectOP,PageMessages,EditExistingButtons" oncomplete="jscolor.init();"/>
+                            </apex:selectList>
+                            &nbsp;<apex:actionStatus id="EditExistingObjectSelectedStatus" startText="{!$Label.sma__ma_please_wait}..."/>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+                
+                <apex:outputPanel id="ExistingSelectedAvailableObjectOP">
+                
+                    
+                        
+                    <apex:pageBlockSection title="{!$Label.sma__ma_base_object_details}" collapsible="false" rendered="{!SelectedCurrentBaseObjects!= ''}" columns="2">
+                        <apex:inputField value="{!EditBaseObject.sma__Name__c}"/>
+                        
+                        
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_address_location}
+                            <apex:outputPanel >
+                                <apex:selectList value="{!EditBaseObject.sma__AddressObject__c}"  size="1">
+                                    <apex:selectOptions value="{!RelationshipFields}"/>
+                                    <apex:actionSupport event="onchange" action="{!EditExisting_AddressObjectSelected}" status="EditExistingAddressObjectSelectedStatus" reRender="ExistingSelectedAvailableObjectOP,PageMessages"/>
+                                </apex:selectList>
+                                &nbsp;<apex:actionStatus id="EditExistingAddressObjectSelectedStatus" startText="{!$Label.sma__ma_please_wait}..."/>
+                            </apex:outputPanel>
+                           
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                    
+                    
+                    <apex:pageBlockSection title="{!$Label.sma__ma_address_fields}" collapsible="false" rendered="{!SelectedCurrentBaseObjects!= ''}" columns="2">
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_street} 
+                            <apex:outputPanel id="Street">
+                                <apex:SelectList value="{!EditBaseObject.sma__Street__c}"  size="1">
+                                    <apex:selectoptions value="{!AddressFields}" />
+                                </apex:SelectList>
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_postal_code}
+                            <apex:SelectList value="{!EditBaseObject.sma__PostalCode__c}" id="PostalCode" size="1">
+                                <apex:selectoptions value="{!AddressFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        
+                        
+                        
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_city}
+                            <apex:SelectList value="{!EditBaseObject.sma__City__c}" id="City" size="1">
+                                <apex:selectoptions value="{!AddressFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_country}
+                            <apex:SelectList value="{!EditBaseObject.sma__Country__c}" id="Country" size="1">
+                                <apex:selectoptions value="{!AddressFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        
+                        
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_state}
+                            <apex:SelectList value="{!EditBaseObject.sma__State__c}" id="State" size="1">
+                                <apex:selectoptions value="{!AddressFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        
+                        
+                        
+                        
+                    </apex:pageBlockSection>
+                    
+                    <apex:pageBlockSection title="{!$Label.sma__ma_coordinate_fields}" collapsible="false" rendered="{!SelectedCurrentBaseObjects!= ''}">
+                        
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_latitude}
+                            <apex:SelectList value="{!EditBaseObject.sma__Latitude__c}" size="1">
+                                <apex:selectoptions value="{!CoordinateFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        
+                        
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_longitude}
+                            <apex:SelectList value="{!EditBaseObject.sma__Longitude__c}" size="1">
+                                <apex:selectoptions value="{!CoordinateFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        
+                    </apex:pageBlockSection>
+                    
+                    
+                    <apex:pageBlockSection columns="2" title="{!$Label.sma__ma_clean_address_fields}" rendered="{!SelectedCurrentBaseObjects != ''}" collapsible="false" >
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_clean_street}
+                            <apex:SelectList value="{!EditBaseObject.sma__CleanStreet__c}" size="1">
+                                <apex:selectoptions value="{!AddressFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_similarity}
+                            <apex:SelectList value="{!EditBaseObject.sma__Similarity__c}" size="1">
+                                <apex:selectoptions value="{!SimilarityFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        
+                        
+                        
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_clean_city}
+                            <apex:SelectList value="{!EditBaseObject.sma__CleanCity__c}" size="1">
+                                <apex:selectoptions value="{!AddressFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_quality}
+                            <apex:SelectList value="{!EditBaseObject.sma__Quality__c}" size="1">
+                                <apex:selectoptions value="{!QualityFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        
+                        
+                        
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_clean_state}
+                            <apex:SelectList value="{!EditBaseObject.sma__CleanState__c}" size="1">
+                                <apex:selectoptions value="{!AddressFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_clean_county}
+                            <apex:SelectList value="{!EditBaseObject.sma__CleanCounty__c}" size="1">
+                                <apex:selectoptions value="{!AddressFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_clean_postal_code}
+                            <apex:SelectList value="{!EditBaseObject.sma__CleanPostalCode__c}" size="1">
+                                <apex:selectoptions value="{!AddressFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_clean_district}
+                            <apex:SelectList value="{!EditBaseObject.sma__CleanDistrict__c}" size="1">
+                                <apex:selectoptions value="{!AddressFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        
+                        
+                        
+                        
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_clean_country}
+                            <apex:SelectList value="{!EditBaseObject.sma__CleanCountry__c}" size="1">
+                                <apex:selectoptions value="{!AddressFields}" />
+                            </apex:SelectList>
+                        </apex:pageBlockSectionItem>
+                        
+                        
+                    </apex:pageBlockSection>
+                   
+                    <apex:pageBlockSection title="{!$Label.sma__ma_map_it_settings}" columns="1" rendered="{!SelectedCurrentBaseObjects!= ''}">
+                        <div style='color: #757575; font-weight: bold;'>{!$Label.MA_MapIt_Info}</div>
+                    
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_marker_color}
+                            <apex:inputText value="{!markerColor}" styleClass="color" size="10" >
+                                <apex:actionSupport event="onchange" action="{!buildMapItURL}" rerender="MapItOP" status="tooltipStatus"/>
+                            </apex:inputText>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_tooltip} {!$Label.sma__ma_field} 1
+                            <apex:selectList value="{!tooltipFieldName}" size="1" multiselect="false">
+                                <apex:selectOptions value="{!tooltipOptions}" />                                
+                                <apex:actionSupport event="onchange" action="{!buildMapItURL}" rerender="MapItOP" status="tooltipStatus"/>
+                            </apex:selectList>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_tooltip} {!$Label.sma__ma_field} 2
+                            <apex:selectList value="{!tooltipFieldName2}" size="1" multiselect="false">
+                                <apex:selectOptions value="{!tooltipOptions}" />                                
+                                <apex:actionSupport event="onchange" action="{!buildMapItURL}" rerender="MapItOP" status="tooltipStatus"/>
+                            </apex:selectList>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_tooltip} {!$Label.sma__ma_field} 3
+                            <apex:selectList value="{!tooltipFieldName3}" size="1" multiselect="false">
+                                <apex:selectOptions value="{!tooltipOptions}" />                                
+                                <apex:actionSupport event="onchange" action="{!buildMapItURL}" rerender="MapItOP" status="tooltipStatus"/>
+                            </apex:selectList>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_tooltip} {!$Label.sma__ma_field} 4
+                            <apex:selectList value="{!tooltipFieldName4}" size="1" multiselect="false">
+                                <apex:selectOptions value="{!tooltipOptions}" />                                
+                                <apex:actionSupport event="onchange" action="{!buildMapItURL}" rerender="MapItOP" status="tooltipStatus"/>
+                            </apex:selectList>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_tooltip} {!$Label.sma__ma_field} 5
+                            <apex:selectList value="{!tooltipFieldName5}" size="1" multiselect="false">
+                                <apex:selectOptions value="{!tooltipOptions}" />                                
+                                <apex:actionSupport event="onchange" action="{!buildMapItURL}" rerender="MapItOP" status="tooltipStatus"/>
+                            </apex:selectList>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_tooltip} {!$Label.sma__ma_field} 6
+                            <apex:selectList value="{!tooltipFieldName6}" size="1" multiselect="false">
+                                <apex:selectOptions value="{!tooltipOptions}" />                                
+                                <apex:actionSupport event="onchange" action="{!buildMapItURL}" rerender="MapItOP" status="tooltipStatus"/>
+                            </apex:selectList>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_tooltip} {!$Label.sma__ma_field} 7
+                            <apex:selectList value="{!tooltipFieldName7}" size="1" multiselect="false">
+                                <apex:selectOptions value="{!tooltipOptions}" />                                
+                                <apex:actionSupport event="onchange" action="{!buildMapItURL}" rerender="MapItOP" status="tooltipStatus"/>
+                            </apex:selectList>
+                        </apex:pageBlockSectionItem>
+                            
+                        <apex:pageBlockSectionItem >
+                            {!$Label.sma__ma_button_url}
+                            <apex:outputPanel id="MapItOP"> 
+                                <apex:actionStatus id="tooltipStatus">
+                                    <apex:facet name="start">
+                                        {!$Label.sma__ma_loading}...
+                                    </apex:facet>                                    
+                                    <apex:facet name="stop">
+                                        <span id="OutputURL">{!mapItURL}</span>                                        
+                                    </apex:facet>                                    
+                                </apex:actionStatus>                                
+                            </apex:outputPanel> 
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+                
+                
+            </apex:pageBlock>
+        </apex:tab>
+        
+        
+        <apex:tab label="{!$Label.sma__ma_remove_existing}" styleClass="tabc">
+            <apex:pageBlock >
+                <apex:pageBlockButtons location="bottom" >
+                    <apex:outputPanel id="DeleteExistingButtons">
+                        <apex:commandButton value="Delete" status="DeleteExistingButtonStatus" action="{!DeleteBaseObject}" reRender="PageMessages,EditExistingBaseObject,DeleteExistingBaseObject"/>
+                        &nbsp;<apex:actionStatus id="DeleteExistingButtonStatus" startText="{!$Label.sma__ma_please_wait}..."/>
+                    </apex:outputPanel>
+                </apex:pageBlockButtons>
+                
+                
+                <apex:pageBlockSection columns="1" title="{!$Label.sma__ma_choose_a_base_object}" collapsible="false">
+                    <apex:pageBlockSectionItem >
+                        {!$Label.sma__ma_base_object}
+                        <apex:outputPanel id="DeleteExistingBaseObject" >
+                            <apex:selectList size="1" value="{!SelectedCurrentBaseObjectToDelete}">
+                                <apex:selectOptions value="{!CurrentBaseObjects}"/>
+                            </apex:selectList>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+        </apex:tab>
+    
+    </apex:tabPanel>
+        
+        
+</apex:form>
+</apex:page>

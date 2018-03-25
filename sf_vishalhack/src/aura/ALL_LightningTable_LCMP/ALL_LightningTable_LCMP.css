@@ -1,0 +1,25 @@
+.THIS.outerScroller 
+{
+    height: 300px;
+}
+
+.THIS .width200 {
+    width:200px;
+}
+
+.THIS .width40Percent {
+    width:40%;
+}
+
+.THIS .width30PercentFloatLeft {
+    width:30%;
+    float:left;
+}
+
+.THIS .white-text-button {
+    color: white !important;
+}
+
+.THIS .white-text-button span, .THIS .white-text-button div { 
+	color: white !important;
+}

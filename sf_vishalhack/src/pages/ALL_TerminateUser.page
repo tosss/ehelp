@@ -1,0 +1,35 @@
+<!--2017-03-23- anirudh.singh@cdk.com- Modified this Visualforce Page for RQ-08829 Termination Process.-->
+<apex:page standardController="User" extensions="ALL_TerminateUser_Controller">
+    <apex:includeScript value="{!URLFOR($Resource.ALL_TerminateUser_JS)}"/>
+    
+    <apex:stylesheet value="{!URLFOR($Resource.ALL_TerminateUser_CSS)}"/>
+    
+    <div class="terminateUserComp">
+        <apex:outputPanel >
+            <apex:form >
+                <apex:actionFunction action="{!invokeTerminateUserWebService}" name="invokeWebService" reRender="statusBlock" 
+                                     oncomplete="showAlert('{!statusMessage}',{!isLockError});"/>
+                
+                <apex:actionStatus id="terminateUserStatus" onstart="showLoadingIcon();" onstop="hideLoadingIcon();"/>
+                
+                <div class="terminateUserBtnDiv" id="terminateUserBtnDiv">
+                    <apex:commandButton styleClass="terminateUserBtn" value="Terminate User" action="{!terminateUserVF}" 
+                                        oncomplete="invokeWebService();" status="terminateUserStatus" 
+                                        rendered="{!hasPermissions}" reRender="statusBlock" timeout="120000"/>
+                </div>
+                
+                <div id="terminateLoadingImage" class="noDisplay">
+                    <img class="waitingImage" src="/img/loading32.gif" title="Please Wait..."/>
+                    <span class="waitingImageText">Processing...</span>
+                </div>
+            </apex:form>
+        </apex:outputPanel>
+        
+        <apex:outputPanel id="statusBlock">
+            <br/>
+            <apex:outputText escape="false" styleClass="termUserStatusMsg" value="{!statusMessage}"/>
+            <br/>
+            <apex:outputText escape="false" value="{!reason}"/>
+        </apex:outputPanel>
+    </div>
+</apex:page>

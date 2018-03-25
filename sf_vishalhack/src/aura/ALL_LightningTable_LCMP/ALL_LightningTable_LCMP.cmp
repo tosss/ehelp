@@ -1,0 +1,68 @@
+<aura:component controller="CB_LaunchNotes_Handler">
+    <aura:attribute name="sObjects" type="sObject[]" />    
+    <aura:attribute name="LaunchId" type="String" />
+    <aura:attribute name="NotesType" type="String" />
+    <aura:attribute name="userName" type="String" />
+    <aura:attribute name="DisplayForm" type="Boolean" />
+    <aura:registerEvent name="UpdateAllNotes" type="c:CB_UpdateLaunchNotesList_LEVT"/>
+    
+    <aura:attribute name="newLaunchNotes" type="Launch_Notes__c"
+                    default="{ 'sobjectType': 'Launch_Notes__c',                             
+                             'Date__c': '',
+                             'unknown_custom_field': '',
+                             'unknown_custom_field': '',
+                             'Launch_Id__c': ''}"/>
+    <!--aura:handler name="init" value="{!this}" action="{!c.doInit}"/-->
+    <div class="slds-float--left" style="width:27%">
+        <aura:if isTrue="{!v.DisplayForm}">
+            
+                <div aria-labelledby="newlaunchnotes">
+                    
+                    <fieldset class="slds-box slds-theme--default center slds-container--large">
+                        
+                        <legend id="newlaunchnotesform" class="slds-text-heading--small 
+                                                               slds-p-vertical--medium">
+                            Add New Notes
+                        </legend>
+                        
+                        <form class="slds-form--stacked">
+                            
+                            <div class="slds-form-element">
+                                <ui:inputDate aura:id="date" label="Date"
+                                              class="slds-input width200"
+                                              labelClass="slds-form-element__label"
+                                              value="{!v.newLaunchNotes.Date__c}"
+                                              displayDatePicker="true" />
+                                
+                            </div>
+                            
+                            <!--div class="slds-form-element">
+                        <ui:inputSelect aura:id="status" label="Status"
+                                        class="slds-input"
+                                        labelClass="slds-form-element__label"
+                                        value="{!v.newLaunchNotes.Status__c}"/>
+                        
+                    </div-->
+                            
+                            <div class="slds-form-element">
+                                <ui:inputTextArea aura:id="notes" label="Notes" class="slds-input"
+                                                  labelClass="slds-form-element__label"
+                                                  value="{!v.newLaunchNotes.Notes__c}" rows="6"/>
+                            </div>
+                            
+                            <div class="slds-form-element">
+                                
+                                <ui:button class="slds-button slds-button--brand white-text-button" label="Create Notes" press="{!c.createNotes}"  />
+                            </div>
+                            
+                        </form>
+                    </fieldset>
+                </div>
+
+        </aura:if>
+    </div>
+    <div>
+        <c:ALL_LightningTableBody_LCMP sObjects="{!v.sObjects}" userName="{!v.userName}"/>
+    </div>
+   
+</aura:component>

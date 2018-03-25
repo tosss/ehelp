@@ -1,0 +1,17 @@
+<design:component label="Image Banner">
+    <design:attribute name="bannerImageUrl" label="Image: URL" description="Add an image URL. Must start with http:// or https:// for external pages." />
+	<design:attribute name="height"  label="Image: Height(px)" description="Image Height in px" />
+    <design:attribute name="textPosition" label="Caption: Position" description="Overlay (Caption on top of image)" datasource="overlay,top,middle,bottom,card"/>	
+    <design:attribute name="textHeight" label="Caption: Height(Not applicable for overlay position. In Px)" description="Caption: Height(Not applicable for overlay position. In Px)" />	
+    <design:attribute name="textOverlayBackground" label="Caption: Background Color" description="Opacity of overlay background controlled by RGBA color values." default="rgba(0,0,0,0.4)"/>	
+    <design:attribute name="textAlign" label="Caption: Alignment" description="Choose alignment of text: left, center, right" datasource="left,center,right"/>	
+    <design:attribute name="title" label="Caption: Title(Html tags allowed)" description="Craft a short attention-grabbing banner title." />
+    <design:attribute name="titleColor" label="Caption: Title Text Color" description="Banner title text supports Hex color codes." default="#fff"/>
+    <design:attribute name="titleSize" label="Caption: Title Text Size" description="Choose an appropriate banner title size." default="large" datasource="large,medium,small"/>
+    <design:attribute name="description" label="Caption: Body(Html tags allowed)" description="Add an enticing summary of your content." />
+    <design:attribute name="descriptionColor" label="Caption: Body Text Color" description="Description text supports Hex color codes." default="#fff"/>
+    <design:attribute name="descriptionSize" label="Caption: Body Text Size" description="Choose an appropriate Body text size." default="regular" datasource="regular,small"/>
+    <design:attribute name="buttonLabel" label="Caption: Action Label" description="Short text for call-to-action button." />
+    <design:attribute name="buttonUrl" label="Caption: Action URL" description="Add a destination URL for button. Must start with http:// or https://" />	
+    <design:attribute name="buttonVariant" label="Caption: Action Variant" description="Choose a button design: Branding Editor, Neutral, or Bare." default="brand" datasource="brand,base,neutral"/>	
+</design:component>

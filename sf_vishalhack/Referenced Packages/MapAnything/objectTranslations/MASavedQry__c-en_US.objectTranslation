@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>MapAnything Saved Query</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>MapAnything Saved Queries</value>
+    </caseValues>
+    <fields>
+        <label><!-- Activity Filter --></label>
+        <name>ActivityFilter__c</name>
+    </fields>
+    <fields>
+        <label><!-- Advanced Options --></label>
+        <name>AdvancedOptions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Base Object --></label>
+        <name>BaseObject__c</name>
+        <relationshipLabel><!-- MapAnything Saved Queries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Cache Interval --></label>
+        <name>CacheInterval__c</name>
+    </fields>
+    <fields>
+        <label><!-- Color Assignment Type --></label>
+        <name>ColorAssignmentType__c</name>
+        <picklistValues>
+            <masterLabel>Dynamic, Field</masterLabel>
+            <translation><!-- Dynamic, Field --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Static</masterLabel>
+            <translation><!-- Static --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Color Assignment --></label>
+        <name>ColorAssignment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Colors Assigned Dynamically --></label>
+        <name>ColorsAssignedDynamically__c</name>
+    </fields>
+    <fields>
+        <label><!-- Custom Query --></label>
+        <name>CustomQuery__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Filter Logic --></label>
+        <name>FilterLogic__c</name>
+    </fields>
+    <fields>
+        <label><!-- Folder --></label>
+        <name>Folder__c</name>
+        <relationshipLabel><!-- MapAnything Saved Queries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Icon Color --></label>
+        <name>IconColor__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Cache Date --></label>
+        <name>LastCacheDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Max Query Size --></label>
+        <name>MaxQuerySize__c</name>
+    </fields>
+    <fields>
+        <label><!-- # Caches --></label>
+        <name>NumCaches__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order --></label>
+        <name>Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Organization Wide --></label>
+        <name>OrgWide__c</name>
+    </fields>
+    <fields>
+        <label><!-- OwnerFilterId --></label>
+        <name>OwnerFilterId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Picklist Field --></label>
+        <name>PicklistField__c</name>
+    </fields>
+    <fields>
+        <label><!-- Proximity Options --></label>
+        <name>ProximityOptions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Query Components --></label>
+        <name>QueryComponents__c</name>
+    </fields>
+    <fields>
+        <label><!-- Query Key --></label>
+        <name>QueryKey__c</name>
+    </fields>
+    <fields>
+        <label><!-- Query --></label>
+        <name>Query__c</name>
+    </fields>
+    <fields>
+        <label><!-- Refresh Interval --></label>
+        <name>RefreshInterval__c</name>
+    </fields>
+    <fields>
+        <label><!-- Related List Count --></label>
+        <name>RelatedListCount__c</name>
+    </fields>
+    <fields>
+        <label><!-- RoleId --></label>
+        <name>RoleId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Row Limit --></label>
+        <name>RowLimit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Row Order Direction --></label>
+        <name>RowOrderDirection__c</name>
+    </fields>
+    <fields>
+        <label><!-- Row Order --></label>
+        <name>RowOrder__c</name>
+    </fields>
+    <fields>
+        <label><!-- ShapeAssignment --></label>
+        <name>ShapeAssignment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shape Field --></label>
+        <name>ShapeField__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tooltip One --></label>
+        <name>Tooltip1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tooltip Two --></label>
+        <name>Tooltip2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tooltip Three --></label>
+        <name>Tooltip3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tooltip Four --></label>
+        <name>Tooltip4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tooltip Five --></label>
+        <name>Tooltip5__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tooltip Six --></label>
+        <name>Tooltip6__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tooltip Seven --></label>
+        <name>Tooltip7__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tooltip Eight --></label>
+        <name>Tooltip8__c</name>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>User__c</name>
+        <relationshipLabel><!-- MapAnything Saved Queries --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Saved Query Layout</layout>
+        <sections>
+            <label><!-- Color --></label>
+            <section>Color</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Tooltips --></label>
+            <section>Tooltips</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

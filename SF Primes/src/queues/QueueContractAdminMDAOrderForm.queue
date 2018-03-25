@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
-    <doesSendEmailToMembers>false</doesSendEmailToMembers>
-    <email>seacontractadminsalesorder@cdk.com</email>
-    <name>Queue - Contract Admin - MDA/Orderform</name>
-    <queueSobject>
-        <sobjectType>CB_Submit_Order__c</sobjectType>
-    </queueSobject>
-</Queue>

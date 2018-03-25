@@ -1,0 +1,45 @@
+<!--2016-07-26- anirudh.singh@cdk.com- Created this class for RQ-07332.-->
+<aura:component implements="force:appHostable,forceCommunity:availableForAllPageTypes" access="global"
+                controller="EMP_LinkCollection_Controller">
+    <ltng:require styles="{!'/resource/FontAwesome/4.6.1/css/font-awesome.css'}"/>
+    
+    <aura:attribute name="collectionName" type="String" default="Home Page Links" description="The name of the Link Collection. Use 'My Links' for displaying User Personal Links."/>
+    <aura:attribute name="linksWrapperList" type="EMP_LinkCollection_Controller.LinkWrapper[]" />
+    <aura:attribute name="color" type="String" default="Green" access="global" />
+        <aura:attribute name="headerName" type="String" default="Featured Links" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.displayLinkCollection}"/>
+    <div><!-- .THIS -->
+        <div class="lc">
+            <div class="">
+                <h2 class="{! 'lc-' + v.color + '-header-border-bottom title' }">{!v.headerName}</h2>
+                <ul class="fa-ul">
+                    <aura:iteration items="{!v.linksWrapperList}" var="linkWrapperRecord">
+                        <li class="link-collection-row">
+                            
+                            <aura:if isTrue="{!linkWrapperRecord.addedToMyLinks=='Yes'}">
+                                <i class="fa-li fa fa-check fa-default-icon" title="Added to My Links. View the My Links component to remove."></i>
+                            </aura:if>
+                            <aura:if isTrue="{!linkWrapperRecord.addedToMyLinks!='Yes'}">
+                                <i class="fa-li fa fa-angle-right fa-default-icon"></i>
+                            </aura:if>
+                            <aura:if isTrue="{!linkWrapperRecord.addedToMyLinks=='No'}">
+                                <i class="fa-li fa fa-plus-circle fa-hidden-icon" title="Add to My Links." data-linkid="{!linkWrapperRecord.link.Id}" onclick="{!c.addToUserLinks}"></i>
+                            </aura:if>
+                            <aura:if isTrue="{!linkWrapperRecord.addedToMyLinks==null}">
+                                <i class="fa-li fa fa-times-circle fa-hidden-icon" title="Remove from My Links." data-linkid="{!linkWrapperRecord.link.Id}" onclick="{!c.removeFromUserLinks}"></i>
+                            </aura:if>
+                            <a href="{!linkWrapperRecord.link.Link_URL__c}" target="{!linkWrapperRecord.link.Link_Target__c}">{!linkWrapperRecord.link.Link_Text__c}</a>
+                            
+                        </li>
+                    </aura:iteration>
+                </ul>
+                <div class="lc-message">
+                    <aura:if isTrue="{!v.linksWrapperList.length==0}">
+                        <div class="info-message">There are currently no Links to display.</div>
+                    </aura:if>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

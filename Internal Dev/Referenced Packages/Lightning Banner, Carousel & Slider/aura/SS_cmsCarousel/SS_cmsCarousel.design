@@ -1,0 +1,14 @@
+<design:component label="Carousel/Slider">
+	<design:attribute name="datasource"  label="Data Source" description="Build your carousel/slider using the Carousel object or json." datasource="json, carousel-object"/>
+    <design:attribute name="datasourceInput" label="Data Source Input" description="Input the name of your Carousel object record or json object data."/>
+    <design:attribute name="title"  label="Title" description="Craft a short attention-grabbing carousel/slider title. Accepts HTML tags!" />
+	<design:attribute name="titleAlign"  label="Title Text Alignment" description="Choose alignment of title text: left, center, right" datasource="left,center,right"/>
+	<design:attribute name="titleSize"  label="Title Text Size" description="Choose size of title text: small, medium, large" datasource="small,medium,large"/>
+    <design:attribute name="slidesPerPage" label="Slides Per Page" default="3" description="Choose number of slides to appear in carousel at once before pagination." />
+	<design:attribute name="autoPlay"  label="Auto Play" description="If checked (set to true), the carousel/slider will autoplay." />
+	<design:attribute name="autoPlayInterval"  label="Auto Play Interval(ms)" description="Specify autoplay speed. Ie. 2000ms = 2 seconds." />
+    <design:attribute name="showControls"  label="Show Controls" description="Show Pagination and Navigation Controls" />
+    <design:attribute name="controlsAlignment"  label="Controls Alignment" description="Alignment of Controls: left, center, right" datasource="left,center,right"/>
+    <design:attribute name="controlsPosition"  label="Controls Position" description="Position of Controls - Overlay or below the Slider" datasource="overlay,bottom"/>
+
+</design:component>

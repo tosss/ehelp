@@ -1,0 +1,16 @@
+<aura:component >
+    <aura:attribute type="String" name="header" />
+    <aura:attribute name="body" type="Aura.Component[]"/>
+    <aura:attribute name="collpaseText" type="String" default=""/>
+    <aura:attribute name="collapseStyle" type="String" default="fa-li fa fa-chevron-circle-right expandCollapse"/>
+    
+    <div>
+        <div class="collapseIcon">
+            <i class="{!v.collapseStyle}" onclick="{!c.ToggleCollapse}" aura:id="collapseText"> {!v.collpaseText} </i>
+            <div style="width:90%; float:left; "> {!v.header} </div>
+        </div> 
+        <div class="hide" aura:id="containerCollapsable">
+            {!v.body}
+        </div>
+    </div>
+</aura:component>

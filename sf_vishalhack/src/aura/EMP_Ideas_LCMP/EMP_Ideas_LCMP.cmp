@@ -1,0 +1,291 @@
+<!--2017-02-15- anirudh.singh@cdk.com- Created this Lightning Component.-->
+<aura:component implements="force:appHostable,forceCommunity:availableForAllPageTypes" access="global" controller="EMP_Ideas_Controller">
+    <ltng:require styles="{!join(',', 
+                          '/resource/animate', 
+                          $Resource.FontAwesome+'/4.6.1/css/font-awesome.css', 
+                          $Resource.Bootstrap+'/ideasComponentDiv/bootstrap.min.css')}" 
+                  scripts="{!join(',', 
+                           $Resource.jQuery+'/js/jquery-1.11.2.min.js', 
+                           $Resource.Bootstrap+'/js/bootstrap.min.js', 
+                           '/resource/isotope', 
+                           '/resource/modernizr', 
+                           '/resource/timeago')}" afterScriptsLoaded="{!c.initialize}"/>
+    
+    <aura:attribute name="ideasList" type="Idea[]"/>
+    <aura:attribute name="selectedIdea" type="Idea"/>
+    <aura:attribute name="ideaCommentsList" type="IdeaComment[]"/>
+    <aura:attribute name="newIdeaComment" type="IdeaComment" default="{'sobjectType': 'IdeaComment', 'CommentBody': ''}"/>
+    <aura:attribute name="newIdea" type="Idea" default="{'sobjectType': 'Idea', 'Title': '', 'Body': ''}"/>
+    <aura:attribute name="ideasZone" type="String" default="IT Support Community"/>
+    
+    <!--Fix for IE Scrollbar Issue-->
+    <style>
+        html
+        {
+        -ms-overflow-style: scrollbar;
+        }
+    </style>
+    
+    <div class="ideasComponentDiv">
+        <div class="ideasComponentContent">
+            <input class="currentUserImg" type="hidden"/>
+            <input class="currentIdeaId" type="hidden"/>
+            
+            <!--Spinner-->
+            <div class="modal fade ideasSpinnerDiv" id="ideasSpinnerDiv" tabindex="-1" role="dialog" aria-labelledby="modalDialogLabel" aria-hidden="true"
+                 data-keyboard="false" data-backdrop="static">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td><h3>Please Wait...</h3></td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fa fa-spinner fa-spin fa-2x"></i></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!--Header-->
+            <div class="ideasHeader">
+                <nav class="navbar navbar-default ideasHeaderNav">
+                    <div class="navbar-header collapsedNavBar">
+                        <button type="button" class="navbar-toggle collapsed collapsedNavBarButton" data-toggle="collapse" data-target="#filterButtonsDiv">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <button type="button" class="btn navbar-btn collapsedCreateIdeaBtn" data-toggle="modal" 
+                                data-target="#createIdeaModal" title="Create Idea">Create Idea</button>
+                    </div>
+                    
+                    <div class="collapse navbar-collapse filterButtonsDiv" id="filterButtonsDiv">
+                        <ul class="nav navbar-nav filterButtonsUl">
+                            <li class="filterLabel">Sort By:</li>
+                            <li class="tabItem active">
+                                <a href="" class="filterbutton" data-sort-value="freshFilterInput" title="Sort By Newest">Newest</a>
+                            </li>
+                            <li class="tabItem">
+                                <a href="" class="filterbutton" data-sort-value="trendingFilterInput" title="Sort By Trending">Trending</a>
+                            </li>
+                            <li class="tabItem">
+                                <a href="" class="filterbutton" data-sort-value="commentsFilterInput" title="Sort By Comments">Comments</a>
+                            </li>
+                            <li class="tabItem">
+                                <a href="" class="filterbutton" data-sort-value="voteTotalFilterInput" title="Sort By Votes">Votes</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="createIdeaBtnDiv">
+                        <button type="button" class="btn navbar-btn createIdeaBtn" data-toggle="modal" 
+                                data-target="#createIdeaModal" title="Create Idea">Create Idea</button>
+                    </div>
+                </nav>
+            </div>
+            
+            <!--Idea Cards-->
+            <div class="ideasListDiv">
+                <aura:iteration items="{!v.ideasList}" var="ideaRecord">
+                    <div class="ideaCard col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                        <input class="ideaId" type="hidden" value="{!ideaRecord.Id}"/>
+                        
+                        <div class="ideaDetailsDiv" onclick="{!c.openIdea}">
+                            <table class="table ideaCardTable">
+                                <tr class="ideaCardTableRow">
+                                    <td class="creatorImg">
+                                        <div class="creatorImgDiv">
+                                            <img src="{!ideaRecord.CreatorSmallPhotoUrl}" title="{!ideaRecord.CreatorName}"/>
+                                        </div>
+                                    </td>
+                                    
+                                    <td class="cardDetails">
+                                        <aura:if isTrue="{!ideaRecord.NumComments>0}">
+                                            <div class="ideaNoCommentsDiv">
+                                                <span class="ideaNoCommentsArrow"></span>
+                                                <span class="ideaNoCommentsSpan" title="{!ideaRecord.NumComments+' Comment(s) present'}">{!ideaRecord.NumComments}</span>
+                                            </div>
+                                        </aura:if>
+                                        
+                                        <h3 class="cardTitle" title="{!ideaRecord.Title}">{!ideaRecord.Title}</h3>
+                                        <div class="createdBy" title="{!'Created by '+ideaRecord.CreatorName}">by {!ideaRecord.CreatorName}</div>
+                                        <div class="dateDiv">
+                                            <ui:outputDate class="createdDate" value="{!ideaRecord.CreatedDate}"/>
+                                            <span class="timeagoSpan"> - </span>
+                                            <span class="timeago case-date createdDate timeagoSpan" title="{!ideaRecord.CreatedDate}">{!ideaRecord.CreatedDate}</span>
+                                        </div>
+                                        
+                                        <!--Hidden to be used for filtering.-->
+                                        <input type="hidden" class="freshFilterInput" value="{!ideaRecord.CreatedDate}"/>
+                                        <input type="hidden" class="trendingFilterInput" value="{!ideaRecord.VoteScore}"/>
+                                        <input type="hidden" class="commentsFilterInput" value="{!ideaRecord.NumComments}"/>
+                                        <input type="hidden" class="voteTotalFilterInput" value="{!ideaRecord.VoteTotal}"/>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <div class="progress ideaProgressDiv">
+                                <div class="progress-bar progress-bar-success" role="progressbar" data-ideavotescore="{!ideaRecord.VoteScore}" aria-valuenow="{!ideaRecord.VoteScore}"
+                                     aria-valuemin="0" aria-valuemax="20" style="width: 0%">
+                                    <span class="sr-only">{!ideaRecord.VoteScore}%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aura:iteration>
+            </div>
+            
+            <!--Idea Details Modal Dialog-->
+            <div class="modal fade ideaDetailModalDialog" id="ideaDetailModalDialog" tabindex="-1" role="dialog" aria-labelledby="modalDialogLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <!--Idea Details Header-->
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            
+                            <!--Idea Title-->
+                            <h3 class="modal-title" id="modalDialogLabel">{!v.selectedIdea.Title}</h3>
+                            <hr class="titleHr"/>
+                            
+                            <!--Idea Desc-->
+                            <aura:if isTrue="{!and(v.selectedIdea.Body!=null, v.selectedIdea.Body!='', v.selectedIdea.Body!=undefined)}">
+                                <div class="ideaDesc">
+                                    <ui:outputRichText value="{!v.selectedIdea.Body}"/>
+                                </div>
+                            </aura:if>
+                            
+                            <!--Idea Attachment-->
+                            <aura:if isTrue="{!and(v.selectedIdea.AttachmentName!=null, v.selectedIdea.AttachmentName!='', v.selectedIdea.AttachmentName!=undefined)}">
+                                <div class="ideaAttachment">
+                                    <i class="fa fa-paperclip ideaAttachmentIcon" aria-hidden="true"></i>
+                                    <ui:outputURL value="{!'/servlet/fileField?entityId='+v.selectedIdea.Id+'&amp;field=AttachmentBody'}" 
+                                                  label="{!v.selectedIdea.AttachmentName}" target="_blank"/>
+                                </div>
+                            </aura:if>
+                            
+                            <!--Idea Voting Buttons-->
+                            <div class="ideaVoteDiv">
+                                <div class="ideaVoteCount">
+                                    <span class="ideaVoteCountLabel">Points: </span>
+                                    <span class="ideaVoteCountNumber">{!v.selectedIdea.VoteTotal}</span>
+                                </div>
+                                <div class="ideaVoteIconsDiv">
+                                    <i class="fa fa-thumbs-up voteUpIcon" aria-hidden="true" onclick="{!c.submitUpVote}"></i>
+                                    <i class="fa fa-thumbs-down voteDownIcon" aria-hidden="true" onclick="{!c.submitDownVote}"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!--Idea Details Body-->
+                        <div class="modal-body">
+                            <aura:if isTrue="{!and(v.ideaCommentsList!=null, v.ideaCommentsList!='', v.ideaCommentsList!=undefined, v.ideaCommentsList.length>0)}">
+                                <table class="table ideaCommentsTable">
+                                    <tbody>
+                                        <aura:iteration items="{!v.ideaCommentsList}" var="ideaComment" indexVar="i">
+                                            <tr class="commentFadeIn" style="{!'-webkit-animation-delay:'+i+'00ms;'}">
+                                                <td class="commentUserImg">
+                                                    <div class="commentUserImgDiv">
+                                                        <img src="{!ideaComment.CreatorSmallPhotoUrl}"/>
+                                                    </div>
+                                                </td>
+                                                <td class="ideaCommentBody">
+                                                    <div class="ideaCommentBodyDiv">
+                                                        <span class="ideaCommentBodyText"><ui:outputRichText value="{!ideaComment.CommentBody}"/></span>
+                                                        <span class="timeago case-date timeagoSpan" title="{!ideaComment.CreatedDate}">{!ideaComment.CreatedDate}</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </aura:iteration>
+                                    </tbody>
+                                </table>
+                            </aura:if>
+                        </div>
+                        
+                        <aura:if isTrue="{!and(v.ideaCommentsList!=null, v.ideaCommentsList!='', v.ideaCommentsList!=undefined, v.ideaCommentsList.length>0)}">
+                            <hr class="newCommentHr"/>
+                        </aura:if>
+                        
+                        <div class="newCommentRowDiv">
+                            <table class="table newCommentTable">
+                                <tbody>
+                                    <tr class="newCommentRow">
+                                        <td class="newCommentUserImg">
+                                            <div class="newCommentUserImgDiv">
+                                                <img src=""/>
+                                            </div>
+                                        </td>
+                                        
+                                        <td class="newCommentDesc">
+                                            <div class="inputDiv">
+                                                <ui:inputTextArea class="newCommentDescInput form-control" label="" value="{!v.newIdeaComment.CommentBody}" resizable="false"
+                                                                  placeholder="Enter your comment..."/>
+                                            </div>
+                                        </td>
+                                        
+                                        <td class="newCommentPost">
+                                            <button type="button" class="btn btn-success postIdeaCommentButton" onclick="{!c.postIdeaComment}">Post</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!--Footer is not needed-->
+                        <!--<div class="modal-footer"></div>-->
+                    </div>
+                </div>
+            </div>
+            
+            <!--Bootstrap modal to create idea.-->
+            <div class="modal fade createIdeaModal" id="createIdeaModal" tabindex="-1" role="dialog" aria-labelledby="modalDialogLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <!--Idea Details Header-->
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            
+                            <!--Idea Title-->
+                            <h3 class="modal-title" id="modalDialogLabel">Share an Idea</h3>
+                        </div>
+                        
+                        <!--Idea Details Body-->
+                        <div class="modal-body">
+                            <div class="inputDiv">
+                                <div class="newIdeaTitleDiv">
+                                    <ui:inputText class="form-control newIdeaTitle" label="" value="{!v.newIdea.Title}" required="true" placeholder="Enter Idea Title..."/>
+                                </div>
+                            </div>
+                            
+                            <div class="inputDiv newIdeaDescDiv">
+                                <ui:inputTextArea class="form-control newIdeaDesc" label="" value="{!v.newIdea.Body}" resizable="false" rows="4" 
+                                                  placeholder="Enter Idea Description..."/>
+                            </div>
+                            
+                            <div class="ideaFileDiv">
+                                <input type="file" class="ideaFile" aura:id="file"/>
+                                <div><b>Note: </b> Maximum file size allowed is 750 kilobytes.</div>
+                            </div>
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <div class="newIdeaFooterDiv">
+                                <button type="button" data-dismiss="modal" class="btn btn-default newIdeaCancelButton">Cancel</button>
+                                <button type="button" class="btn btn-success newIdeaPostButton" onclick="{!c.submitIdea}">Post</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

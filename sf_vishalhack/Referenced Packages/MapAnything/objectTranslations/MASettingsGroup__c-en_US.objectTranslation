@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>MapAnything Settings Group</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>MapAnything Settings Groups</value>
+    </caseValues>
+    <fields>
+        <label><!-- Allow Exports --></label>
+        <name>AllowExports__c</name>
+    </fields>
+    <fields>
+        <label><!-- Button Set --></label>
+        <name>ButtonSet__c</name>
+        <relationshipLabel><!-- MapAnything Settings Groups --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Editable Tooltips --></label>
+        <name>EditableTooltips__c</name>
+    </fields>
+    <fields>
+        <label><!-- Folder Admin --></label>
+        <name>FolderAdmin__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hide Personal Folder --></label>
+        <name>HidePersonalFolder__c</name>
+    </fields>
+    <fields>
+        <label><!-- Max Export Size --></label>
+        <name>MaxExportSize__c</name>
+    </fields>
+    <fields>
+        <label><!-- Max Query Size --></label>
+        <name>MaxQuerySize__c</name>
+    </fields>
+    <fields>
+        <label><!-- Profile --></label>
+        <name>Profile__c</name>
+    </fields>
+    <fields>
+        <label><!-- Show User Folders --></label>
+        <name>ShowUserFolders__c</name>
+    </fields>
+    <fields>
+        <label><!-- Show Weather --></label>
+        <name>ShowWeather__c</name>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>User__c</name>
+        <relationshipLabel><!-- MapAnything Settings Groups --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

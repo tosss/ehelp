@@ -1,0 +1,460 @@
+<apex:page sidebar="false" title="MapAnything" controller="sma.MapAnything" extensions="sma.MARemoteFunctions">
+	
+	<script>
+        var MARemoting = {
+            phase_4 : '{!$RemoteAction.MARemoteFunctions.GetRecords}',
+            getShapes : '{!$RemoteAction.MARemoteFunctions.GetShapeInfo}',
+            placeSearch : '{!$RemoteAction.MARemoteFunctions.googleAPISearch}',
+            geocodeRecord : '{!$RemoteAction.MARemoteFunctions.geoCodeRecord}',
+            live_phase_4 : '{!$RemoteAction.MARemoteFunctions.GetDevicesCurrentLocation}',
+            live_history: '{!$RemoteAction.MARemoteFunctions.GetLiveDeviceHistory}',
+            getEsriToken : '{!$RemoteAction.MARemoteFunctions.getEsriToken}',
+            getEsriRoute : '{!$RemoteAction.MARemoteFunctions.getEsriRoute}',
+            getDriveProfile : '{!$RemoteAction.MARemoteFunctions.getCustomDriveProfile}',
+            get_service_area: '{!$RemoteAction.MARemoteFunctions.getServiceArea}',
+            processAJAXRequest : '{!$RemoteAction.MARemoteFunctions.processAJAXRequest}',
+            processAJAXRequestReadOnly : '{!$RemoteAction.MARemoteFunctions.processAJAXRequestReadOnly}',
+            MapAnythingIORequest : '{!$RemoteAction.MARemoteFunctions.MapAnythingIORequest}',
+            searchMAObjectsForRecords : '{!$RemoteAction.MARemoteFunctions.searchMAObjectsForRecords}',
+            validateMABaseObjectTooltips : '{!$RemoteAction.MARemoteFunctions.validateMABaseObjectTooltips}',
+            MapAnythingIORequestPOST : '{!$RemoteAction.MARemoteFunctions.MapAnythingIORequestPOST}',
+            getRoute: '{!$RemoteAction.MARemoteFunctions.getRoute}'
+        }
+    </script>
+	
+	<!-- mapbox trial -->
+	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.1/mapbox-gl.css' rel='stylesheet' />
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+    <script type='text/javascript' src="{!URLFOR($Resource.MapAnything, 'jquery/jquery-ui.min.js')}"></script>
+    
+    <!-- async -->
+    <script type='text/javascript' src="{!URLFOR($Resource.MapAnything, 'async/async.min.js')}"></script>
+    
+    <!-- Lightning Design System 2.3.0 -->
+    <link type="text/css" rel="stylesheet" href="{!URLFOR($Resource.MapAnythingJS, 'styles/css/salesforce-lightning-design-system-vf-2.3.0.min.css')}" />
+    <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.MapAnythingJS, 'styles/oldOnPageStyle.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.sma__MapAnything, 'malayersv2/css/malayersv2.css')}" />
+    <script type='text/javascript' src="{!URLFOR($Resource.MapAnythingJS, 'JSHelperFunctions.js')}"></script>
+    <script type='text/javascript' src="{!URLFOR($Resource.MapAnythingJS, 'MAMarkerBuilder.js')}"></script>
+    
+	<apex:outputPanel layout="none" rendered="{!$Organization.Id != '00DA0000000hgHpMAI'}">
+		<p style='font-weight: bold;	'>This page has been deprecated, if you are seeing this message please contact your system administrator.</p>
+		<p>System Admins - In order to fix this issue you will need to update the MapAnything user permission for Version to Current. Please refer to this page for instructions.</p>
+		<p><a href='http://wiki.cloudbilt.com/mapanything/assign-user-permissions/' target='_blank' style='color: blue;'>http://wiki.cloudbilt.com/mapanything/assign-user-permissions/</a></p>
+	
+		<p style='color: #757575; font-size: 10px;'>Please contact MapAnything with any further questions.</p>
+	</apex:outputPanel>
+	
+	<apex:outputPanel layout="none" rendered="{!$Organization.Id == '00DA0000000hgHpMAI'}">
+		<div class="slds-scope" id="pageWrapper">
+			
+			<div id="sidebar-content">
+				<div id="tabs-nav">
+					<div id="tab-plotted">
+						<div class="slds-tabs_default">
+							<ul class="slds-tabs_default__nav" role="tablist">
+								<li class="slds-tabs_default__item slds-is-active" title="Recent" role="presentation">
+									<a class="slds-tabs_default__link" href="javascript:void(0);" role="tab" tabindex="0" aria-selected="true" aria-controls="layer-tab-recent" id="recent-queries__item">Recent</a>
+								</li>
+								<li class="slds-tabs_default__item" title="Saved" role="presentation">
+									<a class="slds-tabs_default__link" href="javascript:void(0);" role="tab" tabindex="0" aria-selected="true" aria-controls="layer-tab-folders" id="saved-queries__item">Saved</a>
+								</li>
+								<li class="slds-tabs_default__item" title="On Map" role="presentation">
+									<a class="slds-tabs_default__link" href="javascript:void(0);" role="tab" tabindex="0" aria-selected="true" aria-controls="layer-tab-plotted" id="plotted_tab__item">On Map</a>
+								</li>
+							</ul>
+							<div id="layer-tab-recent" class="slds-tabs_default__content slds-show" role="tabpanel" aria-labelledby="plotted_tab__item">
+								<div id="recent-queries"></div>
+							</div>
+							<div id="layer-tab-folders" class="slds-tabs_default__content slds-hide" role="tabpanel" aria-labelledby="plotted_tab__item">
+								<div id="folder-breadcrumb-wrap">
+									<div id="folder-breadcrumb"></div>
+								</div>
+								<div id="folder-contents"></div>
+							</div>
+							<div id="layer-tab-plotted" class="slds-tabs_default__content slds-hide" role="tabpanel" aria-labelledby="plotted_tab__item">
+								<div id="PlottedQueriesWrapper">
+									<div id="PlottedQueriesContainer">
+										<div id="PlottedQueriesTable"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div id="mapcontainer">
+				<div id="mapdiv"></div>
+			</div>
+			
+		</div>
+		
+		<div id="folderItem-template" style="display:none;">
+			<div id="::ID::" data-id="::DATA_ID::" class="folderItem" nodetype="::NODETYPE::" type="::TYPE::" perm-create="::PERM-CREATE::" perm-delete="::PERM-DELETE::" perm-export="::PERM-EXPORT::" perm-modify="::PERM-MODIFY::" perm-read="::PERM-READ::" perm-setpermissions="::PERM-SETPERM::">
+				<div class="ftu-unit-left" action="::DEFAULTACTION::" onclick="MALayers.layerActionsClickHandler(this);" onmouseleave="MALayers.hideContextMenu(this);" oncontextmenu="MALayers.toggleContextMenu(this); return false;">
+					<div class="ftu-icon-left">
+						<div class="ftu-icon-icon inline" type="::TYPE::"></div>
+						<div class="ftu-plotonload"></div>
+					</div>
+					<div class="ftu-text inline layerName">::NAME::</div>
+					<div class="ftu-subline hidden">::PARENT-FOLDER::</div>
+		
+					<div class="ftu-tooltip-arrow"></div>
+					<div class="ftu-tooltip">
+						<div class="ftu-tooltip-inner">
+							<div class="ftu-tooltip-pad">
+								<div class="ft-tooltip-title">::TOOLTIP-TITLE::</div>
+								<div class="ft-tooltip-desc">::TOOLTIP-DESC::</div>
+								<div class="ft-tooltip-baseob">
+									<!--<b>Base object:</b> ::TOOLTIP-BASEOBJ::&nbsp;&bull;&nbsp;<span class="ft-tooltip-plotonload"><b>Plot On Load:</b> ::TOOLTIP-PLOTONLOAD::</span></div>-->
+									<table>
+										<tbody>
+											<tr class="tooltip-row">
+												<td class="label">
+													<b>Base object</b>
+												</td>
+												<td class="value">
+													::TOOLTIP-BASEOBJ::
+												</td>
+											</tr>
+											<tr class="tooltip-row ft-tooltip-plotonload">
+												<td class="label">
+													<b>Plot On Load</b>
+												</td>
+												<td class="value">
+													::TOOLTIP-PLOTONLOAD::
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="ftu-tooltip-pad-gray">
+								<table>
+									<tbody>
+										<tr class="tooltip-row">
+											<td class="label">
+												<b>Created</b>
+											</td>
+											<td class="value">
+												::TOOLTIP-CREATED::
+											</td>
+										</tr>
+										<tr class="tooltip-row">
+											<td class="label">
+												<b>Last modified</b>
+											</td>
+											<td class="value">
+												::TOOLTIP-MODIFIED::
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<!--ftu-tooltip-->
+		
+				</div>
+				<!--ftu-unit-left-wrap-->
+				<div class="ftu-icon-right">
+					<div class="dropdown" onmouseenter="MALayers.toggleContextMenu(this);" onmouseleave="MALayers.hideContextMenu(this);">
+						<button id="dLabel" type="button" class="dropdown-hover" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		                            <span class="glyphicon glyphicon-option-vertical"></span>
+		                        </button>
+						<div class="dropdown-menu" onmouseleave="MALayers.toggleContextMenu(this);">
+							::ACTIONS::
+		
+						</div>
+						<!--dropdown-menu-->
+		
+					</div>
+				</div>
+				<!--ftu-icon-right-->
+			</div>
+		</div>
+		
+		<div id="noItem-template" style="display:none;">
+			<div class="folderItem">
+				<div class="ftu-text inline noItem-placeholder">::NAME::</div>
+			</div>
+		</div>
+		
+		<div id="templates">
+			<div class="savedQuery-template">
+				<div ></div>
+			</div>
+			
+			<div class="PlottedRowUnit">
+			
+				<!-- Load Mask -->
+				<div class='loadMask'></div>
+			
+				<!-- Header -->
+				<div class='header'>
+					<div class="loading-icon-positioning queryLoader" style="width: 21px;height: 20px;padding-left: 18px;padding-top: 8px;">
+						<div class="MA2-loader loader-inline"></div>
+					</div>
+					<div class="ftu-icon-left queryIcon">
+						<div class="ftu-icon-icon inline" type="marker"></div>
+					</div>
+					<div style="display:none;" class="ftu-icon-left queryError">
+						<div class="ftu-icon-icon inline"><span class="MAIcon ion-android-warning" style="font-size: 24px;color: #C71F1F;"></span></div>
+					</div>
+			
+					<div class='icon'>
+						<div class='color-box'></div>
+						<div class="loading-icon"><span class="MAIcon glyphicon-refresh"></span></div>
+					</div>
+			
+					<!-- Basic Info -->
+					<div class='basicinfo'>
+						<div class='basicinfo-name'>&nbsp;</div>
+						<div class='basicinfo-baseobjectname'>&nbsp;</div>
+						<!--ftu-tooltip-->
+						<div class="ftu-tooltip-arrow"></div>
+						<div class="ftu-tooltip">
+							<div class="ftu-tooltip-inner">
+								<div class="ftu-tooltip-pad">
+									<div class="ft-tooltip-title">::TOOLTIP-TITLE::</div>
+									<div class="ft-tooltip-desc">::TOOLTIP-DESC::</div>
+									<div class="ft-tooltip-baseob">
+										<!--<b>Base object:</b> ::TOOLTIP-BASEOBJ::&nbsp;&bull;&nbsp;<span class="ft-tooltip-plotonload"><b>Plot On Load:</b> ::TOOLTIP-PLOTONLOAD::</span></div>-->
+										<table>
+											<tbody>
+												<tr class="tooltip-row">
+													<td class="label">
+														<b>Base object</b>
+													</td>
+													<td class="value">
+														::TOOLTIP-BASEOBJ::
+													</td>
+												</tr>
+												<tr class="tooltip-row ft-tooltip-plotonload">
+													<td class="label">
+														<b>Plot On Load</b>
+													</td>
+													<td class="value">
+														::TOOLTIP-PLOTONLOAD::
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="ftu-tooltip-pad-gray">
+									<table>
+										<tbody>
+											<tr class="tooltip-row">
+												<td class="label">
+													<b>Created</b>
+												</td>
+												<td class="value">
+													::TOOLTIP-CREATED::
+												</td>
+											</tr>
+											<tr class="tooltip-row">
+												<td class="label">
+													<b>Last modified</b>
+												</td>
+												<td class="value">
+													::TOOLTIP-MODIFIED::
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!--end-ftu-tooltip-->
+					</div>
+			
+					<!-- Menu -->
+					<div class="inline visibility-wrapper">
+						<button style="float:right;" class='inline btn-remove btn-lg'><span class="MAIcon glyphicon-remove-circle" aria-hidden="true"></span></button>
+						<div style="float:right;" class="drop-menu-wrapper inline query-options" onmouseleave="MAPlotting.queryActions.showHideHoverOptions(this,'hide');" onmouseenter="MAPlotting.queryActions.showHideHoverOptions(this,'show');">
+							<button class="inline plotted-menu-icon btn-lg"><span class="glyphicon glyphicon-option-vertical" aria-hidden="true"></span></button>
+							<ul class="drop-down-menu query-menu-options">
+								<li role="presentation" class="dropdown-header">{!$Label.MA_Options}</li>
+								<li role="presentation" class='drop-menu-item item-selectable edit-query' onclick="MAPlotting.queryActions.handleQueryOptions(this,'editQuery');"><a role="menuitem">{!$Label.MA_Edit}</a></li>
+								<li role="presentation" class='drop-menu-item item-selectable refresh-query' onclick="MAPlotting.queryActions.handleQueryOptions(this,'refreshQuery');"><a role="menuitem">{!$Label.MA_REFRESH}</a></li>
+								<li role="presentation" class='drop-menu-item item-selectable fit-query' onclick="MAPlotting.queryActions.handleQueryOptions(this,'zoomToFit');"><a role="menuitem">{!$Label.MA_Zoom_To_Fit}</a></li>
+								<li role="presentation" class='drop-menu-item item-selectable live live-remove-all-tracking-histories' onclick="MAPlotting.queryActions.handleQueryOptions(this,'live-remove-all-tracking-histories');"><a role="menuitem">{!$Label.MA_REMOVE_ALL_TRACKING_HISTORIES}</a></li>
+							</ul>
+						</div>
+						<div style="float:right;" class="drop-menu-wrapper inline query-visibility" onmouseleave="MAPlotting.queryActions.showHideHoverOptions(this,'hide');" onmouseenter="MAPlotting.queryActions.showHideHoverOptions(this,'show');">
+							<button class="inline plotted-visibile-icon btn-lg">
+				                		<span class="MAIcon glyphicon-eye-close" aria-hidden="true"></span>
+				                		<span class="multi-select" aria-hidden="true"></span>
+				                		<span><div class="select-icon"></div></span>
+				                	</button>
+							<ul class="drop-down-menu renderButtons" role="menu" aria-labelledby="dropdownMenu2">
+								<li role="presentation" class="dropdown-header">Query display</li>
+								<li role="presentation" class="drop-menu-item hide-markers"><a role="menuitem" tabindex="-1"><input id="select-hide" class="item-selectable" type="checkbox" onchange="MAPlotting.queryActions.showHideMarkers(this)" checked="true"/> &nbsp;Markers are visible</a></li>
+								<li role="presentation" class="list-divider"></li>
+								<li onclick="MAPlotting.queryActions.renderSelection(this);" role="presentation" class="drop-menu-item item-selectable"><a data-renderAs='Markers' class="renderButtons-button markers" role="menuitem"><img src="{!URLFOR($Resource.MapAnything, '/images/ui-icons/icon_pin.png')}"/> &nbsp;{!$Label.MA_Render_Markers}</a></li>
+								<li onclick="MAPlotting.queryActions.renderSelection(this);" role="presentation" class="drop-menu-item item-selectable"><a data-renderAs='Cluster' class="renderButtons-button cluster" role="menuitem"><img src="{!URLFOR($Resource.MapAnything, '/images/ui-icons/icon_cluster.png')}"/> &nbsp;{!$Label.MA_Render_Clusters}</a></li>
+								<li onclick="MAPlotting.queryActions.renderSelection(this);" role="presentation" class="drop-menu-item item-selectable"><a data-renderAs='Heatmap' class="renderButtons-button heatmap" role="menuitem"><img src="{!URLFOR($Resource.MapAnything, '/images/ui-icons/icon_heatmap.png')}"/> &nbsp;{!$Label.MA_Render_Heatmap}</a></li>
+								<li onclick="MAPlotting.queryActions.renderSelection(this);" role="presentation" class="drop-menu-item item-selectable"><a data-renderAs='Scatter' class="renderButtons-button scatter" role="menuitem"><img src="{!URLFOR($Resource.MapAnything, '/images/ui-icons/icon_scatter.png')}"/> &nbsp;{!$Label.MA_Render_Scatter}</a></li>
+							</ul>
+						</div>
+					</div>
+			
+					<!-- Loading Indicator -->
+					<div class='loader'></div>
+			
+				</div>
+			
+				<!-- Plotting Info -->
+				<div class='plottinginfo-wrapper'>
+					<div class="inline plotted-info-icon"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></div>
+					<div style='margin-top:6px;' class='inline status'></div>
+					<div class='live_legend_info'></div>
+					<div class='info'></div>
+				</div>
+			
+				<!-- Heatmap Options -->
+				<div class="heatmap-opitons" style="padding:10px; display:none;">
+					<div style="text-align: center;border-bottom: 1px solid #E8E8E8;padding-bottom: 3px;">Heatmap Options</div>
+			
+					<table>
+						<tbody>
+							<tr>
+								<td>
+									<div class="inline">
+										<span style="color: #949494;">Dissipate with zoom:</span>
+										<input checked="checked" id="heatDissipate" type="checkbox" />
+									</div>
+								</td>
+								<td>
+									<div class="inline">
+										<span style="color: #949494;">Opacity: </span>
+										<select style="background-color: rgb(248, 248, 248);border: 1px solid silver;text-align: center;" class="heatmapOpacity">
+			                             <option value="0.05">5%</option>
+			                             <option value="0.10">10%</option>
+			                             <option value="0.15">15%</option>
+			                             <option value="0.20">20%</option>
+			                             <option value="0.25">25%</option>
+			                             <option value="0.30">30%</option>
+			                             <option value="0.35">35%</option>
+			                             <option value="0.40">40%</option>
+			                             <option value="0.45">45%</option>
+			                             <option value="0.50">50%</option>
+			                             <option value="0.55">55%</option>
+			                             <option value="0.60">60%</option>
+			                             <option value="0.65">65%</option>
+			                             <option value="0.70">70%</option>
+			                             <option value="0.75">75%</option>
+			                             <option selected="selected" value="0.80">80%</option>
+			                             <option value="0.85">85%</option>
+			                             <option value="0.90">90%</option>
+			                             <option value="0.95">95%</option>
+			                             <option value="1">100%</option>
+			                         </select>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="inline">
+										<span style="color: #949494;" class="inline">{!$Label.MA_MAX_INTENSITY}:</span>
+										<input value="5" style="width: 40px;background-color: rgb(248, 248, 248);border: 1px solid silver;text-align: center;" id="heatIntensity" type="text" />
+									</div>
+								</td>
+								<td>
+									<div class="inline">
+										<span style="color: #949494;">Radius:</span>
+										<input value="15" style="width: 40px;background-color: rgb(248, 248, 248);border: 1px solid silver;text-align: center;" id="heatRadius" type="text" />
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<a onclick="MAPlotting.updateHeatMapOptions(this);" class="btn updateHeatmap saveHeatmap">Save Changes</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- Legend -->
+				<!--<div class='legend-moreless' style='display: none; color: #949494; text-align: center; cursor: pointer; padding: 0 10px 5px 0;'>{!$Label.MA_Show_All}</div>-->
+				<div class="legend-moreless-wrapper legend-moreless" style='display: none;'>
+					<div class="inline legend-moreless-checkbox">
+						<div class="iconWrapper checked">
+						</div>
+					</div>
+					<div class="inline legend-moreless-text">
+						<span style='font-size: 12px;' class='moreless-text'>{!$Label.MA_Show_All}</span>
+						<span style='font-size: 16px;' class='MAIcon glyphicon-collapse-down'></span>
+					</div>
+				</div>
+				<table class='legend' style='display: none;'></table>
+				<div class='legend-showhide' style='display: none; text-align: center; cursor: pointer; padding: 5px 0;'><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span> <span class="options-text">{!$Label.MA_Hide_Legend}</span></div>
+			</div>
+		</div>
+		
+		<!-- Build our map! -->
+		<script>
+			let  orgId = '{!$Organization.Id}';
+			
+			$(function() {
+				$('#pageWrapper').on('click','.slds-tabs_default__item',function() {
+					var $tab = $(this);
+					var $wrap = $tab.closest('.slds-tabs_default');
+					//remove all active
+					$wrap.find('.slds-is-active').removeClass('slds-is-active');
+					$wrap.find('.slds-show').removeClass('slds-show').addClass('slds-hide');
+					
+					//now show active
+					$tab.addClass('slds-is-active');
+					var idToShow = $tab.find('a').attr('aria-controls');
+					$('#'+idToShow+'').removeClass('slds-hide').addClass('slds-show');
+				});
+			});
+		</script>
+		
+		<c:MA />
+		
+		<script type='text/javascript' src="{!URLFOR($Resource.Leaflet, 'mapBox.js')}"></script>
+		<script type='text/javascript' src="{!URLFOR($Resource.MapAnythingJS, 'MALayers.js')}"></script>
+	</apex:outputPanel>
+	
+	
+	
+	
+
+	<style>
+		#mapcontainer {    width: 100%;height: 500px; position: relative;}
+		#mapdiv {
+			width: 100%;
+			height: 100%;
+		}
+	
+		.noSidebarCell,
+		.outerNoSidebar {
+			padding: 0px !important;
+		}
+		#pageWrapper {
+			display:flex;
+		}
+		#sidebar-content {
+			width: 430px;
+			max-height: 500px;
+    		overflow: auto;
+		}
+		.slds-tabs_default__nav {
+			display : flex;
+		}
+		.slds-tabs_default__nav .slds-tabs_default__item {
+			flex-grow: 1;
+		    flex-basis: 0;
+		    text-align: center;
+		}
+		#templates {
+			display:none;
+		}
+	</style>
+</apex:page>

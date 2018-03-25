@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 2 elements from project &apos;sf_dev_internal&apos;&#x0D;&#x0A;- Original project: &apos;sf_dev_internal&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     COM_ArticleDetailImage_LCMP.cls&#x0D;&#x0A;     COM_ArticleDetailImage_LCMP.cls-meta.xml" description="Delete elements" element1="src/classes/COM_ArticleDetailImage_LCMP.cls" element2="src/classes/COM_ArticleDetailImage_LCMP.cls-meta.xml" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="2" stamp="1517821238788" subPackages="false" version="1.0"/>
+</session>

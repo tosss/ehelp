@@ -1,0 +1,9 @@
+/*********************************************************************
+** GLOBIT-3302 - 08/28/2017 vijay.manimaran@cdk.com Updated code
+**********************************************************************/
+.THIS .header-border-bottom {
+    border-bottom: solid 2px #82C600;
+}
+.THIS .article-date{
+    font-size:18pt;
+}

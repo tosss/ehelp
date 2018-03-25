@@ -1,0 +1,208 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" controller="EMP_Corpcard_Controller">
+
+    <aura:attribute name="portalForm" type="Portal_Form__c" default="{ 'sobjectType': 'Portal_Form__c'}" />
+    <aura:attribute name="src" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="attachment" type="String" default="field=Attachment__Body__s" />
+    <aura:attribute name="modalBody" type="String" />
+    <aura:attribute name="modalHeader" type="String" default="Thank you " />
+    <aura:attribute name="clickedPolicy" type="String" />
+    <aura:attribute name="selectedLocation" type="String" />
+    <aura:attribute name="toggleSpinner" type="boolean" default="false" />
+    <aura:attribute name="portalForms" type="String" />
+    <aura:attribute name="fieldValidation" type="String" />
+    <aura:attribute name="validationMessage" type="String" />
+    <aura:attribute name="documentID" type="String" />
+    <aura:attribute name="pendingRequest" type="String" />
+    <aura:attribute name="policyModal" type="String" default="false" />
+    <aura:method name="showSpinnerMethod" action="{!c.showSpinner}" description=""></aura:method>
+    <aura:method name="hideSpinnerMethod" action="{!c.hideSpinner}" description=""></aura:method>
+
+    <ui:spinner aura:id="spinner" class="spinner-override" />
+
+
+    <div>
+        <!-- check status on the card -->
+        <div aura:id="caseHistory">
+            <h3 style="text-align:center">Card Status</h3>
+            <br/>
+            <table class="slds-table slds-table--bordered slds-table--cell-buffer slds-table--striped " style="width:100%;">
+                <thead>
+                    <tr class="slds-text-title--caps" style="background: #659607;color: white;">
+                        <th scope="col">
+                            <div class="slds-truncate">Employee Name</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate">Card Type</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate">Manager</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate">Status</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate">Manager responded</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate">Submitted Date</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate">Send Email</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <aura:iteration items="{!v.pendingRequest}" var="pending">
+
+
+                        <aura:if isTrue="{!or(pending.BOA_Manager_Approval__c == Null , pending.BOA_Manager_Approval__c == 'Manager - Approved')}">
+                            <tr>
+                                <td scope="row">
+                                    <div class="slds-truncate"> {!pending.BOA_NameOnCard__c}</div>
+                                </td>
+
+                                <td scope="row">
+                                    <div class="slds-truncate">
+                                        <aura:if isTrue="{!pending.BOA_Beginning_Date__c != null}">
+                                            Limit Increase -
+                                        </aura:if>
+                                        {!pending.BOA_Card_Type__c}
+                                    </div>
+                                </td>
+
+                                <td scope="row">
+                                    <div class="slds-truncate"> {!pending.BOA_Manager__c}</div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate">
+                                        Congratulations. You have successfully submitted your request
+                                    </div>
+                                </td>
+                                <td scope="row">
+                                    <div class="slds-truncate"> - </div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate">
+                                        <ui:outputDate value="{!pending.CreatedDate}" />
+                                    </div>
+                                </td>
+                                <td>
+
+                                    <button class="slds-button slds-button--sendemail" onclick="{!c.sendEmail}" id="{!pending.Name}" aura:id="{!pending.Name}" data-recId="{!pending.Name}" disabled="">
+                                        SEND EMAIL TO APPROVER 
+                                    </button>
+                                </td>
+
+                            </tr>
+                        </aura:if>
+
+                        <aura:if isTrue="{!or(pending.BOA_Manager_Approval__c == 'Manager - Approved', pending.BOA_Manager_Approval__c == 'Procurement - Approved',pending.BOA_Manager_Approval__c == 'Admin Closed' )}">
+                            <tr>
+                                <td scope="row">
+                                    <div class="slds-truncate"> {!pending.BOA_NameOnCard__c}</div>
+                                </td>
+                                <td scope="row">
+                                    <div class="slds-truncate"> {!pending.BOA_Card_Type__c}</div>
+                                </td>
+                                <td scope="row">
+                                    <div class="slds-truncate"> {!pending.BOA_Manager__c}</div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate">
+                                        Request has been Approved by Manager
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate">
+                                        {!pending.BOA_Manager_Response_date__c}
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate"> 
+                                        <ui:outputDate value="{!pending.CreatedDate}" />
+                                    </div>
+                                </td>
+                                <td>
+
+                                    <button class="slds-button slds-button--sendemail" onclick="{!c.sendEmail}" id="{!pending.Name}" aura:id="{!pending.Name}" data-recId="{!pending.Name}" disabled="">
+                                        SEND EMAIL TO APPROVER
+                                    </button>
+                                </td>
+                            </tr>
+                        </aura:if>
+                        <aura:if isTrue="{!or(pending.BOA_Manager_Approval__c == 'Procurement - Approved',pending.BOA_Manager_Approval__c == 'Admin Closed')}">
+                            <tr>
+                               <td scope="row">
+                                    <div class="slds-truncate"> {!pending.BOA_NameOnCard__c}</div>
+                                </td>
+                                <td scope="row">
+                                    <div class="slds-truncate"> {!pending.BOA_Card_Type__c}</div>
+                                </td>
+                                <td scope="row">
+                                    <div class="slds-truncate"> {!pending.BOA_Manager__c}</div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate">
+                                        Request has been Approved by Procurement Manager
+
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate">
+                                        {!pending.BOA_Procurement_Manager_Response_Date__c}
+                                    </div>
+                                </td>
+                                 <td>
+                                    <div class="slds-truncate"> 
+                                        <ui:outputDate value="{!pending.CreatedDate}" />
+                                    </div>
+                                </td>
+                                <td>
+
+                                    <button class="slds-button slds-button--sendemail" onclick="{!c.sendEmail}" id="{!pending.Name}" aura:id="{!pending.Name}" data-recId="{!pending.Name}" disabled="">
+                                        SEND EMAIL TO APPROVER
+                                    </button>
+                                </td>
+                            </tr>
+                        </aura:if>
+                        <aura:if isTrue="{!pending.BOA_Manager_Approval__c == 'Admin Closed'}">
+                            <tr>
+                                <td scope="row">
+                                    <div class="slds-truncate"> {!pending.BOA_NameOnCard__c}</div>
+                                </td>
+                                <td scope="row">
+                                    <div class="slds-truncate"> {!pending.BOA_Card_Type__c}</div>
+                                </td>
+                                <td scope="row">
+                                    <div class="slds-truncate"> {!pending.BOA_Manager__c}</div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate">
+                                        Corporate Card Admins have successfully udpated your request
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate">
+                                        -
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate">
+                                        <ui:outputDate value="{!pending.CreatedDate}" />
+                                    </div>
+                                </td>
+                                <td>
+                                    <button class="slds-button slds-button--sendemail" onclick="{!c.sendEmail}" data-id="{!pending.id}" aura:id="{!pending.Name}" data-recId="{!pending.Name}" disabled="">
+                                        SEND EMAIL TO APPROVER
+                                    </button>
+                                </td>
+                            </tr>
+                        </aura:if>
+                    </aura:iteration>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</aura:component>

@@ -1,0 +1,54 @@
+<aura:component >
+    
+    <aura:attribute name="sObjects" type="sObject[]" />
+    <aura:attribute name="toggle" type="Boolean" default="false"/>
+    <aura:attribute name="userName" type="String" />
+    <aura:if isTrue="{!v.toggle}">
+        <lightning:spinner size="small" aura:id="mySpinner2" />
+    </aura:if>
+    
+    <div class="slds-scrollable">
+        <table class="slds-table slds-table--bordered slds-table--cell-buffer">   
+            <thead>
+                <tr>
+                    <th>
+                        DATE
+                    </th>
+                    <th>
+                        CREATEDBY
+                    </th>
+                    <th>
+                        NOTES TYPE
+                    </th>
+                    <th>
+                        NOTES
+                    </th>
+                </tr>
+            </thead>
+         
+            <tbody>
+                <aura:iteration var="record" items="{!v.sObjects}">
+                    <tr>
+                        
+                        <td>
+                            <ui:outputDateTime value="{!record.Date__c}"  />
+                        </td>
+                        
+                        <td>
+                            <ui:outputText value="{!record.CreatedBy.Name}"/>
+                        </td>
+                        
+                        <td>
+                            <ui:outputText value="{!record.Notes_Type__c}"/>
+                        </td>
+                        
+                        <td>
+                            <ui:outputTextArea value="{!record.Notes__c}"/>
+                        </td>
+                        
+                    </tr>
+                </aura:iteration>
+           </tbody>
+        </table>        
+    </div>
+</aura:component>

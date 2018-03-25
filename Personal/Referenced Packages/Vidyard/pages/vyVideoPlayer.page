@@ -1,3 +1,0 @@
-<apex:page standardController="vidyard__Video_View__c">
-  <apex:canvasApp applicationName="Vidyard_prod" parameters="{uuid: '{!vidyard__Video_View__c.vidyard__video_uuid__c}', playback: 'true', asset_type: 'video'}" width="100%" />
-</apex:page>

@@ -1,0 +1,5 @@
+<apex:page standardController="BigMachines__Quote__c" recordSetvar="quoteList" tabStyle="Quotes__tab">
+    <apex:sectionHeader title="{!$ObjectType.BigMachines__Quote__c.LabelPlural}" subtitle="Home" />
+    <apex:pageMessages />
+    <apex:listViews type="BigMachines__Quote__c"/>
+</apex:page>

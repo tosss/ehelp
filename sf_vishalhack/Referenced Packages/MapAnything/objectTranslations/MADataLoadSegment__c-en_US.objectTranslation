@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>MapAnything Data Load Segment</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>MapAnything Data Load Segments</value>
+    </caseValues>
+    <fields>
+        <help><!-- This is the parent-child relationship between data load segments and data loads. --></help>
+        <label><!-- MapAnything Data Load --></label>
+        <name>DataLoad__c</name>
+        <relationshipLabel><!-- MapAnything Data Load Segments --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Records --></label>
+        <name>Records__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Errors --></label>
+        <name>Total_Errors__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Records --></label>
+        <name>Total_Records__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Succeeded --></label>
+        <name>Total_Succeeded__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

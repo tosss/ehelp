@@ -1,0 +1,209 @@
+<!--2016-08-29- anirudh.singh@cdk.com- Created this generic component for Object Details.-->
+<apex:component controller="ALL_ObjectDetails_Controller">
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, '/js/jquery-1.11.2.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.Bootstrap, '/js/bootstrap.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.ALL_ObjectDetails_JS)}"/>
+    
+    <apex:stylesheet value="{!URLFOR($Resource.Bootstrap, '/cdk/css/bootstrap.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.FontAwesome, '/4.6.1/css/font-awesome.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.ALL_ObjectDetails_CSS)}"/>
+    
+    <apex:attribute name="opportunityLocationSiteId" type="Id" default="a6N230000004Ht2" assignTo="{!oppLocationSiteIdForRecs}" 
+                    required="true" description="This is the Opportunity Location Site Id."/>
+    <apex:attribute name="displayHeader" type="Boolean" default="false" 
+                    required="true" description="Whether to display Header or not. Value will be Yes or No."/>
+    <apex:attribute name="sObjectMetadata" type="ALL_SObject__mdt" assignTo="{!sObjectMetadataRecord}" 
+                    required="true" description="This is the ALL_SObject__mdt record."/>
+    
+    <!--Object Details Component Div-->
+    <div class="objectDetailsComponent">
+        <input type="hidden" class="objectLabel" value="{!wrapperRecordToDisplay.sObjectLabel}"/>
+        <input type="hidden" class="objectAPIName" value="{!sObjectMetadataRecord.SObject_Name__c}"/>
+        <input type="hidden" class="objectRecordType" value="{!sObjectMetadataRecord.SObject_Record_Type__c}"/>
+        
+        <!--Object Details Component Header-->
+        <h3 class="objectDetailsHeader">
+            <apex:outputText rendered="{!displayHeader==true}" value="{!sObjectMetadataRecord.MasterLabel}"/>
+        </h3>
+        
+        <input type="hidden" class="oppLocSiteId" value="{!opportunityLocationSiteId}"/>
+        
+        <!--Object Details Component Button for Creating New Record.-->
+        <div class="createNewButtonDiv">
+            <span class="alignCenter">
+                <h4 class="createNewButtonOutsideHeader">
+                    <!--If Site Dependent.-->
+                    <apex:outputText rendered="{!sObjectMetadataRecord.Building_Dependent__c=false}">
+                        <a class="btn btn-primary createNewLink" href="{!wrapperRecordToDisplay.createNewHrefLink}" target="_blank">
+                            Create {!sObjectMetadata.MasterLabel} Record
+                        </a>
+                    </apex:outputText>
+                    
+                    <!--If Building Dependent and Building records present.-->
+                    <apex:outputText rendered="{!sObjectMetadataRecord.Building_Dependent__c && wrapperRecordToDisplay.buildingWrapperList.size>0}">
+                        <div class="btn-group">
+                            <input type="hidden" value="{!wrapperRecordToDisplay.createNewHrefLink}" class="linkToBeUsedForBuilding"/>
+                            
+                            <button type="button" class="btn btn-primary dropdown-toggle createButtonDropdown" 
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Create {!sObjectMetadata.MasterLabel} Record <span class="caret"></span>
+                            </button>
+                            
+                            <ul class="dropdown-menu">
+                                <apex:repeat value="{!wrapperRecordToDisplay.buildingWrapperList}" var="wrapperRecord">
+                                    <li>
+                                        <input type="hidden" value="{!wrapperRecord.name}" class="buildingName"/>
+                                        <a>{!wrapperRecord.identifier}</a>
+                                    </li>
+                                </apex:repeat>
+                            </ul>
+                        </div>
+                    </apex:outputText>
+                    
+                    <!--If Building Dependent, but no Building records present.-->
+                    <apex:outputText rendered="{!sObjectMetadataRecord.Building_Dependent__c && wrapperRecordToDisplay.buildingWrapperList.size=0}">
+                        <a class="btn btn-primary disabledButton" target="_blank" 
+                           title="{!sObjectMetadata.MasterLabel} Record cannot be created, as no Building records exist.">
+                            Create {!sObjectMetadata.MasterLabel} Record
+                        </a>
+                    </apex:outputText>
+                </h4>
+            </span>
+        </div>
+        
+        <!--Spinner-->
+        <div class="modal fade objDetSpinnerDiv" id="objDetSpinnerDiv" tabindex="-1" role="dialog" aria-labelledby="modalDialogLabel" aria-hidden="true"
+             data-keyboard="false" data-backdrop="static">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td><h3>Please Wait...</h3></td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fa fa-spinner fa-spin fa-2x"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!--Error/Info Message-->
+        <div class="messageDiv" id="messageDiv"></div>
+        
+        <!--Object Details Content-->
+        <div class="objectDetailsContent">
+            <!--Object Details Table displayed when there are records preset for the Object.-->
+            <apex:outputText rendered="{!wrapperRecordToDisplay.columnNamesList!=Null && wrapperRecordToDisplay.columnNamesList.size>0}">
+                <table class="table table-bordered objectDetailsTable">
+                    <thead>
+                        <tr>
+                            <th class="objectDetailsTh itemNoColumn">
+                                Item #
+                            </th>
+                            
+                            <apex:repeat value="{!wrapperRecordToDisplay.columnNamesList}" var="columnName">
+                                <apex:outputText rendered="{!columnName!='Opportunity Building'}">
+                                    <th class="objectDetailsTh">
+                                        <apex:outputText rendered="{!columnName='Record Type ID'}">Record Type</apex:outputText>
+                                        <apex:outputText rendered="{!columnName!='Record Type ID'}">{!columnName}</apex:outputText>
+                                    </th>
+                                </apex:outputText>
+                            </apex:repeat>
+                            
+                            <th class="objectDetailsTh"></th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <apex:variable value="{!1}" var="rowNum"/>
+                        <apex:repeat value="{!wrapperRecordToDisplay.sObjectList}" var="sObjectRecord">
+                            <tr class="objectDetailsRowData">
+                                <input type="hidden" class="objectId" value="{!sObjectRecord['Id']}"/>
+                                
+                                <td class="alignCenter itemNoColumn">{!rowNum}</td>
+                                
+                                <apex:repeat value="{!wrapperRecordToDisplay.columnAPINamesList}" var="columnAPIName">
+                                    <apex:outputText rendered="{!columnAPIName!='Opportunity_Building__c'}">
+                                        <td class="objectDetailsColumnData">
+                                            <apex:outputText rendered="{!columnAPIName='Name'}">
+                                                <a href="/{!sObjectRecord['Id']}/e?retURL=/apex/ALL_CloseSelfDonotReload&saveURL=/apex/ALL_CloseSelf" 
+                                                   target="_blank">
+                                                    {!sObjectRecord[columnAPIName]}
+                                                </a>
+                                            </apex:outputText>
+                                            
+                                            <apex:outputText rendered="{!(sObjectMetadataRecord.SObject_Name__c='Opportunity_Location__c' 
+                                                                       && columnAPIName='Building_Name__c')}">
+                                                <a href="/{!sObjectRecord['Id']}" target="_blank">{!sObjectRecord[columnAPIName]}</a>
+                                            </apex:outputText>
+                                            
+                                            <apex:outputField value="{!sObjectRecord[columnAPIName]}" rendered="{!columnAPIName!='Name' 
+                                                                                                                && columnAPIName!='Building_Name__c'}"/>
+                                        </td>
+                                    </apex:outputText>
+                                </apex:repeat>
+                                
+                                <!--Delete Icon-->
+                                <td class="objectDetailsColumnData deleteIconColumn" data-toggle="tooltip" data-container="body" 
+                                    data-placement="top" title="Delete this {!wrapperRecordToDisplay.sObjectLabel}?">
+                                    <i class="fa fa-times-circle deleteIcon" data-toggle="modal" 
+                                       data-target="#modalDialog{!sObjectMetadataRecord.SObject_Name__c}" onclick="deleteConfirmationScreen(this);"></i>
+                                </td>
+                            </tr>
+                            
+                            <apex:variable var="rowNum" value="{!rowNum+1}"/>
+                        </apex:repeat>
+                    </tbody>
+                </table>
+                
+                <!--Holiday Schedule for Hours_Of_Operation__c object-->
+                <apex:outputText rendered="{!sObjectMetadataRecord.SObject_Name__c='Hours_Of_Operation__c'}">
+                    <span class="holidaySchedule">
+                        <label>Holiday Schedule: </label>
+                        {!wrapperRecordToDisplay.holidayScheduleForSite}
+                        <a href="/{!opportunityLocationSiteId}/e?retURL=/apex/ALL_CloseSelfDonotReload&saveURL=/apex/ALL_CloseSelf" 
+                           target="_blank" class="editLink">Edit</a>
+                    </span>
+                </apex:outputText>
+                
+                <!--Report Links-->
+                <apex:outputText rendered="{!wrapperRecordToDisplay.reportNameLinkMap!=Null}">
+                    <span class="reportLinks">
+                        <label>Report Link(s): </label>
+                        <apex:repeat value="{!wrapperRecordToDisplay.reportNameLinkMap}" var="reportName">
+                            <a href="{!wrapperRecordToDisplay.reportNameLinkMap[reportName]}" 
+                               target="_blank" class="reportRecLink">{!reportName}</a>
+                        </apex:repeat>
+                    </span>
+                </apex:outputText>
+                
+                <!--Modal Dialog-->
+                <div class="modal fade" id="modalDialog{!sObjectMetadataRecord.SObject_Name__c}" 
+                     tabindex="-1" role="dialog" aria-labelledby="modalDialogLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="modalDialogLabel"></h4>
+                            </div>
+                            <div class="modal-body"></div>
+                            <div class="modal-footer"></div>
+                        </div>
+                    </div>
+                </div>
+            </apex:outputText>
+            
+            <!--Below text displayed when there are no records preset for the Object.-->
+            <apex:outputText rendered="{!wrapperRecordToDisplay.columnNamesList=Null || wrapperRecordToDisplay.columnNamesList.size=0}">
+                <h4>There are no records to display.</h4>
+            </apex:outputText>
+        </div>
+    </div>
+</apex:component>

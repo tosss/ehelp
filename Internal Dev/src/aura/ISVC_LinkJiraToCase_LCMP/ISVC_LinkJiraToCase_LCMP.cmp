@@ -1,0 +1,81 @@
+<aura:component implements="force:lightningQuickAction,force:appHostable,forceCommunity:availableForAllPageTypes" access="global" controller="ISVC_LinkJiraToCase_Controller">
+    <aura:attribute name="Case" type="Case" default="{ 'sobjectType': 'Case' }" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="selectedValue" type="String" />
+    <aura:attribute name="selectedValue_issueType" type="String" />
+    <aura:attribute name="selectedValue_itTeam" type="String" />
+    <aura:attribute name="cases" type="List" />
+    <aura:attribute name="issueType" type="List" />
+    <aura:attribute name="iTTeam" type="List" />
+    <aura:attribute name="caseId" type="string" />
+    <aura:attribute name="searchText" type="string" />
+
+    <div class="slds-form slds-form_stacked" aura:id="mainform">
+        <div class="slds-form-element">
+            <lightning:select name="selectedValue" label="JIRA Projects" aura:id="selectedValue" value="{!v.selectedValue}">
+                <aura:iteration items="{!v.cases}" var="cs">
+                    <option text="{!cs.label}" value="{!cs.value}" />
+                </aura:iteration>
+            </lightning:select>
+        </div>
+        <div class="slds-form-element">
+            <lightning:select name="selectedValue_issueType" label="Issue Type" aura:id="selectedValue_issueType" value="{!v.selectedValue_issueType}">
+                <aura:iteration items="{!v.issueType}" var="cs">
+                    <option text="{!cs}" value="{!cs}"> </option>
+                </aura:iteration>
+            </lightning:select>
+        </div>
+        <div class="slds-form-element">
+            <lightning:select name="selectedValue_itTeam" label="IT Team" aura:id="selectedValue_itTeam" value="{!v.selectedValue_itTeam}">
+                <aura:iteration items="{!v.iTTeam}" var="team">
+                    <option text="{!team}" value="{!team}"> </option>
+                </aura:iteration>
+            </lightning:select>
+        </div>
+        <div class="slds-form-element">
+            <lightning:input value="{!v.searchText}" label="Search Text" name="Search Text" aura:id="searchText" />
+        </div>
+        <div class="slds-form-element">
+            <lightning:button variant="brand" label="Submit" onclick="{! c.searchJira }" />
+        </div>
+    </div>
+
+    <div>
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+            <thead>
+                <tr class="slds-text-title_caps">
+                    <th scope="col">
+                        <div class="slds-truncate" title="Opportunity Name">Jira Ticket</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Account Name">Issue Type</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Close Date">Team</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Stage">Description/summary</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row" data-label="Opportunity Name">
+                        <div class="slds-truncate" title="Cloudhub"><a href="javascript:void(0);">Cloudhub</a></div>
+                    </th>
+                    <td data-label="Account Name">
+                        <div class="slds-truncate" title="Cloudhub">Cloudhub</div>
+                    </td>
+                    <td data-label="Close Date">
+                        <div class="slds-truncate" title="4/14/2015">4/14/2015</div>
+                    </td>
+                    <td data-label="Prospecting">
+                        <div class="slds-truncate" title="Prospecting">Prospecting</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</aura:component>

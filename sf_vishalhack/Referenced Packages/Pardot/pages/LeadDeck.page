@@ -1,0 +1,83 @@
+<apex:page docType="html-5.0" showHeader="false" sidebar="false" standardStylesheets="false" controller="pi.LeadDeckController" action="{!init}">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!-- header scripts & styles-->
+    <script src="{!$Label.Pardot_Production_Base_Url}js/PushApi.dev.js?version=3.2"></script>
+    <apex:stylesheet value="{!URLFOR($Resource.pi__LeadDeck, 'css/lib.min.css')}"></apex:stylesheet>
+    <apex:includeLightning ></apex:includeLightning>
+    <apex:stylesheet value="{!URLFOR($Resource.pi__LeadDeck, 'css/index.min.css')}"></apex:stylesheet>
+    <apex:stylesheet value="{!URLFOR($Resource.pi__LightningDesignSystem_2_1_2, 'assets/styles/salesforce-lightning-design-system.css')}"></apex:stylesheet>
+    <apex:includeScript value="{!URLFOR($Resource.pi__LeadDeck, 'js/lib.min.js')}"></apex:includeScript>
+    <apex:includeScript value="{!URLFOR($Resource.pi__LeadDeck, 'js/main.min.js')}"></apex:includeScript>
+    <!-- apex constants-->
+    <script type="text/javascript">
+      window.apex = {
+       remotes: {
+        createFilter: '{!$RemoteAction.LeadDeckController.createFilter1}',
+        updateFilter: '{!$RemoteAction.LeadDeckController.updateFilter}',
+        deleteFilter: '{!$RemoteAction.LeadDeckController.deleteFilter}',
+        getFilters: '{!$RemoteAction.LeadDeckController.getFilters}',
+        getActiveUser: '{!$RemoteAction.LeadDeckController.getActiveUser}',
+        getActionsByFilterId: '{!$RemoteAction.LeadDeckController.getActionsByFilterId}',
+        getActionsByPersonId: '{!$RemoteAction.LeadDeckController.getActionsByPersonId}',
+       },
+       resources: {
+        spinner: "{!URLFOR($Resource.LightningDesignSystem_2_1_2, 'assets/images/spinners/slds_spinner.gif')}",
+        notificationLogo: "{!URLFOR($Resource.LeadDeck, 'img/alerts_icon_80x80.png')}",
+        cloudLogo: "{!URLFOR($Resource.LeadDeck, 'img/cloud_blue.svg')}",
+        notifier: "{!URLFOR($Resource.LeadDeck, 'notifier.html')}"
+       }
+      }
+    </script>
+    <!-- page initialization-->
+    <script type="text/javascript">
+      // set global environment
+      window.env = 'prod';
+      // set salesforce access token if we have it
+      if ('prod' == 'prod') {
+       window.accessToken = '{!$Api.Session_ID}';
+      }
+      // get isLeadDeckTab param from URL and set in window
+      var isLeadDeckTab = '{!$CurrentPage.parameters.isLeadDeckTab}';
+      
+      if (isLeadDeckTab) {
+       googleAnalytics('send','event','Sales Edge','Sales Alerts Tab');
+      } else {
+       googleAnalytics('send','event','Sales Edge','Sales Alerts Desktop');
+      }
+      
+      
+    </script>
+  </head>
+  <body class="slds">
+    <div id="newChangesNotification"></div>
+    <div id="confirm"></div>
+    <div id="card-detail"></div>
+    <div id="slider-detail" class="slider-detail"></div>
+    <div id="modal-backdrop" class="slds-backdrop"></div>
+    <div id="index">
+      <div class="header slds-page-header">
+        <div class="slds-media slds-media--center">
+          <div class="slds-media__figure">
+            <div class="slds-icon_container slds-icon-standard-feed"><img src="{!URLFOR($Resource.LightningDesignSystem_2_1_2, 'assets/icons/standard/feed_60.png')}" class="slds-icon--large"/></div>
+          </div>
+          <div class="slds-media__body">
+            <p class="slds-page-header__title">Engage Alerts</p>
+          </div>
+          <div class="buttons slds-media__figure--reverse"><a href="#" class="add-slider slds-button slds-button--neutral"><i class="fa fa-plus"></i><span>Add New Column</span></a><a href="https://www.pardot.com/faqs/salesforce-engage/using-engage-alerts/" target="_blank" class="help-button slds-button slds-button--neutral"><i class="fa fa-question"></i><span>Help</span></a><a href="#" class="logout slds-button slds-button--neutral"><i class="fa fa-sign-out"></i><span>Sign Out</span></a></div>
+        </div>
+      </div>
+      <div id="older-ie-message" class="alert-update slds-text-body--small"><i class="fa fa-exclamation-triangle warning-icon"></i><span>&nbsp;You are using a version of Internet Explorer that is not officially supported in Engage Alerts. For the best experience, please update your browser to IE 11 or above.</span></div>
+      <div id="download-message" class="alert-update slds-text-body--small"><i class="fa fa-exclamation-triangle warning-icon"></i><span>&nbsp;It looks like you're using an older version of Engage Alerts.&nbsp;<a href="{!$Site.Domain}{!URLFOR($Page.EngageSalesTools)}" title="Download" target="_blank">Download</a>&nbsp;the latest version.</span></div>
+      <div id="error-message" class="alert-update slds-text-body--small"></div>
+      <div id="sliders-headers">
+        <div class="slider-header"></div>
+      </div>
+      <div id="sliders-screen"></div>
+      <div id="sliders-container"></div>
+    </div>
+    <iframe id="logout"></iframe>
+  </body>
+</apex:page>

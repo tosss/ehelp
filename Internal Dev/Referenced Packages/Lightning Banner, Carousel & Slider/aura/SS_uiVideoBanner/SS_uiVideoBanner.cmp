@@ -1,0 +1,52 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" extends="cloudx_cms:SS_uiBaseBanner">
+    <aura:attribute name="videoUrl" type="String" description="Hosted Video URL (youtube or Vimeo)" access="global" />
+    <aura:attribute name="autoplay" type="Boolean" description="Autoplay Video" access="global" default="true"/>
+    <aura:attribute name="loopVideo" type="Boolean" description="Auto Loop Video" access="global" default="true"/>
+    <aura:attribute name="showVideoControls" type="Boolean" description="Show Video Controls" access="global" default="false"/>
+    <aura:attribute name="mp4VideoUrl" type="String" description="URL of Raw video in mp4 format" access="global" />
+    <aura:attribute name="webmVideoUrl" type="String" description="URL of Raw video in webm format" access="global"  />
+    <aura:attribute name="oggVideoUrl" type="String" description="URL of Raw video in ogg format" access="global"  />
+    <aura:attribute name="bannerImageUrl" type="String" description="Backdrop Image URL" access="global" default="http://www.gravitytank.com/../images/home_banner/gt_temp_vidframe.png" />
+    <aura:attribute name="showOverlay" type="Boolean" description="Video URL (youtube or Vimeo)" default="true" access="global" />
+        <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <figure class="slds-image slds-image--card">
+        <a href="javascript:void(0);" class="slds-image__crop" style="{! 'height:' + v.height + 'px'}">
+            <aura:if isTrue="{! !empty(v.videoUrl) }">
+                <iframe src="{!v.videoUrl}" class="priamry-iframe" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+                <aura:set attribute="else">
+                    <video  autoplay="{!v.autoplay}" controls="{!v.showVideoControls}" loop="{!v.loopVideo}" poster="{!v.bannerImageUrl}">
+                        <source type="video/webm" src="{!v.webmVideoUrl}" />
+                        <source type="video/ogg" src="{!v.oggVideoUrl}" />
+                        <source type="video/mp4" src="{!v.mp4VideoUrl}" />
+                        <img src="{!v.bannerImageUrl}" alt="" />
+                    </video>
+                </aura:set>
+            </aura:if>
+        </a>
+        <aura:if isTrue="{!v.title !=null &amp;&amp; v.title !='' &amp;&amp; v.showOverlay}">
+            <figcaption class="{! (v.textPosition == 'overlay'? 'slds-image__title slds-image__title--overlay ' : (v.textPosition == 'top' || v.textPosition == 'middle' || v.textPosition == 'bottom') ? 'slds-image__title slds-image__title--card' : '') + ' ' + (v.textPosition == 'middle'? 'slds-align--absolute-center':'') }" style="{! 'background: ' + v.textOverlayBackground + ';' + (v.textPosition != 'overlay' ? 'height: ' + v.textHeight + 'px;':'') + (v.textPosition == 'top'? 'top:0;':'') + (v.textPosition == 'middle'? 'top:0;':'') + (v.textPosition == 'bottom'? 'bottom:0;':'')}">
+                <div class="slds-grid slds-grid--vertical-align-center" style="width:100%">
+                    <div class="slds-image__text" style="width:100%" title="{!v.title}">
+                        <div class="{! 'slds-p-around--small slds-text-align--' + v.textAlign}">
+                            <p class="{!'slds-p-vertical--small slds-text-heading--' + v.titleSize}" style="{!'color:' + v.titleColor}">
+                                <aura:unescapedHtml value="{!v.title}" />
+                            </p>
+                            <span class="{!'slds-text-body--' + v.descriptionSize}" style="{!'white-space: normal;color:' + v.descriptionColor}">
+                        <aura:unescapedHtml value="{!v.description}"/>
+                    </span>
+                            <aura:if isTrue="{!v.buttonLabel !=null &amp;&amp; v.buttonLabel != ''}">
+                                <div class="slds-p-vertical--small">
+                                    <lightning:button label="{!v.buttonLabel}" variant="{!v.buttonVariant}" onclick="{!c.navigate}" />
+                                </div>
+                            </aura:if>
+                        </div>
+                    </div>
+                    <div class="{!'slds-col--bump-left' + (v.textPosition == 'card' ?' slds-hide': '')}">
+                        <lightning:buttonIcon variant="container" iconName="utility:close" onclick="{!c.toggleOverlay}" alternativeText="Remove" />
+                    </div>
+                </div>
+            </figcaption>
+        </aura:if>
+    </figure>
+</aura:component>

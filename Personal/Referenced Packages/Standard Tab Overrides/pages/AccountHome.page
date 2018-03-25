@@ -1,3 +1,0 @@
-<apex:page standardController="Account" extensions="SA_TABOVER.TabHomeController" recordSetVar="accounts" action="{!initAccountPage}">
-	<apex:pageMessages />
-</apex:page>

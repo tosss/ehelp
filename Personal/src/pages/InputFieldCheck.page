@@ -1,6 +1,0 @@
-<apex:page >
-    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.7.2.min.js')}" />
-    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.8.20.custom.min.js')}" />
-    <apex:includescript value="{!URLFOR($Resource.InputField_JS)}" />
-    <c:InputField type="Lookup"></c:InputField>
-</apex:page>

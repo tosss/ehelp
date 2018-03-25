@@ -1,3 +1,0 @@
-<apex:page controller="sma.MAEmailAJAXResources" contentType="application/json" showHeader="false" sidebar="false" standardStylesheets="false" action="{!StartUpAction}">
-    <apex:outputText escape="false" value="{!Output}"/>    
-</apex:page>

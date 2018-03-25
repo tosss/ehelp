@@ -1,0 +1,25 @@
+/*******************************************************************
+ *** GLOBIT-3302 - 08/28/2017 vijay.manimaran@cdk.com added article-topic
+ *********************************************************************/
+
+.THIS .article-header {
+    text-align: center;
+    margin: auto;
+    text-transform: uppercase;
+    
+}
+
+.THIS .header-border-bottom {
+    border-bottom: solid 2px #00A9CE;
+}
+
+.THIS .slds-pill{
+    padding: 3px 5px;
+    border-radius: 7px;
+    font-size: 0.80rem;
+    margin-bottom: 3px;
+}
+
+.THIS .article-topic{
+    margin-top:6px;
+}

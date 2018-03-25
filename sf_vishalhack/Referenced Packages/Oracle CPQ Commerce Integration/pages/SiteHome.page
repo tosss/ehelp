@@ -1,0 +1,17 @@
+<apex:page standardController="BigMachines__Configuration_Record__c" recordSetvar="siteList">
+    <apex:sectionHeader title="{!$ObjectType.BigMachines__Configuration_Record__c.LabelPlural}" subtitle="Home" />
+    <apex:pageMessages />
+    <apex:form >
+        <apex:pageBlock title="Oracle CPQ Cloud Site Setup" mode="detail">
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton action="{!URLFOR($Page.SiteEdit)}" value=" New " />
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable value="{!siteList}" var="site">
+                <apex:column headervalue="Record Number"><apex:outputLink value="/{!site.Id}">{!site.Name}</apex:outputLink></apex:column>
+                <apex:column value="{!site.BigMachines__bm_site__c}" />
+                <apex:column headervalue="Description">{!site.Description__c}&nbsp;</apex:column>
+                <apex:column value="{!site.BigMachines__Is_Active__c}" />
+            </apex:pageBlockTable>
+        </apex:pageBlock> 
+    </apex:form>
+</apex:page>

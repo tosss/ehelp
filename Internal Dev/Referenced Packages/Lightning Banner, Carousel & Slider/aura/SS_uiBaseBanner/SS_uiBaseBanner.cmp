@@ -1,0 +1,22 @@
+<aura:component extensible="true">
+    <aura:attribute name="title" type="String" description="Banner Title" access="global"/>
+    <aura:attribute name="titleSize" type="String" description="Banner Title Size" default="large" access="global"/>
+    <aura:attribute name="titleColor" type="String" description="Banner Title" default="#fff" access="global"/>
+    <aura:attribute name="description" type="String" description="Banner Title Color" access="global"/>
+    <aura:attribute name="descriptionColor" type="String" description="Banner Description Color" default="#fff" access="global"/>
+    <aura:attribute name="descriptionSize" type="String" description="Banner Description Size" default="regular" access="global"/>
+    <aura:attribute name="buttonLabel" type="String" description="Button Text" access="global"/>
+    <aura:attribute name="buttonUrl" type="String" description="Button URL" access="global"/>
+    <aura:attribute name="buttonVariant" type="String" description="Button URL" default="brand" access="global"/>
+    <aura:attribute name="bannerHeight" type="String" description="Banner Height" default="300px" access="global"/>
+    <aura:attribute name="textPosition" type="String" description="overlay or card" default="overlay" access="global"/>
+    <aura:attribute name="textHeight" type="Integer" description="Text Height" default="150" access="global"/>
+    <aura:attribute name="textAlign" type="String" description="Text Align" default="center" access="global"/>
+    <aura:attribute name="aspectRatioPercentage" type="Integer" description="Banner Aspect Ratio" default="42.85" />
+    <aura:attribute name="height" type="Integer" description="Banner Height (px)" default="300" access="global"/>
+   <aura:attribute name="aspectRatioOptions" type="String" description="Slide Aspect Ratio Options (square, medium-rectangle, large-rectangle, vertical-rectangle, custom)" default="medium-rectangle" access="global"/>
+    <aura:attribute name="customAspectRatio" type="String" description="Custom Slide Aspect Ratio (e.g. 1:1, 12:9)" />
+    <aura:attribute name="textOverlayBackground" type="String" description="Text Overlay Background" default="rgba(0,0,0,0.4)" access="global" />
+<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    {!v.body}
+</aura:component>

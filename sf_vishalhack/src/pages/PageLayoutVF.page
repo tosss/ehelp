@@ -1,0 +1,133 @@
+<apex:page controller="ALL_AngularInputFields_Controller" showHeader="false" sidebar="false" standardStylesheets="false" extensions="Layouts">
+   <!-- ragashalini.koka@cdk.com - Created this page to show the availability of fields on page layouts for any object-->
+    <html  ng-app="PageLayoutApp">
+        
+        <script src="/soap/ajax/13.0/connection.js"></script> 
+        <script src="/soap/ajax/20/apex.js"></script> 
+        <apex:stylesheet value="{!URLFOR($Resource.Bootstrap, 'css/bootstrap.min.css')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.FontAwesome, '4.3.0/css/font-awesome.css')}"/>    
+        <apex:includeScript value="{!URLFOR($Resource.jQuery, '/js/jquery-1.11.2.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.angularJS, 'angularJS/bootstrap.min.js')}"/>  
+        <apex:includeScript value="{!URLFOR($Resource.angularJS, 'angularJS/moment.min.js')}"/> 
+        <apex:includeScript value="{!URLFOR($Resource.angularJS, 'angularJS/angular.min.js')}"/>        
+        <apex:includeScript value="{!URLFOR($Resource.angularJS, 'angularJS/angular-moment.min.js')}"/>     
+        <apex:includeScript value="{!URLFOR($Resource.angularJS, 'angularJS/angular-animate.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.angularJS, 'angularJS/angular-touch.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.angularJS15, 'angularJS/angular-sanitize.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.angularJS15, 'angularJS/angular-route.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.angularJS, 'angularJS/ui-bootstrap-tpls.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.PageLayout)}"/>
+        <apex:includeScript value="{!URLFOR($Resource.UIGrid, 'csv.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.UIGrid, 'pdfmake.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.UIGrid, 'vfs_fonts.js')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.UIGrid_CSS)}" />
+        <apex:stylesheet value="{!URLFOR($Resource.UIGridCustom_CSS)}" />
+        <apex:includeScript value="{!URLFOR($Resource.UIGrid_Latest)}"/>
+        <apex:includeScript value="{!URLFOR($Resource.ALL_Angular_InputFields_UIGrid)}" />
+        <apex:stylesheet value="{!URLFOR($Resource.ALL_AngularInputFields_CSS)}" />
+        <script>
+        var __sfdcSessionId = '{!GETSESSIONID()}';
+        var objects = JSON.parse('{!objects}');
+        </script>
+        <style>
+            .grid {
+            overflow-y : hidden;
+            }
+            .customContent {
+            
+            margin-left : 30% !important;
+            padding: 30px !important;
+            }
+            .success { 
+            color : green;
+            }
+            .failure {
+            color : red;
+            }
+            .ui-grid-row:nth-child(even) .ui-grid-cell {
+            background-color: rgba(141, 190, 232, 0.36);
+            }
+            .ui-grid-header-viewport {
+            background-color: rgba(141, 190, 232, 0.36);
+            }
+            
+            .navbar-default {
+            background-color : rgba(141, 190, 232, 0.36);
+            }
+            
+            .label-info {
+            background-color : #3a8cb8;
+            }
+            
+        
+        </style> 
+        <body style="padding:10px;padding-top:5px;" onresize="setHeightOfGrid()">  
+            
+            <div ng-controller="PageLayoutController" class="ng-cloak">
+                <div class="waitingSearchDiv ng-hide" id="el_loading" style="background-color: #ffffff; height:100%;opacity:0.7;z-index: 50;width:100%;position: fixed;">
+                    <div class="waitingHolder" style="top: 100%;width: 100%;">
+                        <div class="popup" style="background-color: #fbfbfb;top:25%;width:auto;position: fixed;display:inline-block;margin-left: 45%;margin-top: 10%;">
+                            <!--<img class="waitingImage" src="/img/loading.gif" title="Please Wait..."/>-->
+                            <i class="fa fa-spinner fa-pulse fa-3x fa-fw" style="color:rgba(59, 136, 202, 0.66);"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar navbar-default">
+                    <center> <b style="font-size:16px;color:#777">Page Layouts</b></center><br/>
+                    <div style="display:inline-block;margin-top:-1.5%;"> 
+                         
+                        <div class="navbar-text">
+                            <b> Object</b>
+                        </div> 
+                        <select class="form-control input-sm" ng-model="selectedObject" style="width:50%;display:inline;position: relative;margin:10px;" 
+                                ng-options="obj for obj in objectList" ng-change="hidePicklist()"/>
+                        <a class="btn btn-sm btn-default" ng-click="fetchData()">Show Fields</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span ng-if="showPicklist">
+                            
+                            
+                            <b style="color:#777">Fields</b>
+                            
+                            <div style="display:inline-block;position : absolute;margin-top:7px;margin-left:10px;width:15%" >
+                                
+                                <input ctype="multipicklist"  ng-Object="Object" class="form-control" ng-columnNames="Field" picklist-map="pickListMap" is-required="false" 
+                                       ng-model="$parent.selected" /> 
+                                
+                               
+                            </div> 
+                             <span class="selectedFields" style="display:none;">
+                                 {{selected}}
+                                </span>
+                            
+                              <b style="color:#777;margin-left:17%;display:inline-block;margin-top:13px;position:absolute">Page</b>
+                            <select class="form-control input-sm" ng-model="$parent.selectedPage" ng-options="page for page in pageLayouts" 
+                                    style="position:absolute;margin-top:10px;width:10%;display:inline-block;margin-left:20%">
+                            </select>
+                            
+                             <a class="btn btn-sm btn-default" ng-click="displayGrid()" style="margin:10px;position:absolute;margin-left:32%">Display</a> 
+                            <br/> 
+                            <span class="displayFields" style="position:absolute;max-height:40px;overflow-y:auto;height:40px;" ng-if="selected.split(';').length>0" >
+                                   <span ng-repeat="opt in selected.split(';')">
+                                    <span class="label label-info" >{{::opt}}</span>
+                                    </span>
+                                </span>
+                        </span> 
+                    </div> 
+                </div>
+                <br/>
+              
+                <div id="grid1" 
+                     ui-grid="gridOptions"
+                     ui-grid-pinning="ui-grid-pinning" 
+                     ui-grid-resize-columns="ui-grid-resize-columns"
+                     ui-grid-move-columns="ui-grid-move-columns"
+                     ui-grid-exporter="ui-grid-exporter"
+                   	 ng-if="gridData.length>0"
+                     class="grid"
+                     style="margin-top:10px"></div>
+               
+                
+            </div>
+        </body>   
+    </html>
+</apex:page>

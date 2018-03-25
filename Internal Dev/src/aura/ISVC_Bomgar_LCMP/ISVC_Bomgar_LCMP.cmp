@@ -1,0 +1,29 @@
+<!-- *****************************************************
+**11/10/2017 created vijay.manimaran@cdk.com 
+********************************************************** -->
+<aura:component implements="force:lightningQuickAction,force:appHostable,forceCommunity:availableForAllPageTypes" access="global" controller="ISVC_Bomgar_Controller">
+    <aura:attribute name="keyUrl" type="string"/>
+    <aura:attribute name="caseId" type="string"/>
+    <aura:attribute name="content" type="string"/>
+    <aura:attribute name="header" type="string"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <c:ISVC_Loading_LCMP />
+    <div class="demo-only" style="height: 24rem;">
+        <section role="alertdialog"  class="slds-modal slds-fade-in-open slds-modal_prompt" aria-modal="true">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header slds-theme_success slds-theme_alert-texture" aura:id="prompt-heading-id">
+                    <h2 class="slds-text-heading_medium" >{!v.header}</h2>
+                </header>
+                <div class="slds-modal__content " id="modal-content-id-1">
+                    {!v.content}<br/>
+                    {!v.keyUrl}
+                </div>
+                <footer class="slds-modal__footer slds-theme_default">
+                                <lightning:button variant="brand" label="Reload" onclick="{! c.refresh }" />
+
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+</aura:component>

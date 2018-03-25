@@ -1,0 +1,14 @@
+<!-- ************************************************************************
+**GLOBIT-1926 - 08/07/2017 vijay.manimaran@cdk.com Created
+**10/23/2017  vishal.bandari@cdk.com      generized the code to handle any article type
+*************************************************************************-->
+
+<aura:component implements="force:appHostable,forceCommunity:availableForAllPageTypes" access="global" controller="COM_ArticleList_Controller">
+	<aura:attribute name="knowledgeArticles" type="String" />
+    <aura:attribute name="articleType" type="String" default="Employee_Community_Article" /> 
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	<aura:if isTrue="{!v.knowledgeArticles.EMPCommunityArticle.Show_Chatter__c  == 'true'}">
+		<forceChatter:publisher context="GLOBAL" />
+		<forceChatter:feed type="Record"/>
+	</aura:if>  
+</aura:component>

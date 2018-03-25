@@ -1,0 +1,8 @@
+<apex:page docType="html-5.0">
+    <apex:slds />
+<head></head>
+<body>
+
+    <article class="onesetupHelpTile" data-aura-class="onesetupHelpTile" data-aura-rendered-by="6:2176;a" style="text-align: center;max-width: 30%;padding: 0.5%;"><span class="uiImage" data-aura-class="uiImage" data-aura-rendered-by="9:2176;a"><img class="tileImg" data-aura-rendered-by="7:2176;a" src="http://www.soliantconsulting.com/wp-content/uploads/2016/12/blog-figure-salesforce-deployment-300x262.png" /></span><div class="tileHelp" data-aura-rendered-by="11:2176;a" style="border-bottom: solid rgba(0, 0, 0, 0.14);border-left: solid rgba(0, 0, 0, 0.14);border-right: solid rgba(0, 0, 0, 0.14);text-align: center; padding: 3%;"><div class="tileTitle" data-aura-rendered-by="12:2176;a"><h2 data-aura-rendered-by="13:2176;a"><span class="text uiOutputText" data-aura-class="uiOutputText" data-aura-rendered-by="16:2176;a">Go Mobile</span></h2></div><div class="tileDescription" data-aura-rendered-by="17:2176;a"><span class="text" data-aura-rendered-by="18:2176;a">Prepare the Salesforce1 mobile app for your users.</span></div><div class="tileNavButton" data-aura-rendered-by="21:2176;a"><button aria-live="off" class="slds-button slds-button--neutral navButton uiButton" data-aura-class="uiButton" data-aura-rendered-by="25:2176;a" type="button"><span class=" label bBody truncate" data-aura-rendered-by="28:2176;a" dir="ltr">Get Started</span></button></div></div></article>
+</body>
+    </apex:page>

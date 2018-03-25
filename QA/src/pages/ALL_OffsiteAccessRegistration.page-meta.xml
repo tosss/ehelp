@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
-    <apiVersion>32.0</apiVersion>
-    <availableInTouch>false</availableInTouch>
-    <confirmationTokenRequired>false</confirmationTokenRequired>
-    <description>This visualforce page will be used for registering for the Login Flow. It will display the QR code to the user. The user can then scan the code and thus register for the Login Flow.</description>
-    <label>ALL_OffsiteAccessRegistration</label>
-</ApexPage>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>MapAnything Data Layer Setting</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>MapAnything Data Layer Settings</value>
+    </caseValues>
+    <fields>
+        <label><!-- Settings --></label>
+        <name>Settings__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>dbusa-v1</masterLabel>
+            <translation><!-- dbusa-v1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>dmp-v1</masterLabel>
+            <translation><!-- dmp-v1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>navport-v1</masterLabel>
+            <translation><!-- navport-v1 --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,6 +1,0 @@
-<apex:page controller="compositionExample">
-    <apex:repeat value="{!stValue}" var="pageName">
-        <apex:composition template="Sample2" />   
-    </apex:repeat>
-    <apex:include pageName="Sample2"/>
-</apex:page>

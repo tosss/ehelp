@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CanvasMetadata xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessMethod>Get</accessMethod>
+    <canvasUrl>https://local.bigmachines.com/admin/oauth2/salesforce/oauth_callback.jsp</canvasUrl>
+    <lifecycleClass>BigMachines__OracleOAuthLifecycleHandler</lifecycleClass>
+    <locationOptions>VF,PL</locationOptions>
+    <samlInitiationMethod>0</samlInitiationMethod>
+</CanvasMetadata>

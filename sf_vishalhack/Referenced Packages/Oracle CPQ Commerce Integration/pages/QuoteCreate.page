@@ -1,0 +1,28 @@
+<apex:page standardController="BigMachines__Quote__c" extensions="BigMachines.BigMachinesCreateQuoteController">
+    <apex:sectionHeader title="Create Quote" subtitle="New Quote"/>
+    <apex:form >
+        <apex:pageMessages id="messages" />
+        <apex:outputText value="{!pageInstructions}" escape="false" />
+        <apex:pageBlock mode="edit" title="">
+            <apex:pageBlockButtons location="top" />
+            <apex:pageBlockSection title="Specify Parent" collapsible="false" columns="1">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Opportunity" for="parentOpportunity" />
+                    <apex:inputField id="parentOpportunity" value="{!BigMachines__Quote__c.BigMachines__Opportunity__c}"  />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{!allowAccountAsParent}">
+                    <apex:outputLabel value="Account" for="parentAccount" />
+                    <apex:inputField id="parentAccount" value="{!BigMachines__Quote__c.BigMachines__Account__c}"  />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{!multipleSites}">
+                    <apex:outputLabel value="Oracle CPQ Cloud Site" for="parentSite" />
+                    <apex:inputField id="parentSite" value="{!BigMachines__Quote__c.BigMachines__Site__c}" />
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton action="{!createQuote}" value="Create Quote" />
+                <apex:commandButton action="{!cancel}" value="Cancel" />
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+        </apex:form>
+</apex:page>

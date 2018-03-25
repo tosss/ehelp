@@ -1,0 +1,18 @@
+<!---------------------------------------------------------------- 
+// RQ-05791    - SubProject Home Page changes.
+// Description - This Page renders the Milestone Tree View
+// 2015-12-09  - venkata.shrivol@cdk.com  - Created
+-----------MODIFICATIONS--------------------------------------------
+2016-04-22  -venkata.shrivol@cdk.com    Added title to the page: RQ-06919
+2016-05-18 -venkata.shrivol@cdk.com  - added the another Confidentiality Status attribute -RQ-05471
+-------------------------------------------------------------------->
+
+<apex:page ></apex:page>
+<!--<apex:page tabStyle="SubProject__c" standardController="SubProject__c" showHeader="true" sidebar="true" title="{!SubProject__c.SubProject_Name__c} - Milestones">
+    <c:IMP_SubProjectSectionHeader autoName="{!SubProject__c.Name}" subProjectName="{!SubProject__c.SubProject_Name__c}" 
+    subProjectId="{!SubProject__c.Id}" confidentialityStatus="{!SubProject__c.Confidentiality_Status__c}" chatterFeedCheck="true"
+    confidentialCheck="{!(SubProject__c.Confidentiality_Status__c == 'Confidential' || SubProject__c.Confidentiality_Status__c == 'Restricted')}" >
+    </c:IMP_SubProjectSectionHeader>
+    <apex:include pageName="IMP_SubProjectButtons"/>
+    <c:IMP_MilestoneView ></c:IMP_MilestoneView>
+</apex:page>-->

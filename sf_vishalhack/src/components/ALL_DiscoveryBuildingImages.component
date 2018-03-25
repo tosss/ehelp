@@ -1,0 +1,332 @@
+<!--2016-10-28- sanjay.ghanathey@cdk.com- Changed the button with Dropdown.-->
+<!--2016-11-24- anirudh.singh@cdk.com- Added an attribute for PDF Version and modified the indentation.-->
+<!--2016-12-12- anirudh.singh@cdk.com- Combined all the JS Code and CSS Code into one JS and CSS file.-->
+<!--2016-12-12- anirudh.singh@cdk.com- Added some hidden input elements to pass value to the combined JS file.-->
+<apex:component controller="ALL_DiscoveryBuildingImages_Controller" allowDML="true">
+    <apex:includeScript value="{!URLFOR($Resource.Bootstrap, 'js/bootstrap.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jQueryIsotope, '/js/jquery.isotope.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.ALL_DiscoveryBuildingImages_JS)}"/>
+    
+    <apex:stylesheet value="{!URLFOR($Resource.Bootstrap, '/cdk/css/bootstrap.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.jQueryIsotope, '/css/style.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.ALL_DiscoveryBuildingImages_CSS)}"/>
+    
+    <apex:attribute name="tabName" type="String" description="Tab Name."/>
+    <!--2016-11-24- anirudh.singh@cdk.com- Added the below attributes.-->
+    <apex:attribute name="opportunityLocationSiteId" type="Id" default="a6N230000004Ht2" assignTo="{!oppLocationSiteIdForRecs}" 
+                    required="true" description="This is the Opportunity Location Site Id."/>
+    <apex:attribute name="labelToDisplay" type="String" description="Label To Display."/>
+    <apex:attribute name="scenario" type="String" default="" description="Scenario name."/>
+    <apex:attribute name="displayHeader" type="Boolean" default="false" 
+                    required="true" description="Whether to display Header or not. Value will be Yes or No."/>
+    
+    <!--2016-12-12- anirudh.singh@cdk.com- Added class to the below div.-->
+    <div class="buildingImagesComponent">
+        <!--2016-11-24- anirudh.singh@cdk.com- Added class headerH3.-->
+        <!--2016-11-24- anirudh.singh@cdk.com- Added the below line, using this to display or not display Header.-->
+        <h3 class="buildingImgHeader headerH3">
+            <input type="hidden" 
+                   data-tabname="{!tabName}" 
+                   data-labeltodisplay="{!labelToDisplay}" 
+                   data-displayheader="{!displayHeader}"/>
+        </h3>
+        
+        <!--2016-12-12- anirudh.singh@cdk.com- Added the below input element.-->
+        <input type="hidden" class="inputParameters" 
+               data-scenario="{!scenario}"
+               data-tabname="{!tabName}"
+               data-opplocationid="{!oppLocationSiteIdForRecs}"
+               data-billingstreet="{!oppLocRecord.Site__r.BillingStreet}"
+               data-billingcity="{!oppLocRecord.Site__r.BillingCity}"
+               data-billingpostalcode="{!oppLocRecord.Site__r.BillingPostalCode}"
+               data-accountname="{!oppLocRecord.Site__r.Name}"/>
+        
+        <!--Spinner-->
+        <div class="modal fade buildImgSpinnerDiv" id="buildImgSpinnerDiv" tabindex="-1" 
+             role="dialog" aria-labelledby="modalDialogLabel" aria-hidden="true"
+             data-keyboard="false" data-backdrop="static">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td><h3>Please Wait...</h3></td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fa fa-spinner fa-spin fa-2x"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!--Building Map-->
+        <apex:outputText rendered="{!tabName=='Building Map'}">
+            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?client=gme-cdkgloballlc&v=3.26&libraries=drawing&callback=initMap" defer="defer" async="async">
+            </script>
+            
+            <!--2016-11-24- anirudh.singh@cdk.com- Added the below condition.-->
+            <apex:outputText rendered="{!scenario!='pdf'}">
+                <!--Error/Info Message-->
+                <div class="messageDiv" id="messageDiv"></div>
+                
+                <!--Modal Dialog-->
+                <div class="modal fade modalDialogMap" id="modalDialogMap" tabindex="-1" role="dialog" aria-labelledby="modalDialogLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="modalDialogLabel"></h4>
+                            </div>
+                            <div class="modal-body"></div>
+                            <div class="modal-footer"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mapDiv">
+                    <div class="buttonGroup">
+                        <button type="button" class="btn btn-primary" onclick="saveMapChanges();">Save</button>
+                        <button type="button" class="btn btn-default" aria-hidden="true" 
+                                data-toggle="modal" data-target="#modalDialogMap" onclick="clearMap(j$(this));">Clear Map</button>
+                        
+                        <!--Line Color Selection Dropdown-->
+                        <div class="btn-group lineColorBtn">
+                            <button aria-expanded="false" aria-haspopup="true" class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+                                Line Color <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a onclick="changeLineColor(j$(this));">
+                                        <span class="lineColorLiLabel">Default</span><span class="liColorSpan defaultLineColor" data-color="#000000"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a onclick="changeLineColor(j$(this));">
+                                        <span class="lineColorLiLabel">Red</span><span class="liColorSpan redLine" data-color="#FF0000"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a onclick="changeLineColor(j$(this));">
+                                        <span class="lineColorLiLabel">Green</span><span class="liColorSpan greenLine" data-color="#00FF00"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a onclick="changeLineColor(j$(this));">
+                                        <span class="lineColorLiLabel">Blue</span><span class="liColorSpan blueLine" data-color="#0000FF"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a onclick="changeLineColor(j$(this));">
+                                        <span class="lineColorLiLabel">Orange</span><span class="liColorSpan orangeLine" data-color="#FFA500"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a onclick="changeLineColor(j$(this));">
+                                        <span class="lineColorLiLabel">Yellow</span><span class="liColorSpan yellowLine" data-color="#FFFF00"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div id="map"></div>
+                    
+                    <div class="buttonGroup">
+                        <button type="button" class="btn btn-primary" onclick="saveMapChanges();">Save</button>
+                        <button type="button" class="btn btn-default" aria-hidden="true" 
+                                data-toggle="modal" data-target="#modalDialogMap" onclick="clearMap(j$(this));">Clear Map</button>
+                        
+                        <!--Line Color Selection Dropdown-->
+                        <div class="btn-group lineColorBtn">
+                            <button aria-expanded="false" aria-haspopup="true" class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+                                Line Color <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a onclick="changeLineColor(j$(this));">
+                                        <span class="lineColorLiLabel">Default</span><span class="liColorSpan defaultLineColor" data-color="#000000"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a onclick="changeLineColor(j$(this));">
+                                        <span class="lineColorLiLabel">Red</span><span class="liColorSpan redLine" data-color="#FF0000"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a onclick="changeLineColor(j$(this));">
+                                        <span class="lineColorLiLabel">Green</span><span class="liColorSpan greenLine" data-color="#00FF00"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a onclick="changeLineColor(j$(this));">
+                                        <span class="lineColorLiLabel">Blue</span><span class="liColorSpan blueLine" data-color="#0000FF"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a onclick="changeLineColor(j$(this));">
+                                        <span class="lineColorLiLabel">Orange</span><span class="liColorSpan orangeLine" data-color="#FFA500"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a onclick="changeLineColor(j$(this));">
+                                        <span class="lineColorLiLabel">Yellow</span><span class="liColorSpan yellowLine" data-color="#FFFF00"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 class="commentsHeader">Comments on Building Map</h3>
+                <apex:form >
+                    <div class="buttonGroup">
+                        <apex:commandLink value="Save" styleClass="btn btn-primary saveButton" action="{!saveAndRefresh}" oncomplete="window.location.reload();"/>
+                        <apex:commandLink value="Reset" styleClass="btn btn-default" oncomplete="window.location.reload();"/>
+                    </div>
+                    
+                    <div class="richTextFieldDiv">
+                        <apex:inputField value="{!oppLocRecord.Comments_on_Building_Images__c}" id="comments" styleClass="buildingComments"/>
+                    </div>
+                    
+                    <div class="buttonGroup">
+                        <apex:commandLink value="Save" styleClass="btn btn-primary saveButton" action="{!saveAndRefresh}" oncomplete="window.location.reload();"/>
+                        <apex:commandLink value="Reset" styleClass="btn btn-default" oncomplete="window.location.reload();"/>
+                    </div>
+                </apex:form>
+            </apex:outputText>
+            
+            <apex:outputText rendered="{!scenario=='pdf'}">
+                <div class="mapDiv pdfMap">
+                    <div id="map"></div>
+                </div>
+            </apex:outputText>
+        </apex:outputText>
+        
+        <!--Network Details-->
+        <apex:outputText rendered="{!tabName=='Network Details'}">
+            <apex:outputText rendered="{!scenario!='pdf'}">
+                <div class="buttonGroup">
+                    <apex:outputText rendered="{!buildingImgWrapperRec.buildingWrapperList.size>0}">
+                        <!--10-28-2016 sanjay.ghanathey@cdk.com Changed the button with Dropdown-->
+                        <div class="dropdown addAttachmentLinkForBuilding">
+                            <div class="btn-group">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    Add Attachment <span class="caret"></span>
+                                </button>
+                                
+                                <ul class="dropdown-menu">
+                                    <apex:repeat value="{!buildingImgWrapperRec.buildingWrapperList}" var="eachBuilding">
+                                        <li>
+                                            <a href="{!'/p/attach/NoteAttach?pid='+eachBuilding.buildingId+'&retURL=/apex/ALL_CloseSelf'}" target="_blank">
+                                                {!eachBuilding.buildingName}
+                                            </a>
+                                        </li>
+                                    </apex:repeat>
+                                </ul>
+                            </div>
+                        </div>
+                    </apex:outputText>
+                    
+                    <apex:outputText rendered="{!buildingImgWrapperRec.buildingWrapperList.size=0}">
+                        <button class="btn btn-primary disabledButton" type="button" title="Attachments cannot be added, as no Building records exist.">Add Attachment</button>
+                    </apex:outputText>
+                </div>
+                
+                <div class="deviceImgMessageDiv"/>
+                
+                <apex:outputText rendered="{!buildingImgWrapperRec.isAttachment}">
+                    <div id="deviceImageFilters">
+                        <apex:repeat value="{!buildingImgWrapperRec.buildingWrapperList}" var="eachBuilding">
+                            <apex:outputText rendered="{!eachBuilding.buildingAttachments!=Null && eachBuilding.buildingAttachments.size>0}">
+                                <label class="btn btn-primary buildingButtons" data-filter="{!'.'+eachBuilding.buildingAutoNumber}">
+                                    <input type="checkbox" class="devImgFilterCheckbox"/>{!eachBuilding.buildingName}
+                                </label>
+                            </apex:outputText>
+                        </apex:repeat>
+                    </div>
+                    
+                    <ul class="nav nav-pills deviceImageUl">
+                        <apex:repeat value="{!buildingImgWrapperRec.buildingWrapperList}" var="eachBuilding">
+                            <apex:repeat value="{!eachBuilding.buildingAttachments}" var="eachAttachment">
+                                <li class="deviceImageLi {!eachBuilding.buildingAutoNumber}" data-category="transition">
+                                    <a class="deviceImgLink" href="{!URLFOR($Action.Attachment.Download, eachAttachment.Id)}" target="_blank">
+                                        <input type="hidden" class="currentRotation" value="0"/>
+                                        <input type="hidden" class="existingRotation" value="0"/>
+                                        <input type="hidden" class="imgDetails" 
+                                               data-imageid="{!eachAttachment.Id}"
+                                               data-oppbuildingname="{!eachBuilding.buildingAutoNumber}" 
+                                               data-oppbuildingid="{!eachBuilding.buildingId}"
+                                               data-existingdesc="{!eachAttachment.Description}"/>
+                                        
+                                        <div class="deviceImg">
+                                            <img src="{!URLFOR($Action.Attachment.Download, eachAttachment.Id)}"/>
+                                        </div>
+                                    </a>
+                                    
+                                    <div class="deviceImageDescDiv">
+                                        <textarea class="form-control deviceImageDesc">{!eachAttachment.Description}</textarea>
+                                    </div>
+                                    
+                                    <div class="deviceImgToolBtns">
+                                        <i class="fa fa-undo rotateLeft" aria-hidden="true" title="Rotate Left"></i>
+                                        <i class="fa fa-repeat rotateRight" aria-hidden="true" title="Rotate Right"></i>
+                                        <i class="fa fa-floppy-o saveDeviceImgChanges" aria-hidden="true" title="Save Changes" 
+                                           onclick="saveDeviceImgChanges(this);"></i>
+                                    </div>
+                                </li>
+                            </apex:repeat>
+                        </apex:repeat>
+                    </ul>
+                </apex:outputText>
+                
+                <apex:outputText rendered="{!buildingImgWrapperRec.isAttachment==false}">
+                    <h4>There are no records to display.</h4>
+                </apex:outputText>
+            </apex:outputText>
+            
+            <apex:outputText rendered="{!scenario=='pdf'}">
+                <apex:outputText rendered="{!buildingImgWrapperRec.buildingWrapperList.size>0 && buildingImgWrapperRec.isAttachment}">
+                    <ul class="nav nav-pills deviceImageUl">
+                        <apex:repeat value="{!buildingImgWrapperRec.buildingWrapperList}" var="eachBuilding">
+                            <apex:repeat value="{!eachBuilding.buildingAttachments}" var="eachAttachment">
+                                <li class="deviceImageLi {!eachBuilding.buildingAutoNumber}" data-category="transition">
+                                    <input type="hidden" class="currentRotation" value="0"/>
+                                    <input type="hidden" class="existingRotation" value="0"/>
+                                    <input type="hidden" class="imgDetails" 
+                                           data-imageid="{!eachAttachment.Id}"
+                                           data-oppbuildingname="{!eachBuilding.buildingAutoNumber}" 
+                                           data-oppbuildingid="{!eachBuilding.buildingId}"
+                                           data-existingdesc="{!eachAttachment.Description}"/>
+                                    
+                                    <div class="deviceImgPrint">
+                                        <img src="{!URLFOR($Action.Attachment.Download, eachAttachment.Id)}"/>
+                                    </div>
+                                    
+                                    <div class="deviceImageDescPrintDiv">
+                                        <apex:outputText rendered="{!eachAttachment.Description!=Null && eachAttachment.Description!=''}">
+                                            <span class="form-control deviceImageDescPrint">{!eachAttachment.Description}</span>
+                                            <span class="form-control blankDescArea"/>
+                                        </apex:outputText>
+                                        <apex:outputText rendered="{!eachAttachment.Description==Null || eachAttachment.Description==''}">
+                                            <span class="form-control blankDescAreaNoVal"/>
+                                        </apex:outputText>
+                                    </div>
+                                </li>
+                            </apex:repeat>
+                        </apex:repeat>
+                    </ul>
+                </apex:outputText>
+                
+                <apex:outputText rendered="{!buildingImgWrapperRec.buildingWrapperList.size==0 || buildingImgWrapperRec.isAttachment==false}">
+                    <h4>There are no records to display.</h4>
+                </apex:outputText>
+            </apex:outputText>
+        </apex:outputText>
+    </div>
+</apex:component>

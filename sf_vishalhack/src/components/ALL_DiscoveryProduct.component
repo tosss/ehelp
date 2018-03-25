@@ -1,0 +1,290 @@
+<apex:component controller="ALL_DiscoveryProductSolution_Controller" allowDML="true" >    
+<!-----------------------------------------------------------
+Author: Sanjay Ghanathey
+Description: Discovery Project - Third Party Solutions.
+History
+2016-08-22 Sanjay.Ghanathey@cdk.com Created
+2016-08-23 Sanjay.Ghanathey@cdk.com Updated : Fetch Records.
+2016-08-24 Sanjay.Ghanathey@cdk.com Updated : Save and Cancel method.
+2017-03-23- anirudh.singh@cdk.com- Added Modal for showing Spinner.
+------------------------------------------------------------->        
+    
+    <!-- JavaScript Resources -->            
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.11.2.min.js')}"/>    
+    <apex:includeScript value="{!URLFOR($Resource.Bootstrap, '/js/bootstrap.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.ALL_DiscoveryProductSolution_JS)}"/> 
+    <apex:includeScript value="{!URLFOR($Resource.footable, 'footable.js')}"/>       
+    
+    <!-- Stylesheet Resources -->  
+    <apex:stylesheet value="{!URLFOR($Resource.Bootstrap, 'cdk/css/bootstrap.min.css')}"/>    
+    <apex:stylesheet value="{!URLFOR($Resource.FontAwesome, '4.6.1/css/font-awesome.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.footable, 'footable.core.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.ALL_DiscoveryProductSolution_CSS)}" />
+    <apex:stylesheet value="{!URLFOR($Resource.footable, 'fonts/footable.woff')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.footable, 'fonts/footable.ttf')}"/>
+    
+    
+    <script type="text/javascript">
+    var j$; if(!j$) { j$ = jQuery.noConflict(); }             
+    var existingIds; 
+    var oppLocId = '{!$CurrentPage.parameters.OppLocId}';
+    var existingDSIds; 
+    var disableTPSForSoldProposed;
+    var otherTPSIds;
+    var existingProducts = JSON.parse('{!existingProducts}');      
+    </script>   
+    <div class="tps" id="products">
+        
+        <h3 class="solprodHeaderDiv"></h3>
+            
+        <div class="modal fade" id="checkboxError" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Ok"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Error</h4>
+                    </div>
+                    <div class="modal-body" style="height: auto !Important;">
+                        <input type="hidden" id="tempId"/> 
+                        <p>
+                            Please check either proposed, sold or current for the selected solution(s).
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="deleteConfirmId" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
+                    </div>
+                    <div class="modal-body" style="height: auto !Important;">
+                        <input type="hidden" id="tempId"/> 
+                        <p>
+                            Do you really want to delete the Product?
+                            <br/>
+                            <br/>                            
+                            <b>
+                                Note: All the answers related to this product will be deleted.
+                            </b>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="deleteProduct(j$(tempId).val())" data-dismiss="modal">Proceed</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal fade" id="OtherSolutionForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Add Other Product</h4>
+                    </div>
+                    <div class="modal-body" style="height: auto !Important;">    
+                        <div class="alert alert-danger" role="alert" id="errorInModal" style="display:none;">                            
+                        </div>
+                        <apex:form >                            
+                            <div class="form-group">
+                                <label for="otherSolutionName">Product Name</label>                                
+                                <apex:inputField styleClass="form-control" id="otherProductName" value="{!productAtSite.Other_Product_Name__c}"/>
+                            </div>           
+                            <div class="checkbox">
+                                <label style="padding:5px;">
+                                    <apex:inputCheckbox id="changedCurrentId" onchange="disableFormCheckbox(this);" value="{!productAtSite.Current__c}"/> <label style="padding-left:30px;padding-top:5px;"> Current</label>    
+                                </label>                                
+                            </div> 
+                            <div class="checkbox">
+                                <label style="padding:5px;">                                    
+                                    <apex:inputCheckbox id="changedProposedId" onchange="disableFormCheckbox(this);" value="{!productAtSite.Proposed__c}"/> <label style="padding-left:30px;padding-top:5px;"> Proposed </label>   
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label style="padding:5px;">                                    
+                                    <apex:inputCheckbox id="changedSoldId" onchange="disableFormCheckbox(this);" value="{!productAtSite.Proposed_and_Sold__c}"/> <label style="padding-left:30px;padding-top:5px;"> Sold </label> 
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for="notesComments">Notes/Comments</label>                                
+                                <apex:inputTextArea styleClass="form-control" id="notesComments" value="{!productAtSite.Notes__c}"/>
+                            </div> 
+                        </apex:form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" onclick="saveOtherProduct();">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!--2017-03-23- anirudh.singh@cdk.com- Added Modal for showing Spinner.-->
+        <!--Spinner-->
+        <div class="modal fade discProdSolSpinnerDiv" id="discProdSolSpinnerDiv" tabindex="-1" role="dialog" aria-labelledby="modalDialogLabel" aria-hidden="true"
+             data-keyboard="false" data-backdrop="static">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td><h3>Please Wait...</h3></td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fa fa-spinner fa-spin fa-2x"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <apex:form id="ProductFormId">
+            <div class="panel">
+                <div class="panel-heading" style="padding-bottom: 5px;">
+                    <div> 
+                        <div class="input-group" style="width:100%">
+                            <span class="searchFilterDiv">
+                                <select id="searchFilter" class="form-control" style="width:auto;">
+                                    <option>All</option>
+                                    <option>Product Name</option>
+                                    <option>Department</option>
+                                    <option>Workflow</option>
+                                </select>
+                                
+                                <div style="display: inline-block;">
+                                    <input id="searchtps" type="search" class="form-control searchtps" style="width:auto;" placeholder="Search" aria-describedby="basic-addon1"/> 
+                                </div>
+                            </span>
+                            
+                            <div class="tpsMenu tpsMenuDiv">
+                                <span>
+                                    <apex:commandButton value="Save" action="{!SaveProduct}" styleClass="btn btn-primary" reRender="showMessages" status="saveStatus" onclick="if(!validateOnSubmit(event)){return false;};"/>&nbsp;
+                                    <apex:commandButton value="Reset" onclick="resetForm();" styleClass="btn btn-default" reRender="dummy"/>
+                                    <button type="button" class="btn btn-default" 
+                                            data-toggle="modal" data-target="#OtherSolutionForm" title="Can’t find the product you’re searching for ? Click to add a product">
+                                        Add Other Product
+                                    </button> 
+                                    <apex:actionStatus onstart="j$('#discProdSolSpinnerDiv').modal('show');" onstop="reloadPage();" id="saveStatus"/>
+                                    <div class="dropdown" style="display: inline-block;">
+                                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            Product Learning
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                            <li><a target="_blank" href="https://mycdk.force.com/Employees/apex/EMP_AssociatePortalPage?page=product%20center">Product Center</a></li>
+                                            <li><a target="_blank" href="http://cdksaleslink.com/">Sales Link</a></li>                                
+                                        </ul>
+                                    </div>
+                                </span>
+                            </div>                            
+                        </div>                                
+                    </div> 
+                    
+                </div>                
+            </div>
+            <!--<apex:pageMessages id="showMessages"/>-->
+            <table class="table tpstable table-fixed" id="tpstable" data-filtering="true">                        
+                <thead>
+                    <tr>                                                                  
+                        <th>
+                            <div></div>
+                        </th>                                
+                        <th data-toggle="true">Product Name &nbsp;</th>                        
+                        <!--<th data-hide="phone,tablet">Vendor</th>  -->
+                        <th data-hide="phone,tablet">Department &nbsp;</th>
+                        <th data-hide="phone,tablet">Workflow &nbsp;</th>
+                        <th>Current</th>  
+                        <th>Proposed</th>  
+                        <th>Proposed and Sold</th>
+                        <th>Include Questions?</th> 
+                        <th>Notes/Comments &nbsp;</th>
+                        <th></th>
+                    </tr>
+                </thead>                
+                <tbody>
+                    <apex:repeat value="{!Products}" var="tps">
+                        <tr>
+                            <td> <apex:inputCheckbox value="{!tps.isChecked}" styleClass="{!if(tps.productId != null ,tps.productId,tps.dpdObject.Id)}" />                                 
+                                <!-- <i class="fa fa-info-circle tool errIcon" id="err{!if(tps.productId != null ,tps.productId,tps.dpdObject.Id)}" style="display:none"></i>
+<i class="fa fa-check-square" id="check{!if(tps.productId != null ,tps.productId,tps.dpdObject.Id)}" style="display:none"></i>-->
+                                <i class="fa fa-exclamation-triangle" aria-hidden="true" id="checkerr{!if(tps.productId != null ,tps.productId,tps.dpdObject.Id)}" style="display:none;color:red;"></i>
+                            </td>
+                            <td> <apex:outputText rendered="{!IF(tps.productId != null,true,false)}">                                
+                                <a target="_blank" href="/{!tps.productId}/e?retURL=/apex/ALL_CloseSelfDonotReload&saveURL=/apex/ALL_CloseSelf">{!tps.dpdObject.Name}</a>
+                                </apex:outputText>                               
+                                <apex:outputText rendered="{!IF(tps.productId == null,true,false)}">                                
+                                    {!tps.dpdObject.Name}
+                                </apex:outputText>
+                            </td>  
+                            <td>
+                                <apex:outputText rendered="{!IF(tps.dpdObject.Department__c != null,true,false)}">                                
+                                    {!tps.dpdObject.Department__c}
+                                </apex:outputText>
+                                <apex:outputText rendered="{!IF(tps.dpdObject.Department__c == null,true,false)}">                                
+                                    {!tps.otherDepartment}
+                                </apex:outputText>
+                            </td>
+                            <td>
+                                <apex:outputText rendered="{!IF(tps.dpdObject.Workflow__c != null,true,false)}">                                
+                                    {!tps.dpdObject.Workflow__c}
+                                </apex:outputText>
+                                <apex:outputText rendered="{!IF(tps.dpdObject.Workflow__c == null,true,false)}">                                
+                                    {!tps.otherWorkflow}
+                                </apex:outputText>
+                            </td>
+                            <!--<td> {!tps.dpdObject.Vendor__c} </td>  -->
+                            <td> 
+                                <apex:inputCheckbox value="{!tps.isCurrent}" onchange="solutionCheck('{!if(tps.productId != null ,"curr"+tps.productId,"curr"+tps.dpdObject.Id)}');" styleClass="{!if(tps.productId != null ,"curr"+tps.productId,"curr"+tps.dpdObject.Id)}" />                                 
+                                <i class="fa fa-square-o" aria-hidden="true" style="display:none" id="{!if(tps.productId != null ,"dummycurr"+tps.productId,"dummycurr"+tps.dpdObject.Id)}"></i>
+                            </td>
+                            <td> 
+                                <apex:inputCheckbox value="{!tps.isProposed}" onchange="solutionCheck('{!if(tps.productId != null ,"prop"+tps.productId,"prop"+tps.dpdObject.Id)}');" styleClass="{!if(tps.productId != null ,"prop"+tps.productId,"prop"+tps.dpdObject.Id)}" />                                 
+                                <i class="fa fa-square-o" aria-hidden="true" style="display:none" id="{!if(tps.productId != null ,"dummyprop"+tps.productId,"dummyprop"+tps.dpdObject.Id)}"></i>
+                            </td>
+                            <td> 
+                                <apex:inputCheckbox value="{!tps.isSold}" onchange="solutionCheck('{!if(tps.productId != null ,"sold"+tps.productId,"sold"+tps.dpdObject.Id)}');" styleClass="{!if(tps.productId != null ,"sold"+tps.productId,"sold"+tps.dpdObject.Id)}" />                                 
+                                <i class="fa fa-square-o" aria-hidden="true" style="display:none" id="{!if(tps.productId != null ,"dummysold"+tps.productId,"dummysold"+tps.dpdObject.Id)}"></i>
+                            </td>
+                            <td> 
+                                <apex:inputCheckbox value="{!tps.isIncludeQuestion}" styleClass="{!if(tps.productId != null ,"ques"+tps.productId,"ques"+tps.dpdObject.Id)}" />                                 
+                                <i class="fa fa-square-o" aria-hidden="true" style="display:none" id="{!if(tps.productId != null ,"dummysold"+tps.productId,"dummysold"+tps.dpdObject.Id)}"></i>
+                            </td>
+                            <td>                                                                
+                                <div id="notes{!if(tps.productId != null ,tps.productId,tps.dpdObject.Id)}">
+                                    <apex:inputTextarea rows="1" value="{!tps.notes}" styleClass="form-control"/>
+                                </div>
+                            </td>
+                            <td>                                 
+                                <i class="fa fa-times-circle" style="font-size:1.5em;cursor: pointer; display:none;" aria-hidden="true" id="del{!if(tps.productId != null ,tps.productId,tps.dpdObject.Id)}" onclick="confirmDialog('{!if(tps.productId != null ,tps.productId,tps.dpdObject.Id)}',this);"
+                                   data-toggle="modal" data-target="#deleteConfirmId" title="Delete Solution"/>                                
+                            </td>
+                        </tr> 
+                    </apex:repeat>
+                </tbody>                   
+            </table> 
+            <div class="panel">
+                <div class="panel-heading">
+                    <div class="text-center">
+                        <apex:commandButton value="Save" oncomplete="reloadPage();" action="{!saveProduct}" styleClass="btn btn-primary" reRender="showMessages" status="saveStatusFooter"  onclick="if(!validateOnSubmit(event)){return false;};"/>&nbsp;
+                        <apex:commandButton value="Reset" onclick="resetForm();" styleClass="btn btn-default" reRender="dummy"/>
+                        <button type="button" class="btn btn-default" 
+                                data-toggle="modal" data-target="#OtherSolutionForm" title="Can’t find the product you’re searching for ? Click to add a solution">
+                            Add Other Product
+                        </button>                         
+                        <apex:actionStatus onstart="j$('#discProdSolSpinnerDiv').modal('show');" onstop="j$('#discProdSolSpinnerDiv').modal('hide');resetForm();" id="saveStatusFooter"/>                                                                                                       
+                    </div> 
+                </div>                    
+            </div>
+        </apex:form>    
+    </div>    
+</apex:component>

@@ -1,0 +1,74 @@
+<!--2016-10-27- anirudh.singh@cdk.com- Created this component for pdf version for displaying empty rows.-->
+<apex:component controller="ALL_ObjectDetails_Controller">
+    <apex:includeScript value="{!URLFOR($Resource.ALL_ObjectDetailsForPDF_JS)}"/>
+    
+    <apex:stylesheet value="{!URLFOR($Resource.Bootstrap, '/cdk/css/bootstrap.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.ALL_ObjectDetails_CSS)}"/>
+    
+    <apex:attribute name="opportunityLocationSiteId" type="Id" default="a6N230000004Ht2" assignTo="{!oppLocationSiteIdForRecs}" 
+                    required="true" description="This is the Opportunity Location Site Id."/>
+    <apex:attribute name="displayHeader" type="Boolean" default="false" 
+                    required="true" description="Whether to display Header or not. Value will be Yes or No."/>
+    <apex:attribute name="sObjectMetadata" type="ALL_SObject__mdt" assignTo="{!sObjectMetadataRecord}" 
+                    required="true" description="This is the ALL_SObject__mdt record."/>
+    <apex:attribute name="scenario" type="String" assignTo="{!objDetailsScenario}" 
+                    required="true" description="This determines whether normal scenario or pdf scenario."/>
+    
+    <div class="objectDetailsComponent">
+        <h3 class="objectDetailsHeader headerH3">
+            <input type="hidden" value="{!sObjectMetadataRecord.MasterLabel}"/>
+        </h3>
+        
+        <div class="objectDetailsContent">
+            <input type="hidden" class="columnNamesList" 
+                   data-columnnameslist="{!wrapperRecordToDisplay.columnNamesList}"
+                   data-noofrowstodisplay="{!wrapperRecordToDisplay.noOfRowsToDisplay}"/>
+            
+            <apex:outputText rendered="{!wrapperRecordToDisplay.columnNamesList!=Null && wrapperRecordToDisplay.columnNamesList.size>0}">
+                <table class="table table-bordered objectDetailsTable">
+                    <thead>
+                        <tr>
+                            <th class="objectDetailsTh itemNoColumn">
+                                Item #
+                            </th>
+                            
+                            <apex:repeat value="{!wrapperRecordToDisplay.columnNamesList}" var="columnName">
+                                <apex:outputText rendered="{!columnName!='Opportunity Building'}">
+                                    <th class="objectDetailsTh">
+                                        <apex:outputText rendered="{!columnName='Record Type ID'}">Record Type</apex:outputText>
+                                        <apex:outputText rendered="{!columnName!='Record Type ID'}">{!columnName}</apex:outputText>
+                                    </th>
+                                </apex:outputText>
+                            </apex:repeat>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <apex:variable value="{!1}" var="rowNum"/>
+                        <apex:repeat value="{!wrapperRecordToDisplay.sObjectList}" var="sObjectRecord">
+                            <tr class="objectDetailsRowData">
+                                <td class="alignCenter itemNoColumn">{!rowNum}</td>
+                                
+                                <apex:repeat value="{!wrapperRecordToDisplay.columnAPINamesList}" var="columnAPIName">
+                                    <apex:outputText rendered="{!columnAPIName!='Opportunity_Building__c'}">
+                                        <td class="objectDetailsColumnData">
+                                            <apex:outputText styleClass="objRecName" value="{!sObjectRecord[columnAPIName]}"
+                                                             rendered="{!columnAPIName='Name' 
+                                                                       || (sObjectMetadataRecord.SObject_Name__c='Opportunity_Location__c' 
+                                                                       && columnAPIName='Building_Name__c')}"/>
+                                            
+                                            <apex:outputField value="{!sObjectRecord[columnAPIName]}"
+                                                              rendered="{!columnAPIName!='Name' && columnAPIName!='Building_Name__c'}"/>
+                                        </td>
+                                    </apex:outputText>
+                                </apex:repeat>
+                            </tr>
+                            
+                            <apex:variable var="rowNum" value="{!rowNum+1}"/>
+                        </apex:repeat>
+                    </tbody>
+                </table>
+            </apex:outputText>
+        </div>
+    </div>
+</apex:component>

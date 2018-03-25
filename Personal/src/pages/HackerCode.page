@@ -1,8 +1,0 @@
-<apex:page >
-    
-			<apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}" />
-            <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.10.4.custom.min.js')}" />
-    <script type="text/javascript">
-   parent.window.postMessage("removetheiframe", "*");
-    </script>
-</apex:page>

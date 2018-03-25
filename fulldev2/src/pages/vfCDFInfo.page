@@ -1,3 +1,0 @@
-<apex:page standardController="Opportunity">
- <apex:canvasApp applicationName="CDF_Canvas" parameters="{!JSENCODE(Opportunity.Id)}" />
-</apex:page>

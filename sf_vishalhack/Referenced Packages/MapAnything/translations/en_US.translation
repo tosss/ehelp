@@ -1,0 +1,3691 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customApplications>
+        <label><!-- MapAnything --></label>
+        <name>MapAnything</name>
+    </customApplications>
+    <customLabels>
+        <label>Clear Default Folder</label>
+        <name>Clear_Default_Folder</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- FROM_CURRENT_LOCATION --></label>
+        <name>FROM_CURRENT_LOCATION</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAActionFramework_Add_to_Campaign --></label>
+        <name>MAActionFramework_Add_to_Campaign</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAActionFramework_Add_to_Trip --></label>
+        <name>MAActionFramework_Add_to_Trip</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAActionFramework_Change_Owner --></label>
+        <name>MAActionFramework_Change_Owner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAActionFramework_Check_In --></label>
+        <name>MAActionFramework_Check_In</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAActionFramework_Check_Out --></label>
+        <name>MAActionFramework_Check_Out</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAActionFramework_Clear_Coordinates --></label>
+        <name>MAActionFramework_Clear_Coordinates</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAActionFramework_Create_Favorite --></label>
+        <name>MAActionFramework_Create_Favorite</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAActionFramework_Follow --></label>
+        <name>MAActionFramework_Follow</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAActionFramework_Log_a_Call --></label>
+        <name>MAActionFramework_Log_a_Call</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAActionFramework_New_Event --></label>
+        <name>MAActionFramework_New_Event</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAActionFramework_New_Task --></label>
+        <name>MAActionFramework_New_Task</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAActionFramework_Send_Email --></label>
+        <name>MAActionFramework_Send_Email</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAActionFramework_Set_Proximity_Center --></label>
+        <name>MAActionFramework_Set_Proximity_Center</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAActionFramework_Set_Verified_Location --></label>
+        <name>MAActionFramework_Set_Verified_Location</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAActionFramework_Take_Me_There --></label>
+        <name>MAActionFramework_Take_Me_There</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAActionFramework_Unfollow --></label>
+        <name>MAActionFramework_Unfollow</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAActionFramework_Update_Field --></label>
+        <name>MAActionFramework_Update_Field</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAContext_Center_Map_Here --></label>
+        <name>MAContext_Center_Map_Here</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAContext_Cluster_Options --></label>
+        <name>MAContext_Cluster_Options</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAContext_Favorite_Options --></label>
+        <name>MAContext_Favorite_Options</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAContext_Lock_As_End --></label>
+        <name>MAContext_Lock_As_End</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAContext_Lock_As_Start --></label>
+        <name>MAContext_Lock_As_Start</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAContext_Lock_As_Start_End --></label>
+        <name>MAContext_Lock_As_Start_End</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAContext_Map_Options --></label>
+        <name>MAContext_Map_Options</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAContext_Marker_Options --></label>
+        <name>MAContext_Marker_Options</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAContext_Mass_Actions --></label>
+        <name>MAContext_Mass_Actions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAContext_Move_To --></label>
+        <name>MAContext_Move_To</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAContext_No_Mass_Actions --></label>
+        <name>MAContext_No_Mass_Actions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAContext_Remove_All_Favorites --></label>
+        <name>MAContext_Remove_All_Favorites</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAContext_Remove_Favorite --></label>
+        <name>MAContext_Remove_Favorite</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAContext_Remove_Layer --></label>
+        <name>MAContext_Remove_Layer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAContext_Remove_Marker --></label>
+        <name>MAContext_Remove_Marker</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAContext_Remove_POI --></label>
+        <name>MAContext_Remove_POI</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAContext_Remove_Route --></label>
+        <name>MAContext_Remove_Route</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAContext_Scatter_Options --></label>
+        <name>MAContext_Scatter_Options</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAContext_Search_Options --></label>
+        <name>MAContext_Search_Options</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAContext_Shape_Options --></label>
+        <name>MAContext_Shape_Options</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAContext_Unlock --></label>
+        <name>MAContext_Unlock</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAContext_Waypoint_Options --></label>
+        <name>MAContext_Waypoint_Options</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAFavoriteLocation_Create_Edit_Location --></label>
+        <name>MAFavoriteLocation_Create_Edit_Location</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAFavoriteLocation_Create_Location --></label>
+        <name>MAFavoriteLocation_Create_Location</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAFavoriteLocation_Current_selection_to_be_updated --></label>
+        <name>MAFavoriteLocation_Current_selection_to_be_updated</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAFavoriteLocation_Please_complete_all_information --></label>
+        <name>MAFavoriteLocation_Please_complete_all_information</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MARoutes_Appointment_Duration --></label>
+        <name>MARoutes_Appointment_Duration</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MARoutes_Avoid_Motorway --></label>
+        <name>MARoutes_Avoid_Motorway</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MARoutes_Bicycle --></label>
+        <name>MARoutes_Bicycle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MARoutes_Directions_Defaults --></label>
+        <name>MARoutes_Directions_Defaults</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MARoutes_Green --></label>
+        <name>MARoutes_Green</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MARoutes_Kilometers --></label>
+        <name>MARoutes_Kilometers</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MARoutes_Miles --></label>
+        <name>MARoutes_Miles</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MARoutes_Quickest --></label>
+        <name>MARoutes_Quickest</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MARoutes_Route_Duration --></label>
+        <name>MARoutes_Route_Duration</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MARoutes_Routes_Title --></label>
+        <name>MARoutes_Routes_Title</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MARoutes_Shortest --></label>
+        <name>MARoutes_Shortest</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MARoutes_Speed_Limited --></label>
+        <name>MARoutes_Speed_Limited</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MARoutes_Time_Defaults --></label>
+        <name>MARoutes_Time_Defaults</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MARoutes_Total_Trip --></label>
+        <name>MARoutes_Total_Trip</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MARoutes_Walk --></label>
+        <name>MARoutes_Walk</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MASettings_About --></label>
+        <name>MASettings_About</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MASettings_Browser --></label>
+        <name>MASettings_Browser</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MASettings_Defaults --></label>
+        <name>MASettings_Defaults</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MASettings_General --></label>
+        <name>MASettings_General</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MASettings_Invert_Proximity --></label>
+        <name>MASettings_Invert_Proximity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MASettings_MapIt_Proximity --></label>
+        <name>MASettings_MapIt_Proximity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MASettings_Powered_By --></label>
+        <name>MASettings_Powered_By</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MASettings_Proximity --></label>
+        <name>MASettings_Proximity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MASettings_ Radius --></label>
+        <name>MASettings_Radius</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MASettings_Settings --></label>
+        <name>MASettings_Settings</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MASettings_Update --></label>
+        <name>MASettings_Update</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MASettings_Version --></label>
+        <name>MASettings_Version</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATerritoryBuilder_Advanced --></label>
+        <name>MATerritoryBuilder_Advanced</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATerritoryBuilder_AdvancedOptions --></label>
+        <name>MATerritoryBuilder_AdvancedOptions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATerritoryBuilder_Border_Color --></label>
+        <name>MATerritoryBuilder_Border_Color</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATerritoryBuilder_Calculate_Agg --></label>
+        <name>MATerritoryBuilder_Calculate_Agg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATerritoryBuilder_Color_Selection --></label>
+        <name>MATerritoryBuilder_Color_Selection</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATerritoryBuilder_Colors --></label>
+        <name>MATerritoryBuilder_Colors</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATerritoryBuilder_Create_Layer --></label>
+        <name>MATerritoryBuilder_Create_Layer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATerritoryBuilder_Fill_Color --></label>
+        <name>MATerritoryBuilder_Fill_Color</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATerritoryBuilder_Geometry --></label>
+        <name>MATerritoryBuilder_Geometry</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATerritoryBuilder_Label --></label>
+        <name>MATerritoryBuilder_Label</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATerritoryBuilder_Label_BGColor --></label>
+        <name>MATerritoryBuilder_Label_BGColor</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATerritoryBuilder_Label_BGOpacity --></label>
+        <name>MATerritoryBuilder_Label_BGOpacity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATerritoryBuilder_Label_Enable --></label>
+        <name>MATerritoryBuilder_Label_Enable</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATerritoryBuilder_Label_FontColor --></label>
+        <name>MATerritoryBuilder_Label_FontColor</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATerritoryBuilder_Label_FontSize --></label>
+        <name>MATerritoryBuilder_Label_FontSize</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATerritoryBuilder_Label_Justification --></label>
+        <name>MATerritoryBuilder_Label_Justification</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATerritoryBuilder_Label_Options --></label>
+        <name>MATerritoryBuilder_Label_Options</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATerritoryBuilder_Label_TextOverride --></label>
+        <name>MATerritoryBuilder_Label_TextOverride</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATerritoryBuilder_No_Bound --></label>
+        <name>MATerritoryBuilder_No_Bound</name>
+    </customLabels>
+    <customLabels>
+        <label>Opacity</label>
+        <name>MATerritoryBuilder_Opacity</name>
+    </customLabels>
+    <customLabels>
+        <label>Options</label>
+        <name>MATerritoryBuilder_Tab_Options</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATutorial_Add_Custom_Config --></label>
+        <name>MATutorial_Add_Custom_Config</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATutorial_Add_Custom_Config_Install --></label>
+        <name>MATutorial_Add_Custom_Config_Install</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATutorial_Available_Base_Objects --></label>
+        <name>MATutorial_Available_Base_Objects</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATutorial_Basic_Info --></label>
+        <name>MATutorial_Basic_Info</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATutorial_Character_Limit --></label>
+        <name>MATutorial_Character_Limit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATutorial_Custom_Configuration --></label>
+        <name>MATutorial_Custom_Configuration</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATutorial_Custom_Configuration_Popup_Finish --></label>
+        <name>MATutorial_Custom_Configuration_Popup_Finish</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATutorial_Custom_Field_Instructions --></label>
+        <name>MATutorial_Custom_Field_Instructions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATutorial_Custom_Field_Map --></label>
+        <name>MATutorial_Custom_Field_Map</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATutorial_Custom_Field_Map_Instructions --></label>
+        <name>MATutorial_Custom_Field_Map_Instructions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATutorial_Custom_Popup-Instructions --></label>
+        <name>MATutorial_Custom_Popup_Instructions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATutorial_Next --></label>
+        <name>MATutorial_Next</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATutorial_Popup-Instructions --></label>
+        <name>MATutorial_Popup_Instructions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATutorial_Review --></label>
+        <name>MATutorial_Review</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATutorial_Review_Custom_Config --></label>
+        <name>MATutorial_Review_Custom_Config</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATutorial_Selected_Configurations --></label>
+        <name>MATutorial_Selected_Configurations</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATutorial_Start_Over --></label>
+        <name>MATutorial_Start_Over</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MATutorial_Welcome --></label>
+        <name>MATutorial_Welcome</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAWeather_Alerts --></label>
+        <name>MAWeather_Alerts</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAWeather_Clouds --></label>
+        <name>MAWeather_Clouds</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAWeather_Dew_Point --></label>
+        <name>MAWeather_Dew_Point</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAWeather_Heat_Index --></label>
+        <name>MAWeather_Heat_Index</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAWeather_Humidity --></label>
+        <name>MAWeather_Humidity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAWeather_Opacity --></label>
+        <name>MAWeather_Opacity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAWeather_Radar --></label>
+        <name>MAWeather_Radar</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAWeather_Temps --></label>
+        <name>MAWeather_Temps</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAWeather_Time --></label>
+        <name>MAWeather_Time</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAWeather_Windchill --></label>
+        <name>MAWeather_Windchill</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MAWeather_Winds --></label>
+        <name>MAWeather_Winds</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_ACTIVE --></label>
+        <name>MA_ACTIVE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_ADD_A_TOOLTIP --></label>
+        <name>MA_ADD_ADDITIONAL_SETS_OF_DATA_YOU_D_LIKE_TO_SEE_ON_THE_TOOLTIP</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_ADD_A_COLOR --></label>
+        <name>MA_ADD_A_COLOR</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_ADD_A_FILTER --></label>
+        <name>MA_ADD_A_FILTER</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_ADD_A_HEADER --></label>
+        <name>MA_ADD_A_HEADER</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_ADD_A_TAB --></label>
+        <name>MA_ADD_A_TAB</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_ADD_COLUMN --></label>
+        <name>MA_ADD_COLUMN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_ADD_CROSS_OBJECT_FILTER --></label>
+        <name>MA_ADD_CROSS_OBJECT_FILTER</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_ADD_DATA_TO_TOOLTIP --></label>
+        <name>MA_ADD_DATA_TO_TOOLTIP</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_ADD_THE_INFORMATION_YOUD_LIKE_TO_SEE_WHEN_YOU_CLICK --></label>
+        <name>MA_ADD_THE_INFORMATION_YOUD_LIKE_TO_SEE_WHEN_YOU_CLICK</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_ADD_THE_PRIMARY_SET_OF_DATA_YOUD_LIKE_TO_SEE --></label>
+        <name>MA_ADD_THE_PRIMARY_SET_OF_DATA_YOUD_LIKE_TO_SEE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_ADMIN --></label>
+        <name>MA_ADMIN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_ADVANCED_SETTINGS --></label>
+        <name>MA_ADVANCED_SETTINGS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_AFFECT_VISIBILITY --></label>
+        <name>MA_AFFECT_VISIBILITY</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_AND --></label>
+        <name>MA_AND</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_ASSORTED_COLORS --></label>
+        <name>MA_ASSORTED_COLORS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_ASSORTED_SHAPES --></label>
+        <name>MA_ASSORTED_SHAPES</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_AT_WHAT_LEVEL_OF_DETAIL --></label>
+        <name>MA_AT_WHAT_LEVEL_OF_DETAIL</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_AUTOMATICALLY_ASSIGN_REMAINING_VALUES_A_COLORSHAPE --></label>
+        <name>MA_AUTOMATICALLY_ASSIGN_REMAINING_VALUES_A_COLORSHAPE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_AVAILABLE --></label>
+        <name>MA_AVAILABLE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_A_DEFINED_ENCLOSED_AREA_EG_A_STATE_OR_COUNTRY --></label>
+        <name>MA_A_DEFINED_ENCLOSED_AREA_EG_A_STATE_OR_COUNTRY</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_A_NAME_IS_REQUIRED_TO_CONTINUE --></label>
+        <name>MA_A_NAME_IS_REQUIRED_TO_CONTINUE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Account --></label>
+        <name>MA_Account</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Action --></label>
+        <name>MA_Action</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Actions --></label>
+        <name>MA_Actions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Activity_Fields --></label>
+        <name>MA_Activity_Fields</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Activity_Settings --></label>
+        <name>MA_Activity_Settings</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Activity_Support --></label>
+        <name>MA_Activity_Support</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Add --></label>
+        <name>MA_Add</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Add_Boundary --></label>
+        <name>MA_Add_Boundary</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Add_Close --></label>
+        <name>MA_Add_Close</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Add_Edit_Time_Block --></label>
+        <name>MA_Add_Edit_Time_Block</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Add_Edit_Waypoint --></label>
+        <name>MA_Add_Edit_Waypoint</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Add_Filter --></label>
+        <name>MA_Add_Filter</name>
+    </customLabels>
+    <customLabels>
+        <label>Add New</label>
+        <name>MA_Add_New</name>
+    </customLabels>
+    <customLabels>
+        <label>Add/Remove Plot on Load</label>
+        <name>MA_Add_Remove_Plot_on_Load</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Add_Row --></label>
+        <name>MA_Add_Row</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Add_Start_End_Location --></label>
+        <name>MA_Add_Start_End_Location</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Add_Stop --></label>
+        <name>MA_Add_Stop</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Address --></label>
+        <name>MA_Address</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Address_Fields --></label>
+        <name>MA_Address_Fields</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Address_Location --></label>
+        <name>MA_Address_Location</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Addresses_Not_Found --></label>
+        <name>MA_Addresses_Not_Found</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Advanced_Options --></label>
+        <name>MA_Advanced_Options</name>
+    </customLabels>
+    <customLabels>
+        <label>Advanced Search</label>
+        <name>MA_Advanced_Search</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Aggregate_Options --></label>
+        <name>MA_Aggregate_Options</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Aggregates --></label>
+        <name>MA_Aggregates</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_All --></label>
+        <name>MA_All</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_All_Day_Event --></label>
+        <name>MA_All_Day_Event</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Allow_Exports --></label>
+        <name>MA_Allow_Exports</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Analyzing_Query --></label>
+        <name>MA_Analyzing_Query</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Apex_Class --></label>
+        <name>MA_Apex_Class</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_April --></label>
+        <name>MA_April</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Assigned --></label>
+        <name>MA_Assigned</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Assignment_Type --></label>
+        <name>MA_Assignment_Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Attachments --></label>
+        <name>MA_Attachments</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_August --></label>
+        <name>MA_August</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Automatically --></label>
+        <name>MA_Automatically</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Available_Buttons --></label>
+        <name>MA_Available_Buttons</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Available_Components --></label>
+        <name>MA_Available_Components</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Avg --></label>
+        <name>MA_Avg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MARoutes_Bicycle --></label>
+        <name>MA_BICYCLING</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_BORDER --></label>
+        <name>MA_BORDER</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_BY_DEFAULT_QUERIES_WILL_BE_RENDERED_IN_MARKER_MODE --></label>
+        <name>MA_BY_DEFAULT_QUERIES_WILL_BE_RENDERED_IN_MARKER_MODE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Back --></label>
+        <name>MA_Back</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Back_To_Routes --></label>
+        <name>MA_Back_To_Routes</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Base_Object --></label>
+        <name>MA_Base_Object</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Base_Object_Child_Error --></label>
+        <name>MA_Base_Object_Child_Error</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Base_Object_Details --></label>
+        <name>MA_Base_Object_Details</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Batch_Name --></label>
+        <name>MA_Batch_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Batches_Processed --></label>
+        <name>MA_Batches_Processed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Billing_City --></label>
+        <name>MA_Billing_City</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Billing_Country --></label>
+        <name>MA_Billing_Country</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Billing_Postal_Code --></label>
+        <name>MA_Billing_Postal_Code</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Billing_State --></label>
+        <name>MA_Billing_State</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Billing_Street --></label>
+        <name>MA_Billing_Street</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Body --></label>
+        <name>MA_Body</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Both --></label>
+        <name>MA_Both</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Boundary --></label>
+        <name>MA_Boundary</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Button_Set --></label>
+        <name>MA_Button_Set</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Button_Sets --></label>
+        <name>MA_Button_Sets</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Button_URL --></label>
+        <name>MA_Button_URL</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_CHECKBOX --></label>
+        <name>MA_CHECKBOX</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_CHOOSE_DATA_SOURCE --></label>
+        <name>MA_CHOOSE_DATA_SOURCE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_CLUSTERS --></label>
+        <name>MA_CLUSTERS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_COLORSHAPE_ASSIGNMENTS --></label>
+        <name>MA_COLORSHAPE_ASSIGNMENTS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_COLOR_CODED --></label>
+        <name>MA_COLOR_CODED</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_COLOR_GRADIENT --></label>
+        <name>MA_COLOR_GRADIENT</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_COLUMN_VISIBILITY_AND_ORDER --></label>
+        <name>MA_COLUMN_VISIBILITY_AND_ORDER</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_CREATED_BY_NAME --></label>
+        <name>MA_CREATED_BY_NAME</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_CREATE_NEW_WAYPOINTS_WHEN_DRAGGING_ROUTE --></label>
+        <name>MA_CREATE_NEW_WAYPOINTS_WHEN_DRAGGING_ROUTE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Cache_Options --></label>
+        <name>MA_Cache_Options</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Calculated_Drive_Dist_Time --></label>
+        <name>MA_Calculated_Drive_Dist_Time</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Calculating_Drive_Dist_Time --></label>
+        <name>MA_Calculating_Drive_Dist_Time</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Calendar --></label>
+        <name>MA_Calendar</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Cancel --></label>
+        <name>MA_Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Car --></label>
+        <name>MA_Car</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Case --></label>
+        <name>MA_Case</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Category --></label>
+        <name>MA_Category</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Chatter --></label>
+        <name>MA_Chatter</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Chatter_Body --></label>
+        <name>MA_Chatter_Body</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Chatter_Task --></label>
+        <name>MA_Chatter_Task</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Check_In_Settings --></label>
+        <name>MA_Check_In_Settings</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Check_Out_Accuracy --></label>
+        <name>MA_Check_Out_Accuracy</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Check_Out_Date --></label>
+        <name>MA_Check_Out_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Check_Out_Distance_From_Record --></label>
+        <name>MA_Check_Out_Distance_From_Record</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Check_Out_Latitude --></label>
+        <name>MA_Check_Out_Latitude</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Check_Out_Longitude --></label>
+        <name>MA_Check_Out_Longitude</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Choose_a_Base_Object --></label>
+        <name>MA_Choose_a_Base_Object</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Choose_an_Object --></label>
+        <name>MA_Choose_an_Object</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Circle --></label>
+        <name>MA_Circle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_City --></label>
+        <name>MA_City</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Clean_Address_Fields --></label>
+        <name>MA_Clean_Address_Fields</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Clean_City --></label>
+        <name>MA_Clean_City</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Clean_Country --></label>
+        <name>MA_Clean_Country</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Clean_County --></label>
+        <name>MA_Clean_County</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Clean_District --></label>
+        <name>MA_Clean_District</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Clean_Postal_Code --></label>
+        <name>MA_Clean_Postal_Code</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Clean_State --></label>
+        <name>MA_Clean_State</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Clean_Street --></label>
+        <name>MA_Clean_Street</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Clear --></label>
+        <name>MA_Clear</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Clear_Coord_Info --></label>
+        <name>MA_Clear_Coord_Info</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Clear_Coord_Unverified --></label>
+        <name>MA_Clear_Coord_Unverified</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Clear_Coord_Verified --></label>
+        <name>MA_Clear_Coord_Verified</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Clear_Coordinates --></label>
+        <name>MA_Clear_Coordinates</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Clear_Exports --></label>
+        <name>MA_Clear_Exports</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Clear_Filters --></label>
+        <name>MA_Clear_Filters</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Clear_Reference_Point --></label>
+        <name>MA_Clear_Reference_Point</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Clear_Results --></label>
+        <name>MA_Clear_Results</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Clear_Selections --></label>
+        <name>MA_Clear_Selections</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Clone --></label>
+        <name>MA_Clone</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Close --></label>
+        <name>MA_Close</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Close_Window --></label>
+        <name>MA_Close_Window</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Cluster --></label>
+        <name>MA_Cluster</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Collecting_Bad_Addresses --></label>
+        <name>MA_Collecting_Bad_Addresses</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Collection_Base_Object --></label>
+        <name>MA_Collection_Base_Object</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Collection_Base_Object_Details --></label>
+        <name>MA_Collection_Base_Object_Details</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Color --></label>
+        <name>MA_Color</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Comments --></label>
+        <name>MA_Comments</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Company_Name --></label>
+        <name>MA_Company_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Company_Search --></label>
+        <name>MA_Company_Search</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Completion_Date --></label>
+        <name>MA_Completion_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Connect --></label>
+        <name>MA_Connect</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Contact --></label>
+        <name>MA_Contact</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Contact_or_Lead --></label>
+        <name>MA_Contact_or_Lead</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Contains --></label>
+        <name>MA_Contains</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Coordinate_Fields --></label>
+        <name>MA_Coordinate_Fields</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Copy --></label>
+        <name>MA_Copy</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Copy_To --></label>
+        <name>MA_Copy_To</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Corporate --></label>
+        <name>MA_Corporate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Country --></label>
+        <name>MA_Country</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_County --></label>
+        <name>MA_County</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Create --></label>
+        <name>MA_Create</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Create_Account --></label>
+        <name>MA_Create_Account</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Create_Edit_Saved_Query --></label>
+        <name>MA_Create_Edit_Saved_Query</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Create_Fav_Inside --></label>
+        <name>MA_Create_Fav_Inside</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Create_Favorite_Location --></label>
+        <name>MA_Create_Favorite_Location</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Create_Fields --></label>
+        <name>MA_Create_Fields</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Create_Folder --></label>
+        <name>MA_Create_Folder</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Create_Lead --></label>
+        <name>MA_Create_Lead</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Create_Legend --></label>
+        <name>MA_Create_Legend</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Create_Location --></label>
+        <name>MA_Create_Location</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Create_New --></label>
+        <name>MA_Create_New</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Create_Proximity_Circle --></label>
+        <name>MA_Create_Proximity_Circle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Create_Purg_Workflows --></label>
+        <name>MA_Create_Purg_Workflows</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Create_Saved_Query --></label>
+        <name>MA_Create_Saved_Query</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Create_Shape_Layer --></label>
+        <name>MA_Create_Shape_Layer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Createable_Purge_Workflows --></label>
+        <name>MA_Createable_Purge_Workflows</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Created_Date --></label>
+        <name>MA_Created_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Created_Latitude --></label>
+        <name>MA_Created_Latitude</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Created_Location_Accuracy --></label>
+        <name>MA_Created_Location_Accuracy</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Created_Location_Verified --></label>
+        <name>MA_Created_Location_Verified</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Created_Longitude --></label>
+        <name>MA_Created_Longitude</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Creating_Markers --></label>
+        <name>MA_Creating_Markers</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Criteria --></label>
+        <name>MA_Criteria</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Cross_Filters_Allowed_Error --></label>
+        <name>MA_Cross_Filters_Allowed_Error</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Cross_Object_Filters --></label>
+        <name>MA_Cross_Object_Filters</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Current_Forecast --></label>
+        <name>MA_Current_Forecast</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Current_Route --></label>
+        <name>MA_Current_Route</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Current_User_Id --></label>
+        <name>MA_Current_User_Id</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Current_User_Or_Direct_Report --></label>
+        <name>MA_Current_User_Or_Direct_Report</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Current_User_Or_Subordinate --></label>
+        <name>MA_Current_User_Or_Subordinate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Custom --></label>
+        <name>MA_Custom</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Custom_Actions --></label>
+        <name>MA_Custom_Actions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_DATA_LAYER_EDITOR --></label>
+        <name>MA_DATA_LAYER_EDITOR</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_DATA_SOURCE --></label>
+        <name>MA_DATA_SOURCE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_DEFAULT --></label>
+        <name>MA_DEFAULT</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_DEFAULT_PAGE_SIZE --></label>
+        <name>MA_DEFAULT_PAGE_SIZE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_DEFAULT_PROX_TYPE --></label>
+        <name>MA_DEFAULT_PROX_TYPE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_DEFAULT_RENDER_AREA --></label>
+        <name>MA_DEFAULT_RENDER_AREA</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_DEFAULT_RENDER_MODE --></label>
+        <name>MA_DEFAULT_RENDER_MODE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_DEFAULT_ROUTE_TYPE --></label>
+        <name>MA_DEFAULT_ROUTE_TYPE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_DETAILS --></label>
+        <name>MA_DETAILS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA DEVICE LAYER --></label>
+        <name>MA_DEVICE_LAYER</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_DISPLAY --></label>
+        <name>MA_DISPLAY</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_DISPLAY_TIME_IN_TRAFFIC --></label>
+        <name>MA_DISPLAY_TIME_IN_TRAFFIC</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_DISSIPATE_WITH_ZOOM --></label>
+        <name>MA_DISSIPATE_WITH_ZOOM</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_DRAG_AND_DROP_TO_ADDREMOVE_FROM_VISIBLE_COLUMN --></label>
+        <name>MA_DRAG_AND_DROP_TO_ADDREMOVE_FROM_VISIBLE_COLUMN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_DRIVING --></label>
+        <name>MA_DRIVING</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_DYNAMIC --></label>
+        <name>MA_DYNAMIC</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_DYNAMIC_TWO_FIELDS --></label>
+        <name>MA_DYNAMIC_TWO_FIELDS</name>
+    </customLabels>
+    <customLabels>
+        <label>Data Layer</label>
+        <name>MA_Data_Layer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Data_Points --></label>
+        <name>MA_Data_Points</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Date --></label>
+        <name>MA_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Day --></label>
+        <name>MA_Day</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Debug_Logs --></label>
+        <name>MA_Debug_Logs</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_December --></label>
+        <name>MA_December</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Default_Tab --></label>
+        <name>MA_Default_Tab</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Delete --></label>
+        <name>MA_Delete</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Demographics --></label>
+        <name>MA_Demographics</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Description --></label>
+        <name>MA_Description</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Desktop --></label>
+        <name>MA_Desktop</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Disable_Routed_Waypoints --></label>
+        <name>MA_Disable_Routed_Waypoints</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Display_Style --></label>
+        <name>MA_Display_Style</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Dissolve_Geometry --></label>
+        <name>MA_Dissolve_Geometry</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Distance --></label>
+        <name>MA_Distance</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Distance_Display_Units --></label>
+        <name>MA_Distance_Display_Units</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Distance_from_Record --></label>
+        <name>MA_Distance_from_Record</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Divide_Information --></label>
+        <name>MA_Divide_Information</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Divisions --></label>
+        <name>MA_Divisions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Documentation --></label>
+        <name>MA_Documentation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Does_Not_Contain --></label>
+        <name>MA_Does_Not_Contain</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Done --></label>
+        <name>MA_Done</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_DrawLine --></label>
+        <name>MA_DrawLine</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Draw_Polygon --></label>
+        <name>MA_Draw_Polygon</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Drive_Distance --></label>
+        <name>MA_Drive_Distance</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Drive_Distance_And_Time --></label>
+        <name>MA_Drive_Distance_And_Time</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Drive_Time --></label>
+        <name>MA_Drive_Time</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Due_Date --></label>
+        <name>MA_Due_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_False --></label>
+        <name>MA_Due_Date_Event_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Duration --></label>
+        <name>MA_Duration</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_DynamicField --></label>
+        <name>MA_DynamicField</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_DynamicLabel --></label>
+        <name>MA_DynamicLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_DynamicOrder --></label>
+        <name>MA_DynamicOrder</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_DynamicOrder_Info --></label>
+        <name>MA_DynamicOrder_Info</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Dynamically_Assign --></label>
+        <name>MA_Dynamically_Assign</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_EDIT_SHAPE --></label>
+        <name>MA_EDIT_SHAPE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_ENABLE_WALK_ME --></label>
+        <name>MA_ENABLE_WALK_ME</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_END_LOCATION --></label>
+        <name>MA_END_LOCATION</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_ENTIRE_MAP --></label>
+        <name>MA_ENTIRE_MAP</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_EQ_Error_Message --></label>
+        <name>MA_EQ_Error_Message</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_EXAMPLE_TO_THE_RIGHT --></label>
+        <name>MA_EXAMPLE_TO_THE_RIGHT</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_EXPORTS --></label>
+        <name>MA_EXPORTS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Edit --></label>
+        <name>MA_Edit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Edit_Display_Style --></label>
+        <name>MA_Edit_Display_Style</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Edit_Existing --></label>
+        <name>MA_Edit_Existing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Edit_Permissions --></label>
+        <name>MA_Edit_Permissions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Editable_Tooltips --></label>
+        <name>MA_Editable_Tooltips</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Email_Log --></label>
+        <name>MA_Email_Log</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Enable_Proximity --></label>
+        <name>MA_Enable_Proximity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Enable_Traffic --></label>
+        <name>MA_Enable_Traffic</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Enable_aggregates_using --></label>
+        <name>MA_Enable_aggregates_using</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Enable_caching_every --></label>
+        <name>MA_Enable_caching_every</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Enable_refreshing_every --></label>
+        <name>MA_Enable_refreshing_every</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Enabled_Features --></label>
+        <name>MA_Enabled_Features</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_End --></label>
+        <name>MA_End</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_End_Date --></label>
+        <name>MA_End_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Ending_Location --></label>
+        <name>MA_Ending_Location</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Ends_With --></label>
+        <name>MA_Ends_With</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Enter_Subject_Message --></label>
+        <name>MA_Enter_Subject_Message</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Equals --></label>
+        <name>MA_Equals</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Error --></label>
+        <name>MA_Error</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Even_Distribution --></label>
+        <name>MA_Even_Distribution</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Even_Quantiles --></label>
+        <name>MA_Even_Quantiles</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Events --></label>
+        <name>MA_Events</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Excludes --></label>
+        <name>MA_Excludes</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Export --></label>
+        <name>MA_Export</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Export_All --></label>
+        <name>MA_Export_All</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Export_Date --></label>
+        <name>MA_Export_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Export_Name --></label>
+        <name>MA_Export_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Export_Selected --></label>
+        <name>MA_Export_Selected</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_FILL --></label>
+        <name>MA_FILL</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_FILTER --></label>
+        <name>MA_FILTER</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_FILTER_YOUR_LAYER --></label>
+        <name>MA_FILTER_YOUR_LAYER</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Failures --></label>
+        <name>MA_Failures</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_False --></label>
+        <name>MA_False</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Fav_Info --></label>
+        <name>MA_Fav_Info</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Favorite --></label>
+        <name>MA_Favorite</name>
+    </customLabels>
+    <customLabels>
+        <label>Favorite Location</label>
+        <name>MA_Favorite_Location</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Favorite_Locations --></label>
+        <name>MA_Favorite_Locations</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Favorites --></label>
+        <name>MA_Favorites</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_February --></label>
+        <name>MA_February</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Feels_Like --></label>
+        <name>MA_Feels_Like</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Feet --></label>
+        <name>MA_Feet</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Field --></label>
+        <name>MA_Field</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Field_Filters --></label>
+        <name>MA_Field_Filters</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Fields --></label>
+        <name>MA_Fields</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Fill_Border_Color --></label>
+        <name>MA_Fill_Border_Color</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Filter_By_Activity --></label>
+        <name>MA_Filter_By_Activity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Filter_By_Owner --></label>
+        <name>MA_Filter_By_Owner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Filter_List_View --></label>
+        <name>MA_Filter_List_View</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Filter_Logic --></label>
+        <name>MA_Filter_Logic</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Filters --></label>
+        <name>MA_Filters</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Finish --></label>
+        <name>MA_Finish</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_First_Name --></label>
+        <name>MA_First_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Fiscal_Quarters --></label>
+        <name>MA_Fiscal_Quarters</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Fiscal_Years --></label>
+        <name>MA_Fiscal_Years</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Flexible --></label>
+        <name>MA_Flexible</name>
+    </customLabels>
+    <customLabels>
+        <label>Folder</label>
+        <name>MA_Folder</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Folder_Admin --></label>
+        <name>MA_Folder_Admin</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Folder_Permissions --></label>
+        <name>MA_Folder_Permissions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Folder_Permissions_for --></label>
+        <name>MA_Folder_Permissions_for</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Folders --></label>
+        <name>MA_Folders</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Frequency --></label>
+        <name>MA_Frequency</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Friday --></label>
+        <name>MA_Friday</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_From --></label>
+        <name>MA_From</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Fullscreen --></label>
+        <name>MA_Fullscreen</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Future_Events --></label>
+        <name>MA_Future_Events</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Future_Forecast --></label>
+        <name>MA_Future_Forecast</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA GEOFENCE BASE OBJECTS --></label>
+        <name>MA_GEOFENCE_BASE_OBJECTS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA GEOFENCE BASE OBJECT SELECT SHAPE OR LAT LNG TEXT --></label>
+        <name>MA_GEOFENCE_BASE_OBJECT_SELECT_SHAPE_OR_LAT_LNG_TEXT</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA GEOFENCE TYPE --></label>
+        <name>MA_GEOFENCE_TYPE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_GETTING_DIRECTIONS --></label>
+        <name>MA_GETTING_DIRECTIONS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Geocoding --></label>
+        <name>MA_Geocoding</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Geofence --></label>
+        <name>MA_Geofence</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Geofence Fields Text --></label>
+        <name>MA_Geofence_Fields_Text</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Geofence Information Origin Text --></label>
+        <name>MA_Geofence_Information_Origin_Text</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA Geofence Layer --></label>
+        <name>MA_Geofence_Layer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Geography --></label>
+        <name>MA_Geography</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Get_Directions --></label>
+        <name>MA_Get_Directions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Get_Introduced --></label>
+        <name>MA_Get_Introduced</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Go_To_Current_Route --></label>
+        <name>MA_Go_To_Current_Route</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Go_to_page --></label>
+        <name>MA_Go_to_page</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Grabbing_Waypoint_Info --></label>
+        <name>MA_Grabbing_Waypoint_Info</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Grabbing_Waypoints --></label>
+        <name>MA_Grabbing_Waypoints</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Great --></label>
+        <name>MA_Great</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Greater_Than --></label>
+        <name>MA_Greater_Than</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Greater_Than_Equal --></label>
+        <name>MA_Greater_Than_Equal</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_HEATMAP --></label>
+        <name>MA_HEATMAP</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_HELP --></label>
+        <name>MA_HELP</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_HELP --></label>
+        <name>MA_HELP_QUESTION_MARK</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_HUMIDITY --></label>
+        <name>MA_HUMIDITY</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_HYBRID --></label>
+        <name>MA_HYBRID</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Heat_Map --></label>
+        <name>MA_Heat_Map</name>
+    </customLabels>
+    <customLabels>
+        <label>Heatmap Options</label>
+        <name>MA_Heatmap_Options</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Hide --></label>
+        <name>MA_Hide</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Hide_Legend --></label>
+        <name>MA_Hide_Legend</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Hide_Markers --></label>
+        <name>MA_Hide_Markers</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Hide_Options --></label>
+        <name>MA_Hide_Options</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Hide_Personal_Folder --></label>
+        <name>MA_Hide_Personal_Folder</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_High --></label>
+        <name>MA_High</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Highlight_Waypoints --></label>
+        <name>MA_Highlight_Waypoints</name>
+    </customLabels>
+    <customLabels>
+        <label>Home</label>
+        <name>MA_Home</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Home_Set_Info --></label>
+        <name>MA_Home_Set_Info</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_IMAGES --></label>
+        <name>MA_IMAGES</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_IMPORT_EVENTS --></label>
+        <name>MA_IMPORT_EVENTS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_INNER_COLOR --></label>
+        <name>MA_INNER_COLOR</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA IRREGULAR GEOFENCE TEXT --></label>
+        <name>MA_IRREGULAR_GEOFENCE_TEXT</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Icon --></label>
+        <name>MA_Icon</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Include_Chatter_Users --></label>
+        <name>MA_Include_Chatter_Users</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Include_Inactive_Users --></label>
+        <name>MA_Include_Inactive_Users</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Include_Portal_Users --></label>
+        <name>MA_Include_Portal_Users</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Includes --></label>
+        <name>MA_Includes</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Info --></label>
+        <name>MA_Info</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_January --></label>
+        <name>MA_January</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Job_Name --></label>
+        <name>MA_Job_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Job_Type --></label>
+        <name>MA_Job_Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_July --></label>
+        <name>MA_July</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_June --></label>
+        <name>MA_June</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Keywords --></label>
+        <name>MA_Keywords</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_LAST_EVENT --></label>
+        <name>MA_LAST_EVENT</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_LAST_REPORT_DATE --></label>
+        <name>MA_LAST_REPORT_DATE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_LAST_REPORT_DATE_AND_TIME --></label>
+        <name>MA_LAST_REPORT_DATE_AND_TIME</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_LAST_REPORT_TIME --></label>
+        <name>MA_LAST_REPORT_TIME</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_LAST_SPEED --></label>
+        <name>MA_LAST_SPEED</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_LAYER_TYPE --></label>
+        <name>MA_LAYER_TYPE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_LEGEND_FIELD --></label>
+        <name>MA_LEGEND_FIELD</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_LIST_RESULTS --></label>
+        <name>MA_LIST_RESULTS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_LIVE --></label>
+        <name>MA_LIVE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA LIVE BASE OBJECTS --></label>
+        <name>MA_LIVE_BASE_OBJECTS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA LIVE TEXT --></label>
+        <name>MA_LIVE_TEXT</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Last_5_Batches --></label>
+        <name>MA_Last_5_Batches</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Last_Check_In --></label>
+        <name>MA_Last_Check_In</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Last_Modified --></label>
+        <name>MA_Last_Modified</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Last_Name --></label>
+        <name>MA_Last_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Last_Run --></label>
+        <name>MA_Last_Run</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Latitude --></label>
+        <name>MA_Latitude</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Layers --></label>
+        <name>MA_Layers</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Layout --></label>
+        <name>MA_Layout</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Lead --></label>
+        <name>MA_Lead</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Less --></label>
+        <name>MA_Less</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Less_Than --></label>
+        <name>MA_Less_Than</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Less_Than_Equal --></label>
+        <name>MA_Less_Than_Equal</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_and --></label>
+        <name>MA_Limit_Number_Records</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Limit_Records_Within --></label>
+        <name>MA_Limit_Records_Within</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Limit_records_returned_to --></label>
+        <name>MA_Limit_records_returned_to</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Limits --></label>
+        <name>MA_Limits</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_List --></label>
+        <name>MA_List</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_List_Label --></label>
+        <name>MA_List_Label</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_List_View_Options --></label>
+        <name>MA_List_View_Options</name>
+    </customLabels>
+    <customLabels>
+        <label>Live Layer</label>
+        <name>MA_Live_Layer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Load_iframe --></label>
+        <name>MA_Load_iframe</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Load_new_window --></label>
+        <name>MA_Load_new_window</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Loading --></label>
+        <name>MA_Loading</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Location_could_not_be_determined --></label>
+        <name>MA_Location_could_not_be_determined</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Logout --></label>
+        <name>MA_Logout</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Longitude --></label>
+        <name>MA_Longitude</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Low --></label>
+        <name>MA_Low</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_MANUALLY_ENTER_WAYPOINT_MESSAGE --></label>
+        <name>MA_MANUALLY_ENTER_WAYPOINT_MESSAGE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_MARKER_LEGEND --></label>
+        <name>MA_MARKER_LEGEND</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_MAX_INTENSITY --></label>
+        <name>MA_MAX_INTENSITY</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_MODIFIED_BY --></label>
+        <name>MA_MODIFIED_BY</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Manage_Rollups --></label>
+        <name>MA_Manage_Rollups</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Manually --></label>
+        <name>MA_Manually</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Manually_Assigned_Field --></label>
+        <name>MA_Manually_Assigned_Field</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_MapIt_Info --></label>
+        <name>MA_MapIt_Info</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Map_It_Settings --></label>
+        <name>MA_Map_It_Settings</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Map_Lock --></label>
+        <name>MA_Map_Lock</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Map_Lock_Info --></label>
+        <name>MA_Map_Lock_Info</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Map_Types --></label>
+        <name>MA_Map_Types</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_March --></label>
+        <name>MA_March</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Marker --></label>
+        <name>MA_Marker</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Marker_Color --></label>
+        <name>MA_Marker_Color</name>
+    </customLabels>
+    <customLabels>
+        <label>Marker Layer</label>
+        <name>MA_Marker_Layer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Markers --></label>
+        <name>MA_Markers</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Markers_Created --></label>
+        <name>MA_Markers_Created</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Markers_Existing_Table --></label>
+        <name>MA_Markers_Existing_Table</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Markers_New_Table --></label>
+        <name>MA_Markers_New_Table</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Markers_Sort_Table --></label>
+        <name>MA_Markers_Sort_Table</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Mass_Action_Layout --></label>
+        <name>MA_Mass_Action_Layout</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Max_Export_Size --></label>
+        <name>MA_Max_Export_Size</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Max_Query_Size --></label>
+        <name>MA_Max_Query_Size</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Maximum_value --></label>
+        <name>MA_Maximum_value</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_May --></label>
+        <name>MA_May</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Member_Status --></label>
+        <name>MA_Member_Status</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Meters --></label>
+        <name>MA_Meters</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Minimum_value --></label>
+        <name>MA_Minimum_value</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Missing_Required_Field_Skip --></label>
+        <name>MA_Missing_Required_Field_Skip</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Mobile --></label>
+        <name>MA_Mobile</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Modes --></label>
+        <name>MA_Modes</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Modify --></label>
+        <name>MA_Modify</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Monday --></label>
+        <name>MA_Monday</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Monthly --></label>
+        <name>MA_Monthly</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_More --></label>
+        <name>MA_More</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Move --></label>
+        <name>MA_Move</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Move_Folder --></label>
+        <name>MA_Move_Folder</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Move_Next_Step --></label>
+        <name>MA_Move_Next_Step</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Move_Set_Default_View --></label>
+        <name>MA_Move_Set_Default_View</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Move_To_Address --></label>
+        <name>MA_Move_To_Address</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Move_to_Default_View --></label>
+        <name>MA_Move_to_Default_View</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_My --></label>
+        <name>MA_My</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_My_Connections --></label>
+        <name>MA_My_Connections</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_My_Locations --></label>
+        <name>MA_My_Locations</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_My_Position --></label>
+        <name>MA_My_Position</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_My_Routes --></label>
+        <name>MA_My_Routes</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_NAME_YOUR_LAYER --></label>
+        <name>MA_NAME_YOUR_LAYER</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_NEW_ROUTE --></label>
+        <name>MA_NEW_ROUTE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_NEXT_STEP --></label>
+        <name>MA_NEXT_STEP</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_NOT_COLOR_CODED --></label>
+        <name>MA_NOT_COLOR_CODED</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_NOT_EQUAL_TO --></label>
+        <name>MA_NOT_EQUAL_TO</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_NO_RESULTS_FOUND --></label>
+        <name>MA_NO_RESULTS_FOUND</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_NO_ROUTES_CREATED_MESSAGE --></label>
+        <name>MA_NO_ROUTES_CREATED_MESSAGE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Name --></label>
+        <name>MA_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Never --></label>
+        <name>MA_Never</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_New_Event --></label>
+        <name>MA_New_Event</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_New_Folder --></label>
+        <name>MA_New_Folder</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_New_Section --></label>
+        <name>MA_New_Section</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_New_Selected_Tab --></label>
+        <name>MA_New_Selected_Tab</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_New_Task --></label>
+        <name>MA_New_Task</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_New_Window --></label>
+        <name>MA_New_Window</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Next --></label>
+        <name>MA_Next</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Next_Scheduled_Run --></label>
+        <name>MA_Next_Scheduled_Run</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_No --></label>
+        <name>MA_No</name>
+    </customLabels>
+    <customLabels>
+        <label>No Actions</label>
+        <name>MA_No_Actions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_No_Queries --></label>
+        <name>MA_No_Queries</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_No_Reference_Point --></label>
+        <name>MA_No_Reference_Point</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_None --></label>
+        <name>MA_None</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Normal --></label>
+        <name>MA_Normal</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Not_Equal --></label>
+        <name>MA_Not_Equal</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Notes --></label>
+        <name>MA_Notes</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_November --></label>
+        <name>MA_November</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Num_to_Display --></label>
+        <name>MA_Num_to_Display</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Number_of_buckets --></label>
+        <name>MA_Number_of_buckets</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_ON --></label>
+        <name>MA_ON</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_OPACITY --></label>
+        <name>MA_OPACITY</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_OPERATOR --></label>
+        <name>MA_OPERATOR</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_OPTIONAL --></label>
+        <name>MA_OPTIONAL</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_OR --></label>
+        <name>MA_OR</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_ORDERED_BY --></label>
+        <name>MA_ORDERED_BY</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_OUTER_COLOR --></label>
+        <name>MA_OUTER_COLOR</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_October --></label>
+        <name>MA_October</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_On_day --></label>
+        <name>MA_On_day</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Open_List_View --></label>
+        <name>MA_Open_List_View</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Open_Tasks --></label>
+        <name>MA_Open_Tasks</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Opportunity --></label>
+        <name>MA_Opportunity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Optimize --></label>
+        <name>MA_Optimize</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Optimizing_Events --></label>
+        <name>MA_Optimizing_Events</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Options --></label>
+        <name>MA_Options</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Order --></label>
+        <name>MA_Order</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Order_by --></label>
+        <name>MA_Order_by</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Out --></label>
+        <name>MA_Out</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Override_Status --></label>
+        <name>MA_Override_Status</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_PLEASE_SELECT_A_TOPIC --></label>
+        <name>MA_PLEASE_SELECT_A_TOPIC</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_PLOT_ON_APP_STARTUP --></label>
+        <name>MA_PLOT_ON_APP_STARTUP</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_PLOT_ON_MAP --></label>
+        <name>MA_PLOT_ON_MAP</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_PROCESSING_ROUTE --></label>
+        <name>MA_PROCESSING_ROUTE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Pedestrian --></label>
+        <name>MA_Pedestrian</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_People_Search --></label>
+        <name>MA_People_Search</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Permission_For --></label>
+        <name>MA_Permission_For</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Permission_Type --></label>
+        <name>MA_Permission_Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Permissions --></label>
+        <name>MA_Permissions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Personal --></label>
+        <name>MA_Personal</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Personal_Folders --></label>
+        <name>MA_Personal_Folders</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Phone_Fax_Number --></label>
+        <name>MA_Phone_Fax_Number</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Please_Choose --></label>
+        <name>MA_Please_Choose</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Please_Select_Records --></label>
+        <name>MA_Please_Select_Records</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Please_Wait --></label>
+        <name>MA_Please_Wait</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Plese_enter_name --></label>
+        <name>MA_Plese_enter_name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Plot --></label>
+        <name>MA_Plot</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Plot_All --></label>
+        <name>MA_Plot_All</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Plot_All_Visible_Area --></label>
+        <name>MA_Plot_All_Visible_Area</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Plot_Layer --></label>
+        <name>MA_Plot_Layer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Plot_On_Load --></label>
+        <name>MA_Plot_On_Load</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Plot_Results --></label>
+        <name>MA_Plot_Results</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Plot_Visible_Area --></label>
+        <name>MA_Plot_Visible_Area</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Plotted --></label>
+        <name>MA_Plotted</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Plotted_Queries --></label>
+        <name>MA_Plotted_Queries</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Plotted_Saved_Queries --></label>
+        <name>MA_Plotted_Saved_Queries</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Plotted layers --></label>
+        <name>MA_Plotted_layers</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Plotted_query_information_will_appear_here --></label>
+        <name>MA_Plotted_query_information_will_appear_here</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Plotting --></label>
+        <name>MA_Plotting</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Poi_Info --></label>
+        <name>MA_Poi_Info</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Points_of_Interest --></label>
+        <name>MA_Points_of_Interest</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Points_of_Interest --></label>
+        <name>MA_Points_of_Interest_Abbreviation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Polygon --></label>
+        <name>MA_Polygon</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Position --></label>
+        <name>MA_Position</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Post_To --></label>
+        <name>MA_Post_To</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Postal_Code --></label>
+        <name>MA_Postal_Code</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Precipitation --></label>
+        <name>MA_Precipitation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Preferred_Start_Time --></label>
+        <name>MA_Preferred_Start_Time</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Previous --></label>
+        <name>MA_Previous</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Print/Email --></label>
+        <name>MA_Print_Email</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Processing --></label>
+        <name>MA_Processing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Profile --></label>
+        <name>MA_Profile</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Proximity_Enabled --></label>
+        <name>MA_Proximity_Enabled</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Quality --></label>
+        <name>MA_Quality</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Quarters --></label>
+        <name>MA_Quarters</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA Queries --></label>
+        <name>MA_Queries</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Query --></label>
+        <name>MA_Query</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Query_Filters --></label>
+        <name>MA_Query_Filters</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Queue --></label>
+        <name>MA_Queue</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_RECORDS --></label>
+        <name>MA_RECORDS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_REFRESH --></label>
+        <name>MA_REFRESH</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_RELATED_LIST --></label>
+        <name>MA_RELATED_LIST</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_LIVE --></label>
+        <name>MA_REMOVE_ALL_TRACKING_HISTORIES</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_RESET_ALL_SETTINGS_TO_DEFAULT --></label>
+        <name>MA_RESET_ALL_SETTINGS_TO_DEFAULT</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_ROAD --></label>
+        <name>MA_ROAD</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_ROADMAP --></label>
+        <name>MA_ROADMAP</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_ROUTE_OPTIMIZED --></label>
+        <name>MA_ROUTE_OPTIMIZED</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Radius --></label>
+        <name>MA_Radius</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Range --></label>
+        <name>MA_Range</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Read --></label>
+        <name>MA_Read</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Recent --></label>
+        <name>MA_Recent</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Recent_Queries --></label>
+        <name>MA_Recent_Queries</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Record_Type --></label>
+        <name>MA_Record_Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Record_Type_Beta --></label>
+        <name>MA_Record_Type_Beta</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Records_will_appear_here --></label>
+        <name>MA_Records_will_appear_here</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Refresh_Options --></label>
+        <name>MA_Refresh_Options</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Refresh_Query --></label>
+        <name>MA_Refresh_Query</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Refreshing_query --></label>
+        <name>MA_Refreshing_query</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Related_Lists --></label>
+        <name>MA_Related_Lists</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Related_Object --></label>
+        <name>MA_Related_Object</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Related_items_transfer --></label>
+        <name>MA_Related_items_transfer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Remove --></label>
+        <name>MA_Remove</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Remove_All_Layers --></label>
+        <name>MA_Remove_All_Layers</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Remove_Existing --></label>
+        <name>MA_Remove_Existing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Remove_Plot_On_Load --></label>
+        <name>MA_Remove_Plot_On_Load</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Rename --></label>
+        <name>MA_Rename</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Render_Clusters --></label>
+        <name>MA_Render_Clusters</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Render_Heatmap --></label>
+        <name>MA_Render_Heatmap</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Render_Markers --></label>
+        <name>MA_Render_Markers</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Render_Scatter --></label>
+        <name>MA_Render_Scatter</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Rendering --></label>
+        <name>MA_Rendering</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Requirements --></label>
+        <name>MA_Requirements</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Reset_Settings --></label>
+        <name>MA_Reset_Settings</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Responses --></label>
+        <name>MA_Responses</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_RouteCalendar_Confirm_Clear_Calls --></label>
+        <name>MA_RouteCalendar_Confirm_Clear_Calls</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_RouteCalendar_Confirm_Delete_Call --></label>
+        <name>MA_RouteCalendar_Confirm_Delete_Call</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_RouteCalendar_Confirm_Lock_Calls --></label>
+        <name>MA_RouteCalendar_Confirm_Lock_Calls</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_RouteCalendar_Confirm_Unlock_Calls --></label>
+        <name>MA_RouteCalendar_Confirm_Unlock_Calls</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Route_Days_After_Today --></label>
+        <name>MA_Route_Days_After_Today</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Route_Days_Before_Today --></label>
+        <name>MA_Route_Days_Before_Today</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Route_Name --></label>
+        <name>MA_Route_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Route_Options --></label>
+        <name>MA_Route_Options</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Routes --></label>
+        <name>MA_Routes</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Routine --></label>
+        <name>MA_Routine</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Routing_Role_Security --></label>
+        <name>MA_Routing_Role_Security</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Run_Manual_Batch --></label>
+        <name>MA_Run_Manual_Batch</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Running_Query --></label>
+        <name>MA_Running_Query</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_SATELITTE --></label>
+        <name>MA_SATELITTE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_SAVE_AND_PLOT --></label>
+        <name>MA_SAVE_AND_PLOT</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_SAVE_AND_REFRESH --></label>
+        <name>MA_SAVE_AND_REFRESH</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_SCATTER --></label>
+        <name>MA_SCATTER</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_SEARCH_ABOVE_FOR_AVAILABLE_LAYERS --></label>
+        <name>MA_SEARCH_ABOVE_FOR_AVAILABLE_LAYERS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_SEARCH_FOR_MARKERS_FROM_ACTIVE_LAYERS_OR_GOOGLE_PLACES_AND --></label>
+        <name>MA_SEARCH_FOR_MARKERS_FROM_ACTIVE_LAYERS_OR_GOOGLE_PLACES_AND</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_SEARCH_THE_MAP --></label>
+        <name>MA_SEARCH_THE_MAP</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_SFDC_Home --></label>
+        <name>MA_SFDC_Home</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_SHAPE --></label>
+        <name>MA_SHAPE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_SHAPE --></label>
+        <name>MA_SHAPES</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_SORT --></label>
+        <name>MA_SORT</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_START_LOCATION --></label>
+        <name>MA_START_LOCATION</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_STOPS --></label>
+        <name>MA_STOPS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_STREET_VIEW --></label>
+        <name>MA_STREET_VIEW</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_STYLE_YOUR_LAYER --></label>
+        <name>MA_STYLE_YOUR_LAYER</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Satellite --></label>
+        <name>MA_Satellite</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Saturday --></label>
+        <name>MA_Saturday</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Save --></label>
+        <name>MA_Save</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_SaveAs --></label>
+        <name>MA_SaveAs</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Save_Close --></label>
+        <name>MA_Save_Close</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Save_Plot --></label>
+        <name>MA_Save_Plot</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Save_Route --></label>
+        <name>MA_Save_Route</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Saved --></label>
+        <name>MA_Saved</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Saved_Queries --></label>
+        <name>MA_Saved_Queries</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Saved_Query --></label>
+        <name>MA_Saved_Query</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Saving --></label>
+        <name>MA_Saving</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Saving_Route --></label>
+        <name>MA_Saving_Route</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Schedule_Apex_Execution --></label>
+        <name>MA_Schedule_Apex_Execution</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Schedule_New_Batch --></label>
+        <name>MA_Schedule_New_Batch</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Scheduled_Batches --></label>
+        <name>MA_Scheduled_Batches</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_School_Name --></label>
+        <name>MA_School_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Scroll_To_Top --></label>
+        <name>MA_Scroll_To_Top</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Search --></label>
+        <name>MA_Search</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Search_Address --></label>
+        <name>MA_Search_Address</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Search_Layers --></label>
+        <name>MA_Search_Layers</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Search_Markers --></label>
+        <name>MA_Search_Markers</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Search_POI --></label>
+        <name>MA_Search_POI</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Search_Places --></label>
+        <name>MA_Search_Places</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Search_for --></label>
+        <name>MA_Search_for</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_SelectAddress_Watermark --></label>
+        <name>MA_SelectAddress_Watermark</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Select_A_Favorite --></label>
+        <name>MA_Select_A_Favorite</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Select_A_Location --></label>
+        <name>MA_Select_A_Location</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Select_Fav_Move --></label>
+        <name>MA_Select_Fav_Move</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Select_Save_Options --></label>
+        <name>MA_Select_Save_Options</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Select_Set_of_Info --></label>
+        <name>MA_Select_Set_of_Info</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Select_day_saving_msg --></label>
+        <name>MA_Select_day_saving_msg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Select_initial_Base --></label>
+        <name>MA_Select_initial_Base</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Selected_Value_Tooltip1 --></label>
+        <name>MA_Selected_Value_Tooltip1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Send_InMail --></label>
+        <name>MA_Send_InMail</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Send_Message --></label>
+        <name>MA_Send_Message</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_September --></label>
+        <name>MA_September</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Serial --></label>
+        <name>MA_Serial</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Set_As_Default_Location --></label>
+        <name>MA_Set_As_Default_Location</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Set_Location --></label>
+        <name>MA_Set_Location</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Set_Map_Lock --></label>
+        <name>MA_Set_Map_Lock</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Set_Perm --></label>
+        <name>MA_Set_Perm</name>
+    </customLabels>
+    <customLabels>
+        <label>Set as Default Folder</label>
+        <name>MA_Set_as_Default_Folder</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Set_as_Default_View --></label>
+        <name>MA_Set_as_Default_View</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Settings_Warning --></label>
+        <name>MA_Settings_Warning</name>
+    </customLabels>
+    <customLabels>
+        <label>Shape Layer</label>
+        <name>MA_Shape_Layer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Share --></label>
+        <name>MA_Share</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Show --></label>
+        <name>MA_Show</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Show_Advanced_Filters --></label>
+        <name>MA_Show_Advanced_Filters</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Show_All --></label>
+        <name>MA_Show_All</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Show_All_Markers --></label>
+        <name>MA_Show_All_Markers</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Show_Legend --></label>
+        <name>MA_Show_Legend</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Show_Less --></label>
+        <name>MA_Show_Less</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Show_Options --></label>
+        <name>MA_Show_Options</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Show_Personal_Folders --></label>
+        <name>MA_Show_Personal_Folders</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Show_Position --></label>
+        <name>MA_Show_Position</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Show_Weather --></label>
+        <name>MA_Show_Weather</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Showing --></label>
+        <name>MA_Showing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Side_Bar --></label>
+        <name>MA_Side_Bar</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Similarity --></label>
+        <name>MA_Similarity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Skip_Failed_Geocodes --></label>
+        <name>MA_Skip_Failed_Geocodes</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Social_Integration --></label>
+        <name>MA_Social_Integration</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Sort_Records --></label>
+        <name>MA_Sort_Records</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Sorting --></label>
+        <name>MA_Sorting</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Start --></label>
+        <name>MA_Start</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Start_Date --></label>
+        <name>MA_Start_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Starting_Location --></label>
+        <name>MA_Starting_Location</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Starts_With --></label>
+        <name>MA_Starts_With</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_State --></label>
+        <name>MA_State</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Static --></label>
+        <name>MA_Static</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Status --></label>
+        <name>MA_Status</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Status_Detail --></label>
+        <name>MA_Status_Detail</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Status_tasks_only --></label>
+        <name>MA_Status_tasks_only</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Step_1_Assign_To --></label>
+        <name>MA_Step_1_Assign_To</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Step_1_Select_Campaigns --></label>
+        <name>MA_Step_1_Select_Campaigns</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Step_1_Select_New_Owner --></label>
+        <name>MA_Step_1_Select_New_Owner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Step_2_Event_Details --></label>
+        <name>MA_Step_2_Event_Details</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Step_2_Options --></label>
+        <name>MA_Step_2_Options</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Step_2_Task_Details --></label>
+        <name>MA_Step_2_Task_Details</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Step_2_Transfer_Options --></label>
+        <name>MA_Step_2_Transfer_Options</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Straight_Line_Distance --></label>
+        <name>MA_Straight_Line_Distance</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Street --></label>
+        <name>MA_Street</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_String --></label>
+        <name>MA_String</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Subject --></label>
+        <name>MA_Subject</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Submit --></label>
+        <name>MA_Submit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Submitted --></label>
+        <name>MA_Submitted</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Submitted_By --></label>
+        <name>MA_Submitted_By</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Submitted_Date --></label>
+        <name>MA_Submitted_Date</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Sum --></label>
+        <name>MA_Sum</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Sunday --></label>
+        <name>MA_Sunday</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_TERRAIN --></label>
+        <name>MA_TERRAIN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_THESE_COLUMNS_ONLY_APPEAR_IN_THE_SELECTED_TAB_WHEN_MULTIPLE --></label>
+        <name>MA_THESE_COLUMNS_ONLY_APPEAR_IN_THE_SELECTED_TAB_WHEN_MULTIPLE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_THESE_COLUMNS_WILL_ONLY_APPEAR_IN_THE_SELECTED_TAB --></label>
+        <name>MA_THESE_COLUMNS_WILL_ONLY_APPEAR_IN_THE_SELECTED_TAB</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_THIS_WILL_REMOVE_YOUR_PREVIOUS_ROUTE_QUESTION --></label>
+        <name>MA_THIS_WILL_REMOVE_YOUR_PREVIOUS_ROUTE_QUESTION</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_THRESHOLD_FOR_GROUPING_SMALL_QUANTITIES_INTO_OTHER_CATEGORY --></label>
+        <name>MA_THRESHOLD_FOR_GROUPING_SMALL_QUANTITIES_INTO_OTHER_CATEGORY</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_LIVE --></label>
+        <name>MA_TODAY</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_LIVE --></label>
+        <name>MA_TOMORROW</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_TOPIC --></label>
+        <name>MA_TOPIC</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_TRACKING_HISTORY --></label>
+        <name>MA_TRACKING_HISTORY</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Task --></label>
+        <name>MA_Task</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Tasks --></label>
+        <name>MA_Tasks</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Territory_Field --></label>
+        <name>MA_Territory_Field</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Territory_Management --></label>
+        <name>MA_Territory_Management</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Thursday --></label>
+        <name>MA_Thursday</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Time --></label>
+        <name>MA_Time</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Time_Based_Route --></label>
+        <name>MA_Time_Based_Route</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Title --></label>
+        <name>MA_Title</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_To --></label>
+        <name>MA_To</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Tooltip --></label>
+        <name>MA_Tooltip</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Tooltip_Layout --></label>
+        <name>MA_Tooltip_Layout</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Tooltip_Options --></label>
+        <name>MA_Tooltip_Options</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Tooltips --></label>
+        <name>MA_Tooltips</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Total_Batches --></label>
+        <name>MA_Total_Batches</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Traffic --></label>
+        <name>MA_Traffic</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Travel_Distance --></label>
+        <name>MA_Travel_Distance</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Travel_Time --></label>
+        <name>MA_Travel_Time</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Tree --></label>
+        <name>MA_Tree</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_True --></label>
+        <name>MA_True</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Tuesday --></label>
+        <name>MA_Tuesday</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Type --></label>
+        <name>MA_Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_UNITS --></label>
+        <name>MA_UNITS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_UPDATING_WAYPOINT_INFORMATION --></label>
+        <name>MA_UPDATING_WAYPOINT_INFORMATION</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Unable_Locate_Address --></label>
+        <name>MA_Unable_Locate_Address</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Unassigned --></label>
+        <name>MA_Unassigned</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Unit --></label>
+        <name>MA_Unit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Update_Date_Range --></label>
+        <name>MA_Update_Date_Range</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Upload_Images --></label>
+        <name>MA_Upload_Images</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Use_New_Folders --></label>
+        <name>MA_Use_New_Folders</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Use_Old_Folders --></label>
+        <name>MA_Use_Old_Folders</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_User --></label>
+        <name>MA_User</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_VENDOR --></label>
+        <name>MA_VENDOR</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_VIEW_RECORD --></label>
+        <name>MA_VIEW_RECORD</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_VIEW_ROUTE --></label>
+        <name>MA_VIEW_ROUTE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Validation_Error --></label>
+        <name>MA_Validation_Error</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Validation_Error_3_query_filters --></label>
+        <name>MA_Validation_Error_3_query_filters</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Validation_Error_Caching_interval --></label>
+        <name>MA_Validation_Error_Caching_interval</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Validation_Error_Caching_owner --></label>
+        <name>MA_Validation_Error_Caching_owner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Validation_Error_Invalid_Address_limits_blank --></label>
+        <name>MA_Validation_Error_Invalid_Address_limits_blank</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Validation_Error_Invalid_Day_Integer --></label>
+        <name>MA_Validation_Error_Invalid_Day_Integer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Validation_Error_Invalid_record_limit --></label>
+        <name>MA_Validation_Error_Invalid_record_limit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Validation_Error_Tooltip1 --></label>
+        <name>MA_Validation_Error_Tooltip1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Validation_Error_address_limit --></label>
+        <name>MA_Validation_Error_address_limit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Validation_Error_distance_number --></label>
+        <name>MA_Validation_Error_distance_number</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Validation_Error_filters --></label>
+        <name>MA_Validation_Error_filters</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Validation_Error_name --></label>
+        <name>MA_Validation_Error_name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Validation_Error_record_limit --></label>
+        <name>MA_Validation_Error_record_limit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Value --></label>
+        <name>MA_Value</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Verification_Distance --></label>
+        <name>MA_Verification_Distance</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Verification_Required --></label>
+        <name>MA_Verification_Required</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Verified_Latitude --></label>
+        <name>MA_Verified_Latitude</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Verified_Location_Support --></label>
+        <name>MA_Verified_Location_Support</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Verified_Longitude --></label>
+        <name>MA_Verified_Longitude</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Version --></label>
+        <name>MA_Version</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_View --></label>
+        <name>MA_View</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Visible --></label>
+        <name>MA_Visible</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Visible_Area --></label>
+        <name>MA_Visible_Area</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_WALKING --></label>
+        <name>MA_WALKING</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_WHAT_DATA_SOURCE_WOULD_YOU_LIKE_TO_SEE --></label>
+        <name>MA_WHAT_DATA_SOURCE_WOULD_YOU_LIKE_TO_SEE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_WHAT_INFORMATION_WOULD_YOU_LIKE_TO_VIEW --></label>
+        <name>MA_WHAT_INFORMATION_WOULD_YOU_LIKE_TO_VIEW</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_WHAT_VISUAL_STYLE_WOULD_YOU_LIKE_TO_SEE --></label>
+        <name>MA_WHAT_VISUAL_STYLE_WOULD_YOU_LIKE_TO_SEE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_WOULD_YOU_LIKE_TO_COLOR_CODE_YOUR_SHAPES_BASED_ON --></label>
+        <name>MA_WOULD_YOU_LIKE_TO_COLOR_CODE_YOUR_SHAPES_BASED_ON</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Waypoints --></label>
+        <name>MA_Waypoints</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Weather --></label>
+        <name>MA_Weather</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Wednesday --></label>
+        <name>MA_Wednesday</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Weekly --></label>
+        <name>MA_Weekly</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Weight_Value --></label>
+        <name>MA_Weight_Value</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_LIVE --></label>
+        <name>MA_YESTERDAY</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_YOU_HAVENT_CREATED_ANY_ROUTES_FOR_THIS_MONTH_TO_CREATE --></label>
+        <name>MA_YOU_HAVENT_CREATED_ANY_ROUTES_FOR_THIS_MONTH</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_YOU_RE_FINSIHED --></label>
+        <name>MA_YOU_RE_FINSIHED</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Yards --></label>
+        <name>MA_Yards</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Years --></label>
+        <name>MA_Years</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Yes --></label>
+        <name>MA_Yes</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Zip_Code --></label>
+        <name>MA_Zip_Code</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Zoom_To_Fit --></label>
+        <name>MA_Zoom_To_Fit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_Zoom_To_Markers --></label>
+        <name>MA_Zoom_To_Markers</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_adjust_map --></label>
+        <name>MA_adjust_map</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_bad_address --></label>
+        <name>MA_bad_address</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_days --></label>
+        <name>MA_days</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_geocodes_completed --></label>
+        <name>MA_geocodes_completed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_hours --></label>
+        <name>MA_hours</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_in --></label>
+        <name>MA_in</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_minutes --></label>
+        <name>MA_minutes</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_not_in --></label>
+        <name>MA_not_in</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_of --></label>
+        <name>MA_of</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_of_every_month --></label>
+        <name>MA_of_every_month</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_seconds --></label>
+        <name>MA_seconds</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_selected --></label>
+        <name>MA_selected</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_with --></label>
+        <name>MA_with</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_with_or_without --></label>
+        <name>MA_with_or_without</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MA_without --></label>
+        <name>MA_without</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Ma_Route_Hide_Dates --></label>
+        <name>Ma_Route_Hide_Dates</name>
+    </customLabels>
+    <customPageWebLinks>
+        <label><!-- MapAnything Configuration --></label>
+        <name>MapAnything_Configuration</name>
+    </customPageWebLinks>
+    <customTabs>
+        <label><!-- Live BO Settings --></label>
+        <name>Live_BO_s</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- MapAnything --></label>
+        <name>MapAnything</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- MapAnything Nearby --></label>
+        <name>MapAnythingNearby</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- MapAnything Routes --></label>
+        <name>MapAnything_Routes</name>
+    </customTabs>
+</Translations>

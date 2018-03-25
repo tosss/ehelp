@@ -1,0 +1,43 @@
+<apex:page id="ISVC_AddCaseComments" standardController="Case" extensions="ISVC_AddCaseComments_Extension" showHeader="false">
+    <script type='text/javascript' src='/canvas/sdk/js/publisher.js'/>
+    <script>
+        function refreshFeed() {
+            Sfdc.canvas.publisher.publish({name : 'publisher.refresh', payload : {feed:true, objectRelatedLists:{}}});
+        }
+    </script>
+    <style>
+        .requiredInput .requiredBlock, .requiredBlock {background-color: white;}
+        .block {
+            margin-top: 10px;
+        }
+        .textArea {
+            width: 98%;
+            height: 150px;
+        }
+        .button {
+            position:fixed;
+            bottom:0px;
+            right:0px;
+            padding: 0 16px;
+            font-size: 12px;
+            font-weight: normal;
+            line-height: 27px;
+            border-color: #e0e5ee;
+            color: #fff;
+            background: #0070d2;
+        }
+    </style>
+    <apex:form >
+        <apex:actionFunction action="{!addCaseComments}" name="addCaseComments" oncomplete="refreshFeed();" rerender="mainPanel"/>
+        <apex:outputPanel id="mainPanel">
+            <div class="block">
+                <apex:inputField styleClass="textArea" value="{!caseComment.CommentBody}" required="true"/>
+            </div>
+            <div class="block">
+                <apex:outputLabel value="{!$Label.ISVC_CopyCommentsToAllRelatedCases}"/>
+                <apex:inputCheckbox value="{!copyCommentsToRelatedCases}"/>
+            </div>
+        </apex:outputPanel>
+    </apex:form>
+    <button type="button" onclick="addCaseComments();" class="button">Save</button>
+</apex:page>

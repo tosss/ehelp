@@ -1,0 +1,32 @@
+<!-- ********************************************************************
+**RQ-09404 - 6/29/2017 vijay.manimaran@cdk.com created 
+**GLOBIT-1926 - 08/07/2017 vijay.manimaran@cdk.com updated
+** GLOBIT-3302 - 08/28/2017 vijay.manimaran@cdk.com updated stlyeclass
+
+*************************************************************************-->
+<aura:component implements="force:appHostable,forceCommunity:availableForAllPageTypes" access="global" controller="COM_ArticleList_Controller">
+    <aura:attribute name="knowledgeArticles" type="String" />
+    <aura:attribute name="knowledgeArticleId" type="String[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="dsg_knowledgeArticleID" type="String" />
+    <aura:attribute name="dsg_iconSize" type="String" default="medium" />
+    <aura:attribute name="dsg_fontSize" type="String" default="large" />
+    <aura:attribute name="dsg_showIcon" type="String" default="true" />
+    <aura:attribute name="dsg_showTitle" type="String" default="Yes" />
+    <aura:attribute name="dsg_showTitleParam" type="String" default="false" />
+    
+    <aura:if isTrue="{!v.knowledgeArticles.EMPCommunityArticle.Hide_Views__c  != 'true'}">
+        <div title="Total Number of Views">
+            <aura:if isTrue="{!v.dsg_showTitle == 'Yes'}">
+                <h4 class="base-items-header header-border-bottom">VIEWS</h4>
+            </aura:if> 
+            <aura:if isTrue="{!v.dsg_showIcon == 'true'}">
+                <aura:if isTrue="{!v.dsg_showTitleParam == 'true'}">
+                    
+                    <span>VIEWS </span> </aura:if><lightning:icon iconName="utility:preview" size="{!v.dsg_iconSize}"  />
+            </aura:if>
+            <span class="{!'font-style font-' + v.dsg_fontSize}">&nbsp;{!v.knowledgeArticles.TotalViews}</span>
+        </div>
+    </aura:if>
+    
+</aura:component>

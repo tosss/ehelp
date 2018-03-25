@@ -1,0 +1,25 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" extends="cloudx_cms:SS_uiBaseBanner">
+    <aura:attribute name="bannerImageUrl" type="String" description="Banner Background Image URL" access="global" />
+    <figure class="slds-image slds-image--card">
+        <a href="javascript:void(0);" class="slds-image__crop" style="{! 'height:' + v.height + 'px'}" onclick="{!c.navigate}" >
+            <img src="{!v.bannerImageUrl}" class="primary-image"/>
+        </a>
+        <aura:if isTrue="{!v.title !=null &amp;&amp; v.title !=''}">
+            <figcaption class="{! (v.textPosition == 'overlay'? 'slds-image__title slds-image__title--overlay ' : (v.textPosition == 'top' || v.textPosition == 'middle' || v.textPosition == 'bottom') ? 'slds-image__title slds-image__title--card' : '') + ' ' + (v.textPosition == 'middle'? 'slds-align--absolute-center':'') }" style="{! 'background: ' + v.textOverlayBackground + ';' + (v.textPosition != 'overlay' ? 'height: ' + v.textHeight + 'px;':'') + (v.textPosition == 'top'? 'top:0;':'') + (v.textPosition == 'middle'? 'top:0;':'') + (v.textPosition == 'bottom'? 'bottom:0;':'')}">
+                <div class="slds-image__text" style="width:100%" title="{!v.title}">
+                <div class="{! 'slds-p-around--small slds-text-align--' + v.textAlign}">
+                    <p class="{!'slds-p-vertical--small slds-text-heading--' + v.titleSize}" style="{!'color:' + v.titleColor}"><aura:unescapedHtml value="{!v.title}"/></p>
+                    <span class="{!'slds-text-body--' + v.descriptionSize}" style="{!'white-space: normal;color:' + v.descriptionColor}">
+                        <aura:unescapedHtml value="{!v.description}"/>
+                    </span>
+                <aura:if isTrue="{!v.buttonLabel !=null &amp;&amp; v.buttonLabel != ''}">
+                    <div class="slds-p-vertical--small">
+                        <lightning:button label="{!v.buttonLabel}" variant="{!v.buttonVariant}" onclick="{!c.navigate}" />
+                    </div>
+                </aura:if>
+                </div>
+                </div>
+            </figcaption>
+        </aura:if>
+    </figure>
+</aura:component>

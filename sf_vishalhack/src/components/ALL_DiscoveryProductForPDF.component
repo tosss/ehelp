@@ -1,0 +1,45 @@
+<!--2016-11-17- anirudh.singh@cdk.com- Created this component for pdf version.-->
+<apex:component controller="ALL_DiscoveryProductSolution_Controller">
+    <apex:includeScript value="{!URLFOR($Resource.ALL_DiscoveryProductForPDF_JS)}"/>
+    
+    <apex:stylesheet value="{!URLFOR($Resource.ALL_DiscoveryProductSolution_CSS)}" />
+    
+    <apex:attribute name="headerName" type="String" required="true" description="This determines the name of the section to be displayed."/>
+    
+    <div class="tps pdfProductAtSiteComponent">
+        <h3 class="productAtSiteHeader headerH3">{!headerName}</h3>
+        
+        <table class="table table-bordered pdfTable">
+            <thead>
+                <tr>
+                    <th class="tableHeader"></th>
+                    <th class="tableHeader">Product Name</th>
+                    <th class="tableHeader">Department</th>
+                    <th class="tableHeader">Workflow</th>
+                    <th class="tableHeader">Current</th>
+                    <th class="tableHeader">Proposed</th>
+                    <th class="tableHeader">Sold</th>
+                    <th class="tableHeader">Notes/Comments</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <apex:repeat value="{!Products}" var="tps">
+                    <tr class="bodyRow">
+                        <input type="hidden"
+                               data-productid="{!tps.productId}"
+                               data-prodname="{!tps.dpdObject.Name}"
+                               data-dept="{!tps.dpdObject.Department__c}"
+                               data-otherdept="{!tps.otherDepartment}"
+                               data-workflow="{!tps.dpdObject.Workflow__c}"
+                               data-otherworkflow="{!tps.otherWorkflow}"
+                               data-current="{!tps.isCurrent}"
+                               data-proposed="{!tps.isProposed}"
+                               data-sold="{!tps.isSold}"
+                               data-notes="{!tps.notes}"/>
+                    </tr> 
+                </apex:repeat>
+            </tbody>
+        </table>
+    </div>    
+</apex:component>

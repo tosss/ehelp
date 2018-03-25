@@ -1,0 +1,24 @@
+<apex:page standardController="Contact" showHeader="false" sidebar="false">
+
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        .ma-iframe-wrapper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .ma-iframe-wrapper > iframe {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <div class="ma-iframe-wrapper">
+        <iframe src="{!$Page.sma__MAMiniMapLightning}?rid={!$CurrentPage.parameters.id}"></iframe>
+    </div>
+
+</apex:page>

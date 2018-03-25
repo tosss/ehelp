@@ -1,0 +1,19 @@
+.THIS .vote-padding:last-child {
+    padding :0 0 0 10px;
+}
+
+.THIS .vote-padding {
+    font-size: 18pt;
+    font-family: Verdana;
+    position: relative;
+    top: 6px;
+    padding :0 20px 0 10px;
+}
+
+.THIS .slds-icon-text-default {
+    /*  fill: #1a5d12 !important;*/
+}
+
+.THIS .header-border-bottom {
+    border-bottom: solid 2px #00C389;
+}

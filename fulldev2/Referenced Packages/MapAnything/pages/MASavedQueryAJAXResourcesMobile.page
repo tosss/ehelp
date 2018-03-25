@@ -1,3 +1,0 @@
-<apex:page controller="sma.MASavedQueryAJAXResourcesMobile" contentType="application/json" readonly="true" showHeader="false" sidebar="false" standardStylesheets="false">
-	This page has been deprecated
-</apex:page>

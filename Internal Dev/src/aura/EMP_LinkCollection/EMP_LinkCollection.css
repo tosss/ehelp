@@ -1,0 +1,117 @@
+/* 2016-07-26- anirudh.singh@cdk.com- Created this class for RQ-07332.*/
+/* 2016-11-22 matt.keefe@cdk.com - modified CSS - Link Collection */
+.THIS .lc > div{
+    /*border-radius: 3px;*/
+    padding-bottom:25px;
+}
+
+.THIS .lc-header {
+/*    border-top-left-radius: 1px;
+    border-top-right-radius: 1px;
+    padding: 4px 10px; 
+    font-size: 12pt; 
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px #333;*/
+}
+
+.THIS .title{
+    text-transform: uppercase;
+}
+.THIS .fa-li {
+    position: absolute;
+    left: -2.14285714em;
+    width: 2.14285714em;
+    top: 0.14285714em;
+    text-align: left;
+}
+.THIS .lc .info-message
+{
+    font-size: 0.9rem;
+    padding: 4px 10px 4px 10px;
+}
+
+.THIS .lc ul {
+    padding-left: 0px; 
+    padding-top: 6px;
+}
+
+.THIS .lc li i {
+    transition: all .25s ease-in-out;
+    -moz-transition: all .25s ease-in-out;
+    -webkit-transition: all .25s ease-in-out;
+}
+
+.THIS .lc li a {
+    color: #53565A;
+    position: relative; 
+    left: -10px;
+}
+
+.THIS .lc li a:hover {
+    color: #619400;
+}
+
+.THIS .lc .link-collection-row:hover a
+{
+    color: rgb(105, 190, 40);
+    text-decoration: underline;
+}
+
+.THIS .lc ul:last-child {
+    padding-bottom: 4px; 
+}
+
+/* hide hidden icons to start */
+.THIS .lc .link-collection-row i.fa-hidden-icon {
+    opacity: 0;
+}
+
+.THIS .lc .link-collection-row i.fa-plus-circle,
+.THIS .lc .link-collection-row i.fa-times-circle {
+    cursor: pointer;
+}
+
+.THIS .lc .link-collection-row i.fa-plus-circle {
+    color: #619400;
+}
+
+.THIS .lc .link-collection-row i.fa-times-circle {
+    color: #A30400; /*#BB0E0E;*/
+}
+
+.THIS .lc .link-collection-row i.fa-check {
+    color: #00A9CE;
+}
+
+/* on hover hide default icon */
+.THIS .lc .link-collection-row:hover i.fa-default-icon {
+    opacity: 0;
+}
+
+/* on hover show action/info icons */
+.THIS .lc .link-collection-row:hover i.fa-plus-circle,
+.THIS .lc .link-collection-row:hover i.fa-check,
+.THIS .lc .link-collection-row:hover i.fa-times-circle
+{
+    opacity: 1;
+}
+
+/* Border and Background Colors */
+
+.THIS .lc .lc-Green-header-border-bottom { border-bottom: solid 2px #82c600; }
+.THIS .lc .lc-Blue-header-border-bottom { border-bottom: solid 2px #00A9CE; }
+.THIS .lc .lc-Teal-header-border-bottom { border-bottom: solid 2px #00B2A9; }
+.THIS .lc .lc-Alt-Green-header-border-bottom { border-bottom: solid 2px #00C489; }
+.THIS .lc .lc-Light-Green-header-border-bottom { border-bottom: solid 2px #A4D65E; }
+.THIS .lc .lc-Yellow-header-border-bottom { border-bottom: solid 2px #D0DF00; }
+.THIS .lc .lc-Khaki-header-border-bottom { border-bottom: solid 2px #E1D7B0; }
+.THIS .lc .lc-Dark-Green-header-border-bottom { border-bottom: solid 2px #619400; }
+.THIS .lc .lc-Purple-header-border-bottom { border-bottom: solid 2px #8714A3; }
+.THIS .lc .lc-Burgundy-header-border-bottom { border-bottom: solid 2px #8D0E57; }
+.THIS .lc .lc-Black-header-border-bottom { border-bottom: solid 2px #333; }
+.THIS .lc .lc-Soft-Black-header-border-bottom { border-bottom: solid 2px #53565A; }
+.THIS .lc .lc-Medium-Grey-header-border-bottom { border-bottom: solid 2px #A7A8AA; }
+.THIS .lc .lc-Light-Grey-header-border-bottom { border-bottom: solid 2px #D0D0CE; }
+.THIS .lc .lc-White-header-border-bottom { border-bottom: solid 2px #f5f5f5; border-bottom: solid 1px #ccc; color: #333 !important; text-shadow: none !important; }
+.THIS .lc .lc-Beige-header-border-bottom { border-bottom: solid 2px #DBC893; }

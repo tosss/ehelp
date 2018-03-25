@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CanvasMetadata xmlns="http://soap.sforce.com/2006/04/metadata">
-    <accessMethod>Post</accessMethod>
-    <canvasUrl>https://secure.vidyard.com/salesforce/uploads</canvasUrl>
-    <locationOptions>VF,MP,CF</locationOptions>
-    <samlInitiationMethod>0</samlInitiationMethod>
-</CanvasMetadata>

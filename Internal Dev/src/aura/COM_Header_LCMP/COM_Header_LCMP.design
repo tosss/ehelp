@@ -1,0 +1,6 @@
+<design:component label="Component Header">
+    <design:attribute name="dsg_headerName" label="Header Name" />
+    <design:attribute name="dsg_headerFont" label="Header Format" datasource="heading1,heading2,heading3,heading4,heading5,heading6"/>
+    <design:attribute name="dsg_headerAlign" label="Header Align" datasource="None,left,center,right" />
+    <design:attribute name="color" label="Color" datasource="Green, Black, White, Dark-Green, Blue, Teal, Alt-Green, Light-Green, Yellow, Khaki, Purple, Burgundy, Soft-Black, Medium-Grey, Light-Grey, Beige" default="Blue" description="Which brand color should be used?" />
+</design:component>

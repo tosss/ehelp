@@ -1,0 +1,17 @@
+({
+	doInit : function(component, event, helper) {
+        helper.fetchStockData(component, event, helper);
+        
+        var timeInterval = component.get("v.RefreshInterval");
+        timeInterval =  (timeInterval == '1min' ? 60000 :
+        				(timeInterval == '5min' ? 300000 :
+        				(timeInterval == '15min' ? 600000 :
+        				(timeInterval == '30min' ? 1800000 :
+        				(timeInterval == '60min' ? 3600000 : 10800000)))));
+        window.setInterval(
+            $A.getCallback(function() {
+                helper.fetchStockData(component, event, helper);
+            }), timeInterval
+        );
+	}
+})

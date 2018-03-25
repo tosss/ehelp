@@ -1,0 +1,30 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="title" type="String" default="Title" access="global" />
+    <aura:attribute name="content" type="String" default="Content" access="global" />
+    <aura:attribute name="componentType" type="String" default="Tile" access="global" />
+    <aura:attribute name="width" type="String" default="100%" access="global" />
+    <aura:attribute name="link" type="String" default="" access="global" />
+    <aura:attribute name="target" type="String" default="_self" access="global" />
+    <aura:attribute name="color" type="String" default="Green" access="global" />
+    <aura:attribute name="pattern" type="String" default="None" access="global" />
+    <aura:attribute name="horizontalComponentAlignment" type="String" default="left" access="global" />
+    <aura:attribute name="horizontalTextAlignment" type="String" default="left" access="global" />
+
+    <ltng:require styles="{!$Resource.COM_StyleGuide_CSS}" />
+
+    <div>
+        <div class="{!v.componentType}" style="{!'width: ' + v.width + '; ' + v.horizontalComponentAlignment + '; '}">
+            <a href="{!v.link}" target="{!v.target}">
+                <div class="{!'community-' + v.componentType}">
+                    <div class="{! 'community-' + v.componentType + '-content' + ' bg-' + v.color + ' bg-' + v.pattern }" style="{!'text-align: ' + v.horizontalTextAlignment}">
+                        <h2>{!v.title}</h2>
+                        <aura:if isTrue="{!v.componentType == 'tile'}">
+                            <p>{!v.content}</p>
+                        </aura:if>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</aura:component>

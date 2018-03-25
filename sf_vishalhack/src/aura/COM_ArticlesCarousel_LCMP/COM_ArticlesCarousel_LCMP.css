@@ -1,0 +1,41 @@
+.THIS .articleImageDiv
+{
+    display: inline-block;
+    padding: 10px 0px 10px 10px;
+}
+.THIS .articleImg
+{
+    height: 160px !important;
+    box-shadow: 0px 0px 4px #999;
+    background-color: #666;
+}
+.THIS .slick-prev:before
+{
+    content: "\f053";
+    font-family: FontAwesome;
+    color: #666;
+    font-size: 25px;
+}
+.THIS .slick-next:before
+{
+    content: "\f054";
+    font-family: FontAwesome;
+    color: #666;
+    font-size: 25px;
+}
+.THIS .slick-dots li button:before
+{
+    content: "\f111";
+    font-family: FontAwesome;
+    color: #333;
+}
+.THIS .spinnerContainer
+{
+    top: auto;
+    height: 180px;
+    right: auto;
+    left: auto;
+    bottom: auto;
+    background-color: #000;
+    opacity: 0.5;
+}

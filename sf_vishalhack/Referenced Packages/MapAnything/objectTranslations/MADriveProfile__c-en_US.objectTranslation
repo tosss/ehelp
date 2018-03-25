@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>MapAnything Drive Profile</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>MapAnything Drive Profiles</value>
+    </caseValues>
+    <fields>
+        <label><!-- Hazardous Materials --></label>
+        <name>Hazardous_Materials__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Height Units --></label>
+        <name>HeightUnits__c</name>
+        <picklistValues>
+            <masterLabel>Feet</masterLabel>
+            <translation><!-- Feet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>meters</masterLabel>
+            <translation><!-- meters --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Height --></label>
+        <name>Height__c</name>
+    </fields>
+    <fields>
+        <label><!-- Length Units --></label>
+        <name>LengthUnits__c</name>
+        <picklistValues>
+            <masterLabel>Feet</masterLabel>
+            <translation><!-- Feet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>meters</masterLabel>
+            <translation><!-- meters --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Length --></label>
+        <name>Length__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Axles --></label>
+        <name>NumberOfAxles__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Trailers --></label>
+        <name>NumberOfTrailers__c</name>
+    </fields>
+    <fields>
+        <label><!-- Profile Type --></label>
+        <name>ProfileType__c</name>
+        <picklistValues>
+            <masterLabel>Car</masterLabel>
+            <translation><!-- Car --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Truck</masterLabel>
+            <translation><!-- Truck --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Weight Per Axle --></label>
+        <name>WeightPerAxle__c</name>
+    </fields>
+    <fields>
+        <label><!-- Weight Units --></label>
+        <name>WeightUnits__c</name>
+        <picklistValues>
+            <masterLabel>kilos</masterLabel>
+            <translation><!-- kilos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>pounds</masterLabel>
+            <translation><!-- pounds --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>tons</masterLabel>
+            <translation><!-- tons --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Weight --></label>
+        <name>Weight__c</name>
+    </fields>
+    <fields>
+        <label><!-- Width Units --></label>
+        <name>WidthUnits__c</name>
+        <picklistValues>
+            <masterLabel>ft</masterLabel>
+            <translation><!-- ft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>meters</masterLabel>
+            <translation><!-- meters --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Width --></label>
+        <name>Width__c</name>
+    </fields>
+    <layouts>
+        <layout>MapAnything Drive Profile Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

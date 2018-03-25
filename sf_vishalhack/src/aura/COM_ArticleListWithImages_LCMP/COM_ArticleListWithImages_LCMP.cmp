@@ -1,0 +1,96 @@
+<!-- ********************************************************************
+**12/6/2016 vijay.manimaran@cdk.com created 
+**
+*************************************************************************-->
+
+<aura:component implements="force:appHostable,forceCommunity:availableForAllPageTypes" access="global" controller="COM_ArticleList_Controller">
+    <aura:attribute type="String" name="header" />
+    <aura:attribute name="knowledgeArticles" type="String" />
+    <aura:attribute name="knowledgeArticlesCount" type="String[]" />
+    <aura:attribute name="dsg_topicName" type="String"/>
+    <aura:attribute name="dsg_articleCounter" type="String" default="4" />
+    <aura:attribute name="c_offset" type="String" default="2" />
+    <aura:attribute name="dsg_headerName" type="String" />
+    <aura:attribute name="isValid" type="String" default="False" access="global" />
+    <aura:attribute name="color" type="String" default="Green" access="global" />
+    <aura:attribute name="showPagination" type="String" default="Yes" access="global" />
+    <aura:attribute name="dsgn_sortBy" type="String" default="Name" access="global" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="attachment" type="String" default="field=Attachment__Body__s" />
+    <aura:attribute name="imageAttachment" type="String" default="field=Image__Body__s" />
+    <aura:attribute name="loadMore" type="String" default="False" />
+    <aura:attribute name="doctype" type="String" />
+    <aura:method name="showSpinnerMethod" action="{!c.showSpinner}" description=""></aura:method>
+    <aura:method name="hideSpinnerMethod" action="{!c.hideSpinner}" description=""></aura:method>
+    
+    <div>
+        
+        <div class="base-items uiAbstractList selfServiceBaseSimpleItems selfServiceTopicTrendingArticles pad-header">
+            <h2 class="base-items-header"> {!v.dsg_headerName} </h2>
+        </div>
+        <aura:iteration items="{!v.knowledgeArticles}" var="knowledgeArticle">
+            <a href="{!'/intranet/s/article/'+knowledgeArticle.UrlName}">
+                <ul class="slds-has-dividers--around-space">
+                    <li>
+                        <div class="slds-tile slds-media">
+                            <aura:if isTrue="{!knowledgeArticle.ImageName != null}">
+                                <div class="article-image" style="{! 'background-image: url('+'\'/intranet/servlet/fileField?entityId='+knowledgeArticle.KnowledgeArtcle_Id+'&amp;'+ v.imageAttachment+'\')'}">
+                                    
+                                </div>
+                                <div class="image-placeholder">
+                                    <lightning:icon iconName="utility:image" size="large" />
+                                </div>
+                            </aura:if>
+                            <div class="slds-media__body">
+                                <div>
+                                    <span class="article-title">
+                                        <ui:outputURL value="{!'/intranet/s/article/'+knowledgeArticle.UrlName}" label="{!knowledgeArticle.Title}"/>
+                                    </span>
+                                    
+                                </div>
+                                <div class="text">
+                                    <div class="summary">
+                                        {!knowledgeArticle.Summary}<span class="ellipsis"></span>
+                                    </div>
+                                </div>
+                                <span class="publish-date">
+                                       <ui:outputdate value="{!knowledgeArticle.LastPublishedDate}"></ui:outputdate>
+                                    </span>
+                            </div>
+                        </div>
+                        
+                        <div class="file-icon" style="">
+                            <a href="{! '/intranet/servlet/fileField?entityId='+knowledgeArticle.KnowledgeArtcle_Id+'&amp;'+ v.attachment}" target="_blank">
+                                <aura:if isTrue="{!knowledgeArticle.ContentType == 'image/png' || knowledgeArticle.ContentType == 'image/jpeg' }">
+                                    <lightning:icon iconName="doctype:image" size="small" />
+                                </aura:if>
+                                <aura:if isTrue="{!knowledgeArticle.ContentType == 'application/pdf'}">
+                                    <lightning:icon iconName="doctype:pdf" size="small" />
+                                </aura:if>
+                                <aura:if isTrue="{!and(knowledgeArticle.ContentType != 'image/png',knowledgeArticle.ContentType != 'application/pdf',knowledgeArticle.ContentType != 'image/jpeg')}">
+                                    <lightning:icon iconName="doctype:word" size="small" />
+                                </aura:if>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </a>
+            <hr/>
+        </aura:iteration>
+        
+        <div>
+            <div style="text-align:center;">
+                <ui:spinner aura:id="spinner" class="spinner-override" />
+                
+                <aura:if isTrue="{!v.loadMore == 'False'}">
+                    <button class="slds-button slds-button_brand" onclick="{!c.nextArticles}" aura:id="loadMore" disabled="" style="">Load More</button>
+                </aura:if>
+                <aura:if isTrue="{!v.loadMore == 'True'}">
+                    <span style="font-family:helvetica; font-size:10pt;">
+                        ~ There are no more articles to load. ~
+                    </span>
+                </aura:if>
+            </div>
+        </div>
+    </div>
+</aura:component>

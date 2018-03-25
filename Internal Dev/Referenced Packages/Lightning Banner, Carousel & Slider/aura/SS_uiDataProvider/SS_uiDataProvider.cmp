@@ -1,0 +1,9 @@
+<aura:component abstract="true" access="global">
+    <aura:attribute name="filterType" type="String" default="latest" description="Name of the filter: popular, recent, category" access="global"/>
+    <aura:attribute name="filterValue" type="String" description="Filter Value, Applies only for category" access="global"/>
+    <aura:attribute name="sortOptions" type="Map" description="Sort Options" access="global"/>
+    <aura:attribute name="queryMode" type="String" description="search(SOSL) or list(Query)" access="global"/>
+    <aura:attribute name="pageSize" type="Integer" description="Page Size" default="20" />
+    <aura:registerEvent name="provide" type="cloudx_cms:SS_uiDataProvideEvent" description="The event fired when the list is intialized." access="global"/>
+    <aura:registerEvent name="onchange" type="cloudx_cms:SS_uiDataChangedEvent" description="The event fired when the list data changes." access="global"/>
+</aura:component>

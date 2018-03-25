@@ -1,0 +1,5 @@
+<design:component label="MapAnything Nearby Map">
+    <design:attribute name="cmpHeight" label="Component Height"/>
+    <design:attribute name="cmpWidth" label="Component Width"/>
+    <design:attribute name="miniMapId" label="Nearby Map" datasource="apex://sma.DynamicMiniMapIdPicklist" />
+</design:component>

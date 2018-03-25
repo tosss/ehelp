@@ -1,3 +1,0 @@
-<apex:page controller="sma.RouteCalendarAJAXResources" action="{!generateJSONContent}" contentType="application/x-JavaScript; charset=utf-8" showHeader="false">
-    {!JSONContent}
-</apex:page>

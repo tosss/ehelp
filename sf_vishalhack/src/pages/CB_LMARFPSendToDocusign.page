@@ -1,0 +1,27 @@
+<apex:page standardController="LMA_RFP__c"> 
+    <!--2016-12-30 - ragashalini.koka@cdk.com  - RQ-08283 - Added parameters for Carbon Copy-->
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-1.10.2.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'js/jquery-ui-1.10.4.custom.min.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.CB_SendToDocusign_JS)}" />
+
+    Please wait; loading...
+    
+    <style>
+        html,body{font-family:"Helvetica",sans-serif;font-size:14px;color:#666;height:100%;overflow-x:hidden}
+    </style>
+    
+    <script type="text/javascript">
+        //jQuery(document).ready(function(){ 
+        LMARFPRedirect(
+            "{!LMA_RFP__c.Id}", "{!LMA_RFP__c.LMA__r.Name}",
+            "{!LMA_RFP__c.LMA_Contact__r.Email}", "{!LMA_RFP__c.LMA_Contact__r.FirstName}", "{!LMA_RFP__c.LMA_Contact__r.LastName}", 
+            "{!$Setup.CustomSettings__c.LMA_Any_Signer_Email__c}", "{!$Setup.CustomSettings__c.LMA_Any_Signer_First_Name__c}", "{!$Setup.CustomSettings__c.LMA_Any_Signer_Last_Name__c}", 
+            "{!LMA_RFP__c.LMA_AMA_Region_Alias_Email__c}",
+            "{!$Setup.CustomSettings__c.LMA_CarbonCopy_First_Name__c}","{!$Setup.CustomSettings__c.LMA_CarbonCopy_Last_Name__c}","{!$Setup.CustomSettings__c.LMA_CarbonCopy_Email__c}"
+            //"$Setup.CustomSettings__c.CB_Contract_Admin_Email__c}", "Scott", "Mathews",
+            //"Opportunity.ADP_Opportunity_Owner__r.Manager.Email}", "Opportunity.ADP_Opportunity_Owner__r.Manager.FirstName}", "Opportunity.ADP_Opportunity_Owner__r.Manager.LastName}"
+        );
+    //});
+    </script>
+   
+</apex:page>

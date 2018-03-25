@@ -1,5 +1,0 @@
-<design:component Label="Article Image">
-    <design:attribute name="dsg_knowledgeArticleID" label="Knowledge Article URLName" />
-    <design:attribute name="articleType" label="Article Type" dataSource="Knowledge,Employee_Community_Article,Customer_Community" description="Type of the Article" required="true" />
-    <design:attribute name="fileParentId" label="File's Parent Id" description="file Parent Id" required="false" />
-</design:component>

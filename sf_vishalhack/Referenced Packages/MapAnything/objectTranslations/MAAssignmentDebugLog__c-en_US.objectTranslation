@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>MapAnything Assignment Debug Log</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>MapAnything Assignment Debug Logs</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- MapAnything Auto-Assignment Logs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Body --></label>
+        <name>Body__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead --></label>
+        <name>Lead__c</name>
+        <relationshipLabel><!-- MapAnything Auto-Assignment Logs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- MapAnything Assignment Plan --></label>
+        <name>Plan__c</name>
+        <relationshipLabel><!-- MapAnything Auto-Assignment Logs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- MapAnything Assignment Rule --></label>
+        <name>Rule__c</name>
+        <relationshipLabel><!-- MapAnything Auto-Assignment Logs --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

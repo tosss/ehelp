@@ -1,0 +1,112 @@
+.THIS
+{
+    min-width: 320px!important;
+    margin-bottom: 40px;
+}
+.THIS .grpMembrsContentDiv .grpMembrsSpinnerDiv .slds-modal
+{
+    z-index: 11111;
+}
+.THIS .grpMembrsContentDiv .modalHeading
+{
+    display: inline-block;
+}
+.THIS .grpMembrsContentDiv .closeModal
+{
+    cursor: pointer;
+    float: right;
+}
+.THIS .grpMembrsContentDiv .grpMembrsHeader .headerTxt
+{
+    margin-top: 0;
+}
+.THIS .grpMembrsContentDiv .circleIcon
+{
+    font-size: 0.2em;
+    vertical-align: middle;
+}
+.THIS .grpMembrsContentDiv .grpMembrsHeader .refreshBtn
+{
+    font-size: 1.2em;
+}
+.THIS .grpMembrsContentDiv .grpMembrsSpinnerDiv,
+.THIS .grpMembrsContentDiv .grpMembrsSpinnerDiv td
+{
+    text-align: center!important;
+}
+.THIS .grpMembrsContentDiv .grpMembrsSpinnerDiv .slds-modal__container
+{
+    display: inline-block!important;
+    clear: both!important;
+}
+.THIS .grpMembrsContentDiv .grpMembrsSpinnerDiv .slds-modal__content
+{
+    display: inline-block!important;
+    margin-top: 15%!important;
+}
+.THIS .grpMembrsContentDiv .grpMembrsSpinnerDiv .grpMembrsSpinnerText
+{
+    margin-bottom: 4px;
+}
+.THIS .grpMembrsContentDiv .msgTextDiv
+{
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.THIS .grpMembrsContentDiv .grpMembrsTable .srNoTh,
+.THIS .grpMembrsContentDiv .grpMembrsTable .srNoTd,
+.THIS .grpMembrsContentDiv .grpMembrsTable .actionTh,
+.THIS .grpMembrsContentDiv .grpMembrsTable .actionTd
+{
+    width: 3em;
+}
+.THIS .grpMembrsContentDiv .grpMembrsTable .grpMembrsSortableTh
+{
+    cursor: pointer;
+    display: flex;
+}
+.THIS .grpMembrsContentDiv .grpMembrsTable .header:hover span:after
+{
+    content: "\f175\f176";
+    font-family: FontAwesome;
+    float: right;
+    margin-left: 10px;
+}
+.THIS .grpMembrsContentDiv .grpMembrsTable .headerSortDown span:after,
+.THIS .grpMembrsContentDiv .grpMembrsTable .headerSortDown:hover span:after
+{
+    content: "\f176";
+    font-family: FontAwesome;
+    float: right;
+    margin-left: 10px;
+}
+.THIS .grpMembrsContentDiv .grpMembrsTable .headerSortUp span:after,
+.THIS .grpMembrsContentDiv .grpMembrsTable .headerSortUp:hover span:after
+{
+    content: "\f175";
+    font-family: FontAwesome;
+    float: right;
+    margin-left: 10px;
+}
+.THIS .grpMembrsContentDiv .grpMembrsTable .grpMembrImg
+{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+.THIS .grpMembrsContentDiv .grpMembrsTable .photoTh
+{
+    width: 80px;
+}
+.THIS .grpMembrsContentDiv .grpMembrsTable .actionIcon
+{
+    cursor: pointer;
+    font-size: 1.2em;
+}
+.THIS .grpMembrsContentDiv .grpMembrsActionFooterDiv
+.THIS .editMembershipModal,
+.THIS .delMemberModal
+{
+    display: none;
+}

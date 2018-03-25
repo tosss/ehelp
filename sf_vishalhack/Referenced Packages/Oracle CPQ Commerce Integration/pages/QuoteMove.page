@@ -1,0 +1,26 @@
+<apex:page standardController="BigMachines__Quote__c" extensions="BigMachines.BigMachinesMoveQuoteController" tabStyle="Quotes__tab" >    
+    <apex:sectionHeader title="Transfer Quote" subtitle="{!BigMachines__Quote__c.Name}"/>
+    <apex:outputText rendered="false" value="{!BigMachines__Quote__c.BigMachines__Account__c}" />
+    <apex:outputText rendered="false" value="{!BigMachines__Quote__c.Opportunity__r.AccountId}" />
+    <apex:form >
+        <apex:pageMessages id="messages" />
+        This screen allows you to transfer a quote from one opportunity to another.
+        <apex:pageBlock mode="edit" title="">
+            <apex:pageBlockButtons location="top" />
+            <apex:pageBlockSection title="Select New Opportunity" collapsible="false" columns="1">
+                <apex:pageBlockSectionItem rendered="{!hasOpportunity}">
+                    <apex:outputLabel value="Current Opportunity" for="fromOpportunity" />
+                    <apex:outputField id="fromOpportunity" value="{!BigMachines__Quote__c.Opportunity__r.Name}"  />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="New Opportunity" for="fromOpportunity" />
+                    <apex:inputField id="toOpportunity" value="{!BigMachines__Quote__c.BigMachines__Opportunity__c}"  />
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton action="{!save}" value="Save" />
+                <apex:commandButton action="{!cancel}" value="Cancel" />
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

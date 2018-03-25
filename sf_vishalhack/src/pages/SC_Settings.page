@@ -1,0 +1,29 @@
+<apex:page controller="SC_Settings_Handler">
+        <apex:form >
+            <apex:pageBlock title="Service Connect Settings">
+                <apex:pageMessages />
+
+                <apex:pageBlockSection columns="1">
+                    <apex:inputCheckbox label="Launch Service Connect" value="{!launchSetting}"/>
+                    <apex:inputTextarea label="Comment" html-maxlength="255" cols="50" rows="6" required="true" value="{!launchComment}"/>
+                </apex:pageBlockSection>
+
+                <apex:pageBlockButtons >
+                    <apex:commandButton value="Save" action="{!saveSetting}"/>
+                </apex:pageBlockButtons>
+            </apex:pageBlock>
+        </apex:form>
+
+        <apex:pageBlock title="Service Connect Settings Changelog">
+            <apex:pageBlockTable value="{! launchChanges }" var="lc">
+                <apex:column headerValue="Change Time">
+                    <apex:outputText value="{0,date,M/d/yyy h:mm a z}">
+                       <apex:param value="{! lc.ModifiedAt__c }" />
+                   </apex:outputText>
+                </apex:column>
+                <apex:column value="{! lc.Action__c }"/>
+                <apex:column value="{! lc.Comment__c }"/>
+                <apex:column headerValue="Changed By" value="{! lc.ModifiedBy__c }"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+</apex:page>

@@ -1,0 +1,6 @@
+<apex:page >
+    <script type="text/javascript">
+        var url = window.location.href;
+        window.location.href = url.replace('ALL_MassCreateOppSites','ALL_MassAddOppSites');
+    </script>
+</apex:page>

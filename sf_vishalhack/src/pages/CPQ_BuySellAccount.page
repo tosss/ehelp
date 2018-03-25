@@ -1,0 +1,52 @@
+<apex:page standardController="Opportunity" extensions="CPQ_BuySell_Extension">
+    <!-- 2016-10-12 ragashalini.koka@cdk.com  Created this page to use it as inline VF in Opportunity for RQ-07918-->
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, '/js/jquery-1.11.2.min.js')}"/>
+   
+    <script> 
+    var jQuery = jQuery.noConflict();
+    
+    jQuery(document).ready(function() {
+    	processLinks();
+    });
+    
+    function processLinks() {
+        jQuery('a').each(function() {
+        	jQuery(this).removeAttr('onblur onfocus onmouseout onmouseover').attr('target','_blank');
+        });
+    }
+    
+    </script>
+    <apex:outputPanel id="fullPagePanel">
+        <apex:outputPanel id="viewPanel" rendered="{!isView}">
+            <apex:form styleClass="viewMode" >
+                <apex:pageBlock mode="detail" >
+                    <apex:pageBlockButtons location="top">
+                        <apex:commandButton value="Edit" id="editButton" action="{!edit}" reRender="fullPagePanel"/>
+                       
+                    </apex:pageBlockButtons>
+                    <apex:pageBlockSection columns="1"> 
+                        <apex:outputField value="{!opportunityRecord.SLS_Buyer_Account__c}">
+                        </apex:outputField>
+                    </apex:pageBlockSection>
+                </apex:pageBlock>
+            </apex:form>
+        </apex:outputPanel> 
+        
+        <apex:outputPanel id="editPanel" rendered="{!!isView}">
+            <apex:form styleClass="editMode" >
+                <apex:pageBlock mode="detail" >
+                    <apex:pageBlockButtons location="top">
+                        <apex:commandButton value="Save" action="{!save}" reRender="fullPagePanel" oncomplete="processLinks()"/>
+                        <apex:commandButton value="Cancel" action="{!cancel}" reRender="fullPagePanel">
+                        </apex:commandButton>
+                    </apex:pageBlockButtons>
+                    <apex:pageMessages />
+                    <apex:pageBlockSection columns="1"> 
+                        <apex:inputField value="{!opportunityRecord.SLS_Buyer_Account__c}">
+                        </apex:inputField>
+                    </apex:pageBlockSection>
+                </apex:pageBlock>
+            </apex:form>
+        </apex:outputPanel>
+    </apex:outputPanel>
+</apex:page>

@@ -1,0 +1,163 @@
+<apex:page >
+    <apex:slds />
+    <style>
+        .onesetupHelpTile
+    {
+        max-width: 30% !important;
+        text-align: center !important;
+        display:inline-block !important;
+    }
+    </style>
+    
+    <div class="carousel-pages" data-aura-rendered-by="224:2208;a">
+        <!--render facet: 225:2208;a-->
+        <!--render facet: 229:2208;a-->
+        <div class="scroll-container scrollWrapper uiScrollerDeprecated" data-aura-rendered-by="231:2208;a" data-aura-class="uiScrollerDeprecated" style="overflow: hidden;">
+            <div data-aura-rendered-by="232:2208;a" style="width: 3082px; transition-property: transform; transform-origin: 0px 0px 0px; transition-timing-function: cubic-bezier(0.33, 0.66, 0.66, 1); transform: translate(0px, 0px) scale(1) translateZ(0px); transition-duration: 0ms;">
+                <!--render facet: 233:2208;a-->
+                <!--render facet: 247:2208;a-->
+                <section class="carousel-page snap-class-1-2208_a uiCarouselPageDeprecated carousel-page-selected" role="tabpanel" id="2:2208;a" data-aura-rendered-by="101:2208;a" data-aura-class="uiCarouselPageDeprecated" aria-expanded="true" style="width: 1541px;">
+                    <div class="helpTiles" data-aura-rendered-by="3:2208;a">
+                        <article data-aura-rendered-by="6:2208;a" class="onesetupHelpTile" data-aura-class="onesetupHelpTile"><span data-aura-rendered-by="9:2208;a" class="uiImage" data-aura-class="uiImage"><img data-aura-rendered-by="7:2208;a" src="/img/setup/tiles/salesforce1.png" class="tileImg" alt=""/></span>
+                            <!--render facet: 10:2208;a-->
+                            <div class="tileHelp" data-aura-rendered-by="11:2208;a">
+                                <div class="tileTitle" data-aura-rendered-by="12:2208;a">
+                                    <h2 data-aura-rendered-by="13:2208;a"><span class="text uiOutputText" data-aura-rendered-by="16:2208;a" data-aura-class="uiOutputText">Go Mobile</span></h2>
+                                </div>
+                                <div class="tileDescription" data-aura-rendered-by="17:2208;a"><span class="text" data-aura-rendered-by="18:2208;a">Prepare the Salesforce1 mobile app for your users.</span>
+                                </div>
+                                <div class="tileNavButton" data-aura-rendered-by="21:2208;a">
+                                    <button class="slds-button slds-button--neutral navButton uiButton" aria-live="off" type="button" data-aura-rendered-by="25:2208;a" data-aura-class="uiButton">
+                                        <!--render facet: 26:2208;a--><span class=" label bBody truncate" dir="ltr" data-aura-rendered-by="28:2208;a">Get Started</span>
+                                        <!--render facet: 23:2208;a-->
+                                    </button>
+                                    <!--render facet: 31:2208;a-->
+                                </div>
+                                <!--render facet: 32:2208;a-->
+                                <!--render facet: 33:2208;a-->
+                            </div>
+                        </article>
+                        <article data-aura-rendered-by="38:2208;a" class="onesetupHelpTile" data-aura-class="onesetupHelpTile"><span data-aura-rendered-by="41:2208;a" class="uiImage" data-aura-class="uiImage"><img data-aura-rendered-by="39:2208;a" src="/img/setup/tiles/appexchange.png" class="tileImg" alt=""/></span>
+                            <div class="tileIcon" data-aura-rendered-by="43:2208;a">
+                                <span data-aura-rendered-by="46:2208;a" class="uiImage" data-aura-class="uiImage">
+                                    <img data-aura-rendered-by="44:2208;a" src="/img/icon/setup/tiles/appexchange.svg" alt="" />  </span>
+                            </div>
+                            <div class="tileHelp" data-aura-rendered-by="47:2208;a">
+                                <div class="tileTitle" data-aura-rendered-by="48:2208;a">
+                                    <h2 data-aura-rendered-by="49:2208;a"><span class="text uiOutputText" data-aura-rendered-by="52:2208;a" data-aura-class="uiOutputText">Visit AppExchange</span></h2>
+                                </div>
+                                <div class="tileDescription" data-aura-rendered-by="53:2208;a"><span class="text" data-aura-rendered-by="54:2208;a">Extend Salesforce with the #1 business app marketplace.</span>
+                                </div>
+                                <div class="tileNavButton" data-aura-rendered-by="57:2208;a">
+                                    <button class="slds-button slds-button--neutral navButton uiButton" aria-live="off" type="button" data-aura-rendered-by="61:2208;a" data-aura-class="uiButton">
+                                        <!--render facet: 62:2208;a--><span class=" label bBody truncate" dir="ltr" data-aura-rendered-by="64:2208;a">Get Started</span>
+                                        <!--render facet: 59:2208;a-->
+                                    </button>
+                                    <!--render facet: 67:2208;a-->
+                                </div>
+                                <!--render facet: 68:2208;a-->
+                                <!--render facet: 69:2208;a-->
+                            </div>
+                        </article>
+                        <article data-aura-rendered-by="72:2208;a" class="onesetupHelpTile" data-aura-class="onesetupHelpTile">
+                            <span data-aura-rendered-by="75:2208;a" class="uiImage" data-aura-class="uiImage">
+                                <img data-aura-rendered-by="73:2208;a" src="/img/setup/tiles/customize.png" class="tileImg" alt="" /></span>
+                            <!--render facet: 76:2208;a-->
+                            <div class="tileHelp" data-aura-rendered-by="77:2208;a">
+                                <div class="tileTitle" data-aura-rendered-by="78:2208;a">
+                                    <h2 data-aura-rendered-by="79:2208;a"><span class="text uiOutputText" data-aura-rendered-by="82:2208;a" data-aura-class="uiOutputText">Click to Customize</span></h2>
+                                </div>
+                                <div class="tileDescription" data-aura-rendered-by="83:2208;a"><span class="text" data-aura-rendered-by="84:2208;a">Use the Object Manager to add fields, build layouts, and more.</span>
+                                </div>
+                                <div class="tileNavButton" data-aura-rendered-by="87:2208;a">
+                                    <button class="slds-button slds-button--neutral navButton uiButton" aria-live="off" type="button" data-aura-rendered-by="91:2208;a" data-aura-class="uiButton">
+                                        <!--render facet: 92:2208;a--><span class=" label bBody truncate" dir="ltr" data-aura-rendered-by="94:2208;a">Get Started</span>
+                                        <!--render facet: 89:2208;a-->
+                                    </button>
+                                    <!--render facet: 97:2208;a-->
+                                </div>
+                                <!--render facet: 98:2208;a-->
+                                <!--render facet: 99:2208;a-->
+                            </div>
+                        </article>
+                    </div>
+                </section>
+                <section class="carousel-page snap-class-1-2208_a uiCarouselPageDeprecated hidden" role="tabpanel" id="105:2208;a" data-aura-rendered-by="215:2208;a" data-aura-class="uiCarouselPageDeprecated" aria-expanded="false" style="width: 1541px;">
+                    <div class="helpTiles" data-aura-rendered-by="106:2208;a">
+                        <article data-aura-rendered-by="109:2208;a" class="onesetupHelpTile" data-aura-class="onesetupHelpTile">
+                            <span data-aura-rendered-by="112:2208;a" class="uiImage" data-aura-class="uiImage">
+                                <img data-aura-rendered-by="110:2208;a" src="/img/setup/tiles/salesforceA.png" class="tileImg" alt="" /></span>
+                            <!--render facet: 113:2208;a-->
+                            <div class="tileHelp" data-aura-rendered-by="114:2208;a">
+                                <div class="tileTitle" data-aura-rendered-by="115:2208;a">
+                                    <h2 data-aura-rendered-by="116:2208;a"><span class="text uiOutputText" data-aura-rendered-by="119:2208;a" data-aura-class="uiOutputText">Download SalesforceA</span></h2>
+                                </div>
+                                <div class="tileDescription" data-aura-rendered-by="120:2208;a"><span class="text" data-aura-rendered-by="121:2208;a">Get the mobile app that’s just for Salesforce admins.</span>
+                                </div>
+                                <div class="tileNavButton" data-aura-rendered-by="124:2208;a">
+                                    <button class="slds-button slds-button--neutral navButton newWindow uiButton" aria-live="off" type="button" data-aura-rendered-by="128:2208;a" data-aura-class="uiButton">
+                                        <!--render facet: 129:2208;a--><span class=" label bBody truncate" dir="ltr" data-aura-rendered-by="131:2208;a">App Store</span>
+                                        <!--render facet: 126:2208;a-->
+                                    </button>
+                                    <button class="slds-button slds-button--neutral navButton newWindow uiButton" aria-live="off" type="button" data-aura-rendered-by="138:2208;a" data-aura-class="uiButton">
+                                        <!--render facet: 139:2208;a--><span class=" label bBody truncate" dir="ltr" data-aura-rendered-by="141:2208;a">Google Play</span>
+                                        <!--render facet: 136:2208;a-->
+                                    </button>
+                                </div>
+                                <!--render facet: 144:2208;a-->
+                                <!--render facet: 145:2208;a-->
+                            </div>
+                        </article>
+                        <article data-aura-rendered-by="148:2208;a" class="onesetupHelpTile" data-aura-class="onesetupHelpTile">
+                            <span data-aura-rendered-by="151:2208;a" class="uiImage" data-aura-class="uiImage">
+                                <img data-aura-rendered-by="149:2208;a" src="/img/setup/tiles/release_notes.png" class="tileImg" alt="" /></span>
+                            <div class="tileIcon" data-aura-rendered-by="153:2208;a"><span data-aura-rendered-by="156:2208;a" class="uiImage" data-aura-class="uiImage">
+                                <img data-aura-rendered-by="154:2208;a" src="/img/icon/setup/tiles/notes.svg" alt="" /></span>
+                            </div>
+                            <div class="tileHelp" data-aura-rendered-by="157:2208;a">
+                                <div class="tileTitle" data-aura-rendered-by="158:2208;a">
+                                    <h2 data-aura-rendered-by="159:2208;a"><span class="text uiOutputText" data-aura-rendered-by="162:2208;a" data-aura-class="uiOutputText">View Release Notes</span></h2>
+                                </div>
+                                <div class="tileDescription" data-aura-rendered-by="163:2208;a"><span class="text" data-aura-rendered-by="164:2208;a">Learn all about the current Salesforce release.</span>
+                                </div>
+                                <div class="tileNavButton" data-aura-rendered-by="167:2208;a">
+                                    <button class="slds-button slds-button--neutral navButton newWindow uiButton" aria-live="off" type="button" data-aura-rendered-by="171:2208;a" data-aura-class="uiButton">
+                                        <!--render facet: 172:2208;a--><span class=" label bBody truncate" dir="ltr" data-aura-rendered-by="174:2208;a">Get Started</span>
+                                        <!--render facet: 169:2208;a-->
+                                    </button>
+                                    <!--render facet: 177:2208;a-->
+                                </div>
+                                <!--render facet: 178:2208;a-->
+                                <!--render facet: 179:2208;a-->
+                            </div>
+                        </article>
+                        <article data-aura-rendered-by="182:2208;a" class="onesetupHelpTile" data-aura-class="onesetupHelpTile">
+                            <span data-aura-rendered-by="185:2208;a" class="uiImage" data-aura-class="uiImage">
+                                <img data-aura-rendered-by="183:2208;a" src="/img/setup/tiles/status.png" class="tileImg" alt="" /></span>
+                            <div class="tileIcon" data-aura-rendered-by="187:2208;a"><span data-aura-rendered-by="190:2208;a" class="uiImage" data-aura-class="uiImage">
+                                <img data-aura-rendered-by="188:2208;a" src="/img/icon/setup/tiles/status.svg" alt="" /></span>
+                            </div>
+                            <div class="tileHelp" data-aura-rendered-by="191:2208;a">
+                                <div class="tileTitle" data-aura-rendered-by="192:2208;a">
+                                    <h2 data-aura-rendered-by="193:2208;a"><span class="text uiOutputText" data-aura-rendered-by="196:2208;a" data-aura-class="uiOutputText">See System Status</span></h2>
+                                </div>
+                                <div class="tileDescription" data-aura-rendered-by="197:2208;a"><span class="text" data-aura-rendered-by="198:2208;a">Get real-time information on Salesforce performance and security.</span>
+                                </div>
+                                <div class="tileNavButton" data-aura-rendered-by="201:2208;a">
+                                    <button class="slds-button slds-button--neutral navButton newWindow uiButton" aria-live="off" type="button" data-aura-rendered-by="205:2208;a" data-aura-class="uiButton">
+                                        <!--render facet: 206:2208;a--><span class=" label bBody truncate" dir="ltr" data-aura-rendered-by="208:2208;a">Get Started</span>
+                                        <!--render facet: 203:2208;a-->
+                                    </button>
+                                    <!--render facet: 211:2208;a-->
+                                </div>
+                                <!--render facet: 212:2208;a-->
+                                <!--render facet: 213:2208;a-->
+                            </div>
+                        </article>
+                    </div>
+                </section>
+                <!--render facet: 252:2208;a-->
+            </div>
+        </div>
+    </div>
+</apex:page>

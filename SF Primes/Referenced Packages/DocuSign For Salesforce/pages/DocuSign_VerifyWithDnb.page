@@ -1,3 +1,0 @@
-<apex:page controller="dsfs.DnbController" action="{!ShowVerifyWithDnb}" id="DocuSignVerifyWithDnb">
-
-</apex:page>

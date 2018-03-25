@@ -1,0 +1,3177 @@
+<apex:page sidebar="false" showHeader="false" controller="sma.EditQuery" action="{!init}">
+
+    <!-- EditQuery Styles -->
+    <apex:outputPanel rendered="true">
+        <style type='text/css' class='editquery-css'>
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+        .modal-layer {
+            display: none;
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            background-color: #000000;
+            opacity: 0.5;
+            -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity = 50);
+            filter: alpha(opacity = 50);
+        }
+
+        /* New Icons for edit query translations */
+        #savedqueryeditor .filtericon {
+            background: none;
+            margin-top: 15px;
+        }
+        #savedqueryeditor .filterIconImage {
+            color: #a7b8d1;
+            font-size: 24px;
+            margin: 0 26px 8px;
+        }
+        #savedqueryeditor .filterIconText {
+            text-align: center;
+            font-size: 11px;
+            font-weight: bold;
+            color: #a7b8d1;
+        }
+        #savedqueryeditor .filtericon.active .filterIconText, #savedqueryeditor .filtericon:hover .filterIconText {
+            color: #333538;
+        }
+        #savedqueryeditor .filtericon.active .filterIconImage, #savedqueryeditor .filtericon:hover .filterIconImage {
+            color: #3083d3;
+        }
+
+        /* Basics */
+        #savedqueryeditor-error {
+            padding: 15px;
+            width: 875px;
+            overflow: hidden;
+
+            {! IF(pageState != 'error', 'display: none;', '') }
+        }
+        #savedqueryeditor-error h3 {
+            display: block;
+            margin: 10px 0;
+            color: #757575;
+        }
+        #savedqueryeditor {
+            padding: 15px;
+            width: 875px;
+            height: auto; /*600px*/;
+            overflow: hidden;
+
+            {! IF(pageState != 'edit', 'display: none;', '') }
+        }
+        #savedqueryeditor div {
+            padding: 0;
+            margin: 0;
+        }
+        #savedqueryeditor-templates {
+            display: none;
+        }
+        span.link
+        {
+            color: blue;
+            cursor: pointer;
+        }
+        span.link.small
+        {
+            font-size: 10px;
+            font-weight: bold;
+        }
+        .dateliteralpicker
+        {
+            cursor: pointer;
+        }
+        .value input.invalid
+        {
+            background: transparent url({!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-cross-16.png')}) no-repeat right center;
+        }
+        .ui-autocomplete
+        {
+            z-index: 9999999999 !important;
+            max-height: 200px !important;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        .PICKLIST > ul, .filterbyowner ul
+        {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .PICKLIST li, .filterbyowner li
+        {
+            padding: 0;
+            margin: 0;
+        }
+        #savedqueryeditor tr > td.actions > div, #savedqueryeditor tr > td.crossfilteractions > div, #savedqueryeditor tr > td.activitysubfilteractions > div
+        {
+            display: none;
+        }
+        #savedqueryeditor tr:hover > td.actions > div, #savedqueryeditor tr:hover > td.crossfilteractions > div, #savedqueryeditor tr:hover > td.activitysubfilteractions > div
+        {
+            display: block;
+        }
+        #savedqueryeditor .activityfilter-type-wrapper
+        {
+            padding: 10px;
+            margin: 5px 0;
+            -moz-border-radius: 4px;
+            -webkit-border-radius: 4px;
+            border-radius: 4px;
+            -moz-box-shadow: inset 0px 0px 8px #757575;
+            -webkit-box-shadow: inset 0px 0px 8px #757575;
+            box-shadow: inset 0px 0px 8px #757575;
+        }
+
+        /* Tabs */
+        #savedqueryeditor .tabs
+        {
+            background: none;
+            border: none;
+        }
+        #savedqueryeditor .tabs > ul
+        {
+            width: auto;
+            padding: 0 8px;
+            background: none;
+            border: none;
+            border-bottom: 1px solid #CCC;
+            border-top-right-radius: 0;
+            border-top-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        #savedqueryeditor .tabs > ul .ui-state-default
+        {
+            background: #3684c5;
+            border: medium none;
+            border-radius: 0 0 0 0;
+            border: 1px solid #19508C;
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 0 4px rgba(255, 255, 255, 0.2) inset;
+            margin: 0 0 0 0;
+
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#197BBB', endColorstr = '#0059A0');
+            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = '#197BBB', endColorstr = '#0059A0')";
+        }
+        #savedqueryeditor .tabs > ul li.ui-tabs-active
+        {
+            border: 1px solid #CCC;
+            background: white;
+
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#FFFFFF', endColorstr = '#FFFFFF');
+            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = '#FFFFFF', endColorstr = '#FFFFFF')";
+        }
+        #savedqueryeditor .tabs > ul li a
+        {
+            color: #ffffff;
+            font-size: 12px;
+        }
+        #savedqueryeditor .tabs > ul li.ui-tabs-active a
+        {
+            color: #3684c5;
+        }
+        #savedqueryeditor .tabs > .ui-tabs-panel
+        {
+            padding: 15px;
+            margin-bottom: 10px;
+            height: 390px;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        /* Boxes */
+        #savedqueryeditor .box.gray {
+            border: 1px solid #C7C7C7;
+            padding:5px;
+            margin:5px 0 10px 0;
+            background:#efefef;
+        }
+
+        /* Sections */
+        #savedqueryeditor .section {
+            position: relative;
+        }
+        #savedqueryeditor .section .section-header {
+            color: #2265BB;
+        }
+        #savedqueryeditor .section .section-buttons {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+        }
+        #savedqueryeditor .section .section-buttons .section-button {
+            padding-left: 18px;
+            height: 16px;
+            line-height: 18px;
+            font-size: 10px;
+            cursor: pointer;
+        }
+        #savedqueryeditor .section .section-buttons .section-button.add {
+            background: transparent url("{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}") left center no-repeat;
+        }
+
+        /* Hide filter by owner section if this object is not ownable */
+        #savedqueryeditor .filterbyowner
+        {
+            display: {! IF(isOwnable, 'block', 'none') };
+        }
+
+        /* Forms */
+        #savedqueryeditor table.form td:first-child {
+            font-weight: bold;
+            padding-right: 15px;
+        }
+
+        /* Buttons */
+        #savedqueryeditor .buttons {
+            padding: 0 10px;
+            position:relative;
+        }
+        #savedqueryeditor .buttons .btn {
+            width: 50px;
+        }
+
+        #savedqueryeditor .modal-footer .buttons {
+            min-width: 241px;
+        }
+
+        .modal-footer {
+            width:100%;
+            box-sizing:border-box;
+        }
+        /* System Info */
+        #savedqueryeditor .systeminfo {
+        	color: #757575; font-size: 10px;
+        	max-width: 50%;
+        }
+
+        /* Comboboxes */
+        #savedqueryeditor .ui-combobox
+        {
+            padding-right: 0;
+        }
+        #savedqueryeditor .ui-combobox input
+        {
+            background-color: white;
+            padding-right: 30px;
+            font-weight: bold;
+        }
+        #savedqueryeditor .ui-combobox a
+        {
+            background: transparent;
+            border: none;
+            position: absolute;
+            right: 0;
+        }
+        #savedqueryeditor .ui-combobox a .ui-button-icon-primary
+        {
+            background: transparent url("{!URLFOR($Resource.QueryEditor, 'images/icons/combobox-arrow-16.png')}") no-repeat center;
+        }
+
+        .crossobjectoptions input.ui-autocomplete-input, .htab-content.limits input.ui-autocomplete-input {
+            width: 300px;
+        }
+        .operator input.ui-autocomplete-input {
+            width: 140px;
+        }
+        .crossfilter .subfilters .filter .fieldlabel input.ui-autocomplete-input {
+            width: 150px;
+        }
+
+        /* Date pickers */
+        #savedqueryeditor .ui-datepicker {
+            z-index: 9999999999 !important;
+        }
+
+        /* Marker Type Pickers */
+        .markertype-wrapper {
+            position: relative;
+        }
+        .markertype-wrapper .markertype-color, .markertype-wrapper .markertype-shape, .markertype-wrapper .ui-combobox input {
+            width: 200px;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .markertype-wrapper .markertype-selector {
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 3px !important; padding-top: 5px !important;
+        }
+        .referencevalue.row .add-row-icon {
+        	display: inline-block;
+            vertical-align: middle;
+        	cursor: pointer;
+        }
+        .markertype-wrapper .markertype-selector img {
+            cursor: pointer;
+        }
+
+        #savedqueryeditor .filterbyowner-ownerfield-wrapper .ui-autocomplete-input {
+        	width: 200px;
+        }
+
+         /* Marker Grids */
+        /**March Release 2016*/
+		#savedqueryeditor .markergrid-row .add-row-icon, #savedqueryeditor .markergrid-row .remove-row,#savedqueryeditor .shapemarkergrid-row .add-row-icon, #savedqueryeditor .shapemarkergrid-row .remove-row,
+        ,#savedqueryeditor .colormarkergrid-row .add-row-icon, #savedqueryeditor .colormarkergrid-row .remove-row{
+			cursor: pointer;
+			display:none;
+		}
+		#savedqueryeditor .markergrid-row:hover .add-row-icon, #savedqueryeditor .markergrid-row:hover .remove-row,#savedqueryeditor .shapemarkergrid-row:hover .add-row-icon, #savedqueryeditor .shapemarkergrid-row:hover .remove-row,
+        #savedqueryeditor .colormarkergrid-row:hover .add-row-icon, #savedqueryeditor .colormarkergrid-row:hover .remove-row{
+			display: inline-block;
+		}
+		#savedqueryeditor .markergrid-row.other .add-row-icon, #savedqueryeditor .markergrid-row.other .remove-row,#savedqueryeditor .shapemarkergrid-row.other .add-row-icon, #savedqueryeditor .shapemarkergrid-row.other .remove-row,
+        #savedqueryeditor .colormarkergrid-row.other .add-row-icon, #savedqueryeditor .colormarkergrid-row.other .remove-row{
+			display: none;
+		}
+        .markergrid-row td,.shapemarkergrid-row td,.colormarkergrid-row td {
+            height: 30px;
+        }
+        .markertype-shape-preview,.markertype-colorpicker-preview {
+            display: inline-block;
+            cursor: pointer;
+            padding-right: 5px !important; margin-top: 3px !important;
+            height: 30px;
+        }
+        .markertype-color-preview {
+            display: inline-block;
+            cursor: pointer;
+            border-right: 1px solid black;
+            padding-right: 5px !important; margin-top: 3px !important;
+            height: 30px;
+        }
+        .markertype-color-preview svg,.markertype-shape-preview svg,.markertype-colorpicker-preview svg {
+            margin-top: 5px !important;
+        }
+        .markertype-color-preview.massaction,.markertype-shape-preview.massaction,.markertype-colorpicker-preview.massaction {
+        	margin-top: 0 !important;
+        	border: none;
+        }
+        .markertype-color-preview.massaction svg,.markertype-shape-preview.massaction svg,.markertype-colorpicker-preview.massaction svg {
+        	margin-top: 0 !important;
+        	position: relative; top: 3px; left: 2px;
+        }
+        .markerpicker h4,.shapepicker h4,.colorpicker h4 {
+            display: block; padding: 5px 0;
+            color: #2265BB;
+        }
+        .markerpicker .markerpicker-color,.shapepicker .markerpicker-color,.colorpicker .markerpicker-color {
+            height: 0;
+            border: none;
+            padding: 0; margin: 0;
+        }
+        .markerpicker .markerpicker-shapes{
+            position: absolute; bottom: 5px; left: 0px;
+            width: 100%;
+            text-align: center;
+            overflow: auto;
+        }
+        .shapepicker .markerpicker-shapes {
+            position: absolute; left: 0px;
+            width: 100%;
+            text-align: center;
+            overflow: auto;
+            height: 95%;
+        }
+        .markerpicker .markerpicker-shapes svg,.shapepicker .markerpicker-shapes svg {
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .colorTest {
+            height: 20px;
+            width: 20px;
+            border-radius: 3px;
+            margin: 4px !important;
+            background: rgb(0, 255, 0);
+        }
+        /**End March Release*/
+		/* Related Lists */
+		#relatedlist-addnew-wrapper {
+			text-align: right;
+			padding: 5px 0 !important;
+		}
+		#relatedlist-addnew-wrapper .ui-autocomplete-input {
+			width: 350px;
+			box-sizing: border-box;
+		}
+		#relatedlist-watermark {
+			height: 150px;
+			line-height: 150px;
+			font-weight: bold;
+			font-size: 24px;
+			color: #C0C0C0;
+			background: rgba(0, 0, 0, 0.04);
+			padding: 0 25px !important;
+			box-shadow: inset 0px 0px 8px #000;
+			box-sizing: border-box;
+			font-style: italic;
+		}
+		.relatedlist-row + #relatedlist-watermark {
+			display: none;
+		}
+		.relatedlist-row {
+			position: relative;
+			background: rgba(0, 0, 0, 0.04);
+			margin: 5px 0 !important; padding: 15px 15px 15px 35px !important;
+			box-shadow: inset 0px 0px 8px #000;
+			box-sizing: border-box;
+		}
+		.relatedlist-row .ui-combobox .ui-autocomplete-input {
+			font-size: 10px;
+		}
+		.relatedlist-label {
+			border-bottom: 1px solid silver;
+		}
+		.relatedlist-label.watermark {
+			font-style: italic;
+			color: #B2B2B2;
+		}
+		.relatedlist-columns, .relatedlist-filters {
+			margin: 10px 0 !important;
+		}
+		.relatedlist-addcolumn, .relatedlist-addfilter {
+			color: blue;
+			cursor: pointer;
+			font-size: 10px;
+			margin-top: 5px !important;
+		}
+		.relatedlist-addcolumn {
+			display: inline-block;
+			margin-left: 5px !important;
+		}
+		.relatedlist-columns .ui-autocomplete-input {
+			width: 120px;
+		}
+		.relatedlist-numtodisplay-wrapper {
+			margin-top: 20px !important;
+			margin-bottom: 5px !important;
+		}
+		.relatedlist-draghandle {
+			position: absolute; left: 10px; top: 50%; margin-top: -17px !important;
+		}
+		.relatedlist-draghandle .arrow-up {
+			border-left-width: 7px;
+			border-right-width: 7px;
+			border-bottom-width: 16px;
+		}
+		.relatedlist-draghandle .arrow-down {
+			border-left-width: 7px;
+			border-right-width: 7px;
+			border-top-width: 16px;
+		}
+		.relatedlist-draghandle .arrow-up:hover, .relatedlist-draghandle .arrow-down:hover {
+			border-bottom-color: #009AFF;
+			border-top-color: #009AFF;
+			cursor: pointer;
+		}
+		.relatedlist-remove {
+			position: absolute; top: 10px; right: 14px;
+			width:18px; height:18px;
+			cursor: pointer;
+		}
+		.relatedlist-remove > div {
+			position: absolute; top: 0; left: 7px;
+			width:3px; height:18px;
+			background-color: #797979;
+		}
+		.relatedlist-remove:hover > div {
+			background-color: #3F3F3F;
+		}
+		.relatedlist-remove > div:first-child {
+			transform: rotate(45deg);
+			-ms-transform: rotate(45deg); /* IE 9 */
+			-webkit-transform: rotate(45deg); /* Safari and Chrome */
+		}
+		.relatedlist-remove > div:last-child {
+			transform: rotate(135deg);
+			-ms-transform: rotate(135deg); /* IE 9 */
+			-webkit-transform: rotate(135deg); /* Safari and Chrome */
+		}
+		.relatedlist-filters .filter > table {
+			border-spacing: 0;
+		}
+		.relatedlist-filters .filter .indexlabel {
+			display: none;
+		}
+
+        .orderby-dir {
+            vertical-align: top; cursor: pointer;
+            -webkit-transition: .5s ease-in-out; -moz-transition: .5s ease-in-out; -o-transition: .5s ease-in-out; transition: .5s ease-in-out;
+        }
+        .orderby-dir.desc {
+            -webkit-transform: rotate(180deg); -moz-transform: rotate(180deg); -o-transform: rotate(180deg); -ms-transform: rotate(180deg); transform: rotate(180deg);
+        }
+		/*-------------------Derek edits--------------------*/
+
+        .placeholder-preview {
+            height: 385px;
+          width: 100%;
+          border: 1px solid #ccc;
+          background: #eeeeef;
+          padding: 0;
+          margin: 0;
+        }
+
+        .heatmap-options-format td {
+          vertical-align: top;
+          font-size: 13px;
+          font-weight: normal;
+          color: #666667;
+        }
+
+        table.heatmap-options-format {
+          width: 100%;
+          width: 846px;
+        }
+
+        table.heatmap-options-format .heatmap-options-col {
+          width: 255px;
+        }
+
+        .hmo-input-col {
+            width:200px;
+        }
+
+        #savedqueryeditor .heatmap-arrange-wrapper {
+          border: 1px solid #ccccce;
+          height: 386px;
+          width: 245px;
+          border-radius: 4px;
+        }
+
+        #savedqueryeditor .heatmap-arrange-cell-rows {
+          padding: 10px;
+          height: 262px;
+          width:225px;
+          overflow-y: auto;
+          background: #f3f3f5;
+        }
+
+        #savedqueryeditor .heatmap-arrange-wrapper-header {
+            padding: 6px 10px;
+            border-bottom:1px solid #ccccce;
+        }
+
+        #savedqueryeditor .heatmap-arrange-wrapper-footer {
+            padding:6px 10px;
+            border-top:1px solid #ccccce;
+        }
+
+        .heatmap-arrange-cell-rows .boundary-style {
+          border: 1px solid rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            font-family: "Helvetica Neue",Arial,sans-serif;
+            font-size: 13px;
+            width: 100%;
+            border-radius: 4px;
+            height: 25px;
+            text-align: center;
+            outline: none;
+              max-width: 100px;
+        }
+
+        #savedqueryeditor .heatmap-arrange-add-cell {
+            padding: 10px 10px 10px;
+            overflow: auto;
+            border-bottom: 1px solid #dddddf;
+            background: #f3f3f5;
+        }
+
+        .heatmap-arrange-add-cell a {
+            border: 1px solid #ccccce;
+            background: #fff;
+            padding: 6px 10px 4px;
+            border-radius: 4px;
+            float: left;
+            display: inline-block;
+            text-decoration: none;
+            vertical-align: middle;
+            color: #444446;
+        }
+
+        .heatmap-arrange-add-cell a:hover {
+            text-decoration:none;
+            background:#dddddf;
+            color:#222224;
+        }
+
+        .heatmap-arrange-add {
+            float: left;
+            margin-top: -2px;
+            margin: -2px 5px 0 -2px;
+        }
+
+        .heatmap-arrange-delete {
+            cursor:pointer;
+        }
+
+        .heatmap-arrange-delete img {
+            margin-top: 5px;
+            margin-left: 2px;
+        }
+
+        td.hmo-input-cell {
+            max-width: 180px;
+        }
+
+        td.hmo-input-cell .ui-combobox {
+            max-width: 120px;
+        }
+
+
+        .hmo-short-value input, .hmo-short-value select {
+            width:60px;
+        }
+        .heatmap-options-format label.label {
+            font-weight: bold;
+            color: #222;
+        }
+
+        .heatmap-options-format td span.helptext {
+            color: #99999b;
+            font-size: 12px;
+        }
+
+        .hmo-arrow-down {
+            width: 20px;
+            height: 12px;
+        }
+
+        .hmo-arrow-down {
+            width: 20px;
+            height: 12px;
+        }
+
+        a.hmo-button {
+            width: 20px;
+            height: 12px;
+            border: 1px solid transparent;
+            display: block;
+            float:left;
+            clear:both;
+            border-radius: 2px;
+            opacity:0.5;
+            cursor:pointer;
+        }
+
+        a.hmo-button:hover {
+            border: 1px solid #ccc;
+            background:#fff;
+            opacity:1;
+        }
+
+        .query-editor-divisions {
+            display: block;
+        }
+
+        .msgs {
+            position: absolute;
+            top: 35%;
+            right: 0;
+            color: red;
+            font-size: 10px;
+            max-width: 550px;
+        }
+
+        .systeminfo {
+            position:absolute;
+            top: 0;
+            right: 0;
+        }
+    </style>
+    </apex:outputPanel>
+
+    <script type='text/javascript'>
+    	var scriptsToLoad = [
+    		"<script type='text/javascript' src='{!URLFOR($Resource.MapAnything, 'js/jquery-1.7.1.min.js')}'></script"+">",
+    		"<script type='text/javascript' src='{!URLFOR($Resource.MapAnything, 'jquery/jquery-ui.min.js')}'></script"+">",
+    		"<link rel='stylesheet' type='text/css' href='{!URLFOR($Resource.MapAnything, 'jquery/jquery-ui.css')}'></link"+">",
+    		"<script type='text/javascript' src='{!URLFOR($Resource.QueryEditor, 'js/date.js')}'></script"+">",
+    		"<script src='{!URLFOR($Resource.QueryEditor, 'js/combobox/jquery.combobox.js')}' type='text/javascript'></script"+">",
+    		"<link rel='stylesheet' type='text/css' href='{!URLFOR($Resource.QueryEditor, 'js/combobox/jquery.combobox.css')}'></link"+">",
+    		"<script src='{!URLFOR($Resource.QueryEditor, 'js/multiselect/jquery.multiselect.min.js')}' type='text/javascript'></script"+">",
+    		"<script type='text/javascript' src='{!URLFOR($Resource.MapAnything, 'niceScroll/jquery.slimscroll.js')}'></script"+">",
+    		"<script src='{!URLFOR($Resource.QueryEditor, 'js/multiselect/jquery.multiselect.filter.js')}' type='text/javascript'></script"+">",
+    		"<link rel='stylesheet' type='text/css' href='{!URLFOR($Resource.QueryEditor, 'js/multiselect/jquery.multiselect.css')}'></link"+">",
+    		"<link rel='stylesheet' type='text/css' href='{!URLFOR($Resource.QueryEditor, 'js/multiselect/jquery.multiselect.filter.css')}'></link"+">"
+    	];
+        if (typeof $ == 'undefined')
+        {
+        	for (var i in scriptsToLoad) {
+                if (scriptsToLoad.hasOwnProperty(i)) {
+                    document.write(scriptsToLoad[i]);
+                }
+        	}
+        }
+
+        function addScript(src) {
+            var s = document.createElement('script');
+            s.setAttribute('src', src);
+            document.body.appendChild(s);
+        }
+
+        // a mapping from the controller that stores useful info needed by the page
+		var savedQueryInfo = {};
+		try{
+			savedQueryInfo = JSON.parse('{!savedQueryInfo}');
+		}
+		catch(e) {
+			MA.log(e);
+		}
+		var query = {};
+		var baseObject = savedQueryInfo.baseObject;
+	    var globalIndex = 0;        //this is used to generate unique names for elements like radio buttons.  hoping to replace this with a nice form plugin
+
+        // images to display on EditQuery referenced in the EditQuery.js file
+        var imageRefs = {
+            arrowUp: "{!URLFOR($Resource.MapAnything, 'images/hmo-arrow-up.png')}",
+            arrowDown: "{!URLFOR($Resource.MapAnything, 'images/hmo-arrow-down.png')}",
+            delete: "{!URLFOR($Resource.MapAnything, 'images/hmo-delete.png')}",
+            calendar: "{!URLFOR($Resource.QueryEditor, 'images/icons/16_calendar.png')}"
+        };
+
+        //fix for case 10373, lightning experience was not loading sources using apex:includeScript or script tags
+        var moreScriptsToLoad = [
+            "{!URLFOR($Resource.QueryEditor, 'js/jquery.query.js')}",
+            "{!URLFOR($Resource.MapAnything, 'jquery/jquery.maskedinput.js')}",
+            "{!URLFOR($Resource.MapAnything, 'jquery/jquery.formatCurrency-1.4.0.js')}",
+            "{!URLFOR($Resource.MapAnything, 'jscolor/jscolor.js')}",
+            "{!URLFOR($Resource.MapAnything, 'jquery/minicolors/jquery.minicolors.min.js')}",
+            "{!URLFOR($Resource.QueryEditor, 'js/jquery.query.js')}",
+            "{!URLFOR($Resource.QueryEditor, 'js/EditQuery.js')}"
+            //"{!resourceLocator.path}/js/EditQuery.js"
+        ];
+        
+        for (var s = 0, len = moreScriptsToLoad.length; s < len; s++) {
+            addScript(moreScriptsToLoad[s]);
+    	}
+
+    </script>
+    
+    <!-- jQuery Query (used for interacting with query string) -->
+    <!--<script src="{!URLFOR($Resource.QueryEditor, 'js/jquery.query.js')}" type="text/javascript"></script>-->
+
+    <!--  jQuery masked input formatting -->
+    <!--<script src="{!URLFOR($Resource.MapAnything, 'jquery/jquery.maskedinput.js')}" type="text/javascript"></script>-->
+    <!--<script src="{!URLFOR($Resource.MapAnything, 'jquery/jquery.formatCurrency-1.4.0.js')}" type="text/javascript"></script>-->
+
+    <!-- JS Color -->
+    <!--<apex:includeScript value="{!URLFOR($Resource.MapAnything, 'jscolor/jscolor.js')}"/>-->
+
+    <!-- jQuery MiniColors (https://github.com/claviska/jquery-miniColors/) -->
+    <!--<script src="{!URLFOR($Resource.MapAnything, 'jquery/minicolors/jquery.minicolors.min.js')}" type="text/javascript"></script>-->
+    <link rel='stylesheet' type='text/css' href="{!URLFOR($Resource.MapAnything, 'jquery/minicolors/jquery.minicolors.css')}"></link>
+
+
+    <!-- old html markup -->
+    <apex:outputPanel rendered="true">
+        <apex:form >
+            <apex:inputHidden id="serializedQuery" value="{!serializedQuery}" />
+            <apex:inputHidden id="serializedFilterByOwnerOptions" value="{!serializedFilterByOwnerOptions}" />
+
+            <!-- Error State -->
+            <div id='savedqueryeditor-error'>
+                <!-- Title -->
+                <h2>{!$Label.MA_Error}</h2>
+                <h3>{!$Label.MA_EQ_Error_Message}</h3>
+
+                <!-- Message -->
+                <div></div>
+
+                <!-- Buttons -->
+                <div class='buttons'>
+                    <input type='button' class='closebtn btn btn-white' value='Close' />â€‹
+                </div>
+
+            </div>
+
+            <!-- Non-Error State -->
+            <div id='savedqueryeditor'>
+                <!-- Title -->
+                 <h2>{!editQueryPopupTitleText}</h2>
+
+                <!-- Basic Information -->
+                <div class='gray box'>
+                    <table class='form'>
+                        <tr>
+                            <td>{!$Label.MA_Name}</td>
+                            <td><input type='text' class='name' style='width: 200px;' /></td>
+                        </tr>
+                        <tr>
+                            <td>{!$Label.MA_Description}</td>
+                            <td><input type='text' class='description' style='width: 400px;' /> (Limit: 255 Characters)</td>
+                        </tr>
+                        <tr>
+                            <td>{!$Label.MA_Base_Object}</td>
+                            <td><span class='baseobject-name'></span></td>
+                        </tr>
+
+                        <apex:outputPanel rendered="{!IF(baseObjectType=='Geofence',true, false)}">
+                            <tr>
+                                <td>{!$Label.MA_GEOFENCE_TYPE}</td>
+                                <td>
+                                    <div style="max-width:200px">
+                                        <select id='geofenceType'>
+                                            <option value="circle">{!$Label.MA_Circle}</option>
+                                            <option value="irregular">{!$Label.MA_IRREGULAR_GEOFENCE_TEXT}</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                        </apex:outputPanel>
+
+                        <apex:outputPanel rendered="{!IF(layerSubType=='Device',true, false)}"> <!-- forced comment -->
+                            <tr>
+                                <td>{!$Label.MA_VENDOR}</td>
+                                <td>
+                                    <select id='vendorSelector' style="width:150px;">
+                                        <apex:repeat value="{!liveDeviceVendors}" var="vendor">
+                                            <option value="{!vendor['value']}">{!vendor['label']}</option>
+                                        </apex:repeat>
+                                    </select>
+                                </td>
+                            </tr>
+                        </apex:outputPanel>
+
+                    </table>
+                </div>
+
+                <!-- Tabs -->
+                <div class='tabs'>
+                    <ul id="mainsavedqueryeditortabs">
+                        <li data-tab="filters" class="top-level-tab"><a href="#tab-filters">{!$Label.MA_Filters}</a></li>
+                        <li data-tab="tooltips" class="top-level-tab"><a href="#tab-tooltips">{!$Label.MA_Tooltips}</a></li>
+                        <li data-tab="markers" class="top-level-tab"><a href="#tab-markers">{!$Label.MA_Markers}</a></li>
+                        <li data-tab="heatmap" class="top-level-tab"><a href="#tab-heatmap-options">{!$Label.MA_Heatmap_Options}</a></li>
+                        <li data-tab="relatedlists" class="top-level-tab"><a href="#tab-relatedlist">{!$Label.MA_Related_Lists}</a></li>
+    	                <li data-tab="proximity" class="top-level-tab"><a href="#tab-proximity">{!$Label.MASettings_Proximity}</a></li>
+    	                <li data-tab="advanced" class="top-level-tab"><a href="#tab-advanced">{!$Label.MATerritoryBuilder_Advanced}</a></li>
+    	                <li data-tab="aggregates" class="top-level-tab" style='display: none;'><a href="#tab-aggregates" >{!$Label.MA_Aggregates}</a></li>
+    	                <li data-tab="geofence" class="top-level-tab" style='display: none;'><a href="#tab-geofence" >{!$Label.MA_Geofence}</a></li>
+                    </ul>
+
+                    <!-- Filters Tab -->
+                    <div class='filterbyownertab-selected' style='display: none;'></div>
+                    <div id='tab-filters'>
+                    	<table style='width: 100%;'>
+                    		<tr>
+                    			<td style='vertical-align:top; padding-right: 10px;' id="tab-filters-side-menu">
+                    				<div class='fieldfiltertab filtericon active sub-filter-item' data-tab='fieldfilters'><div class="MAIcon ion-funnel filterIconImage"></div><div class="filterIconText" style="word-spacing: 30px;">{!$Label.MA_Field_Filters}</div><div class='filtericon-badge'></div></div>
+          	 						<div class='crossfiltertab filtericon sub-filter-item' data-tab='crossfilters'><div class="MAIcon ion-link filterIconImage" style="font-size: 30px;margin: 0 26px 4px;"></div><div class="filterIconText">{!$Label.MA_Cross_Object_Filters}</div><div class='filtericon-badge'></div></div>
+           	 						<div class='filterbyactivitytab filtericon sub-filter-item' data-tab='filterbyactivity'><div class="MAIcon ion-calendar filterIconImage"></div><div class="filterIconText">{!$Label.MA_Filter_By_Activity}</div><div class='filtericon-badge'></div></div>
+           	 						<div class='filterbyownertab filtericon sub-filter-item' data-tab='filterbyowner'><div class="MAIcon ion-person filterIconImage"></div><div class="filterIconText">{!$Label.MA_Filter_By_Owner}</div><div class='filtericon-badge'></div></div>
+           	 						<div class='advancedtab filtericon sub-filter-item' data-tab='advanced'><div class="MAIcon ion-levels filterIconImage"></div><div class="filterIconText">{!$Label.MATerritoryBuilder_Advanced}</div><div class='filtericon-badge'></div></div>
+                    			</td>
+                    			<td style='vertical-align:top; width: 100%;'>
+    			                    <div class='htab-content-wrapper' style='min-height: 340px;'>
+
+    				                    <!-- Field Filters -->
+    				                    <div class='htab-content fieldfilters' data-tab='fieldfilters'>
+    				                        <div class='htab-content-header'>{!$Label.MA_Field_Filters}</div>
+
+    				                        <!-- Filters -->
+    				                        <div class='section-body listbox' style='max-height: 250px; overflow: auto;'>
+    				                        </div>
+
+    				                        <!-- Add Filter -->
+    				                        <div style='margin-top: 5px; margin-left: 15px;'>
+    				                        	<span style='color: silver; font-size: 10px; vertical-align: top;'>|_</span> <span class='link htab-content-button add' style='font-size: 10px; font-family: Verdana, Helvetica, sans-serif;'>{!$Label.MA_Add_Filter}</span>
+    				                        </div>
+
+    				                        <!-- Footer -->
+    				                        <div class='section-footer' style='position: absolute; bottom: 10px; width: 100%;'>
+    				                            <div style='margin: 10px 30px 0 10px; padding: 5px; border-top: 1px solid silver;'>
+    				                                <b>{!$Label.MA_Filter_Logic}</b>
+    				                                <input type='text' class='filterlogic' style='display: none;' />
+    				                                <span class='filterlogiclink small link'>{!$Label.MA_Add}</span>
+    				                            </div>
+    				                        </div>
+    				                    </div>
+
+    				                    <!-- Cross Filters -->
+    				                    <div class='htab-content crossfilters' data-tab='crossfilters' style='display: none;'>
+    				                        <div class='htab-content-header'>{!$Label.MA_Cross_Object_Filters}</div>
+
+    				                        <!-- Filters -->
+    				                        <div class='section-body listbox'>
+    				                        </div>
+
+    				                        <!-- Add Filter -->
+    				                        <div style='margin-top: 5px; margin-left: 15px;'>
+    				                        	<span style='color: silver; font-size: 10px; vertical-align: top;'>|_</span> <span class='link htab-content-button add' style='font-size: 10px; font-family: Verdana, Helvetica, sans-serif;'>{!$Label.MA_ADD_CROSS_OBJECT_FILTER}</span>
+    				                        </div>
+
+    				                    </div>
+
+    				                    <!-- Query Filters -->
+    				                    <div class='htab-content queryfilters' data-tab='queryfilters' style='display: none;'>
+    				                    	<div class='htab-content-header'>{!$Label.MA_Query_Filters}</div>
+    				                    </div>
+
+    				                    <!-- Filter By Activity -->
+    				                    <div class='htab-content filterbyactivity' data-tab='filterbyactivity' style='display: none;'>
+    				                        <div class='htab-content-header'>{!$Label.MA_Filter_By_Activity}</div>
+
+    				                        <div class='htab-content-body'>
+
+    				                            <!-- Tasks -->
+    				                            <div class='activityfilter-type-wrapper'>
+
+    				                                <!-- Task Options -->
+    				                                <div class='activityfilter-wrapper' data-type='task'>
+    				                                    {!$Label.MA_Show} {!query.baseObjectPlural}
+    				                                    <select class='activityfilter-task combobox'>
+    				                                        <option value='all'>{!$Label.MA_with_or_without}</option>
+    				                                        <option value='with'>{!$Label.MA_with}</option>
+    				                                        <option value='without'>{!$Label.MA_without}</option>
+    				                                    </select>
+    				                                    {!$Label.MA_Tasks}
+    				                                </div>
+
+    				                                <!-- Task Subfilters -->
+    				                                <div class='activitysubfilters-wrapper' data-type='task' style='display: none; padding-left: 25px;'>
+    				                                    <div class='subfilters'></div>
+    				                                    <div><span class='link blue addfilter'>{!$Label.MA_Add_Filter}</span></div>
+    				                                </div>
+
+    				                            </div>
+
+    				                            <!-- Operator -->
+    				                            <select class='activityfilter-operator combobox'>
+    				                                <option value='AND'>{!$Label.MA_AND}</option>
+    				                                <option value='OR'>{!$Label.MA_OR}</option>
+    				                            </select>
+
+    				                            <!-- Events -->
+    				                            <div class='activityfilter-type-wrapper'>
+
+    				                                <!-- Event Options -->
+    				                                <div class='activityfilter-wrapper' data-type='event'>
+    				                                    {!$Label.MA_Show} {!query.baseObjectPlural}
+    				                                    <select class='activityfilter-event combobox'>
+    				                                        <option value='all'>{!$Label.MA_with_or_without}</option>
+    				                                        <option value='with'>{!$Label.MA_with}</option>
+    				                                        <option value='without'>{!$Label.MA_without}</option>
+    				                                    </select>
+    				                                   {!$Label.MA_Events}
+    				                                </div>
+
+    				                                <!-- Event Subfilters -->
+    				                                <div class='activitysubfilters-wrapper' data-type='event' style='display: none; padding-left: 25px;'>
+    				                                    <div class='subfilters'></div>
+    				                                    <div><span class='link blue addfilter'>{!$Label.MA_Add_Filter}</span></div>
+    				                                </div>
+
+    				                            </div>
+
+    				                            <div style='padding: 10px; margin: 5px 0;'></div>
+
+    				                        </div>
+    				                    </div>
+
+    				                    <!-- Filter By Owner -->
+    				                    <div class='htab-content filterbyowner' data-tab='filterbyowner' style='display: none;'>
+    				                        <div class='htab-content-header'>{!$Label.MA_Filter_By_Owner}</div>
+
+    				                        <div class='htab-content-body'>
+    				                            <ul>
+    				                                <li><input type='radio' name='filterByOwner' value='FALSE' checked="checked" onclick="refreshBadges();"/> {!$Label.MA_All} {!query.baseObjectPlural}</li>
+    				                                <li><input type='radio' name='filterByOwner' value='TRUE' onclick="refreshBadges();" />
+
+    				                                	{!$Label.MA_My} {!query.baseObjectPlural}
+    				                                	<div class='filterbyowner-ownerfield-wrapper' style='padding-left: 25px; display: none;'>
+    				                                		<select class='filterbyowner-owner'>
+    				                                			<option value='UserId'>{!$Label.MA_Current_User_Id}</option>
+    				                                			<option value='DirectReportIds'>{!$Label.MA_Current_User_Or_Direct_Report}</option>
+    				                                			<option value='SubordinateIds'>{!$Label.MA_Current_User_Or_Subordinate}</option>
+    				                                		</select>
+    				                                		<span style='font-size: 10px; font-style: italic;'> = </span>
+    				                                		<select class='filterbyowner-ownerfield'><option value="{!$Label.MA_Loading}..."></option></select>
+    				                                	</div>
+    				                                </li>
+    				                                <li class='queue' style='display: none;'>
+    				                                    <input type='radio' name='filterByOwner' value='QUEUE' /> {!$Label.MA_Queue}
+    				                                    <apex:selectList id="queueselect" size="1">
+    				                                        <apex:selectOptions value="{!query.queueOptions}" />
+    				                                    </apex:selectList>
+    				                                </li>
+    				                                <li><input type='radio' name='filterByOwner' value='TEAM' onclick="refreshBadges();"/>My Team's {!query.baseObjectPlural}</li>
+    				                            </ul>
+    				                            <ul class='territory-teams' style="display:none;">
+    				                                <li><input type='radio' name='filterByOwner' value='MINE' onclick="refreshBadges();"/>My Territories' {!query.baseObjectPlural}</li>
+    				                                <li><input type='radio' name='filterByOwner' value='MYTEAM' onclick="refreshBadges();"/>My Territory Team {!query.baseObjectPlural}</li>
+    				                            </ul>
+    				                        </div>
+    				                    </div>
+
+    				                    <!-- advanced -->
+    				                    <div class='htab-content advanced' data-tab='advanced' style='display: none;'>
+
+    				                        <!-- filter by device last report date and time start - device criteria -->
+    				                        <div class='htab-content-header' style="{!IF(layerType=='Live','','display: none;')}">{!$Label.MA_LAST_REPORT_DATE_AND_TIME}</div> <!-- forced comment -->
+
+    				                        <div class='htab-content-body' style="{!IF(layerType=='Live','','display: none;')}"> <!-- forced comment -->
+                                                <div class="device-filter-wrapper filterByLastReportDateAndTime"> <!-- forced comment -->
+
+                                                    <!-- filter by last report date/time -->
+        				                            <div class='activityfilter-type-wrapper filterByLastReportDateTime default'>
+        				                                <div class='activityfilter-wrapper' data-type='event'>
+
+        				                                    <!-- date range dropdown -->
+        				                                    <span class="date_time_range_wrapper">
+        				                                        <span>Last Report Date/Time  </span>
+            				                                    <select class='date_time_range' style="width:100px;">
+            				                                        <option value='all' selected="selected">All</option>
+            				                                        <option value='today'>Today</option>
+            				                                        <option value='yesterday'>Yesterday</option>
+            				                                        <option value='date'>Date</option>
+            				                                        <option value='duration'>Duration</option>
+            				                                    </select>
+        				                                    </span>
+
+        				                                    <!-- from/to inputs -->
+        				                                    <span class="from_to_wrapper" style="display:none;">
+            				                                    <span class="from">From </span>
+            				                                    <input type="text" class="from_date" placeholder="{!dateFormatLowercase}" title="Select a date from calendar" readonly="readonly"></input>
+            				                                    <span class="to">To </span>
+            				                                    <input type="text" class="to_date" placeholder="{!dateFormatLowercase}" title="Select a date from calendar" readonly="readonly"></input>
+        				                                    </span>
+
+        				                                    <span class="date_time_duration_relation_wrapper" style="display:none;">
+
+            				                                    <!-- time relation selector -->
+            				                                    <span class="date_time_relation_wrapper" >
+                				                                    <select class='date_time_relation' style="width:200px;">
+                				                                        <option value='in' selected="selected">Has reported in</option>
+                				                                        <option value='not_in'>Has not reported in</option>
+                				                                    </select>
+                                                                </span>
+
+                                                                <!-- duration and time units inputs -->
+                                                                <span class="date_time_duration_wrapper" style="">
+                                                                     <!-- duration input -->
+                                                                    <input type="number" min="1" max="9999" class="duration" placeholder="00" title="Enter a number that is 4 digits or less" style="vertical-align:middle;"></input>
+
+                				                                    <!-- time units selector -->
+                				                                    <span class="date_time_units_wrapper">
+                    				                                    <select class='time_units' style="width:100px;">
+                    				                                        <option value='minutes'>Minutes</option>
+                    				                                        <option value='hours'>Hours</option>
+                    				                                    </select>
+                				                                    </span>
+            				                                    </span>
+
+        				                                    </span>
+
+        				                                </div>
+        				                            </div>
+
+                                                    <!-- filter by last report date -->
+        				                            <!--<div class='activityfilter-type-wrapper filterByLastReportDate default'>-->
+
+        				                            <!--    <div class='activityfilter-wrapper' data-type='event'>-->
+
+        				                                    <!-- date range dropdown -->
+        				                            <!--        <span>Date</span><br/>-->
+        				                            <!--        <span>Range </span>-->
+        				                            <!--        <span class="date_range_wrapper">-->
+            				                        <!--            <select class='date_range' style="width:100px;">-->
+            				                        <!--                <option value='all' selected="selected">All</option>-->
+            				                        <!--                <option value='today'>Today</option>-->
+            				                        <!--                <option value='yesterday'>Yesterday</option>-->
+            				                        <!--                <option value='custom'>Custom</option>-->
+            				                        <!--            </select>-->
+        				                            <!--        </span>-->
+
+        				                                    <!-- from/to inputs -->
+        				                            <!--        <span class="from_to_wrapper" style="display:none;">-->
+            				                        <!--            <span class="from">From </span>-->
+            				                        <!--            <input type="text" class="from_date" style="width:100px;" placeholder="date"></input>-->
+            				                        <!--            <span class="to">To </span>-->
+            				                        <!--            <input type="text" class="to_date" style="width:100px;" placeholder="date"></input>-->
+        				                            <!--        </span>-->
+        				                            <!--    </div>-->
+        				                            <!--</div>-->
+
+        				                            <!-- filter by last report time -->
+        				                            <!--<div class='activityfilter-type-wrapper filterByLastReportTime default'>-->
+
+        				                            <!--    <div class='activityfilter-wrapper' data-type='event'>-->
+
+        				                            <!--        <div>-->
+            				                                    <!-- time range selector-->
+            				                        <!--            <span class="time_range_wrapper">-->
+            				                        <!--                <span>Time</span><br/>-->
+            				                        <!--                <span>Range </span>-->
+                				                    <!--                <select class='time_range' style="width:150px;">-->
+                				                    <!--                    <option value='all'>All</option>-->
+                				                    <!--                    <option value='time_frame'>Time Frame</option>-->
+                				                    <!--                    <option value='duration'>Duration</option>-->
+                				                    <!--                </select>-->
+            				                        <!--            </span>-->
+
+            				                                    <!-- time relation selector -->
+            				                                    <!--<span class="time_relation_wrapper" style="display:none;">-->
+                				                                <!--    <select class='time_relation' style="width:200px;">-->
+                				                                <!--        <option value='in' selected="selected">Has reported in</option>-->
+                				                                <!--        <option value='not_in'>Has not reported in</option>-->
+                				                                <!--    </select>-->
+                                                    <!--            </span>-->
+
+                                                                <!-- duration and time units inputs -->
+                                                    <!--            <span class="duration_time_units_wrapper" style="display:none;">-->
+                                                    <!--                 duration input -->
+                                                    <!--                <input type="number" min="1" max="9999" class="duration" placeholder="number" title="Enter a number that is 4 digits or less" style="vertical-align:middle;"></input>-->
+
+                				                                <!--     time units selector -->
+                				                                <!--    <span class="time_units_wrapper">-->
+                    				                            <!--        <select class='time_units' style="width:100px;">-->
+                    				                            <!--            <option value='minutes'>Minutes</option>-->
+                    				                            <!--            <option value='hours'>Hours</option>-->
+                    				                            <!--        </select>-->
+                				                                <!--    </span>-->
+            				                                    <!--</span>-->
+
+            				                                    <!-- from/to time inputs -->
+            				                        <!--            <span class="from_to_wrapper" style="display:none;">-->
+                				                    <!--                <span>From </span>-->
+                				                    <!--                <input type="time" class="from_time" placeholder="time"></input>-->
+                				                    <!--                <span>To </span>-->
+                				                    <!--                <input type="time" class="to_time" placeholder="time"></input>-->
+            				                        <!--            </span>-->
+        				                            <!--        </div>-->
+        				                            <!--    </div>-->
+        				                            <!--</div>-->
+
+        				                            <!--<div class='activityfilter-type-wrapper timezone_wrapper default' style="display:none;">-->
+        			                                    <!-- timezone selector -->
+        			                             <!--       <span>-->
+        			                             <!--           <span>Timezone </span>-->
+        				                            <!--        <apex:selectList styleClass="timezone" size="1" value="{!timezoneId}" title="Select a timezone" style="width:600px;">-->
+        				                            <!--            <apex:selectOptions value="{!timezones}"/>-->
+        				                            <!--        </apex:selectList>-->
+        			                             <!--       </span>-->
+        				                            <!--</div>-->
+    				                            </div>
+    				                        </div>
+    				                        <!-- filter by device last report date and time end -->
+
+
+
+
+    				                        <div style="{!IF(layerType=='Live','padding: 10px; margin: 5px 0;', 'display: none;')}"></div> <!-- forced comment -->
+
+
+    				                        <!-- Order Section start -->
+    				                    	<div class='htab-content-header'> {!$Label.MA_Order} </div>
+
+    				                    	<div class='htab-content-body'>
+    				                    		<div>{!$Label.MA_Order_by}  <select class='orderby-field' data-blankvalue='--{!$Label.MA_None}--' disabled='disabled' onchange="refreshBadges();"/> <img class='orderby-dir' title='Sort Order' onclick="$(this).toggleClass('desc');" src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAACoUlEQVRIS7WUWU8TURTH/9OhhBYXKG0pUEBFFltkcQ2GRHwzfgEk4WHQxGjig/hA4vJq4pIoDyQaH5x50Kh8Bh98kCBxoWxtWIqGVmjthiEUpMv1dli6wTAt8WZOZjJzzv937rnnDIP/vJhM9F9aAnzM/1pTYZfcONmAmPhKCFxMWKWEIBciCxATJ8jlEFGvJ84GwWBNFmRXQKL4uNMu6tcbq2RDJAEvaOYMoZlH1RhzzGA+4BEBpYU6HC8/CiiCIMyacF3iTHYEPB/28gzyOCaaj9G5Kfzyr4tvrjKNDg0VNRSwTG1VuNGs3fbgtwX0fXXzLKPiFNiPkZ+TVNydIB0PKSvSo7GyFlEsIUJWhJunitMgaYDeASevVOZzOWwBLD9scPoSxdOb01hkQNPhOoTCAYRCS0J3a2USJAnw8IONz8vTcCqVHsOzVji8Lsl23ww2ag1oPmJCMOjC6rJfuHPRvAXZAtzrH+QPFBq4As0hfLdPwOFZkDtLol+5rgQnqszwe2axGHAIjzraRIgIuNLbzx/UGrm6Yy34Nj2GOc/8hviuXZyURIWuFCer6zFp+wz3vF1409PZxVy628ezLMtFFDkoou3nXfQCRLzEFdWUivc4KgXqc8YhhMCgL4PP50L4bxCRaFhgLnQ/Pp9Wi/D6mzUS/qiuapAs1fKMBaxC0baTk2QNmq/eJxrTGUmAb2IIllcPdtSRBJg7e0hx4zlJgGtkANbXT7ID1HbcJiVNrZKABcsnTL59mh2g5nI3MaTtIPm4F+gOpt49yw5Q3X6LGBpapEs0Oojp973ZA/T1ZyUBv8eH9gbQmk6nzEEyz2P9sjeAZPobHzMtkYrG6ajto5ZLTZE0yAlzSx9jAx+iFqTmo/YnNaHMfjZytpPi8w/kSe9ysmBOYAAAAABJRU5ErkJggg==' /></div>
+    				                        </div>
+    				                        <!-- Order Section end -->
+
+
+
+
+    				                        <div style='padding: 10px; margin: 5px 0;'></div>
+
+
+
+
+
+    				                        <!-- Limits Section start -->
+    				                    	<div class='htab-content-header'>{!$Label.MA_Limits}</div>
+
+    				                    	<div class='htab-content-body'>
+    				                    		<div><input type='checkbox' class='limit-records-enabled' /> {!$Label.MA_Limit_records_returned_to} <input type='text' class='limits-rowcount-value' style='width: 100px;' value='250000' /></div>
+    				                        </div>
+
+    				                        <div class='htab-content-body' style="{!IF(baseObjectType=='Live','display: none;','')}">
+    				                    		<div><input type='checkbox' class='limit-proximity-enabled' /> {!$Label.MA_Limit_Records_Within} <input type='text' class='distance-value' style='width: 100px;'/>
+    				                    			<select class='distance-type'>
+    							                        <option value='MILES'>{!$Label.MARoutes_Miles}</option>
+    							                        <option value='KM'>{!$Label.MARoutes_Kilometers}</option>
+    							                        <option value='METERS'>{!$Label.MA_Meters}</option>
+    							                        <option value='YARDS'>{!$Label.MA_Yards}</option>
+    							                        <option value='FEET'>{!$Label.MA_Feet}</option>
+    							                    </select> of <textarea class='address-value' style='vertical-align: middle;'/>
+    				                    		</div>
+    				                        </div>
+    				                        <!-- Limits Section end -->
+
+    				                    </div>
+
+    			            		</div>
+    			    			</td>
+    			    		</tr>
+    			    	</table>
+                    </div>
+
+                    <!-- Tooltips Tab -->
+                    <div id='tab-tooltips'>
+                        <table style="width:100%;" cellpadding="5">
+                            <tr>
+                                <td style="vertical-align:top;">
+                                    <table cellpadding="5" cellspacing="0" class="tooltips">
+                                        <tr>
+                                            <td style="white-space: nowrap"><b>{!$Label.MA_Tooltip} 1</b></td>
+                                            <td>
+                                                 <!-- Selector for Field filters -->
+
+                                                <div class='fieldoptions'>
+    	                            				<select class='tooltip combobox' data-tooltip='tooltip1' data-blankvalue='--{!$Label.MA_None}--' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+    	                        				</div>
+                                                <div class='parentfieldoptions'>
+                                                    <select class="combobox" style='display: none;'></select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>{!$Label.MA_Tooltip} 2</b></td>
+                                            <td>
+                                                 <!-- Selector for Field filters -->
+
+                                                <div class='fieldoptions'>
+    	                            				<select class='tooltip combobox' data-tooltip='tooltip2' data-blankvalue='--{!$Label.MA_None}--' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+    	                        				</div>
+                                                <div class='parentfieldoptions'>
+                                                    <select class="combobox" style='display: none;'></select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>{!$Label.MA_Tooltip} 3</b></td>
+                                            <td>
+                                                 <!-- Selector for Field filters -->
+
+                                                <div class='fieldoptions'>
+    	                            				<select class='tooltip combobox' data-tooltip='tooltip3' data-blankvalue='--{!$Label.MA_None}--' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+    	                        				</div>
+                                                <div class='parentfieldoptions'>
+                                                    <select class="combobox" style='display: none;'></select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>{!$Label.MA_Tooltip} 4</b></td>
+                                            <td>
+                                                 <!-- Selector for Field filters -->
+
+                                                <div class='fieldoptions'>
+    	                            				<select class='tooltip combobox' data-tooltip='tooltip4' data-blankvalue='--{!$Label.MA_None}--' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+    	                        				</div>
+                                                <div class='parentfieldoptions'>
+                                                    <select class="combobox" style='display: none;'></select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>{!$Label.MA_Tooltip} 5</b></td>
+                                            <td>
+                                                 <!-- Selector for Field filters -->
+
+                                                <div class='fieldoptions'>
+    	                            				<select class='tooltip combobox' data-tooltip='tooltip5' data-blankvalue='--{!$Label.MA_None}--' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+    	                        				</div>
+                                                <div class='parentfieldoptions'>
+                                                    <select class="combobox" style='display: none;'></select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>{!$Label.MA_Tooltip} 6</b></td>
+                                            <td>
+                                                 <!-- Selector for Field filters -->
+
+                                                <div class='fieldoptions'>
+    	                            				<select class='tooltip combobox' data-tooltip='tooltip6' data-blankvalue='--{!$Label.MA_None}--' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+    	                        				</div>
+                                                <div class='parentfieldoptions'>
+                                                    <select class="combobox" style='display: none;'></select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>{!$Label.MA_Tooltip} 7</b></td>
+                                            <td>
+                                                 <!-- Selector for Field filters -->
+
+                                                <div class='fieldoptions'>
+    	                            				<select class='tooltip combobox' data-tooltip='tooltip7' data-blankvalue='--{!$Label.MA_None}--' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+    	                        				</div>
+                                                <div class='parentfieldoptions'>
+                                                    <select class="combobox" style='display: none;'></select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>{!$Label.MA_Tooltip} 8</b></td>
+                                            <td>
+                                                 <!-- Selector for Field filters -->
+
+                                                <div class='fieldoptions'>
+    	                            				<select class='tooltip combobox' data-tooltip='tooltip8' data-blankvalue='--{!$Label.MA_None}--' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+    	                        				</div>
+                                                <div class='parentfieldoptions'>
+                                                    <select class="combobox" style='display: none;'></select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td style="vertical-align:top;text-align:right;">
+                                    <img align="right" src="{!URLFOR($Resource.MapAnything, 'images/ToolTipsHelpImage.png')}"/>
+                                </td>
+
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- Markers Tab -->
+                    <div id='tab-markers'>
+                        <table style="width:100%">
+                    		<tr>
+                    			<td style='vertical-align:top; display: none;'>
+                    				<table class='markertabs'>
+                    					<tr>
+                    						<td>
+                    	 						<div class='markercolortab markericon active'/>
+
+                    						</td>
+                    					</tr>
+
+                    					<tr>
+                    						<td>
+                    	 						<div class='markershapetab markericon'/>
+
+                    						</td>
+                    					</tr>
+                    					<tr>
+                    						<td>
+                    	 						<div class='markersymboltab markericon'/>
+
+                    						</td>
+                    					</tr>
+                    				</table>
+                    			</td>
+
+                    			<td style='vertical-align:top;'>
+
+                                    <!-- Marker Grid -->
+                                    <h2 style="font-size:large">{!$Label.MA_COLORSHAPE_ASSIGNMENTS}</h2>
+                        			<div class='colormarker' style='margin: 10px 0;'>
+        			                    <table cellpadding="2" cellspacing="0" class='color-options' style="width:100%">
+        			                        <tr>
+        			                            <td style="width: 140px;"><b>{!$Label.MA_Assignment_Type}</b></td>
+        			                            <td style='vertical-align: top; white-space: nowrap; padding: 0 10px;'>
+        			                                <select class='color-assignmenttype'>
+        			                                    <option value='Static'>{!$Label.MA_Static}</option>
+        			                                    <option value='Dynamic, Field'>{!$Label.MA_DynamicField}</option>
+        			                                    <option value='Dynamic-Label'>{!$Label.MA_DynamicLabel}</option>
+        			                                    <apex:outputPanel layout="none" rendered="{!IF(baseObjectType=='Live',false, true)}">
+        			                                        <option value='Dynamic-Order'>{!$Label.MA_DynamicOrder}</option>
+        			                                    </apex:outputPanel>
+                                                        <option value='Dynamic-multiField'>{!$Label.MA_DYNAMIC_TWO_FIELDS}</option>
+        			                                </select>
+        			                            </td>
+        			                        </tr>
+        			                        <tr class='Static toggle'>
+        			                            <td style='vertical-align: top;'><b>{!$Label.MA_Icon}</b></td>
+        			                            <td style='vertical-align: top; white-space: nowrap; padding: 0 10px;'>
+        			                                <div class='markertype-wrapper first-level-markertype-selector'>
+        			                                    <div class='markertype-color-preview'></div>
+        			                                    <select class='markertype-image' style='display: none;' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+
+        			                                    <div class='markertype-selector'>
+        			                                        <img class='markertype-selector-color' src="{!URLFOR($Resource.QueryEditor, 'images/icons/color-16.png')}" />
+        			                                        <img class='markertype-selector-image' src="{!URLFOR($Resource.QueryEditor, 'images/icons/iconfolder-16.png')}" />
+        			                                    </div>
+        			                                </div>
+        			                                <div style='font-size: 8px; margin-top: 10px;'>**{!$Label.MA_Upload_Images} <a href='/{!documentsFolderId}' target='_blank'>MapAnything Documents</a></div>
+        			                            </td>
+        			                        </tr>
+        			                        <tr class='Dynamic dynamicFieldWrapper toggle' style='display: none;'>
+        			                            <td style='vertical-align: top;'><b>{!$Label.MA_Field}</b></td>
+        			                            <td style='vertical-align: top; white-space: nowrap; padding: 0 10px;'>
+        			                                   <!--March Release 2016----->
+                                                    <div class='fieldoptions'>
+    	                            				 <select class='color-picklistfield combobox' data-blankvalue='--Select a Field--' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+    	                        					</div>
+                                                	<div class='parentfieldoptions'>
+                                                    	<select class="color-picklistparentfield combobox" style='display: none;'></select>
+                                                	</div>
+        			                               <!--End March Release-->
+        			                               <div class='color-picklistvalues' style='max-height: 300px; overflow-y: auto; overflow-x: hidden; padding-right: 20px;'></div>
+        			                                <!-----Advanced Reference Options------>
+        			                                <!-----Advanced Reference Options------>
+                        			                <div id="advanced-reference-options" class="advanced-reference-options" style="margin-top:15px; display:none;">
+                        			                    <table>
+                        			                        <tr>
+                        			                            <td>
+                        			                                <input type="checkbox" class="advanced-reference-option-automaticassign" id="advanced-reference-option-automaticassign"/> {!$Label.MA_AUTOMATICALLY_ASSIGN_REMAINING_VALUES_A_COLORSHAPE}
+                        			                            </td>
+                        			                        </tr>
+                        			                        <tr>
+                        			                            <td>
+                        			                                <input type="text" class="advanced-reference-option-otherthreshold" id="advanced-reference-option-otherthreshold" placeholder="0" style="width: 30px;"/> {!$Label.MA_THRESHOLD_FOR_GROUPING_SMALL_QUANTITIES_INTO_OTHER_CATEGORY}
+                        			                            </td>
+                        			                        </tr>
+                        			                        <tr>
+                        			                            <td>
+                        			                                <div>
+                        			                                    <span>Display remaining value as:</span>
+                        			                                    <select id="dynamicStaticShapeInput">
+                        			                                        <option value="dynamic">Random Shapes</option>
+                        			                                        <option value="static">A Static Shape</option>
+                        			                                    </select>
+                        			                                    <div class='markertype-shape-preview' id="dynamicShapePicker"></div>
+                        			                                    <span>with random colors</span>
+                        			                                </div>
+                        			                            </td>
+                        			                        </tr>
+                        			                    </table>
+                        			                </div>
+        			                            </td>
+        			                        </tr>
+        			                        <tr class='Dynamic-Label dynamicLabelWrapper toggle' id="dynamicLabelWrapper" style='display: none;'>
+        			                            <td colspan="5" class="multiFieldsTable">
+                                                    <div style="padding: 5px 0;">
+                                                        <div class="inline" style="width: 150px;"><b>{!$Label.MATerritoryBuilder_Label} (Tooltip 1)</b></div>
+                                                        <div class="inline js-label-tooltip1">{!$Label.MA_Selected_Value_Tooltip1}</div>
+                                                    </div>
+                                                    <div style="padding: 5px 0;" class="js-label-fieldSelect">
+                                                        <div class="inline" style="width: 150px;"><b>Color Field</b></div>
+                                                        <div class="inline">
+                                                            <div class='fieldoptions'>
+                            									<select id="dynamicLabelColorPicklistField" class='multiField dynamicField combobox' disabled='disabled'></select>
+                        									</div>
+                                        					<div class='parentfieldoptions'>
+                                            					<select id="dynamicLabelColorPicklistParentField" class="multiFieldParent dynamicField combobox" style='display: none;'></select>
+                                        					</div>
+                                                        </div>
+                                                    </div>
+                                                    <div style="padding: 5px 0;" class="js-label-static">
+                                                        <div>
+                                                            <div class="inline" style="width: 150px;"><b>Text Color</b></div>
+                                                            <div class="inline"><input id="marker-label-text-color" class="color" style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" type="text" autocomplete="off" value="#ffffff" /></div>
+                                                        </div>
+                                                        <div>
+                                                            <div class="inline" style="width: 150px;"><b>Background Color</b></div>
+                                                            <div class="inline"><input id="marker-label-background-color" class="color" style="background-color: rgb(22, 50, 92); color: rgb(255, 255, 255);" type="text" autocomplete="off" value="#16325C" /></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="js-label-dynamic" style="padding: 5px 0; margin-left: 5%;">
+                                                        <div class='marker-multifieldColorValues' style='max-height: 300px; overflow-y: auto; overflow-x: hidden; padding-right: 20px;'></div>
+                                                    </div>
+                                                </td>
+        			                        </tr>
+        			                        <!--<tr class='Dynamic-Label dynamicLabelWrapper toggle' style='display: none;'>-->
+        			                        <!--    <td style='vertical-align: top;'><b>{!$Label.MATerritoryBuilder_Label}</b></td>-->
+        			                        <!--    <td style='font-size: 12px; font-style: italic; color: #888; padding: 0 10px;'>{!$Label.MA_Selected_Value_Tooltip1}-->
+        			                        <!--        <table>-->
+        			                        <!--            <tr>-->
+        			                        <!--                <td>Text Color</td>-->
+        			                        <!--                <td><input id="marker-label-text-color" class="color" style="background-color: rgb(0, 0, 0); color: rgb(0, 0, 0);" type="text" autocomplete="off" value="#000000" /></td>-->
+        			                        <!--            </tr>-->
+        			                        <!--            <tr>-->
+        			                        <!--                <td>Background Color</td>-->
+        			                        <!--                <td><input id="marker-label-background-color" class="color" style="background-color: rgb(0, 0, 0); color: rgb(0, 0, 0);" type="text" autocomplete="off" value="#cccccc" /></td>-->
+        			                        <!--            </tr>-->
+        			                        <!--        </table>-->
+
+        			                        <!--    </td>-->
+        			                        <!--</tr>-->
+        			                        <tr class='Dynamic-Order toggle' style='display: none;'>
+        			                            <td style='vertical-align: top;'><b>{!$Label.MA_Order}</b></td>
+        			                            <td style='font-size: 12px; font-style: italic; color: #888; padding: 0 10px;'>
+        			                            	{!$Label.MA_DynamicOrder_Info}
+        			                            	<div style='padding-top: 10px; font-style: normal; color: black;'>
+        			                            		<input type='checkbox' class='order-drawline' /> {!$Label.MA_DrawLine}
+        			                            	</div>
+        			                            </td>
+        			                        </tr>
+                                            <!-- March Release 2016 -->
+        			                        <tr class='Dynamic-multiField toggle' style='display: none;'>
+        			                            <td valign="top" colspan="2">
+        			                                <div class="inline">
+        			                                    <table class="multiFieldsTable">
+        			                                        <tr><td>{!$Label.MA_DISPLAY}: </td><td>{!$Label.MA_ASSORTED_SHAPES}</td></tr>
+        			                                        <tr>
+                                                                <td>{!$Label.MA_Field}: </td>
+                                                                <td>
+                                                                    <div class='fieldoptions'>
+    	                            									<select id="marker-multiField-shapeField" class='multiField combobox' data-blankvalue='--{!$Label.MA_None}--' disabled='disabled'></select>
+    	                        									</div>
+                                                					<div class='parentfieldoptions'>
+                                                    					<select id="marker-multiFieldParent-shapeField" class="multiFieldParent combobox" style='display: none;'></select>
+                                                					</div>
+                                                                    <!--<select id="marker-multiField-shapeField" class="combobox"></select>-->
+                                                                </td>
+                                                            </tr>
+        			                                    </table>
+        			                                    <div class='marker-multifieldShapeValues' style='max-height: 300px; overflow-y: auto; overflow-x: hidden; padding-right: 10px;'></div>
+
+        			                                </div>
+        			                            </td>
+        			                            <td valign="top" colspan="2">
+        			                                <div>
+        			                                    <table class="multiFieldsTable">
+        			                                        <tr><td>{!$Label.MA_DISPLAY}: </td><td>{!$Label.MA_ASSORTED_COLORS}</td></tr>
+        			                                        <tr>
+                                                                <td>{!$Label.MA_Field}: </td>
+                                                                <td>
+                                                                    <div class='fieldoptions'>
+    	                            									<select id="marker-multiField-colorField" class='multiField combobox' data-blankvalue='--{!$Label.MA_None}--' disabled='disabled'></select>
+    	                        									</div>
+                                                					<div class='parentfieldoptions'>
+                                                    					<select id="marker-multiFieldParent-colorField" class="multiFieldParent combobox" style='display: none;'></select>
+                                                					</div>
+                                                                    <!--<select id="marker-multiField-colorField" class="combobox"></select>-->
+                                                                </td>
+                                                            </tr>
+        			                                    </table>
+        			                                    <div class='marker-multifieldColorValues' style='max-height: 300px; overflow-y: auto; overflow-x: hidden; padding-right: 20px;'></div>
+
+        			                                </div>
+        			                            </td>
+        			                        </tr>
+        			                        <!-- End March Release 2016 -->
+
+
+        			                        <!--<tr class='Dynamic-Label dynamicLabelWrapper toggle' style='display: none;'>
+        			                            <td valign="top" colspan="2">
+        			                                <div>
+        			                                    <table class="multiFieldsTable">
+        			                                        <tr><td>{!$Label.MA_DISPLAY}: </td><td>{!$Label.MA_ASSORTED_COLORS}</td></tr>
+        			                                        <tr>
+                                                                <td>{!$Label.MA_Field}: </td>
+                                                                <td>
+                                                                    <div class='fieldoptions'>
+    	                            									<select id="dynamicLabelColorPicklistField" class='multiField dynamicField combobox' data-blankvalue='--{!$Label.MA_None}--' disabled='disabled'></select>
+    	                            									<span><b>(Optional)</b></span>
+    	                        									</div>
+                                                					<div class='parentfieldoptions'>
+                                                    					<select id="dynamicLabelColorPicklistParentField" class="multiFieldParent dynamicField combobox" style='display: none;'></select>
+                                                					</div>
+                                                                </td>
+                                                            </tr>
+        			                                    </table>
+        			                                    <div class='marker-multifieldColorValues' style='max-height: 300px; overflow-y: auto; overflow-x: hidden; padding-right: 20px;'></div>
+
+        			                                </div>
+        			                            </td>
+
+        			                        </tr>-->
+
+        			                    </table>
+        			                </div>
+
+    							</td>
+    						</tr>
+    					</table>
+                    </div>
+
+                    <!--Derek-->
+                    <!--- Heatmap Options Tab -->
+                   <div id='tab-heatmap-options'>
+
+                         <table class="heatmap-options-format">
+                             <tr>
+                                 <td>
+                                     <div class="heatmap-options-col">
+                                         <table style="width:255px;" width="255">
+                                             <tr>
+                                                 <td>{!$Label.MA_Radius}:</td>
+                                             </tr>
+                                             <tr>
+                                                 <td class="hmo-short-value">
+                                                     <input type="text" value="15"  id="heatmap-options-radius" /> <span class="helptext">{!$Label.MASettings_Defaults}: 15</span>
+
+                                                 </td>
+                                             </tr>
+                                             <tr>
+                                                 <td>&nbsp;</td>
+                                             </tr>
+                                             <tr>
+                                                 <td>{!$Label.MATerritoryBuilder_Opacity}:</td>
+                                             </tr>
+                                             <tr>
+                                                 <td class="hmo-short-value">
+                                                     <select id="heatmap-options-opacity">
+                                                         <option value='0.05'>5%</option>
+                                                         <option value='0.10'>10%</option>
+                                                         <option value='0.15'>15%</option>
+                                                         <option value='0.20'>20%</option>
+                                                         <option value='0.25'>25%</option>
+                                                         <option value='0.30'>30%</option>
+                                                         <option value='0.35'>35%</option>
+                                                         <option value='0.40'>40%</option>
+                                                         <option value='0.45'>45%</option>
+                                                         <option value='0.50'>50%</option>
+                                                         <option value='0.55'>55%</option>
+                                                         <option value='0.60'>60%</option>
+                                                         <option value='0.65'>65%</option>
+                                                         <option value='0.70'>70%</option>
+                                                         <option value='0.75'>75%</option>
+                                                         <option selected="selected" value='0.80'>80%</option>
+                                                         <option value='0.85'>85%</option>
+                                                         <option value='0.90'>90%</option>
+                                                         <option value='0.95'>95%</option>
+                                                         <option value='1'>100%</option>
+                                                     </select>
+                                                 </td>
+                                             </tr>
+                                             <tr>
+                                                 <td>&nbsp;</td>
+                                             </tr>
+                                             <tr>
+                                                 <td>{!$Label.MA_MAX_INTENSITY}:</td>
+                                             </tr>
+                                             <tr>
+                                                 <td class="hmo-short-value"><input type="text" id="heatmap-options-max-intensity" value="5" /> <span class="helptext">{!$Label.MASettings_Defaults}: 5</span>
+                                                 </td>
+                                             </tr>
+                                             <tr>
+                                                 <td>&nbsp;</td>
+                                             </tr>
+                                             <tr>
+                                                 <td><input type="checkbox" id="heatmap-options-dissipate-with-zoom" checked="true"/> {!$Label.MA_DISSIPATE_WITH_ZOOM} (i)</td>
+                                             </tr>
+                                             <tr>
+                                                 <td>&nbsp;</td>
+                                             </tr>
+                                             <tr>
+                                                 <td>{!$Label.MA_Weight_Value}:</td>
+                                             </tr>
+                                             <tr>
+                                                 <td>
+                                                     <select id="heatmap-options-weighted-value" data-blankvalue='None'>
+                                                         <option value="None">--{!$Label.MA_None}--</option>
+                                                     </select>
+                                                 </td>
+                                             </tr>
+                                         </table>
+                                     </div>
+                                 </td>
+                                 <td>
+                                     <div class="heatmap-options-col">
+                                         <table style="width:255px;" width="255">
+                                             <tr>
+                                                 <td><label class="label">{!$Label.MA_COLOR_GRADIENT}</label></td>
+                                            </tr>
+                                            <tr>
+                                                 <td>
+                                                    <div class="heatmap-arrange-wrapper">
+                                                         <div class="heatmap-arrange-wrapper-header">
+                                                             <label>{!$Label.MA_OUTER_COLOR}</label>
+                                                         </div>
+                                                         <div class="heatmap-arrange-add-cell">
+                                                             <a href="javascript:AddColorRow('#FFFFFF', 1)"><img class="heatmap-arrange-add" src="{!URLFOR($Resource.MapAnything, 'images/hmo-add.png')}" width="19" height="19" /> {!$Label.MA_ADD_A_COLOR}</a>
+                                                         </div><!--heatmap-arrange-add-cell-->
+                                                         <div class="heatmap-arrange-cell-rows">
+
+                                                             <table id="heatmap-options-color-table">
+                                                                 <tr>
+                                                                     <td><a onclick="MoveHeatMapOptionsColorRowUp(this)" class="hmo-button"><img class="hmo-arrow-up" src="{!URLFOR($Resource.MapAnything, 'images/hmo-arrow-up.png')}" width="20" height="12" /></a><a onclick="MoveHeatMapOptionsColorRowDown(this)" class="hmo-button"><img class="hmo-arrow-down" src="{!URLFOR($Resource.MapAnything, 'images/hmo-arrow-down.png')}" width="20" height="12" /></a>
+                                                                     </td>
+                                                                     <td><input id="shapelayer-label-font-color" class="color boundary-style" style="background-color: rgb(0, 0, 0); color: rgb(0, 0, 0);" type="text" autocomplete="off" value="#000000" /></td>
+                                                                     <td><a class="heatmap-arrange-delete" onclick="RemoveHeatMapOptionsColorRow(this)"><img src="{!URLFOR($Resource.MapAnything, 'images/hmo-delete.png')}" width="19" height="19" /></a></td>
+                                                                 </tr>
+                                                                 <tr>
+                                                                    <td><a onclick="MoveHeatMapOptionsColorRowUp(this)" class="hmo-button"><img class="hmo-arrow-up" src="{!URLFOR($Resource.MapAnything, 'images/hmo-arrow-up.png')}" width="20" height="12" /></a><a onclick="MoveHeatMapOptionsColorRowDown(this)" class="hmo-button"><img class="hmo-arrow-down" src="{!URLFOR($Resource.MapAnything, 'images/hmo-arrow-down.png')}" width="20" height="12" /></a></td>
+                                                                    <td><input id="shapelayer-label-font-color" class="color boundary-style" style="background-color: rgb(0, 0, 255); color: rgb(0, 0, 255);" type="text" autocomplete="off" value="#0000FF" /></td>
+                                                                    <td><a class="heatmap-arrange-delete" onclick="RemoveHeatMapOptionsColorRow(this)"><img src="{!URLFOR($Resource.MapAnything, 'images/hmo-delete.png')}" width="19" height="19" /></a></td>
+                                                                </tr>
+                                                                <tr>
+                                                                     <td><a onclick="MoveHeatMapOptionsColorRowUp(this)" class="hmo-button"><img class="hmo-arrow-up" src="{!URLFOR($Resource.MapAnything, 'images/hmo-arrow-up.png')}" width="20" height="12" /></a><a onclick="MoveHeatMapOptionsColorRowDown(this)" class="hmo-button"><img class="hmo-arrow-down" src="{!URLFOR($Resource.MapAnything, 'images/hmo-arrow-down.png')}" width="20" height="12" /></a></td>
+                                                                     <td><input id="shapelayer-label-font-color" class="color boundary-style" style="background-color: rgb(0, 255, 255); color: rgb(0, 255, 255);" type="text" autocomplete="off" value="#00FFFF" /></td>
+                                                                     <td><a class="heatmap-arrange-delete" onclick="RemoveHeatMapOptionsColorRow(this)"><img src="{!URLFOR($Resource.MapAnything, 'images/hmo-delete.png')}" width="19" height="19" /></a></td>
+                                                                </tr>
+                                                                <tr>
+                                                                     <td><a onclick="MoveHeatMapOptionsColorRowUp(this)" class="hmo-button"><img class="hmo-arrow-up" src="{!URLFOR($Resource.MapAnything, 'images/hmo-arrow-up.png')}" width="20" height="12" /></a><a onclick="MoveHeatMapOptionsColorRowDown(this)" class="hmo-button"><img class="hmo-arrow-down" src="{!URLFOR($Resource.MapAnything, 'images/hmo-arrow-down.png')}" width="20" height="12" /></a></td>
+                                                                     <td><input id="shapelayer-label-font-color" class="color boundary-style" style="background-color: rgb(0, 255, 0); color: rgb(0, 255, 0);" type="text" autocomplete="off" value="#00FF00" /></td>
+                                                                     <td><a class="heatmap-arrange-delete" onclick="RemoveHeatMapOptionsColorRow(this)"><img src="{!URLFOR($Resource.MapAnything, 'images/hmo-delete.png')}" width="19" height="19" /></a></td>
+                                                                </tr>
+                                                                <tr>
+                                                                     <td><a onclick="MoveHeatMapOptionsColorRowUp(this)" class="hmo-button"><img class="hmo-arrow-up" src="{!URLFOR($Resource.MapAnything, 'images/hmo-arrow-up.png')}" width="20" height="12" /></a><a onclick="MoveHeatMapOptionsColorRowDown(this)" class="hmo-button"><img class="hmo-arrow-down" src="{!URLFOR($Resource.MapAnything, 'images/hmo-arrow-down.png')}" width="20" height="12" /></a></td>
+                                                                     <td><input id="shapelayer-label-font-color" class="color boundary-style" style="background-color: rgb(255, 255, 0); color: rgb(255, 255, 0);" type="text" autocomplete="off" value="#FFFF00" /></td>
+                                                                     <td><a class="heatmap-arrange-delete" onclick="RemoveHeatMapOptionsColorRow(this)"><img src="{!URLFOR($Resource.MapAnything, 'images/hmo-delete.png')}" width="19" height="19" /></a></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><a onclick="MoveHeatMapOptionsColorRowUp(this)" class="hmo-button"><img class="hmo-arrow-up" src="{!URLFOR($Resource.MapAnything, 'images/hmo-arrow-up.png')}" width="20" height="12" /></a><a onclick="MoveHeatMapOptionsColorRowDown(this)" class="hmo-button"><img class="hmo-arrow-down" src="{!URLFOR($Resource.MapAnything, 'images/hmo-arrow-down.png')}" width="20" height="12" /></a></td>
+                                                                    <td><input id="shapelayer-label-font-color" class="color boundary-style" style="background-color: rgb(255, 0, 0); color: rgb(255, 0, 0);" type="text" autocomplete="off" value="#FF0000" /></td>
+                                                                    <td><a class="heatmap-arrange-delete" onclick="RemoveHeatMapOptionsColorRow(this)"><img src="{!URLFOR($Resource.MapAnything, 'images/hmo-delete.png')}" width="19" height="19" /></a></td>
+                                                                </tr>
+                                                            </table>
+
+                                                        </div><!--heatmap-arrange-wrapper-cell-rows-->
+                                                        <div class="heatmap-arrange-wrapper-footer">
+                                                        <label>{!$Label.MA_INNER_COLOR}</label>
+                                                        </div>
+                                                    </div><!--heatmap-arrange-wrapper-->
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </div>
+
+                                </td>
+                                <td style="vertical-align:top; text-align: right;">
+                                    <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                                    <a target="_blank" href="http://wiki.cloudbilt.com/mapanything/using-heatmaps/">{!$Label.MA_HELP_QUESTION_MARK}</a>
+                                    <div class="heatmap-options-col">
+                                    </div>
+
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- Related Lists Tab -->
+    				<div id='tab-relatedlist'>
+
+    					<!-- Wrapper -->
+    					<div id='relatedlist-wrapper'>
+
+    						<!-- Add New -->
+    						<div id='relatedlist-addnew-wrapper'>
+    							<select id='relatedlist-addnew-object' onchange='RelatedList_Add.call(this);' disabled='disabled'><option value='--'>Loading...</option></select>
+    						</div>
+
+    						<!-- Related Lists -->
+    						<div id='relatedlist-list'>
+
+    							<!-- Watermark -->
+    							<div id='relatedlist-watermark'>
+    								<div id='relatedlist-watermark-content'>Select a related object from the list</div>
+    								<!-- <img id='relatedlist-watermark-arrow' /> -->
+    							</div>
+
+    						</div>
+
+    					</div>
+
+    				</div>
+
+
+    	            <!-- Proximity Tab -->
+    	            <div id='tab-proximity'>
+    	            	<input type='checkbox' class='proximity-enabled' /> {!$Label.MA_Enable_Proximity}
+
+    	            	<div style='padding: 5px; margin-top: 5px; border-top: 1px solid #EEEEEE;'>
+    	            		<div><input type='checkbox' class='proximity-hidemarkers' /> {!$Label.MA_Hide_Markers}</div>
+                            <div><input type='checkbox' class='proximity-affectvisibility' checked='checked' /> {!$Label.MA_AFFECT_VISIBILITY}</div>
+    	            	</div>
+    	            	<div style='padding: 5px;'>
+    	            		<select class='proximity-select'>
+    	            			<option value='circle'>{!$Label.MA_Circle}</option>
+    	            			<!-- <option value='isoline'>Isoline</option>  -->
+    	            		</select>
+    	            	</div>
+
+    	            	<!-- Options -->
+    		            <div class='proximity-wrapper' style='padding: 5px;'>
+
+    		                <!-- Circle -->
+    		                <div class='proximity-circle'>
+
+    		                    {!$Label.MA_Radius}:
+    		                    <input type='text' class='proximity-circle-radius' size='5' />
+    		                    <select class='proximity-circle-unit'>
+    		                        <option value='MILES'>{!$Label.MARoutes_Miles}</option>
+    		                        <option value='KM'>{!$Label.MARoutes_Kilometers}</option>
+    		                        <option value='METERS'>{!$Label.MA_Meters}</option>
+    		                        <option value='YARDS'>{!$Label.MA_Yards}</option>
+    		                        <option value='FEET'>{!$Label.MA_Feet}</option>
+    		                    </select>
+    		            	</div>
+
+    		            </div>
+
+    		            <!---------Derek please style the below Fill, border, Opacity....feel free to change everything on the tab as well ------->
+
+    		            <table  style='margin: 5px;'>
+    		                <tr>
+    		                    <td>{!$Label.MA_FILL}:</td>
+    		                    <td><input id="proximity-fill" class="color" style="background-color: rgb(0, 0, 0); color: rgb(0, 0, 0);" type="text" autocomplete="off" value="#3083d3" /></td>
+    		                </tr>
+    		                <tr>
+    		                    <td>{!$Label.MA_BORDER}:</td>
+    		                    <td><input id="proximity-border" class="color" style="background-color: rgb(0, 0, 0); color: rgb(0, 0, 0);" type="text" autocomplete="off" value="#16325C" /></td>
+    		                </tr>
+    		                <tr>
+    		                    <td>{!$Label.MA_OPACITY}:</td>
+    		                    <td>
+                                    <select id="proximity-opacity">
+                                        <option value='0.00'>0%</option>
+                                        <option value='0.05'>5%</option>
+                                        <option value='0.10'>10%</option>
+                                        <option value='0.15'>15%</option>
+                                        <option value='0.20'>20%</option>
+                                        <option value='0.25'>25%</option>
+                                        <option value='0.30'>30%</option>
+                                        <option value='0.35'>35%</option>
+                                        <option value='0.40'>40%</option>
+                                        <option value='0.45'>45%</option>
+                                        <option value='0.50'>50%</option>
+                                        <option value='0.55'>55%</option>
+                                        <option selected="selected" value='0.60'>60%</option>
+                                        <option value='0.65'>65%</option>
+                                        <option value='0.70'>70%</option>
+                                        <option value='0.75'>75%</option>
+                                        <option value='0.80'>80%</option>
+                                        <option value='0.85'>85%</option>
+                                        <option value='0.90'>90%</option>
+                                        <option value='0.95'>95%</option>
+                                        <option value='1'>100%</option>
+                                    </select>
+    		                    </td>
+    		                </tr>
+    		            </table>
+    	            </div>
+
+    	            <!-- Aggregates Tab -->
+    	            <div id='tab-aggregates'>
+
+    	            </div>
+
+    	            <!-- Aggregates Tab -->
+    	            <div id='tab-geofence' data-tab="geofence">
+    	            	<div id="geofence-tab-content">
+    	            	    <div id="geofence-radius-input-wrapper">
+    	            	        <table>
+    	            	            <tr>
+    	            	                <td>
+                	            	        <label for="geofence-radius">{!$Label.MA_Radius}</label>
+                	            	        <input type="number" id="geofence-radius" max="99999" placeholder="Enter numeric value" />
+            	            	        </td>
+
+            	            	        <td>
+                	            	        <div style="max-width:200px">
+                	            	            <select id="geofence-radius-units" style="min-width:120px"> <!-- forced comment -->
+                	            	            <option value="feet">{!$Label.MA_Feet}</option>
+                	            	            <option value="kilometers">{!$Label.MARoutes_Kilometers}</option>
+                	            	            <option value="meters">{!$Label.MA_Meters}</option>
+                	            	            <option value="miles">{!$Label.MARoutes_Miles}</option>
+                	            	        </select>
+                	            	        </div>
+            	            	        </td>
+        	            	        </tr>
+    	            	        </table>
+    	            	    </div>
+    	            	</div>
+    	            </div>
+
+    	            <!-- Advanced Tab -->
+    	            <div id='tab-advanced'>
+    	            	<h2 class="Adv_cacheOptions" style="{!IF(baseObjectType=='Live','display: none;','')}" >{!$Label.MA_Cache_Options}</h2>
+    	            	<div style="padding: 10px 0; {!IF(baseObjectType=='Live','display: none;','')}" class="Adv_cacheOptions" >
+    	            		<input type='checkbox' class='advanced-enablecaching' /> {!$Label.MA_Enable_caching_every}
+    	            		<input type='text' class='advanced-caching-value' style='width: 40px;' />
+    	            		<select class='advanced-caching-unit'>
+    	            			<option value='hr'>{!$Label.MA_hours}</option>
+    	            			<option value='day'>{!$Label.MA_days}</option>
+    	            		</select>
+    	            		<span class='advanced-caching-lastcachedate' style='font-size: 10px; font-style: italic;'></span>
+    	            	</div>
+
+    	            	<h2 class="Adv_refreshOptions" style="{!IF(layerType=='Live-Device','display: none;','')}">{!$Label.MA_Refresh_Options}</h2> <!-- forced comment -->
+    	            	<div class="Adv_refreshOptions" style="{!IF(layerType=='Live-Device','display: none; padding: 10px 0;','padding: 10px 0;')}"> <!-- forced comment -->
+    	            		<input type='checkbox' class='advanced-enablerefreshing' /> {!$Label.MA_Enable_refreshing_every}
+    	            		<input type='text' class='advanced-refreshing-value' style='width: 40px;' />
+    	            		<select class='advanced-refreshing-unit'>
+    	            			<option value='sec'>{!$Label.MA_seconds}</option>
+    	            			<option value='min'>{!$Label.MA_minutes}</option>
+    	            		</select>
+    	            	</div>
+
+                        <!---------------------------------------------------------->
+                        <!--Removed the following aggregate options block from the-->
+                        <!--Advanced tab for MAP-753                              -->
+                        <!---------------------------------------------------------->
+    	            	<!--<h2 class="Adv_aggregateoptions" style="{!IF(baseObjectType=='Live','display: none;','')}">{!$Label.MA_Aggregate_Options}</h2>
+    	            	<div style="padding: 10px 0; {!IF(baseObjectType=='Live','display: none;','')}" class="Adv_aggregateoptions">
+    	            		<input type='checkbox' class='advanced-enableaggregates' checked='checked'/> {!$Label.MA_Enable_aggregates_using}
+    	            		<select class='advanced-aggregates-type'>
+    	            			<option value='sum'>{!$Label.MA_Sum}</option>
+    	            			<option value='avg'>{!$Label.MA_Avg}</option>
+    	            		</select>
+    	            	</div>-->
+
+    	            	<h2 class="Adv_tooltipoptions" style="{!IF(baseObjectType=='Live','display: none;','')}">{!$Label.MA_Tooltip_Options}</h2>
+    	            	<div style="padding: 10px 0;{!IF(baseObjectType=='Live','display: none;','')}" class="Adv_tooltipoptions">
+    	            		{!$Label.MA_Default_Tab}
+    	            		<select id='advanced-tooltip-defaulttab'>
+    	            			<option value='info'>{!$Label.MA_Info}</option>
+    	            			<option value='actions'>{!$Label.MA_Actions}</option>
+    	            			<option value='chatter'>{!$Label.MA_Chatter}</option>
+    	            			<option value='relatedlist'>{!$Label.MA_Related_Lists}</option>
+    	            			<option value='weather'>{!$Label.MA_Weather}</option>
+    	            		</select>
+                        </div>
+
+                        <h2 class="advanced-live-tooltip-options" style="{!IF(baseObjectType!='Live','display: none;','')}">{!$Label.MA_Tooltip_Options}</h2>
+    	            	<div style="padding: 10px 0;{!IF(baseObjectType!='Live','display: none;','')}" class="Adv_tooltipoptions">
+    	            		{!$Label.MA_Default_Tab}
+    	            		<select id='advanced-live-tooltip-defaulttab' style="width:150px;"> <!-- forced comment -->
+    	            		    <apex:outputPanel layout="none" rendered="{!IF(layerType=='Live',true, false)}"> <!-- forced comment -->
+        	            		    <option value='live'>{!$Label.MA_LIVE}</option> <!-- forced comment -->
+        	            		    <option value='history'>{!$Label.MA_TRACKING_HISTORY}</option> <!-- forced comment -->
+    	            		    </apex:outputPanel>
+    	            			<option value='info'>{!$Label.MA_Info}</option>
+    	            			<option value='actions'>{!$Label.MA_Actions}</option>
+    	            			<option value='chatter'>{!$Label.MA_Chatter}</option>
+    	            			<option value='weather'>{!$Label.MA_Weather}</option>
+    	            			<option value='relatedlist'>{!$Label.MA_Related_Lists}</option>
+    	            		</select>
+                        </div>
+
+                        <h2 class="Adv_routeoptions" style="{!IF(baseObjectType=='Live','display: none;','')}">{!$Label.MA_Route_Options}</h2>
+    	            	<div style="padding: 10px 0;{!IF(baseObjectType=='Live','display: none;','')}" class="Adv_routeoptions">
+                            <input type="checkbox" class="advanced-route-disablewaypoints"/>
+                            {!$Label.MA_Disable_Routed_Waypoints}
+                            <br />
+                            <div class="advanced-route-options-inputs" style="padding: 10px 0 0 0;">
+                                {!$Label.Ma_Route_Hide_Dates} <input type="text" class="advanced-route-before" style="width:40px; margin-bottom:10px;" /> {!$Label.MA_Route_Days_Before_Today}
+                            	<br />
+    	            			{!$Label.Ma_Route_Hide_Dates} <input type="text" class="advanced-route-after" style="width:40px;"/> {!$Label.MA_Route_Days_After_Today}
+                            </div>
+    	            	</div>
+                         <!-- Default Render Mode -->
+                        <div class="Adv_defaultrendermode" style="{!IF(baseObjectType=='Live','display: none;','')}">
+                            <h2>{!$Label.MA_DEFAULT_RENDER_MODE}</h2>
+                            <p style='margin: 2px 0 5px 0; color: #757575; font-size: 11px;'>{!$Label.MA_BY_DEFAULT_QUERIES_WILL_BE_RENDERED_IN_MARKER_MODE}</p>
+                            <select id='markers-defaultrendermode'>
+                                <option value='Default'>{!$Label.MA_DEFAULT}</option>
+                                <option value='Markers'>{!$Label.MA_Markers}</option>
+                                <option value='Heatmap'>{!$Label.MA_HEATMAP}</option>
+                                <option value='Cluster'>{!$Label.MA_CLUSTERS}</option>
+                                <option value='Scatter'>{!$Label.MA_SCATTER}</option>
+                            </select>
+                        </div>
+
+                        <!-- Default Render Area -->
+                        <div style="margin-top:15px; {!IF(baseObjectType=='Live','display: none;','')}" class="Adv_defaultrenderarea" >
+                            <h2>{!$Label.MA_DEFAULT_RENDER_AREA}</h2>
+                            <p style='margin: 2px 0 5px 0; color: #757575; font-size: 11px;'>By default, queries will plot all markers on the map. For queries with over 10,000 markers, we suggest setting the default render area to "In Visible Area."</p>
+                            <select id='markers-defaultrenderarea'>
+                                <option value='EntireMap'>{!$Label.MA_ENTIRE_MAP}</option>
+                                <option value='VisibleArea'>{!$Label.MA_in} {!$Label.MA_Visible_Area}</option>
+                            </select>
+                        </div>
+    	            </div>
+    	        </div>
+
+
+    	        <table class="modal-footer">
+    	            <tr>
+    	                <td>
+    	                    <!-- Buttons -->
+                	       <div style="" class='buttons'>
+                	        	<input type='button' class='savebtn MAbutton button-blue' value="{!$Label.MA_Save}" />
+                	        	<input type='button' class='savebtn plotbtn MAbutton button-blue' value="{!$Label.MA_Save_Plot}" />
+                	        	<input type='button' class='closebtn MAbutton button-silver' value="{!$Label.MA_Close}" />
+
+                                <div class='systeminfo' ></div>
+                	        	<span class='msgs' style='top: initial; color: red; font-size: 10px; display: none;'></span>
+                	        </div>
+
+    	                </td>
+    	            </tr>
+    	        </table>
+    	    </div>
+
+    	    <!-- Templates -->
+    	    <div id='savedqueryeditor-templates' style='display: none;'>
+
+    	    	<!-- ajax load image template -->
+            	<img class='loader' src="{!URLFOR($Resource.QueryEditor, 'images/icons/ajax-loader.gif')}" />
+
+    	        <!-- ajax load template -->
+    	        <div class="ajaxload template" style="display: none;">
+    	            <table>
+    	                <tr>
+    	                    <td colspan="5"><img src="{!URLFOR($Resource.QueryEditor, 'images/icons/ajax-loader.gif')}" /></td>
+    	                </tr>
+    	            </table>
+    	        </div>
+
+    	        <div class="ajaxload template2" style="display: none;">
+                        <tr>
+                            <td colspan="5"><img src="{!URLFOR($Resource.QueryEditor, 'images/icons/ajax-loader.gif')}" /></td>
+                        </tr>
+                </div>
+
+    	        <!-- filter template -->
+    	        <div class="filter template" style="display: none;">
+    	            <table>
+    	                <tr>
+    	                    <!-- Filter Index -->
+    	                    <td class='indexlabel'></td>
+
+    	                    <!-- Field Selector -->
+    	                    <td class="fieldlabel">
+
+    	                        <!-- Selector for Field filters -->
+    	                        <div class='fieldoptions'>
+    	                            <select class="combobox"></select>
+    	                        </div>
+
+    	                        <div class='parentfieldoptions' style='display: none;'>
+    	                            <select class="combobox"></select>
+    	                        </div>
+
+    	                        <div class='grandparentfieldoptions' style='display: none;'>
+    	                            <select class="combobox"></select>
+    	                        </div>
+
+    	                    </td>
+
+    	                    <!-- Operator Selector -->
+    	                    <td class="operator">
+    	                        <select class="combobox"></select>
+    	                    </td>
+
+    	                    <!-- Value Input -->
+    	                    <td class="value">
+    	                        <!-- render a text box for STRING filters -->
+    	                        <div class='STRING' style='display: none;'>
+    	                            <input type='text' style="margin-left:14px;" data-range="from"/>
+
+    	                            <div class='range' style='display: none;'>
+    	                                <span>to</span>
+    	                                <input type='text' data-range="to"/>
+    	                            </div>
+    	                        </div>
+
+    	                        <!-- render a checkbox list for PICKLIST filters -->
+    	                        <div class='PICKLIST' style='display: none;'>
+    	                            <select class='multiselect' multiple='multiple' style='display: none;'></select>
+    	                        </div>
+
+    	                        <!-- render a radio list for BOOLEAN filters -->
+    	                        <div class='BOOLEAN' style='display: none;'>
+    	                            <input type='radio' value="TRUE" /> {!$Label.MA_True}
+    	                            <input type='radio' value="FALSE" /> {!$Label.MA_False}
+    	                        </div>
+
+    	                        <!-- render a special text box that uses date.js for date parsing for DATE filters -->
+    	                        <div class='DATE' style='display: none;'>
+    	                            <input type='text' class='datejs startdate' data-type="DATE"/>
+    	                            <img src="{!URLFOR($Resource.QueryEditor, 'images/icons/16_lookup.png')}" class="dateliteralpicker" />
+
+    	                            <div class='range' style='display: none;'>
+    	                                <span>to</span>
+    	                                <input type='text' class='datejs enddate' data-type="DATE"/>
+    	                                <img src="{!URLFOR($Resource.QueryEditor, 'images/icons/16_lookup.png')}" class="dateliteralpicker" />
+    	                            </div>
+    	                            <div class='nextlast' style='display: none;'>
+    	                            	<select class='n-type'>
+    	                            		<option value='DAYS'>{!$Label.MA_Days}</option>
+    	                            		<option value='QUARTERS'>{!$Label.MA_Quarters}</option>
+    	                            		<option value='YEARS'>{!$Label.MA_Years}</option>
+    	                            		<option value='FISCAL_QUARTERS'>{!$Label.MA_Fiscal_Quarters}</option>
+    	                            		<option value='FISCAL_YEARS'>{!$Label.MA_Fiscal_Years}</option>
+    	                            	</select>
+    	                            </div>
+    	                        </div>
+
+    	                        <!-- render a picklist that will contain cached queries that match the object type of the field that was selected -->
+    	                        <div class='ID' style='display: none;'>
+    	                        	<input type='text' class='idfiltervalue' />
+
+    	                        	<span class='queryfiltervalue' style='display: none;'>
+    	                        		<select class='combobox' />
+    	                        	</span>
+    	                        </div>
+    	                    </td>
+
+    	                    <!-- Action Links -->
+    	                    <td class="actions" style='width: 50px;'>
+    	                        <div>
+    	                            <span class='link deletelink'>{!$Label.MA_Delete}</span>
+    	                        </div>
+    	                    </td>
+    	                </tr>
+    	            </table>
+    	        </div>
+
+    	        <!-- cross filter template -->
+    	        <div class='crossfilter template' style='display: none;'>
+    	            <table class='crossfilter-fields'>
+    	                <tr>
+
+    	                    <!-- Filter Index -->
+    	                    <td class='indexlabel'>{!$Label.MA_AND}</td>
+
+    	                    <!-- Field Selector -->
+    	                    <td class="fieldlabel">
+    	                        <!-- Selector for Cross Filters -->
+    	                        <table>
+    	                            <tr>
+    	                                <td>
+    	                                    <!-- Display Base Object -->
+    	                                    <span class='baseobject'></span>
+    	                                </td>
+    	                                <td>
+    	                                    <span class="advanced" style="font-weight: bold; font-size: 18px; display: none;">.</span>
+    	                                </td>
+    	                                <td>
+    	                                    <!-- Base object field selection for advanced queries -->
+    	                                    <div class="advanced fieldoptions" style='display: none;'>
+    	                                        <select class='combobox'></select>
+    	                                    </div>
+    	                                </td>
+    	                            </tr>
+    	                        </table>
+    	                    </td>
+
+    	                    <!-- Operator Selector -->
+    	                    <td class="operator">
+    	                        <select class='combobox'>
+    	                        	<option value='with'>{!$Label.MA_with}</option>
+    	                        	<option value='without'>{!$Label.MA_without}</option>
+    	                        </select>
+    	                    </td>
+
+    	                    <!-- Value Input -->
+    	                    <td class="value">
+
+    	                        <!-- render a select list of child objects for CROSS filters -->
+    	                        <table>
+    	                            <tr>
+    	                                <td>
+    	                                    <div class='crossobjectoptions'>
+    	                                        <select class='combobox'></select>
+    	                                    </div>
+    	                                </td>
+    	                                <td>
+    	                                    <span class='advanced' style="font-weight: bold; font-size: 18px; display: none;">.</span>
+    	                                </td>
+    	                                <td>
+    	                                    <!-- select list of field options for the selected child object (this is for advanced queries) -->
+    	                                    <div class='advanced crossfieldoptions' style='display: none;'>
+    	                                        <select class='combobox'></select>
+    	                                    </div>
+    	                                </td>
+    	                            </tr>
+    	                        </table>
+    	                    </td>
+
+    	                    <!-- Action Links -->
+    	                    <td class="crossfilteractions" style='width: 50px;'>
+    	                        <div>
+    	                            <!-- <span class='link'>Show Advanced</span> |  --><span class='link deletelink'>{!$Label.MA_Delete}</span>
+    	                        </div>
+    	                    </td>
+    	                </tr>
+    	            </table>
+
+    	            <div style='padding-left: 30px;'>
+    	                <div class='subfilters'></div>
+    	                <div class='addfilter'><span class='link'>{!$Label.MA_Add_filter}</span></div>
+    	            </div>
+    	            <div class='crossfilterlogic'>
+    					<div style='margin: 10px 30px 0 10px; padding: 5px; border-top: 1px solid silver; border-bottom: 1px solid silver;'>
+    						<b>{!$Label.MA_Filter_Logic}</b>
+    						<input type='text' class='crosslogic' style='display: none;' />
+    						<span class='crossfilterlogiclink small link'>{!$Label.MA_Add}</span>
+    					</div>
+    				</div>
+    	        </div>
+
+    	        <!-- Activity Filter Template -->
+    	        <div class='activityfilter template'>
+    	        	<table>
+    	        		<tr>
+    	        			<td>{!$Label.MA_AND}</td>
+    	        			<td>
+    					        <select class='field combobox'>
+    				           		<option value='CreatedDate' class='DATE'>{!$Label.MA_Created_Date}</option>
+    				           		<option value='ActivityDate' class='DATE'>{!$Label.MA_Due_Date_Event_Date}</option>
+    				           		<option value='Subject' class='STRING'>{!$Label.MA_Subject}</option>
+    				           		<option value='Status' class='STRING'>{!$Label.MA_Status_tasks_only}</option>
+    				           	</select>
+    				        </td>
+    				        <td class='operatorwrapper'>
+    				           	<select class='operator combobox'></select>
+    				        </td>
+    				        <td class='value'>
+    				        	<div class='STRING' style='display: none;'>
+    				        		<input type='text' />
+    				        	</div>
+
+    				        	<div class='DATE' style='display: none;'>
+    				        		<input type='text' class='datejs startdate' data-type="DATE"/>
+    	                            <img src="{!URLFOR($Resource.QueryEditor, 'images/icons/16_lookup.png')}" class="dateliteralpicker" />
+    				        	</div>
+    				        </td>
+    				        <td class='activitysubfilteractions' style='min-width: 50px;'>
+    				        	<div>
+    				        		<span class='link blue delete'>{!$Label.MA_Delete}</span>
+    				        	</div>
+    				        </td>
+    	           		</tr>
+    	           	</table>
+    	        </div>
+
+    	        <!-- Query Filter Template -->
+    	        <div class="queryfilter template" style="display: none;">
+    	            <table>
+    	                <tr>
+    	                    <!-- Filter Index -->
+    	                    <td class='indexlabel'></td>
+
+    	                    <!-- Field Selector -->
+    	                    <td class="fieldlabel">
+
+    	                        <!-- Selector for Field filters -->
+    	                        <div class='fieldoptions'>
+    	                            <select class="combobox"></select>
+    	                        </div>
+
+    	                        <div class='parentfieldoptions' style='display: none;'>
+    	                            <select class="combobox"></select>
+    	                        </div>
+
+    	                        <div class='grandparentfieldoptions' style='display: none;'>
+    	                            <select class="combobox"></select>
+    	                        </div>
+
+    	                    </td>
+
+    	                    <!-- Operator Selector -->
+    	                    <td class="operator">
+    	                        <select class="combobox">
+    	                        	<option value='in'>{!$Label.MA_in}</option>
+    	                        	<option value='not in'>{!$Label.MA_not_in}</option>
+    	                        </select>
+    	                    </td>
+
+    	                    <!-- Value Input -->
+    	                    <td class="value">
+    	                    	<select class='combobox' />
+    	                    </td>
+
+    	                    <!-- Action Links -->
+    	                    <td class="actions" style='width: 50px;'>
+    	                        <div>
+    	                            <span class='link deletelink'>{!$Label.MA_Delete}</span>
+    	                        </div>
+    	                    </td>
+    	                </tr>
+    	            </table>
+    	        </div>
+
+                <!-- Column Template -->
+                <li class='column template'>
+                    <span></span>
+                    <img class='deletebtn' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-cross-16.png')}" />
+                </li>
+
+                <!-- Color Picklist Value Template -->
+                <table class='markertable picklist template' data-type='picklist'>
+    				<tr class='header'>
+    					<th>{!$Label.MA_Value}</th>
+    					<th>{!$Label.MA_Color} (<span class='link small color-dynamicallyassign'>{!$Label.MA_Dynamically_Assign}</span>)</th>
+    				</tr>
+                </table>
+
+                <!--  Related List Row Template -->
+                <div class='relatedlist-row'>
+
+                	<!-- Label -->
+                	<div class='relatedlist-label' onclick="RelatedList_EditLabel($(this).closest('.relatedlist-row'));"></div>
+
+                	<!-- Columns -->
+                	<div class='relatedlist-columns'>
+                		<div class='relatedlist-addcolumn' onclick="RelatedList_AddColumn($(this).closest('.relatedlist-row'));">{!$Label.MA_ADD_COLUMN}...</div>
+                	</div>
+
+                	<!-- Filters -->
+                	<div class='relatedlist-filters'>
+                		<div class='relatedlist-numtodisplay-wrapper'>{!$Label.MA_DISPLAY} <select class='relatedlist-numtodisplay combobox'><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option></select> {!$Label.MA_RECORDS}, {!$Label.MA_ORDERED_BY} <select class='relatedlist-orderby'></select> <select class='relatedlist-orderby-direction combobox'><option value='ASC'>ASC</option><option value='DESC'>DESC</option></select></div>
+                		<div class='relatedlist-addfilter' onclick="RelatedList_AddFilter($(this).closest('.relatedlist-row'));">{!$Label.MA_Add_Filter}...</div>
+                	</div>
+
+                	<!-- Drag Handle -->
+                	<div class='relatedlist-draghandle'>
+                		<div class='arrow-up' onclick="RelatedList_Move($(this).closest('.relatedlist-row'), 'up');"></div>
+                		<div style='height: 3px;'></div>
+                		<div class='arrow-down' onclick="RelatedList_Move($(this).closest('.relatedlist-row'), 'down');"></div>
+                	</div>
+
+                	<!-- Remove Icon -->
+                	<div class='relatedlist-remove' onclick="RelatedList_Remove($(this).closest('.relatedlist-row'));"><div></div><div></div></div>
+
+                </div>
+
+                <!-- Marker Grid Quick Fill Templates -->
+                <div class='markergrid-quickfill' data-type='NUMBER'>
+                    {!$Label.MA_From}: <input type='text' class='from numberval' style='width: 120px; padding-right: 10px;' />
+                    {!$Label.MA_To}: <input type='text' class='to numberval' style='width: 120px; padding-right: 10px;' />
+                    <div class="query-editor-divisions">
+                        {!$Label.MA_Divisions}: <input type='text' class='divisions' style='width: 80px'></input>
+                        <img style='margin-left: 10px; cursor: pointer; vertical-align: middle;' src="{!URLFOR($Resource.MapAnything, 'images/table-add-35.png')}" title="{!$Label.MA_Markers_New_Table}" onclick="$('.color-picklistvalues').data('markerGrid').quickfill({ replace: true });" />
+                        <img style='margin-left: 5px; cursor: pointer; vertical-align: middle;' src="{!URLFOR($Resource.MapAnything, 'images/table-existing-35.png')}" title="{!$Label.MA_Markers_Existing_Table}" onclick="$('.color-picklistvalues').data('markerGrid').quickfill({ replace: false });" />
+                        <img class='markergrid-sort' style='margin-left: 5px; cursor: pointer; vertical-align: middle;' src="{!URLFOR($Resource.MapAnything, 'images/table-sort-35.png')}" title="{!$Label.MA_Markers_Sort_Table}" onclick="$('.color-picklistvalues').data('markerGrid').sort({ target: this });" />
+                    </div>
+                </div>
+
+                <div class='shapemarkergrid-quickfill' data-type='NUMBER'>
+                    {!$Label.MA_From}: <input type='text' class='from numberval' style='width: 120px; padding-right: 10px;' />
+                    {!$Label.MA_To}: <input type='text' class='to numberval' style='width: 120px; padding-right: 10px;' />
+                    <div class="query-editor-divisions">
+                        {!$Label.MA_Divisions}: <input type='text' class='divisions' style='width: 80px'></input>
+                        <img style='margin-left: 10px; cursor: pointer; vertical-align: middle;' src="{!URLFOR($Resource.MapAnything, 'images/table-add-35.png')}" title="{!$Label.MA_Markers_New_Table}" onclick="$('.marker-multifieldShapeValues').data('markerGrid').quickfill({ replace: true });" />
+                        <img style='margin-left: 5px; cursor: pointer; vertical-align: middle;' src="{!URLFOR($Resource.MapAnything, 'images/table-existing-35.png')}" title="{!$Label.MA_Markers_Existing_Table}" onclick="$('.marker-multifieldShapeValues').data('markerGrid').quickfill({ replace: false });" />
+                        <img class='markergrid-sort' style='margin-left: 5px; cursor: pointer; vertical-align: middle;' src="{!URLFOR($Resource.MapAnything, 'images/table-sort-35.png')}" title="{!$Label.MA_Markers_Sort_Table}" onclick="$('.marker-multifieldShapeValues').data('markerGrid').sort({ target: this });" />
+                    </div>
+                </div>
+
+                <div class='colormarkergrid-quickfill' data-type='NUMBER'>
+                    {!$Label.MA_From}: <input type='text' class='from numberval' style='width: 120px; padding-right: 10px;' />
+                    {!$Label.MA_To}: <input type='text' class='to numberval' style='width: 120px; padding-right: 10px;' />
+                    <div class="query-editor-divisions">
+                        {!$Label.MA_Divisions}: <input type='text' class='divisions' style='width: 80px'></input>
+                        <img style='margin-left: 10px; cursor: pointer; vertical-align: middle;' src="{!URLFOR($Resource.MapAnything, 'images/table-add-35.png')}" title="{!$Label.MA_Markers_New_Table}" onclick="$(this).closest('tr').find('.marker-multifieldColorValues').data('markerGrid').quickfill({ replace: true });" />
+                        <img style='margin-left: 5px; cursor: pointer; vertical-align: middle;' src="{!URLFOR($Resource.MapAnything, 'images/table-existing-35.png')}" title="{!$Label.MA_Markers_Existing_Table}" onclick="$(this).closest('tr').find('.marker-multifieldColorValues').data('markerGrid').quickfill({ replace: false });" />
+                        <img class='markergrid-sort' style='margin-left: 5px; cursor: pointer; vertical-align: middle;' src="{!URLFOR($Resource.MapAnything, 'images/table-sort-35.png')}" title="{!$Label.MA_Markers_Sort_Table}" onclick="$(this).closest('tr').find('.marker-multifieldColorValues').data('markerGrid').sort({ target: this });" />
+                    </div>
+                </div>
+
+                <!-- Marker Grid Header and Row Templates -->
+                <table>
+
+                    <!-- PICKLIST -->
+                    <tr class='markergrid-header' data-type='PICKLIST'>
+                        <th>{!$Label.MA_Value}</th>
+                        <th>{!$Label.MA_Color} <div class='markertype-color-preview massaction'></div> (<span style='font-size: 10px; font-weight: normal;'>Dynamically Assign</span> <span class='link small color-dynamicallyassign' data-dimension='color'>Colors</span> | <span class='link small color-dynamicallyassign' data-dimension='shape'>Shapes</span> | <span class='link small color-dynamicallyassign' data-dimension='image'>Images</span> | <span class='link small color-dynamicallyassign' data-dimension='all'>All</span>)</th>
+                    </tr>
+                    <tr class='markergrid-row' data-type='PICKLIST'>
+                        <td class='comparevalue'></td>
+                        <td class='value'>
+                            <input type='hidden' class='operator' value='equals'/>
+                            <div class='markertype-wrapper'>
+                                <div class='markertype-color-preview'></div>
+                                <select class='markertype-image' style='display: none;' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+
+                                <div class='markertype-selector'>
+                                    <img class='markertype-selector-color' src="{!URLFOR($Resource.QueryEditor, 'images/icons/color-16.png')}" />
+                                    <img class='markertype-selector-image' src="{!URLFOR($Resource.QueryEditor, 'images/icons/iconfolder-16.png')}" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- MULTIPICKLIST -->
+                    <tr class='markergrid-header' data-type='MULTIPICKLIST'>
+                        <th>
+                            <div class='add-row-icon'>
+                                <img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+                            </div>
+                        </th>
+                        <th>{!$Label.MA_Criteria}</th>
+                        <th>{!$Label.MA_Options}</th>
+                        <th>{!$Label.MA_Color} <div class='markertype-color-preview massaction'></div> (<span style='font-size: 10px; font-weight: normal;'>{!$Label.MA_Dynamically_Assign}</span> <span class='link small color-dynamicallyassign' data-dimension='color'>{!$Label.MATerritoryBuilder_Colors}</span> | <span class='link small color-dynamicallyassign' data-dimension='shape'>{!$Label.MA_SHAPES}</span> | <span class='link small color-dynamicallyassign' data-dimension='image'>{!$Label.MA_IMAGES}</span> | <span class='link small color-dynamicallyassign' data-dimension='all'>{!$Label.MA_All}</span>)</th>
+                    </tr>
+                    <tr class='markergrid-row' data-type='MULTIPICKLIST'>
+                    	<td>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</td>
+                		<td>
+                			<select class='operator'>
+                				<option value='includes'>{!$Label.MA_Includes}</option>
+                				<option value='excludes'>{!$Label.MA_Excludes}</option>
+                			</select>
+    					</td>
+                        <td class='comparevalue'></td>
+                        <td class='value'>
+                            <input type='hidden' class='operator' value='equals'/>
+                            <div class='markertype-wrapper'>
+                                <div class='markertype-color-preview'></div>
+                                <select class='markertype-image' style='display: none;' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+
+                                <div class='markertype-selector'>
+                                    <img class='markertype-selector-color' src="{!URLFOR($Resource.QueryEditor, 'images/icons/color-16.png')}" />
+                                    <img class='markertype-selector-image' src="{!URLFOR($Resource.QueryEditor, 'images/icons/iconfolder-16.png')}" />
+                                    <img class='remove-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-cross-16.png')}" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- DATE -->
+                    <tr class='markergrid-header' data-type='DATE'>
+                		<th>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</th>
+                		<th>{!$Label.MA_Start_Date}</th>
+                		<th>{!$Label.MA_End_Date}</th>
+                		<th>{!$Label.MA_Color} <div class='markertype-color-preview massaction'></div> (<span style='font-size: 10px; font-weight: normal;'>{!$Label.MA_Dynamically_Assign}</span> <span class='link small color-dynamicallyassign' data-dimension='color'>{!$Label.MATerritoryBuilder_Colors}</span> | <span class='link small color-dynamicallyassign' data-dimension='shape'>{!$Label.MA_SHAPES}</span> | <span class='link small color-dynamicallyassign' data-dimension='image'>{!$Label.MA_IMAGES}</span> | <span class='link small color-dynamicallyassign' data-dimension='all'>{!$Label.MA_All}</span>)</th>
+                	</tr>
+                	<tr class='markergrid-row' data-type='DATE'>
+    					<td>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</td>
+                		<td style='white-space: nowrap;'>
+                			<input type='text' class='comparevalue datepicker datejs novalidation' style='width:150px; margin-right: 3px;'></input>
+                			<img src="{!URLFOR($Resource.QueryEditor, 'images/icons/16_lookup.png')}" class="dateliteralpicker" />
+                			<input type='hidden' class='operator' value='date'></input>
+                		</td>
+    					<td style='white-space: nowrap;'>
+                			<input type='text' class='enddate datepicker datejs novalidation' style='width:150px; margin-right: 3px;'></input>
+                			<img src="{!URLFOR($Resource.QueryEditor, 'images/icons/16_lookup.png')}" class="dateliteralpicker" />
+                		</td>
+                		<td style='white-space: nowrap;'>
+                            <div class='markertype-wrapper'>
+                                <div class='markertype-color-preview'></div>
+                                <select class='markertype-image' style='display: none;' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+
+                                <div class='markertype-selector'>
+                                    <img class='markertype-selector-color' src="{!URLFOR($Resource.QueryEditor, 'images/icons/color-16.png')}" />
+                                    <img class='markertype-selector-image' src="{!URLFOR($Resource.QueryEditor, 'images/icons/iconfolder-16.png')}" />
+                                	<img class='remove-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-cross-16.png')}" />
+                                </div>
+                            </div>
+    					</td>
+    				</tr>
+
+    				<!-- STRING -->
+    				<tr class='markergrid-header' data-type='STRING'>
+                		<th>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</th>
+                		<th>{!$Label.MA_Criteria}</th>
+                		<th>{!$Label.MA_String}</th>
+                		<th>{!$Label.MA_Color} <div class='markertype-color-preview massaction'></div> (<span style='font-size: 10px; font-weight: normal;'>{!$Label.MA_Dynamically_Assign}</span> <span class='link small color-dynamicallyassign' data-dimension='color'>{!$Label.MATerritoryBuilder_Colors}</span> | <span class='link small color-dynamicallyassign' data-dimension='shape'>{!$Label.MA_SHAPES}</span> | <span class='link small color-dynamicallyassign' data-dimension='image'>{!$Label.MA_IMAGES}</span> | <span class='link small color-dynamicallyassign' data-dimension='all'>{!$Label.MA_All}</span>)</th>
+                	</tr>
+    				<tr class='markergrid-row' data-type='STRING'>
+    					<td>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</td>
+                		<td>
+                			<select class='operator'>
+                				<option value='contains'>{!$Label.MA_Contains}</option>
+                				<option value='equals'>{!$Label.MA_Equals}</option>
+                				<option value='starts'>{!$Label.MA_Starts_With}</option>
+                			</select>
+    					</td>
+    					<td>
+                			<input type='text' class='comparevalue'></input>
+                		</td>
+                		<td style='white-space: nowrap;'>
+                            <div class='markertype-wrapper'>
+                                <div class='markertype-color-preview'></div>
+                                <select class='markertype-image' style='display: none;' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+
+                                <div class='markertype-selector'>
+                                    <img class='markertype-selector-color' src="{!URLFOR($Resource.QueryEditor, 'images/icons/color-16.png')}" />
+                                    <img class='markertype-selector-image' src="{!URLFOR($Resource.QueryEditor, 'images/icons/iconfolder-16.png')}" />
+                                	<img class='remove-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-cross-16.png')}" />
+                                </div>
+                            </div>
+    					</td>
+    				</tr>
+
+    				<!-- REFERENCE -->
+    				<tr class='markergrid-header' data-type='REFERENCE'>
+    					<th>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</th>
+    					<th>{!$Label.MA_Value}</th>
+    					<th>{!$Label.MA_Color} <div class='markertype-color-preview massaction'></div> (<span style='font-size: 10px; font-weight: normal;'>{!$Label.MA_Dynamically_Assign}</span> <span class='link small color-dynamicallyassign' data-dimension='color'>{!$Label.MATerritoryBuilder_Colors}</span> | <span class='link small color-dynamicallyassign' data-dimension='shape'>{!$Label.MA_SHAPES}</span> | <span class='link small color-dynamicallyassign' data-dimension='image'>{!$Label.MA_IMAGES}</span> | <span class='link small color-dynamicallyassign' data-dimension='all'>{!$Label.MA_All}</span>)</th>
+    				</tr>
+    				<tr class='markergrid-row' data-type='REFERENCE'>
+    	        		<td>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</td>
+                        <td style='white-space: nowrap;'>
+                            <input type='text' id='searchText' class='comparedisplay searchText'/>
+                            <input type='hidden' id='valueText' class='comparevalue valueText'/>
+                            <input type='hidden' class='operator' value='equals'/>
+                        </td>
+                        <td style='white-space: nowrap;'>
+                            <div class='markertype-wrapper'>
+                                <div class='markertype-color-preview'></div>
+                                <select class='markertype-image' style='display: none;' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+
+                                <div class='markertype-selector'>
+                                    <img class='markertype-selector-color' src="{!URLFOR($Resource.QueryEditor, 'images/icons/color-16.png')}" />
+                                    <img class='markertype-selector-image' src="{!URLFOR($Resource.QueryEditor, 'images/icons/iconfolder-16.png')}" />
+                                    <img class='remove-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-cross-16.png')}" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+    				<!-- NUMBER -->
+    				<tr class='markergrid-header' data-type='NUMBER'>
+                		<th>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</th>
+                		<th>{!$Label.MA_From}:</th>
+                		<th>{!$Label.MA_To}:</th>
+                		<th>{!$Label.MA_Color} <div class='markertype-color-preview massaction'></div> (<span style='font-size: 10px; font-weight: normal;'>{!$Label.MA_Dynamically_Assign}</span> <span class='link small color-dynamicallyassign' data-dimension='color'>{!$Label.MATerritoryBuilder_Colors}</span> | <span class='link small color-dynamicallyassign' data-dimension='shape'>{!$Label.MA_SHAPES}</span> | <span class='link small color-dynamicallyassign' data-dimension='image'>{!$Label.MA_IMAGES}</span> | <span class='link small color-dynamicallyassign' data-dimension='all'>{!$Label.MA_All}</span>)</th>
+                	</tr>
+                	<tr class='markergrid-row' data-type='NUMBER'>
+                		<td>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</td>
+                		<td>
+    	            		<input type='text' class='comparevalue numberval' style='width:150px;'></input>
+    	            		<input type='hidden' class='operator' value='currency'></input>
+                		</td>
+                		<td>
+                			<input type='text' class='toVal numberval' style='width:150px;'></input>
+                		</td>
+    					<td style='white-space: nowrap;'>
+    						<div class='markertype-wrapper'>
+                                <div class='markertype-color-preview'></div>
+                                <select class='markertype-image' style='display: none;' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+
+    							<div class='markertype-selector'>
+                                    <img class='markertype-selector-color' src="{!URLFOR($Resource.QueryEditor, 'images/icons/color-16.png')}" />
+                                    <img class='markertype-selector-image' src="{!URLFOR($Resource.QueryEditor, 'images/icons/iconfolder-16.png')}" />
+                                	<img class='remove-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-cross-16.png')}" />
+    							</div>
+    						</div>
+    					</td>
+    				</tr>
+
+    				<!-- PHONE -->
+    				<tr class='markergrid-header' data-type='PHONE'>
+                		<th>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</th>
+                		<th>{!$Label.MA_Criteria}</th>
+                		<th>{!$Label.MA_Phone_Fax_Number}</th>
+                		<th>{!$Label.MA_Color} <div class='markertype-color-preview massaction'></div> (<span style='font-size: 10px; font-weight: normal;'>{!$Label.MA_Dynamically_Assign}</span> <span class='link small color-dynamicallyassign' data-dimension='color'>{!$Label.MATerritoryBuilder_Colors}</span> | <span class='link small color-dynamicallyassign' data-dimension='shape'>{!$Label.MA_SHAPES}</span> | <span class='link small color-dynamicallyassign' data-dimension='image'>{!$Label.MA_IMAGES}</span> | <span class='link small color-dynamicallyassign' data-dimension='all'>{!$Label.MA_All}</span>)</th>
+                	</tr>
+    				<tr class='markergrid-row' data-type='PHONE'>
+    					<td>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</td>
+                		<td>
+                			<select class='operator'>
+                				<option value='equals'>{!$Label.MA_Equals}</option>
+                				<option value='starts'>{!$Label.MA_Starts_With}</option>
+                			</select>
+    					</td>
+    					<td>
+                			<input type='text' class='comparevalue'></input>
+                		</td>
+                		<td style='white-space: nowrap;'>
+                            <div class='markertype-wrapper'>
+                                <div class='markertype-color-preview'></div>
+                                <select class='markertype-image' style='display: none;' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+
+                                <div class='markertype-selector'>
+                                    <img class='markertype-selector-color' src="{!URLFOR($Resource.QueryEditor, 'images/icons/color-16.png')}" />
+                                    <img class='markertype-selector-image' src="{!URLFOR($Resource.QueryEditor, 'images/icons/iconfolder-16.png')}" />
+                                	<img class='remove-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-cross-16.png')}" />
+                                </div>
+                            </div>
+    					</td>
+    				</tr>
+
+                </table>
+    			<!---------------------->
+    			<!--March Release 2016-->
+    			<!---------------------->
+    			<!--Shape Marker Grid Header and Row Templates -->
+                <table>
+
+                    <!-- PICKLIST -->
+                    <tr class="shapemarkergrid-header" data-type='PICKLIST'>
+                        <th colspan="2" style="text-align:center;">(<span style='font-size: 10px; font-weight: normal;'>Dynamically Assign</span><span class='link small color-dynamicallyassign' data-dimension='shape'>Shapes</span>)</th>
+                    </tr>
+                    <tr class='shapemarkergrid-header' data-type='PICKLIST'>
+                        <th>{!$Label.MA_Value}</th>
+                    </tr>
+                    <tr class='shapemarkergrid-row' data-type='PICKLIST'>
+                        <td class='comparevalue'></td>
+                        <td class='value'>
+                            <input type='hidden' class='operator' value='equals'/>
+                            <div class='markertype-wrapper'>
+                                <div class='markertype-shape-preview'></div>
+                                <select class='markertype-image' style='display: none;' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+
+                                <!--<div class='markertype-selector'>
+                                    <img class='markertype-selector-color' src="{!URLFOR($Resource.QueryEditor, 'images/icons/color-16.png')}" />
+                                    <img class='markertype-selector-image' src="{!URLFOR($Resource.QueryEditor, 'images/icons/iconfolder-16.png')}" />
+                                </div>-->
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- MULTIPICKLIST -->
+                    <tr class="shapemarkergrid-header" data-type='MULTIPICKLIST'>
+                        <th colspan="4" style="text-align:center;">(<span style='font-size: 10px; font-weight: normal;'>Dynamically Assign</span><span class='link small color-dynamicallyassign' data-dimension='shape'>Shapes</span>)</th>
+                    </tr>
+                    <tr class='shapemarkergrid-header' data-type='MULTIPICKLIST'>
+                        <th>
+                            <div class='add-row-icon'>
+                                <img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+                            </div>
+                        </th>
+                        <th>{!$Label.MA_Criteria}</th>
+                        <th>{!$Label.MA_Options}</th>
+                    </tr>
+                    <tr class='shapemarkergrid-row' data-type='MULTIPICKLIST'>
+                    	<td>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</td>
+                		<td>
+                			<select class='operator'>
+                				<option value='includes'>{!$Label.MA_Includes}</option>
+                				<option value='excludes'>{!$Label.MA_Excludes}</option>
+                			</select>
+    					</td>
+                        <td class='comparevalue'></td>
+                        <td class='value'>
+                            <input type='hidden' class='operator' value='equals'/>
+                            <div class='markertype-wrapper'>
+                                <div class='markertype-shape-preview'></div>
+                                <select class='markertype-image' style='display: none;' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+
+                                <div class='markertype-selector'>
+                                    <!--<img class='markertype-selector-color' src="{!URLFOR($Resource.QueryEditor, 'images/icons/color-16.png')}" />
+                                    <img class='markertype-selector-image' src="{!URLFOR($Resource.QueryEditor, 'images/icons/iconfolder-16.png')}" />-->
+                                    <img class='remove-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-cross-16.png')}" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!--Date-->
+                    <tr class="shapemarkergrid-header" data-type='DATE'>
+                        <th colspan="4" style="text-align:center;">(<span style='font-size: 10px; font-weight: normal;'>Dynamically Assign</span><span class='link small color-dynamicallyassign' data-dimension='shape'>Shapes</span>)</th>
+                    </tr>
+                    <tr class='shapemarkergrid-header' data-type='DATE'>
+                		<th>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</th>
+                		<th>{!$Label.MA_Start_Date}</th>
+                		<th>{!$Label.MA_End_Date}</th>
+                	</tr>
+                	<tr class='shapemarkergrid-row' data-type='DATE'>
+    					<td>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</td>
+                		<td style='white-space: nowrap;'>
+                			<input type='text' class='comparevalue datepicker datejs novalidation' style='width:150px; margin-right: 3px;'></input>
+                			<img src="{!URLFOR($Resource.QueryEditor, 'images/icons/16_lookup.png')}" class="dateliteralpicker" />
+                			<input type='hidden' class='operator' value='date'></input>
+                		</td>
+    					<td style='white-space: nowrap;'>
+                			<input type='text' class='enddate datepicker datejs novalidation' style='width:150px; margin-right: 3px;'></input>
+                			<img src="{!URLFOR($Resource.QueryEditor, 'images/icons/16_lookup.png')}" class="dateliteralpicker" />
+                		</td>
+                		<td style='white-space: nowrap;'>
+                            <div class='markertype-wrapper'>
+                                <div class='markertype-shape-preview'></div>
+                                <select class='markertype-image' style='display: none;' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+
+                                <div class='markertype-selector'>
+                                    <!--<img class='markertype-selector-color' src="{!URLFOR($Resource.QueryEditor, 'images/icons/color-16.png')}" />
+                                    <img class='markertype-selector-image' src="{!URLFOR($Resource.QueryEditor, 'images/icons/iconfolder-16.png')}" />-->
+                                	<img class='remove-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-cross-16.png')}" />
+                                </div>
+                            </div>
+    					</td>
+    				</tr>
+                    <!--STRING-->
+                    <tr class="shapemarkergrid-header" data-type='STRING'>
+                        <th colspan="4" style="text-align:center;">(<span style='font-size: 10px; font-weight: normal;'>Dynamically Assign</span><span class='link small color-dynamicallyassign' data-dimension='shape'>Shapes</span>)</th>
+                    </tr>
+                    <tr class='shapemarkergrid-header' data-type='STRING' >
+                		<th >
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</th>
+                		<th>{!$Label.MA_Criteria}</th>
+                		<th>{!$Label.MA_String}</th>
+
+                    </tr>
+    				<tr class='shapemarkergrid-row' data-type='STRING'>
+    					<td>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</td>
+                		<td>
+                			<select class='operator'>
+                				<option value='contains'>{!$Label.MA_Contains}</option>
+                				<option value='equals'>{!$Label.MA_Equals}</option>
+                				<option value='starts'>{!$Label.MA_Starts_With}</option>
+                			</select>
+    					</td>
+    					<td>
+                			<input type='text' class='comparevalue'></input>
+                		</td>
+                		<td style='white-space: nowrap;'>
+                            <div class='markertype-wrapper'>
+                                <div class='markertype-shape-preview'></div>
+                                <select class='markertype-image' style='display: none;' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+
+                                <div class='markertype-selector'>
+                                    <!--<img class='markertype-selector-color' src="{!URLFOR($Resource.QueryEditor, 'images/icons/color-16.png')}" />-->
+                                    <!--<img class='markertype-selector-image' src="{!URLFOR($Resource.QueryEditor, 'images/icons/iconfolder-16.png')}" />-->
+                                	<img class='remove-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-cross-16.png')}" />
+                                </div>
+                            </div>
+    					</td>
+    				</tr>
+                    <!-- REFERENCE -->
+                    <tr class="shapemarkergrid-header" data-type='REFERENCE'>
+                        <th colspan="3" style="text-align:center;">(<span style='font-size: 10px; font-weight: normal;'>Dynamically Assign</span><span class='link small color-dynamicallyassign' data-dimension='shape'>Shapes</span>)</th>
+                    </tr>
+    				<tr class='shapemarkergrid-header' data-type='REFERENCE'>
+    					<th>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</th>
+    					<th>{!$Label.MA_Value}</th>
+    				</tr>
+    				<tr class='shapemarkergrid-row' data-type='REFERENCE'>
+    	        		<td>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</td>
+                        <td style='white-space: nowrap;'>
+                            <input type='text' id='searchText' class='comparedisplay searchText'/>
+                            <input type='hidden' id='valueText' class='comparevalue valueText'/>
+                            <input type='hidden' class='operator' value='equals'/>
+                        </td>
+                        <td style='white-space: nowrap;'>
+                            <div class='markertype-wrapper'>
+                                <div class='markertype-shape-preview'></div>
+                                <select class='markertype-image' style='display: none;' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+
+                                <div class='markertype-selector'>
+                                    <!--<img class='markertype-selector-color' src="{!URLFOR($Resource.QueryEditor, 'images/icons/color-16.png')}" />
+                                    <img class='markertype-selector-image' src="{!URLFOR($Resource.QueryEditor, 'images/icons/iconfolder-16.png')}" />-->
+                                    <img class='remove-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-cross-16.png')}" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+    				<!-- NUMBER -->
+    				<tr class="shapemarkergrid-header" data-type='NUMBER'>
+                        <th colspan="4" style="text-align:center;">(<span style='font-size: 10px; font-weight: normal;'>Dynamically Assign</span><span class='link small color-dynamicallyassign' data-dimension='shape'>Shapes</span>)</th>
+                    </tr>
+    				<tr class='shapemarkergrid-header' data-type='NUMBER'>
+                		<th>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</th>
+                		<th>{!$Label.MA_From}:</th>
+                		<th>{!$Label.MA_To}:</th>
+                	</tr>
+                	<tr class='shapemarkergrid-row' data-type='NUMBER'>
+                		<td>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</td>
+                		<td>
+    	            		<input type='text' class='comparevalue numberval' style='width:150px;'></input>
+    	            		<input type='hidden' class='operator' value='currency'></input>
+                		</td>
+                		<td>
+                			<input type='text' class='toVal numberval' style='width:150px;'></input>
+                		</td>
+    					<td style='white-space: nowrap;'>
+    						<div class='markertype-wrapper'>
+                                <div class='markertype-shape-preview'></div>
+                                <select class='markertype-image' style='display: none;' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+
+    							<div class='markertype-selector'>
+                                    <!--<img class='markertype-selector-color' src="{!URLFOR($Resource.QueryEditor, 'images/icons/color-16.png')}" />
+                                    <img class='markertype-selector-image' src="{!URLFOR($Resource.QueryEditor, 'images/icons/iconfolder-16.png')}" />-->
+                                	<img class='remove-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-cross-16.png')}" />
+    							</div>
+    						</div>
+    					</td>
+    				</tr>
+
+    				<!-- PHONE -->
+    				<tr class="shapemarkergrid-header" data-type='PHONE'>
+                        <th colspan="4" style="text-align:center;">(<span style='font-size: 10px; font-weight: normal;'>Dynamically Assign</span><span class='link small color-dynamicallyassign' data-dimension='shape'>Shapes</span>)</th>
+                    </tr>
+    				<tr class='shapemarkergrid-header' data-type='PHONE'>
+                		<th>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</th>
+                		<th>{!$Label.MA_Criteria}</th>
+                		<th>{!$Label.MA_Phone_Fax_Number}</th>
+    			    </tr>
+    				<tr class='shapemarkergrid-row' data-type='PHONE'>
+    					<td>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</td>
+                		<td>
+                			<select class='operator'>
+                				<option value='equals'>{!$Label.MA_Equals}</option>
+                				<option value='starts'>{!$Label.MA_Starts_With}</option>
+                			</select>
+    					</td>
+    					<td>
+                			<input type='text' class='comparevalue'></input>
+                		</td>
+                		<td style='white-space: nowrap;'>
+                            <div class='markertype-wrapper'>
+                                <div class='markertype-shape-preview'></div>
+                                <select class='markertype-image' style='display: none;' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+
+                                <div class='markertype-selector'>
+                                    <!--<img class='markertype-selector-color' src="{!URLFOR($Resource.QueryEditor, 'images/icons/color-16.png')}" />
+                                    <img class='markertype-selector-image' src="{!URLFOR($Resource.QueryEditor, 'images/icons/iconfolder-16.png')}" />-->
+                                	<img class='remove-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-cross-16.png')}" />
+                            	</div>
+                            </div>
+    					</td>
+    				</tr>
+                </table>
+    			<!--color picker templates -->
+    			<table>
+    			    <tr class="colormarkergrid-header" data-type='PICKLIST'>
+                        <th colspan="2" style="text-align:center;">(<span style='font-size: 10px; font-weight: normal;'>Dynamically Assign</span> <span class='link small color-dynamicallyassign' data-dimension='color'>Colors</span>)</th>
+                    </tr>
+    				<tr class='colormarkergrid-header' data-type='PICKLIST'>
+                        <th>{!$Label.MA_Value}</th>
+                    </tr>
+                    <tr class='colormarkergrid-row' data-type='PICKLIST'>
+                        <td class='comparevalue'></td>
+                        <td class='value'>
+                            <input type='hidden' class='operator' value='equals'/>
+                            <div class='markertype-wrapper'>
+                                <div class='markertype-colorpicker-preview'></div>
+                                <select class='markertype-image' style='display: none;' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+
+                                <!--<div class='markertype-selector'>
+                                    <img class='markertype-selector-color' src="{!URLFOR($Resource.QueryEditor, 'images/icons/color-16.png')}" />
+                                    <img class='markertype-selector-image' src="{!URLFOR($Resource.QueryEditor, 'images/icons/iconfolder-16.png')}" />
+                                </div>-->
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="colormarkergrid-header" data-type='MULTIPICKLIST'>
+                        <th colspan="4" style="text-align:center;">(<span style='font-size: 10px; font-weight: normal;'>Dynamically Assign</span> <span class='link small color-dynamicallyassign' data-dimension='color'>Colors</span>)</th>
+                    </tr>
+    				<tr class='colormarkergrid-header' data-type='MULTIPICKLIST'>
+                        <th>
+                            <div class='add-row-icon'>
+                                <img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+                            </div>
+                        </th>
+                        <th>{!$Label.MA_Criteria}</th>
+                        <th>{!$Label.MA_Options}</th>
+                    </tr>
+                    <tr class='colormarkergrid-row' data-type='MULTIPICKLIST'>
+                    	<td>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</td>
+                		<td>
+                			<select class='operator'>
+                				<option value='includes'>{!$Label.MA_Includes}</option>
+                				<option value='excludes'>{!$Label.MA_Excludes}</option>
+                			</select>
+    					</td>
+                        <td class='comparevalue'></td>
+                        <td class='value'>
+                            <input type='hidden' class='operator' value='equals'/>
+                            <div class='markertype-wrapper'>
+                                <div class='markertype-colorpicker-preview'></div>
+                                <select class='markertype-image' style='display: none;' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+
+                                <div class='markertype-selector'>
+                                    <!--<img class='markertype-selector-color' src="{!URLFOR($Resource.QueryEditor, 'images/icons/color-16.png')}" />
+                                    <img class='markertype-selector-image' src="{!URLFOR($Resource.QueryEditor, 'images/icons/iconfolder-16.png')}" />-->
+                                    <img class='remove-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-cross-16.png')}" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                     <!--Date-->
+                     <tr class="colormarkergrid-header" data-type='DATE'>
+                        <th colspan="4" style="text-align:center;">(<span style='font-size: 10px; font-weight: normal;'>Dynamically Assign</span> <span class='link small color-dynamicallyassign' data-dimension='color'>Colors</span>)</th>
+                    </tr>
+                    <tr class='colormarkergrid-header' data-type='DATE'>
+                		<th>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</th>
+                		<th>{!$Label.MA_Start_Date}</th>
+                		<th>{!$Label.MA_End_Date}</th>
+                	</tr>
+                	<tr class='colormarkergrid-row' data-type='DATE'>
+    					<td>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</td>
+                		<td style='white-space: nowrap;'>
+                			<input type='text' class='comparevalue datepicker datejs novalidation' style='width:150px; margin-right: 3px;'></input>
+                			<img src="{!URLFOR($Resource.QueryEditor, 'images/icons/16_lookup.png')}" class="dateliteralpicker" />
+                			<input type='hidden' class='operator' value='date'></input>
+                		</td>
+    					<td style='white-space: nowrap;'>
+                			<input type='text' class='enddate datepicker datejs novalidation' style='width:150px; margin-right: 3px;'></input>
+                			<img src="{!URLFOR($Resource.QueryEditor, 'images/icons/16_lookup.png')}" class="dateliteralpicker" />
+                		</td>
+                		<td style='white-space: nowrap;'>
+                            <div class='markertype-wrapper'>
+                                <div class='markertype-colorpicker-preview'></div>
+                                <select class='markertype-image' style='display: none;' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+
+                                <div class='markertype-selector'>
+                                    <!--<img class='markertype-selector-color' src="{!URLFOR($Resource.QueryEditor, 'images/icons/color-16.png')}" />
+                                    <img class='markertype-selector-image' src="{!URLFOR($Resource.QueryEditor, 'images/icons/iconfolder-16.png')}" />-->
+                                	<img class='remove-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-cross-16.png')}" />
+                                </div>
+                            </div>
+    					</td>
+    				</tr>
+    				<!--STRING-->
+    				<tr class="colormarkergrid-header" data-type='STRING'>
+                        <th colspan="4" style="text-align:center;">(<span style='font-size: 10px; font-weight: normal;'>Dynamically Assign</span> <span class='link small color-dynamicallyassign' data-dimension='color'>Colors</span>)</th>
+                    </tr>
+    				<tr class='colormarkergrid-header' data-type='STRING'>
+                		<th>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</th>
+                		<th>{!$Label.MA_Criteria}</th>
+                		<th>{!$Label.MA_String}</th>
+                    </tr>
+    				<tr class='colormarkergrid-row' data-type='STRING'>
+    					<td>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</td>
+                		<td>
+                			<select class='operator'>
+                				<option value='contains'>{!$Label.MA_Contains}</option>
+                				<option value='equals'>{!$Label.MA_Equals}</option>
+                				<option value='starts'>{!$Label.MA_Starts_With}</option>
+                			</select>
+    					</td>
+    					<td>
+                			<input type='text' class='comparevalue'></input>
+                		</td>
+                		<td style='white-space: nowrap;'>
+                            <div class='markertype-wrapper'>
+                                <div class='markertype-colorpicker-preview'></div>
+                                <select class='markertype-image' style='display: none;' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+
+                                <div class='markertype-selector'>
+                                    <!--<img class='markertype-selector-color' src="{!URLFOR($Resource.QueryEditor, 'images/icons/color-16.png')}" />-->
+                                    <!--<img class='markertype-selector-image' src="{!URLFOR($Resource.QueryEditor, 'images/icons/iconfolder-16.png')}" />-->
+                                	<img class='remove-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-cross-16.png')}" />
+                                </div>
+                            </div>
+    					</td>
+    				</tr>
+    				<!-- REFERENCE -->
+    				<tr class="colormarkergrid-header" data-type='REFERENCE'>
+                        <th colspan="3" style="text-align:center;">(<span style='font-size: 10px; font-weight: normal;'>Dynamically Assign</span> <span class='link small color-dynamicallyassign' data-dimension='color'>Colors</span>)</th>
+                    </tr>
+    				<tr class='colormarkergrid-header' data-type='REFERENCE'>
+    					<th>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</th>
+    					<th>{!$Label.MA_Value}</th>
+    				</tr>
+    				<tr class='colormarkergrid-row' data-type='REFERENCE'>
+    	        		<td>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</td>
+                        <td style='white-space: nowrap;'>
+                            <input type='text' id='searchText' class='comparedisplay searchText'/>
+                            <input type='hidden' id='valueText' class='comparevalue valueText'/>
+                            <input type='hidden' class='operator' value='equals'/>
+                        </td>
+                        <td style='white-space: nowrap;'>
+                            <div class='markertype-wrapper'>
+                                <div class='markertype-colorpicker-preview'></div>
+                                <select class='markertype-image' style='display: none;' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+
+                                <div class='markertype-selector'>
+                                    <!--<img class='markertype-selector-color' src="{!URLFOR($Resource.QueryEditor, 'images/icons/color-16.png')}" />
+                                    <img class='markertype-selector-image' src="{!URLFOR($Resource.QueryEditor, 'images/icons/iconfolder-16.png')}" />-->
+                                    <img class='remove-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-cross-16.png')}" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+    				<!-- NUMBER -->
+    				<tr class="colormarkergrid-header" data-type='NUMBER'>
+                        <th colspan="4" style="text-align:center;">(<span style='font-size: 10px; font-weight: normal;'>Dynamically Assign</span> <span class='link small color-dynamicallyassign' data-dimension='color'>Colors</span>)</th>
+                    </tr>
+    				<tr class='colormarkergrid-header' data-type='NUMBER'>
+                		<th>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</th>
+                		<th>{!$Label.MA_From}:</th>
+                		<th>{!$Label.MA_To}:</th>
+    				</tr>
+                	<tr class='colormarkergrid-row' data-type='NUMBER'>
+                		<td>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</td>
+                		<td>
+    	            		<input type='text' class='comparevalue numberval' style='width:150px;'></input>
+    	            		<input type='hidden' class='operator' value='currency'></input>
+                		</td>
+                		<td>
+                			<input type='text' class='toVal numberval' style='width:150px;'></input>
+                		</td>
+    					<td style='white-space: nowrap;'>
+    						<div class='markertype-wrapper'>
+                                <div class='markertype-colorpicker-preview'></div>
+                                <select class='markertype-image' style='display: none;' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+
+    							<div class='markertype-selector'>
+                                    <!--<img class='markertype-selector-color' src="{!URLFOR($Resource.QueryEditor, 'images/icons/color-16.png')}" />
+                                    <img class='markertype-selector-image' src="{!URLFOR($Resource.QueryEditor, 'images/icons/iconfolder-16.png')}" />-->
+                                	<img class='remove-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-cross-16.png')}" />
+    							</div>
+    						</div>
+    					</td>
+    				</tr>
+
+    				<!-- PHONE -->
+    				<tr class="colormarkergrid-header" data-type='PHONE'>
+                        <th colspan="4" style="text-align:center;">(<span style='font-size: 10px; font-weight: normal;'>Dynamically Assign</span> <span class='link small color-dynamicallyassign' data-dimension='color'>Colors</span>)</th>
+                    </tr>
+    				<tr class='colormarkergrid-header' data-type='PHONE'>
+                		<th>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</th>
+                		<th>{!$Label.MA_Criteria}</th>
+                		<th>{!$Label.MA_Phone_Fax_Number}</th>
+                		<th>(<span style='font-size: 10px; font-weight: normal;'>Dynamically Assign</span> <span class='link small color-dynamicallyassign' data-dimension='color'>Colors</span>)</th>
+    				</tr>
+
+    				<tr class='colormarkergrid-row' data-type='PHONE'>
+    					<td>
+    						<div class='add-row-icon'>
+    	                    	<img class='add-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-plus-16.png')}" />
+    	                    </div>
+    					</td>
+                		<td>
+                			<select class='operator'>
+                				<option value='equals'>{!$Label.MA_Equals}</option>
+                				<option value='starts'>{!$Label.MA_Starts_With}</option>
+                			</select>
+    					</td>
+    					<td>
+                			<input type='text' class='comparevalue'></input>
+                		</td>
+                		<td style='white-space: nowrap;'>
+                            <div class='markertype-wrapper'>
+                                <div class='markertype-colorpicker-preview'></div>
+                                <select class='markertype-image' style='display: none;' disabled='disabled'><option value=''>{!$Label.MA_Loading}...</option></select>
+
+                                <div class='markertype-selector'>
+                                    <!--<img class='markertype-selector-color' src="{!URLFOR($Resource.QueryEditor, 'images/icons/color-16.png')}" />
+                                    <img class='markertype-selector-image' src="{!URLFOR($Resource.QueryEditor, 'images/icons/iconfolder-16.png')}" />-->
+                                	<img class='remove-row' src="{!URLFOR($Resource.QueryEditor, 'images/icons/badge-circle-cross-16.png')}" />
+                            	</div>
+                            </div>
+    					</td>
+    				</tr>
+                </table>
+    			<div class='shapepicker'>
+
+                    <div class='markerpicker-shapes'>
+
+                        <!-- shape options will be inserted here dynamically -->
+                    </div>
+
+                </div>
+    			<div class='colorpicker'>
+
+                    <h4>Step 1: Select a color</h4>
+                    <input type='text' class='color markerpicker-color' value='#00FF00' />
+
+                </div>
+    			<!--End March Release-->
+                <div class='markerpicker'>
+
+                    <h4>Step 1: Select a color</h4>
+                    <input type='text' class='color markerpicker-color' value='#00FF00' />
+
+                    <h4>Step 2: Select a shape</h4>
+                    <div class='markerpicker-shapes'>
+                        <!-- shape options will be inserted here dynamically -->
+                    </div>
+
+                </div>
+
+    	    </div>
+    	</apex:form>
+	</apex:outputPanel>
+
+</apex:page>

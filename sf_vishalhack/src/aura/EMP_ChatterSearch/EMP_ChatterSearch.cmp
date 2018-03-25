@@ -1,0 +1,146 @@
+<!-- ******************************************************
+12/23/2016 created vijay.manimaran@cdk.com chattersearch for communities
+
+*********************************************************** -->
+
+<aura:component implements="force:appHostable,forceCommunity:availableForAllPageTypes" 
+                access="global"
+                controller="EMP_ChatterSearch_Controller" >
+    <aura:attribute name="myURL" type="String" default="/intranet/s/group/"/>
+    
+    <aura:attribute name="request" type="String"/>
+    <aura:attribute name="feedvalues" type="String" />
+    <aura:attribute name="commentvalues" type="String" />
+    
+    <aura:attribute name="searchterm" type="String" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div class="forceCommunitySearch">
+        <div class="scopesRibbon forceSearchScopesRibbon" data-aura-class="forceSearchScopesRibbon">
+            <div class="selectorScroller uiScroller scroller-wrapper scroll-horizontal">
+                <div class="scroller">
+                    <ul class="selectorContainer" style="width: 546px;">
+                        <li class="slds-is-active selected ribbonItem">
+                            <a class="ribbonItemLabel" >
+                                Chatter
+                                <span class="assistiveText">Selected</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--- -->
+        <div class="forceSearchSearchResultsGridHeader forceSearchSearchResults">
+            <aura:iteration items="{!v.feedvalues}" var="fValue">
+                <article class="cuf-feedElement cuf-feedItem">
+                    <div class="cuf-feedItemHeader cuf-media l-first" >
+                        <div class="slds-post__header slds-media slds-media--center">
+                            <div class="slds-media__figure" >
+                                <span class="cuf-entityLinkId forceChatterEntityLink entityLinkHover" >
+                                    <a class="cuf-entityLink undefined" href="{!'/intranet/s/feed/'+fValue.feedItemObj.Id}" >
+                                        <div class="light circular standardSize cuf-actorImage slds-avatar slds-avatar--circle slds-avatar--large 
+                                                    forceChatterUserPhoto forceChatterEntityPhoto">
+                                            <img class="image" src="{!fValue.groupPhoto}"/>
+                                        </div>
+                                    </a>
+                                </span>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="cuf-preamble slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+                                    <p>
+                                        <span class="cuf-entityLinkId forceChatterEntityLink">
+                                            <a class="cuf-entityLink cuf-entityLink" href="{!'/intranet/s/group/'+fValue.feedItemObj.ParentId}">
+                                                <span dir="ltr" class="uiOutputText">               
+                                                    <ui:outputtext value="{!fValue.groupName}"/>
+                                                </span>
+                                            </a>
+                                        </span>
+                                    </p>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="forceChatterCompactFeed" style="padding-bottom: 10px;">
+                        <div class="metadata" >
+                            <div class="postedBy">
+                                    <ui:outputtext value="{!fValue.feedItemObj.CreatedBy.Name}"/>&nbsp;
+                            </div>
+                            <div class="timestamp" style="font-size: 0.75em;">    
+                                Created: <ui:outputDateTime value="{!fValue.feedItemObj.CreatedDate}"/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cuf-body">
+                        <a href="{!'/intranet/s/feed/'+fValue.feedItemObj.Id}">
+                            <div class="cuf-feedBodyText forceChatterMessageSegments forceChatterFeedBodyText">
+                                <div class="feedBodyInner Desktop ">
+                                    <p>
+                                        <span dir="ltr" class="uiOutputText">         
+                                            <ui:outputrichtext value="{!fValue.feedItemObj.Body}"/>
+                                        </span>
+                                    </p>
+                                    
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                </article>
+                
+                <aura:iteration items="{!fValue.FeedComments}" var="fComments">
+                    <div class="cuf-feedback forceChatterFeedback--default forceChatterFeedback" 
+                         data-aura-class="forceChatterFeedback--default forceChatterFeedback" style="clear:both; margin-top:24px; background: rgb(247, 249, 251);">
+                        <ul>
+                            <li class="cuf-commentLi  published" >
+                                <article class="cuf-commentItem slds-comment slds-media forceChatterComment">
+                                    <div class="slds-media__figure cuf-commentAvatarWrapper entityLinkCommentImageHover" >
+                                        <span class="cuf-entityLinkId forceChatterEntityLink entityLinkHover">
+                                            <div class="light circular mediumSize cuf-smallActorImage forceChatterUserPhoto forceChatterEntityPhoto">
+                                                <img class="image" src="{!fComments.UserPhoto}"/>
+                                            </div>
+                                        </span>
+                                    </div>
+                                    <div class="slds-media__body" >
+                                        <header class="comment__header slds-media slds-media--center">
+                                            <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+                                                <p class="slds-truncate cuf-commentNameLink">
+                                                    <div class="cuf-preamble">
+                                                        <span class="cuf-entityLinkId forceChatterEntityLink entityLinkHover" >
+                                                            <a class="cuf-entityLink undefined" title="Vijay Manimaran" href="{!'/intranet/s/feed/'+fValue.feedItemObj.Id}">
+                                                                <span dir="ltr" class="uiOutputText">{!fComments.FeedCommentItem.CreatedBy.FirstName}&nbsp;{!fComments.FeedCommentItem.CreatedBy.LastName}</span>
+                                                            </a>
+                                                        </span>
+                                                    </div>
+                                                </p>
+                                            </div>
+                                        </header>
+                                        
+                                        <div class="slds-comment__content">
+                                            <!--<a href="{!'/intranet/s/feed/'+fValue.feedItemObj.Id}">-->
+                                                <div class="cuf-feedBodyText forceChatterMessageSegments forceChatterFeedBodyText" style="overflow-wrap: break-word; font-size:0.75em;">
+                                                    <div class="feedBodyInner Desktop">
+                                                        <p>
+                                                            <ui:outputrichtext value="{!fComments.FeedCommentItem.CommentBody}" ></ui:outputrichtext>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            <!--</a>-->
+                                        </div>
+                                        
+                                    </div>
+                                </article>
+                            </li>
+                        </ul>
+                    </div>
+                </aura:iteration>
+                <hr class="chatterHr"/>
+            </aura:iteration>
+        </div>
+        <!-- -->
+    </div>
+    
+</aura:component>

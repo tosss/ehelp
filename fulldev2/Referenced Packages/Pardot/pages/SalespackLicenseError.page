@@ -1,3 +1,0 @@
-<apex:page sidebar="false">
-  <h1>Your account does not have a Pardot Salespack License.  Please contact your administrator.</h1>
-</apex:page>

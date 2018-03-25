@@ -1,0 +1,32 @@
+.THIS .slds-media__figure{
+    width:14%;
+}
+.THIS .slds-link-container{
+    width:100%;
+}
+.THIS .slds-grid{
+    padding: 1rem;
+}
+.THIS .slds-text-body_small{
+    color:black;
+}
+@media (max-width:  64em ) {
+    .THIS .slds-media__figure{
+        width:6.8%;
+    }
+}
+@media (max-width:  1024px ) {
+    .THIS .slds-media__figure{
+        width:6.8%;
+    }
+}
+@media (max-width:  48em ) {
+    .THIS .slds-media__figure{
+        width:14%;
+    }
+}
+@media (max-width:  768px ) {
+    .THIS .slds-media__figure{
+        width:14%;
+    }
+}

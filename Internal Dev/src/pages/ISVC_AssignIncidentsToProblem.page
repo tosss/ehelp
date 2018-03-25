@@ -1,0 +1,75 @@
+<apex:page id="ISVC_AssignIncidentsToProblem" standardController="Case" extensions="ISVC_AssignIncidentsToProblem_Extension" recordSetVar="cases" tabStyle="Case">
+    <script type='text/javascript'>
+        function noenter(evt) {
+            if((window.event && window.event.keyCode == 13) || evt.which == 13) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+    </script>
+    <apex:form >
+        <apex:pageBlock title="">
+            <apex:pageMessages id="page_messages"/>
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton id="btn_back" value="{!$Label.ISVC_BackToListView}" action="{!cancel}"/>
+                <apex:commandButton id="btn_new_problem" value="{!$Label.ISVC_CreateNewISProblem}" action="{!createNewProblem}" rendered="{!AND(isAtLeastOneIncidentSelected,NOT(isCreateNewProblemRequested))}"
+                                    reRender="pb_new_problem,btn_new_problem"/>
+            </apex:pageBlockButtons>
+            <apex:outputPanel id="pbs_selected_cases" rendered="{!isAtLeastOneCaseSelected}">
+                <apex:pageBlockSection title="{!$Label.ISVC_SelectedCases}" columns="1">
+                    <apex:pageBlockTable value="{!selected}" var="incident">
+                        <apex:column value="{!incident.AccountId}"/>
+                        <apex:column value="{!incident.Subject}"/>
+                        <apex:column value="{!incident.RecordTypeId}"/>
+                        <apex:column value="{!incident.ParentId}"/>
+                    </apex:pageBlockTable>
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+            <apex:outputPanel id="pbs_open_problems" rendered="{!isAtLeastOneIncidentSelected}">
+                <apex:pageBlockSection title="{!$Label.ISVC_LinkSelectedIncidentsToExistingISProblem}" columns="1">
+                    <apex:pageBlockSectionItem >
+                        <apex:inputText value="{!searchText}" onKeyPress="return noenter(event);"/>
+                        <apex:commandButton id="btn_new_problem" value="{!$Label.ISVC_Search}" action="{!searchOpenProblems}" reRender="pbt_open_problems,pbt_navigation"/>
+                    </apex:pageBlockSectionItem>
+                    <apex:outputPanel id="pbt_open_problems">
+                        <apex:pageBlockTable value="{!openProblems}" var="problem">
+                            <apex:column >
+                                <apex:facet name="header"/>
+                                <apex:commandLink value="{!$Label.ISVC_Link}" action="{!linkToProblem}" styleClass="btn">
+                                    <apex:param name="problemId" assignTo="{!selectedProblemId}" value="{!problem.Id}" />
+                                </apex:commandLink>
+                            </apex:column>
+                            <apex:column value="{!problem.CaseNumber}"/>
+                            <apex:column value="{!problem.Subject}"/>
+                        </apex:pageBlockTable>
+                    </apex:outputPanel>
+                    <apex:outputPanel id="pbt_navigation" styleClass="prevNextLinks">
+                        <apex:outputPanel styleClass="prevNext">
+                            <apex:commandLink value="{!$Label.ISVC_Previous}" action="{!previousPage}" rendered="{!hasPreviousPage}"
+                                              reRender="pbt_open_problems,pbt_navigation"/>
+                        </apex:outputPanel>
+                        <apex:outputPanel styleClass="prevNext">
+                            <apex:commandLink value="{!$Label.ISVC_Next}" action="{!nextPage}" rendered="{!hasNextPage}"
+                                              reRender="pbt_open_problems,pbt_navigation"/>
+                        </apex:outputPanel>
+                        <apex:outputText >{!$Label.ISVC_Page} {!currentPageNumber}/{!totalPageNumber}</apex:outputText>
+                    </apex:outputPanel>
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+        </apex:pageBlock>
+        <apex:outputPanel id="pb_new_problem" rendered="{!isAtLeastOneIncidentSelected}">
+            <apex:pageBlock title="{!$Label.ISVC_NewISProblem}" mode="edit" rendered="{!isCreateNewProblemRequested}">
+                <apex:pageMessages id="new_problem_messages"/>
+                <apex:pageBlockButtons >
+                    <apex:commandButton value="{!$Label.ISVC_SaveAndLink}" action="{!saveNewProblemAndLink}" reRender="new_problem_messages"/>
+                </apex:pageBlockButtons>
+                <apex:pageBlockSection title="">
+                    <apex:repeat value="{!$ObjectType.Case.FieldSets.IS_Problem_Field_Set}" var="field">
+                        <apex:inputField value="{!newProblem[field]}" required="{!field.required}"/>
+                    </apex:repeat>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

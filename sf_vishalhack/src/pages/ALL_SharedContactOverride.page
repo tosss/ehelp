@@ -1,0 +1,2 @@
+<apex:page standardController="Contact" extensions="ALL_SharedContactOverride_Controller" action="{!RedirectPage}">    
+</apex:page>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
-    <apiVersion>33.0</apiVersion>
-    <availableInTouch>true</availableInTouch>
-    <confirmationTokenRequired>false</confirmationTokenRequired>
-    <description>SubProject inline URLs page that contains links of the SubProject Related External Entities, SubProject Related External References,
-Opportunity Solution Design Missions and NIS Missions.</description>
-    <label>IMP_ProjectLinks</label>
-</ApexPage>
